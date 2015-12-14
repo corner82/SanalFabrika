@@ -1,5 +1,5 @@
 <?php
-namespace Admin;
+namespace SFDM;
 
  use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
  use Zend\ModuleManager\Feature\ConfigProviderInterface;
@@ -24,9 +24,9 @@ namespace Admin;
 
         
         // session expire control event
-        //$eventManager->attach('route', array($this, 'sessionExpireControl'));
+        $eventManager->attach('route', array($this, 'sessionExpireControl'));
         // auth control event
-        //$eventManager->attach('route', array($this, 'authControl'));
+        $eventManager->attach('route', array($this, 'authControl'));
         
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
                                                     'dispatch', 
@@ -42,7 +42,7 @@ namespace Admin;
         
         
         
-        $moduleRouteListener->attach($eventManager);  
+        $moduleRouteListener->attach($eventManager);   
         
     }
     
