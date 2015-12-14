@@ -11,6 +11,7 @@ return array(
         'Application',
         'Admin',
         'Login',
+        'SFDM',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
