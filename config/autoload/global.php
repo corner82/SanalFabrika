@@ -12,5 +12,48 @@
  */
 
 return array(
-    // ...
+    'module_layouts' => array(
+       'Application' => 'layout/layout.phtml',
+       'Admin' => 'layout/admin.phtml',
+       'Login' => 'layout/login.phtml',         
+   ),
+    'session' => array(
+        'config' => array(
+            'class' => 'Zend\Session\Config\SessionConfig',     
+            'options' => array(
+                'name' => 'ostim',    
+            ),
+        ),
+        'savehandler' => array(
+            'database'=> array(
+                    'table'=> 'session__silinecek',
+                    'savehandler' => 'sessionDbSaveHandler',
+                ),
+        ),
+        'storage' => 'Zend\Session\Storage\SessionArrayStorage',
+        'validators' => array(
+            'Zend\\Session\\Validator\\RemoteAddr',   
+            'Zend\\Session\\Validator\\HttpUserAgent',       
+        ),
+        'remember_me_seconds' => 2419200,
+        'use_cookies' => true,
+        'cookie_httponly' => true,
+    ),
+    'dbAdapterPostgre' => array(
+        'driver'    => 'Pdo',    
+        'dsn'       => "pgsql:host=localhost;dbname=ostim",
+        'username'  => 'postgres',
+        'password'  => '1Qaaal123',          
+    ),
+    'authentication' => array(
+        'database' => array (
+            'table' => 'users__silinecek',
+            'identityColumn' => 'username',
+            'credentialColumn' => 'password',    
+        )        
+    ),
+    'ControlorsTobeAuthenticated' => array(
+        'Admin',
+
+    )
 );
