@@ -12,7 +12,7 @@ class factoryServiceSessionExpireControlerLocator  implements FactoryInterface{
         $sessionManager = $app ->getServiceManager()
                                ->get('SessionManagerDefault');
         
-        // session oluşmadıysa login sayfasına yönlendirme
+        // İf session is not ready go to login module index action
         $sessionID = $sessionManager->getId();
         if(!$sessionManager->getSaveHandler()->read($sessionID)) {
             $event = $app->getMvcEvent();
@@ -28,22 +28,7 @@ class factoryServiceSessionExpireControlerLocator  implements FactoryInterface{
                 exit ();
             }
         }
-        
-        print_r('!!session_id-->'.$sessionID.'!!');
-        //$container = new \Zend\Session\Container('admin',$sessionManager);    
-        //print_r($container->adminAccess);
-        //print_r($_SESSION); 
-        //$container->adminAccess = 2;
-        
-        /*if (!$container->offsetExists('adminAccess')) {
-            print_r("---session container initialized zeynelllll---");
-            //$serviceManager = $app->getServiceManager();
-            //$sessionManager->regenerateId(true);
-            $container->adminAccess = 2;
-        }         
-        return $container;*/
-        
-        return true;
+              return true;
     }
 
 }

@@ -8,8 +8,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class factoryServiceAuthenticatedRedirect  implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
-        //$config = $serviceLocator->get('config');
-        
+
         $event = $serviceLocator->get('Application')
                                 ->getMvcEvent();
         $route = $event ->getRouteMatch()

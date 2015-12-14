@@ -38,23 +38,18 @@ class factoryServiceSessionManagerDefaultLocator  implements FactoryInterface{
             
             $sessionManager = new \Zend\Session\SessionManager($sessionConfig, $sessionStorage, $sessionSaveHandler);
             $sessionManager->start();
-            //print_r('--session manager get id first-->'.$sessionManager->getId().'--');
             $metaData = $sessionManager->getStorage()->getMetadata();
-            print_r($sessionManager->getStorage()->getMetadata('_VALID'));
-            //print_r($_SESSION);
+
             if(empty($sessionManager->getStorage()->getMetadata('_VALID'))) {
-                print_r('--_VALID empty --');
                 if (isset($config['session']['validators'])) {
                     $chain   = $sessionManager->getValidatorChain();
 
                     foreach ($config['session']['validators'] as $validator) {
                         switch ($validator) {  
                             case 'Zend\Session\Validator\HttpUserAgent':
-                                //print_r('--Zend\Session\Validator\HttpUserAgent case girdi--');
                                 $validator = new $validator($request->getServer()->get('HTTP_USER_AGENT'));
                                 break;
                             case 'Zend\Session\Validator\RemoteAddr':
-                                //print_r('--Zend\Session\Validator\RemoteAddr case girdi--');
                                 $validator  = new $validator($request->getServer()->get('REMOTE_ADDR'));
                                 break;
                             default:  
@@ -65,7 +60,6 @@ class factoryServiceSessionManagerDefaultLocator  implements FactoryInterface{
                 }
                 
             } else {
-                 print_r('--_VALID not empty --');
             }
         } else {
             $sessionManager = new \Zend\Session\SessionManager();
