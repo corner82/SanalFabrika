@@ -56,4 +56,7 @@ return array(
     'Zend\\Barcode\\' => array($vendorDir . '/zendframework/zend-barcode/src'),
     'Zend\\Authentication\\' => array($vendorDir . '/zendframework/zend-authentication/src'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
+    'Custom\\Services\\Session\\' => array($vendorDir . '/services/src/session'),
+    'Custom\\Services\\Database\\' => array($vendorDir . '/services/src/db'),
+    'Custom\\Services\\Authentication\\' => array($vendorDir . '/services/src/authentication'),
 );
