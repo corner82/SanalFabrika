@@ -69,4 +69,23 @@ return array(
    // Initial configuration with which to seed the ServiceManager.
    // Should be compatible with Zend\ServiceManager\Config.
    // 'service_manager' => array(),
+    'service_manager' => array(
+        'invokables' => array(
+            // Keys are the service names
+            // Values are valid class names to instantiate.
+            'serviceSession' => 'Custom\Services\Session\serviceSession',
+        ),
+        'factories' => [
+            'sessionExpireControler' => 'Custom\Services\Session\factoryServiceSessionExpireControlerLocator',
+            'sessionManagerDefault' => 'Custom\Services\Session\factoryServiceSessionManagerDefaultLocator',
+            'dbAdapterPostgre' => 'Custom\Services\Database\factoryServiceDbAdapterPostgre',
+            'sessionDbSaveHandler' => 'Custom\Services\Session\factoryServiceSessionDbSaveLocator',
+            'authenticationDbAdapterPostgre' => 'Custom\Services\Authentication\factoryServiceAuthenticationDbAdapterPostgre',
+            'authenticationManagerDefault' => 'Custom\Services\Authentication\factoryServiceAuthenticationLocator',
+            'authenticationControlerLocator' => 'Custom\Services\Authentication\factoryServiceAuthenticationControlerLocator',
+            'serviceAuthenticate' => 'Custom\Services\Authentication\factoryServiceAuthenticate',
+            'serviceAuthenticatedRedirect' => 'Custom\Services\Authentication\factoryServiceAuthenticatedRedirect',
+        ],  
+        
+    ),
 );
