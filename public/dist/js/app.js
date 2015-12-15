@@ -154,6 +154,9 @@ $(function () {
 
   //Enable sidebar tree view controls
   $.AdminLTE.tree('.sidebar');
+  
+  //Enable sidebar tree view controls
+  $.AdminLTE.dynamicTree('.sidebar');
 
   //Enable control sidebar
   if (o.enableControlSidebar) {
@@ -421,6 +424,201 @@ function _init() {
       }
     });
   };
+  
+  /* DynamicTree()
+     * ======
+     * Converts the sidebar into a multilevel
+     * dynamic tree view menu from database.
+     *
+     * @type Function
+     * @Usage: $.AdminLTE.dynamicTree('.sidebar')
+     * Auhtor: Bahram Lotfi
+     * AdminLTE.dynamicTree function controls left menubar items...
+     * Menubar items are called using services...
+     * Unnecessary items are prevented from calling...
+     * Date: 4.12.2015
+     * Modification Date: Added to this app.js on 15.12.2015
+     */
+
+    $.AdminLTE.dynamicTree = function (clickedObject) {
+
+        if (typeof clickedObject.id === "undefined") {
+            /*
+             * catches page object event with undefined id
+             */ 
+//            alert("sorry it is undefined. " + clickedObject.id);
+
+        } else {
+            var _this = this;
+            var $this = $(this);
+
+            var clickedObject_query_id = clickedObject.id.replace("menu_", "");
+            var treeview_id = clickedObject.id + "_treeview-menu";
+            var treeview_id_ref = "#" + treeview_id;
+
+            var parent = $(treeview_id_ref).parents('ul').first();
+            var parent_li = $(treeview_id_ref).parent("li");
+            var ul = parent.find('ul:visible').slideUp('normal');
+            var parent_li = $this.parent("li");
+
+            if (!$(treeview_id_ref).hasClass('menu-open')) {
+                //checks if the menu is open or not...
+                if (!$(treeview_id_ref).hasClass('treeview-menu')) {
+                    //checks if service has been called before or not...
+                    $.ajax({
+                        url: '../../../slimProxyEkoOstim/SlimProxyBoot.php?url=getLeftMenu_navigationBar',
+                        data: {
+                            id: clickedObject_query_id
+                            /*
+                             * clicked object id is being added to the query
+                             * to get the related object submenu
+                             */
+                            
+                        },
+                        method: "GET",
+                        async: false,
+                        dataType: "json",
+                        success: function (data2) {
+
+                            if (data2.length === 0) {
+                                /*
+                                 * checks if there are any submenu...
+                                 * eliminates null responds
+                                 * @type @exp;data2@pro;length
+                                 */
+
+                            } else {
+
+                                var len = data2.length;
+                                var j = 0;
+                                
+                                /*
+                                 * make an iteration pon response coming from 
+                                 * query to get submenu information to create 
+                                 * html code for appending                                 * 
+                                 */
+
+                                $(clickedObject).append($("<ul class='treeview-menu' id=" + treeview_id + "></ul>"));
+                                for (j; j < len; j++) {
+
+                                    if (data2[j].collapse === 0) {
+                                        
+                                        /*
+                                         * Checks if the new coming submenu
+                                         * has any submenus or not;
+                                         * if new submenu does have its own submenus
+                                         * (collapse == 1 )its html code should be like;
+                                         * <li class='treeview' id='menu_" ....
+                                         * otherwise collapse == 0 the code would be like:
+                                         * <li id='menu_ ...
+                                         * @type String|String
+                                         */
+
+                                        var appending_submenu_html = "<li id='menu_" +
+                                                data2[j].id + "'><a href='" +
+                                                data2[j].url + "'><i class='fa " +
+                                                data2[j].icon_class + "'></i>" +
+                                                data2[j].menu_name + "</a></li>";
+                                        var submenu_newappend = $(appending_submenu_html);
+                                        /*
+                                         * appending_submenu_html is the created 
+                                         * HTML code to be appended
+                                         */
+                                        $(treeview_id_ref).append(submenu_newappend);
+                                        /*
+                                         * created code is appended to the related
+                                         * item with reference id of treeview_id_ref
+                                         */
+                                        
+                                        $(submenu_newappend).on("click", function (clickedObject2) {
+                                            $.AdminLTE.dynamicTree(this);
+                                        });
+                                        /*
+                                         * Attach click event to the created submenu
+                                         * @type String|String
+                                         */
+
+                                    } else {
+
+                                        var appending_submenu_html = "<li class='treeview' id='menu_" +
+                                                data2[j].id + "'><a href='" +
+                                                data2[j].url + "'><i class='fa " +
+                                                data2[j].icon_class + "'></i><span>" +
+                                                data2[j].menu_name +
+                                                "</span><i class='fa fa-angle-left pull-right'></i></a></li>";
+
+                                        var submenu_newappend = $(appending_submenu_html);
+                                        $(treeview_id_ref).append(submenu_newappend);
+                                        $(submenu_newappend).on("click", function (clickedObject2) {
+                                            $.AdminLTE.dynamicTree(this);
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+                
+                /*
+                 * in this part it checks for opening and closing operations
+                 * 
+                 * @type @call;$@call;parents@call;first|@call;$@call;parents@call;first
+                 */
+
+                var parent = $(treeview_id_ref).parents('ul').first();
+                // finds selected item's first ul parent
+                var ul = parent.find('ul:visible').slideUp('normal');
+                // finds selected item's existing ul tag
+
+                ul.removeClass('menu-open');
+                var parent_li = $(treeview_id_ref).parent("li");
+                // finds selected item's first li parent
+                // first removes all menu-open classes to close all other items
+
+                $(treeview_id_ref).slideDown('normal', function () {
+                    // opens selected item
+                    $(treeview_id_ref).addClass('menu-open');
+                    // changes its class to open
+                    parent.find('li.active').removeClass('active');
+                    // remove all other active item
+                    parent_li.addClass('active');
+                    // keep direct parent active form
+                    _this.layout.fix();
+                    // fix new menu layout
+                });
+
+                event.stopPropagation();
+                // stop propagation of event to prevent teh reselection of
+                // direct parent(s)
+
+            } else {
+
+//                parent_li.removeClass('active');
+                // remove all active tags
+
+                $(treeview_id_ref).slideUp('normal', function () {
+                    // close open items
+                    $(treeview_id_ref).parent("li").removeClass("active");
+                    // remove direct open li parents active tag
+                    $(treeview_id_ref).removeClass('menu-open');
+                    // removes menu-open class from item selected before
+                    $(treeview_id_ref).removeClass('active');                    
+                    // deactivates item selected before
+                    _this.layout.fix();
+                    // fix new menu layout
+
+                });
+
+                event.stopPropagation();
+
+            }
+        }
+        if ($(treeview_id_ref).is('.treeview-menu')) {
+            event.preventDefault();
+            // stop propagation of event to prevent teh reselection of
+            // direct parent(s)
+        }
+    };
 
   /* ControlSidebar
    * ==============
