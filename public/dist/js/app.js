@@ -450,8 +450,9 @@ function _init() {
         } else {
             var _this = this;
             var $this = $(this);
-
+            
             var clickedObject_query_id = clickedObject.id.replace("menu_", "");
+            console.error(clickedObject_query_id);
             var treeview_id = clickedObject.id + "_treeview-menu";
             var treeview_id_ref = "#" + treeview_id;
 
@@ -465,9 +466,11 @@ function _init() {
                 if (!$(treeview_id_ref).hasClass('treeview-menu')) {
                     //checks if service has been called before or not...
                     $.ajax({
-                        url: '../../../slimProxyEkoOstim/SlimProxyBoot.php?url=getLeftMenu_navigationBar',
+                        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
                         data: {
-                            id: clickedObject_query_id
+                            parent: clickedObject_query_id,
+                            url: 'getLeftMenu_leftnavigation',
+                            pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
                             /*
                              * clicked object id is being added to the query
                              * to get the related object submenu
@@ -487,7 +490,7 @@ function _init() {
                                  */
 
                             } else {
-
+                                    
                                 var len = data2.length;
                                 var j = 0;
                                 
