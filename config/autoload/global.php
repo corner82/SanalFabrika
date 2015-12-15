@@ -15,7 +15,9 @@ return array(
     'module_layouts' => array(
        'Application' => 'layout/layout.phtml',
        'Admin' => 'layout/admin.phtml',
-       'Login' => 'layout/login.phtml',         
+       'Login' => 'layout/login.phtml',
+       'SFDM' => 'layout/sfdm.phtml',
+       'Sanalfabrika' => 'layout/sanalfabrika.phtml',
    ),
     'session' => array(
         'config' => array(
@@ -54,6 +56,7 @@ return array(
     ),
     'ControlorsTobeAuthenticated' => array(
         'Admin',
+        'SFDM',
 
     )
 );
