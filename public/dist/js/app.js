@@ -452,7 +452,7 @@ function _init() {
             var $this = $(this);
             
             var clickedObject_query_id = clickedObject.id.replace("menu_", "");
-            console.error(clickedObject_query_id);
+//            console.error(clickedObject_query_id);
             var treeview_id = clickedObject.id + "_treeview-menu";
             var treeview_id_ref = "#" + treeview_id;
 

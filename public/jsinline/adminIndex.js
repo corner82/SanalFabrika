@@ -24,8 +24,8 @@ $(document).ready(function () {
         dataType: 'json',
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
-            console.error("zeynel test jsonp");
-            console.warn(data);
+//            console.error("zeynel test jsonp");
+//            console.warn(data);
             var dataArr = [];
             var catArr = [];
             $("#toplam_header_1_container").headerSetter(data[0]);
@@ -41,7 +41,7 @@ $(document).ready(function () {
             //console.error(data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error(textStatus);
+//            console.error(textStatus);
         }
 
     });
@@ -56,7 +56,7 @@ $(document).ready(function () {
         dataType: 'json',
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
-            console.warn(data);
+//            console.warn(data);
             var dataArr = [];
             var catArr = [];
             $.each(data, function (index) {
@@ -346,7 +346,6 @@ $(document).ready(function () {
         async: false,
         dataType: "json",
         success: function (data) {
-            
             
             var len = data.length;            
             var i = 0;
