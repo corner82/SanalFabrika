@@ -15,7 +15,7 @@ class factoryServiceAuthenticatedRedirect  implements FactoryInterface{
                         ->getMatchedRouteName();
         $url = $event->getRouter()
                      ->assemble(array('action' => 'index'), 
-                                         array('name' => 'admin'));
+                                         array('name' => 'sfdm'));
         $response = $event->getResponse();  
         $response->setHeaders( $response->getHeaders ()
                                         ->addHeaderLine ('Location', $url));
