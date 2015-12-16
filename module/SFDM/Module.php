@@ -49,7 +49,7 @@ namespace SFDM;
              */
             if (isset($config['action_layouts'][$moduleNamespace][$controlerName])) {
                 $controller->layout($config['action_layouts'][$moduleNamespace][$controlerName]);
-                print_r($config['action_layouts'][$moduleNamespace][$controlerName]);
+                //print_r($config['action_layouts'][$moduleNamespace][$controlerName]);
             } else  if (isset($config['module_layouts'][$moduleNamespace])) {
                 $controller->layout($config['module_layouts'][$moduleNamespace]);
             }
