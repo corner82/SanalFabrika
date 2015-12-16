@@ -31,14 +31,34 @@ namespace SFDM;
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
                                                     'dispatch', 
                                                     function($e) {
+            /**
+             * added for layout control due to module action
+             * @author Mustafa Zeynel Dağlı
+             * @since 16/12/2015
+             */
+            $controlerName = $e->getRouteMatch()->getParam('action');
             $controller = $e->getTarget();
             $controllerClass = get_class($controller);
             $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
             $config          = $e->getApplication()->getServiceManager()->get('config');
-            if (isset($config['module_layouts'][$moduleNamespace])) {
+            
+            /**
+             *  added for layout control due to module action
+             *  @author Mustafa Zeynel Dağlı
+             *  @since 16/12/2015
+             */
+            if (isset($config['action_layouts'][$moduleNamespace][$controlerName])) {
+                $controller->layout($config['action_layouts'][$moduleNamespace][$controlerName]);
+                print_r($config['action_layouts'][$moduleNamespace][$controlerName]);
+            } else  if (isset($config['module_layouts'][$moduleNamespace])) {
                 $controller->layout($config['module_layouts'][$moduleNamespace]);
             }
+            
         }, 100);
+        
+        
+        
+        $moduleRouteListener->attach($eventManager); 
         
         
         

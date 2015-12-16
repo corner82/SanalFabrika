@@ -14,11 +14,16 @@
 return array(
     'module_layouts' => array(
        'Application' => 'layout/layout.phtml',
-       'Admin' => 'layout/admin.phtml',
+       'Admin' => 'layout/admin.phtml',      
        'Login' => 'layout/login.phtml',
        'SFDM' => 'layout/sfdm.phtml',
        'Sanalfabrika' => 'layout/sanalfabrika.phtml',
    ),
+    'action_layouts' => array(
+       'SFDM' => array('users' => 'layout/sfdm.phtml',
+                       'index' => 'test/layout'),
+   )
+    ,
     'session' => array(
         'config' => array(
             'class' => 'Zend\Session\Config\SessionConfig',     
