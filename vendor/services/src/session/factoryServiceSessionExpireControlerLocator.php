@@ -24,7 +24,7 @@ class factoryServiceSessionExpireControlerLocator  implements FactoryInterface{
             $route = $event->getRouteMatch()->getMatchedRouteName();
             $sessionManager->regenerateId(true);
             if($route !== 'login') {
-                $url = $event->getRouter()->assemble(array('action' => 'index'), array('name' => 'login'));
+                $url = $event->getRouter()->assemble(array('action' => 'index'), array('name' => 'sanalfabrika'));
                 $response = $event->getResponse();  
                 $response->setHeaders( $response->getHeaders ()->addHeaderLine ('Location', $url));
                 $response->setStatusCode(302);
