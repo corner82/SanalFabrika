@@ -10,7 +10,7 @@
  {
      public function indexAction()
      { 
-         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
+        $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $authManager->getStorage()->clear();
         return $this->redirect()->toRoute('login');
          
