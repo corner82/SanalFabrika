@@ -13,6 +13,9 @@ class factoryServiceAuthenticationControlerLocator  implements FactoryInterface{
         $controller = $routeMatch->getParam('controller');
         $action = $routeMatch->getParam('action');
        
+        // if no action found in the request object then no authentication
+        if($controller == null) return true;
+        
         foreach ($config['ControlorsTobeAuthenticated'] as $value) {
            if (0 === strpos($controller, $value, 0)) {
                 return true;
