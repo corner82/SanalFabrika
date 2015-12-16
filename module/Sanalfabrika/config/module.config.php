@@ -9,6 +9,16 @@
       // The following section is new and should be added to your file
      'router' => array(
          'routes' => array(
+             'home' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/',
+                    'defaults' => array(
+                        'controller' => 'Sanalfabrika\Controller\Sanalfabrika',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
              'sanalfabrika' => array(
                  'type'    => 'segment',
                  'options' => array(
