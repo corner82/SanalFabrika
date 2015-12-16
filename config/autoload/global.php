@@ -43,7 +43,7 @@ return array(
     ),
     'dbAdapterPostgre' => array(
         'driver'    => 'Pdo',    
-        'dsn'       => "pgsql:host=localhost;dbname=ostim",
+        'dsn'       => "pgsql:host=localhost;dbname=ostim_development",
         'username'  => 'postgres',
         'password'  => '1Qaaal123',          
     ),
