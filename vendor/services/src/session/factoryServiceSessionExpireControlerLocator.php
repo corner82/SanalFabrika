@@ -15,6 +15,11 @@ class factoryServiceSessionExpireControlerLocator  implements FactoryInterface{
         // İf session is not ready go to login module index action
         $sessionID = $sessionManager->getId();
         if(!$sessionManager->getSaveHandler()->read($sessionID)) {
+            
+            // if session expires set auth data empty
+            $authManager = $serviceLocator->get('authenticationManagerDefault');
+            $authManager->getStorage()->clear();
+            
             $event = $app->getMvcEvent();
             $route = $event->getRouteMatch()->getMatchedRouteName();
             $sessionManager->regenerateId(true);
