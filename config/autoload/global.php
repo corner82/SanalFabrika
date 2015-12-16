@@ -20,8 +20,8 @@ return array(
        'Sanalfabrika' => 'layout/sanalfabrika.phtml',
    ),
     'action_layouts' => array(
-       'SFDM' => array('users' => 'layout/sfdm.phtml',
-                       'index' => 'test/layout'),
+       'SFDM' => array('users' => 'layout/usersLayout.phtml',
+                        ),
    )
     ,
     'session' => array(

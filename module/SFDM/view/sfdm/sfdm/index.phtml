@@ -3,11 +3,11 @@
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="index.php" class="logo">
+        <a href="index.phtml" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>OSTİM</b></span>
+          <span class="logo-mini"><b> OSTİM </b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>OSTİM</b> EKO-OSTİM</span>
+          <span class="logo-lg"><b> OSTİM </b> Sanal Fabrika </span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -284,84 +284,12 @@
           </form>
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="header">Ana Menü</li>
-            <li class=" active treeview">
-              <a href="index.php">
-                <i class="fa fa-dashboard"></i> <span>Giriş Sayfası</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-simplybuilt"></i> <span>Firma İşlemleri</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="cmpnInsArch.php"><i class="fa fa-search-minus"></i>Anketten Firma Ara</a></li>
-                <li><a href="cmpnInsArch.php"><i class="fa fa-chevron-circle-right"></i> Firma Ekle</a></li>
-                <li  ><a href="cmpnInsNace.php"><i class="fa fa-code-fork"></i> Nace Kodu</a></li>
-                <li><a href="#"><i class="fa fa-users"></i> Firma Kullanıcı İşlemleri</a></li>
-                <li ><a href="#"><i class="fa fa-calendar-o"></i> Firma Ziyaret Takvimi</a></li>
-                <li ><a href="#"><i class="fa fa-book"></i> Firma Faaliyet Kayıtları</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-puzzle-piece"></i> <span>Üretim / Akış  İşlemleri</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li class="treeview"><a href="cmpnInsProcess.php"><i class="fa fa-stack-overflow"></i> Firma Akışları / Süreçleri</a></li>
-                <li class="treeview"><a href="cmpnInsProcessWorkflow.php"><i class="fa fa-share-alt"></i> Firma Akış / Süreç Tanımla</a></li>
-                <li class="treeview"><a href="cmpnInsProcessWorkflowDetail.php"><i class="fa fa-share-alt"></i> Firma Akış / Süreç Detay İşl.</a></li>
-                <li class="treeview"><a href="#"><i class="fa fa-wrench"></i> Firma Makina Parkı</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-folder-o"></i> <span>Tanımlama İşlemleri</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-cubes"></i> Atık Tanımla</a></li>
-                <li><a href="#"><i class="fa fa-cubes"></i> Emisyon Tanımla</a></li>
-                <li><a href="#"><i class="fa fa-cubes"></i> Ürün Tanımla</a></li>
-                <li><a href="#"><i class="fa fa-cubes"></i>Yan Ürün Tanımla</a></li>
-                <li><a href="#"><i class="fa fa-cubes"></i>Sanal Fabrikadan Tezgah Al</a></li>
-                <li><a href="#"><i class="fa fa-cubes"></i>Yeni Tezgah Tanımla</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-database"></i> <span>Sistem  Yönetimi</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-cubes"></i> Kullanıcı Tanımla</a></li>
-                <li><a href="#"><i class="fa fa-cubes"></i> Zamanlanmış Görev Tanımla</a></li>
-                <li><a href="#"><i class="fa fa-cubes"></i> Yedekle</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-battery-0"></i> <span>Enerji Verimliliği Modülü</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-recycle"></i> <span>Temiz Üretim Modülü</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-                <a href="calendar.php">
-                <i class="fa fa-calendar-o"></i> <span>İş Takvimim</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-            </li>
+          
+          <ul class="sidebar-menu" id="leftside-menu">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="active treeview"></li>                        
           </ul>
+          
         </section>
         <!-- /.sidebar -->
       </aside>
@@ -371,11 +299,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            EKO-OSTİM 
+            Sanal Fabrika Denetim Masası
             <small></small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Ana Sayfa</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Ana Sayfa </a></li>
             <!--<li class="active">Firma İşlemleri</li>-->
           </ol>
         </section>

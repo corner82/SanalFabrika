@@ -12,13 +12,25 @@
      {
          
      }
+     
+     public function firmalarAction()
+     {
+         
+     }
+     
+     public function usersAction()
+     {
+         
+     }
 
      public function addAction()
      {
+         
      }
 
      public function editAction()
      {
+         
      }
 
      public function deleteAction()
