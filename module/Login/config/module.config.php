@@ -29,15 +29,14 @@
                  'child_routes' => array(  
                     'logout' => array(
                     'type' => 'segment',
-                    'options' => array(
-                        'route' => '/logout',
-                        'defaults' => array(
-                            'controller' => 'Login\Controller\Login',
-                            'action' => 'logout',
+                        'options' => array(
+                            'route' => '/logout',
+                            'defaults' => array(
+                                'controller' => 'Login\Controller\Login',
+                                'action' => 'logout',
+                            ),
                         ),
-                    ),
-                ),
-             ),
+                    ),      
             ),
              /*'logout' => array(
                  'type'    => 'segment',
@@ -53,12 +52,14 @@
                      ),
                  ),
              ),*/
-         ),
-     ),
+         ),  
+        ),
+         
+    ),
      'view_manager' => array(
          /*'template_path_stack' => array(
              'admin' => __DIR__ . '/../view',  
-         ),*/  
+         ), */
          'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/login.phtml', 
             'login/index/index' => __DIR__ . '/../view/login/login/index.phtml',

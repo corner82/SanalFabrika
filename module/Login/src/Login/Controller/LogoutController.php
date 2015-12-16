@@ -12,7 +12,7 @@
      { 
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $authManager->getStorage()->clear();
-        return $this->redirect()->toRoute('login');
+        return $this->redirect()->toRoute('login');   
          
      }  
 
