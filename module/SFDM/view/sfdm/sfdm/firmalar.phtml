@@ -355,260 +355,85 @@
                                         </div><!-- /.box-body -->
                                     </div><!--/. primary box div-->
                                 </div><!--/. first panel single column div -->
-                            </div><!-- / first panel row-->                                    
-                            <!--Third panel row-->
+                            </div><!-- / first panel row-->
+
+
+
+                            <!--First panel row-->
                             <div class="row">
-                                <!--third panel single column-->
+                                <!--First panel single column-->
                                 <div class="col-md-12">
-                                    <!--arrange third panel color to green by assigning success class-->
+                                    <!--arrange First panel color to green by assigning success class-->
                                     <div class="box box-success collapsed-box" id="addNewPanel">
-                                        <!--third panel Header-->
+                                        <!--First panel Header-->
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"> Add New Element </h3>
-                                            <!--third panel collapse button-->
+                                            <h3 class="box-title"> Yeni Firma Kaydı </h3>
+                                            <!--First panel collapse button-->
                                             <div class="box-tools pull-right">
                                                 <button class="btn btn-box-tool" onclick='$.AdminLTE.boxWidgetCRUDPanelCloser.collapse($("#updatePanel"))'  data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>
                                             </div><!--/. panel collapse button div-->
-                                        </div><!--/. third panel header-->
+                                        </div><!--/. First panel header-->
                                         <div class="box-body">
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="ibox float-e-margins">
-                                                        <div class="ibox-title">
-                                                            <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
-                                                            <div class="ibox-tools">
-                                                                <a class="collapse-link">
-                                                                    <i class="fa fa-chevron-up"></i>
-                                                                </a>
-                                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                    <i class="fa fa-wrench"></i>
-                                                                </a>
-                                                                <ul class="dropdown-menu dropdown-user">
-                                                                    <li><a href="#">Config option 1</a>
-                                                                    </li>
-                                                                    <li><a href="#">Config option 2</a>
-                                                                    </li>
-                                                                </ul>
-                                                                <a class="close-link">
-                                                                    <i class="fa fa-times"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
                                                         <div class="ibox-content">
                                                             <form method="get" class="form-horizontal">
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Normal</label>
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Firma </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Logo </label>
+                                                                    <div class="col-sm-10"><input type="file" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Vergi Numarası </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Vergi Dairesi </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> SGK Sicil Nosu </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Kuruluş Tarihi </label>
 
                                                                     <div class="col-sm-10"><input type="text" class="form-control"></div>
                                                                 </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Help text</label>
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                                                                    </div>
+                                                                <div class="hr-line-dashed"></div>   
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Email </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="email" class="form-control"></div>
                                                                 </div>
                                                                 <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Password</label>
 
-                                                                    <div class="col-sm-10"><input type="password" class="form-control" name="password"></div>
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Web Adresi </label>
+
+                                                                    <div class="col-sm-10"><input type="url" class="form-control"></div>
                                                                 </div>
                                                                 <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Placeholder</label>
 
-                                                                    <div class="col-sm-10"><input type="text" placeholder="placeholder" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-lg-2 control-label">Disabled</label>
 
-                                                                    <div class="col-lg-10"><input type="text" disabled="" placeholder="Disabled input here..." class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-lg-2 control-label">Static control</label>
-
-                                                                    <div class="col-lg-10"><p class="form-control-static">email@example.com</p></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Checkboxes and radios <br/>
-                                                                        <small class="text-navy">Normal Bootstrap elements</small></label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div><label> <input type="checkbox" value=""> Option one is this and that&mdash;be sure to include why it's great </label></div>
-                                                                        <div><label> <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Option one is this and that&mdash;be sure to
-                                                                                include why it's great </label></div>
-                                                                        <div><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Option two can be something else and selecting it will
-                                                                                deselect option one </label></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Inline checkboxes</label>
-
-                                                                    <div class="col-sm-10"><label class="checkbox-inline"> <input type="checkbox" value="option1" id="inlineCheckbox1"> a </label> <label class="checkbox-inline">
-                                                                            <input type="checkbox" value="option2" id="inlineCheckbox2"> b </label> <label class="checkbox-inline">
-                                                                            <input type="checkbox" value="option3" id="inlineCheckbox3"> c </label></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Checkboxes &amp; radios <br/><small class="text-navy">Custom elements</small></label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="i-checks"><label> <input type="checkbox" value=""> <i></i> Option one </label></div>
-                                                                        <div class="i-checks"><label> <input type="checkbox" value="" checked=""> <i></i> Option two checked </label></div>
-                                                                        <div class="i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> Option three checked and disabled </label></div>
-                                                                        <div class="i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> Option four disabled </label></div>
-                                                                        <div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> Option one </label></div>
-                                                                        <div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> Option two checked </label></div>
-                                                                        <div class="i-checks"><label> <input type="radio" disabled="" checked="" value="option2"> <i></i> Option three checked and disabled </label></div>
-                                                                        <div class="i-checks"><label> <input type="radio" disabled="" name="a"> <i></i> Option four disabled </label></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Inline checkboxes</label>
-
-                                                                    <div class="col-sm-10"><label class="checkbox-inline i-checks"> <input type="checkbox" value="option1">a </label>
-                                                                        <label class="checkbox-inline i-checks"> <input type="checkbox" value="option2"> b </label>
-                                                                        <label class="checkbox-inline i-checks"> <input type="checkbox" value="option3"> c </label></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Select</label>
-
-                                                                    <div class="col-sm-10"><select class="form-control m-b" name="account">
-                                                                            <option>option 1</option>
-                                                                            <option>option 2</option>
-                                                                            <option>option 3</option>
-                                                                            <option>option 4</option>
-                                                                        </select>
-
-                                                                        <div class="col-lg-4 m-l-n"><select class="form-control" multiple="">
-                                                                                <option>option 1</option>
-                                                                                <option>option 2</option>
-                                                                                <option>option 3</option>
-                                                                                <option>option 4</option>
-                                                                            </select></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group has-success"><label class="col-sm-2 control-label">Input with success</label>
-
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group has-warning"><label class="col-sm-2 control-label">Input with warning</label>
-
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group has-error"><label class="col-sm-2 control-label">Input with error</label>
-
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Control sizing</label>
-
-                                                                    <div class="col-sm-10"><input type="text" placeholder=".input-lg" class="form-control input-lg m-b">
-                                                                        <input type="text" placeholder="Default input" class="form-control m-b"> <input type="text" placeholder=".input-sm" class="form-control input-sm">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Column sizing</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="row">
-                                                                            <div class="col-md-2"><input type="text" placeholder=".col-md-2" class="form-control"></div>
-                                                                            <div class="col-md-3"><input type="text" placeholder=".col-md-3" class="form-control"></div>
-                                                                            <div class="col-md-4"><input type="text" placeholder=".col-md-4" class="form-control"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Input groups</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group m-b"><span class="input-group-addon">@</span> <input type="text" placeholder="Username" class="form-control"></div>
-                                                                        <div class="input-group m-b"><input type="text" class="form-control"> <span class="input-group-addon">.00</span></div>
-                                                                        <div class="input-group m-b"><span class="input-group-addon">$</span> <input type="text" class="form-control"> <span class="input-group-addon">.00</span></div>
-                                                                        <div class="input-group m-b"><span class="input-group-addon"> <input type="checkbox"> </span> <input type="text" class="form-control"></div>
-                                                                        <div class="input-group"><span class="input-group-addon"> <input type="radio"> </span> <input type="text" class="form-control"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Button addons</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group m-b"><span class="input-group-btn">
-                                                                                <button type="button" class="btn btn-primary">Go!</button> </span> <input type="text" class="form-control">
-                                                                        </div>
-                                                                        <div class="input-group"><input type="text" class="form-control"> <span class="input-group-btn"> <button type="button" class="btn btn-primary">Go!
-                                                                                </button> </span></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">With dropdowns</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group m-b">
-                                                                            <div class="input-group-btn">
-                                                                                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">Action <span class="caret"></span></button>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li><a href="#">Action</a></li>
-                                                                                    <li><a href="#">Another action</a></li>
-                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                    <li class="divider"></li>
-                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"></div>
-                                                                        <div class="input-group"><input type="text" class="form-control">
-
-                                                                            <div class="input-group-btn">
-                                                                                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">Action <span class="caret"></span></button>
-                                                                                <ul class="dropdown-menu pull-right">
-                                                                                    <li><a href="#">Action</a></li>
-                                                                                    <li><a href="#">Another action</a></li>
-                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                    <li class="divider"></li>
-                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Segmented</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group m-b">
-                                                                            <div class="input-group-btn">
-                                                                                <button tabindex="-1" class="btn btn-white" type="button">Action</button>
-                                                                                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li><a href="#">Action</a></li>
-                                                                                    <li><a href="#">Another action</a></li>
-                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                    <li class="divider"></li>
-                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"></div>
-                                                                        <div class="input-group"><input type="text" class="form-control">
-
-                                                                            <div class="input-group-btn">
-                                                                                <button tabindex="-1" class="btn btn-white" type="button">Action</button>
-                                                                                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
-                                                                                <ul class="dropdown-menu pull-right">
-                                                                                    <li><a href="#">Action</a></li>
-                                                                                    <li><a href="#">Another action</a></li>
-                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                    <li class="divider"></li>
-                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group">
+                                                                <div class="box-footer">
                                                                     <div class="col-sm-4 col-sm-offset-2">
                                                                         <button class="btn btn-white" type="submit"> İptal </button>
                                                                         <button class="btn btn-primary" type="submit"> Kaydet </button>
                                                                     </div>
-                                                                </div>
+                                                                </div>                                                                
                                                             </form>
                                                         </div>
                                                     </div>
@@ -616,271 +441,239 @@
                                             </div>
                                         </div><!--/. box-->
                                     </div><!--/. success box div-->
-                                </div><!--/. third panel single column div -->
-                            </div><!-- / third panel row-->
-                            <!--Second collapsible panel row -->
+                                </div><!--/. First panel single column div -->
+                            </div><!-- / First panel row-->
+                            <!--First collapsible panel row -->
+
+
+
+                            <!--Second panel row-->
                             <div class="row">
-                                <!--second collapsible panel width, single column-->
+                                <!--Second panel single column-->
                                 <div class="col-md-12">
-                                    <!--arrange second panel color to red by assigning danger class-->
-                                    <div class="box box-danger collapsed-box" id="updatePanel">
-                                        <!--second panel Header-->                                                
+                                    <!--arrange Second panel color to green by assigning success class-->
+                                    <div class="box box-success collapsed-box" id="addNewPanel">
+                                        <!--Second panel Header-->
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"> Update </h3>
-                                            <!--second panel collapse button-->
-                                            <!--<div class="box-tools pull-right">-->
-                                            <!--<button class="btn btn-box-tool" onclick='$.AdminLTE.boxWidgetCRUDPanelCloser.collapse($("#addNewPanel"))' data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>-->
-                                            <!--</div><!--/. second panel collapse button div-->
-                                        </div><!--/. header div-->
-                                        <!--second panel box-->
+                                            <h3 class="box-title"> update </h3>
+                                            <!--Second panel collapse button-->
+                                            <div class="box-tools pull-right">
+                                                <button class="btn btn-box-tool" onclick='$.AdminLTE.boxWidgetCRUDPanelCloser.collapse($("#updatePanel"))'  data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>
+                                            </div><!--/. panel collapse button div-->
+                                        </div><!--/. Second panel header-->
+
                                         <div class="box-body">
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="ibox float-e-margins">
-                                                        <div class="ibox-title">
-                                                            <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
-                                                            <div class="ibox-tools">
-                                                                <a class="collapse-link">
-                                                                    <i class="fa fa-chevron-up"></i>
-                                                                </a>
-                                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                    <i class="fa fa-wrench"></i>
-                                                                </a>
-                                                                <ul class="dropdown-menu dropdown-user">
-                                                                    <li><a href="#">Config option 1</a>
-                                                                    </li>
-                                                                    <li><a href="#">Config option 2</a>
-                                                                    </li>
-                                                                </ul>
-                                                                <a class="close-link">
-                                                                    <i class="fa fa-times"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="ibox-content">
+                                                        <div class="ibox-content">  
                                                             <form method="get" class="form-horizontal">
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Normal</label>
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Firma </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Logo </label>
+                                                                    <div class="col-sm-10"><input type="file" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Vergi Numarası </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Vergi Dairesi </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> SGK Sicil Nosu </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Kuruluş Tarihi </label>
 
                                                                     <div class="col-sm-10"><input type="text" class="form-control"></div>
                                                                 </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Help text</label>
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"> <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-                                                                    </div>
+                                                                <div class="hr-line-dashed"></div>   
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Email </label>
+
+                                                                    <div class="col-sm-10"><input required="true" type="email" class="form-control"></div>
                                                                 </div>
                                                                 <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Password</label>
 
-                                                                    <div class="col-sm-10"><input type="password" class="form-control" name="password"></div>
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Web Adresi </label>
+
+                                                                    <div class="col-sm-10"><input type="url" class="form-control"></div>
                                                                 </div>
                                                                 <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Placeholder</label>
 
-                                                                    <div class="col-sm-10"><input type="text" placeholder="placeholder" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-lg-2 control-label">Disabled</label>
-
-                                                                    <div class="col-lg-10"><input type="text" disabled="" placeholder="Disabled input here..." class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-lg-2 control-label">Static control</label>
-
-                                                                    <div class="col-lg-10"><p class="form-control-static">email@example.com</p></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Checkboxes and radios <br/>
-                                                                        <small class="text-navy">Normal Bootstrap elements</small></label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div><label> <input type="checkbox" value=""> Option one is this and that&mdash;be sure to include why it's great </label></div>
-                                                                        <div><label> <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Option one is this and that&mdash;be sure to
-                                                                                include why it's great </label></div>
-                                                                        <div><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Option two can be something else and selecting it will
-                                                                                deselect option one </label></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Inline checkboxes</label>
-
-                                                                    <div class="col-sm-10"><label class="checkbox-inline"> <input type="checkbox" value="option1" id="inlineCheckbox1"> a </label> <label class="checkbox-inline">
-                                                                            <input type="checkbox" value="option2" id="inlineCheckbox2"> b </label> <label class="checkbox-inline">
-                                                                            <input type="checkbox" value="option3" id="inlineCheckbox3"> c </label></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Checkboxes &amp; radios <br/><small class="text-navy">Custom elements</small></label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="i-checks"><label> <input type="checkbox" value=""> <i></i> Option one </label></div>
-                                                                        <div class="i-checks"><label> <input type="checkbox" value="" checked=""> <i></i> Option two checked </label></div>
-                                                                        <div class="i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> Option three checked and disabled </label></div>
-                                                                        <div class="i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> Option four disabled </label></div>
-                                                                        <div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> Option one </label></div>
-                                                                        <div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> Option two checked </label></div>
-                                                                        <div class="i-checks"><label> <input type="radio" disabled="" checked="" value="option2"> <i></i> Option three checked and disabled </label></div>
-                                                                        <div class="i-checks"><label> <input type="radio" disabled="" name="a"> <i></i> Option four disabled </label></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Inline checkboxes</label>
-
-                                                                    <div class="col-sm-10"><label class="checkbox-inline i-checks"> <input type="checkbox" value="option1">a </label>
-                                                                        <label class="checkbox-inline i-checks"> <input type="checkbox" value="option2"> b </label>
-                                                                        <label class="checkbox-inline i-checks"> <input type="checkbox" value="option3"> c </label></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Select</label>
-
-                                                                    <div class="col-sm-10"><select class="form-control m-b" name="account">
-                                                                            <option>option 1</option>
-                                                                            <option>option 2</option>
-                                                                            <option>option 3</option>
-                                                                            <option>option 4</option>
-                                                                        </select>
-
-                                                                        <div class="col-lg-4 m-l-n"><select class="form-control" multiple="">
-                                                                                <option>option 1</option>
-                                                                                <option>option 2</option>
-                                                                                <option>option 3</option>
-                                                                                <option>option 4</option>
-                                                                            </select></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group has-success"><label class="col-sm-2 control-label">Input with success</label>
-
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group has-warning"><label class="col-sm-2 control-label">Input with warning</label>
-
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group has-error"><label class="col-sm-2 control-label">Input with error</label>
-
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Control sizing</label>
-
-                                                                    <div class="col-sm-10"><input type="text" placeholder=".input-lg" class="form-control input-lg m-b">
-                                                                        <input type="text" placeholder="Default input" class="form-control m-b"> <input type="text" placeholder=".input-sm" class="form-control input-sm">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Column sizing</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="row">
-                                                                            <div class="col-md-2"><input type="text" placeholder=".col-md-2" class="form-control"></div>
-                                                                            <div class="col-md-3"><input type="text" placeholder=".col-md-3" class="form-control"></div>
-                                                                            <div class="col-md-4"><input type="text" placeholder=".col-md-4" class="form-control"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Input groups</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group m-b"><span class="input-group-addon">@</span> <input type="text" placeholder="Username" class="form-control"></div>
-                                                                        <div class="input-group m-b"><input type="text" class="form-control"> <span class="input-group-addon">.00</span></div>
-                                                                        <div class="input-group m-b"><span class="input-group-addon">$</span> <input type="text" class="form-control"> <span class="input-group-addon">.00</span></div>
-                                                                        <div class="input-group m-b"><span class="input-group-addon"> <input type="checkbox"> </span> <input type="text" class="form-control"></div>
-                                                                        <div class="input-group"><span class="input-group-addon"> <input type="radio"> </span> <input type="text" class="form-control"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Button addons</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group m-b"><span class="input-group-btn">
-                                                                                <button type="button" class="btn btn-primary">Go!</button> </span> <input type="text" class="form-control">
-                                                                        </div>
-                                                                        <div class="input-group"><input type="text" class="form-control"> <span class="input-group-btn"> <button type="button" class="btn btn-primary">Go!
-                                                                                </button> </span></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">With dropdowns</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group m-b">
-                                                                            <div class="input-group-btn">
-                                                                                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">Action <span class="caret"></span></button>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li><a href="#">Action</a></li>
-                                                                                    <li><a href="#">Another action</a></li>
-                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                    <li class="divider"></li>
-                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"></div>
-                                                                        <div class="input-group"><input type="text" class="form-control">
-
-                                                                            <div class="input-group-btn">
-                                                                                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">Action <span class="caret"></span></button>
-                                                                                <ul class="dropdown-menu pull-right">
-                                                                                    <li><a href="#">Action</a></li>
-                                                                                    <li><a href="#">Another action</a></li>
-                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                    <li class="divider"></li>
-                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group"><label class="col-sm-2 control-label">Segmented</label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group m-b">
-                                                                            <div class="input-group-btn">
-                                                                                <button tabindex="-1" class="btn btn-white" type="button">Action</button>
-                                                                                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li><a href="#">Action</a></li>
-                                                                                    <li><a href="#">Another action</a></li>
-                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                    <li class="divider"></li>
-                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                            <input type="text" class="form-control"></div>
-                                                                        <div class="input-group"><input type="text" class="form-control">
-
-                                                                            <div class="input-group-btn">
-                                                                                <button tabindex="-1" class="btn btn-white" type="button">Action</button>
-                                                                                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
-                                                                                <ul class="dropdown-menu pull-right">
-                                                                                    <li><a href="#">Action</a></li>
-                                                                                    <li><a href="#">Another action</a></li>
-                                                                                    <li><a href="#">Something else here</a></li>
-                                                                                    <li class="divider"></li>
-                                                                                    <li><a href="#">Separated link</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-                                                                <div class="form-group">
-                                                                    <div class="col-sm-4 col-sm-offset-2">
-                                                                        <button class="btn btn-white" type="submit"> Formu Temizle </button>
-                                                                        <button class="btn btn-primary" type="submit"> Bilgileri Güncelle </button>
-                                                                    </div>
-                                                                </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- /.box-body -->
-                                    </div><!--/. danger box div-->
-                                </div><!--/. second panel single column div -->
-                            </div><!-- / second panel row-->
+
+                                            <div class="box-footer">
+                                                <div class="col-sm-10 col-sm-offset-2">
+                                                    <h4>
+                                                        Adres Bilgileri
+                                                    </h4>
+                                                </div>
+                                            </div>   
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="ibox float-e-margins">
+                                                        <div class="ibox-content">
+                                                            <form method="get" class="form-horizontal">
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Bina Tipi </label>
+
+                                                                    <div class="col-sm-10">
+                                                                        <select class="form-control m-b" name="binaTipi">
+                                                                            <option>İdari Merkez</option>
+                                                                            <option>Fabrika</option>
+                                                                            <option>Showroom</option>
+                                                                            <option>Depo</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Bina Adı </label>
+                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group">
+                                                                    <label>Multiple</label>
+                                                                    <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                                        <option>Alabama</option>
+                                                                        <option>Alaska</option>
+                                                                        <option>California</option>
+                                                                        <option>Delaware</option>
+                                                                        <option>Tennessee</option>
+                                                                        <option>Texas</option>
+                                                                        <option>Washington</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
+
+                                                                    <div class="col-sm-10">
+                                                                        <select class="form-control select2" data-placeholder="İl Seçiniz" style="width: 100%;">                                                                    
+                                                                            <option>İl 1</option>
+                                                                            <option>İl 2</option>
+                                                                            <option>İl 3</option>
+                                                                            <option>İl 4</option>
+                                                                            <option>İl 5</option>
+                                                                            <option>İl 6</option>
+                                                                            <option>İl 7</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
+
+                                                                    <div class="col-sm-10">
+                                                                        <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                            <option>İlçe 1</option>
+                                                                            <option>İlçe 2</option>
+                                                                            <option>İlçe 3</option>
+                                                                            <option>İlçe 4</option>
+                                                                            <option>İlçe 5</option>
+                                                                            <option>İlçe 6</option>
+                                                                            <option>İlçe 7</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Semt </label>
+
+                                                                    <div class="col-sm-10">
+                                                                        <select id='vicinity' class="form-control m-b" name="districts">
+                                                                            <option>1</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Cadde </label>
+                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Sokak </label>
+                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Kapı No. </label>
+                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Posta Kutusu No. </label>
+                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                </div>
+                                                                <div class="hr-line-dashed"></div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Tel.</label>
+                                                                    <div class="col-sm-10">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-addon">
+                                                                                <i class="fa fa-phone"></i>
+                                                                            </div>
+                                                                            <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-2 control-label">Faks.</label>
+                                                                    <div class="col-sm-10">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-addon">
+                                                                                <i class="fa fa-fax"></i>
+                                                                            </div>
+                                                                            <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="box-footer">
+                                                                    <div class="col-sm-10 col-sm-offset-2">
+                                                                        <button id='addressUpdateButton' class="btn btn-white" type="submit"> Güncelle </button>
+                                                                        <button id='addNewAddressButton' class="btn btn-primary" type="submit"> Yeni Adres Ekle </button>
+                                                                    </div>
+                                                                </div>                                                              
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--/. success box div-->
+                                    </div><!--/. box div -->
+                                </div><!--/. Second panel single column div -->
+                            </div><!-- / Second panel row-->
+                            <!--Second collapsible panel row -->
+
+
+
+
+
+
+
                         </div><!--/. main body-->
                     </div><!--/.box --> 
                 </div><!--/. main panel single colum-->

@@ -21,6 +21,7 @@ return array(
    ),
     'action_layouts' => array(
        'SFDM' => array('users' => 'layout/usersLayout.phtml',
+                       'firmalar' => 'layout/firmalarLayout.phtml',
                         ),
    )
     ,
