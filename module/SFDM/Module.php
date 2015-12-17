@@ -28,19 +28,12 @@ namespace SFDM;
         // auth control event
         $eventManager->attach('route', array($this, 'authControl'));
         
+        // translator service attaching to dispatch 
+        $eventManager->attach('dispatch', array($this, 'translaterControl'));
+        
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
                                                     'dispatch', 
                                                     function($e) {
-            
-            $lang = $e->getRouteMatch()->getParam('lang');
-            $translator = $e->getApplication()->getServiceManager()->get('translator');
-            if($lang == 'eng'){
-                $translator->setLocale('en_EN');
-            } else if($lang == 'ru') {
-                $translator->setLocale('ru_RU');
-            }
-            print_r($lang);
-            
             /**
              * added for layout control due to module action
              * @author Mustafa Zeynel Dağlı
@@ -65,17 +58,24 @@ namespace SFDM;
             }
             
         }, 100);
-        
-        
-        
-        $moduleRouteListener->attach($eventManager); 
-        
-        
-        
-        $moduleRouteListener->attach($eventManager);   
+
+        $moduleRouteListener->attach($eventManager);  
         
     }
     
+    /**
+     * Translater service has been launched on 'dispatch' event 
+     * in this function scope
+     * @param MvcEvent $e
+     * @author Mustafa Zeynel Dağlı
+     * @since 17/12/2015
+     */
+    public function translaterControl(MvcEvent $e) {
+        $e->getApplication()
+          ->getServiceManager()
+          ->get('serviceTranslator');
+    }
+
     public function sessionExpireControl(MvcEvent $e) { 
         $serviceManager = $e->getApplication()->getServiceManager();
         $sessionManager = $serviceManager ->get('SessionManagerDefault');

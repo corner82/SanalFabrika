@@ -88,6 +88,7 @@ return array(
             'authenticationControlerLocator' => 'Custom\Services\Authentication\factoryServiceAuthenticationControlerLocator',
             'serviceAuthenticate' => 'Custom\Services\Authentication\factoryServiceAuthenticate',
             'serviceAuthenticatedRedirect' => 'Custom\Services\Authentication\factoryServiceAuthenticatedRedirect',
+            'serviceTranslator' => 'Custom\Services\MultiLanguage\factoryServiceTranslator',             
         ],  
         
     ),
