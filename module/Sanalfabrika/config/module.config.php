@@ -22,10 +22,11 @@
              'sanalfabrika' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/ostim/sanalfabrika[/:action][/:id]',   
+                     'route'    => '/ostim/sanalfabrika[/:lang][/:action][/:id]',   
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
+                         'lang' => '[a-zA-Z]+',
                      ),
                      'defaults' => array(
                          'controller' => 'Sanalfabrika\Controller\Sanalfabrika',
@@ -35,6 +36,17 @@
              ),
          ),
      ),
+     'translator' => array(
+        //'locale' => 'en_US',
+        'locale' => 'tr_TR',
+        'translation_file_patterns' => array(
+            array(
+                'type'     => 'gettext',
+                'base_dir' => __DIR__ . '/../../language',
+                'pattern'  => '%s.mo',
+            ),
+        ),
+    ),
      'view_manager' => array(
          /*'template_path_stack' => array(
              'admin' => __DIR__ . '/../view',  

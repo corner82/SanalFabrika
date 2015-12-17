@@ -31,6 +31,16 @@ namespace SFDM;
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
                                                     'dispatch', 
                                                     function($e) {
+            
+            $lang = $e->getRouteMatch()->getParam('lang');
+            $translator = $e->getApplication()->getServiceManager()->get('translator');
+            if($lang == 'eng'){
+                $translator->setLocale('en_EN');
+            } else if($lang == 'ru') {
+                $translator->setLocale('ru_RU');
+            }
+            print_r($lang);
+            
             /**
              * added for layout control due to module action
              * @author Mustafa Zeynel Dağlı
