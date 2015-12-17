@@ -14,7 +14,7 @@ return array(
         'SFDM',
         'SanalFabrika'
     ),
-
+    
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => array(
         // This should be an array of paths in which modules reside.
@@ -78,6 +78,7 @@ return array(
             'serviceSession' => 'Custom\Services\Session\serviceSession',
         ),
         'factories' => [
+            'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
             'sessionExpireControler' => 'Custom\Services\Session\factoryServiceSessionExpireControlerLocator',
             'sessionManagerDefault' => 'Custom\Services\Session\factoryServiceSessionManagerDefaultLocator',
             'dbAdapterPostgre' => 'Custom\Services\Database\factoryServiceDbAdapterPostgre',
