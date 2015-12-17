@@ -60,15 +60,16 @@ return array(
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
         'factories' => array(
-            'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
+            //'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
         ),
     ),
     'translator' => array(
-        'locale' => 'en_US',
+        //'locale' => 'en_US',
+        'locale' => 'tr_TR',
         'translation_file_patterns' => array(
             array(
                 'type'     => 'gettext',
-                'base_dir' => __DIR__ . '/../language',
+                'base_dir' => __DIR__ . '/../../language',
                 'pattern'  => '%s.mo',
             ),
         ),
