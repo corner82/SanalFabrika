@@ -172,3 +172,40 @@ i.icon-color-u {
 .log-reg-block a:hover {
     color: #9b6bcc;
 }
+
+
+/* language bar section
+-------------------*/
+
+ .topbar ul.languages li a {     
+    color: #9b6bcc;  
+}
+
+ .topbar ul.loginbar  a {     
+    color: #9b6bcc;  
+}
+
+ .topbar ul.languages li a:hover {     
+    color: #9b6bcc;  
+}
+
+/*.topbar.topbarCollapse ul.languages li a {     
+    color: #9b6bcc;
+    font-weight: bold;
+}*/
+
+.topbar.topbarCollapse ul.loginbar li i.fa{
+    color: #777;
+}
+
+.topbar.topbarCollapse ul.languages li a {     
+    color : #9b6bcc;
+}
+
+.topbar ul.loginbar li i.fa {
+    color: #9b6bcc;
+}
+
+.topbar ul.languages li i.fa{
+    color : #eee;  
+}

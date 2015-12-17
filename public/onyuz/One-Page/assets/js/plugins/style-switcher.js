@@ -23,13 +23,26 @@ var StyleSwitcher = function () {
             });
 
             var setColor = function (color, data_header) {
-                jQuery('#style_color').attr("href", "assets/css/theme-colors/" + color + ".css");
+                /*jQuery('#style_color').attr("href", "assets/css/theme-colors/" + color + ".css");
                 if(data_header == 'light'){
                     jQuery('#logo-header').attr("src", "assets/img/logo1-" + color + ".png");
                     jQuery('#logo-footer').attr("src", "assets/img/logo2-" + color + ".png");
                 } else if(data_header == 'dark'){
                     jQuery('#logo-header').attr("src", "assets/img/logo1-" + color + ".png");
                     jQuery('#logo-footer').attr("src", "assets/img/logo2-" + color + ".png");
+                }*/
+                /**
+                 * Theme style file urls has been updated due to zend file structure
+                 * @author Zeynel Dağlı
+                 * @since 17/12/2015
+                 */
+                jQuery('#style_color').attr("href", "onyuz/One-Page/assets/css/theme-colors/" + color + ".css");
+                if(data_header == 'light'){
+                    jQuery('#logo-header').attr("src", "onyuz/One-Page/assets/img/logo1-" + color + ".png");
+                    jQuery('#logo-footer').attr("src", "onyuz/One-Page/assets/img/logo2-" + color + ".png");
+                } else if(data_header == 'dark'){
+                    jQuery('#logo-header').attr("src", "onyuz/One-Page/assets/img/logo1-" + color + ".png");
+                    jQuery('#logo-footer').attr("src", "onyuz/One-Page/assets/img/logo2-" + color + ".png");
                 }
             }
 
