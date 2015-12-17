@@ -91,6 +91,14 @@ var App = function() {
       $(".navbar-collapse.in").collapse('hide');
     });
   }
+  
+    //Hover Selector
+    function handleHoverSelector() {
+        $('.hoverSelector').on('hover', function(e) {        
+            $('.hoverSelectorBlock', this).toggleClass('show');
+            e.stopPropagation();            
+        });
+    } 
 
   return {
     init: function() {
@@ -99,6 +107,7 @@ var App = function() {
       //handleLangs();
       handleFullscreen();
       handleValignMiddle();
+      handleHoverSelector();
     },
 
     initCounter: function() {
