@@ -70,8 +70,10 @@ var App = function() {
     $(window).scroll(function() {
       if ($(".navbar").offset().top > 150) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
+        $(".topbar").addClass("topbarCollapse");
       } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        $(".topbar").removeClass("topbarCollapse");
       }
     });
 
