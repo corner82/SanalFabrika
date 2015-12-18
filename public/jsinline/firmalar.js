@@ -5,22 +5,38 @@
  */
 $(document).ready(function () {
 
-//    $.ajax({
-//        type: "POST",
-//        contentType: "application/json; charset=utf-8",
-//        url: "",
-//        data: "{}",
-//        dataType: "json",
-//        success: function (Result) {
-//            $.each(Result.d, function (key, value) {
-//                $("#country").append($("<option></option>").val(value.CountryId).html(value.CountryName));
-//            });
-//        },
-//        error: function (Result) {
-//            alert("Error");
-//        }
-//    });
-
+    $.ajax({
+        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        data: {
+            pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
+            url: 'fillComboBox_syscountrys',
+            /*
+             * clicked object id is being added to the query
+             * to get the related object submenu
+             */
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            var i;
+            
+            for (i = 0; i < data.length; i++) {
+                if (data[i].name === null) {
+                    
+                }else{
+                    var appending_option_html = "<option>" +
+                            data[i].name + "</option>";//
+                    var newappendingOption = $(appending_option_html);
+                    $(newappendingOption).appendTo($("#country1"));
+                    $(newappendingOption).appendTo($("#country2"));
+//                    $(newappendingOption).on("click", function (event) {
+//                        
+//                        alert(event);
+//                    });
+                }
+            }
+        }
+    });
 
     $.ajax({
         url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
@@ -110,32 +126,6 @@ $(document).ready(function () {
             $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         }
         );
-
-        //iCheck for checkbox and radio inputs
-        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-            checkboxClass: 'icheckbox_minimal-blue',
-            radioClass: 'iradio_minimal-blue'
-        });
-        //Red color scheme for iCheck
-        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-            checkboxClass: 'icheckbox_minimal-red',
-            radioClass: 'iradio_minimal-red'
-        });
-        //Flat red color scheme for iCheck
-        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-            checkboxClass: 'icheckbox_flat-green',
-            radioClass: 'iradio_flat-green'
-        });
-
-        //Colorpicker
-        $(".my-colorpicker1").colorpicker();
-        //color picker with addon
-        $(".my-colorpicker2").colorpicker();
-
-        //Timepicker
-        $(".timepicker").timepicker({
-            showInputs: false
-        });
     });
 });
 

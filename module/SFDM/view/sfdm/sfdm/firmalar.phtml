@@ -357,8 +357,6 @@
                                 </div><!--/. first panel single column div -->
                             </div><!-- / first panel row-->
 
-
-
                             <!--First panel row-->
                             <div class="row">
                                 <!--First panel single column-->
@@ -376,67 +374,248 @@
                                         <div class="box-body">
                                             <div class="row">
                                                 <div class="col-lg-12">
-                                                    <div class="ibox float-e-margins">
-                                                        <div class="ibox-content">
-                                                            <form method="get" class="form-horizontal">
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Firma </label>
+                                                    <div class="nav-tabs-custom">
+                                                        <ul class="nav nav-tabs">
+                                                            <li class="active"><a href="#tab_1" data-toggle="tab">Genel Bilgiler</a></li>
+                                                            <li><a href="#tab_2" data-toggle="tab">İletişim Bilgileri</a></li>
+                                                            <li><a href="#tab_3" data-toggle="tab">Finansal Bilgiler</a></li>
 
-                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                            <li class="pull-right"><a href="#" class="text-muted"></a></li>
+                                                        </ul>
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="tab_1">
+                                                                <b>Firma Genel Bilgileri</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+                                                                                <form method="get" class="form-horizontal">
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Firma </label>
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Logo </label>
-                                                                    <div class="col-sm-10"><input type="file" class="form-control">
+                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Logo </label>
+                                                                                        <div class="col-sm-10"><input type="file" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Vergi Numarası </label>
+
+                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Vergi Dairesi </label>
+
+                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> SGK Sicil Nosu </label>
+
+                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-sm-2 control-label"> Kuruluş Tarihi</label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <div class="input-group">
+                                                                                                <div class="input-group-addon">
+                                                                                                    <i class="fa fa-calendar"></i>
+                                                                                                </div>
+                                                                                                <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div> 
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Email </label>
+
+                                                                                        <div class="col-sm-10"><input required="true" type="email" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Web Adresi </label>
+
+                                                                                        <div class="col-sm-10"><input type="url" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+
+                                                                                    <div class="box-footer">
+                                                                                        <div class="col-sm-4 col-sm-offset-2">
+                                                                                            <button class="btn btn-white" type="submit"> İptal </button>
+                                                                                            <button class="btn btn-primary" type="submit"> Kaydet </button>
+                                                                                        </div>
+                                                                                    </div>                                                                
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> 
+                                                                </div>                                                
+                                                            </div><!-- /.tab-pane -->
+
+
+                                                            <div class="tab-pane active" id="tab_2">
+                                                                <b>Firma Genel Bilgileri</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+                                                                                <form method="get" class="form-horizontal">
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option>İdari Merkez</option>
+                                                                                                <option>Fabrika</option>
+                                                                                                <option>Showroom</option>
+                                                                                                <option>Depo</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Bina Adı </label>
+                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Ülke </label>
+
+                                                                                        <div class="col-sm-10">
+                                                                                            <select id='country1' class="form-control select2"  style="width: 100%;">                                                                    
+                                                                                                
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
+
+                                                                                        <div class="col-sm-10">
+                                                                                            <select class="form-control select2" data-placeholder="İl Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option>İl 1</option>
+                                                                                                <option>İl 2</option>
+                                                                                                <option>İl 3</option>
+                                                                                                <option>İl 4</option>
+                                                                                                <option>İl 5</option>
+                                                                                                <option>İl 6</option>
+                                                                                                <option>İl 7</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
+
+                                                                                        <div class="col-sm-10">
+                                                                                            <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option>İlçe 1</option>
+                                                                                                <option>İlçe 2</option>
+                                                                                                <option>İlçe 3</option>
+                                                                                                <option>İlçe 4</option>
+                                                                                                <option>İlçe 5</option>
+                                                                                                <option>İlçe 6</option>
+                                                                                                <option>İlçe 7</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Semt </label>
+
+                                                                                        <div class="col-sm-10">
+                                                                                            <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option>Semt 1</option>
+                                                                                                <option>Semt 2</option>
+                                                                                                <option>Semt 3</option>
+                                                                                                <option>Semt 4</option>
+                                                                                                <option>Semt 5</option>
+                                                                                                <option>Semt 6</option>
+                                                                                                <option>Semt 7</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Cadde </label>
+                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Sokak </label>
+                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Kapı No. </label>
+                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-sm-2 control-label"> P.K.</label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <div class="input-group">
+                                                                                                <div class="input-group-addon">
+                                                                                                    <i class="fa fa-newspaper-o"></i>
+                                                                                                </div>
+                                                                                                <input type="text" class="form-control" data-inputmask='"mask": "99999"' data-mask>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-sm-2 control-label">Tel.</label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <div class="input-group">
+                                                                                                <div class="input-group-addon">
+                                                                                                    <i class="fa fa-phone"></i>
+                                                                                                </div>
+                                                                                                <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-sm-2 control-label">Faks.</label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <div class="input-group">
+                                                                                                <div class="input-group-addon">
+                                                                                                    <i class="fa fa-fax"></i>
+                                                                                                </div>
+                                                                                                <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="box-footer">
+                                                                                        <div class="col-sm-10 col-sm-offset-2">
+                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> Güncelle </button>
+                                                                                            <button id='addNewAddressButton' class="btn btn-primary" type="submit"> Yeni Adres Ekle </button>
+                                                                                        </div>
+                                                                                    </div>                                                              
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Vergi Numarası </label>
-
-                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Vergi Dairesi </label>
-
-                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> SGK Sicil Nosu </label>
-
-                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Kuruluş Tarihi </label>
-
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>   
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Email </label>
-
-                                                                    <div class="col-sm-10"><input required="true" type="email" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Web Adresi </label>
-
-                                                                    <div class="col-sm-10"><input type="url" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                            </div><!-- Tab pane 2 -->
 
 
-                                                                <div class="box-footer">
-                                                                    <div class="col-sm-4 col-sm-offset-2">
-                                                                        <button class="btn btn-white" type="submit"> İptal </button>
-                                                                        <button class="btn btn-primary" type="submit"> Kaydet </button>
+                                                            <div class="tab-pane active" id="tab_3">
+                                                                <b>Finansal Bilgiler</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+                                                                                
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>                                                                
-                                                            </form>
-                                                        </div>
-                                                    </div>
+                                                                </div>
+                                                            </div><!--/.tab-pane-->
+
+                                                        </div><!-- /.tab-content -->
+                                                    </div><!-- nav-tabs-custom -->
                                                 </div>
                                             </div>
                                         </div><!--/. box-->
@@ -447,239 +626,272 @@
 
 
 
-                            <!--Second panel row-->
+                            <!--First panel row-->
                             <div class="row">
-                                <!--Second panel single column-->
+                                <!--First panel single column-->
                                 <div class="col-md-12">
-                                    <!--arrange Second panel color to green by assigning success class-->
+                                    <!--arrange First panel color to green by assigning success class-->
                                     <div class="box box-success collapsed-box" id="addNewPanel">
-                                        <!--Second panel Header-->
+                                        <!--First panel Header-->
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"> update </h3>
-                                            <!--Second panel collapse button-->
+                                            <h3 class="box-title"> Bilgi Güncelleme </h3>
+                                            <!--First panel collapse button-->
                                             <div class="box-tools pull-right">
                                                 <button class="btn btn-box-tool" onclick='$.AdminLTE.boxWidgetCRUDPanelCloser.collapse($("#updatePanel"))'  data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>
                                             </div><!--/. panel collapse button div-->
-                                        </div><!--/. Second panel header-->
-
+                                        </div><!--/. First panel header-->
                                         <div class="box-body">
                                             <div class="row">
                                                 <div class="col-lg-12">
-                                                    <div class="ibox float-e-margins">
-                                                        <div class="ibox-content">  
-                                                            <form method="get" class="form-horizontal">
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Firma </label>
+                                                    <div class="nav-tabs-custom">
+                                                        <ul class="nav nav-tabs">
+                                                            <li class="active"><a href="#tab_1" data-toggle="tab">Genel Bilgiler</a></li>
+                                                            <li><a href="#tab_2" data-toggle="tab">İletişim Bilgileri</a></li>
+                                                            <li><a href="#tab_3" data-toggle="tab">Finansal Bilgiler</a></li>
 
-                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                            <li class="pull-right"><a href="#" class="text-muted"></a></li>
+                                                        </ul>
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="tab_1">
+                                                                <b>Firma Genel Bilgileri</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+                                                                                <form method="get" class="form-horizontal">
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Firma </label>
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Logo </label>
-                                                                    <div class="col-sm-10"><input type="file" class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Vergi Numarası </label>
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Logo </label>
+                                                                                        <div class="col-sm-10"><input type="file" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
 
-                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Vergi Numarası </label>
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Vergi Dairesi </label>
+                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
 
-                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Vergi Dairesi </label>
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> SGK Sicil Nosu </label>
+                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
 
-                                                                    <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> SGK Sicil Nosu </label>
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Kuruluş Tarihi </label>
+                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
 
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>   
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-sm-2 control-label"> Kuruluş Tarihi</label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <div class="input-group">
+                                                                                                <div class="input-group-addon">
+                                                                                                    <i class="fa fa-calendar"></i>
+                                                                                                </div>
+                                                                                                <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div> 
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Email </label>
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Email </label>
 
-                                                                    <div class="col-sm-10"><input required="true" type="email" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                                                        <div class="col-sm-10"><input required="true" type="email" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Web Adresi </label>
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Web Adresi </label>
 
-                                                                    <div class="col-sm-10"><input type="url" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
+                                                                                        <div class="col-sm-10"><input type="url" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
 
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                            <div class="box-footer">
-                                                <div class="col-sm-10 col-sm-offset-2">
-                                                    <h4>
-                                                        Adres Bilgileri
-                                                    </h4>
-                                                </div>
-                                            </div>   
-
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="ibox float-e-margins">
-                                                        <div class="ibox-content">
-                                                            <form method="get" class="form-horizontal">
-                                                                
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
-                                                                            <option>İdari Merkez</option>
-                                                                            <option>Fabrika</option>
-                                                                            <option>Showroom</option>
-                                                                            <option>Depo</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Bina Adı </label>
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Ülke </label>
-
-                                                                    <div id='country' class="col-sm-10">
-                                                                        <select class="form-control select2"  style="width: 100%;">                                                                    
-                                                                            <option>Ülke 1</option>
-                                                                            <option>Ülke 2</option>
-                                                                            <option>Ülke 3</option>
-                                                                            <option>Ülke 4</option>
-                                                                            <option>Ülke 5</option>
-                                                                            <option>Ülke 6</option>
-                                                                            <option>Ülke 7</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <select class="form-control select2" data-placeholder="İl Seçiniz" style="width: 100%;">                                                                    
-                                                                            <option>İl 1</option>
-                                                                            <option>İl 2</option>
-                                                                            <option>İl 3</option>
-                                                                            <option>İl 4</option>
-                                                                            <option>İl 5</option>
-                                                                            <option>İl 6</option>
-                                                                            <option>İl 7</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
-                                                                            <option>İlçe 1</option>
-                                                                            <option>İlçe 2</option>
-                                                                            <option>İlçe 3</option>
-                                                                            <option>İlçe 4</option>
-                                                                            <option>İlçe 5</option>
-                                                                            <option>İlçe 6</option>
-                                                                            <option>İlçe 7</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
-
-                                                                    <div class="col-sm-10">
-                                                                        <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
-                                                                            <option>Semt 1</option>
-                                                                            <option>Semt 2</option>
-                                                                            <option>Semt 3</option>
-                                                                            <option>Semt 4</option>
-                                                                            <option>Semt 5</option>
-                                                                            <option>Semt 6</option>
-                                                                            <option>Semt 7</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Cadde </label>
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Sokak </label>
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Kapı No. </label>
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Posta Kutusu No. </label>
-                                                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
-                                                                </div>
-                                                                <div class="hr-line-dashed"></div>
-
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Tel.</label>
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-addon">
-                                                                                <i class="fa fa-phone"></i>
+                                                                                    <div class="box-footer">
+                                                                                        <div class="col-sm-4 col-sm-offset-2">
+                                                                                            <button class="btn btn-white" type="submit"> İptal </button>
+                                                                                            <button class="btn btn-primary" type="submit"> Kaydet </button>
+                                                                                        </div>
+                                                                                    </div>                                                                
+                                                                                </form>
                                                                             </div>
-                                                                            <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                                        </div>
+                                                                    </div> 
+                                                                </div>                                                
+                                                            </div><!-- /.tab-pane -->
+
+
+                                                            <div class="tab-pane active" id="tab_2">
+                                                                <b>Firma Genel Bilgileri</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+                                                                                <form method="get" class="form-horizontal">
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option>İdari Merkez</option>
+                                                                                                <option>Fabrika</option>
+                                                                                                <option>Showroom</option>
+                                                                                                <option>Depo</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Bina Adı </label>
+                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Ülke </label>
+
+                                                                                        <div  class="col-sm-10">
+                                                                                            <select id='country2' class="form-control select2"  style="width: 100%;">                                                                    
+                                                                                                
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
+
+                                                                                        <div class="col-sm-10">
+                                                                                            <select class="form-control select2" data-placeholder="İl Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option>İl 1</option>
+                                                                                                <option>İl 2</option>
+                                                                                                <option>İl 3</option>
+                                                                                                <option>İl 4</option>
+                                                                                                <option>İl 5</option>
+                                                                                                <option>İl 6</option>
+                                                                                                <option>İl 7</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
+
+                                                                                        <div class="col-sm-10">
+                                                                                            <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option>İlçe 1</option>
+                                                                                                <option>İlçe 2</option>
+                                                                                                <option>İlçe 3</option>
+                                                                                                <option>İlçe 4</option>
+                                                                                                <option>İlçe 5</option>
+                                                                                                <option>İlçe 6</option>
+                                                                                                <option>İlçe 7</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Semt </label>
+
+                                                                                        <div class="col-sm-10">
+                                                                                            <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option>Semt 1</option>
+                                                                                                <option>Semt 2</option>
+                                                                                                <option>Semt 3</option>
+                                                                                                <option>Semt 4</option>
+                                                                                                <option>Semt 5</option>
+                                                                                                <option>Semt 6</option>
+                                                                                                <option>Semt 7</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Cadde </label>
+                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Sokak </label>
+                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Kapı No. </label>
+                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-sm-2 control-label"> P.K.</label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <div class="input-group">
+                                                                                                <div class="input-group-addon">
+                                                                                                    <i class="fa fa-newspaper-o"></i>
+                                                                                                </div>
+                                                                                                <input type="text" class="form-control" data-inputmask='"mask": "99999"' data-mask>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="hr-line-dashed"></div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-sm-2 control-label">Tel.</label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <div class="input-group">
+                                                                                                <div class="input-group-addon">
+                                                                                                    <i class="fa fa-phone"></i>
+                                                                                                </div>
+                                                                                                <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="form-group">
+                                                                                        <label class="col-sm-2 control-label">Faks.</label>
+                                                                                        <div class="col-sm-10">
+                                                                                            <div class="input-group">
+                                                                                                <div class="input-group-addon">
+                                                                                                    <i class="fa fa-fax"></i>
+                                                                                                </div>
+                                                                                                <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="box-footer">
+                                                                                        <div class="col-sm-10 col-sm-offset-2">
+                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> Güncelle </button>
+                                                                                            <button id='addNewAddressButton' class="btn btn-primary" type="submit"> Yeni Adres Ekle </button>
+                                                                                        </div>
+                                                                                    </div>                                                              
+                                                                                </form>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div><!-- Tab pane 2 -->
 
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-2 control-label">Faks.</label>
-                                                                    <div class="col-sm-10">
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-addon">
-                                                                                <i class="fa fa-fax"></i>
+
+                                                            <div class="tab-pane active" id="tab_3">
+                                                                <b>Finansal Bilgiler</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+                                                                                
                                                                             </div>
-                                                                            <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div><!--/.tab-pane-->
 
-                                                                <div class="box-footer">
-                                                                    <div class="col-sm-10 col-sm-offset-2">
-                                                                        <button id='addressUpdateButton' class="btn btn-white" type="submit"> Güncelle </button>
-                                                                        <button id='addNewAddressButton' class="btn btn-primary" type="submit"> Yeni Adres Ekle </button>
-                                                                    </div>
-                                                                </div>                                                              
-                                                            </form>
-                                                        </div>
-                                                    </div>
+                                                        </div><!-- /.tab-content -->
+                                                    </div><!-- nav-tabs-custom -->
                                                 </div>
                                             </div>
-                                        </div><!--/. success box div-->
-                                    </div><!--/. box div -->
-                                </div><!--/. Second panel single column div -->
-                            </div><!-- / Second panel row-->
-                            <!--Second collapsible panel row -->
-
-
-
-
-
-
-
+                                        </div><!--/. box-->
+                                    </div><!--/. success box div-->
+                                </div><!--/. First panel single column div -->
+                            </div><!-- / First panel row-->
+                            <!--First collapsible panel row -->
                         </div><!--/. main body-->
                     </div><!--/.box --> 
                 </div><!--/. main panel single colum-->
