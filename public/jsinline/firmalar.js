@@ -27,7 +27,6 @@ $(document).ready(function () {
                     var appending_option_html = "<option>" +
                             data[i].name + "</option>";//
                     var newappendingOption = $(appending_option_html);
-                    $(newappendingOption).appendTo($("#country2"));
                     $(newappendingOption).appendTo($("#country1"));
 //                    $(newappendingOption).on("click", function (event) {
 
@@ -38,6 +37,9 @@ $(document).ready(function () {
                             data[i].name + "</option>";//
                     var newappendingOption_2 = $(appending_option_html_2);
                     $(newappendingOption_2).appendTo($("#country2"));
+//                    $(newappendingOption).on("click", function (event) {
+
+//                    });
                 }
             }
         }
