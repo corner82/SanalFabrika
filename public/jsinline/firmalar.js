@@ -27,12 +27,17 @@ $(document).ready(function () {
                     var appending_option_html = "<option>" +
                             data[i].name + "</option>";//
                     var newappendingOption = $(appending_option_html);
-                    $(newappendingOption).appendTo($("#country1"));
                     $(newappendingOption).appendTo($("#country2"));
+                    $(newappendingOption).appendTo($("#country1"));
 //                    $(newappendingOption).on("click", function (event) {
-//                        
-//                        alert(event);
+
 //                    });
+
+
+                    var appending_option_html_2 = "<option>" +
+                            data[i].name + "</option>";//
+                    var newappendingOption_2 = $(appending_option_html_2);
+                    $(newappendingOption_2).appendTo($("#country2"));
                 }
             }
         }
