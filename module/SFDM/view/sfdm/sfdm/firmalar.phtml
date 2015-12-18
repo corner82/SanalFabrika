@@ -535,10 +535,11 @@
                                                     <div class="ibox float-e-margins">
                                                         <div class="ibox-content">
                                                             <form method="get" class="form-horizontal">
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Bina Tipi </label>
+                                                                
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
 
                                                                     <div class="col-sm-10">
-                                                                        <select class="form-control m-b" name="binaTipi">
+                                                                        <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
                                                                             <option>İdari Merkez</option>
                                                                             <option>Fabrika</option>
                                                                             <option>Showroom</option>
@@ -546,23 +547,25 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-
+                                                                
                                                                 <div class="form-group"><label class="col-sm-2 control-label"> Bina Adı </label>
                                                                     <div class="col-sm-10"><input type="text" class="form-control"></div>
                                                                 </div>
                                                                 <div class="hr-line-dashed"></div>
 
-                                                                <div class="form-group">
-                                                                    <label>Multiple</label>
-                                                                    <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-                                                                        <option>Alabama</option>
-                                                                        <option>Alaska</option>
-                                                                        <option>California</option>
-                                                                        <option>Delaware</option>
-                                                                        <option>Tennessee</option>
-                                                                        <option>Texas</option>
-                                                                        <option>Washington</option>
-                                                                    </select>
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> Ülke </label>
+
+                                                                    <div id='country' class="col-sm-10">
+                                                                        <select class="form-control select2"  style="width: 100%;">                                                                    
+                                                                            <option>Ülke 1</option>
+                                                                            <option>Ülke 2</option>
+                                                                            <option>Ülke 3</option>
+                                                                            <option>Ülke 4</option>
+                                                                            <option>Ülke 5</option>
+                                                                            <option>Ülke 6</option>
+                                                                            <option>Ülke 7</option>
+                                                                        </select>
+                                                                    </div>
                                                                 </div>
 
                                                                 <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
@@ -595,14 +598,17 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="form-group"><label class="col-sm-2 control-label"> Semt </label>
+                                                                <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
 
                                                                     <div class="col-sm-10">
-                                                                        <select id='vicinity' class="form-control m-b" name="districts">
-                                                                            <option>1</option>
-                                                                            <option>2</option>
-                                                                            <option>3</option>
-                                                                            <option>4</option>
+                                                                        <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                            <option>Semt 1</option>
+                                                                            <option>Semt 2</option>
+                                                                            <option>Semt 3</option>
+                                                                            <option>Semt 4</option>
+                                                                            <option>Semt 5</option>
+                                                                            <option>Semt 6</option>
+                                                                            <option>Semt 7</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
