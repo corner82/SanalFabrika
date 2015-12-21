@@ -88,7 +88,7 @@ return array(
             'authenticationControlerLocator' => 'Custom\Services\Authentication\factoryServiceAuthenticationControlerLocator',
             'serviceAuthenticate' => 'Custom\Services\Authentication\factoryServiceAuthenticate',
             'serviceAuthenticatedRedirect' => 'Custom\Services\Authentication\factoryServiceAuthenticatedRedirect',
-            'serviceTranslator' => 'Custom\Services\MultiLanguage\factoryServiceTranslator', 
+            'serviceTranslator' => 'Custom\Services\MultiLanguage\FactoryServiceTranslator', 
             'textBaseFilter' => 'Custom\Services\Services\Filter\TextBaseFilter',
             'textBaseFilterNotToLowerCase' => 'Custom\Services\Filter\TextBaseFilterNotToLowerCase',
             'textBaseFilterWithSQLReservedWords' => 'Custom\Services\Filter\TextBaseFilterWithSQLReservedWords',
@@ -96,6 +96,7 @@ return array(
             'filterHTMLTagsAdvanced' => 'Custom\Services\Filter\FilterHTMLTagsAdvanced',
             'filterHexadecimalBase' => 'Custom\Services\Filter\FilterHexadecimalBase',
             'filterHexadecimalAdvanced' => 'Custom\Services\Filter\FilterHexadecimalAdvanced',
+            'serviceTranslatorUrlRegulator' => 'Custom\Services\MultiLanguage\FactoryServiceUrlRegulator', 
         ],  
         
     ),
