@@ -53,8 +53,8 @@ class FactoryServiceTranslator  implements FactoryInterface{
                 case systemLanguages::FA : 
                     $translator->setLocale(systemLanguages::FA_LOCALE);
                     break;
-                case 'zh' : 
-                    $translator->setLocale('zh_CN'); 
+                case systemLanguages::ZH : 
+                    $translator->setLocale(systemLanguages::ZH_LOCALE); 
                     break;
                 default:
                     $translator->setLocale(systemLanguages::TR_LOCALE);
