@@ -5,7 +5,7 @@ namespace Custom\Services\Authentication;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class factoryServiceAuthenticate  implements FactoryInterface{
+class FactoryServiceAuthenticate  implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $authManager = $serviceLocator->get('authenticationManagerDefault');

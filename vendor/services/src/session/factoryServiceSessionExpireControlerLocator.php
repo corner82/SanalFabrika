@@ -5,7 +5,7 @@ namespace Custom\Services\Session;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class factoryServiceSessionExpireControlerLocator  implements FactoryInterface{
+class FactoryServiceSessionExpireControlerLocator  implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $app = $serviceLocator->get('Application');  

@@ -5,7 +5,7 @@ namespace Custom\Services\Database;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class factoryServiceDbAdapterPostgre  implements FactoryInterface{
+class FactoryServiceDbAdapterPostgre  implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
         $config = $serviceLocator->get('config');

@@ -13,7 +13,7 @@ namespace Custom\Services\MultiLanguage;
  * System language constants and variables to check request
  * parameters are being called in this class
  */
- class systemLanguages {
+ class SystemLanguages {
     
     /**
      * I18n language codes
