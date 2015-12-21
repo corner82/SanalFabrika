@@ -12,10 +12,11 @@
              'sfdm' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/sfdm[/:action][/:id]',
+                     'route'    => '/sfdm[/:lang][/:action][/:id]',
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
+                         'lang'   => '[a-zA-Z]+',
                      ),
                      'defaults' => array(
                          'controller' => 'SFDM\Controller\SFDM',
