@@ -60,4 +60,5 @@ return array(
     'Custom\\Services\\Database\\' => array($vendorDir . '/services/src/db'),
     'Custom\\Services\\Authentication\\' => array($vendorDir . '/services/src/authentication'),
     'Custom\\Services\\MultiLanguage\\' => array($vendorDir . '/services/src/multiLanguage'),
+    'Custom\\Services\\Filter\\' => array($vendorDir . '/services/src/filter'),
 );
