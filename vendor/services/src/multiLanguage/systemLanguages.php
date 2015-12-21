@@ -24,6 +24,7 @@ namespace Custom\Services\MultiLanguage;
     const RU = 'ru';
     const FA  = 'fa';
     const DE = 'de';
+    const ZH = 'zh';
     
     /**
      * I18n language locale codes
@@ -34,6 +35,7 @@ namespace Custom\Services\MultiLanguage;
     const RU_LOCALE = 'ru_RU';
     const FA_LOCALE  = 'fa_FA';
     const DE_LOCALE = 'de_DE';
+    const ZH_LOCALE = 'zh_CN';
     
     /**
      * System language data array
@@ -45,7 +47,9 @@ namespace Custom\Services\MultiLanguage;
                               self::ENG,
                               self::FA,
                               self::TR,
-                              self::RU); 
+                              self::RU,
+                              self::ZH,
+                              ); 
     
     /**
      * System language locale data array
@@ -54,10 +58,11 @@ namespace Custom\Services\MultiLanguage;
     Public static $systemLanguageLocaleCodes = array(
                               self::AR_LOCALE,
                               self::DE_LOCALE,
-                              self::ENG_LOCALE,
+                              self::ENG_LOCALE,    
                               self::FA_LOCALE,
                               self::TR_LOCALE,
                               self::RU_LOCALE,
+                              self::ZH_LOCALE,
                               );
 
     /**
