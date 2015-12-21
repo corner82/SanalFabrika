@@ -9,34 +9,34 @@ $(document).ready(function () {
         url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
-            url: 'fillComboBox_syscountrys',
-            /*
-             * clicked object id is being added to the query
-             * to get the related object submenu
-             */
+            url: 'fillComboBox_syscountrys'
+            
         },
         method: "GET",
         dataType: "json",
         success: function (data) {
             var i;
-            
+
             for (i = 0; i < data.length; i++) {
                 if (data[i].name === null) {
-                    
-                }else{
-                    var appending_option_html = "<option>" +
-                            data[i].name + "</option>";//
+
+                } else {
+                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
+                            data[i].name +
+                            "</option>";
                     var newappendingOption = $(appending_option_html);
                     $(newappendingOption).appendTo($("#country1"));
+
 //                    $(newappendingOption).on("click", function (event) {
 
 //                    });
 
-
-                    var appending_option_html_2 = "<option>" +
-                            data[i].name + "</option>";//
+                    var appending_option_html_2 = "<option value = '" + data[i].id + "' >" +
+                            data[i].name +
+                            "</option>";
                     var newappendingOption_2 = $(appending_option_html_2);
                     $(newappendingOption_2).appendTo($("#country2"));
+
 //                    $(newappendingOption).on("click", function (event) {
 
 //                    });
@@ -50,11 +50,11 @@ $(document).ready(function () {
         data: {
             parent: 0,
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
-            url: 'getLeftMenu_leftnavigation',
-            /*
-             * clicked object id is being added to the query
-             * to get the related object submenu
-             */
+            url: 'getLeftMenu_leftnavigation'
+                    /*
+                     * clicked object id is being added to the query
+                     * to get the related object submenu
+                     */
         },
         method: "GET",
         async: false,
@@ -136,6 +136,89 @@ $(document).ready(function () {
     });
 });
 
+$("select#country1").on('change', function () {
 
+    var selectedCountry1 = $('#country1 option:selected');
+//    console.log($('#country1 :selected').text()); 
+//    console.log($('#country1 :selected').val());
+    var selectedCountry1Id = $('#country1 :selected').val();
+
+    $("#city1").empty();
+
+    $.ajax({
+        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        data: {
+            pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
+            url: 'fillComboBox_syscity',
+            country_id: selectedCountry1Id
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            var i;
+
+            for (i = 0; i < data.length; i++) {
+                if (data[i].name === null) {
+
+                } else {
+
+                    var city_appending_option_html = "<option value = '" + data[i].id + "' >" +
+                            data[i].name +
+                            "</option>";
+                    var newcityappendingOption = $(city_appending_option_html);
+                    $(newcityappendingOption).appendTo($("#city1"));
+
+//                    $(newappendingOption).on("click", function (event) {
+
+//                    });
+
+                }
+            }
+        }
+    });
+});
+
+$("select#country2").on('change', function () {
+
+    var selectedCountry2 = $('#country2 option:selected');
+//    console.log($('#country1 :selected').text()); 
+//    console.log($('#country1 :selected').val());
+    var selectedCountry2Id = $('#country2 :selected').val();
+
+    $("#city2").empty();
+
+    $.ajax({
+        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        data: {
+            pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
+            url: 'fillComboBox_syscity',
+            country_id: selectedCountry2Id
+        },
+        
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            var i;
+
+            for (i = 0; i < data.length; i++) {
+                if (data[i].name === null) {
+
+                } else {
+
+                    var city_appending_option_html = "<option value = '" + data[i].id + "' >" +
+                            data[i].name +
+                            "</option>";
+                    var newcityappendingOption = $(city_appending_option_html);
+                    $(newcityappendingOption).appendTo($("#city2"));
+//                    $(newappendingOption).on("click", function (event) {
+//                    
+//                    });
+                }
+            }
+        }
+    });
+});
 
 

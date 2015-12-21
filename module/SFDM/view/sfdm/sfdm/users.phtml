@@ -213,14 +213,14 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>-->
-                            <img src="dist/img/manager-xxl.png" class="user-image" alt="User Image"/>
+                            <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
                             <span class="hidden-xs"><?php /* echo $_SESSION['userName'] */ ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
                               <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
-                                <img src="dist/img/manager-xxl.png" class="user-image" alt="User Image"/>
+                                <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
                                 <p>
                                     <?php /* echo $_SESSION['userName'] */ ?> - <?php /* echo $_SESSION['department'] */ ?>
                                     <small><!--Member since Nov. 2012--></small>
@@ -265,7 +265,7 @@
             <div class="user-panel">
                 <div class="pull-left image">
                   <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
-                    <img src="dist/img/manager-xxl.png" class="user-image" alt="User Image"/>
+                    <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
                 </div>
                 <div class="pull-left info">
                     <p><?php /* echo $_SESSION['userName']; */ ?></p>
@@ -410,36 +410,24 @@
                                                         <div class="hr-line-dashed"></div>
 
                                                         <div class="form-group"><label class="col-sm-2 control-label"> Rol-Map Ana Grupları </label>
-                                                            <!-- Select multiple-->
+
                                                             <div class="col-sm-10">
-                                                                <select class="form-control select2" multiple="multiple" data-placeholder="Rol-Map Ana Grubu Seçiniz" style="width: 100%;">
-                                                                    <option>RolMap 1</option>
-                                                                    <option>RolMap 2</option>
-                                                                    <option>RolMap 3</option>
-                                                                    <option>RolMap 4</option>
-                                                                    <option>RolMap 5</option>
-                                                                    <option>RolMap 6</option>
-                                                                    <option>RolMap 7</option>
+                                                                <select id='rolmapmain' class="form-control select2"  style="width: 100%;">                                                                   
+
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="hr-line-dashed"></div>
 
-                                                        <div class="form-group"><label class="col-sm-2 control-label"> Rol-Map </label>
-                                                            <!-- Select multiple-->
+                                                        <div class="form-group"><label class="col-sm-2 control-label"> Rol-Map Alt Grupları </label>
+
                                                             <div class="col-sm-10">
-                                                                <select class="form-control select2" multiple="multiple" data-placeholder="Rol-Map Seçiniz" style="width: 100%;">                                                                    
-                                                                    <option>RolMap 1</option>
-                                                                    <option>RolMap 2</option>
-                                                                    <option>RolMap 3</option>
-                                                                    <option>RolMap 4</option>
-                                                                    <option>RolMap 5</option>
-                                                                    <option>RolMap 6</option>
-                                                                    <option>RolMap 7</option>
+                                                                <select id='rolmapdetail' class="form-control select2"  style="width: 100%;">                                                                   
+
                                                                 </select>
                                                             </div>
-                                                        </div>
+                                                        </div>                                                        
 
                                                         <div class="hr-line-dashed"></div>
 
@@ -511,33 +499,21 @@
                                                         <div class="hr-line-dashed"></div>
 
                                                         <div class="form-group"><label class="col-sm-2 control-label"> Rol-Map Ana Grupları </label>
-                                                            <!-- Select multiple-->
+
                                                             <div class="col-sm-10">
-                                                                <select class="form-control select2" multiple="multiple" data-placeholder="Rol-Map Ana Grubu Seçiniz" style="width: 100%;">
-                                                                    <option>RolMap 1</option>
-                                                                    <option>RolMap 2</option>
-                                                                    <option>RolMap 3</option>
-                                                                    <option>RolMap 4</option>
-                                                                    <option>RolMap 5</option>
-                                                                    <option>RolMap 6</option>
-                                                                    <option>RolMap 7</option>
+                                                                <select id='rolmapmain-update' class="form-control select2"  style="width: 100%;">                                                                   
+
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="hr-line-dashed"></div>
 
-                                                        <div class="form-group"><label class="col-sm-2 control-label"> Rol-Map </label>
-                                                            <!-- Select multiple-->
+                                                        <div class="form-group"><label class="col-sm-2 control-label"> Rol-Map Alt Grupları </label>
+
                                                             <div class="col-sm-10">
-                                                                <select class="form-control select2" multiple="multiple" data-placeholder="Rol-Map Seçiniz" style="width: 100%;">                                                                    
-                                                                    <option>RolMap 1</option>
-                                                                    <option>RolMap 2</option>
-                                                                    <option>RolMap 3</option>
-                                                                    <option>RolMap 4</option>
-                                                                    <option>RolMap 5</option>
-                                                                    <option>RolMap 6</option>
-                                                                    <option>RolMap 7</option>
+                                                                <select id='rolmapdetail-update' class="form-control select2"  style="width: 100%;">                                                                   
+
                                                                 </select>
                                                             </div>
                                                         </div>
