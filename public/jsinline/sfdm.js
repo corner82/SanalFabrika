@@ -22,6 +22,7 @@ $(document).ready(function () {
         //data: { url:'totalAnket'  },
         type: 'GET',
         dataType: 'json',
+        language_id:647,
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
 //            console.error("zeynel test jsonp");
@@ -54,6 +55,7 @@ $(document).ready(function () {
         //data: { url:'totalAnket'  },
         type: 'GET',
         dataType: 'json',
+        language_id:647,
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
 //            console.warn(data);
@@ -135,6 +137,7 @@ $(document).ready(function () {
         //data: { url:'totalAnket'  },
         type: 'GET',
         dataType: 'json',
+        language_id:647,
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             //console.error(data);

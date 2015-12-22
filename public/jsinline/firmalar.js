@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
+    
 
     $.ajax({
         url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',

@@ -442,18 +442,19 @@ function _init() {
     $.AdminLTE.dynamicTree = function (clickedObject) {
 
 //        console.log(clickedObject);
-//        var currentPath = window.location.pathname;        
-        
+        var currentpath = 'http://www.sanalfabrika.bahram.com:9990' + window.location.pathname;
+
         if (typeof clickedObject.id === "undefined") {
             /*
              * catches page object event with undefined id
              */
-//            alert("sorry it is undefined. " + clickedObject.id);
+//            console.log("sorry it is undefined. " + clickedObject.id);
 
         } else {
 
             var _this = this;
             var $this = $(this);
+//            console.log(this);
 
             var clickedObject_query_id = clickedObject.id.replace("menu_", "");
 //            console.error(clickedObject_query_id);
@@ -464,6 +465,10 @@ function _init() {
             var parent_li = $(treeview_id_ref).parent("li");
             var ul = parent.find('ul:visible').slideUp('normal');
             var parent_li = $this.parent("li");
+
+            var obj = document.getElementById(clickedObject.id);
+            var href = $(obj).find("a").attr("href");
+            console.log(href);
 
 
             if (!$(treeview_id_ref).hasClass('menu-open')) {
@@ -477,10 +482,10 @@ function _init() {
                             url: 'getLeftMenu_leftnavigation',
                             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
                             language_id: 647
-                            /*
-                             * clicked object id is being added to the query
-                             * to get the related object submenu
-                             */
+                                    /*
+                                     * clicked object id is being added to the query
+                                     * to get the related object submenu
+                                     */
                         },
                         method: "GET",
                         async: false,
@@ -569,32 +574,40 @@ function _init() {
                  * @type @call;$@call;parents@call;first|@call;$@call;parents@call;first
                  */
 
-                var parent = $(treeview_id_ref).parents('ul').first();
-                // finds selected item's first ul parent
-                var ul = parent.find('ul:visible').slideUp('normal');
-                // finds selected item's existing ul tag
+                if (currentpath === href) {
+                    
+                    console.log('Yep they are same urls: ' + currentpath + ' and ' + href); 
 
-                ul.removeClass('menu-open');
-                var parent_li = $(treeview_id_ref).parent("li");
-                // finds selected item's first li parent
-                // first removes all menu-open classes to close all other items
+                } else {
 
-                $(treeview_id_ref).slideDown('normal', function () {
-                    // opens selected item
-                    $(treeview_id_ref).addClass('menu-open');
-                    // changes its class to open
-                    parent.find('li.active').removeClass('active');
-                    // remove all other active item
-                    parent_li.addClass('active');
-                    // keep direct parent active form
-                    _this.layout.fix();
-                    // fix new menu layout
-                });
+                    console.log('oopss they are not the same urls: ' + currentpath + ' and ' + href);
 
-                event.stopPropagation();
-                // stop propagation of event to prevent teh reselection of
-                // direct parent(s)
+                    var parent = $(treeview_id_ref).parents('ul').first();
+                    // finds selected item's first ul parent
+                    var ul = parent.find('ul:visible').slideUp('normal');
+                    // finds selected item's existing ul tag
 
+                    ul.removeClass('menu-open');
+                    var parent_li = $(treeview_id_ref).parent("li");
+                    // finds selected item's first li parent
+                    // first removes all menu-open classes to close all other items
+
+                    $(treeview_id_ref).slideDown('normal', function () {
+                        // opens selected item
+                        $(treeview_id_ref).addClass('menu-open');
+                        // changes its class to open
+                        parent.find('li.active').removeClass('active');
+                        // remove all other active item
+                        parent_li.addClass('active');
+                        // keep direct parent active form
+                        _this.layout.fix();
+                        // fix new menu layout
+                    });
+
+                    event.stopPropagation();
+                    // stop propagation of event to prevent teh reselection of
+                    // direct parent(s)
+                }
             } else {
 
 //                parent_li.removeClass('active');
@@ -617,6 +630,7 @@ function _init() {
 //                event.preventDefault();
             }
         }
+        
         if ($(treeview_id_ref).is('.treeview-menu')) {
             event.preventDefault();
             // stop propagation of event to prevent teh reselection of
