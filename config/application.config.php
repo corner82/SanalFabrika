@@ -87,7 +87,7 @@ return array(
             'authenticationManagerDefault' => 'Custom\Services\Authentication\FactoryServiceAuthenticationLocator',
             'authenticationControlerLocator' => 'Custom\Services\Authentication\FactoryServiceAuthenticationControlerLocator',
             'serviceAuthenticate' => 'Custom\Services\Authentication\FactoryServiceAuthenticate',
-            'serviceAuthenticatedRedirect' => 'Custom\Services\Authentication\factoryServiceAuthenticatedRedirect',
+            'serviceAuthenticatedRedirect' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirect',
             'serviceTranslator' => 'Custom\Services\MultiLanguage\FactoryServiceTranslator', 
             'textBaseFilter' => 'Custom\Services\Services\Filter\TextBaseFilter',
             'textBaseFilterNotToLowerCase' => 'Custom\Services\Filter\TextBaseFilterNotToLowerCase',
