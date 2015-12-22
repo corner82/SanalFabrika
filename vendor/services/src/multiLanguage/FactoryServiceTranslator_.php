@@ -11,7 +11,7 @@ namespace Custom\Services\MultiLanguage;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Custom\Services\MultiLanguage\systemLanguages;
+use Custom\Services\MultiLanguage\SystemLanguages;
 
 /**
  * using tarnslator as service in zend service manager
@@ -30,41 +30,43 @@ class FactoryServiceTranslator  implements FactoryInterface{
         $translator = $event->getApplication()
                             ->getServiceManager()
                             ->get('translator');
+        $event->getApplication()
+                            ->getServiceManager()
+                            ->setService('test', $this);
         
-        $systemLanguageCodes = systemLanguages::getSystemLanguageCodes();
+        $systemLanguageCodes = SystemLanguages::getSystemLanguageCodes();
 
         if(in_array($lang, $systemLanguageCodes)) {
             switch ($lang) {
-                case systemLanguages::ENG : 
-                    $translator->setLocale(systemLanguages::ENG_LOCALE);
+                case SystemLanguages::ENG : 
+                    $translator->setLocale(SystemLanguages::ENG_LOCALE);
                     break;
-                case systemLanguages::AR : 
-                    $translator->setLocale(systemLanguages::AR_LOCALE);
+                case SystemLanguages::AR : 
+                    $translator->setLocale(SystemLanguages::AR_LOCALE);
                     break;
-                case systemLanguages::DE : 
-                    $translator->setLocale(systemLanguages::DE_LOCALE);
+                case SystemLanguages::DE : 
+                    $translator->setLocale(SystemLanguages::DE_LOCALE);
                     break;
-                case systemLanguages::RU : 
-                    $translator->setLocale(systemLanguages::RU_LOCALE);
+                case SystemLanguages::RU : 
+                    $translator->setLocale(SystemLanguages::RU_LOCALE);
                     break;
-                case systemLanguages::TR : 
-                    $translator->setLocale(systemLanguages::TR_LOCALE);
+                case SystemLanguages::TR : 
+                    $translator->setLocale(SystemLanguages::TR_LOCALE);
                     break;
-                case systemLanguages::FA : 
-                    $translator->setLocale(systemLanguages::FA_LOCALE);
+                case SystemLanguages::FA : 
+                    $translator->setLocale(SystemLanguages::FA_LOCALE);
                     break;
-                case systemLanguages::ZH : 
-                    $translator->setLocale(systemLanguages::ZH_LOCALE); 
+                case SystemLanguages::ZH : 
+                    $translator->setLocale(SystemLanguages::ZH_LOCALE); 
                     break;
                 default:
-                    $translator->setLocale(systemLanguages::TR_LOCALE);
+                    $translator->setLocale(SystemLanguages::TR_LOCALE);
             }
-            
+                
         } else {
             $translator->setLocale('tr_TR');
         }
-
-        return false;
+        return $lang;
 
     }
 
