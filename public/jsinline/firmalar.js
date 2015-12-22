@@ -9,8 +9,9 @@ $(document).ready(function () {
         url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
-            url: 'fillComboBox_syscountrys'
-            
+            url: 'fillComboBox_syscountrys',
+            language_id: 647
+
         },
         method: "GET",
         dataType: "json",
@@ -50,11 +51,8 @@ $(document).ready(function () {
         data: {
             parent: 0,
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
-            url: 'getLeftMenu_leftnavigation'
-                    /*
-                     * clicked object id is being added to the query
-                     * to get the related object submenu
-                     */
+            url: 'getLeftMenu_leftnavigation',
+            language_id: 647
         },
         method: "GET",
         async: false,
@@ -134,6 +132,51 @@ $(document).ready(function () {
         }
         );
     });
+
+    $(function () {
+
+        var currentpath = window.location.pathname;
+        var pathArray = window.location.pathname.split( '/' );        
+        console.log('request path array is: ' + pathArray);
+        
+//        currentpath = currentpath.replace(/\/$/, "");
+//        currentpath = decodeURIComponent(currentpath);
+//        currentpath = 'http://www.sanalfabrika.bahram.com:9990' + currentpath;
+
+//        console.log(currentpath);
+
+        $.ajax({
+            url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+            data: {
+                pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
+                url: 'getLeftMenuFull_leftnavigation',
+                language_id: 647
+            },
+            method: "GET",
+            async: false,
+            dataType: "json",
+            success: function (data) {
+//                console.log(data);
+                var i;
+                if (data[i] === null) {
+                    console.log('it is empty');
+                } else {
+                    for (i = 0; i < data.length; i++) {
+                        if (currentpath === data[i].uri) {
+                            console(data[i].id, data[i].menu_name, data[i].url);                            
+
+                        } else {
+//                            console.log(data[i].id);
+//                            console.log(data[i].menu_name);
+//                            console.log(currentpath);
+//                            console.log(data[i].url);
+//                            console.log('empty' + data[i].menu_name , data[i].url);
+                        }
+                    }
+                }
+            }
+        });
+    });
 });
 
 $("select#country1").on('change', function () {
@@ -150,7 +193,8 @@ $("select#country1").on('change', function () {
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_syscity',
-            country_id: selectedCountry1Id
+            country_id: selectedCountry1Id,
+            language_id: 647
         },
         method: "GET",
         dataType: "json",
@@ -193,9 +237,9 @@ $("select#country2").on('change', function () {
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_syscity',
-            country_id: selectedCountry2Id
+            country_id: selectedCountry2Id,
+            language_id: 647
         },
-        
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -220,5 +264,7 @@ $("select#country2").on('change', function () {
         }
     });
 });
+
+
 
 
