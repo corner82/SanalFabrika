@@ -1,24 +1,19 @@
 <?php
 
- namespace Kayitlar\Controller;
+ namespace Kullanicilar\Controller;
 
  use Zend\Mvc\Controller\AbstractActionController;
  use Zend\View\Model\ViewModel;
  use Zend\Session\Container;
 
- class KayitlarController  extends AbstractActionController
+ class KullanicilarController  extends AbstractActionController
  {
-     public function firmaKayitlari()
-     {
-         
-     }
-     
      public function kullaniciKayitlari()
      {
          
      }
      
-     public function randevuKayitlari()
+     public function kullaniciGoruntuleme()
      {
          
      }
