@@ -18,10 +18,16 @@ return array(
        'Login' => 'layout/login.phtml',
        'SFDM' => 'layout/sfdm.phtml',
        'Sanalfabrika' => 'layout/sanalfabrika.phtml',
+       'Kayitlar' => 'layout/kayitlar.phtml',
    ),
     'action_layouts' => array(
-       'SFDM' => array('users' => 'layout/usersLayout.phtml',
-                       'firmalar' => 'layout/firmalarLayout.phtml',
+        'SFDM' => array(
+            'users' => 'layout/usersLayout.phtml',
+            'firmalar' => 'layout/firmalarLayout.phtml',
+                        ),
+        'Kayitlar' => array(
+            'kullaniciKayitlari' => 'layout/kullaniciKayitlariLayout.phtml',
+            'firmaKayitlari' => 'layout/firmaKayitlariLayout.phtml',
                         ),
    )
     ,
@@ -63,6 +69,7 @@ return array(
     'ControlorsTobeAuthenticated' => array(
         'Admin',
         'SFDM',
+        'Kayitlar',
 
     )
 );

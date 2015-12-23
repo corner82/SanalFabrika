@@ -12,7 +12,8 @@ return array(
         'Admin',
         'Login',
         'SFDM',
-        'SanalFabrika'
+        'SanalFabrika',
+        'Kayitlar'
     ),
     
     // These are various options for the listeners attached to the ModuleManager

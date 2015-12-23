@@ -3,8 +3,8 @@ $(document).ready(function () {
 //    console.error("document ready adminIndex.js");
 
     $.ajax({
-        url: 'https://sanalfabrika.proxy.com/SlimProxyBoot.php',
-//        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
             parent: 0,
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',

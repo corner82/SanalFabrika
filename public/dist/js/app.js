@@ -442,7 +442,7 @@ function _init() {
     $.AdminLTE.dynamicTree = function (clickedObject) {
 
 //        console.log(clickedObject);
-//        var currentpath = 'http://www.sanalfabrika.bahram.com:9990' + window.location.pathname;
+//        var currentpath = 'https://www.bahram.sanalfabrika.com' + window.location.pathname;
         var pathArray = window.location.pathname.split('/');
         
         
@@ -490,8 +490,8 @@ function _init() {
                     console.log('here3');
                     //checks if service has been called before or not...
                     $.ajax({
-                        url: 'https://sanalfabrika.proxy.com/SlimProxyBoot.php',
-//                        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//                        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
                         data: {
                             parent: clickedObject_query_id,
                             url: 'getLeftMenu_leftnavigation',
