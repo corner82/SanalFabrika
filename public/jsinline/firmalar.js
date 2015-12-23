@@ -7,7 +7,8 @@ $(document).ready(function () {
     
 
     $.ajax({
-        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        url: 'https://sanalfabrika.proxy.com/SlimProxyBoot.php',
+//        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_syscountrys',
@@ -48,7 +49,8 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        url: 'https://sanalfabrika.proxy.com/SlimProxyBoot.php',
+//        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
         data: {
             parent: 0,
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
@@ -147,7 +149,8 @@ $(document).ready(function () {
 //        console.log(currentpath);
 
         $.ajax({
-            url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+            url: 'https://sanalfabrika.proxy.com/SlimProxyBoot.php',
+//            url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
             data: {
                 pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
                 url: 'getLeftMenuFull_leftnavigation',
@@ -190,7 +193,8 @@ $("select#country1").on('change', function () {
     $("#city1").empty();
 
     $.ajax({
-        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        url: 'https://sanalfabrika.proxy.com/SlimProxyBoot.php',
+//        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_syscity',
@@ -234,7 +238,8 @@ $("select#country2").on('change', function () {
     $("#city2").empty();
 
     $.ajax({
-        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        url: 'https://sanalfabrika.proxy.com/SlimProxyBoot.php',
+//        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_syscity',
