@@ -9,7 +9,7 @@
       // The following section is new and should be added to your file
      'router' => array(
          'routes' => array(
-             'sfdm' => array(
+             'katitlar' => array(
                  'type'    => 'segment',
                  'options' => array(
                      'route'    => '/kayitlar[/:lang][/:action][/:id]',
