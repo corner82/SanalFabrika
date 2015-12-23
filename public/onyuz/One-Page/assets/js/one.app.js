@@ -135,3 +135,31 @@ var App = function() {
   };
 
 }();
+
+// multilanguage bar setter
+(function($) {
+           $.fn.multiLanguageBarSetter = function(data, options) {
+                var data = data;
+                $this = $(this);
+                var requestUriTranslated = $("#requestUriRegulated").val();
+                var langCode = $("#langCode").val();
+                $.each(data, function(index, element) {
+                    var requestUriTranslatedLocal = requestUriTranslated;
+                    requestUriTranslatedLocal = requestUriTranslatedLocal.replace("--dil--", element.language_main_code);
+                    if(langCode == element.language_main_code) {
+                        $this.append('<li class="active" ><a href="'+requestUriTranslatedLocal+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
+                    } else {
+                        $this.append('<li><a href="'+requestUriTranslatedLocal+'" >'+element.language+' </a></li>');
+                    }
+                    
+                });
+                
+                //console.error(data);
+                //var opts = $.extend({}, $.fn.multiLanguageBarSetter.defaults, options);
+            };
+            /*$.fn.multiLanguageBarSetter.defaults = {
+                class : 'test',
+                background: 'yellow'
+              };*/
+        }(jQuery));
+        
