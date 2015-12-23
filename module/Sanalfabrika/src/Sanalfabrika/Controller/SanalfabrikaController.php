@@ -8,9 +8,18 @@
 
  class SanalfabrikaController extends AbstractActionController
  {
-     public function indexAction()
+     public function indexAction()  
      {
+        $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
          
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
      }
 
      public function addAction()
