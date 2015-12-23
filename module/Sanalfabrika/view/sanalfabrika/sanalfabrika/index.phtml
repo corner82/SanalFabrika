@@ -3,6 +3,9 @@ The #page-top ID is part of the scrolling feature.
 The data-spy and data-target are part of the built-in Bootstrap scrollspy function.
 -->
 
+
+<input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
+<input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <!--=== Style Switcher ===-->    
 <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
 <div class="style-switcher animated fadeInRight">
@@ -78,12 +81,12 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <i class="fa fa-globe"></i>
                         <a>Languages</a>
                         <ul class="languages hoverSelectorBlock">
-                            <li class="active">
+                            <!--<li class="active">
                                 <a href="#">English <i class="fa fa-check"></i></a> 
                             </li>
                             <li><a href="#">Spanish</a></li>
                             <li><a href="#">Russian</a></li>
-                            <li><a href="#">German</a></li>
+                            <li><a href="#">German</a></li>-->
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
@@ -166,6 +169,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             data-easing="Back.easeInOut"
                             data-endspeed="300">
                             Ostim Sanal Fabrika Ofisi
+                            <?php echo $this->uri ?>
                         </div>
 
                         <!-- LAYER -->
@@ -874,3 +878,5 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
         </div>
     </section>
     <!-- End Contact Section -->
+    
+    
