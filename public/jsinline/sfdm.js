@@ -18,7 +18,7 @@ $(document).ready(function () {
     $.ajax({
         //url: '../slim_2/index.php/columnflows_json_test',
         //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySector',
-        url: 'http://slim.localhost.com:90/tezgah.php/getMachineryBySector',
+        url: 'https://slim.localhost.com/tezgah.php/getMachineryBySector',
         //data: { url:'totalAnket'  },
         type: 'GET',
         dataType: 'json',
@@ -51,7 +51,7 @@ $(document).ready(function () {
     $.ajax({
         //url: '../slim_2/index.php/columnflows_json_test',
         //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryByResources',
-        url: 'http://slim.localhost.com:90/tezgah.php/getMachineryByResources',
+        url: 'https://slim.localhost.com/tezgah.php/getMachineryByResources',
         //data: { url:'totalAnket'  },
         type: 'GET',
         dataType: 'json',
@@ -133,7 +133,7 @@ $(document).ready(function () {
     $.ajax({
         //url: '../slim_2/index.php/columnflows_json_test',
         //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySectorByEmployees',
-        url: 'http://slim.localhost.com:90/tezgah.php/getMachineryBySectorByEmployees',
+        url: 'https://slim.localhost.com/tezgah.php/getMachineryBySectorByEmployees',
         //data: { url:'totalAnket'  },
         type: 'GET',
         dataType: 'json',
@@ -335,7 +335,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        //url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
         data: {
             parent: 0,
             pk : '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
