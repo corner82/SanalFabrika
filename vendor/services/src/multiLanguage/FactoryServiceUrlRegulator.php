@@ -11,15 +11,25 @@ namespace Custom\Services\MultiLanguage;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Custom\Services\MultiLanguage\SystemLanguages;
 
 class FactoryServiceUrlRegulator implements FactoryInterface{
     
     public function createService(ServiceLocatorInterface $serviceLocator){
-        $lang = $event->getApplication()
-                            ->getServiceManager()
-                            ->get('translatorService');
+        $lang = $serviceLocator->get('serviceTranslator');
         
-        return $lang;
+        $requestUri = $_SERVER['REQUEST_URI'];
+        $patterns = array('/\/'.SystemLanguages::ENG.'/',
+                          '/\/'.SystemLanguages::AR.'/',
+                          '/\/'.SystemLanguages::DE.'/',
+                          '/\/'.SystemLanguages::FA.'/',
+                          '/\/'.SystemLanguages::RU.'/',
+                          '/\/'.SystemLanguages::TR.'/',
+                          '/\/'.SystemLanguages::ZH.'/');
+        
+        $requestUri = preg_replace($patterns, '/--dil--', $requestUri);  
+        print_r('-- değiştirilen request uri-->'.$requestUri);
+        return $requestUri;
     }
 }
 
