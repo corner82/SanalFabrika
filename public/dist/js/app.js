@@ -481,13 +481,10 @@ function _init() {
             var obj = document.getElementById(clickedObject.id);
             var href = $(obj).find("a").attr("href");
 //            console.log(href);
-            console.log('here1');
 
             if (!$(treeview_id_ref).hasClass('menu-open')) {
-                console.log('here2');
                 //checks if the menu is open or not...
                 if (!$(treeview_id_ref).hasClass('treeview-menu')) {
-                    console.log('here3');
                     //checks if service has been called before or not...
                     $.ajax({
                         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -508,13 +505,11 @@ function _init() {
                         success: function (data2) {
 
                             if (data2.length === 0) {
-                                console.log('here4');
                                 /*
                                  * checks if there are any submenu...
                                  * eliminates null responds
                                  */
                             } else {
-                                console.log('here5');
                                 var len = data2.length;
                                 var j = 0;
 
@@ -528,8 +523,6 @@ function _init() {
                                 for (j; j < len; j++) {
 
                                     if (data2[j].collapse === 0) {
-                                        console.log('here6');
-
                                         /*
                                          * Checks if the new coming submenu
                                          * has any submenus or not;
@@ -565,7 +558,6 @@ function _init() {
                                          */
 
                                     } else {
-                                        console.log('here7');
 
                                         var appending_submenu_html = "<li class='treeview' id='menu_" +
                                                 data2[j].id + "'><a href='" +
@@ -586,15 +578,11 @@ function _init() {
                     });
                 }
 
-
-                console.log(' before 8 treeview_id_ref: ' + treeview_id_ref);
-
                 /*
                  * in this part it checks for opening and closing operations
                  * 
                  * @type @call;$@call;parents@call;first|@call;$@call;parents@call;first
                  */
-                console.log('here8');
 
                 var parent = $(treeview_id_ref).parents('ul').first();
                 // finds selected item's first ul parent
@@ -607,10 +595,7 @@ function _init() {
                 // finds selected item's first li parent
                 // first removes all menu-open classes to close all other items
 
-                console.log(' before 9 treeview_id_ref: ' + treeview_id_ref);
-
                 $(treeview_id_ref).slideDown('normal', function () {
-                    console.log('here9');
                     // opens selected item
                     $(treeview_id_ref).addClass('menu-open');
                     // changes its class to open
@@ -621,18 +606,15 @@ function _init() {
                     _this.layout.fix();
                     // fix new menu layout
                 });
-                console.log('here10');
                 event.stopPropagation();
                 // stop propagation of event to prevent teh reselection of
                 // direct parent(s)
 
             } else {
-                console.log('here11');
 //                parent_li.removeClass('active');
                 // remove all active tags
 
                 $(treeview_id_ref).slideUp('normal', function () {
-                    console.log('here12');
                     // close open items
                     $(treeview_id_ref).parent("li").removeClass("active");
                     // remove direct open li parents active tag
@@ -644,15 +626,10 @@ function _init() {
                     // fix new menu layout
 
                 });
-                console.log('here13');
                 event.stopPropagation();
 //                event.preventDefault();
             }
         }
-        console.log('here14');
-
-
-        console.log('end treeview_id_ref: ' + treeview_id_ref);
 
         if ($(treeview_id_ref).is('.treeview-menu')) {
             event.preventDefault();
