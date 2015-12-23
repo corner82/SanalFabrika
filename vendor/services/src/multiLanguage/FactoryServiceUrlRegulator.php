@@ -28,7 +28,7 @@ class FactoryServiceUrlRegulator implements FactoryInterface{
                           '/\/'.SystemLanguages::ZH.'/');
         
         $requestUri = preg_replace($patterns, '/--dil--', $requestUri);  
-        print_r('-- değiştirilen request uri-->'.$requestUri);
+        //print_r('-- değiştirilen request uri-->'.$requestUri);
         return $requestUri;
     }
 }
