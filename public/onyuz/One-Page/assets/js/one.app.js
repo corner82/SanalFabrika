@@ -192,7 +192,12 @@ var App = function() {
       * @since 24/12/2015
       */
      $.fn.multiLanguageBarSetter.setLanguageLinkBase = function (data) {
-         var data = data;  
+         var data = data; 
+         var uriSlasher = '/';
+         if($.fn.multiLanguageBarSetter.defaults.requestUriTranslated.match(/\/$/)) {
+             //console.warn('--/ karakteri ile bitiyor-->'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated);
+             uriSlasher = '';
+         }
          $.each(data, function(index, element) {
              if($.fn.multiLanguageBarSetter.defaults.requestUriTranslated == '/') {  
                  if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
@@ -202,9 +207,9 @@ var App = function() {
                  }
              } else {
                  if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
-                 $this.append('<li class="active" ><a href="'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
+                 $this.append('<li class="active" ><a href="'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+''+uriSlasher+''+element.language_main_code+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
                  } else {
-                     $this.append('<li><a href="'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+'/'+element.language_main_code+'" >'+element.language+' </a></li>');
+                     $this.append('<li><a href="'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+''+uriSlasher+''+element.language_main_code+'" >'+element.language+' </a></li>');
                  }
              }   
 
