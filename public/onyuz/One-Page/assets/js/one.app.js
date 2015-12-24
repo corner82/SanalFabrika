@@ -152,11 +152,11 @@ var App = function() {
          //console.warn($.fn.multiLanguageBarSetter.defaults.langCode);
          //console.warn($.fn.multiLanguageBarSetter.defaults.requestUriTranslated);
          if ($.fn.multiLanguageBarSetter.defaults.requestUriTranslated.toLowerCase().indexOf("--dil--") >= 0) {
-             //console.warn('--dil-- bulundu');
+             console.warn('--dil-- bulundu');
              $.fn.multiLanguageBarSetter.setLanguageLinkByLangCode(data);
 
          } else {
-             //console.warn('--dil-- bulunamadı'); 
+             console.warn('--dil-- bulunamadı'); 
              $.fn.multiLanguageBarSetter.setLanguageLinkBase(data);
          }  
 
@@ -202,9 +202,9 @@ var App = function() {
                  }
              } else {
                  if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
-                 $this.append('<li class="active" ><a href="'+requestUriTranslated+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
+                 $this.append('<li class="active" ><a href="'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
                  } else {
-                     $this.append('<li><a href="'+requestUriTranslated+'/'+element.language_main_code+'" >'+element.language+' </a></li>');
+                     $this.append('<li><a href="'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+'/'+element.language_main_code+'" >'+element.language+' </a></li>');
                  }
              }   
 
