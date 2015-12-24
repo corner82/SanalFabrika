@@ -24,7 +24,7 @@ class FactoryServiceUrlRegulator implements FactoryInterface{
         $lang = $serviceLocator->get('serviceTranslator');
         
         $requestUri = $_SERVER['REQUEST_URI'];
-        //print_r('--request uri-->'.$requestUri);
+        print_r('--request uri-->'.$requestUri);
         if($requestUri!='/' || $requestUri!=null) {
             $patterns = array('/\/'.SystemLanguages::ENG.'/',
                           '/\/'.SystemLanguages::AR.'/',
@@ -32,12 +32,13 @@ class FactoryServiceUrlRegulator implements FactoryInterface{
                           '/\/'.SystemLanguages::FA.'/',
                           '/\/'.SystemLanguages::RU.'/',
                           '/\/'.SystemLanguages::TR.'/',
-                          '/\/'.SystemLanguages::ZH.'/');
+                          '/\/'.SystemLanguages::ZH.'/',
+                          /*'/\/([a-z]{2})\//',*/);
         
             $requestUri = preg_replace($patterns, '/--dil--', $requestUri); 
         }
          
-        //print_r('-- değiştirilen request uri-->'.$requestUri);
+        print_r('-- değiştirilen request uri-->'.$requestUri);
         return $requestUri;
     }
 }
