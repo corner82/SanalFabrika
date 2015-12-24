@@ -90,17 +90,25 @@ msgstr "Dosyalarım"
 msgid "Notifications"
 msgstr "Uyarı"
 
+#: ../view/layout/sfdm.phtml:20
+msgid "Show all notifications"
+msgstr "Bütün Uyarıları Göster"
+
 #: ../view/layout/sfdm.phtml:19
 msgid "New Messages"
 msgstr "Yeni Mesaj"
 
 #: ../view/layout/sfdm.phtml:19
-msgid "Show All Messages"
+msgid "Show all messages"
 msgstr "Tüm Mesajları Gör"
 
 #: ../view/layout/sfdm.phtml:20
 msgid "Works To Do"
 msgstr "Görevlendirme"
+
+#: ../view/layout/sfdm.phtml:20
+msgid "Show all tasks"
+msgstr "Bütün Görevleri Göster"
 
 #: ../view/layout/sfdm.phtml:21
 msgid "Collaborating Companies"

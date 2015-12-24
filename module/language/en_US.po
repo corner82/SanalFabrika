@@ -85,16 +85,24 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
+#: ../view/layout/sfdm.phtml:18
+msgid "Show all notifications"
+msgstr ""
+
 #: ../view/layout/sfdm.phtml:19
 msgid "New Messages"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:19
-msgid "Show All Messages"
+#: ../view/layout/sfdm.phtml:18
+msgid "Show all messages"
 msgstr ""
 
 #: ../view/layout/sfdm.phtml:20
 msgid "Works To Do"
+msgstr ""
+
+#: ../view/layout/sfdm.phtml:20
+msgid "Show all tasks"
 msgstr ""
 
 #: ../view/layout/sfdm.phtml:21
@@ -206,7 +214,7 @@ msgid "Black Light"
 msgstr ""
 
 #: ../view/layout/sfdm.phtml:48
-msgid "Purple Lightt"
+msgid "Purple Light"
 msgstr ""
 
 #: ../view/layout/sfdm.phtml:49
@@ -223,10 +231,6 @@ msgstr ""
 
 #: ../view/layout/sfdm.phtml:52
 msgid "Recent Activities"
-msgstr ""
-
-#: ../view/layout/sfdm.phtml:53
-msgid "Recent Activity"
 msgstr ""
 
 #: ../view/layout/sfdm.phtml:54
@@ -279,6 +283,10 @@ msgstr ""
 
 #: ../view/layout/layout.phtml:66
 msgid "All rights reserved."
+msgstr ""
+
+#: ../view/layout/layout.phtml:66
+msgid "Copyright"
 msgstr ""
 
 #: ../view/layout/layout.phtml:67

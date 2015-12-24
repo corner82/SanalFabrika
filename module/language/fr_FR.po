@@ -85,17 +85,25 @@ msgstr "Mes Documents"
 msgid "Notifications"
 msgstr "Notification"
 
+#: ../view/layout/sfdm.phtml:18
+msgid "Show all notifications"
+msgstr "Montrer toutes les notifications"
+
 #: ../view/layout/sfdm.phtml:19
 msgid "New Messages"
 msgstr "Nouveaux messages"
 
 #: ../view/layout/sfdm.phtml:19
-msgid "Show All Messages"
-msgstr "Afficher tous les messages"
+msgid "Show all messages"
+msgstr "Montrer tous les messages"
 
 #: ../view/layout/sfdm.phtml:20
 msgid "Works To Do"
 msgstr "Tâches en attente"
+
+#: ../view/layout/sfdm.phtml:19
+msgid "Show all tasks"
+msgstr "Montrer tous les tâches"
 
 #: ../view/layout/sfdm.phtml:21
 msgid "Collaborating Companies"
@@ -277,6 +285,10 @@ msgstr "Supprimer l'historique du chat"
 #: ../view/layout/layout.phtml:66
 msgid "All rights reserved."
 msgstr "Tous droits réservés."
+
+#: ../view/layout/layout.phtml:66
+msgid "Copyright"
+msgstr "Droit d'auteur"
 
 #: ../view/layout/layout.phtml:67
 msgid "Version"

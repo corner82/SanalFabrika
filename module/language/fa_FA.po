@@ -91,16 +91,24 @@ msgid "Notifications"
 msgstr "اطلاع رسانی"
 
 #: ../view/layout/sfdm.phtml:19
+msgid "Show all notifications"
+msgstr "مشاهده تمام اخطارها"
+
+#: ../view/layout/sfdm.phtml:19
 msgid "New Messages"
 msgstr "پیام جدید"
 
 #: ../view/layout/sfdm.phtml:19
-msgid "Show All Messages"
+msgid "Show all messages"
 msgstr "مشاهده تمام پیامها"
 
 #: ../view/layout/sfdm.phtml:20
 msgid "Works To Do"
 msgstr "لیست تکالیف"
+
+#: ../view/layout/sfdm.phtml:19
+msgid "Show all tasks"
+msgstr "مشاهده تمام تکالیف"
 
 #: ../view/layout/sfdm.phtml:21
 msgid "Collaborating Companies"
@@ -360,6 +368,7 @@ msgstr "در اینجا حل میشود: %s"
 #: ../view/error/404.phtml:51
 msgid "Exception"
 msgstr "استثنا"
+
 
 
 
