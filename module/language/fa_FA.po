@@ -17,54 +17,54 @@ msgstr ""
 
 #: ../view/layout/sfdm.phtml:1
 msgid "Virtual Enterprise Project"
-msgstr "Sanal Fabrika Projesi"
+msgstr "پروژه شرکت مجازی"
 
 #: ../view/layout/sfdm.phtml:2
 msgid "Virtual Enterprise Control Panel"
-msgstr "Sanal Fabrika Denetim Masası"
+msgstr "صفحه کنترل"
 
 #: ../view/layout/sfdm.phtml:3
 msgid "OSTIM"
-msgstr "OSTİM"
+msgstr "اوستیم"
 
 #: ../view/layout/sfdm.phtml:3
 msgid "OSTIM Technology A.Ş."
-msgstr "OSTİM Teknoloji A.Ş."
+msgstr " اوستیم تکنولوژی"
 
 #: ../view/layout/sfdm.phtml:4
 #: ../view/layout/sfdm.phtml:11
 msgid "Virtual Enterprise"
-msgstr "Sanal Fabrika"
+msgstr "شرکت مجازی"
 
 #: ../view/layout/sfdm.phtml:4
 #: ../view/layout/sfdm.phtml:11
 msgid "V.E."
-msgstr "S.F."
+msgstr ".ش.م"
 
 #: ../view/layout/sfdm.phtml:5
 msgid "Active"
-msgstr "Aktif"
+msgstr "فعال"
 
 #: ../view/layout/sfdm.phtml:6
 msgid "Main Navigation"
-msgstr "Ana Menü"
+msgstr "منوی اصلی"
 
 #: ../view/layout/sfdm.phtml:7
 #: ../view/layout/sfdm.phtml:17
 msgid "Home"
-msgstr "Anasayfa"
+msgstr "خانه"
 
 #: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
-msgstr "Firmalar"
+msgstr "شرکتها"
 
 #: ../view/layout/sfdm.phtml:9
 msgid "Users"
-msgstr "Kullanıcılar"
+msgstr "کاربران"
 
 #: ../view/layout/sfdm.phtml:10
 msgid "Organizations"
-msgstr "Kurumlar"
+msgstr "سازمانها"
 
 #: ../view/layout/sfdm.phtml:12
 msgid "ECO-OSTIM"
@@ -72,223 +72,223 @@ msgstr "EKO-OSTİM"
 
 #: ../view/layout/sfdm.phtml:13
 msgid "Definitions"
-msgstr "Tanımlamalar"
+msgstr "تعاریف"
 
 #: ../view/layout/sfdm.phtml:14
 msgid "Calendar"
-msgstr "Takvim"
+msgstr "تقویم"
 
 #: ../view/layout/sfdm.phtml:15
 msgid "Mail Box"
-msgstr "Posta Kutusu"
+msgstr "صندوق پست"
 
 #: ../view/layout/sfdm.phtml:16
 msgid "My Documents"
-msgstr "Dosyalarım"
+msgstr "مدارک"
 
 #: ../view/layout/sfdm.phtml:18
 msgid "Notifications"
-msgstr "Uyarı"
+msgstr "اطلاع رسانی"
 
 #: ../view/layout/sfdm.phtml:19
 msgid "New Messages"
-msgstr "Yeni Mesaj"
+msgstr "پیام جدید"
 
 #: ../view/layout/sfdm.phtml:19
 msgid "Show All Messages"
-msgstr "Tüm Mesajları Gör"
+msgstr "مشاهده تمام پیامها"
 
 #: ../view/layout/sfdm.phtml:20
 msgid "Works To Do"
-msgstr "Görevlendirme"
+msgstr "لیست تکالیف"
 
 #: ../view/layout/sfdm.phtml:21
 msgid "Collaborating Companies"
-msgstr "Çalıştığım Firmalar"
+msgstr "شرکتهای مرتبط"
 
 #: ../view/layout/sfdm.phtml:22
 msgid "Friends"
-msgstr "Arkadaşlarım"
+msgstr "دوستان"
 
 #: ../view/layout/sfdm.phtml:23
 msgid "Followers"
-msgstr "Takipçilerim"
+msgstr "تعقیب کنندگان"
 
 #: ../view/layout/sfdm.phtml:24
 msgid "Profile"
-msgstr "Profil"
+msgstr "نمایه"
 
 #: ../view/layout/sfdm.phtml:25
 msgid "Log out"
-msgstr "Çıkış Yap"
+msgstr "خروج"
 
 #: ../view/layout/sfdm.phtml:26
 msgid "Layout Options"
-msgstr "Sayfa Yerleşimi"
+msgstr "صفحه بندی"
 
 #: ../view/layout/sfdm.phtml:27
 msgid "Fixed layout"
-msgstr "Fiks Yerleşim Düzeni"
+msgstr "صفحه بندی ثابت"
 
 #: ../view/layout/sfdm.phtml:28
 msgid "Activate the fixed layout. You can't use fixed and boxed layouts together"
-msgstr "Fiks yerleşim düzenini aktive et. Kutu yerleşim düzeni ve fiks yerleşim düzenini birlikte kullanamazsınız"
+msgstr "صفحه بندی ثابت را فعال کنید. شما قادر به استفاده همزمان از صفحه بندیای ثابت و جعبه ای نمیباشید. "
 
 #: ../view/layout/sfdm.phtml:29
 msgid "Boxed Layout"
-msgstr "Kutu Yerleşim Düzeni"
+msgstr "صفحه بندی جعبه ای"
 
 #: ../view/layout/sfdm.phtml:30
 msgid "Activate the boxed layout"
-msgstr "Kutu yerleşim düzenini aktive et"
+msgstr "صفحه بندی جعبه ای را فعال کنید. "
 
 #: ../view/layout/sfdm.phtml:31
 msgid "Toggle Sidebar"
-msgstr "Sol Menü Bar'ın Durumunu Değiştir"
+msgstr "موقعیت منوی سمت چپ را عوض کنید"
 
 #: ../view/layout/sfdm.phtml:32
 msgid "Toggle the left sidebar's state (open or collapse)"
-msgstr "Sol menü bar durumunu değiştir (açık veya kapalı)"
+msgstr "موقعیت منوی سمت چپ را عوض کنید (باز ویا بسته)"
 
 #: ../view/layout/sfdm.phtml:33
 msgid "Sidebar Expand on Hover"
-msgstr "Sol Menü Bar Üzerine Gelindiğinde Açılsın"
+msgstr "به هنگام حرکت به سمت منو باز شود "
 
 #: ../view/layout/sfdm.phtml:34
 msgid "Let the sidebar mini expand on hover"
-msgstr "Sol menü bar üzerine fare ile gelindiğinde otomatik olarak açılsın"
+msgstr "به هنگام حرکت به سمت منوی چپ بسته  به صورت خودکار  باز شود"
 
 #: ../view/layout/sfdm.phtml:35
 msgid "Toggle Right Sidebar Slide"
-msgstr "Sağ Bar'ı Kaydır"
+msgstr "فعال سازی منوی سمت راست"
 
 #: ../view/layout/sfdm.phtml:36
 msgid "Toggle between slide over content and push content effects"
-msgstr "Sağ bar'ı kaydırarak kapatma veya açma özelliğini çalıştır"
+msgstr "با فعالسازی منوی سمت راست انرا باز کنید ویا ببندید"
 
 #: ../view/layout/sfdm.phtml:37
 msgid "Toggle Right Sidebar Skin"
-msgstr "Sağ Bar Şablonunu Değiştir"
+msgstr "شابلون منوی سمت راست"
 
 #: ../view/layout/sfdm.phtml:38
 msgid "Toggle between dark and light skins for the right sidebar"
-msgstr "Sağ bar için koyu veya açık şablonları çalıştır"
+msgstr "برای منوی سمت راست شابلونهای تیره ویا رنگ روشن را فعال کنید"
 
 #: ../view/layout/sfdm.phtml:39
 msgid "Skins"
-msgstr "Sayfa Şablonları"
+msgstr "شابلونها"
 
 #: ../view/layout/sfdm.phtml:40
 msgid "Blue"
-msgstr "Mavi"
+msgstr "آبی"
 
 #: ../view/layout/sfdm.phtml:41
 msgid "Black"
-msgstr "Siyah"
+msgstr "سیاه"
 
 #: ../view/layout/sfdm.phtml:42
 msgid "Purple"
-msgstr "Mor"
+msgstr "بنفش"
 
 #: ../view/layout/sfdm.phtml:43
 msgid "Green"
-msgstr "Yeşil"
+msgstr "سبز"
 
 #: ../view/layout/sfdm.phtml:44
 msgid "Red"
-msgstr "Kırmızı"
+msgstr "قرمز"
 
 #: ../view/layout/sfdm.phtml:45
 msgid "Yellow"
-msgstr "Sarı"
+msgstr "زرد"
 
 #: ../view/layout/sfdm.phtml:46
 msgid "Blue Light"
-msgstr "Açık Mavi"
+msgstr "آبی کمرنگ"
 
 #: ../view/layout/sfdm.phtml:47
 msgid "Black Light"
-msgstr "Açık Siyah"
+msgstr "خاکستری"
 
 #: ../view/layout/sfdm.phtml:48
 msgid "Purple Light"
-msgstr "Açık Pembe"
+msgstr "صورتی کمرنگ"
 
 #: ../view/layout/sfdm.phtml:49
 msgid "Green Light"
-msgstr "Açık Yeşil"
+msgstr "سبز کمرنگ"
 
 #: ../view/layout/sfdm.phtml:50
 msgid "Red Light"
-msgstr "Açık Kırmızı"
+msgstr "قرمز کمرنگ"
 
 #: ../view/layout/sfdm.phtml:51
 msgid "Yellow Light"
-msgstr "Açık Sarı"
+msgstr "زرد کمرنگ"
 
 #: ../view/layout/sfdm.phtml:52
 msgid "Recent Activities"
-msgstr "Son Aktiviteler"
+msgstr "آخرین فعالیتها"
 
 #: ../view/layout/sfdm.phtml:54
 msgid "Tasks Progress"
-msgstr "Takip Edilen İşler"
+msgstr "لیست کارها"
 
 #: ../view/layout/sfdm.phtml:55
 msgid "General Settings"
-msgstr "Temel Ayarlar"
+msgstr "تنظیمات عمومی"
 
 #: ../view/layout/sfdm.phtml:56
 msgid "Report panel usage"
-msgstr "Rapor Paneli Kullanımı"
+msgstr "استفاده از پانل گزارش"
 
 #: ../view/layout/sfdm.phtml:57
 msgid "Some information about this general settings option"
-msgstr "Rapor Paneli kullanımı için yetkilendirme kıstası olacaktır"
+msgstr "برخی اطلاعات جهت استفاده از پانل گزارش"
 
 #: ../view/layout/sfdm.phtml:58
 msgid "Allow mail redirect"
-msgstr "Firma Güncelleme Yetkisi"
+msgstr "تغییر مسیر پست"
 
 #: ../view/layout/sfdm.phtml:59
 msgid "Other sets of options are available"
-msgstr "Diğer seçenekler setleri mevcuttur"
+msgstr "سایر تنظیمات"
 
 #: ../view/layout/sfdm.phtml:60
 msgid "Expose author name in posts"
-msgstr "Yazarın ismini iletilerde göster"
+msgstr "مشاهده نام فرستنده پیام"
 
 #: ../view/layout/sfdm.phtml:61
 msgid "Allow the user to show his name in blog posts"
-msgstr "Kullanıcıya isminin bloglarda gösterilmesi için izin ver"
+msgstr "مشاهده نام کاربران در پیامهای ارسالی در وبلاگ"
 
 #: ../view/layout/sfdm.phtml:62
 msgid "Chat Settings"
-msgstr "Anlık Mesajlajma Özellikleri"
+msgstr "تنظیمات گپ"
 
 #: ../view/layout/sfdm.phtml:63
 msgid "Show me as online"
-msgstr "Sistemde göster"
+msgstr "مشاهده آنلاین"
 
 #: ../view/layout/sfdm.phtml:64
 msgid "Turn off notifications"
-msgstr "Bilgilendirmeleri kapat"
+msgstr "خاموش کردن اطلاع رسانی"
 
 #: ../view/layout/sfdm.phtml:65
 msgid "Delete chat history"
-msgstr "Anlık mesajlajma geçmişini sil"
+msgstr "پاک کردن پیشینه گپ"
 
 #: ../view/layout/layout.phtml:66
 msgid "All rights reserved."
-msgstr "Tüm haklar saklıdır."
+msgstr "تمام حقوق محفوظ میباشد"
 
 #: ../view/layout/layout.phtml:66
 msgid "Copyright"
-msgstr "Telif Hakkı"
+msgstr "حق تالیف"
 
 #: ../view/layout/layout.phtml:67
 msgid "Version"
-msgstr "Sürüm"
+msgstr "نسخه"
 
 #: ../view/layout/layout.phtml:
 msgid ""
@@ -301,65 +301,65 @@ msgstr ""
 #: ../view/application/index/index.phtml:2
 #, php-format
 msgid "Welcome to OSTIM Virtual Enterprise System"
-msgstr "OSTİM Sanal Fabrika Sistemine Hoş Geldiniz"
+msgstr "به سیستم شرکت مجازی OSTIM خوش آمدید "
 
 #: ../view/error/index.phtml:1
 msgid "An error occurred"
-msgstr "An error occurred"
+msgstr "یک خطا رخ داده "
 
 #: ../view/error/index.phtml:15 ../view/error/index.phtml:39
 msgid "Message"
-msgstr "Mesaj"
+msgstr "پیام"
 
 #: ../view/error/index.phtml:19 ../view/error/index.phtml:43
 #: ../view/error/404.phtml:55
 msgid "Stack trace"
-msgstr "Denetleyici"
+msgstr "ردیابی"
 
 #: ../view/error/index.phtml:29
 msgid "Previous exceptions"
-msgstr "Önceki istisnalar"
+msgstr "استثناهای قبلی"
 
 #: ../view/error/index.phtml:58
 msgid "No Exception available"
-msgstr "İstisna yok"
+msgstr "قاعده استثنا در دسترس نیست"
 
 #: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
-msgstr "Bir 404 hatası oluştu"
+msgstr "خطای 404"
 
 #: ../view/error/404.phtml:10
 msgid "The requested controller was unable to dispatch the request."
-msgstr "Talep edilen denetleyici işlemi işlemesi mümkün değildir."
+msgstr "قادر به پاسخگویی به درخواست شما نمیباشد"
 
 #: ../view/error/404.phtml:13
 msgid "The requested controller could not be mapped to an existing controller class."
-msgstr "Talep edilen denetleyiciye uygun denetleyici sınıfı tahsis edilemedi."
+msgstr "کنترلر مورد نیاز درخواست شما در دسترس نمیباشد"
 
 #: ../view/error/404.phtml:16
 msgid "The requested controller was not dispatchable."
-msgstr "Talep edilen denetleyici çağrılabilir değildir."
+msgstr "کنترلر مورد درخواست قابل ارسال نیست"
 
 #: ../view/error/404.phtml:19
 msgid "The requested URL could not be matched by routing."
-msgstr "İstenen URL yönlendirmede tahsis edilemedi"
+msgstr "آدرس درخواستی با مسیریاب همسان نمیباشد "
 
 #: ../view/error/404.phtml:22
 msgid "We cannot determine at this time why a 404 was generated."
-msgstr "Neden 404 hatasının oluştuğunu şu an belirleyemiyoruz."
+msgstr "علت خطای 404 در حال حاضر مشخص نمیباشد"
 
 #: ../view/error/404.phtml:34
 msgid "Controller"
-msgstr "Denetleyici"
+msgstr "کنترل کننده"
 
 #: ../view/error/404.phtml:41
 #, php-format
 msgid "resolves to %s"
-msgstr "Buraya çözümlenir: %s"
+msgstr "در اینجا حل میشود: %s"
 
 #: ../view/error/404.phtml:51
 msgid "Exception"
-msgstr "İstisna"
+msgstr "استثنا"
 
 
 

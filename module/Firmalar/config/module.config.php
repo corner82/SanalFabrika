@@ -12,7 +12,7 @@
              'firmalar' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/firmalar[/:lang][/:action][/:id]',
+                     'route'    => 'ostim/sanalfabrika/firmalar[/:lang][/:action][/:id]',
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
