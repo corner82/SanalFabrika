@@ -152,11 +152,11 @@ var App = function() {
          //console.warn($.fn.multiLanguageBarSetter.defaults.langCode);
          //console.warn($.fn.multiLanguageBarSetter.defaults.requestUriTranslated);
          if ($.fn.multiLanguageBarSetter.defaults.requestUriTranslated.toLowerCase().indexOf("--dil--") >= 0) {
-             console.warn('--dil-- bulundu');
+             //console.warn('--dil-- bulundu');
              $.fn.multiLanguageBarSetter.setLanguageLinkByLangCode(data);
 
          } else {
-             console.warn('--dil-- bulunamadı'); 
+             //console.warn('--dil-- bulunamadı'); 
              $.fn.multiLanguageBarSetter.setLanguageLinkBase(data);
          }  
 
