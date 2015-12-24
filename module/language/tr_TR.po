@@ -128,7 +128,11 @@ msgstr "Profil"
 
 #: ../view/layout/sfdm.phtml:25
 msgid "Log out"
-msgstr "Çıkış Yap"
+msgstr "Çıkış"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Log in"
+msgstr "Giriş"
 
 #: ../view/layout/sfdm.phtml:26
 msgid "Layout Options"
@@ -369,6 +373,130 @@ msgstr "Buraya çözümlenir: %s"
 msgid "Exception"
 msgstr "İstisna"
 
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Help"
+msgstr "Destek"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Frequently Asked Questions"
+msgstr "Sık Sorulan Sorular"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Languages"
+msgstr "Diller"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Learn more"
+msgstr "Bilgi Edinme"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Job"
+msgstr "İşimiz"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "VE Team"
+msgstr "SF Takımı"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Overall Manufacturing Area"
+msgstr "Toplam İmalat Alanı"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Machine Park Size"
+msgstr "Makina Parkı Büyüklüğü"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Overall Enterprise Number"
+msgstr "Toplam Firma Sayısı"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Employees"
+msgstr "Toplma Çalışan Sayısı"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Marketing and Consulting"
+msgstr "Satış ve Danışmanlık"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Organization"
+msgstr "Kurumumuz"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Imports"
+msgstr "İthalat"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Exports"
+msgstr "İhracat"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Employees"
+msgstr "Çalışanlarımız"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Services"
+msgstr "Servislerimiz"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Portfolio"
+msgstr "Portfolyomuz"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Load More"
+msgstr "Daha fazla yüklen"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Clients"
+msgstr "Müşterilerimiz"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Order"
+msgstr "Sipariş"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Request for Quote"
+msgstr "Teklif Alma"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Contact us"
+msgstr "Bize Ulaşın"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Name"
+msgstr "Ad"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Email"
+msgstr "E posta"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Send Message"
+msgstr "Mesaj Gönder"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Negotiation"
+msgstr "Müzayede"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Auction"
+msgstr "Açık Artırma"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Auctioning"
+msgstr "Açık Artırım"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Latest News"
+msgstr "Son Haberler"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
+msgstr "OSTİM'in 60,000'den fazla çalışanı ve 5,000'den fazla firmasının yetenekleri ve kapasitesini birleştirmektedir"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
+msgstr "OSTİM'i bir imalat üstü olarak dünyadaki bütün müşteri isteklerine açmaktadır"
 
 
 

@@ -122,6 +122,10 @@ msgid "Profile"
 msgstr "Профиль"
 
 #: ../view/layout/sfdm.phtml:25
+msgid "Log in"
+msgstr "Войдите в систему"
+
+#: ../view/layout/sfdm.phtml:25
 msgid "Log out"
 msgstr "Выход"
 
@@ -357,6 +361,129 @@ msgid "Exception"
 msgstr "За исключением"
 
 
+#: ../view/layout/sfdm.phtml:25
+msgid "Help"
+msgstr "Справка"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Frequently Asked Questions"
+msgstr "Часто задаваемые вопросы"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Languages"
+msgstr "Языки"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Learn more"
+msgstr "Узнайте больше"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Job"
+msgstr "Наша работа"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "VE Team"
+msgstr "В.П. Группа"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Overall Manufactuiring Area"
+msgstr "Производственные площади"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Machine Park Size"
+msgstr "Парковка машины размера"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Overall Enterprise Number"
+msgstr "Общее число предприятий"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Employees"
+msgstr "Сотрудники"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Marketing and Consulting"
+msgstr "Маркетинговые и консалтинговые"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Organization"
+msgstr "Наша Организация"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Imports"
+msgstr "Импорт"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Exports"
+msgstr "Экспорт"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Employees"
+msgstr "Наши сотрудники"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Services"
+msgstr "Наши услуги"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Portfolio"
+msgstr "Наше портфолио"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Load More"
+msgstr "Загрузить дополнительные"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Clients"
+msgstr "Наши клиенты"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Order"
+msgstr "С тем"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Request for Quote"
+msgstr "Запрос предложения"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Contact us"
+msgstr "Свяжитесь с нами"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Name"
+msgstr "Имя"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Email"
+msgstr "Почте"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Negotiation"
+msgstr "Переговоров"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Auction"
+msgstr "Аукциона"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Auctioning"
+msgstr "С аукциона"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Latest News"
+msgstr "Последние новости"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
+msgstr "Интеграция возможностей и потенциала более чем 5000 компаний с 60000 сотрудников"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Opening OSTIM manufacturing capabilities to the customers from all over world"
+msgstr "Открытие OSTIM производственные возможности для клиентов со всего мира"
 
 
 

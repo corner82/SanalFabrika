@@ -127,6 +127,10 @@ msgid "Profile"
 msgstr "نمایه"
 
 #: ../view/layout/sfdm.phtml:25
+msgid "Log in"
+msgstr "ورود"
+
+#: ../view/layout/sfdm.phtml:25
 msgid "Log out"
 msgstr "خروج"
 
@@ -369,6 +373,130 @@ msgstr "در اینجا حل میشود: %s"
 msgid "Exception"
 msgstr "استثنا"
 
+#: ../view/layout/sfdm.phtml:25
+msgid "Help"
+msgstr "راهنما"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Frequently Asked Questions"
+msgstr "سوالات متداول"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Languages"
+msgstr "زبانها"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Learn more"
+msgstr "بیشتر بدانیم"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Job"
+msgstr "تخصص ما"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "VE Team"
+msgstr "تیم شرکت مجازی"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Overall Manufactuiring Area"
+msgstr "مجموع مساحت تولیدی"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Machine Park Size"
+msgstr "مجموع ماشین آلات تولیدی"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Overall Enterprise Number"
+msgstr "تعداد شرکتهای ثبت شده"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Employees"
+msgstr "مجموع کارکنان"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Marketing and Consulting"
+msgstr "بازیریابی و مشاوره"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Organization"
+msgstr "سازمان ما"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Imports"
+msgstr "واردات"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Exports"
+msgstr "صادرات"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Employees"
+msgstr "کارکنان ما"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Services"
+msgstr "خدمات ما"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Portfolio"
+msgstr "پورتفولیو"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Load More"
+msgstr "بارگذاری مضاعف"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Clients"
+msgstr "مشتریان ما"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Order"
+msgstr "سفارش"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Request for Quote"
+msgstr "درخواست تکلیف"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Contact us"
+msgstr "ارتباط با ما"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Name"
+msgstr "نام"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Email"
+msgstr "ایمیل"
+
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Send Message"
+msgstr "ارسال پیام"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Negotiation"
+msgstr "مذاکره"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Auction"
+msgstr "مزایده ویا مناقصه"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Auctioning"
+msgstr "مزایده ویا مناقصه"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Latest News"
+msgstr "آخرین اخبار"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
+msgstr "یکپارچه سازی قابلیت ها و ظرفیت تولیدی منطقه صنعتی اوستیم با بیش از 5000 شرکت تولیدی و 60000 پرسنل"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Opening OSTIM manufacturing capabilities to the customers from all over world"
+msgstr "ارائه خدمات تولیدی شرکتهای فعال در منطقه صنعتی اوستیم به تمامی مشتریان از اقصا نقاط جهان"
 
 
 
