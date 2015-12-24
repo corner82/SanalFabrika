@@ -12,7 +12,7 @@
              'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/',
+                    'route'    => '/',     
                     'defaults' => array(
                         'controller' => 'Sanalfabrika\Controller\Sanalfabrika',
                         'action'     => 'index',

@@ -1,5 +1,10 @@
 $(document).ready(function () {
-
+    
+    /**
+     * Multi language bar is being formed
+     * @author Mustafa Zeynel Dağlı
+     * @since 23/12/2015
+     */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',              
         data: {
@@ -13,7 +18,12 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
             var data = data;
+            
+            $.fn.multiLanguageBarSetter.defaults.requestUriTranslated = $("#requestUriRegulated").val();
+            $.fn.multiLanguageBarSetter.defaults.langCode = $("#langCode").val();
+            $.fn.multiLanguageBarSetter.defaults.basePath = '/ostim/sanalfabrika/';
+            $.fn.multiLanguageBarSetter.defaults.baseLanguage = 'tr';
             $(".languages").multiLanguageBarSetter(data);     
         }   
-    });
+    });  
 });

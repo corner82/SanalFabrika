@@ -13,13 +13,20 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Custom\Services\MultiLanguage\SystemLanguages;
 
+/**
+ * prepare request uri for usage and prepare links for usage in js and user interfaces
+ * @author Mustafa Zeynel Dağlı
+ * @since 23/12/2015
+ */
 class FactoryServiceUrlRegulator implements FactoryInterface{
     
     public function createService(ServiceLocatorInterface $serviceLocator){
         $lang = $serviceLocator->get('serviceTranslator');
         
         $requestUri = $_SERVER['REQUEST_URI'];
-        $patterns = array('/\/'.SystemLanguages::ENG.'/',
+        //print_r('--request uri-->'.$requestUri);
+        if($requestUri!='/' || $requestUri!=null) {
+            $patterns = array('/\/'.SystemLanguages::ENG.'/',
                           '/\/'.SystemLanguages::AR.'/',
                           '/\/'.SystemLanguages::DE.'/',
                           '/\/'.SystemLanguages::FA.'/',
@@ -27,7 +34,9 @@ class FactoryServiceUrlRegulator implements FactoryInterface{
                           '/\/'.SystemLanguages::TR.'/',
                           '/\/'.SystemLanguages::ZH.'/');
         
-        $requestUri = preg_replace($patterns, '/--dil--', $requestUri);  
+            $requestUri = preg_replace($patterns, '/--dil--', $requestUri); 
+        }
+         
         //print_r('-- değiştirilen request uri-->'.$requestUri);
         return $requestUri;
     }
