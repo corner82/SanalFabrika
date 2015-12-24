@@ -65,7 +65,6 @@ namespace SFDM;
             }
             
         }, 100);
-
         $moduleRouteListener->attach($eventManager);  
         
     }
