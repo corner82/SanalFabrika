@@ -16,7 +16,7 @@
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
-                         'lang'   => '([en]|[tr]|[fa]|[ru]|[ar]|[de]|[zh]){2}+',
+                         'lang' => '((en)|(tr)|(ru)|(zh)|(de)|(ar)|(fa))', 
                      ),
                      'defaults' => array(
                          'controller' => 'SFDM\Controller\SFDM',
