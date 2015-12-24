@@ -15,7 +15,7 @@
                      'route'    => '/admin[/:action][/:id]',
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                         'id'     => '[0-9]+',
+                         'id'     => '([en]|[tr]|[fa]|[ru]|[ar]|[de]|[zh]){2}+',
                      ),
                      'defaults' => array(
                          'controller' => 'Admin\Controller\Admin',

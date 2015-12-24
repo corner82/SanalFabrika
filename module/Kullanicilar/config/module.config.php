@@ -16,7 +16,7 @@
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
-                         'lang'   => '[a-zA-Z]+',
+                         'lang'   => '([en]|[tr]|[fa]|[ru]|[ar]|[de]|[zh]){2}+',
                      ),
                      'defaults' => array(
                          'controller' => 'Kullanicilar\Controller\kullanicilar',
