@@ -8,19 +8,34 @@
 
  class FirmalarController  extends AbstractActionController
  {
-     public function firmaKayitlari()
+     public function kayitAction()
      {
          
      }
      
-     public function firmaGoruntuleme()
+     public function goruntulemeAction()
      {
          
      }
      
-     public function firmaRandevu()
+     public function randevuAction()
      {
          
+     }
+     
+     public function indexAction()
+     {
+         
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
      }
 
      public function addAction()
@@ -35,6 +50,7 @@
 
      public function deleteAction()
      {
+         
      }
  }
 

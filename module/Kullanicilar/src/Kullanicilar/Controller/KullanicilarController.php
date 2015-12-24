@@ -8,12 +8,17 @@
 
  class KullanicilarController  extends AbstractActionController
  {
-     public function kullaniciKayitlari()
+     public function kayitAction()
      {
          
      }
      
-     public function kullaniciGoruntuleme()
+     public function goruntulemeAction()
+     {
+         
+     }
+     
+     public function indeAction()
      {
          
      }
