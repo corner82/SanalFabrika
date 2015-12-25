@@ -49,7 +49,8 @@
      'view_manager' => array(
          /*'template_path_stack' => array(
              'admin' => __DIR__ . '/../view',  
-         ),*/  
+         ),*/ 
+         'not_found_template'       => 'error/404',
          'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/error.phtml',   
             'error/index/index' => __DIR__ . '/../view/errorview/error/index.phtml',

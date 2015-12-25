@@ -38,6 +38,9 @@ namespace SFDM;
         // translator service attaching to dispatch 
         $eventManager->attach('dispatch', array($this, 'translaterControl'));
         
+        // translator service attaching to dispatch error event
+        $eventManager->attach('dispatch.error', array($this, 'Error404PageTranslatorControl'));  
+
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
                                                     'dispatch', 
                                                     function($e) {
@@ -69,6 +72,13 @@ namespace SFDM;
         
     }
     
+    public function Error404PageTranslatorControl(MvcEvent $e) {
+        $e->getApplication()
+          ->getServiceManager()
+          ->get('serviceTranslator404ResponseRegulator');
+    }
+
+
     /**
      * Translater service has been launched on 'dispatch' event 
      * in this function scope
