@@ -8,7 +8,7 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',              
         data: {
-            pk : '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
+            //pk : '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url : 'fillComboBox_syslanguage',                          
             },
         method: "GET",
