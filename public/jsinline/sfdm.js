@@ -338,24 +338,20 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',              
-//        url: 'http://sanalfabrika.proxy.com:9990/SlimProxyBoot.php',
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
             parent: 0,
-            pk : '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
-            url : 'getLeftMenu_leftnavigation',
-            language_id: $("#langCode").val()
-            /*
-             * clicked object id is being added to the query
-             * to get the related object submenu
-             */                            
-            },
+//            pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
+            url: 'getLeftMenu_leftnavigation',
+            language_code: $("#langCode").val()
+        },
         method: "GET",
         async: false,
         dataType: "json",
         success: function (data) {
-            
-            var len = data.length;            
+
+            var len = data.length;
             var i = 0;
             for (i; i < len; i++) {
 
@@ -370,7 +366,7 @@ $(document).ready(function () {
                     var newappend = $(appending_html);
 
                 } else {
-                        
+
                     var appending_html = "<li class='treeview' id='menu_" +
                             data[i].id + "'><a href='" +
                             data[i].url + "'><i class='fa " +
@@ -380,7 +376,7 @@ $(document).ready(function () {
 
                     var newappend = $(appending_html);
                 }
-                                
+
                 $(newappend).appendTo($("#leftside-menu"));
                 $(newappend).on("click", function (event) {
 
@@ -388,7 +384,7 @@ $(document).ready(function () {
                     //alert(this);
                     $.AdminLTE.dynamicTree(this);
                 });
-                                
+
                 newappend = null;
             }
         }

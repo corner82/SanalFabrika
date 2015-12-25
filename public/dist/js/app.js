@@ -439,23 +439,49 @@ function _init() {
      * Date: 4.12.2015
      */
 
+
     $.AdminLTE.dynamicTree = function (clickedObject) {
 
 //        console.log(clickedObject);
 //        var currentpath = 'https://www.bahram.sanalfabrika.com' + window.location.pathname;
         var pathArray = window.location.pathname.split('/');
-        
-        
+        var language_codes = ['en', 'tr', 'de', 'ru', 'ar', 'fa', 'zh'];
+        var s, q, r;
+
+        for (q = 0; q < pathArray.length; q++) {
+            
+            for (s = 0; s < language_codes.length; s++) {
+                                
+                if (pathArray[q] === language_codes[s]) {
+
+                    var mainItem = pathArray[q - 1];
+
+                    console.log('selected main item is: ' + mainItem);
+                    console.log('Selected language code is: ' + language_codes[s]);
+
+                    if (pathArray.length - q > 0) {
+
+                        console.log('There are ' + pathArray.length - q + ' sub items.');
+
+                        for (r = 0; r < pathArray.length - q; r++) {
+
+                            if (typeof pathArray[q + r + 1] === "undefined") {
+
+                                console.log(r + 1 + ' sub item is: ' + pathArray[q + r + 1]);
+
+                            }
+                        }
+                        
+                    }else{
+                        
+//                    console.log('There are not any sub items selected.');
+                    
+                    }
+                }
+            }
+        }
 
         if (typeof clickedObject.id === "undefined") {
-
-
-            /*
-             * Here url control must be done and if the url is related to any of 
-             * menu items url, that item should be activated.
-             * @type $.AdminLTE
-             */
-
 
             /*
              * catches page object event with undefined id

@@ -19,7 +19,8 @@ return array(
        'SFDM' => 'layout/sfdm.phtml',
        'Sanalfabrika' => 'layout/sanalfabrika.phtml',
        'Firmalar' => 'layout/firmalar.phtml',
-       'Kullanicilar' => 'layout/kullanicilar.phtml'
+       'Kullanicilar' => 'layout/kullanicilar.phtml',
+        
    ),
     'action_layouts' => array(
         'SFDM' => array(
@@ -27,11 +28,11 @@ return array(
             'firmalar' => 'layout/firmalarLayout.phtml',
                         ),
         'Firmalar' => array(
-            'firmaKayitlari' => 'layout/firmaKayitlariLayout.phtml',
-            'firmaRandevu' => 'layout/firmaRandevuLayout.phtml',
+            'fkayit' => 'layout/fkayitLayout.phtml',
+            'randevu' => 'layout/randevuLayout.phtml',
                         ),
         'Kullanicilar' => array(
-            'kullaniciKayitlari' => 'layout/kullaniciKayitlariLayout.phtml',
+            'kkayit' => 'layout/kkayitLayout.phtml',
                         ),
    )
     ,

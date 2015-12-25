@@ -16,7 +16,7 @@
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
-                         'lang' => '((en)|(tr)|(ru)|(zh)|(de)|(ar)|(fa))', 
+                         'lang' => '((en)|(tr)|(ru)|(zh)|(de)|(ar)|(fa))',
                      ),
                      'defaults' => array(
                          'controller' => 'Firmalar\Controller\Firmalar',
@@ -32,7 +32,8 @@
          ),*/  
          'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/firmalar.phtml',   
-            'firmalar/index/index' => __DIR__ . '/../view/firmalar/firmalar/index.phtml',
+            'firmalar/index/index' => __DIR__ . '/../view/firmalar/firmalar/index.phtml', 
+            'firmalar/index/fkayit' => __DIR__ . '/../view/firmalar/firmalar/fkayit.phtml', 
             /*'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',*/
         ),

@@ -33,6 +33,7 @@
          'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/kullanicilar.phtml',   
             'kullanicilar/index/index' => __DIR__ . '/../view/kullanicilar/kullanicilar/index.phtml',
+            'kullanicilar/index/kkayit' => __DIR__ . '/../view/kullanicilar/kullanicilar/kkayit.phtml',
             /*'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',*/
         ),

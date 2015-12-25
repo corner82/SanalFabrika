@@ -2,18 +2,14 @@ $(document).ready(function () {
 
 //    console.error("document ready adminIndex.js");
 
-    $.ajax({
+   $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
             parent: 0,
-            pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
+//            pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'getLeftMenu_leftnavigation',
-            language_id: 748
-            /*
-             * clicked object id is being added to the query
-             * to get the related object submenu
-             */
+            language_code: $("#langCode").val()
         },
         method: "GET",
         async: false,
@@ -57,6 +53,6 @@ $(document).ready(function () {
                 newappend = null;
             }
         }
-    });
+    }); 
 
 });

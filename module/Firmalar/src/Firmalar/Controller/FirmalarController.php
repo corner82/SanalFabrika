@@ -8,25 +8,39 @@
 
  class FirmalarController  extends AbstractActionController
  {
-     public function kayitAction()
+     public function fkayitAction()
      {
          
-     }
-     
-     public function goruntulemeAction()
-     {
+        $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
          
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
      }
-     
+       
      public function randevuAction()
      {
+        $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
          
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
      }
      
      public function indexAction()
      {
          
-         $langCode = $this->getServiceLocator()
+        $langCode = $this->getServiceLocator()
                             ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                             ->get('serviceTranslatorUrlRegulator');  

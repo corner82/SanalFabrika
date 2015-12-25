@@ -1,40 +1,49 @@
 <?php
 
- namespace Kullanicilar\Controller;
+namespace Kullanicilar\Controller;
 
- use Zend\Mvc\Controller\AbstractActionController;
- use Zend\View\Model\ViewModel;
- use Zend\Session\Container;
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+use Zend\Session\Container;
 
- class KullanicilarController  extends AbstractActionController
- {
-     public function kayitAction()
-     {
-         
-     }
-     
-     public function goruntulemeAction()
-     {
-         
-     }
-     
-     public function indeAction()
-     {
-         
-     }
+class KullanicilarController extends AbstractActionController {
 
-     public function addAction()
-     {
-         
-     }
+    public function kkayitAction() {
+        $langCode = $this->getServiceLocator()
+                ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                ->get('serviceTranslatorUrlRegulator');
 
-     public function editAction()
-     {
-         
-     }
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
+    }
 
-     public function deleteAction()
-     {
-     }
- }
+    public function indexAction() {
+        $langCode = $this->getServiceLocator()
+                ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                ->get('serviceTranslatorUrlRegulator');
 
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
+    }
+
+    public function addAction() {
+        
+    }
+
+    public function editAction() {
+        
+    }
+
+    public function deleteAction() {
+        
+    }
+
+}
