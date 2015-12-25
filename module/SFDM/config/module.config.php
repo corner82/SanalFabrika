@@ -12,7 +12,7 @@
              'sfdm' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/sfdm[/:lang][/:action][/:id]',
+                     'route'    => '/sfdm/[:lang][/:action][/:id]',
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
@@ -30,6 +30,7 @@
          /*'template_path_stack' => array(
              'admin' => __DIR__ . '/../view',  
          ),*/  
+         'not_found_template'       => 'error/404',
          'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/sfdm.phtml',   
             'sfdm/index/index' => __DIR__ . '/../view/sfdm/sfdm/index.phtml',

@@ -64,10 +64,48 @@ namespace SFDM;
                 $controller->layout($config['action_layouts'][$moduleNamespace][$controlerName]);
                 //print_r($config['action_layouts'][$moduleNamespace][$controlerName]);
             } else  if (isset($config['module_layouts'][$moduleNamespace])) {
-                $controller->layout($config['module_layouts'][$moduleNamespace]);
+                //$error = $e->getError(); 
+                //print_r($e->getResponse()->getStatusCode());
+                //print_r($e->getRequest()->getHeaders());
+                /**
+                 * error 404 page layout has been overridden when controller is
+                 * wrong written, so this control has been put in place,
+                 * if action method not right , do not put layout dynamically
+                 * @author Mustafa Zeynel Dağlı
+                 * @since 25/12/2015
+                 */
+                if(method_exists($controllerClass,
+                            $controlerName.'Action')) {
+                    //print_r('-- method found--');
+                    $controller->layout($config['module_layouts'][$moduleNamespace]);
+                } else {
+                    //print_r('-- method not found--');
+                }
+                
             }
             
-        }, 100);
+        }, 500);
+        
+        
+        $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
+                                                    'render.error', 
+                                                    function($e) {
+            print_r('--render error--');
+            
+            
+            
+        }, 200);
+        
+        $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
+                                                    'finish', 
+                                                    function($e) {
+            print_r('--finish--');
+            
+            
+            
+        }, 300);
+        
+        
         $moduleRouteListener->attach($eventManager);  
         
     }
@@ -76,6 +114,8 @@ namespace SFDM;
         $e->getApplication()
           ->getServiceManager()
           ->get('serviceTranslator404ResponseRegulator');
+        $vm = $e->getViewModel();
+        $vm->setTemplate('layout/error');
     }
 
 
