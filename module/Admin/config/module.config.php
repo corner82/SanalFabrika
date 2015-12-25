@@ -12,7 +12,7 @@
              'admin' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/admin[/:action][/:id]',
+                     'route'    => '/admin/[:lang][/:action][/:id]',
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '([en]|[tr]|[fa]|[ru]|[ar]|[de]|[zh]){2}+',
