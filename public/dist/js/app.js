@@ -444,42 +444,42 @@ function _init() {
 
 //        console.log(clickedObject);
 //        var currentpath = 'https://www.bahram.sanalfabrika.com' + window.location.pathname;
-        var pathArray = window.location.pathname.split('/');
-        var language_codes = ['en', 'tr', 'de', 'ru', 'ar', 'fa', 'zh'];
-        var s, q, r;
-
-        for (q = 0; q < pathArray.length; q++) {
-            
-            for (s = 0; s < language_codes.length; s++) {
-                                
-                if (pathArray[q] === language_codes[s]) {
-
-                    var mainItem = pathArray[q - 1];
-
-                    console.log('selected main item is: ' + mainItem);
-                    console.log('Selected language code is: ' + language_codes[s]);
-
-                    if (pathArray.length - q > 0) {
-
-                        console.log('There are ' + pathArray.length - q + ' sub items.');
-
-                        for (r = 0; r < pathArray.length - q; r++) {
-
-                            if (typeof pathArray[q + r + 1] === "undefined") {
-
-                                console.log(r + 1 + ' sub item is: ' + pathArray[q + r + 1]);
-
-                            }
-                        }
-                        
-                    }else{
-                        
-//                    console.log('There are not any sub items selected.');
-                    
-                    }
-                }
-            }
-        }
+//        var pathArray = window.location.pathname.split('/');
+//        var language_codes = ['en', 'tr', 'de', 'ru', 'ar', 'fa', 'zh'];
+//        var s, q, r;
+//
+//        for (q = 0; q < pathArray.length; q++) {
+//            
+//            for (s = 0; s < language_codes.length; s++) {
+//                                
+//                if (pathArray[q] === language_codes[s]) {
+//
+//                    var mainItem = pathArray[q - 1];
+//
+//                    console.log('selected main item is: ' + mainItem);
+//                    console.log('Selected language code is: ' + language_codes[s]);
+//
+//                    if (pathArray.length - q > 0) {
+//
+//                        console.log('There are ' + pathArray.length - q + ' sub items.');
+//
+//                        for (r = 0; r < pathArray.length - q; r++) {
+//
+//                            if (!typeof pathArray[q + r + 1] === "undefined") {
+//
+//                                console.log(r + 1 + ' sub item is: ' + pathArray[q + r + 1]);
+//
+//                            }
+//                        }
+//                        
+//                    }else{
+//                        
+////                    console.log('There are not any sub items selected.');
+//                    
+//                    }
+//                }
+//            }
+//        }
 
         if (typeof clickedObject.id === "undefined") {
 
@@ -545,10 +545,12 @@ function _init() {
                                  * html code for appending                                 * 
                                  */
 
-                                $(clickedObject).append($("<ul class='treeview-menu' id=" + treeview_id + "></ul>"));
+                                $(clickedObject).append($("<ul class='treeview-menu' id=" 
+                                        + treeview_id + "></ul>"));
                                 for (j; j < len; j++) {
 
                                     if (data2[j].collapse === 0) {
+                                        
                                         /*
                                          * Checks if the new coming submenu
                                          * has any submenus or not;
@@ -558,6 +560,10 @@ function _init() {
                                          * otherwise collapse == 0 the code would be like:
                                          * <li id='menu_ ...
                                          */
+                                        
+                                        
+                                        
+                                        
 
                                         var appending_submenu_html = "<li id='menu_" +
                                                 data2[j].id + "'><a href='" +

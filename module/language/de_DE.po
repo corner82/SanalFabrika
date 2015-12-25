@@ -1,142 +1,351 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: ZendSkeletonApplication\n"
+"Project-Id-Version: SanalFabrika\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-05 23:45-0700\n"
-"PO-Revision-Date: 2012-07-06 08:18-0700\n"
-"Last-Translator: Evan Coury <me@evancoury.com>\n"
-"Language-Team: ZF Contributors <zf-devteam@zend.com>\n"
-"Language: \n"
+"POT-Creation-Date: 2015-12-23 22:17-0700\n"
+"PO-Revision-Date: 2015-12-23 13:08+0200\n"
+"Last-Translator: Bahram Lotfi Sadigh <bahram.lotfi@ostim.com.tr>\n"
+"Language-Team: OSTIM Teknoloji A.Ş. <info@ostim.com.tr>\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: translate\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../view/layout/layout.phtml:6
-#: ../view/layout/layout.phtml:33
-msgid "Skeleton Application"
+#: ../view/layout/sfdm.phtml:1
+msgid "Virtual Enterprise Project"
+msgstr "Virtual Enterprise Project"
+
+#: ../view/layout/sfdm.phtml:2
+msgid "Virtual Enterprise Control Panel"
+msgstr "Virtual Enterprise Control Panel"
+
+#: ../view/layout/sfdm.phtml:3
+msgid "OSTIM"
+msgstr "OSTIM"
+
+#: ../view/layout/sfdm.phtml:3
+msgid "OSTIM Technology A.Ş."
+msgstr "OSTIM Technology A.Ş."
+
+#: ../view/layout/sfdm.phtml:4
+#: ../view/layout/sfdm.phtml:11
+msgid "Virtual Enterprise"
+msgstr "Virtual Enterprise"
+
+#: ../view/layout/sfdm.phtml:5
+msgid "Active"
+msgstr "Aktiv"
+
+#: ../view/layout/sfdm.phtml:6
+msgid "Main Navigation"
+msgstr "Main Navigation"
+
+#: ../view/layout/sfdm.phtml:7
+#: ../view/layout/sfdm.phtml:17
+msgid "Home"
+msgstr "Home"
+
+#: ../view/layout/sfdm.phtml:8
+msgid "Enterprises"
+msgstr "Unternehmen"
+
+#: ../view/layout/sfdm.phtml:9
+msgid "Users"
+msgstr "Benutzer"
+
+#: ../view/layout/sfdm.phtml:10
+msgid "Organizations"
+msgstr "Organisationen"
+
+#: ../view/layout/sfdm.phtml:12
+msgid "ECO-OSTIM"
+msgstr "ECO-OSTIM"
+
+#: ../view/layout/sfdm.phtml:13
+msgid "Definitions"
+msgstr "Definitionen"
+
+#: ../view/layout/sfdm.phtml:14
+msgid "Calendar"
+msgstr "Kalender"
+
+#: ../view/layout/sfdm.phtml:15
+msgid "Mail Box"
+msgstr "Mail Box"
+
+#: ../view/layout/sfdm.phtml:16
+msgid "My Documents"
+msgstr "Meine Dokumente"
+
+#: ../view/layout/sfdm.phtml:18
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+#: ../view/layout/sfdm.phtml:18
+msgid "Show all notifications"
+msgstr "Zeige alle Benachrichtigungen"
+
+#: ../view/layout/sfdm.phtml:19
+msgid "New Messages"
+msgstr "Neue Nachrichten"
+
+#: ../view/layout/sfdm.phtml:18
+msgid "Show all messages"
+msgstr "Alle Mitteilungen anzeigen"
+
+#: ../view/layout/sfdm.phtml:20
+msgid "Works To Do"
+msgstr "Werke zu tun"
+
+#: ../view/layout/sfdm.phtml:20
+msgid "Show all tasks"
+msgstr "Alle Tasks anzeigen"
+
+#: ../view/layout/sfdm.phtml:21
+msgid "Collaborating Companies"
+msgstr "Partnerunternehmen"
+
+#: ../view/layout/sfdm.phtml:22
+msgid "Friends"
+msgstr "Freunde"
+
+#: ../view/layout/sfdm.phtml:23
+msgid "Followers"
+msgstr "Anhänger"
+
+#: ../view/layout/sfdm.phtml:24
+msgid "Profile"
+msgstr "Profil"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Log in"
+msgstr "Log in"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Log out"
+msgstr "Abmelden"
+
+#: ../view/layout/sfdm.phtml:26
+msgid "Layout Options"
+msgstr "Layout Optionen"
+
+#: ../view/layout/sfdm.phtml:27
+msgid "Fixed layout"
+msgstr "Festes Layout"
+
+#: ../view/layout/sfdm.phtml:28
+msgid "Activate the fixed layout. You can't use fixed and boxed layouts together"
+msgstr "Aktivieren des Festes Layout. Sie können nicht mit feststehenden und boxed Layouts zusammen"
+
+#: ../view/layout/sfdm.phtml:29
+msgid "Boxed Layout"
+msgstr "Boxed Layout"
+
+#: ../view/layout/sfdm.phtml:30
+msgid "Activate the boxed layout"
+msgstr "Aktivieren Sie den Boxed Layout"
+
+#: ../view/layout/sfdm.phtml:31
+msgid "Toggle Sidebar"
+msgstr "Umschalten der Seitenleiste"
+
+#: ../view/layout/sfdm.phtml:32
+msgid "Toggle the left sidebar's state (open or collapse)"
+msgstr "Umschalten der linken Seitenleiste Zustand (offen oder ausblenden)"
+
+#: ../view/layout/sfdm.phtml:33
+msgid "Sidebar Expand on Hover"
+msgstr "Seitenleiste erweitern auf Hover"
+
+#: ../view/layout/sfdm.phtml:34
+msgid "Let the sidebar mini expand on hover"
+msgstr "Lassen Sie die Sidebar mini erweitern auf hover"
+
+#: ../view/layout/sfdm.phtml:35
+msgid "Toggle Right Sidebar Slide"
+msgstr "Umschalten der Seitenleiste rechts schieben"
+
+#: ../view/layout/sfdm.phtml:36
+msgid "Toggle between slide over content and push content effects"
+msgstr "Umschalten zwischen Folie über Inhalte und Inhalte folgen"
+
+#: ../view/layout/sfdm.phtml:37
+msgid "Toggle Right Sidebar Skin"
+msgstr "Umschalten der rechten Seitenleiste Haut"
+
+#: ../view/layout/sfdm.phtml:38
+msgid "Toggle between dark and light skins for the right sidebar"
+msgstr "Umschalten zwischen dunklen und hellen Skins für die Seitenleiste rechts"
+
+#: ../view/layout/sfdm.phtml:39
+msgid "Skins"
+msgstr "Skins"
+
+#: ../view/layout/sfdm.phtml:40
+msgid "Blue"
+msgstr "Blau"
+
+#: ../view/layout/sfdm.phtml:41
+msgid "Black"
+msgstr "Schwarz"
+
+#: ../view/layout/sfdm.phtml:42
+msgid "Purple"
+msgstr "Lila"
+
+#: ../view/layout/sfdm.phtml:43
+msgid "Green"
+msgstr "Grün"
+
+#: ../view/layout/sfdm.phtml:44
+msgid "Red"
+msgstr "Rot"
+
+#: ../view/layout/sfdm.phtml:45
+msgid "Yellow"
+msgstr "Gelb"
+
+#: ../view/layout/sfdm.phtml:46
+msgid "Blue Light"
+msgstr "Blaues Licht"
+
+#: ../view/layout/sfdm.phtml:47
+msgid "Black Light"
+msgstr "Schwarzes Licht"
+
+#: ../view/layout/sfdm.phtml:48
+msgid "Purple Light"
+msgstr "Violettes Licht"
+
+#: ../view/layout/sfdm.phtml:49
+msgid "Green Light"
+msgstr "Grünes Licht"
+
+#: ../view/layout/sfdm.phtml:50
+msgid "Red Light"
+msgstr "Rotes Licht"
+
+#: ../view/layout/sfdm.phtml:51
+msgid "Yellow Light"
+msgstr "Gelbes Licht"
+
+#: ../view/layout/sfdm.phtml:52
+msgid "Recent Activities"
+msgstr "Jüngste Aktivitäten"
+
+#: ../view/layout/sfdm.phtml:54
+msgid "Tasks Progress"
+msgstr "Aufgaben Fortschritte"
+
+#: ../view/layout/sfdm.phtml:55
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: ../view/layout/sfdm.phtml:56
+msgid "Report panel usage"
+msgstr "Bericht Zentrale"
+
+#: ../view/layout/sfdm.phtml:57
+msgid "Some information about this general settings option"
+msgstr "Einige Informationen über diese allgemeinen Einstellungen Option"
+
+#: ../view/layout/sfdm.phtml:58
+msgid "Allow mail redirect"
+msgstr "Dass Mails umleiten"
+
+#: ../view/layout/sfdm.phtml:59
+msgid "Other sets of options are available"
+msgstr "Weitere Sätze von Optionen sind verfügbar"
+
+#: ../view/layout/sfdm.phtml:60
+msgid "Expose author name in posts"
+msgstr "Setzen Autor name in Beiträgen"
+
+#: ../view/layout/sfdm.phtml:61
+msgid "Allow the user to show his name in blog posts"
+msgstr "Erlaubt dem Benutzer, um seinen Namen in Blog Posts"
+
+#: ../view/layout/sfdm.phtml:62
+msgid "Chat Settings"
+msgstr "Chat Einstellungen"
+
+#: ../view/layout/sfdm.phtml:63
+msgid "Show me as online"
+msgstr "Zeigen Sie mir als online"
+
+#: ../view/layout/sfdm.phtml:64
+msgid "Turn off notifications"
+msgstr "Benachrichtigungen deaktivieren"
+
+#: ../view/layout/sfdm.phtml:65
+msgid "Delete chat history"
 msgstr ""
 
-#: ../view/layout/layout.phtml:36
-msgid "Home"
-msgstr "Startseite"
-
-#: ../view/layout/layout.phtml:50
+#: ../view/layout/layout.phtml:66
 msgid "All rights reserved."
-msgstr "Alle Rechte vorbehalten."
+msgstr "Chat-verlauf löschen"
+
+#: ../view/layout/layout.phtml:66
+msgid "Copyright"
+msgstr "Copyright"
+
+#: ../view/layout/layout.phtml:67
+msgid "Version"
+msgstr "Version"
 
 #: ../view/application/index/index.phtml:2
 #, php-format
-msgid "Welcome to %sZend Framework 2%s"
-msgstr "Willkommen zu dem %sZend Framework 2%s"
-
-#: ../view/application/index/index.phtml:3
-#, php-format
-msgid "Congratulations! You have successfully installed the %sZF2 Skeleton Application%s. You are currently running Zend Framework version %s. This skeleton can serve as a simple starting point for you to begin building your application on ZF2."
-msgstr "Herzlichen Glückwunsch! Sie haben die %sZF2 Skeleton Application%s erfolgreich installiert und benutzen gerade die Version %s des Zend Frameworks. Dieses Gerüst kann Ihnen als Einstiegspunkt, für Ihre weitere Entwicklung, basierend auf dem Zend Framework 2, dienen."
-
-#: ../view/application/index/index.phtml:4
-msgid "Fork Zend Framework 2 on GitHub"
-msgstr "Fork Zend Framework 2 auf GitHub"
-
-#: ../view/application/index/index.phtml:10
-msgid "Follow Development"
-msgstr "Folge der Entwicklung"
-
-#: ../view/application/index/index.phtml:11
-#, php-format
-msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
-msgstr "Das Zend Framework 2 wird z.Z. aktiv weiterentwickelt.  Sollten Sie daran interessiert sein, die Entwicklung von ZF2 zu verfolgen, so bietet Ihnen die offizielle Webseite einen eigens für das Zend Framework 2 eingerichteten Bereich, auf der Sie Verlinkungen zum ZF2 %sWiki%s, %sEntwickler Blog%s, einem %sFehlerverfolgungssystem%s und noch vielem mehr finden. Dieser Bereich ist eine hervorragende Quelle um stets aktuell zu bleiben."
-
-#: ../view/application/index/index.phtml:12
-msgid "ZF2 Development Portal"
-msgstr "ZF2 Entwickler Portal"
-
-#: ../view/application/index/index.phtml:16
-msgid "Discover Modules"
-msgstr "Entdecken Sie Module"
-
-#: ../view/application/index/index.phtml:17
-#, php-format
-msgid "The community is working on developing a community site to serve as a repository and gallery for ZF2 modules. The project is available %son GitHub%s. The site is currently live and currently contains a list of some of the modules already available for ZF2."
-msgstr "Die Community arbeitet momentan an einer Community Seite, welche als Galerie für ZF2 Module dient. Dieses Projekt ist %sauf GitHub%s verfügbar. Die Webseite ist bereits Online und enthält eine Liste mit schon veröffentlichten Modulen für das Zend Framework 2."
-
-#: ../view/application/index/index.phtml:18
-msgid "Explore ZF2 Modules"
-msgstr "Erkunden Sie ZF2 Module"
-
-#: ../view/application/index/index.phtml:22
-msgid "Help &amp; Support"
-msgstr "Hilfe &amp; Support"
-
-#: ../view/application/index/index.phtml:23
-#, php-format
-msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
-msgstr "Sollten Sie Hilfe jeglicher Art bei der Entwicklung mit dem Zend Framework 2 benötigen, kontaktieren Sie uns doch einfach über das IRC: %s#zftalk on Freenode%s. Wir freuen uns darauf, Ihnen bei Ihren Fragen zu helfen oder aber auch Ihre Meinung bezüglich der Beta Versionen zu hören. Alternativ können Sie auch die %smailing lists%s abonnieren und Ihre Fragen dort stellen."
-
-#: ../view/application/index/index.phtml:24
-msgid "Ping us on IRC"
-msgstr "Schreiben Sie uns im IRC an"
+msgid "Welcome to OSTIM Virtual Enterprise System"
+msgstr "Willkommen bei OSTIM Virtual Enterprise System"
 
 #: ../view/error/index.phtml:1
 msgid "An error occurred"
-msgstr "Ein Fehler ist aufgetreten"
+msgstr "Ist ein Fehler aufgetreten"
 
-#: ../view/error/index.phtml:8
-msgid "Additional information"
-msgstr "Zusätzliche Information"
-
-#: ../view/error/index.phtml:11
-#: ../view/error/index.phtml:35
-msgid "File"
-msgstr "Datei"
-
-#: ../view/error/index.phtml:15
-#: ../view/error/index.phtml:39
+#: ../view/error/index.phtml:15 ../view/error/index.phtml:39
 msgid "Message"
-msgstr "Meldung"
+msgstr "Nachricht"
 
-#: ../view/error/index.phtml:19
-#: ../view/error/index.phtml:43
+#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
 #: ../view/error/404.phtml:55
 msgid "Stack trace"
 msgstr "Stapelüberwachung"
 
 #: ../view/error/index.phtml:29
 msgid "Previous exceptions"
-msgstr "Vorherige Ausnahme"
+msgstr "Vorherige Ausnahmen"
 
 #: ../view/error/index.phtml:58
 msgid "No Exception available"
-msgstr "Es ist keine Ausnahme verfügbar"
+msgstr "Keine Ausnahme verfügbar"
 
 #: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
-msgstr "Es trat ein 404 Fehler auf"
+msgstr "Fehler 404 ist aufgetreten"
 
 #: ../view/error/404.phtml:10
 msgid "The requested controller was unable to dispatch the request."
-msgstr "Der angeforderte Controller war nicht in der Lage die Anfrage zu verarbeiten."
+msgstr "Die angeforderte Controller wurde nicht zum Versand der Anfrage"
 
 #: ../view/error/404.phtml:13
 msgid "The requested controller could not be mapped to an existing controller class."
-msgstr "Der angeforderte Controller konnte keiner Controller Klasse zugeordnet werden."
+msgstr "Die angeforderte Controller konnte nicht zugeordnet werden an einen vorhandenen Controller Klasse"
 
 #: ../view/error/404.phtml:16
 msgid "The requested controller was not dispatchable."
-msgstr "Der angeforderte Controller ist nicht aufrufbar."
+msgstr "Die angeforderte Controller wurde nicht dispatchable"
 
 #: ../view/error/404.phtml:19
 msgid "The requested URL could not be matched by routing."
-msgstr "Für die angeforderte URL konnte keine Übereinstimmung gefunden werden."
+msgstr "Die angeforderte URL konnte nicht verglichen werden durch Routing"
 
 #: ../view/error/404.phtml:22
 msgid "We cannot determine at this time why a 404 was generated."
-msgstr "Zu diesem Zeitpunkt ist es uns nicht möglich zu bestimmen, warum ein 404 Fehler aufgetreten ist."
+msgstr "Wir können nicht bestimmen, zu diesem Zeitpunkt warum einen 404 generiert wurde."
 
 #: ../view/error/404.phtml:34
 msgid "Controller"
@@ -144,10 +353,140 @@ msgstr "Controller"
 
 #: ../view/error/404.phtml:41
 #, php-format
-msgid "resolves to %s"
-msgstr "wird aufgelöst in %s"
+msgid "resolves to"
+msgstr "Beschließt"
 
 #: ../view/error/404.phtml:51
 msgid "Exception"
 msgstr "Ausnahme"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Help"
+msgstr "Hilfe"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Frequently Asked Questions"
+msgstr "Häufig gestellte Fragen"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Languages"
+msgstr "Sprachen"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Learn more"
+msgstr "Erfahren Sie mehr"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Job"
+msgstr "Unser Job"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "VE Team"
+msgstr "VE Team"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Overall Manufacturing Area"
+msgstr "Gesamte verarbeitende Bereich"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Machine Park Size"
+msgstr "Maschine Park Größe"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Overall Enterprise Number"
+msgstr "Insgesamt Enterprise Number"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Employees"
+msgstr "Mitarbeiter"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Marketing and Consulting"
+msgstr "Marketing und Beratung"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Organization"
+msgstr "Unsere Organisation"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Imports"
+msgstr "Einfuhren"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Exports"
+msgstr "Ausfuhren"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Employees"
+msgstr "Unsere Mitarbeiter"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Services"
+msgstr "Unsere Dienstleistungen"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Portfolio"
+msgstr "Unser Portfolio"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Load More"
+msgstr "Weitere laden"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Our Clients"
+msgstr "Unsere Kunden"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Order"
+msgstr "Bestellen"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Request for Quote"
+msgstr "Angebot anfordern"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Contact us"
+msgstr "Kontaktieren Sie uns"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Name"
+msgstr "Name"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Email"
+msgstr "E-Mail"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Send Message"
+msgstr "Nachricht senden"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Negotiation"
+msgstr "Verhandlung"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Auction"
+msgstr "Auktion"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Auctioning"
+msgstr "Versteigerung"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Latest News"
+msgstr "Aktuelle Nachrichten"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
+msgstr "Die Integration der Fähigkeiten und Kapazitäten von mehr als 5.000 Unternehmen mit 60.000 Mitarbeitern"
+
+#: ../view/layout/sfdm.phtml:25
+msgid "Opening OSTIM manufacturing capabilities to the customers from all over world"
+msgstr "Öffnen OSTIM Fertigungskapazitäten für die Kunden aus aller Welt"
+
+
+
+
+
+
 

@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
-
-
+    
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -101,6 +100,13 @@ $(document).ready(function () {
         }
     });
     
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+   
 });
 
 $("select#country1").on('change', function () {

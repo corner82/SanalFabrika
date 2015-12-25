@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-//    console.error("document ready adminIndex.js");
 
    $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -40,6 +39,7 @@ $(document).ready(function () {
                             "</span><i class='fa fa-angle-left pull-right'></i></a></li>";
 
                     var newappend = $(appending_html);
+                    
                 }
 
                 $(newappend).appendTo($("#leftside-menu"));
@@ -47,12 +47,20 @@ $(document).ready(function () {
 
                     //alert(event.target);
                     //alert(this);
+                    
                     $.AdminLTE.dynamicTree(this);
                 });
-
                 newappend = null;
             }
         }
     }); 
+    
+    
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+    //Money Euro
+    $("[data-mask]").inputmask();
 
 });
