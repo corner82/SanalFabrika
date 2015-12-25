@@ -20,6 +20,7 @@ return array(
        'Sanalfabrika' => 'layout/sanalfabrika.phtml',
        'Firmalar' => 'layout/firmalar.phtml',
        'Kullanicilar' => 'layout/kullanicilar.phtml',
+       'Error' => 'layout/error.phtml',
         
    ),
     'action_layouts' => array(
