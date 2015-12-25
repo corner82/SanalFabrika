@@ -38,12 +38,12 @@ class FactoryService404ResponseRegulator implements FactoryInterface{
         $requestUri = $_SERVER['REQUEST_URI'];
         //print_r('--request uri-->'.$requestUri);
         if($requestUri!='/' || $requestUri!=null) {     
-            $pattern = '/\/(('.SystemLanguages::ENG.')|('.SystemLanguages::AR.')'
-                    . '|('.SystemLanguages::RU.')'
-                    . '|('.SystemLanguages::FA.')'
-                    . '|('.SystemLanguages::DE.')'
-                    . '|('.SystemLanguages::TR.')'
-                    . '|('.SystemLanguages::ZH.'))/';  
+            $pattern = '/\/(('.SystemLanguages::ENG.'\/)|('.SystemLanguages::AR.')'
+                    . '|('.SystemLanguages::RU.'\/)'
+                    . '|('.SystemLanguages::FA.'\/)'
+                    . '|('.SystemLanguages::DE.'\/)'
+                    . '|('.SystemLanguages::TR.'\/)'
+                    . '|('.SystemLanguages::ZH.'\/))/';  
         
             preg_match($pattern, $requestUri, $matches); 
             //print_r($matches);
