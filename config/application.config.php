@@ -14,7 +14,8 @@ return array(
         'SFDM',
         'SanalFabrika',
         'Firmalar',
-        'Kullanicilar'
+        'Kullanicilar',
+        'Error',
     ),
     
     // These are various options for the listeners attached to the ModuleManager
