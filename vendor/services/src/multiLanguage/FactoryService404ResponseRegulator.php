@@ -38,7 +38,7 @@ class FactoryService404ResponseRegulator implements FactoryInterface{
         $requestUri = $_SERVER['REQUEST_URI'];
         //print_r('--request uri-->'.$requestUri);
         if($requestUri!='/' || $requestUri!=null) {     
-            $pattern = '/\/(('.SystemLanguages::ENG.'\/)|('.SystemLanguages::AR.')'
+            $pattern = '/\/(('.SystemLanguages::ENG.'\/)|('.SystemLanguages::AR.'\/)'
                     . '|('.SystemLanguages::RU.'\/)'
                     . '|('.SystemLanguages::FA.'\/)'
                     . '|('.SystemLanguages::DE.'\/)'
@@ -69,6 +69,27 @@ class FactoryService404ResponseRegulator implements FactoryInterface{
                         $translator->setLocale(SystemLanguages::FA_LOCALE);
                         break;
                     case '/'.SystemLanguages::ZH : 
+                        $translator->setLocale(SystemLanguages::ZH_LOCALE); 
+                        break;
+                    case '/'.SystemLanguages::ENG.'/' : 
+                        $translator->setLocale(SystemLanguages::ENG_LOCALE);
+                        break;
+                    case '/'.SystemLanguages::AR.'/' : 
+                        $translator->setLocale(SystemLanguages::AR_LOCALE);
+                        break;
+                    case '/'.SystemLanguages::DE.'/' : 
+                        $translator->setLocale(SystemLanguages::DE_LOCALE);
+                        break;
+                    case '/'.SystemLanguages::RU.'/' : 
+                        $translator->setLocale(SystemLanguages::RU_LOCALE);
+                        break;
+                    case '/'.SystemLanguages::TR.'/' : 
+                        $translator->setLocale(SystemLanguages::TR_LOCALE);
+                        break;
+                    case '/'.SystemLanguages::FA.'/' : 
+                        $translator->setLocale(SystemLanguages::FA_LOCALE);
+                        break;
+                    case '/'.SystemLanguages::ZH.'/' : 
                         $translator->setLocale(SystemLanguages::ZH_LOCALE); 
                         break;
                     default:
