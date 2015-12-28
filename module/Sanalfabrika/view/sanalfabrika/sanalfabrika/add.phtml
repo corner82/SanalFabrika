@@ -3,9 +3,6 @@ The #page-top ID is part of the scrolling feature.
 The data-spy and data-target are part of the built-in Bootstrap scrollspy function.
 -->
 
-
-<input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
-<input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <!--=== Style Switcher ===-->    
 <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
 <div class="style-switcher animated fadeInRight">
@@ -69,7 +66,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 </button>
 
                 <a class="navbar-brand" href="#intro">
-                    <span>U</span>nify
+                    <span>U</span>nify  add phtml
                     <!-- <img src="assets/img/logo1.png" alt="Logo"> -->
                 </a>
              
@@ -81,12 +78,12 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <i class="fa fa-globe"></i>
                         <a>Languages</a>
                         <ul class="languages hoverSelectorBlock">
-                            <!--<li class="active">
+                            <li class="active">
                                 <a href="#">English <i class="fa fa-check"></i></a> 
                             </li>
                             <li><a href="#">Spanish</a></li>
                             <li><a href="#">Russian</a></li>
-                            <li><a href="#">German</a></li>-->
+                            <li><a href="#">German</a></li>
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
@@ -168,8 +165,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             data-start="2000"
                             data-easing="Back.easeInOut"
                             data-endspeed="300">
-                            <?php echo $this->translate('OSTIM') ?>  <?php echo $this->translate('Virtual Enterprise Project') ?>
-                            <?php echo $this->uri ?>
+                            Ostim Sanal Fabrika Ofisi
                         </div>
 
                         <!-- LAYER -->
@@ -185,7 +181,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             data-captionhidden="off"
                             style="z-index: 6">
                             <?php echo $this->translate('Follow Development') ?><br>
-                            <?php echo $this->translate('Opening OSTIM manufacturing capabilities to the customers from all over the world') ?><!--We minimize the gap between technology and its audience.-->
+                            We minimize the gap between technology and its audience.
                         </div>
 
                         <!-- LAYER -->
@@ -295,9 +291,9 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
 
         <div class="parallax-quote parallaxBg">
             <div class="container">
-                <div class="parallax-quote-in"> 
-                    <p><?php echo $this->translate('Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees') ?><!--50 bin çalışanı ve 20 bin tezgahı <span class="color-green">olan bir fabrikanın</span>--><!-- kabiliyetlerini. <br> Tek bir havuzda topladık.--></p>
-                    <small>- <?php echo $this->translate('OSTIM') ?>  -</small>
+                <div class="parallax-quote-in">
+                    <p>If you can design one thing <span class="color-green">you can design</span> everything. <br> Just Believe It.</p>
+                    <small>- HtmlStream -</small>
                 </div>
             </div>
         </div>
@@ -404,7 +400,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
     <section id="services">
         <div class="container content-lg">
             <div class="title-v1">
-                <h2><?php echo $this->translate('Our Services') ?><!--Our Services--></h2>
+                <h2>Our Services</h2>
                 <p>We do <strong>things</strong> differently company providing key digital services. <br>
                 Focused on helping our clients to build a <strong>successful</strong> business on web and mobile.</p>
             </div>
@@ -497,115 +493,12 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
         </div>
     </section>
     <!-- End Services Section -->
-    
-    <!--OSTIM Services Section -->
-    <section id="services">
-        <div class="container content-lg">
-            <div class="title-v1">
-                <h2><?php /*echo $this->translate('Our Services')*/?>OSTİM Organize sanayİİ bölgesi hizmetleri</h2>
-                <p>We do <strong>things</strong> differently company providing key digital services. <br>
-                Focused on helping our clients to build a <strong>successful</strong> business on web and mobile.</p>
-            </div>
-
-            <div class="row service-box-v1">
-                <div class="col-md-4 col-sm-6">
-                    <!--<div class=" col-md-4 col-sm-6 glyph-icon flaticon-battery151"></div>-->
-                    <div class="service-block service-block-default">
-                        <i class="icon-custom icon-lg icon-bg-u rounded-x icon-bg-u icon-line glyph-icon flat-icon-inline-font flaticon-house157"></i>
-                        <h2 class="heading-md">Altyapı Hizmetlerimiz</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
-                        
-                    
-                        <ul class="list-unstyled text-left no-padding" >     
-                            <li><i class="icon-custom icon-md icon-bg-u rounded-x icon-bg-u icon-line glyph-icon  flaticon-transmission-tower flaticon-margin-right"></i><a href='#'>Elektrik İşletme ve Bakım</a></li>
-                            <li><i class="icon-custom icon-md icon-bg-u rounded-x icon-bg-u icon-line glyph-icon  flaticon-rubbish3 flaticon-margin-right"></i><a href='#'>Çevre ve Güvenlik</a></li>
-                            <li><i class="icon-custom icon-md icon-bg-u rounded-x icon-bg-u icon-line glyph-icon  flaticon-pipe5 flaticon-margin-right"></i><a href='#'>Doğal-gaz İşletme ve Bakım</a></li>
-                            <li><i class="icon-custom icon-md icon-bg-u rounded-x icon-bg-u icon-line glyph-icon  flaticon-crane19 flaticon-margin-right"></i><a href='#'>İşyeri Açma ve Çalışma Ruhsatı</a></li>  
-                            <li><i class="icon-custom icon-md icon-bg-u rounded-x icon-bg-u icon-line glyph-icon  flaticon-wheelbarrow6 flaticon-margin-right"></i><a href='#'>İmar ve Altyapı</a></li>
-                        </ul>  
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">   
-                    <div class="service-block service-block-default">
-                        <i class="icon-custom icon-lg icon-bg-u rounded-x icon-line icon-present"></i>
-                        <h2 class="heading-sm">Halkla İlişkiler</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus elit nondapibus</p>
-                        <ul class="list-unstyled">
-                            <li>Analysis &amp; Consulting</li>
-                            <li>Mobile Development</li>
-                            <li>Email Marketing</li>
-                            <li>App &amp; Icon Design</li>
-                            <li>Responsive Web Desgin</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="service-block service-block-default">
-                        <i class="icon-custom icon-lg icon-bg-u rounded-x icon-line icon-rocket"></i>
-                        <h2 class="heading-sm">SEO &amp; Advertising</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
-                        <ul class="list-unstyled">
-                            <li>Google AdSense</li>
-                            <li>Social Media</li>
-                            <li>Display Advertising</li>
-                            <li>App &amp; Icon Design</li>
-                            <li>Analysis &amp; Consulting</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <ul class="list-unstyled row portfolio-box-v1">
-            <li class="col-sm-4">
-                <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/mockup/img1.jpg')?>" alt="">
-                <div class="portfolio-box-v1-in">
-                    <h3>Collective Package</h3>
-                    <p>Web Design, Mock-up</p>
-                    <a class="btn-u btn-u-sm btn-brd btn-brd-hover btn-u-light" href="#">Read More</a>
-                </div>
-            </li>
-            <li class="col-sm-4">
-                <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/mockup/img2.jpg')?>" alt="">
-                <div class="portfolio-box-v1-in">
-                    <h3>Ahola Company</h3>
-                    <p>Brand Design, UI</p>
-                    <a class="btn-u btn-u-sm btn-brd btn-brd-hover btn-u-light" href="#">Read More</a>
-                </div>
-            </li>
-            <li class="col-sm-4">
-                <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/mockup/img4.jpg')?>" alt="">
-                <div class="portfolio-box-v1-in">
-                    <h3>Allan Project</h3>
-                    <p>Web Development, HTML5</p>
-                    <a class="btn-u btn-u-sm btn-brd btn-brd-hover btn-u-light" href="#">Read More</a>
-                </div>
-            </li>
-        </ul>
-
-        <div class="call-action-v1">
-            <div class="container">
-                <div class="call-action-v1-box">
-                    <div class="call-action-v1-in">
-                        <p>Unify creative technology company providing key digital services and focused on helping our clients to build a successful business on web and mobile.</p>
-                    </div>
-                    <div class="call-action-v1-in inner-btn page-scroll">
-                        <a href="#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-block">View Our Portfolio</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End OSTIM Services Section -->
-    
-    
 
     <!-- News Section -->
     <section id="news" class="news-section">
         <div class="container content-lg">
             <div class="title-v1">
-                <h2><?php echo $this->translate('Latest News') ?><!--Latest News--></h2>
+                <h2>Latest News</h2>
                 <p>We do <strong>things</strong> differently company providing key digital services. <br>
                 Focused on helping our clients to build a <strong>successful</strong> business on web and mobile.</p>
             </div>
@@ -686,7 +579,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
     <section id="portfolio" class="about-section">
         <div class="container content-lg">
             <div class="title-v1">
-                <h2><?php echo $this->translate('Our Portfolio') ?><!--Our Portfolio--></h2>
+                <h2>Our Portfolio</h2>
                 <p>We do <strong>things</strong> differently company providing key digital services. <br>
                 Focused on helping our clients to build a <strong>successful</strong> business on web and mobile.</p>
             </div>
@@ -856,7 +749,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
         <div class="clients-section parallaxBg">
             <div class="container">
                 <div class="title-v1">
-                    <h2><?php echo $this->translate('Our Clients') ?><!--Our Clients--></h2>
+                    <h2>Our Clients</h2>
                 </div>
                 <ul class="owl-clients-v2">
                     <li class="item"><a href="#"><img src="<?php echo $this->basePath('onyuz/One-Page/assets/img/clients/national-geographic.png')?>" alt=""></a></li>
@@ -911,7 +804,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
     <section id="contact" class="contacts-section">
         <div class="container content-lg">
             <div class="title-v1">
-                <h2><?php echo $this->translate('Contact us') ?><!--Contact Us--></h2>
+                <h2>Contact Us</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
                 It has been the industry's standard dummy text.</p>
             </div>
@@ -919,19 +812,17 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
             <div class="row contacts-in">
                 <div class="col-md-6 md-margin-bottom-40">
                     <ul class="list-unstyled">
-                        <li><i class="fa fa-home"></i> Ostim Organize Sanayi Bölge Müdürlüğü 
-100. Yıl Bulvarı No: 101/A, 06370, Ostim / Ankara-TÜRKİYE</li>
-                        <li><i class="fa fa-phone"></i> +90 312 385 50 90 </li>
-                        <li><i class="fa fa-fax"></i> +90 312 354 58 98</li>  
-                        <li><i class="fa fa-envelope"></i> <a href="info_example.html">sanalfabrika@ostim.com.tr</a></li>
-                        <li><i class="fa fa-globe"></i> <a href="http://htmlstream.com/">www.ostim.com.tr</a></li>
+                        <li><i class="fa fa-home"></i> 5B Streat, City 50987 New Town US</li>
+                        <li><i class="fa fa-phone"></i> 1(800) 220 084</li>
+                        <li><i class="fa fa-envelope"></i> <a href="info_example.html">info@example.com</a></li>
+                        <li><i class="fa fa-globe"></i> <a href="http://htmlstream.com/">www.htmlstream.com</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-6">
                     <form action="http://htmlstream.com/preview/unify-v1.8/One-Page/assets/php/sky-forms-pro/demo-contacts-process.php" method="post" id="sky-form3" class="sky-form contact-style">
                         <fieldset>
-                            <label><?php echo $this->translate('Name') ?><!--Name--></label>
+                            <label>Name</label>
                             <div class="row">
                                 <div class="col-md-7 margin-bottom-20 col-md-offset-0">
                                     <div>
@@ -940,7 +831,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 </div>
                             </div>
 
-                            <label><?php echo $this->translate('Email') ?> <!--Email--> <span class="color-red">*</span></label>
+                            <label>Email <span class="color-red">*</span></label>
                             <div class="row">
                                 <div class="col-md-7 margin-bottom-20 col-md-offset-0">
                                     <div>
@@ -958,7 +849,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 </div>
                             </div>
 
-                            <p><button type="submit" class="btn-u btn-brd btn-brd-hover btn-u-dark"><?php echo $this->translate('Send Message') ?><!--Send Message--></button></p>
+                            <p><button type="submit" class="btn-u btn-brd btn-brd-hover btn-u-dark">Send Message</button></p>
                         </fieldset>
 
                         <div class="message">
@@ -983,5 +874,3 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
         </div>
     </section>
     <!-- End Contact Section -->
-    
-    
