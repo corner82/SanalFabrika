@@ -194,3 +194,12 @@ i.icon-color-u {
 .topbar ul.languages li i.fa{
     color : #eee;  
 }
+
+/* Content Boxes v6
+------------------------------------*/
+.content-boxes-v6:hover i:after {
+  border-color: #e67e22;
+}
+.content-boxes-v6:hover i {
+  background:  #e67e22;
+}
