@@ -19,7 +19,7 @@ return array(
        'SFDM' => 'layout/sfdm.phtml',
        'Sanalfabrika' => 'layout/sanalfabrika.phtml',
        'Companies' => 'layout/companies.phtml',
-       'Kullanicilar' => 'layout/kullanicilar.phtml',
+       'Users' => 'layout/users.phtml',
        'Error' => 'layout/error.phtml',
         
    ),
@@ -32,8 +32,8 @@ return array(
             'cRegistration' => 'layout/cRegistrationLayout.phtml',
             'cMeeting' => 'layout/cMeetingLayout.phtml',
                         ),
-        'Kullanicilar' => array(
-            'kkayit' => 'layout/kkayitLayout.phtml',
+        'Users' => array(
+            'uRegistration' => 'layout/uRegistrationLayout.phtml',
                         ),
    )
     ,
