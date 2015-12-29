@@ -1,14 +1,14 @@
 <?php
 
-namespace Kullanicilar\Controller;
+namespace Users\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Session\Container;
 
-class KullanicilarController extends AbstractActionController {
+class UsersController extends AbstractActionController {
 
-    public function kkayitAction() {
+    public function uRegistrationAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()

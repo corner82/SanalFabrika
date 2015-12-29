@@ -21,7 +21,8 @@ $(document).ready(function () {
             $.fn.multiLanguageBarSetter.defaults.langCode = $("#langCode").val();
             $.fn.multiLanguageBarSetter.defaults.basePath = '/ostim/sanalfabrika/';
             $.fn.multiLanguageBarSetter.defaults.baseLanguage = 'tr';
-            $(".languages").multiLanguageBarSetter(data);     
+            $(".languages").multiLanguageBarSetter(data); 
+            
         }   
     });  
 });

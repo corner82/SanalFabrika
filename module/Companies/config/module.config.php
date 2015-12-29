@@ -3,23 +3,23 @@
  return array(
      'controllers' => array(
          'invokables' => array(
-             'Kullanicilar\Controller\Kullanicilar' => 'Kullanicilar\Controller\KullanicilarController',
+             'Companies\Controller\Companies' => 'Companies\Controller\CompaniesController',
          ),
      ),
       // The following section is new and should be added to your file
      'router' => array(
          'routes' => array(
-             'kullanicilar' => array(
+             'companies' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/ostim/sanalfabrika/kullanicilar/[:lang][/:action][/:id]',
+                     'route'    => '[/:lang]/ostim/sanalfabrika/companies[/:action][/:id]',
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
-                         'lang' => '((en)|(tr)|(ru)|(zh)|(de)|(ar)|(fa))', 
+                         'lang' => '((en)|(tr)|(ru)|(zh)|(de)|(ar)|(fa))',
                      ),
                      'defaults' => array(
-                         'controller' => 'Kullanicilar\Controller\Kullanicilar',
+                         'controller' => 'Companies\Controller\Companies',
                          'action'     => 'index',
                      ),
                  ),
@@ -31,9 +31,9 @@
              'admin' => __DIR__ . '/../view',  
          ),*/  
          'template_map' => array(
-            'layout/layout'           => __DIR__ . '/../view/layout/kullanicilar.phtml',   
-            'kullanicilar/index/index' => __DIR__ . '/../view/kullanicilar/kullanicilar/index.phtml',
-            'kullanicilar/index/kkayit' => __DIR__ . '/../view/kullanicilar/kullanicilar/kkayit.phtml',
+            'layout/layout'           => __DIR__ . '/../view/layout/companies.phtml',   
+            'companies/index/index' => __DIR__ . '/../view/companies/companies/index.phtml', 
+            'companies/index/cRegistration' => __DIR__ . '/../view/companies/companies/cRegistration.phtml', 
             /*'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',*/
         ),

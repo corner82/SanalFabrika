@@ -3,23 +3,23 @@
  return array(
      'controllers' => array(
          'invokables' => array(
-             'Firmalar\Controller\Firmalar' => 'Firmalar\Controller\FirmalarController',
+             'Users\Controller\Users' => 'Users\Controller\UsersController',
          ),
      ),
       // The following section is new and should be added to your file
      'router' => array(
          'routes' => array(
-             'firmalar' => array(
+             'users' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/ostim/sanalfabrika/firmalar/[:lang][/:action][/:id]',
+                     'route'    => '[/:lang]/ostim/sanalfabrika/users[/:action][/:id]',
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
-                         'lang' => '((en)|(tr)|(ru)|(zh)|(de)|(ar)|(fa))',
+                         'lang' => '((en)|(tr)|(ru)|(zh)|(de)|(ar)|(fa))', 
                      ),
                      'defaults' => array(
-                         'controller' => 'Firmalar\Controller\Firmalar',
+                         'controller' => 'Users\Controller\Users',
                          'action'     => 'index',
                      ),
                  ),
@@ -31,9 +31,9 @@
              'admin' => __DIR__ . '/../view',  
          ),*/  
          'template_map' => array(
-            'layout/layout'           => __DIR__ . '/../view/layout/firmalar.phtml',   
-            'firmalar/index/index' => __DIR__ . '/../view/firmalar/firmalar/index.phtml', 
-            'firmalar/index/fkayit' => __DIR__ . '/../view/firmalar/firmalar/fkayit.phtml', 
+            'layout/layout'           => __DIR__ . '/../view/layout/users.phtml',   
+            'users/index/index' => __DIR__ . '/../view/users/users/index.phtml',
+            'users/index/uRegistration' => __DIR__ . '/../view/users/users/uRegistration.phtml',
             /*'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',*/
         ),

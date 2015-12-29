@@ -457,13 +457,14 @@ function _init() {
              */
 //            console.log("sorry it is undefined. " + clickedObject.id);
 
-            if (currentPath.indexOf($("#langCode").val()) < (currentPath.length - 2)) {
-
+            if (currentPathArray.length > 7) {
                 console.log('alt kirilim var');
-
-
-            } else {
-                console.log('altkirilim yok...');
+            } else if (currentPathArray.length === 5) {
+                console.log('Anasayfada...');
+            } else if (currentPathArray.length === 6) {
+                console.log('Parent...');
+            } else if (currentPathArray.length < 5) {
+                console.log('Admin sayfasi...');
             }
 
         } else {
@@ -480,11 +481,6 @@ function _init() {
             var parent = $(treeview_id_ref).parents('ul').first();
             var parent_li = $(treeview_id_ref).parent("li");
             var ul = parent.find('ul:visible').slideUp('normal');
-//            var parent_li = $this.parent("li");
-
-            var obj = document.getElementById(clickedObject.id);
-            var href = $(obj).find("a").attr("href");
-//            console.log(href);
 
             if (!$(treeview_id_ref).hasClass('menu-open')) {
                 //checks if the menu is open or not...

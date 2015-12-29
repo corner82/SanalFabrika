@@ -483,7 +483,7 @@ msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies 
 msgstr "L'intégration des moyens et des capacités de plus de 5 000 entreprises et 60 000 salariés"
 
 #: ../view/layout/sfdm.phtml:25
-msgid "Opening OSTIM manufacturing capabilities to the customers from all over world"
+msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "Ouverture des capacités de fabrication de l'OSTIM les clients du monde entier"
 
 

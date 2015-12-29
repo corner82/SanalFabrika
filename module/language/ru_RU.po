@@ -482,7 +482,7 @@ msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies 
 msgstr "Интеграция возможностей и потенциала более чем 5000 компаний с 60000 сотрудников"
 
 #: ../view/layout/sfdm.phtml:25
-msgid "Opening OSTIM manufacturing capabilities to the customers from all over world"
+msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "Открытие OSTIM производственные возможности для клиентов со всего мира"
 
 

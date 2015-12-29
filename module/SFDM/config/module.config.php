@@ -12,7 +12,7 @@
              'sfdm' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/sfdm/[:lang][/:action][/:id]',
+                     'route'    => '[/:lang]/sfdm[/:action][/:id]',
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',

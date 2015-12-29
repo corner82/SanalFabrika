@@ -1,14 +1,14 @@
 <?php
 
- namespace Firmalar\Controller;
+ namespace Companies\Controller;
 
  use Zend\Mvc\Controller\AbstractActionController;
  use Zend\View\Model\ViewModel;
  use Zend\Session\Container;
 
- class FirmalarController  extends AbstractActionController
+ class CompaniesController  extends AbstractActionController
  {
-     public function fkayitAction()
+     public function cRegisterationAction()
      {
          
         $langCode = $this->getServiceLocator()

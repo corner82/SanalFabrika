@@ -495,7 +495,7 @@ msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies 
 msgstr "یکپارچه سازی قابلیت ها و ظرفیت تولیدی منطقه صنعتی اوستیم با بیش از 5000 شرکت تولیدی و 60000 پرسنل"
 
 #: ../view/layout/sfdm.phtml:25
-msgid "Opening OSTIM manufacturing capabilities to the customers from all over world"
+msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "ارائه خدمات تولیدی شرکتهای فعال در منطقه صنعتی اوستیم به تمامی مشتریان از اقصا نقاط جهان"
 
 
