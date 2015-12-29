@@ -9,17 +9,8 @@
       // The following section is new and should be added to your file
      'router' => array(
          'routes' => array(
-             'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/',     
-                    'defaults' => array(
-                        'controller' => 'Error\Controller\Error',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-             'error' => array(
+             
+             /*'error' => array(
                  'type'    => 'segment',
                  'options' => array(
                      'route'    => '/ostim/sanalfabrika/error/[:lang][/:action]',   
@@ -32,7 +23,7 @@
                          'action'     => 'index',
                      ),
                  ),
-             ),
+             ),*/
          ),
      ),
      'translator' => array(

@@ -201,15 +201,15 @@ var App = function() {
          $.each(data, function(index, element) {
              if($.fn.multiLanguageBarSetter.defaults.requestUriTranslated == '/') {  
                  if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
-                 $this.append('<li class="active" ><a href="'+$.fn.multiLanguageBarSetter.defaults.basePath+''+element.language_main_code+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
+                 $this.append('<li class="active" ><a href="/'+element.language_main_code+'/'+$.fn.multiLanguageBarSetter.defaults.basePath+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
                  } else {
-                     $this.append('<li><a href="'+$.fn.multiLanguageBarSetter.defaults.basePath+''+element.language_main_code+'" >'+element.language+' </a></li>');
+                     $this.append('<li><a href="/'+element.language_main_code+'/'+$.fn.multiLanguageBarSetter.defaults.basePath+'" >'+element.language+' </a></li>');
                  }
              } else {
                  if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
-                 $this.append('<li class="active" ><a href="'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+''+uriSlasher+''+element.language_main_code+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
+                 $this.append('<li class="active" ><a href="/'+element.language_main_code+''+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
                  } else {
-                     $this.append('<li><a href="'+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+''+uriSlasher+''+element.language_main_code+'" >'+element.language+' </a></li>');
+                     $this.append('<li><a href="/'+element.language_main_code+''+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+'" >'+element.language+' </a></li>');
                  }
              }   
 
@@ -228,4 +228,113 @@ var App = function() {
          langCode : 'tr',
        };
 }(jQuery));
+
+
+// multilanguage bar setter
+(function($) {
+    /**
+     * this function sets languga bar <li> for language bar front end interfaces
+     * @param {json object} data
+     * @param {array} options
+     * @returns {null}
+     * @author Mustafa Zeynel Dağlı
+     * @since 29/12/2015
+     */
+    $.fn.openNewTab = function(data, options) {
+         var data = data;
+         $this = $(this);
+         
+        $(this).click(function (event) {
+            event.preventDefault();
+
+            var $this = $(this);  
+
+            var url = $this.attr("href");
+            var windowName = "popUp";
+            var windowSize = $this.data("popup");
+            //window.open('http://www.pageresource.com/jscript/jex5.htm','mywindow','width=400,height=200,toolbar=yes, location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes, resizable=yes');
+            window.open(url, windowName, ''+windowSize+',toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,Sresizable=yes');
+        });
+         
+         //alert($this.data("popup"));
+         //console.warn($.fn.multiLanguageBarSetter.defaults.langCode);
+         //console.warn($.fn.multiLanguageBarSetter.defaults.requestUriTranslated);
+         
+
+         var opts = $.extend({}, $.fn.multiLanguageBarSetter.defaults, options);
+     };
+
+     /**
+      * sets global variables for language bar widget functions
+      * @author Mustafa Zeynel Dağlı
+      * @since 24/12/2015
+      */
+     $.fn.multiLanguageBarSetter.defaults = {
+         basePath : '/',
+         baseLanguage : 'en',
+         requestUriTranslated : '/',
+         langCode : 'tr',
+       };
+}(jQuery));
+
+
+$.widget('zeyn.testWidget', {
+  options: {
+      forwardUri: 'https://www.google.com',
+      toolbar : 'yes',
+      location : 'yes',
+      menubar : 'yes',
+      directories : 'yes',
+      status : 'yes',
+      scrollbars : 'yes',
+      copyhistory : 'yes',  
+      resizable : 'yes',
+      
+
+      //  [{ title: 'Sample Bar', value: 75, css: '' }],
+      // bars: [],
+
+    },
+ 
+  _create: function () {
+      //var window = window;
+      var self = this;
+      
+      self.element.click(function (event ) {
+         //alert('test click 1');
+        event.preventDefault();
+        
+        var $this = $(this);
+        var windowExtras = $this.data("extras");
+        if(windowExtras == '' || windowExtras == null) {
+            windowExtras = ',toolbar='+self.options["toolbar"]+',location='+self.options["location"]+',directories='+self.options["directories"]+',status='+self.options["status"]+',menubar='+self.options["menubar"]+',scrollbars='+self.options["scrollbars"]+',copyhistory='+self.options["copyhistory"]+',resizable='+self.options["resizable"]+'';
+        }
+        var url = $this.attr("href");
+        var windowName = "popUp";
+        var windowSize = $this.data("popup");
+        
+        window.open(''+url+'',''+windowName+'',''+windowSize+windowExtras+'')
+        
+        //window.open('http://www.pageresource.com/jscript/jex5.htm','mywindow','width=400,height=200,toolbar=yes, location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes, resizable=yes');
+        //window.open(url, windowName, ''+windowSize+',toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,Sresizable=yes');
+    });
+      
+      /*this._on(this.elTitle, {
+            click: "_titleClick" // Note: function name must be passed as a string!
+        });*/
+      
+       //$('.js-newWindow').click($.proxy(this._myevent, this));
+      
+  },
+  _myevent: function(event) {
+
+            // use the this ptr to access the instance of your widget
+            alert('event fired');
+        },
+  
+  _destroy: function () {},  
+ 
+ 
+  _setOption: function (key, value) {}
+});
         
