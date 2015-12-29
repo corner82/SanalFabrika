@@ -85,42 +85,6 @@
                         event.stopPropagation();
                     }
                 }
-
-//                if ((currentPath.indexOf($("#langCode").val()) + 2) < currentPath.length) {
-//                if (currentPathArray.length > 7) {
-////                    var parrentURL = currentPath.
-////                            substring(0, currentPath.indexOf($("#langCode").val()) + 2);
-//                    console.log(currentPathArray);
-//
-//                    var parrentURL = 'https://';
-//
-//                    for (var c = 2; c < 7; c++) {
-//                        if(c!=2){
-//                            parrentURL = parrentURL + '/';
-//                        }
-//                        parrentURL = parrentURL + currentPathArray[c];
-//                    }
-//
-//                    if (parrentURL === data[i].url) {
-//                        var targetItem = $('#menu_' + data[i].id);
-//                        $(targetItem).slideDown('normal', function () {
-//                            $(targetItem).trigger('click');
-//                            $.AdminLTE.dynamicTree(this);
-//                        });
-//                        event.stopPropagation();
-//                    }
-//                } else {
-//
-//                    if (currentPath === data[i].url) {
-//                        var targetItem = $('#menu_' + data[i].id);
-//                        $(targetItem).slideDown('normal', function () {
-//                            $(targetItem).trigger('click');
-//                            $.AdminLTE.dynamicTree(this);
-//                        });
-//                        event.stopPropagation();
-//                    }
-//                }
-
                 /*
                  * Click fonksiyonu yeni append edilen şıkka eklenir
                  */

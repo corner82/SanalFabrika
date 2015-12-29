@@ -8,7 +8,7 @@ use Zend\Session\Container;
 
 class UsersController extends AbstractActionController {
 
-    public function uRegistrationAction() {
+    public function registrationAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()

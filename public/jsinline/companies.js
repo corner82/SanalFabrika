@@ -11,7 +11,7 @@ $(document).ready(function () {
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_syscountrys',
-            language_id: 647
+            language_code: $("#langCode").val()
 
         },
         method: "GET",
@@ -78,7 +78,7 @@ $("select#country1").on('change', function () {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_syscity',
             country_id: selectedCountry1Id,
-            language_id: 647
+            language_code: $("#langCode").val()
         },
         method: "GET",
         dataType: "json",
@@ -123,7 +123,7 @@ $("select#country2").on('change', function () {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_syscity',
             country_id: selectedCountry2Id,
-            language_id: 647
+            language_code: $("#langCode").val()
         },
         method: "GET",
         dataType: "json",
@@ -168,7 +168,7 @@ $("select#city1").on('change', function () {
             url: 'fillComboBox_sysborough',
             country_id: selectedCountry1Id,
             city_id: selectedCity1Id,
-            language_id: 647
+            language_code: $("#langCode").val()
         },
         method: "GET",
         dataType: "json",
@@ -215,7 +215,7 @@ $("select#city2").on('change', function () {
             url: 'fillComboBox_sysborough',
             country_id: selectedCountry2Id,
             city_id: selectedCity2Id,
-            language_id: 647
+            language_code: $("#langCode").val()
         },
         method: "GET",
         dataType: "json",
@@ -264,7 +264,7 @@ $("select#district1").on('change', function () {
             country_id: selectedCountry1Id,
             city_id: selectedCity1Id,
             boroughs_id: selectedDistrict1Id,
-            language_id: 647
+            language_code: $("#langCode").val()
         },
         method: "GET",
         dataType: "json",
@@ -294,7 +294,7 @@ $("select#district1").on('change', function () {
 
 $("select#district2").on('change', function () {
 
-    var selectedDistrict2 = $('#district2 option:selected');
+//    var selectedDistrict2 = $('#district2 option:selected');
 //    console.log($('#country1 :selected').text()); 
 //    console.log($('#country1 :selected').val());
     var selectedDistrict2Id = $('#district2 :selected').val();
@@ -309,10 +309,10 @@ $("select#district2").on('change', function () {
         data: {
             pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
             url: 'fillComboBox_sysvillage',
-            country_id: selectedCountry1Id,
-            city_id: selectedCity1Id,
-            boroughs_id: selectedDistrict1Id,
-            language_id: 647
+            country_id: selectedCountry2Id,
+            city_id: selectedCity2Id,
+            boroughs_id: selectedDistrict2Id,
+            language_code: $("#langCode").val()
         },
         method: "GET",
         dataType: "json",
