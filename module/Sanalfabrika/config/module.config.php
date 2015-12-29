@@ -4,6 +4,7 @@
      'controllers' => array(
          'invokables' => array(
              'Sanalfabrika\Controller\Sanalfabrika' => 'Sanalfabrika\Controller\SanalfabrikaController',
+             //'Sanalfabrika\Controller\Sanalfabrika' => Controller\SanalfabrikaController::class
          ),
      ),
       // The following section is new and should be added to your file
@@ -19,6 +20,31 @@
                     ),
                 ),
             ),
+            /* 'sanalfabrika' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/ostim/sanalfabrika',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Sanalfabrika\Controller',
+                        'controller'    => 'Sanalfabrika',
+                        'action'        => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                 'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:controller[/:action]]',
+                            'constraints' => array(
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                            ),
+                        ),
+                    ),
+                ),*/
              'sanalfabrika' => array(
                  'type'    => 'segment',
                  'options' => array(
