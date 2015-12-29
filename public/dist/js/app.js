@@ -442,44 +442,13 @@ function _init() {
 
     $.AdminLTE.dynamicTree = function (clickedObject) {
 
-//        console.log(clickedObject);
-//        var currentpath = 'https://www.bahram.sanalfabrika.com' + window.location.pathname;
-//        var pathArray = window.location.pathname.split('/');
-//        var language_codes = ['en', 'tr', 'de', 'ru', 'ar', 'fa', 'zh'];
-//        var s, q, r;
-//
-//        for (q = 0; q < pathArray.length; q++) {
-//            
-//            for (s = 0; s < language_codes.length; s++) {
-//                                
-//                if (pathArray[q] === language_codes[s]) {
-//
-//                    var mainItem = pathArray[q - 1];
-//
-//                    console.log('selected main item is: ' + mainItem);
-//                    console.log('Selected language code is: ' + language_codes[s]);
-//
-//                    if (pathArray.length - q > 0) {
-//
-//                        console.log('There are ' + pathArray.length - q + ' sub items.');
-//
-//                        for (r = 0; r < pathArray.length - q; r++) {
-//
-//                            if (!typeof pathArray[q + r + 1] === "undefined") {
-//
-//                                console.log(r + 1 + ' sub item is: ' + pathArray[q + r + 1]);
-//
-//                            }
-//                        }
-//                        
-//                    }else{
-//                        
-////                    console.log('There are not any sub items selected.');
-//                    
-//                    }
-//                }
-//            }
-//        }
+        var currentPath = 'https://www.bahram.sanalfabrika.com'
+                + $("#requestUriRegulated").val()
+                .replace('--dil--', $("#langCode").val());
+
+        var currentPathArray = currentPath.split('/');
+
+        console.log(currentPathArray);
 
         if (typeof clickedObject.id === "undefined") {
 
@@ -487,6 +456,15 @@ function _init() {
              * catches page object event with undefined id
              */
 //            console.log("sorry it is undefined. " + clickedObject.id);
+
+            if (currentPath.indexOf($("#langCode").val()) < (currentPath.length - 2)) {
+
+                console.log('alt kirilim var');
+
+
+            } else {
+                console.log('altkirilim yok...');
+            }
 
         } else {
 
@@ -502,7 +480,7 @@ function _init() {
             var parent = $(treeview_id_ref).parents('ul').first();
             var parent_li = $(treeview_id_ref).parent("li");
             var ul = parent.find('ul:visible').slideUp('normal');
-            var parent_li = $this.parent("li");
+//            var parent_li = $this.parent("li");
 
             var obj = document.getElementById(clickedObject.id);
             var href = $(obj).find("a").attr("href");
@@ -545,12 +523,11 @@ function _init() {
                                  * html code for appending                                 * 
                                  */
 
-                                $(clickedObject).append($("<ul class='treeview-menu' id=" 
-                                        + treeview_id + "></ul>"));
+                                $(clickedObject).append($("<ul class='treeview-menu' id=" + treeview_id + "></ul>"));
                                 for (j; j < len; j++) {
 
                                     if (data2[j].collapse === 0) {
-                                        
+
                                         /*
                                          * Checks if the new coming submenu
                                          * has any submenus or not;
@@ -560,10 +537,6 @@ function _init() {
                                          * otherwise collapse == 0 the code would be like:
                                          * <li id='menu_ ...
                                          */
-                                        
-                                        
-                                        
-                                        
 
                                         var appending_submenu_html = "<li id='menu_" +
                                                 data2[j].id + "'><a href='" +
@@ -571,11 +544,14 @@ function _init() {
                                                 data2[j].icon_class + "'></i>" +
                                                 data2[j].menu_name + "</a></li>";
                                         var submenu_newappend = $(appending_submenu_html);
+
                                         /*
                                          * appending_submenu_html is the created 
                                          * HTML code to be appended
                                          */
+
                                         $(treeview_id_ref).append(submenu_newappend);
+
                                         /*
                                          * created code is appended to the related
                                          * item with reference id of treeview_id_ref
@@ -584,6 +560,16 @@ function _init() {
                                         $(submenu_newappend).on("click", function (clickedObject2) {
                                             $.AdminLTE.dynamicTree(this);
                                         });
+
+                                        var targetItem = $('#menu_' + data2[j].id);
+
+                                        if (currentPath === data2[j].url) {
+
+                                            $(targetItem).trigger('click');
+                                            $.AdminLTE.dynamicTree(this);
+
+                                        }
+
                                         /*
                                          * Attach click event to the created submenu
                                          * @type String|String
@@ -603,6 +589,21 @@ function _init() {
                                         $(submenu_newappend).on("click", function (clickedObject2) {
                                             $.AdminLTE.dynamicTree(this);
                                         });
+                                        if (currentPath === data2[j].url) {
+                                            var targetItem = $('#menu_' + data2[j].id);
+
+                                            /*
+                                             * Bu bölüm alt kırılımların url kontrolunu yapmaktadır. 
+                                             * url menu iteminin url ile eşleşiyorsa o şıkkı 
+                                             * açacaktır ve sayfa yüklendiğinde açık 
+                                             * gözükecektir.
+                                             */
+
+                                            $(targetItem).slideDown('normal', function () {
+                                                $(targetItem).trigger('click');
+                                                $.AdminLTE.dynamicTree(this);
+                                            });
+                                        }
                                     }
                                 }
                             }

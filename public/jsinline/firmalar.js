@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
-    
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -61,6 +61,21 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 
+            /*
+             * Bu değişkenler url kontrol için kullanılmaktadır.
+             */
+
+            var currentPath = 'https://www.bahram.sanalfabrika.com'
+                    + $("#requestUriRegulated").val()
+                    .replace('--dil--', $("#langCode").val());
+
+            var currentPathArray = currentPath.split('/');
+
+            var langIndex = currentPathArray.indexOf($("#langCode").val());
+            var urlArraySize = currentPathArray.length;
+
+            // Ana menü değişkenleri
+
             var len = data.length;
             var i = 0;
             for (i; i < len; i++) {
@@ -88,25 +103,65 @@ $(document).ready(function () {
                 }
 
                 $(newappend).appendTo($("#leftside-menu"));
-                $(newappend).on("click", function (event) {
 
+                /*
+                 * Bu bölüm ana menü url kontrolunu yapmaktadır. 
+                 * url menu iteminin url ile eşleşiyorsa o şıkkı 
+                 * açacaktır ve sayfa yüklendiğinde açık 
+                 * gözükecektir.
+                 */
+
+                if ((currentPath.indexOf($("#langCode").val()) + 2) < currentPath.length) {
+
+                    var parrentURL = currentPath.
+                            substring(0, currentPath.indexOf($("#langCode").val()) + 2);
+
+                    if (parrentURL === data[i].url) {
+                        var targetItem = $('#menu_' + data[i].id);
+                        $(targetItem).slideDown('normal', function () {
+                            $(targetItem).trigger('click');
+                            $.AdminLTE.dynamicTree(this);
+                        });
+                        event.stopPropagation();
+                    }
+                } else {
+
+                    if (currentPath === data[i].url) {
+                        var targetItem = $('#menu_' + data[i].id);
+                        $(targetItem).slideDown('normal', function () {
+                            $(targetItem).trigger('click');
+                            $.AdminLTE.dynamicTree(this);
+                        });
+                        event.stopPropagation();
+                    }
+                }
+
+                /*
+                 * Click fonksiyonu yeni append edilen şıkka eklenir
+                 */
+
+                $(newappend).on("click", function (event) {
+                    console.log(event);
                     //alert(event.target);
                     //alert(this);
                     $.AdminLTE.dynamicTree(this);
                 });
 
+                // bir sonraki ekleme için append boşaltılır...
                 newappend = null;
             }
         }
     });
-    
-    $(".select2").select2();
 
+    /*
+     * ara yüzde kullanılan maskeler ve select 2 drop down fonksiyonları
+     */
+    $(".select2").select2();
     //Datemask dd/mm/yyyy
     $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
     //Money Euro
     $("[data-mask]").inputmask();
-   
+
 });
 
 $("select#country1").on('change', function () {
