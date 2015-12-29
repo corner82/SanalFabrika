@@ -13,8 +13,8 @@ return array(
         'Login',
         'SFDM',
         'SanalFabrika',
-        'Firmalar',
-        'Kullanicilar',
+        'Companies',
+        'Users',
         'Error',
     ),
     
