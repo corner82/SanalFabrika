@@ -19,9 +19,25 @@ $(document).ready(function () {
             
             $.fn.multiLanguageBarSetter.defaults.requestUriTranslated = $("#requestUriRegulated").val();
             $.fn.multiLanguageBarSetter.defaults.langCode = $("#langCode").val();
-            $.fn.multiLanguageBarSetter.defaults.basePath = '/ostim/sanalfabrika/';
+            $.fn.multiLanguageBarSetter.defaults.basePath = 'ostim/sanalfabrika';
             $.fn.multiLanguageBarSetter.defaults.baseLanguage = 'tr';
             $(".languages").multiLanguageBarSetter(data);     
         }   
     });  
+    
+    
+    /*$('.js-newTab').click(function (event) {
+        event.preventDefault();
+
+        var $this = $(this);
+
+        var url = $this.attr("href");
+        var windowName = "popUp";
+        var windowSize = $this.data("popup");
+        //window.open('http://www.pageresource.com/jscript/jex5.htm','mywindow','width=400,height=200,toolbar=yes, location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes, resizable=yes');
+        window.open(url, windowName, ''+windowSize+',toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,Sresizable=yes');
+    });*/
+    //$('#js-newWindow').openNewTab();
+    
+    $('.js-newTab').testWidget();
 });
