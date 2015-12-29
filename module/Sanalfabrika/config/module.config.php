@@ -22,7 +22,7 @@
              'sanalfabrika' => array(
                  'type'    => 'segment',
                  'options' => array(
-                     'route'    => '/ostim/sanalfabrika/[:lang][/:action][/:id]',   
+                     'route'    => '[/:lang]/ostim/sanalfabrika[/:action][/:id]',   
                      'constraints' => array(
                          'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                          'id'     => '[0-9]+',
