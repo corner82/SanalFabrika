@@ -457,16 +457,6 @@ function _init() {
              */
 //            console.log("sorry it is undefined. " + clickedObject.id);
 
-            if (currentPathArray.length > 7) {
-                console.log('alt kirilim var');
-            } else if (currentPathArray.length === 5) {
-                console.log('Anasayfada...');
-            } else if (currentPathArray.length === 6) {
-                console.log('Parent...');
-            } else if (currentPathArray.length < 5) {
-                console.log('Admin sayfasi...');
-            }
-
         } else {
 
             var _this = this;

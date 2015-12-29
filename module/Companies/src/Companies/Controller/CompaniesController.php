@@ -8,7 +8,7 @@
 
  class CompaniesController  extends AbstractActionController
  {
-     public function cRegisterationAction()
+     public function registrationAction()
      {
          
         $langCode = $this->getServiceLocator()
@@ -23,7 +23,7 @@
         return $view;
      }
        
-     public function randevuAction()
+     public function meetingAction()
      {
         $langCode = $this->getServiceLocator()
                             ->get('serviceTranslator');

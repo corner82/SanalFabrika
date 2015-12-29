@@ -33,7 +33,7 @@
          'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/companies.phtml',   
             'companies/index/index' => __DIR__ . '/../view/companies/companies/index.phtml', 
-            'companies/index/cRegistration' => __DIR__ . '/../view/companies/companies/cRegistration.phtml', 
+            'companies/index/registration' => __DIR__ . '/../view/companies/companies/registration.phtml', 
             /*'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',*/
         ),
