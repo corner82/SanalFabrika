@@ -308,6 +308,8 @@
             <ol class="breadcrumb">
                 <li><a href="https://www.bahram.sanalfabrika.com/tr/ostim/sanalfabrika/supervisor"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
                 <!--<li class="active">Firma İşlemleri</li>-->
+                <li><a href="https://www.bahram.sanalfabrika.com/tr/ostim/sanalfabrika/supervisor/coreg"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Company Registration') ?> </a></li>
+                <!--<li class="active">Firma İşlemleri</li>-->
             </ol>
         </section>
 
@@ -322,7 +324,7 @@
                     <div class="box" style="background-color: #f4f4f4">
                         <!--Page main panel-->
                         <div class="box-header with-border" >
-                            <h3 class="box-title"> Sanal Fabrika Firma İşlemleri </h3>
+                            <h3 class="box-title"> <?php echo $this->translate('Virtual Enterprise Company Registration') ?> </h3>
                             <div class="box-tools pull-right" >
                                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>
                             </div>
@@ -337,7 +339,7 @@
                                     <div class="box box-primary">
                                         <!--First panel Header-->
                                         <div class="box-header with-border">                                                    
-                                            <h3 class="box-title"> Firmalar Listesi </h3>                                                    
+                                            <h3 class="box-title"> <?php echo $this->translate('List of Companies') ?></h3>                                                    
                                             <!--Panel 1 collapse button-->
                                             <div class="box-tools pull-right">
                                                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
@@ -347,7 +349,7 @@
                                         <div class="box-body">
                                             <!--Easyui grid table div start-->
                                             <div id="tt_grid_dynamic_Main">
-                                                <table  id="tt_grid_dynamic" title="Firma genel bilgileri " ></table>
+                                                <table  id="tt_grid_dynamic" title="<?php echo $this->translate('Companies Information') ?>" ></table>
                                             </div><!--/. Easyui grid table-->
                                         </div><!-- /.box-body -->
                                     </div><!--/. primary box div-->
@@ -362,7 +364,7 @@
                                     <div class="box box-success collapsed-box" id="addNewPanel">
                                         <!--First panel Header-->
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"> Yeni Firma Kaydı </h3>
+                                            <h3 class="box-title"> <?php echo $this->translate('New Company Registration') ?> </h3>
                                             <!--First panel collapse button-->
                                             <div class="box-tools pull-right">
                                                 <button class="btn btn-box-tool" onclick='$.AdminLTE.boxWidgetCRUDPanelCloser.collapse($("#firmaGuncelleme"))'  data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>
@@ -373,20 +375,17 @@
                                                 <div class="col-lg-12">
                                                     <div class="nav-tabs-custom">
                                                         <ul class="nav nav-tabs">
-                                                            <li class="active"><a href="#tab_1" data-toggle="tab">Genel Bilgiler</a></li>
-                                                            <li><a href="#tab_2" data-toggle="tab">İletişim Bilgileri</a></li>
-                                                            <li><a href="#tab_3" data-toggle="tab">Finansal Bilgiler</a></li>
-                                                            <li><a href="#tab_4" data-toggle="tab">Makina Parkı Bilgiler</a></li>
-                                                            <li><a href="#tab_5" data-toggle="tab">Yazılım Bilgiler</a></li>
-                                                            <li><a href="#tab_6" data-toggle="tab">Hammadde, Atık ve Emisyon Bilgiler</a></li>
-                                                            <li><a href="#tab_7" data-toggle="tab">Enerji Bilgiler</a></li>
+                                                            <li class="active"><a href="#tab_1" data-toggle="tab"><?php echo $this->translate('General Information') ?></a></li>
+                                                            <li><a href="#tab_2" data-toggle="tab"><?php echo $this->translate('Communication') ?></a></li>
+                                                            <li><a href="#tab_3" data-toggle="tab"><?php echo $this->translate('Financial') ?></a></li>
+                                                            <li><a href="#tab_4" data-toggle="tab"><?php echo $this->translate('Personel') ?></a></li>
 
 
                                                             <li class="pull-right"><a href="#" class="text-muted"></a></li>
                                                         </ul>
                                                         <div class="tab-content">
                                                             <div class="tab-pane active" id="tab_1">
-                                                                <b>Firma Genel Bilgileri</b>
+                                                                <b><?php echo $this->translate('General Information') ?></b>
                                                                 <div class="row">
                                                                     <div class="col-xs-12">
                                                                         <div class="ibox float-e-margins">
@@ -458,11 +457,11 @@
                                                                         </div>
                                                                     </div> 
                                                                 </div>                                                
-                                                            </div><!-- /.tab-pane -->
+                                                            </div><!-- /.Tab pane 1 -->
 
 
-                                                            <div class="tab-pane active" id="tab_2">
-                                                                <b>Firma Genel Bilgileri</b>
+                                                            <div class="tab-pane" id="tab_2">
+                                                                <b><?php echo $this->translate('General Information') ?></b>
                                                                 <div class="row">
                                                                     <div class="col-xs-12">
                                                                         <div class="ibox float-e-margins">
@@ -487,7 +486,7 @@
 
                                                                                         <div class="col-sm-10">
                                                                                             <select id='country1' class="form-control select2"  style="width: 100%;">                                                                    
-                                                                                                <option value="-1">Lütfen ülke seçiniz...</option>
+                                                                                                <option value=-1>Lütfen ülke seçiniz...</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -495,8 +494,8 @@
                                                                                     <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
 
                                                                                         <div class="col-sm-10">
-                                                                                            <select id='city1' class="form-control select2" data-placeholder="İl Seçiniz" style="width: 100%;">                                                                    
-                                                                                                <option value="-1">Lütfen il seçiniz...</option>
+                                                                                            <select id='city1' class="form-control select2" style="width: 100%;">                                                                    
+                                                                                                <option value=-1>Lütfen il seçiniz...</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -504,8 +503,8 @@
                                                                                     <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
 
                                                                                         <div class="col-sm-10">
-                                                                                            <select id='district1' class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
-                                                                                                <option value="-1">Lütfen ilçe seçiniz...</option>
+                                                                                            <select id='district1' class="form-control select2" style="width: 100%;">                                                                    
+                                                                                                <option value=-1>Lütfen ilçe seçiniz...</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -514,7 +513,7 @@
 
                                                                                         <div class="col-sm-10">
                                                                                             <select id='village1' class="form-control select2" data-placeholder="Semt Seçiniz" style="width: 100%;">                                                                    
-                                                                                                <option value="-1">Lütfen semt veya köy seçiniz...</option>
+                                                                                                <option value=-1>Lütfen semt veya köy seçiniz...</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -585,8 +584,8 @@
                                                             </div><!-- Tab pane 2 -->
 
 
-                                                            <div class="tab-pane active" id="tab_3">
-                                                                <b>Finansal Bilgiler</b>
+                                                            <div class="tab-pane" id="tab_3">
+                                                                <b><?php echo $this->translate('Financial') ?></b>
                                                                 <div class="row">
                                                                     <div class="col-xs-12">
                                                                         <div class="ibox float-e-margins">
@@ -596,10 +595,10 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div><!--/.tab-pane-->
+                                                            </div><!--/.Tab pane 3-->
 
-                                                            <div class="tab-pane active" id="tab_4">
-                                                                <b>Makina Parkı Bilgileri</b>
+                                                            <div class="tab-pane" id="tab_4">
+                                                                <b><?php echo $this->translate('Personel') ?></b>
                                                                 <div class="row">
                                                                     <div class="col-xs-12">
                                                                         <div class="ibox float-e-margins">
@@ -609,46 +608,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div><!--/.tab-pane-->
-
-                                                            <div class="tab-pane active" id="tab_5">
-                                                                <b>Yazılım Bilgileri</b>
-                                                                <div class="row">
-                                                                    <div class="col-xs-12">
-                                                                        <div class="ibox float-e-margins">
-                                                                            <div class="ibox-content">
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div><!--/.tab-pane-->
-
-                                                            <div class="tab-pane active" id="tab_6">
-                                                                <b>Hammadde, Atık ve Emisyon Bilgileri</b>
-                                                                <div class="row">
-                                                                    <div class="col-xs-12">
-                                                                        <div class="ibox float-e-margins">
-                                                                            <div class="ibox-content">
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div><!--/.tab-pane-->
-
-                                                            <div class="tab-pane active" id="tab_7">
-                                                                <b>Enerji Bilgileri</b>
-                                                                <div class="row">
-                                                                    <div class="col-xs-12">
-                                                                        <div class="ibox float-e-margins">
-                                                                            <div class="ibox-content">
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div><!--/.tab-pane-->
+                                                            </div><!--/.Tab pane 4-->
                                                         </div><!-- /.tab-content -->
                                                     </div><!-- nav-tabs-custom -->
                                                 </div>
@@ -661,31 +621,33 @@
 
 
 
-                            <!--First panel row-->
+                            <!--Second panel row-->
                             <div class="row">
-                                <!--second collapsible panel width, single column-->
+                                <!--Second panel single column-->
                                 <div class="col-md-12">
-                                    <!--arrange second panel color to red by assigning danger class-->
-                                    <div class="box box-danger collapsed-box" id="firmaGuncelleme">
-                                        <!--second panel Header-->                                                
+                                    <!--arrange Second panel color to green by assigning success class-->
+                                    <div class="box box-danger collapsed-box" id="companyUpdate">
+                                        <!--Second panel Header-->
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"> Bilgi Güncelleme </h3>
-                                            <!--First panel collapse button-->                                            
-                                        </div><!--/. First panel header-->
+                                            <h3 class="box-title"> <?php echo $this->translate('Update Company Information') ?> </h3>
+                                            <!--Second panel collapse button-->
+                                        </div><!--/. Second panel header-->
                                         <div class="box-body">
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="nav-tabs-custom">
                                                         <ul class="nav nav-tabs">
-                                                            <li class="active"><a href="#tab_1" data-toggle="tab">Genel Bilgiler</a></li>
-                                                            <li><a href="#tab_2" data-toggle="tab">İletişim Bilgileri</a></li>
-                                                            <li><a href="#tab_3" data-toggle="tab">Finansal Bilgiler</a></li>
+                                                            <li class="active"><a href="#tab_1" data-toggle="tab"><?php echo $this->translate('General Information') ?></a></li>
+                                                            <li><a href="#tab_2" data-toggle="tab"><?php echo $this->translate('Communication') ?></a></li>
+                                                            <li><a href="#tab_3" data-toggle="tab"><?php echo $this->translate('Financial') ?></a></li>
+                                                            <li><a href="#tab_4" data-toggle="tab"><?php echo $this->translate('Personel') ?></a></li>
+
 
                                                             <li class="pull-right"><a href="#" class="text-muted"></a></li>
                                                         </ul>
                                                         <div class="tab-content">
                                                             <div class="tab-pane active" id="tab_1">
-                                                                <b>Firma Genel Bilgileri</b>
+                                                                <b><?php echo $this->translate('General Information') ?></b>
                                                                 <div class="row">
                                                                     <div class="col-xs-12">
                                                                         <div class="ibox float-e-margins">
@@ -757,10 +719,11 @@
                                                                         </div>
                                                                     </div> 
                                                                 </div>                                                
-                                                            </div><!-- /.tab-pane -->
+                                                            </div><!-- /.Tab pane 1 -->
 
-                                                            <div class="tab-pane active" id="tab_2">
-                                                                <b>İletişim Bilgileri</b>
+
+                                                            <div class="tab-pane" id="tab_2">
+                                                                <b><?php echo $this->translate('General Information') ?></b>
                                                                 <div class="row">
                                                                     <div class="col-xs-12">
                                                                         <div class="ibox float-e-margins">
@@ -783,8 +746,8 @@
 
                                                                                     <div class="form-group"><label class="col-sm-2 control-label"> Ülke </label>
 
-                                                                                        <div  class="col-sm-10">
-                                                                                            <select id='country2' class="form-control select2"  style="width: 100%;">                                                                    
+                                                                                        <div class="col-sm-10">
+                                                                                            <select id='country1' class="form-control select2"  style="width: 100%;">                                                                    
                                                                                                 <option value=-1>Lütfen ülke seçiniz...</option>
                                                                                             </select>
                                                                                         </div>
@@ -793,7 +756,7 @@
                                                                                     <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
 
                                                                                         <div class="col-sm-10">
-                                                                                            <select id='city2' class="form-control select2" data-placeholder="İl Seçiniz" style="width: 100%;">                                                                    
+                                                                                            <select id='city1' class="form-control select2" data-placeholder="İl Seçiniz" style="width: 100%;">                                                                    
                                                                                                 <option value=-1>Lütfen il seçiniz...</option>
                                                                                             </select>
                                                                                         </div>
@@ -802,7 +765,7 @@
                                                                                     <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
 
                                                                                         <div class="col-sm-10">
-                                                                                            <select id='district2' class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                            <select id='district1' class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
                                                                                                 <option value=-1>Lütfen ilçe seçiniz...</option>
                                                                                             </select>
                                                                                         </div>
@@ -811,13 +774,11 @@
                                                                                     <div class="form-group"><label class="col-sm-2 control-label"> Semt </label>
 
                                                                                         <div class="col-sm-10">
-                                                                                            <select id='village2' class="form-control select2" data-placeholder="Semt Seçiniz" style="width: 100%;">                                                                    
-                                                                                                <option value="-1">Lütfen semt veya köy seçiniz...</option>
+                                                                                            <select id='village1' class="form-control select2" data-placeholder="Semt Seçiniz" style="width: 100%;">                                                                    
+                                                                                                <option value=-1>Lütfen semt veya köy seçiniz...</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-
-
 
                                                                                     <div class="form-group"><label class="col-sm-2 control-label"> Cadde </label>
                                                                                         <div class="col-sm-10"><input type="text" class="form-control"></div>
@@ -884,8 +845,9 @@
                                                                 </div>
                                                             </div><!-- Tab pane 2 -->
 
-                                                            <div class="tab-pane active" id="tab_3">
-                                                                <b>Finansal Bilgiler</b>
+
+                                                            <div class="tab-pane" id="tab_3">
+                                                                <b><?php echo $this->translate('Financial') ?></b>
                                                                 <div class="row">
                                                                     <div class="col-xs-12">
                                                                         <div class="ibox float-e-margins">
@@ -895,16 +857,16 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div><!--/.tab-pane-->
+                                                            </div><!--/.Tab pane 3-->
                                                         </div><!-- /.tab-content -->
                                                     </div><!-- nav-tabs-custom -->
                                                 </div>
                                             </div>
                                         </div><!--/. box-->
                                     </div><!--/. success box div-->
-                                </div><!--/. First panel single column div -->
-                            </div><!-- / First panel row-->
-                            <!--First collapsible panel row -->
+                                </div><!--/. Second panel single column div -->
+                            </div><!-- / Second panel row-->
+                            <!--Second collapsible panel row -->
                         </div><!--/. main body-->
                     </div><!--/.box --> 
                 </div><!--/. main panel single colum-->

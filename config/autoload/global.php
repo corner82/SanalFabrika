@@ -37,6 +37,8 @@ return array(
                         ),
         'Supervisor' => array(
             'coreg' => 'layout/coregLayout.phtml',
+            'machinepark' => 'layout/machineparkLayout.phtml',
+            'software' => 'layout/softwareLayout.phtml',
                         ),
    )
     ,

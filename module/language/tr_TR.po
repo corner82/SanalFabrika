@@ -502,6 +502,9 @@ msgstr "OSTİM'in 60,000'den fazla çalışanı ve 5,000'den fazla firmasının 
 msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "OSTİM'i bir imalat üstü olarak dünyadaki bütün müşteri isteklerine açmaktadır"
 
+#: ../view/layout/sfdm.phtml:25
+msgid "Company Registration"
+msgstr "Firma Kaydı"
 
 
 

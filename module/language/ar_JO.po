@@ -491,6 +491,9 @@ msgstr "دمج امكانات وقدرات اكثر من 5,000 شركة يعمل
 msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "فتح قدرات تصنيع OSTIM الزبائن من جميع انحاء العالم"
 
+#: ../view/layout/sfdm.phtml:25
+msgid "Company Registration"
+msgstr "التسجيل الشركة"
 
 
 

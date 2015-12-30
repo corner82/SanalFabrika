@@ -503,6 +503,10 @@ msgid "Opening OSTIM manufacturing capabilities to the customers from all over t
 msgstr "ارائه خدمات تولیدی شرکتهای فعال در منطقه صنعتی اوستیم به تمامی مشتریان از اقصا نقاط جهان"
 
 
+#: ../view/layout/sfdm.phtml:25
+msgid "Company Registration"
+msgstr "ثبت شرکت جدید"
+
 
 
 

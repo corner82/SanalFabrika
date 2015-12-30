@@ -489,6 +489,9 @@ msgstr "Интеграция возможностей и потенциала б
 msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "Открытие OSTIM производственные возможности для клиентов со всего мира"
 
+#: ../view/layout/sfdm.phtml:25
+msgid "Company Registration"
+msgstr "Регистрация компании"
 
 
 

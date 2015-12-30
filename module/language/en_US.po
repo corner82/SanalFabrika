@@ -488,6 +488,9 @@ msgstr ""
 msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr ""
 
+#: ../view/layout/sfdm.phtml:25
+msgid "Company Registration"
+msgstr ""
 
 
 

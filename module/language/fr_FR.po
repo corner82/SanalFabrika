@@ -491,6 +491,10 @@ msgid "Opening OSTIM manufacturing capabilities to the customers from all over t
 msgstr "Ouverture des capacités de fabrication de l'OSTIM les clients du monde entier"
 
 
+#: ../view/layout/sfdm.phtml:25
+msgid "Company Registration"
+msgstr "Enregistrement de l'entreprise "
+
 
 
 

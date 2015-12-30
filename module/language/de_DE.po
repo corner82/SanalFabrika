@@ -488,7 +488,9 @@ msgstr "Die Integration der Fähigkeiten und Kapazitäten von mehr als 5.000 Unt
 msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "Öffnen OSTIM Fertigungskapazitäten für die Kunden aus aller Welt"
 
-
+#: ../view/layout/sfdm.phtml:25
+msgid "Company Registration"
+msgstr "Die Registrierung von Unternehmen"
 
 
 
