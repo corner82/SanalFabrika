@@ -448,7 +448,7 @@ function _init() {
 
         var currentPathArray = currentPath.split('/');
 
-        console.log(currentPathArray);
+//        console.log(currentPathArray);
 
         if (typeof clickedObject.id === "undefined") {
 

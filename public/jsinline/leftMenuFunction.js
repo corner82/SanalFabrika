@@ -1,8 +1,6 @@
 
 (function($){
     
-    console.log('here');
-    
    $.fn.leftMenuFunction = function(data) {
       $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -69,10 +67,7 @@
                  */
                 
                 for (var c = 3; c < currentPathArray.length; c++) {
-                    
-                    console.log('path array element: ' + currentPathArray[c]);
-                    console.log('menu_name_eng: ' + data[i].menu_name_eng);
-                
+                                    
                     if(currentPathArray[c].toLowerCase() === data[i].menu_name_eng.toLowerCase()){
                         var targetParentinURL = currentPathArray[c];
                         var targetParentinURLId = data[i].id;
@@ -90,7 +85,7 @@
                  */
 
                 $(newappend).on("click", function (event) {
-                    console.log(event);
+//                    console.log(event);
                     //alert(event.target);
                     //alert(this);
                     $.AdminLTE.dynamicTree(this);
