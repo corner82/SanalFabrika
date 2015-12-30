@@ -2284,6 +2284,20 @@ i.icon-bg-light-grey {
   display: inline-block;
 }
 
+.test  i {
+  color: #fff;
+  width: 61px;
+  height: 57px;
+  padding: 16px;
+  font-size: 25px;
+  line-height: 24px;
+  position: relative;
+  text-align: center;
+  background: #dedede;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
 .content-boxes-v6 i:after {
   top: -8px;
   left: -8px;
