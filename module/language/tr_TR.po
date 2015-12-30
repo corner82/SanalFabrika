@@ -54,6 +54,10 @@ msgstr "Ana Menü"
 msgid "Home"
 msgstr "Anasayfa"
 
+#: ../view/layout/layout.phtml:36
+msgid "Supervisor Dashboard"
+msgstr "Danışman Panosu"
+
 #: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr "Firmalar"

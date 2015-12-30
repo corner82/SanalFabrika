@@ -49,6 +49,10 @@ msgstr "الملاحة الرئيسية"
 msgid "Home"
 msgstr "الرئيسية"
 
+#: ../view/layout/layout.phtml:36
+msgid "Supervisor Dashboard"
+msgstr "المشرف لوح القيادة"
+
 #: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr "الشركات"

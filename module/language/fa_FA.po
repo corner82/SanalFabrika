@@ -54,6 +54,10 @@ msgstr "منوی اصلی"
 msgid "Home"
 msgstr "خانه"
 
+#: ../view/layout/layout.phtml:36
+msgid "Supervisor Dashboard"
+msgstr "صفحه کنترل سرپرست"
+
 #: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr "شرکتها"

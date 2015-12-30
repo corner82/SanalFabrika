@@ -1,14 +1,15 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
+
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
         <a href="index.phtml" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>OSTİM</b></span>
+            <span class="logo-mini"><b> <?php echo $this->translate('OSTIM') ?> </b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>OSTİM</b> EKO-OSTİM</span>
+            <span class="logo-lg"><b> <?php echo $this->translate('OSTIM') ?> </b> <?php echo $this->translate('Virtual Enterprise') ?> </span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -25,7 +26,7 @@
                             <span class="label label-success">0</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">0 yeni mesajınız var</li>
+                            <li class="header">0 <?php echo $this->translate('New Messages') ?></li>
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
@@ -92,7 +93,7 @@
                                     </li>-->
                                 </ul>
                             </li>
-                            <li class="footer"><a href="#">Tüm Mesajları Gör</a></li>
+                            <li class="footer"><a href="#"><?php echo $this->translate('Show all messages') ?></a></li>
                         </ul>
                     </li>
                     <!-- Notifications: style can be found in dropdown.less -->
@@ -102,7 +103,7 @@
                             <span class="label label-warning">0</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">0 hatırlatmanız var</li>
+                            <li class="header">0 <?php echo $this->translate('Notifications') ?></li>
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
@@ -134,7 +135,7 @@
                                     </li>-->
                                 </ul>
                             </li>
-                            <li class="footer"><a href="#">Tüm hatırlatmaları gör</a></li>
+                            <li class="footer"><a href="#"><?php echo $this->translate('Show all notifications') ?></a></li>
                         </ul>
                     </li>
                     <!-- Tasks: style can be found in dropdown.less -->
@@ -144,7 +145,7 @@
                             <span class="label label-danger">0</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header">0 görevlendirmeniz var</li>
+                            <li class="header">0 <?php echo $this->translate('Works To Do') ?></li>
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
@@ -206,14 +207,14 @@
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="#">Tüm görevleri gör</a>
+                                <a href="#"><?php echo $this->translate('Show all tasks') ?></a>
                             </li>
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>-->
+                          <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>-->                    
                             <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
                             <span class="hidden-xs"><?php /* echo $_SESSION['userName'] */ ?></span>
                         </a>
@@ -223,29 +224,29 @@
                               <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
                                 <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
                                 <p>
-<?php /* echo $_SESSION['userName'] */ ?> - <?php /* echo $_SESSION['department'] */ ?>
+                                    <?php /* echo $_SESSION['userName'] */ ?> - <?php /* echo $_SESSION['department'] */ ?>
                                     <small><!--Member since Nov. 2012--></small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
                             <li class="user-body">
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Çalıştığım Firmalar</a>
+                                    <a href="#"><?php echo $this->translate('Collaborating Companies') ?></a>
                                 </div>
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Son Ürünler</a>
+                                    <a href="#"><?php echo $this->translate('Friends') ?></a>
                                 </div>
                                 <div class="col-xs-4 text-center">
-                                    <a href="#">Son Mak./Teç.</a>
+                                    <a href="#"><?php echo $this->translate('Followers') ?></a>
                                 </div>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">   
-                                    <a href="#" class="btn btn-default btn-flat">Profil</a>
+                                    <a href="#" class="btn btn-default btn-flat"><?php echo $this->translate('Profile') ?></a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="<?php echo $this->url('login', array('action' => 'logout')); ?> " class="btn btn-default btn-flat">Çıkış Yap</a>
+                                    <a href="<?php echo $this->url('login', array('action' => 'logout')); ?> " class="btn btn-default btn-flat"><?php echo $this->translate('Log out') ?></a>
                                 </div>
                             </li>
                         </ul>
@@ -267,11 +268,12 @@
                 <div class="pull-left image">
                   <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
                     <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
+
                 </div>
                 <div class="pull-left info">
                     <p><?php /* echo $_SESSION['userName']; */ ?></p>
 
-                    <a href="#"><i class="fa fa-circle text-success"></i> Aktif</a>
+                    <a href="#"><i class="fa fa-circle text-success"></i> <?php echo $this->translate('Active') ?></a>
                 </div>
             </div>
             <!-- search form -->
@@ -287,7 +289,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
 
             <ul class="sidebar-menu" id="leftside-menu">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header"><?php echo $this->translate('Main Navigation') ?></li>
                 <li class="active treeview"></li>                        
             </ul>
 
@@ -300,22 +302,16 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Sanal Fabrika Firma İşlemleri
+                <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
                 <small></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Ana Sayfa </a></li>
+                <li><a href="https://www.bahram.sanalfabrika.com/tr/ostim/sanalfabrika/supervisor"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
                 <!--<li class="active">Firma İşlemleri</li>-->
             </ol>
         </section>
 
-        <div class="pad margin no-print">
-            <div class="callout callout-info" style="margin-bottom: 0!important;">												
-                <h4><i class="fa fa-info"></i> Note:</h4>
-                This Section is created to enter urgent comments regarding this page.
-            </div>
-        </div><!--/. comments section div-->
-
+        <!-- Main content -->
         <!-- Main Content. Contains page content -->
         <section class="invoice">
             <!--main panel row-->
@@ -380,6 +376,11 @@
                                                             <li class="active"><a href="#tab_1" data-toggle="tab">Genel Bilgiler</a></li>
                                                             <li><a href="#tab_2" data-toggle="tab">İletişim Bilgileri</a></li>
                                                             <li><a href="#tab_3" data-toggle="tab">Finansal Bilgiler</a></li>
+                                                            <li><a href="#tab_4" data-toggle="tab">Makina Parkı Bilgiler</a></li>
+                                                            <li><a href="#tab_5" data-toggle="tab">Yazılım Bilgiler</a></li>
+                                                            <li><a href="#tab_6" data-toggle="tab">Hammadde, Atık ve Emisyon Bilgiler</a></li>
+                                                            <li><a href="#tab_7" data-toggle="tab">Enerji Bilgiler</a></li>
+
 
                                                             <li class="pull-right"><a href="#" class="text-muted"></a></li>
                                                         </ul>
@@ -597,6 +598,57 @@
                                                                 </div>
                                                             </div><!--/.tab-pane-->
 
+                                                            <div class="tab-pane active" id="tab_4">
+                                                                <b>Makina Parkı Bilgileri</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!--/.tab-pane-->
+
+                                                            <div class="tab-pane active" id="tab_5">
+                                                                <b>Yazılım Bilgileri</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!--/.tab-pane-->
+
+                                                            <div class="tab-pane active" id="tab_6">
+                                                                <b>Hammadde, Atık ve Emisyon Bilgileri</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!--/.tab-pane-->
+
+                                                            <div class="tab-pane active" id="tab_7">
+                                                                <b>Enerji Bilgileri</b>
+                                                                <div class="row">
+                                                                    <div class="col-xs-12">
+                                                                        <div class="ibox float-e-margins">
+                                                                            <div class="ibox-content">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!--/.tab-pane-->
                                                         </div><!-- /.tab-content -->
                                                     </div><!-- nav-tabs-custom -->
                                                 </div>
@@ -764,8 +816,8 @@
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-                                                                                    
-                                                                                    
+
+
 
                                                                                     <div class="form-group"><label class="col-sm-2 control-label"> Cadde </label>
                                                                                         <div class="col-sm-10"><input type="text" class="form-control"></div>
@@ -861,9 +913,9 @@
     </div><!-- /.content-wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0
+            <b><?php echo $this->translate('Version') ?></b> 1.0
         </div>
-        <strong>Copyright &copy; 2015 <a href="" onclick="event.preventDefault();">OSTİM Teknoloji</a>.</strong> Tüm Hakları Saklıdır.
+        <strong><?php echo $this->translate('Copyright') ?> &copy; 2015 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a>.</strong> <?php echo $this->translate('All rights reserved.') ?>
     </footer>
 
     <!-- Control Sidebar -->      
@@ -878,13 +930,13 @@
         <div class="tab-content">
             <!-- Home tab content -->
             <div class="tab-pane" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Son Aktiviteler</h3>
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('Recent Activities') ?></h3>
                 <ul class='control-sidebar-menu'>
                     <li>
                         <a href='javascript::;'>
                             <i class="menu-icon-zeyn fa fa-file-code-o bg-green"></i>
                             <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Sisteme giriş yaptınız</h4>
+                                <h4 class="control-sidebar-subheading"><?php echo $this->translate('Logged into the system') ?></h4>
                                 <p><!--Will be 23 on April 24th--></p>
                             </div>
                         </a>
@@ -918,12 +970,12 @@
                     </li>-->
                 </ul><!-- /.control-sidebar-menu -->
 
-                <h3 class="control-sidebar-heading">Takip Edilen İşler</h3> 
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('Task Progress') ?></h3> 
                 <ul class='control-sidebar-menu'>
                     <li>
                         <a href='javascript::;'>               
                             <h4 class="control-sidebar-subheading">
-                                Ziyaret Edilen Firmalar
+                                <?php echo $this->translate('Reviewed Companies') ?>
                                 <span class="label label-danger pull-right">3%</span>
                             </h4>
                             <div class="progress progress-xxs">
@@ -934,7 +986,7 @@
                     <li>
                         <a href='javascript::;'>               
                             <h4 class="control-sidebar-subheading">
-                                Tamamlanan Temiz Üretim Raporları
+                                <?php echo $this->translate('Finished Reports') ?>
                                 <span class="label label-success pull-right">0%</span>
                             </h4>
                             <div class="progress progress-xxs">
@@ -945,7 +997,7 @@
                     <li>
                         <a href='javascript::;'>               
                             <h4 class="control-sidebar-subheading">
-                                Tamamlanan Enerji Verimliliği Raporları
+                                <?php echo $this->translate('Finished Eco Efficiency Reports') ?>
                                 <span class="label label-waring pull-right">0%</span>
                             </h4>
                             <div class="progress progress-xxs">
@@ -968,60 +1020,60 @@
 
             </div><!-- /.tab-pane -->
             <!-- Stats tab content -->
-            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
+            <div class="tab-pane" id="control-sidebar-stats-tab"><?php echo $this->translate('Stat Tab Contents') ?></div><!-- /.tab-pane -->
             <!-- Settings tab content -->
             <div class="tab-pane" id="control-sidebar-settings-tab">            
                 <form method="post">
-                    <h3 class="control-sidebar-heading">Temel Ayarlar</h3>
+                    <h3 class="control-sidebar-heading"><?php echo $this->translate('General Settings') ?></h3>
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            Rapor Paneli Kullanımı
+                            <?php echo $this->translate('Task Progress') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-                            Rapor Paneli kullanımı için yetkilendirme kıstası olacaktır
+                            <?php echo $this->translate('Reports') ?>
                         </p>
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            Firma Güncelleme Yetkisi
+                            <?php echo $this->translate('Company Editing Permission') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-                            Firma bilgilerinin güncellenmesi için yetki kıstasları olacaktır
+                            <?php echo $this->translate('') ?>
                         </p>
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            Enerji Verimliliği Kriterlerine Ulaşma
+                            <?php echo $this->translate('') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-                            Enerji Verimliliği Kriterlerinin güncellenmesi için yetki kıstasları olacaktır
+                            <?php echo $this->translate('') ?>
                         </p>
                     </div><!-- /.form-group -->
 
-                    <h3 class="control-sidebar-heading">Anlık Mesajlajma Özellikleri</h3>
+                    <h3 class="control-sidebar-heading"><?php echo $this->translate('Chat Settings') ?></h3>
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            Sistemde göster
+                            <?php echo $this->translate('Show me as online') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>                
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            Bilgilendirmeleri kapat
+                            <?php echo $this->translate('Turn off notifications') ?>
                             <input type="checkbox" class="pull-right" />
                         </label>                
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            Anlık mesajlajma geçmişini sil
+                            <?php echo $this->translate('Delete chat history') ?>
                             <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
                         </label>                
                     </div><!-- /.form-group -->

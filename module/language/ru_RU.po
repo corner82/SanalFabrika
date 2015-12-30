@@ -49,6 +49,10 @@ msgstr "Главной панели навигации"
 msgid "Home"
 msgstr "Для дома"
 
+#: ../view/layout/layout.phtml:36
+msgid "Supervisor Dashboard"
+msgstr "руководитель панель"
+
 #: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr "Предприятия"

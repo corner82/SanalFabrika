@@ -49,6 +49,10 @@ msgstr "Main Navigation"
 msgid "Home"
 msgstr "Home"
 
+#: ../view/layout/layout.phtml:36
+msgid "Supervisor Dashboard"
+msgstr "Supervisor-Dashboard"
+
 #: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr "Unternehmen"

@@ -49,6 +49,10 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
+#: ../view/layout/layout.phtml:36
+msgid "Supervisor Dashboard"
+msgstr ""
+
 #: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr ""

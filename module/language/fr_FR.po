@@ -49,6 +49,10 @@ msgstr "Navigation Principale"
 msgid "Home"
 msgstr "Accueil"
 
+#: ../view/layout/layout.phtml:36
+msgid "Supervisor Dashboard"
+msgstr "superviseur tableau de bord"
+
 #: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr "Entreprises"
