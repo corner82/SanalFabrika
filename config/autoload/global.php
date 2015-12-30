@@ -21,19 +21,22 @@ return array(
        'Companies' => 'layout/companies.phtml',
        'Users' => 'layout/users.phtml',
        'Error' => 'layout/error.phtml',
+       'Definitions' => 'layout/definitions.phtml',
+       'Supervisor' => 'layout/supervisor.phtml',
         
    ),
     'action_layouts' => array(
         'SFDM' => array(
-            'users' => 'layout/usersLayout.phtml',
-            'companies' => 'layout/companiesLayout.phtml',
                         ),
         'Companies' => array(
-            'cRegistration' => 'layout/cRegistrationLayout.phtml',
-            'cMeeting' => 'layout/cMeetingLayout.phtml',
+            'registration' => 'layout/registrationLayout.phtml',
+            'meeting' => 'layout/meetingLayout.phtml',
                         ),
         'Users' => array(
-            'uRegistration' => 'layout/uRegistrationLayout.phtml',
+            'registration' => 'layout/registrationLayout.phtml',
+                        ),
+        'Supervisor' => array(
+            'coreg' => 'layout/coregLayout.phtml',
                         ),
    )
     ,
@@ -75,6 +78,7 @@ return array(
     'ControlorsTobeAuthenticated' => array(
         'Admin',
         'SFDM',
+        'Supervisor',
 
     )
 );

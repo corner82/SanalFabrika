@@ -1,16 +1,18 @@
 <?php
 
- namespace SFDM\Controller;
+ namespace Definitions\Controller;
 
  use Zend\Mvc\Controller\AbstractActionController;
  use Zend\View\Model\ViewModel;
  use Zend\Session\Container;
 
- class SFDMController  extends AbstractActionController
+ class DefinitionsController  extends AbstractActionController
  {
+          
      public function indexAction()
      {
-         $langCode = $this->getServiceLocator()
+         
+        $langCode = $this->getServiceLocator()
                             ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                             ->get('serviceTranslatorUrlRegulator');  
@@ -34,6 +36,7 @@
 
      public function deleteAction()
      {
+         
      }
  }
 
