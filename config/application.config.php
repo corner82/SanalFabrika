@@ -16,6 +16,8 @@ return array(
         'Companies',
         'Users',
         'Error',
+        'Supervisor',
+        'Definitions',
     ),
     
     // These are various options for the listeners attached to the ModuleManager
