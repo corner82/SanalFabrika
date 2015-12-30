@@ -218,3 +218,9 @@ i.icon-color-u {
 .content-boxes-v6:hover i {
   background:  #e74c3c;
 }
+
+/* ostim hizmetlerimiz a link hover
+------------------------------------*/
+.service-block ul.list-unstyled li a:hover {     
+    color: #e74c3c;  
+}
