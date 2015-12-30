@@ -26,6 +26,7 @@ class FactoryServiceTranslator  implements FactoryInterface{
         $lang = $event->getRouteMatch()
                       ->getParam('lang');
         $lang = trim(strtolower($lang));
+        if($lang == null) $lang = 'tr';
         
         $translator = $event->getApplication()
                             ->getServiceManager()
