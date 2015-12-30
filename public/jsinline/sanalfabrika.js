@@ -31,5 +31,12 @@ $(document).ready(function () {
      * @author Mustafa Zeynel Dağlı
      * @since 29/12/2015
      */
-    $('.js-newTab').linkOpenerInNewTab();   
+    $('.js-newTab').linkOpenerInNewTab(); 
+    
+    /**
+     * widget usage for links opening in new tab
+     * @author Mustafa Zeynel Dağlı
+     * @since 30/12/2015
+     */
+    $('.js-newTabClients').linkOpenerInNewTab(); 
 });
