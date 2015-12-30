@@ -26,19 +26,10 @@ $(document).ready(function () {
         }   
     });  
     
-    
-    /*$('.js-newTab').click(function (event) {
-        event.preventDefault();
-
-        var $this = $(this);
-
-        var url = $this.attr("href");
-        var windowName = "popUp";
-        var windowSize = $this.data("popup");
-        //window.open('http://www.pageresource.com/jscript/jex5.htm','mywindow','width=400,height=200,toolbar=yes, location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes, resizable=yes');
-        window.open(url, windowName, ''+windowSize+',toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,Sresizable=yes');
-    });*/
-    //$('#js-newWindow').openNewTab();
-    
-    $('.js-newTab').testWidget();
+    /**
+     * widget usage for links opening in new tab
+     * @author Mustafa Zeynel Dağlı
+     * @since 29/12/2015
+     */
+    $('.js-newTab').linkOpenerInNewTab();
 });

@@ -229,56 +229,13 @@ var App = function() {
        };
 }(jQuery));
 
-
-// multilanguage bar setter
-(function($) {
-    /**
-     * this function sets languga bar <li> for language bar front end interfaces
-     * @param {json object} data
-     * @param {array} options
-     * @returns {null}
-     * @author Mustafa Zeynel Dağlı
-     * @since 29/12/2015
-     */
-    $.fn.openNewTab = function(data, options) {
-         var data = data;
-         $this = $(this);
-         
-        $(this).click(function (event) {
-            event.preventDefault();
-
-            var $this = $(this);  
-
-            var url = $this.attr("href");
-            var windowName = "popUp";
-            var windowSize = $this.data("popup");
-            //window.open('http://www.pageresource.com/jscript/jex5.htm','mywindow','width=400,height=200,toolbar=yes, location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes, resizable=yes');
-            window.open(url, windowName, ''+windowSize+',toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,Sresizable=yes');
-        });
-         
-         //alert($this.data("popup"));
-         //console.warn($.fn.multiLanguageBarSetter.defaults.langCode);
-         //console.warn($.fn.multiLanguageBarSetter.defaults.requestUriTranslated);
-         
-
-         var opts = $.extend({}, $.fn.multiLanguageBarSetter.defaults, options);
-     };
-
-     /**
-      * sets global variables for language bar widget functions
-      * @author Mustafa Zeynel Dağlı
-      * @since 24/12/2015
-      */
-     $.fn.multiLanguageBarSetter.defaults = {
-         basePath : '/',
-         baseLanguage : 'en',
-         requestUriTranslated : '/',
-         langCode : 'tr',
-       };
-}(jQuery));
-
-
-$.widget('zeyn.testWidget', {
+/**
+ * jquery widget to set <a></a> tags automatically open link in new tab
+ * @author Mustafa Zeynel Dağlı
+ * @since 29/12/2015
+ * 
+ */
+$.widget('zeyn.linkOpenerInNewTab', {
   options: {
       forwardUri: 'https://www.google.com',
       toolbar : 'yes',
@@ -289,19 +246,14 @@ $.widget('zeyn.testWidget', {
       scrollbars : 'yes',
       copyhistory : 'yes',  
       resizable : 'yes',
-      
-
       //  [{ title: 'Sample Bar', value: 75, css: '' }],
       // bars: [],
-
     },
  
   _create: function () {
-      //var window = window;
       var self = this;
       
       self.element.click(function (event ) {
-         //alert('test click 1');
         event.preventDefault();
         
         var $this = $(this);
@@ -314,27 +266,51 @@ $.widget('zeyn.testWidget', {
         var windowSize = $this.data("popup");
         
         window.open(''+url+'',''+windowName+'',''+windowSize+windowExtras+'')
-        
+        /**
+         * sample code opening new tab native javascript
+         * @author Mustafa Zeynel Dağlı
+         */
         //window.open('http://www.pageresource.com/jscript/jex5.htm','mywindow','width=400,height=200,toolbar=yes, location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes, resizable=yes');
-        //window.open(url, windowName, ''+windowSize+',toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,copyhistory=yes,Sresizable=yes');
     });
       
       /*this._on(this.elTitle, {
             click: "_titleClick" // Note: function name must be passed as a string!
         });*/
-      
-       //$('.js-newWindow').click($.proxy(this._myevent, this));
+      /**
+       * 
+       * example code for triggering events that dom element that the widget deals
+       * @author Mustafa Zeynel Dağlı
+       * @since 29/12/2015
+       */
+       //$('.js-newTab').click($.proxy(this._myevent, this));
       
   },
+  /**
+   * function that the dom element triggers is being caught in this function
+   * in code sample above
+   * @param {event} event
+   * @returns {null}
+   * @author Mustafa Zeynel Dağlı
+   * @since 29/12/2015
+   */
+  /*
   _myevent: function(event) {
-
-            // use the this ptr to access the instance of your widget
-            alert('event fired');
-        },
+    // use the this ptr to access the instance of your widget
+    alert('event fired');
+},*/
   
+  /**
+   * jquery default widget function, must be triggered when widget destroyed
+   * @returns {undefined}
+   */
   _destroy: function () {},  
  
- 
+ /**
+  * set options manually 
+  * @param {string} key
+  * @param {string} value
+  * @returns {null}
+  */
   _setOption: function (key, value) {}
 });
         
