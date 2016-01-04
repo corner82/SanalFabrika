@@ -482,7 +482,7 @@ function _init() {
                         data: {
                             parent: clickedObject_query_id,
                             url: 'getLeftMenu_leftnavigation',
-                            pk: '3441df0babc2a2dda551d7cd39fb235bc4e09cd1e4556bf261bb49188f548348',
+                            pk: $("#pk").val(),
                             language_code: $("#langCode").val()
                                     /*
                                      * clicked object id is being added to the query

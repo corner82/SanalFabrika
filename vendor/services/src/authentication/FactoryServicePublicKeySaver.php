@@ -19,12 +19,12 @@ class FactoryServicePublicKeySaver  implements FactoryInterface{
             $authManager = $serviceLocator->get('authenticationManagerDefault');
             $authStorage = $authManager->getStorage()->read();
             $publicKey = $authStorage['pk'];
-            print_r('--ph read-->'.$publicKey);  
+            //print_r('--ph read-->'.$publicKey);  
             
             $sessionManager = $serviceLocator
                                ->get('SessionManagerDefault');
             $sessionID = $sessionManager->getId();
-            print_r('----'.$sessionID);  
+            //print_r('----'.$sessionID);  
 
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':publicKey', $publicKey, \PDO::PARAM_STR);
