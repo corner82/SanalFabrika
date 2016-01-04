@@ -39,13 +39,26 @@
                             ->setCredential($_POST['sifre']);
                 $result = $authManager->authenticate();
                 if($result->getCode() == 1) {
+                    /**
+                     * creating a public key for every login operation
+                     * @author Mustafa Zeynel Dağlı
+                     * @since 04/01/2016
+                     */
+                    $publicKey = $this->getServiceLocator()->get('servicePublicKeyGenerator');
+
                     $authManager->getStorage()->write(
                              array('id'          => $result->getIdentity(),
                                     'username'   => $result->getIdentity(),
                                     'ip_address' => $this->getRequest()->getServer('REMOTE_ADDR'),
-                                    'user_agent'    => $request->getServer('HTTP_USER_AGENT'))
+                                    'user_agent'    => $request->getServer('HTTP_USER_AGENT'),
+                                    'pk' => $publicKey, )
                         );
-                    
+                    /**
+                     * the public key cretaed is being inserted to database
+                     * @author Mustafa Zeynel Dağlı
+                     * @since 04/01/2016
+                     */
+                    $this->getServiceLocator()->get('servicePublicKeySaver');
                     $this->getServiceLocator()->get('serviceAuthenticatedRedirect'); 
                 }
             } else {
@@ -59,6 +72,12 @@
     {
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $authManager->getStorage()->clear();
+        /**
+         * when logout the public key created in session table is being erased
+         * @author Mustafa Zeynel Dağlı
+         * @since 04/01/2016
+         */
+        $this->getServiceLocator()->get('servicePublicKeySaver');
         return $this->redirect()->toRoute('login');
     }
      

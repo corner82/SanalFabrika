@@ -51,7 +51,7 @@ return array(
         ),
         'savehandler' => array(
             'database'=> array(
-                    'table'=> 'session__silinecek',
+                    'table'=> 'act_session',
                     'savehandler' => 'sessionDbSaveHandler',
                 ),
         ),
@@ -72,7 +72,7 @@ return array(
     ),
     'authentication' => array(
         'database' => array (
-            'table' => 'users__silinecek',
+            'table' => 'info_users',
             'identityColumn' => 'username',
             'credentialColumn' => 'password',    
         )        

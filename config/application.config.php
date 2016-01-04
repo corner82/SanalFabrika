@@ -102,7 +102,10 @@ return array(
             'filterHexadecimalBase' => 'Custom\Services\Filter\FilterHexadecimalBase',
             'filterHexadecimalAdvanced' => 'Custom\Services\Filter\FilterHexadecimalAdvanced',
             'serviceTranslatorUrlRegulator' => 'Custom\Services\MultiLanguage\FactoryServiceUrlRegulator', 
-            'serviceTranslator404ResponseRegulator' => 'Custom\Services\MultiLanguage\FactoryService404ResponseRegulator', 
+            'serviceTranslator404ResponseRegulator' => 'Custom\Services\MultiLanguage\FactoryService404ResponseRegulator',
+            'servicePublicKeyGenerator' => 'Custom\Services\Authentication\FactoryServicePublicKeyGenerator',
+            'servicePublicKeySaver' => 'Custom\Services\Authentication\FactoryServicePublicKeySaver',
+            'servicePublicKeyReader' => 'Custom\Services\Authentication\FactoryServicePublicKeyReader',
         ],  
         
     ),
