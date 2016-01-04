@@ -19,6 +19,12 @@ class FactoryServiceSessionExpireControlerLocator  implements FactoryInterface{
             // if session expires set auth data empty
             $authManager = $serviceLocator->get('authenticationManagerDefault');
             $authManager->getStorage()->clear();
+            /**
+            * when logout the public key created in session table is being erased
+            * @author Mustafa Zeynel Dağlı
+            * @since 04/01/2016
+            */
+           $this->getServiceLocator()->get('servicePublicKeySaver');
             
             $event = $app->getMvcEvent();
             $route = $event->getRouteMatch()->getMatchedRouteName();
