@@ -10,7 +10,7 @@
         data: {
             parent: 0,
             pk: $("#pk").val(),
-            url: 'getLeftMenu_leftnavigation',
+            url: 'pkGetLeftMenu_leftnavigation',
             language_code: $("#langCode").val()
         },
         method: "GET",

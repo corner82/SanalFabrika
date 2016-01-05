@@ -13,10 +13,13 @@ class SupervisorController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'publicKey' => $publicKey,
         ));
         return $view;
     }
@@ -26,10 +29,13 @@ class SupervisorController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'publicKey' => $publicKey,
         ));
         return $view;
     }
@@ -39,10 +45,13 @@ class SupervisorController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'publicKey' => $publicKey,
         ));
         return $view;
     }
@@ -53,10 +62,13 @@ class SupervisorController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'publicKey' => $publicKey,
         ));
         return $view;
         

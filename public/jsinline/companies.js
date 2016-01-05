@@ -9,7 +9,6 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
-            pk: $("#pk").val(),
             url: 'fillComboBox_syscountrys',
             language_code: $("#langCode").val()
 
@@ -75,7 +74,6 @@ $("select#country1").on('change', function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
-            pk: $("#pk").val(),
             url: 'fillComboBox_syscity',
             country_id: selectedCountry1Id,
             language_code: $("#langCode").val()
@@ -120,7 +118,6 @@ $("select#country2").on('change', function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
-            pk: $("#pk").val(),
             url: 'fillComboBox_syscity',
             country_id: selectedCountry2Id,
             language_code: $("#langCode").val()
@@ -164,7 +161,6 @@ $("select#city1").on('change', function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
-            pk: $("#pk").val(),
             url: 'fillComboBox_sysborough',
             country_id: selectedCountry1Id,
             city_id: selectedCity1Id,
@@ -211,7 +207,6 @@ $("select#city2").on('change', function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
-            pk: $("#pk").val(),
             url: 'fillComboBox_sysborough',
             country_id: selectedCountry2Id,
             city_id: selectedCity2Id,
@@ -259,7 +254,6 @@ $("select#district1").on('change', function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
-            pk: $("#pk").val(),
             url: 'fillComboBox_sysvillage',
             country_id: selectedCountry1Id,
             city_id: selectedCity1Id,
@@ -307,7 +301,6 @@ $("select#district2").on('change', function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
-            pk: $("#pk").val(),
             url: 'fillComboBox_sysvillage',
             country_id: selectedCountry2Id,
             city_id: selectedCity2Id,

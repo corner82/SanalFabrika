@@ -482,7 +482,7 @@ function _init() {
 //                        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
                         data: {
                             parent: clickedObject_query_id,
-                            url: 'getLeftMenu_leftnavigation',
+                            url: 'pkGetLeftMenu_leftnavigation',
                             pk: $("#pk").val(),
                             language_code: $("#langCode").val()
                                     /*
