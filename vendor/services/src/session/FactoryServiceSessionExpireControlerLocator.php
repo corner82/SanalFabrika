@@ -24,7 +24,7 @@ class FactoryServiceSessionExpireControlerLocator  implements FactoryInterface{
             * @author Mustafa Zeynel Dağlı
             * @since 04/01/2016
             */
-           $this->getServiceLocator()->get('servicePublicKeySaver');
+           $serviceLocator->get('servicePublicKeySaver');
             
             $event = $app->getMvcEvent();
             $route = $event->getRouteMatch()->getMatchedRouteName();
