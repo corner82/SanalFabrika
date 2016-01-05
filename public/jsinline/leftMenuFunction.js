@@ -2,7 +2,8 @@
 (function($){
     
    $.fn.leftMenuFunction = function(data) {
-       alert($("#pk").val());
+//       alert($("#pk").val());
+      console.log('publicKey is ' + $("#pk").val());
       $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -16,7 +17,6 @@
         async: false,
         dataType: "json",
         success: function (data) {
-
             /*
              * Bu değişkenler url kontrol için kullanılmaktadır.
              */

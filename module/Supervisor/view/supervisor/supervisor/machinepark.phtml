@@ -1,5 +1,6 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
+<input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
 
 <div class="wrapper">
 
@@ -279,7 +280,7 @@
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Ara..."/>
+                    <input type="text" name="q" class="form-control" placeholder="<?php echo $this->translate('Search...') ?>"/>
                     <span class="input-group-btn">
                         <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                     </span>
@@ -364,7 +365,7 @@
                                     <div class="box box-primary">
                                         <!--Machine list panel Header-->
                                         <div class="box-header with-border">                                                    
-                                            <h3 class="box-title"> <?php echo $this->translate('List of Machien Tools') ?> </h3>                                                    
+                                            <h3 class="box-title"> <?php echo $this->translate('List of Machine Tools') ?> </h3>                                                    
                                             <!--Machine list collapse button-->
                                             <div class="box-tools pull-right">
                                                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
@@ -450,8 +451,8 @@
                                                                                     
                                                                                     <div class="box-footer">
                                                                                         <div class="col-sm-12">
-                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> <?php echo $this->translate('Update information') ?> </button>
-                                                                                            <button id='addNewAddressButton' class="btn btn-primary" type="submit"> <?php echo $this->translate('Add new machine tool') ?> </button>
+                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> <?php echo $this->translate('Update Information') ?> </button>
+                                                                                            <button id='addNewAddressButton' class="btn btn-primary" type="submit"> <?php echo $this->translate('Add New Machine Tool') ?> </button>
                                                                                         </div>
                                                                                     </div>                                                              
                                                                                 </form>
@@ -468,7 +469,7 @@
                                                                         <div class="ibox float-e-margins">
                                                                             <div class="ibox-content">
                                                                                 <form method="get" class="form-horizontal">
-                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Measuremnt Process Type') ?> </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Measurement Process Type') ?> </label>
                                                                                         <div class="col-sm-8">
                                                                                             <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
                                                                                                 <option value = -1>Select a manufacturing operation type</option>                                                                     
@@ -501,7 +502,7 @@
                                                                                     
                                                                                     <div class="box-footer">
                                                                                         <div class="col-sm-12">
-                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> <?php echo $this->translate('Update information') ?> </button>
+                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> <?php echo $this->translate('Update Information') ?> </button>
                                                                                             <button id='addNewAddressButton' class="btn btn-primary" type="submit"> <?php echo $this->translate('Add new Q.C. device') ?> </button>
                                                                                         </div>
                                                                                     </div>                                                              
@@ -549,7 +550,7 @@
                                                                                     
                                                                                     <div class="box-footer">
                                                                                         <div class="col-sm-12">
-                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> <?php echo $this->translate('Update information') ?> </button>
+                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> <?php echo $this->translate('Update Information') ?> </button>
                                                                                             <button id='addNewAddressButton' class="btn btn-primary" type="submit"> <?php echo $this->translate('Add new device') ?> </button>
                                                                                         </div>
                                                                                     </div>                                                              

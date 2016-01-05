@@ -493,6 +493,169 @@ msgid "Company Registration"
 msgstr "Die Registrierung von Unternehmen"
 
 
+msgid "Company"
+msgstr "Unternehmen"
+
+msgid "Virtual Enterprise Company Registration"
+msgstr "Virtuelle Unternehmen Unternehmen Registrierung"
+
+msgid "General Information"
+msgstr "Allgemeine Informationen"
+
+msgid "Communication"
+msgstr "Kommunikation"
+
+msgid "Financial"
+msgstr "Finanzielle"
+
+msgid "Personel"
+msgstr "Personal"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Tax Number"
+msgstr "Steuernummer"
+
+msgid "Tax Office"
+msgstr "Steuerbehörde"
+
+msgid "Social Security Number"
+msgstr "Sozialversicherungsnummer"
+
+msgid "Foundation Date"
+msgstr "Gründungsdatum"
+
+msgid "Web Address"
+msgstr "Web adresse"
+
+msgid "Submit"
+msgstr "Senden"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Building Type"
+msgstr "Bauart"
+
+msgid "Building Name"
+msgstr "Gebäude Name"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "State"
+msgstr "Zustand"
+
+msgid "Province"
+msgstr "Provinz"
+
+msgid "City"
+msgstr "Stadt"
+
+msgid "District"
+msgstr "Bezirk"
+
+msgid "Village"
+msgstr "Dorf"
+
+msgid "Street"
+msgstr "Straße"
+
+msgid "Alley"
+msgstr "Gasse"
+
+msgid "Number"
+msgstr "Anzahl"
+
+msgid "Postal Code"
+msgstr "Postleitzahl"
+
+msgid "Telephone"
+msgstr "Telefon"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Add New AddressAdd New Address"
+msgstr "Neue Adresse hinzufügen"
+
+msgid "Update Company Information"
+msgstr "Firmeninformationen aktualisieren"
+
+msgid "List of Companies"
+msgstr "Liste der Unternehmen"
+
+msgid "List of Machine Tools"
+msgstr "Liste der Werkzeugmaschinen"
+
+msgid "New Submission"
+msgstr "Neue Vorlage"
+
+msgid "Manufacturing Machine Tools"
+msgstr "Die Herstellung von Werkzeugmaschinen"
+
+msgid "Quality Control Equipment"
+msgstr "Qualitätskontrolle Ausrüstung"
+
+msgid "Others"
+msgstr "Andere"
+
+msgid "Manufacturing Operation Type"
+msgstr "Manufacturing Operation Typ"
+
+msgid "Machine Tool Type"
+msgstr "Maschine Werkzeug Typ"
+
+msgid "Add New Machine Tool"
+msgstr "Add New Machine Tool"
+
+msgid "Measurement Process Type"
+msgstr "Messung Prozess Typ"
+
+msgid "Quality Control Tool Type"
+msgstr "Qualitätskontrolle Werkzeugtyp"
+
+msgid "Add New Q.C. Device"
+msgstr "Eine neue Qualität Kontrolle gerät"
+
+msgid "Update Machine Tool Information"
+msgstr "Update Machine Tool Informationen"
+
+msgid "Add New Device"
+msgstr "Neues Gerät hinzufügen"
+
+msgid "Software Information"
+msgstr "Informationen zur Software"
+
+msgid "List of Software"
+msgstr "Liste der Software"
+
+msgid "Update Information"
+msgstr "Informationen aktualisieren"
+
+msgid "Update software information"
+msgstr "Aktualisieren der Software Informationen"
+
+msgid "Add New Software"
+msgstr "Hinzufügen neuer Software"
 
 
+msgid "Select a country ... "
+msgstr "Wählen Sie ein Land"
+
+msgid "Select a province ... "
+msgstr "Wählen Sie ein Bundesland"
+
+msgid "Select a district ... "
+msgstr "Wählen Sie eine Stadt aus"
+
+msgid "Select a village ... "
+msgstr "Wählen Sie einen Stadtteil oder Dorf"
+
+msgid "Search..."
+msgstr "Suche..."
 

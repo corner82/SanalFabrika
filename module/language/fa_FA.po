@@ -15,499 +15,558 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../view/layout/sfdm.phtml:1
 msgid "Virtual Enterprise Project"
 msgstr "پروژه شرکت مجازی"
 
-#: ../view/layout/sfdm.phtml:2
 msgid "Virtual Enterprise Control Panel"
 msgstr "صفحه کنترل"
 
-#: ../view/layout/sfdm.phtml:3
 msgid "OSTIM"
 msgstr "اوستیم"
 
-#: ../view/layout/sfdm.phtml:3
 msgid "OSTIM Technology A.Ş."
 msgstr " اوستیم تکنولوژی"
 
-#: ../view/layout/sfdm.phtml:4
-#: ../view/layout/sfdm.phtml:11
 msgid "Virtual Enterprise"
 msgstr "شرکت مجازی"
 
-#: ../view/layout/sfdm.phtml:4
-#: ../view/layout/sfdm.phtml:11
 msgid "V.E."
 msgstr ".ش.م"
 
-#: ../view/layout/sfdm.phtml:5
 msgid "Active"
 msgstr "فعال"
 
-#: ../view/layout/sfdm.phtml:6
 msgid "Main Navigation"
 msgstr "منوی اصلی"
 
-#: ../view/layout/sfdm.phtml:7
-#: ../view/layout/sfdm.phtml:17
 msgid "Home"
 msgstr "خانه"
 
-#: ../view/layout/layout.phtml:36
 msgid "Supervisor Dashboard"
 msgstr "صفحه کنترل سرپرست"
 
-#: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr "شرکتها"
 
-#: ../view/layout/sfdm.phtml:9
 msgid "Users"
 msgstr "کاربران"
 
-#: ../view/layout/sfdm.phtml:10
 msgid "Organizations"
 msgstr "سازمانها"
 
-#: ../view/layout/sfdm.phtml:12
 msgid "ECO-OSTIM"
 msgstr "EKO-OSTİM"
 
-#: ../view/layout/sfdm.phtml:13
 msgid "Definitions"
 msgstr "تعاریف"
 
-#: ../view/layout/sfdm.phtml:14
 msgid "Calendar"
 msgstr "تقویم"
 
-#: ../view/layout/sfdm.phtml:15
 msgid "Mail Box"
 msgstr "صندوق پست"
 
-#: ../view/layout/sfdm.phtml:16
 msgid "My Documents"
 msgstr "مدارک"
 
-#: ../view/layout/sfdm.phtml:18
 msgid "Notifications"
 msgstr "اطلاع رسانی"
 
-#: ../view/layout/sfdm.phtml:19
 msgid "Show all notifications"
 msgstr "مشاهده تمام اخطارها"
 
-#: ../view/layout/sfdm.phtml:19
 msgid "New Messages"
 msgstr "پیام جدید"
 
-#: ../view/layout/sfdm.phtml:19
 msgid "Show all messages"
 msgstr "مشاهده تمام پیامها"
 
-#: ../view/layout/sfdm.phtml:20
 msgid "Works To Do"
 msgstr "لیست تکالیف"
 
-#: ../view/layout/sfdm.phtml:19
 msgid "Show all tasks"
 msgstr "مشاهده تمام تکالیف"
 
-#: ../view/layout/sfdm.phtml:21
 msgid "Collaborating Companies"
 msgstr "شرکتهای مرتبط"
 
-#: ../view/layout/sfdm.phtml:22
 msgid "Friends"
 msgstr "دوستان"
 
-#: ../view/layout/sfdm.phtml:23
 msgid "Followers"
 msgstr "تعقیب کنندگان"
 
-#: ../view/layout/sfdm.phtml:24
 msgid "Profile"
 msgstr "نمایه"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Log in"
 msgstr "ورود"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Log out"
 msgstr "خروج"
 
-#: ../view/layout/sfdm.phtml:26
 msgid "Layout Options"
 msgstr "صفحه بندی"
 
-#: ../view/layout/sfdm.phtml:27
 msgid "Fixed layout"
 msgstr "صفحه بندی ثابت"
 
-#: ../view/layout/sfdm.phtml:28
 msgid "Activate the fixed layout. You can't use fixed and boxed layouts together"
 msgstr "صفحه بندی ثابت را فعال کنید. شما قادر به استفاده همزمان از صفحه بندیای ثابت و جعبه ای نمیباشید. "
 
-#: ../view/layout/sfdm.phtml:29
 msgid "Boxed Layout"
 msgstr "صفحه بندی جعبه ای"
 
-#: ../view/layout/sfdm.phtml:30
 msgid "Activate the boxed layout"
 msgstr "صفحه بندی جعبه ای را فعال کنید. "
 
-#: ../view/layout/sfdm.phtml:31
 msgid "Toggle Sidebar"
 msgstr "موقعیت منوی سمت چپ را عوض کنید"
 
-#: ../view/layout/sfdm.phtml:32
 msgid "Toggle the left sidebar's state (open or collapse)"
 msgstr "موقعیت منوی سمت چپ را عوض کنید (باز ویا بسته)"
 
-#: ../view/layout/sfdm.phtml:33
 msgid "Sidebar Expand on Hover"
 msgstr "به هنگام حرکت به سمت منو باز شود "
 
-#: ../view/layout/sfdm.phtml:34
 msgid "Let the sidebar mini expand on hover"
 msgstr "به هنگام حرکت به سمت منوی چپ بسته  به صورت خودکار  باز شود"
 
-#: ../view/layout/sfdm.phtml:35
 msgid "Toggle Right Sidebar Slide"
 msgstr "فعال سازی منوی سمت راست"
 
-#: ../view/layout/sfdm.phtml:36
 msgid "Toggle between slide over content and push content effects"
 msgstr "با فعالسازی منوی سمت راست انرا باز کنید ویا ببندید"
 
-#: ../view/layout/sfdm.phtml:37
 msgid "Toggle Right Sidebar Skin"
 msgstr "شابلون منوی سمت راست"
 
-#: ../view/layout/sfdm.phtml:38
 msgid "Toggle between dark and light skins for the right sidebar"
 msgstr "برای منوی سمت راست شابلونهای تیره ویا رنگ روشن را فعال کنید"
 
-#: ../view/layout/sfdm.phtml:39
 msgid "Skins"
 msgstr "شابلونها"
 
-#: ../view/layout/sfdm.phtml:40
 msgid "Blue"
 msgstr "آبی"
 
-#: ../view/layout/sfdm.phtml:41
 msgid "Black"
 msgstr "سیاه"
 
-#: ../view/layout/sfdm.phtml:42
 msgid "Purple"
 msgstr "بنفش"
 
-#: ../view/layout/sfdm.phtml:43
 msgid "Green"
 msgstr "سبز"
 
-#: ../view/layout/sfdm.phtml:44
 msgid "Red"
 msgstr "قرمز"
 
-#: ../view/layout/sfdm.phtml:45
 msgid "Yellow"
 msgstr "زرد"
 
-#: ../view/layout/sfdm.phtml:46
 msgid "Blue Light"
 msgstr "آبی کمرنگ"
 
-#: ../view/layout/sfdm.phtml:47
 msgid "Black Light"
 msgstr "خاکستری"
 
-#: ../view/layout/sfdm.phtml:48
 msgid "Purple Light"
 msgstr "صورتی کمرنگ"
 
-#: ../view/layout/sfdm.phtml:49
 msgid "Green Light"
 msgstr "سبز کمرنگ"
 
-#: ../view/layout/sfdm.phtml:50
 msgid "Red Light"
 msgstr "قرمز کمرنگ"
 
-#: ../view/layout/sfdm.phtml:51
 msgid "Yellow Light"
 msgstr "زرد کمرنگ"
 
-#: ../view/layout/sfdm.phtml:52
 msgid "Recent Activities"
 msgstr "آخرین فعالیتها"
 
-#: ../view/layout/sfdm.phtml:54
 msgid "Tasks Progress"
 msgstr "لیست کارها"
 
-#: ../view/layout/sfdm.phtml:55
 msgid "General Settings"
 msgstr "تنظیمات عمومی"
 
-#: ../view/layout/sfdm.phtml:56
 msgid "Report panel usage"
 msgstr "استفاده از پانل گزارش"
 
-#: ../view/layout/sfdm.phtml:57
 msgid "Some information about this general settings option"
 msgstr "برخی اطلاعات جهت استفاده از پانل گزارش"
 
-#: ../view/layout/sfdm.phtml:58
 msgid "Allow mail redirect"
 msgstr "تغییر مسیر پست"
 
-#: ../view/layout/sfdm.phtml:59
 msgid "Other sets of options are available"
 msgstr "سایر تنظیمات"
 
-#: ../view/layout/sfdm.phtml:60
 msgid "Expose author name in posts"
 msgstr "مشاهده نام فرستنده پیام"
 
-#: ../view/layout/sfdm.phtml:61
 msgid "Allow the user to show his name in blog posts"
 msgstr "مشاهده نام کاربران در پیامهای ارسالی در وبلاگ"
 
-#: ../view/layout/sfdm.phtml:62
 msgid "Chat Settings"
 msgstr "تنظیمات گپ"
 
-#: ../view/layout/sfdm.phtml:63
 msgid "Show me as online"
 msgstr "مشاهده آنلاین"
 
-#: ../view/layout/sfdm.phtml:64
 msgid "Turn off notifications"
 msgstr "خاموش کردن اطلاع رسانی"
 
-#: ../view/layout/sfdm.phtml:65
 msgid "Delete chat history"
 msgstr "پاک کردن پیشینه گپ"
 
-#: ../view/layout/layout.phtml:66
 msgid "All rights reserved."
 msgstr "تمام حقوق محفوظ میباشد"
 
-#: ../view/layout/layout.phtml:66
 msgid "Copyright"
 msgstr "حق تالیف"
 
-#: ../view/layout/layout.phtml:67
 msgid "Version"
 msgstr "نسخه"
 
-#: ../view/layout/layout.phtml:
 msgid ""
 msgstr ""
 
-#: ../view/layout/layout.phtml:
 msgid ""
 msgstr ""
 
-#: ../view/application/index/index.phtml:2
-#, php-format
 msgid "Welcome to OSTIM Virtual Enterprise System"
 msgstr "به سیستم شرکت مجازی OSTIM خوش آمدید "
 
-#: ../view/error/index.phtml:1
 msgid "An error occurred"
 msgstr "یک خطا رخ داده "
 
-#: ../view/error/index.phtml:15 ../view/error/index.phtml:39
 msgid "Message"
 msgstr "پیام"
 
-#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
-#: ../view/error/404.phtml:55
 msgid "Stack trace"
 msgstr "ردیابی"
 
-#: ../view/error/index.phtml:29
 msgid "Previous exceptions"
 msgstr "استثناهای قبلی"
 
-#: ../view/error/index.phtml:58
 msgid "No Exception available"
 msgstr "قاعده استثنا در دسترس نیست"
 
-#: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
 msgstr "خطای 404"
 
-#: ../view/error/404.phtml:10
 msgid "The requested controller was unable to dispatch the request."
 msgstr "قادر به پاسخگویی به درخواست شما نمیباشد"
 
-#: ../view/error/404.phtml:13
 msgid "The requested controller could not be mapped to an existing controller class."
 msgstr "کنترلر مورد نیاز درخواست شما در دسترس نمیباشد"
 
-#: ../view/error/404.phtml:16
 msgid "The requested controller was not dispatchable."
 msgstr "کنترلر مورد درخواست قابل ارسال نیست"
 
-#: ../view/error/404.phtml:19
 msgid "The requested URL could not be matched by routing."
 msgstr "آدرس درخواستی با مسیریاب همسان نمیباشد "
 
-#: ../view/error/404.phtml:22
 msgid "We cannot determine at this time why a 404 was generated."
 msgstr "علت خطای 404 در حال حاضر مشخص نمیباشد"
 
-#: ../view/error/404.phtml:34
 msgid "Controller"
 msgstr "کنترل کننده"
 
-#: ../view/error/404.phtml:41
-#, php-format
 msgid "resolves to %s"
 msgstr "در اینجا حل میشود: %s"
 
-#: ../view/error/404.phtml:51
 msgid "Exception"
 msgstr "استثنا"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Help"
 msgstr "راهنما"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Frequently Asked Questions"
 msgstr "سوالات متداول"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Languages"
 msgstr "زبانها"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Learn more"
 msgstr "بیشتر بدانیم"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Our Job"
 msgstr "تخصص ما"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "VE Team"
 msgstr "تیم شرکت مجازی"
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Overall Manufactuiring Area"
 msgstr "مجموع مساحت تولیدی"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Machine Park Size"
 msgstr "مجموع ماشین آلات تولیدی"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Overall Enterprise Number"
 msgstr "تعداد شرکتهای ثبت شده"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Employees"
 msgstr "مجموع کارکنان"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Marketing and Consulting"
 msgstr "بازیریابی و مشاوره"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Our Organization"
 msgstr "سازمان ما"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Imports"
 msgstr "واردات"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Exports"
 msgstr "صادرات"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Our Employees"
 msgstr "کارکنان ما"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Our Services"
 msgstr "خدمات ما"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Our Portfolio"
 msgstr "پورتفولیو"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Load More"
 msgstr "بارگذاری مضاعف"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Our Clients"
 msgstr "مشتریان ما"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Order"
 msgstr "سفارش"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Request for Quote"
 msgstr "درخواست تکلیف"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Contact us"
 msgstr "ارتباط با ما"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Name"
 msgstr "نام"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Email"
 msgstr "ایمیل"
 
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Send Message"
 msgstr "ارسال پیام"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Negotiation"
 msgstr "مذاکره"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Auction"
 msgstr "مزایده ویا مناقصه"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Auctioning"
 msgstr "مزایده ویا مناقصه"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Latest News"
 msgstr "آخرین اخبار"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
 msgstr "یکپارچه سازی قابلیت ها و ظرفیت تولیدی منطقه صنعتی اوستیم با بیش از 5000 شرکت تولیدی و 60000 پرسنل"
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "ارائه خدمات تولیدی شرکتهای فعال در منطقه صنعتی اوستیم به تمامی مشتریان از اقصا نقاط جهان"
 
 
-#: ../view/layout/sfdm.phtml:25
+
 msgid "Company Registration"
 msgstr "ثبت شرکت جدید"
 
+msgid "Company"
+msgstr "شرکت"
+
+msgid "Virtual Enterprise Company Registration"
+msgstr "ثبت نام شرکت "
+
+msgid "General Information"
+msgstr "اطلاعات عمومی"
+
+msgid "Communication"
+msgstr "ارتباطات"
+
+msgid "Financial"
+msgstr "مالی"
+
+msgid "Personel"
+msgstr "پرسنل"
+
+msgid "Logo"
+msgstr "آرم شرکت"
+
+msgid "Tax Number"
+msgstr "شماره مالیاتی شرکت"
+
+msgid "Tax Office"
+msgstr "شعبه مالیاتی وابسته"
+
+msgid "Social Security Number"
+msgstr "شماره تامین اجتماعی"
+
+msgid "Foundation Date"
+msgstr "تاریخ تاسیس"
+
+msgid "Web Address"
+msgstr "آدرس اینترنتی"
+
+msgid "Submit"
+msgstr "ثبت"
+
+msgid "Cancel"
+msgstr "لغو"
+
+msgid "Building Type"
+msgstr "نوع ساختمان"
+
+msgid "Building Name"
+msgstr "نام ساختمان"
+
+msgid "Country"
+msgstr "کشور"
+
+msgid "State"
+msgstr "ایالت"
+
+msgid "Province"
+msgstr "استان"
+
+msgid "City"
+msgstr "شهر"
+
+msgid "District"
+msgstr "منطقه"
+
+msgid "Village"
+msgstr "روستا"
+
+msgid "Street"
+msgstr "خیابان"
+
+msgid "Alley"
+msgstr "کوچه"
+
+msgid "Number"
+msgstr "پلاک"
+
+msgid "Postal Code"
+msgstr "کد پستی"
+
+msgid "Telephone"
+msgstr "تلفن"
+
+msgid "Fax"
+msgstr "فاکس"
+
+msgid "Update"
+msgstr "به روز رسانی"
+
+msgid "Add New Address"
+msgstr "اضافه کردن آدرس جدید"
+
+msgid "Update Company Information"
+msgstr "به روز رسانی اطلاعات شرکت"
+
+msgid "List of Companies"
+msgstr "لیست شرکتها"
+
+msgid "List of Machine Tools"
+msgstr "لیست ماشین ابزار"
+
+msgid "New Submission"
+msgstr "ثبت جدید"
+
+msgid "Manufacturing Machine Tools"
+msgstr "ماشین ابزار تولیدی"
+
+msgid "Quality Control Equipment"
+msgstr "تجهیزات کنترل کیفی"
+
+msgid "Others"
+msgstr "غیره"
+
+msgid "Manufacturing Operation Type"
+msgstr "نوع عملیات تولیدی"
+
+msgid "Machine Tool Type"
+msgstr "نوع ماشین ابزار"
+
+msgid "Add New Machine Tool"
+msgstr "ثبت ماشین ابزار جدید"
+
+msgid "Measurement Process Type"
+msgstr "نوع روش اندازه گیری"
+
+msgid "Quality Control Tool Type"
+msgstr "نوع تجهیزات کنترل کیفی"
+
+msgid "Add New Q.C. Device"
+msgstr "ثبت تجهیزات اندازه گیری جدید"
+
+msgid "Update Machine Tool Information"
+msgstr "به روز رسانی اطلاعات ماشین ابزار"
+
+msgid "Add New Device"
+msgstr "ثبت تجهیزات جدید"
+
+msgid "Software Information"
+msgstr "اطلاعات نرم افزار"
+
+msgid "List of Software"
+msgstr "لیست نرم افزار"
+ 
+msgid "Update Information"
+msgstr "به روز رسانی اطلاعات"
 
 
+msgid "Update software information"
+msgstr "به روز رسانی اطلاعات نرم افزار"
 
+msgid "Add New Software"
+msgstr "ثبت نرم افزار جدید"
 
+msgid "Select a country ... "
+msgstr " ... کشور انتخاب کنید"
+
+msgid "Select a province ... "
+msgstr " ... استان انتخاب کنید"
+
+msgid "Select a district ... "
+msgstr " ... شهر و یا شهرستان انتخاب کنید"
+
+msgid "Select a village ... "
+msgstr " ... منطقه و یا بخش انتخاب کنید"
+
+msgid "Search..."
+msgstr "...جستجو"

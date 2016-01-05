@@ -1,5 +1,6 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
+<input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
 
 <div class="wrapper">
 
@@ -279,7 +280,7 @@
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Ara..."/>
+                    <input type="text" name="q" class="form-control" placeholder="<?php echo $this->translate('Search...') ?>"/>
                     <span class="input-group-btn">
                         <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                     </span>
@@ -364,7 +365,7 @@
                                     <div class="box box-success collapsed-box" id="addNewPanel">
                                         <!--First panel Header-->
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"> <?php echo $this->translate('New Company Registration') ?> </h3>
+                                            <h3 class="box-title"> <?php echo $this->translate('Company Registration') ?> </h3>
                                             <!--First panel collapse button-->
                                             <div class="box-tools pull-right">
                                                 <button class="btn btn-box-tool" onclick='$.AdminLTE.boxWidgetCRUDPanelCloser.collapse($("#firmaGuncelleme"))'  data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-plus"></i></button>
@@ -391,39 +392,39 @@
                                                                         <div class="ibox float-e-margins">
                                                                             <div class="ibox-content">
                                                                                 <form method="get" class="form-horizontal">
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Firma </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"><?php echo $this->translate('Company') ?></label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Logo </label>
-                                                                                        <div class="col-sm-10"><input type="file" class="form-control">
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Logo') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="file" class="form-control">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Vergi Numarası </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Tax Number') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Vergi Dairesi </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Tax Office') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> SGK Sicil Nosu </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Social Security Number') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
                                                                                     <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label"> Kuruluş Tarihi</label>
-                                                                                        <div class="col-sm-10">
+                                                                                        <label class="col-sm-4 control-label"> <?php echo $this->translate('Foundation Date') ?> </label>
+                                                                                        <div class="col-sm-8">
                                                                                             <div class="input-group">
                                                                                                 <div class="input-group-addon">
                                                                                                     <i class="fa fa-calendar"></i>
@@ -433,23 +434,23 @@
                                                                                         </div>
                                                                                     </div> 
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Email </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Email') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="email" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="email" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Web Adresi </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Web Address') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input type="url" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input type="url" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
 
                                                                                     <div class="box-footer">
                                                                                         <div class="col-sm-4 col-sm-offset-2">
-                                                                                            <button class="btn btn-white" type="submit"> İptal </button>
-                                                                                            <button class="btn btn-primary" type="submit"> Kaydet </button>
+                                                                                            <button class="btn btn-white" type="submit"> <?php echo $this->translate('Cancel') ?> </button>
+                                                                                            <button class="btn btn-primary" type="submit"> <?php echo $this->translate('Submit') ?> </button>
                                                                                         </div>
                                                                                     </div>                                                                
                                                                                 </form>
@@ -467,9 +468,10 @@
                                                                         <div class="ibox float-e-margins">
                                                                             <div class="ibox-content">
                                                                                 <form method="get" class="form-horizontal">
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
-                                                                                        <div class="col-sm-10">
-                                                                                            <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Building Type') ?> </label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <select class="form-control select2" style="width: 100%;"> 
+                                                                                                <option value="-1"> <?php echo $this->translate('Select a building type ... ') ?></option>                                                                    
                                                                                                 <option>İdari Merkez</option>
                                                                                                 <option>Fabrika</option>
                                                                                                 <option>Showroom</option>
@@ -477,65 +479,65 @@
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Bina Adı </label>
-                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Building Name') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Ülke </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Country') ?> </label>
 
-                                                                                        <div class="col-sm-10">
+                                                                                        <div class="col-sm-8">
                                                                                             <select id='country1' class="form-control select2"  style="width: 100%;">                                                                    
-                                                                                                <option value=-1>Lütfen ülke seçiniz...</option>
+                                                                                                <option value=-1><?php echo $this->translate('Select a country ... ') ?></option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Province') ?> </label>
 
-                                                                                        <div class="col-sm-10">
+                                                                                        <div class="col-sm-8">
                                                                                             <select id='city1' class="form-control select2" style="width: 100%;">                                                                    
-                                                                                                <option value=-1>Lütfen il seçiniz...</option>
+                                                                                                <option value=-1><?php echo $this->translate('Select a province ... ') ?></option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('District') ?> </label>
 
-                                                                                        <div class="col-sm-10">
+                                                                                        <div class="col-sm-8">
                                                                                             <select id='district1' class="form-control select2" style="width: 100%;">                                                                    
-                                                                                                <option value=-1>Lütfen ilçe seçiniz...</option>
+                                                                                                <option value=-1><?php echo $this->translate('Select a district ... ') ?></option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Semt </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Village') ?> </label>
 
-                                                                                        <div class="col-sm-10">
-                                                                                            <select id='village1' class="form-control select2" data-placeholder="Semt Seçiniz" style="width: 100%;">                                                                    
-                                                                                                <option value=-1>Lütfen semt veya köy seçiniz...</option>
+                                                                                        <div class="col-sm-8">
+                                                                                            <select id='village1' class="form-control select2" style="width: 100%;">                                                                    
+                                                                                                <option value=-1><?php echo $this->translate('Select a village ... ') ?></option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Cadde </label>
-                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Street') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Sokak </label>
-                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Alley') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Kapı No. </label>
-                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Number') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
                                                                                     <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label"> P.K.</label>
-                                                                                        <div class="col-sm-10">
+                                                                                        <label class="col-sm-4 control-label"> <?php echo $this->translate('Postal Code') ?></label>
+                                                                                        <div class="col-sm-8">
                                                                                             <div class="input-group">
                                                                                                 <div class="input-group-addon">
                                                                                                     <i class="fa fa-newspaper-o"></i>
@@ -547,8 +549,8 @@
                                                                                     <div class="hr-line-dashed"></div>
 
                                                                                     <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label">Tel.</label>
-                                                                                        <div class="col-sm-10">
+                                                                                        <label class="col-sm-4 control-label"><?php echo $this->translate('Telephone') ?></label>
+                                                                                        <div class="col-sm-8">
                                                                                             <div class="input-group">
                                                                                                 <div class="input-group-addon">
                                                                                                     <i class="fa fa-phone"></i>
@@ -559,8 +561,8 @@
                                                                                     </div>
 
                                                                                     <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label">Faks.</label>
-                                                                                        <div class="col-sm-10">
+                                                                                        <label class="col-sm-4 control-label"><?php echo $this->translate('Fax') ?></label>
+                                                                                        <div class="col-sm-8">
                                                                                             <div class="input-group">
                                                                                                 <div class="input-group-addon">
                                                                                                     <i class="fa fa-fax"></i>
@@ -571,9 +573,9 @@
                                                                                     </div>
 
                                                                                     <div class="box-footer">
-                                                                                        <div class="col-sm-10 col-sm-offset-2">
-                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> Güncelle </button>
-                                                                                            <button id='addNewAddressButton' class="btn btn-primary" type="submit"> Yeni Adres Ekle </button>
+                                                                                        <div class="col-sm-8 col-sm-offset-2">
+                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> <?php echo $this->translate('Update') ?> </button>
+                                                                                            <button id='addNewAddressButton' class="btn btn-primary" type="submit"> <?php echo $this->translate('Add New Address') ?> </button>
                                                                                         </div>
                                                                                     </div>                                                              
                                                                                 </form>
@@ -653,39 +655,39 @@
                                                                         <div class="ibox float-e-margins">
                                                                             <div class="ibox-content">
                                                                                 <form method="get" class="form-horizontal">
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Firma </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Company') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Logo </label>
-                                                                                        <div class="col-sm-10"><input type="file" class="form-control">
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Logo') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="file" label="<?php echo $this->translate('Choose File') ?>" class="form-control">
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Vergi Numarası </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Tax Number') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Vergi Dairesi </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Tax Office') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> SGK Sicil Nosu </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Social Security Number') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="text" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
                                                                                     <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label"> Kuruluş Tarihi</label>
-                                                                                        <div class="col-sm-10">
+                                                                                        <label class="col-sm-4 control-label"> <?php echo $this->translate('Foundation Date') ?></label>
+                                                                                        <div class="col-sm-8">
                                                                                             <div class="input-group">
                                                                                                 <div class="input-group-addon">
                                                                                                     <i class="fa fa-calendar"></i>
@@ -695,23 +697,23 @@
                                                                                         </div>
                                                                                     </div> 
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Email </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Email') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input required="true" type="email" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input required="true" type="email" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Web Adresi </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Web Address') ?> </label>
 
-                                                                                        <div class="col-sm-10"><input type="url" class="form-control"></div>
+                                                                                        <div class="col-sm-8"><input type="url" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
 
                                                                                     <div class="box-footer">
                                                                                         <div class="col-sm-4 col-sm-offset-2">
-                                                                                            <button class="btn btn-white" type="submit"> İptal </button>
-                                                                                            <button class="btn btn-primary" type="submit"> Kaydet </button>
+                                                                                            <button class="btn btn-white" type="submit"> <?php echo $this->translate('Cancel') ?> </button>
+                                                                                            <button class="btn btn-primary" type="submit"> <?php echo $this->translate('Submit') ?> </button>
                                                                                         </div>
                                                                                     </div>                                                                
                                                                                 </form>
@@ -723,15 +725,16 @@
 
 
                                                             <div class="tab-pane" id="tab_2">
-                                                                <b><?php echo $this->translate('General Information') ?></b>
+                                                                <b><?php echo $this->translate('Communication') ?></b>
                                                                 <div class="row">
                                                                     <div class="col-xs-12">
                                                                         <div class="ibox float-e-margins">
                                                                             <div class="ibox-content">
                                                                                 <form method="get" class="form-horizontal">
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
-                                                                                        <div class="col-sm-10">
-                                                                                            <select class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Building Type') ?> </label>
+                                                                                        <div class="col-sm-8">
+                                                                                            <select class="form-control select2" style="width: 100%;"> 
+                                                                                                <option value="-1"> <?php echo $this->translate('Select a building type ... ') ?></option>
                                                                                                 <option>İdari Merkez</option>
                                                                                                 <option>Fabrika</option>
                                                                                                 <option>Showroom</option>
@@ -739,65 +742,65 @@
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Bina Adı </label>
-                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Building Name') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Ülke </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Country') ?> </label>
 
-                                                                                        <div class="col-sm-10">
-                                                                                            <select id='country1' class="form-control select2"  style="width: 100%;">                                                                    
-                                                                                                <option value=-1>Lütfen ülke seçiniz...</option>
+                                                                                        <div class="col-sm-8">
+                                                                                            <select id='country2' class="form-control select2"  style="width: 100%;">                                                                    
+                                                                                                <option value=-1><?php echo $this->translate('Select a country ... ') ?>...</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İl </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Province') ?> </label>
 
-                                                                                        <div class="col-sm-10">
-                                                                                            <select id='city1' class="form-control select2" data-placeholder="İl Seçiniz" style="width: 100%;">                                                                    
-                                                                                                <option value=-1>Lütfen il seçiniz...</option>
+                                                                                        <div class="col-sm-8">
+                                                                                            <select id='city2' class="form-control select2" style="width: 100%;">                                                                    
+                                                                                                <option value=-1><?php echo $this->translate('Select a province ... ') ?></option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> İlçe </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('District') ?> </label>
 
-                                                                                        <div class="col-sm-10">
-                                                                                            <select id='district1' class="form-control select2" data-placeholder="İlçe Seçiniz" style="width: 100%;">                                                                    
-                                                                                                <option value=-1>Lütfen ilçe seçiniz...</option>
+                                                                                        <div class="col-sm-8">
+                                                                                            <select id='district2' class="form-control select2" style="width: 100%;">                                                                    
+                                                                                                <option value=-1><?php echo $this->translate('Select a district ... ') ?></option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Semt </label>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Village') ?> </label>
 
-                                                                                        <div class="col-sm-10">
-                                                                                            <select id='village1' class="form-control select2" data-placeholder="Semt Seçiniz" style="width: 100%;">                                                                    
-                                                                                                <option value=-1>Lütfen semt veya köy seçiniz...</option>
+                                                                                        <div class="col-sm-8">
+                                                                                            <select id='village2' class="form-control select2" style="width: 100%;">                                                                    
+                                                                                                <option value=-1><?php echo $this->translate('Select a village ... ') ?></option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Cadde </label>
-                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Street') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Sokak </label>
-                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Alley') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
-                                                                                    <div class="form-group"><label class="col-sm-2 control-label"> Kapı No. </label>
-                                                                                        <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                                                                    <div class="form-group"><label class="col-sm-4 control-label"> <?php echo $this->translate('Number') ?> </label>
+                                                                                        <div class="col-sm-8"><input type="text" class="form-control"></div>
                                                                                     </div>
                                                                                     <div class="hr-line-dashed"></div>
 
                                                                                     <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label"> P.K.</label>
-                                                                                        <div class="col-sm-10">
+                                                                                        <label class="col-sm-4 control-label"> <?php echo $this->translate('Postal Code') ?></label>
+                                                                                        <div class="col-sm-8">
                                                                                             <div class="input-group">
                                                                                                 <div class="input-group-addon">
                                                                                                     <i class="fa fa-newspaper-o"></i>
@@ -809,8 +812,8 @@
                                                                                     <div class="hr-line-dashed"></div>
 
                                                                                     <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label">Tel.</label>
-                                                                                        <div class="col-sm-10">
+                                                                                        <label class="col-sm-4 control-label"><?php echo $this->translate('Telephone') ?></label>
+                                                                                        <div class="col-sm-8">
                                                                                             <div class="input-group">
                                                                                                 <div class="input-group-addon">
                                                                                                     <i class="fa fa-phone"></i>
@@ -821,8 +824,8 @@
                                                                                     </div>
 
                                                                                     <div class="form-group">
-                                                                                        <label class="col-sm-2 control-label">Faks.</label>
-                                                                                        <div class="col-sm-10">
+                                                                                        <label class="col-sm-4 control-label"><?php echo $this->translate('Fax') ?></label>
+                                                                                        <div class="col-sm-8">
                                                                                             <div class="input-group">
                                                                                                 <div class="input-group-addon">
                                                                                                     <i class="fa fa-fax"></i>
@@ -833,9 +836,9 @@
                                                                                     </div>
 
                                                                                     <div class="box-footer">
-                                                                                        <div class="col-sm-10 col-sm-offset-2">
-                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> Güncelle </button>
-                                                                                            <button id='addNewAddressButton' class="btn btn-primary" type="submit"> Yeni Adres Ekle </button>
+                                                                                        <div class="col-sm-8 col-sm-offset-2">
+                                                                                            <button id='addressUpdateButton' class="btn btn-white" type="submit"> <?php echo $this->translate('Update') ?> </button>
+                                                                                            <button id='addNewAddressButton' class="btn btn-primary" type="submit"> <?php echo $this->translate('Add new address') ?> </button>
                                                                                         </div>
                                                                                     </div>                                                              
                                                                                 </form>

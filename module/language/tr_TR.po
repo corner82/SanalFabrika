@@ -502,10 +502,171 @@ msgstr "OSTİM'in 60,000'den fazla çalışanı ve 5,000'den fazla firmasının 
 msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr "OSTİM'i bir imalat üstü olarak dünyadaki bütün müşteri isteklerine açmaktadır"
 
-#: ../view/layout/sfdm.phtml:25
+msgid "Company"
+msgstr "Firma"
+
+msgid "Virtual Enterprise Company Registration"
+msgstr "Sanal Fabrika Firma Kaydı"
+
+msgid "General Information"
+msgstr "Genel Bilgi"
+
+msgid "Communication"
+msgstr "İletişim"
+
+msgid "Financial"
+msgstr "Finansal"
+
+msgid "Personel"
+msgstr "Personel"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Tax Number"
+msgstr "Vergi Numarası"
+
+msgid "Tax Office"
+msgstr "Vergi Dairesi"
+
+msgid "Social Security Number"
+msgstr "SGK Sicil Nosu"
+
+msgid "Foundation Date"
+msgstr "Kuruluş Tarihi"
+
+msgid "Web Address"
+msgstr "Web Adres"
+
+msgid "Submit"
+msgstr "Kaydet"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "Building Type"
+msgstr "Bina Tipi"
+
+msgid "Building Name"
+msgstr "Bina Adı"
+
+msgid "Country"
+msgstr "Ülke"
+
+msgid "State"
+msgstr "Eyalet"
+
+msgid "Province"
+msgstr "İl"
+
+msgid "City"
+msgstr "Şehir"
+
+msgid "District"
+msgstr "İlçe"
+
+msgid "Village"
+msgstr "Köy"
+
+msgid "Street"
+msgstr "Cadde"
+
+msgid "Alley"
+msgstr "Sokak"
+
+msgid "Number"
+msgstr "Kapı No."
+
+msgid "Postal Code"
+msgstr "Posta Kodu"
+
+msgid "Telephone"
+msgstr "Tel"
+
+msgid "Fax"
+msgstr "Faks"
+
+msgid "Update"
+msgstr "Güncelleme"
+
+msgid "Add New Address"
+msgstr "Yeni Adres Ekle"
+
+msgid "Update Company Information"
+msgstr "Firma Bilgisi Güncelleme"
+
 msgid "Company Registration"
 msgstr "Firma Kaydı"
 
+msgid "List of Companies"
+msgstr "Firmalar Listesi"
+
+msgid "List of Machine Tools"
+msgstr "Makineler Listesi"
+
+msgid "New Submission"
+msgstr "Yeni Kayıt"
+
+msgid "Manufacturing Machine Tools"
+msgstr "İmalat Makinelerı"
+
+msgid "Quality Control Equipment"
+msgstr "Kalite Kontrol Ekipmanları"
+
+msgid "Others"
+msgstr "Diğer"
+
+msgid "Manufacturing Operation Type"
+msgstr "İmalat Süreci Tipi"
+
+msgid "Machine Tool Type"
+msgstr "İmalat Makinesi Tipi"
+
+msgid "Add New Machine Tool"
+msgstr "Yeni Makine Ekle"
+
+msgid "Measurement Process Type"
+msgstr "Ölçme Yöntemi"
+
+msgid "Quality Control Tool Type"
+msgstr "Kalite Kontrol Cihazı Tipi"
+
+msgid "Add New Q.C. Device"
+msgstr "Yeni Kalite Kontrol Cihazı Ekle"
+
+msgid "Update Machine Tool Information"
+msgstr "Makine Bilgisini Güncelle"
+
+msgid "Add New Device"
+msgstr "Yeni Cihaz Ekle"
+
+msgid "Software Information"
+msgstr "Yazılım Bilgisi"
+
+msgid "List of Software"
+msgstr "Yazılımlar Listesi"
+
+msgid "Update Information"
+msgstr "Bilgileri Güncelle"
 
 
+msgid "Update software information"
+msgstr "Yazılım Bilgilerini Güncelle"
 
+msgid "Add New Software"
+msgstr "Yeni Yezılım Ekle"
+
+msgid "Select a country ... "
+msgstr "Ülke seçiniz ... "
+
+msgid "Select a province ... "
+msgstr "İl seçiniz ... "
+
+msgid "Select a district ... "
+msgstr "İlçe seçiniz ... "
+
+msgid "Select a village ... "
+msgstr "Köy veya semt seçiniz ... "
+
+msgid "Search..."
+msgstr "Ara..."

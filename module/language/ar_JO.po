@@ -500,3 +500,167 @@ msgstr "التسجيل الشركة"
 
 
 
+msgid "Company"
+msgstr "الشركة"
+
+msgid "Virtual Enterprise Company Registration"
+msgstr "المشروع الافتراضى لتسجيل الشركة"
+
+msgid "General Information"
+msgstr "معلومات عامة"
+
+msgid "Communication"
+msgstr "الاتصالات"
+
+msgid "Financial"
+msgstr "المالية"
+
+msgid "Personel"
+msgstr "اكفاء"
+
+msgid "Logo"
+msgstr "شعار"
+
+msgid "Tax Number"
+msgstr "ورقم ضريبة القيمة المضافة"
+
+msgid "Tax Office"
+msgstr "مكتب الضرائب"
+
+msgid "Social Security Number"
+msgstr "رقم الضمان الاجتماعى"
+
+msgid "Foundation Date"
+msgstr "تاريخ المؤسسة"
+
+msgid "Web Address"
+msgstr "عنوان الويب"
+
+msgid "Submit"
+msgstr "تقديم"
+
+msgid "Cancel"
+msgstr "الغاء"
+
+msgid "Building Type"
+msgstr "نوع المبنى"
+
+msgid "Building Name"
+msgstr "اسم المبنى"
+
+msgid "Country"
+msgstr "البلد"
+
+msgid "State"
+msgstr "الدولة"
+
+msgid "Province"
+msgstr "المقاطعة"
+
+msgid "City"
+msgstr "المدينة"
+
+msgid "District"
+msgstr "حى"
+
+msgid "Village"
+msgstr "القرية"
+
+msgid "Street"
+msgstr "الشارع"
+
+msgid "Alley"
+msgstr "بالحارة"
+
+msgid "Number"
+msgstr "عدد"
+
+msgid "Postal Code"
+msgstr "الرمز البريدى"
+
+msgid "Telephone"
+msgstr "الهاتف"
+
+msgid "Fax"
+msgstr "فاكس"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid "Add New Address"
+msgstr "اضافة عنوان جديد"
+
+msgid "Update Company Information"
+msgstr "تحديث بيانات الشركة"
+
+msgid "List of Companies"
+msgstr "قائمة الشركات"
+
+msgid "List of Machine Tools"
+msgstr "قائمة الالات"
+
+msgid "New Submission"
+msgstr "عرض جديد"
+
+msgid "Manufacturing Machine Tools"
+msgstr "تصنيع الالات"
+
+msgid "Quality Control Equipment"
+msgstr "معدات مراقبة الجودة"
+
+msgid "Others"
+msgstr "اخرون"
+
+msgid "Manufacturing Operation Type"
+msgstr "عملية التصنيع النوع"
+
+msgid "Machine Tool Type"
+msgstr "المخارط النوع"
+
+msgid "Add New Machine Tool"
+msgstr "اضافة جهاز جديد الاداة"
+
+msgid "Measurement Process Type"
+msgstr "وعملية القياس النوع"
+
+msgid "Quality Control Tool Type"
+msgstr "مراقبة الجودة نوع الاداة"
+
+msgid "Add New Q.C. Device"
+msgstr "اضافة جهاز جديد لمراقبة الجودة"
+
+msgid "Update Machine Tool Information"
+msgstr "تحديث معلومات المخارط"
+
+msgid "Add New Device"
+msgstr "اضافة جهاز جديد"
+
+msgid "Software Information"
+msgstr "معلومات حول البرنامج"
+
+msgid "List of Software"
+msgstr "قائمة البرامج"
+
+msgid "Update Information"
+msgstr "تحديث المعلومات"
+
+msgid "Update software information"
+msgstr "تحديث معلومات حول البرنامج"
+
+msgid "Add New Software"
+msgstr "اضافة برامج جديدة"
+
+msgid "Select a country ... "
+msgstr " ... اختيار بلد"
+
+msgid "Select a province ... "
+msgstr " ... حدد المقاطعة"
+
+msgid "Select a district ... "
+msgstr " ... اختر منطقة"
+
+msgid "Select a village ... "
+msgstr " ... حدد احدى القرى"
+
+msgid "Search..."
+msgstr "...البحث"

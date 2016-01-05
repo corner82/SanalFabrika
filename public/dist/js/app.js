@@ -471,6 +471,7 @@ function _init() {
             var parent = $(treeview_id_ref).parents('ul').first();
             var parent_li = $(treeview_id_ref).parent("li");
             var ul = parent.find('ul:visible').slideUp('normal');
+            console.log("public key is " + $("#pk").val());
 
             if (!$(treeview_id_ref).hasClass('menu-open')) {
                 //checks if the menu is open or not...

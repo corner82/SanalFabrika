@@ -15,485 +15,518 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../view/layout/sfdm.phtml:1
 msgid "Virtual Enterprise Project"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:2
 msgid "Virtual Enterprise Control Panel"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:3
 msgid "OSTIM"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:3
 msgid "OSTIM Technology A.Ş."
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:4
-#: ../view/layout/sfdm.phtml:11
 msgid "Virtual Enterprise"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:5
 msgid "Active"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:6
 msgid "Main Navigation"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:7
-#: ../view/layout/sfdm.phtml:17
 msgid "Home"
 msgstr ""
 
-#: ../view/layout/layout.phtml:36
 msgid "Supervisor Dashboard"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:8
 msgid "Enterprises"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:9
 msgid "Users"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:10
 msgid "Organizations"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:12
 msgid "ECO-OSTIM"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:13
 msgid "Definitions"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:14
 msgid "Calendar"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:15
 msgid "Mail Box"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:16
 msgid "My Documents"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:18
 msgid "Notifications"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:18
 msgid "Show all notifications"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:19
 msgid "New Messages"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:18
 msgid "Show all messages"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:20
 msgid "Works To Do"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:20
 msgid "Show all tasks"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:21
 msgid "Collaborating Companies"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:22
 msgid "Friends"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:23
 msgid "Followers"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:24
 msgid "Profile"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Log in"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Log out"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:26
 msgid "Layout Options"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:27
 msgid "Fixed layout"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:28
 msgid "Activate the fixed layout. You can't use fixed and boxed layouts together"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:29
 msgid "Boxed Layout"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:30
 msgid "Activate the boxed layout"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:31
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:32
 msgid "Toggle the left sidebar's state (open or collapse)"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:33
 msgid "Sidebar Expand on Hover"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:34
 msgid "Let the sidebar mini expand on hover"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:35
 msgid "Toggle Right Sidebar Slide"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:36
 msgid "Toggle between slide over content and push content effects"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:37
 msgid "Toggle Right Sidebar Skin"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:38
 msgid "Toggle between dark and light skins for the right sidebar"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:39
 msgid "Skins"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:40
 msgid "Blue"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:41
 msgid "Black"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:42
 msgid "Purple"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:43
 msgid "Green"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:44
 msgid "Red"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:45
 msgid "Yellow"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:46
 msgid "Blue Light"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:47
 msgid "Black Light"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:48
 msgid "Purple Light"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:49
 msgid "Green Light"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:50
 msgid "Red Light"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:51
 msgid "Yellow Light"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:52
 msgid "Recent Activities"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:54
 msgid "Tasks Progress"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:55
 msgid "General Settings"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:56
 msgid "Report panel usage"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:57
 msgid "Some information about this general settings option"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:58
 msgid "Allow mail redirect"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:59
 msgid "Other sets of options are available"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:60
 msgid "Expose author name in posts"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:61
 msgid "Allow the user to show his name in blog posts"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:62
 msgid "Chat Settings"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:63
 msgid "Show me as online"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:64
 msgid "Turn off notifications"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:65
 msgid "Delete chat history"
 msgstr ""
 
-#: ../view/layout/layout.phtml:66
 msgid "All rights reserved."
 msgstr ""
 
-#: ../view/layout/layout.phtml:66
 msgid "Copyright"
 msgstr ""
 
-#: ../view/layout/layout.phtml:67
 msgid "Version"
 msgstr ""
 
-#: ../view/application/index/index.phtml:2
-#, php-format
 msgid "Welcome to OSTIM Virtual Enterprise System"
 msgstr ""
 
-#: ../view/error/index.phtml:1
 msgid "An error occurred"
 msgstr ""
 
-#: ../view/error/index.phtml:15 ../view/error/index.phtml:39
 msgid "Message"
 msgstr ""
 
-#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
-#: ../view/error/404.phtml:55
 msgid "Stack trace"
 msgstr ""
 
-#: ../view/error/index.phtml:29
 msgid "Previous exceptions"
 msgstr ""
 
-#: ../view/error/index.phtml:58
 msgid "No Exception available"
 msgstr ""
 
-#: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
 msgstr ""
 
-#: ../view/error/404.phtml:10
 msgid "The requested controller was unable to dispatch the request."
 msgstr ""
 
-#: ../view/error/404.phtml:13
 msgid "The requested controller could not be mapped to an existing controller class."
 msgstr ""
 
-#: ../view/error/404.phtml:16
 msgid "The requested controller was not dispatchable."
 msgstr ""
 
-#: ../view/error/404.phtml:19
 msgid "The requested URL could not be matched by routing."
 msgstr ""
 
-#: ../view/error/404.phtml:22
 msgid "We cannot determine at this time why a 404 was generated."
 msgstr ""
 
-#: ../view/error/404.phtml:34
 msgid "Controller"
 msgstr ""
 
-#: ../view/error/404.phtml:41
-#, php-format
 msgid "resolves to %s"
 msgstr ""
 
-#: ../view/error/404.phtml:51
 msgid "Exception"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Help"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Languages"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Learn more"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Our Job"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "VE Team"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Overall Manufacturing Area"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Machine Park Size"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Overall Enterprise Number"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Employees"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Marketing and Consulting"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Our Organization"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Imports"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Exports"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Our Employees"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Our Services"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Our Portfolio"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Load More"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Our Clients"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Order"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Request for Quote"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Contact us"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Name"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Email"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Send Message"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Negotiation"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Auction"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Auctioning"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Latest News"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
 msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 msgstr ""
 
-#: ../view/layout/sfdm.phtml:25
+msgid "Company"
+msgstr ""
+
+msgid "Virtual Enterprise Company Registration"
+msgstr ""
+
+msgid "General Information"
+msgstr ""
+
+msgid "Communication"
+msgstr ""
+
+msgid "Financial"
+msgstr ""
+
+msgid "Personel"
+msgstr ""
+
+msgid "Logo"
+msgstr ""
+
+msgid "Tax Number"
+msgstr ""
+
+msgid "Tax Office"
+msgstr ""
+
+msgid "Social Security Number"
+msgstr ""
+
+msgid "Foundation Date"
+msgstr ""
+
+msgid "Web Address"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Building Type"
+msgstr ""
+
+msgid "Building Name"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "Province"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "District"
+msgstr ""
+
+msgid "Village"
+msgstr ""
+
+msgid "Street"
+msgstr ""
+
+msgid "Alley"
+msgstr ""
+
+msgid "Number"
+msgstr ""
+
+msgid "Postal Code"
+msgstr ""
+
+msgid "Telephone"
+msgstr ""
+
+msgid "Fax"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Add New Address"
+msgstr ""
+
+msgid "Update Company Information"
+msgstr ""
+
 msgid "Company Registration"
 msgstr ""
 
+msgid "List of Companies"
+msgstr ""
 
+msgid "List of Machine Tools"
+msgstr ""
 
+msgid "New Submission"
+msgstr ""
 
+msgid "Manufacturing Machine Tools"
+msgstr ""
 
+msgid "Quality Control Equipment"
+msgstr ""
 
+msgid "Others"
+msgstr ""
+
+msgid "Manufacturing Operation Type"
+msgstr ""
+
+msgid "Machine Tool Type"
+msgstr ""
+
+msgid "Add New Machine Tool"
+msgstr ""
+
+msgid "Measurement Process Type"
+msgstr ""
+
+msgid "Quality Control Tool Type"
+msgstr ""
+
+msgid "Add New Q.C. Device"
+msgstr ""
+
+msgid "Update Machine Tool Information"
+msgstr ""
+
+msgid "Add New Device"
+msgstr ""
+
+msgid "Software Information"
+msgstr ""
+
+msgid "List of Software"
+msgstr ""
+
+msgid "Update software information"
+msgstr ""
+
+msgid "Add New Software"
+msgstr ""
+
+msgid "Select a country ... "
+msgstr ""
+
+msgid "Select a province ... "
+msgstr ""
+
+msgid "Select a district ... "
+msgstr ""
+
+msgid "Select a village ... "
+msgstr ""
+
+msgid "Search..."
+msgstr ""
