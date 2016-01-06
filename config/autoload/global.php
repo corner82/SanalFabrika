@@ -39,6 +39,9 @@ return array(
             'coreg' => 'layout/coregLayout.phtml',
             'machinepark' => 'layout/machineparkLayout.phtml',
             'software' => 'layout/softwareLayout.phtml',
+            'ureg' => 'layout/uregLayout.phtml',
+            'umonitoring' => 'layout/umonitoringLayout.phtml',
+            'cevaluation' => 'layout/cevaluationLayout.phtml',
                         ),
    )
     ,
