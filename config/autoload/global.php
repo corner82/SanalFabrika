@@ -27,6 +27,7 @@ return array(
    ),
     'action_layouts' => array(
         'SFDM' => array(
+            'acldefinition' => 'layout/acldefinitionLayout.phtml',
                         ),
         'Companies' => array(
             'registration' => 'layout/registrationLayout.phtml',
