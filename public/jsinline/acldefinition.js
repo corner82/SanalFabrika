@@ -1,5 +1,26 @@
 $(document).ready(function () {
 
+/*
+ *  easyui da lazy loading de gereken sayfanin jsinline dosyasinin basina eklensin. 
+ *  Aksi takdride, easyui getRoot fonksyonu dogru calismayacaktir.
+ */
+
+    $.extend($.fn.tree.methods, {
+        getRoot: function (jq, nodeEl) {
+            if (nodeEl) {
+                var target = nodeEl;
+                var p = jq.tree('getParent', target);
+                while (p) {
+                    target = p.target;
+                    p = jq.tree('getParent', p.target);
+                }
+                return jq.tree('getNode', target);
+            } else {
+                var roots = jq.tree('getRoots');
+                return roots.length ? roots[0] : null;
+            }
+        }
+    })
 //    console.error("document ready adminIndex.js");
 
 
@@ -32,26 +53,20 @@ $(document).ready(function () {
 
     $('#tt_tree_roles').tree({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillComboBoxFullRoles_sysAclRoles&pk=' + $("#pk").val(),
-        //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getNaceCodes_nace',
-        //queryParams : { url:'getNaceCodes_nace' },
         method: 'get',
         animate: true,
         checkbox: false,
         cascadeCheck: false,
         onDblClick: function (node) {
             $(this).tree('beginEdit', node.target);
-
         },
         onClick: function (node) {
-                    alert(node.text);  // alert node text property when clicked
-                    if(node.getParent.text=== node.text){
-                        console.log(node.text + ' is parent');
-                    }else{                        
-                        console.log(node.text + ' has parent ' + node.getParent.text);
-                    }
-                }
-            });
+            console.log($(this).tree('getRoot',node.target));
+        }
         
+            
+    });
+
 
 
     $('#tt_tree_resources').tree({
