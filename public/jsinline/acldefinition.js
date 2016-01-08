@@ -55,26 +55,26 @@ $(document).ready(function () {
 
 
     $('#tt_tree_resources').tree({
-        url: '../slimProxyEkoOstim/SlimProxyBoot.php?url=',
-        //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getNaceCodes_nace',
-        //queryParams : { url:'getNaceCodes_nace' },
-        method: 'get',
-        animate: true,
-        checkbox: false,
-        cascadeCheck: false,
+//        url: '../slimProxyEkoOstim/SlimProxyBoot.php?url=',
+//        //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getNaceCodes_nace',
+//        //queryParams : { url:'getNaceCodes_nace' },
+//        method: 'get',
+//        animate: true,
+//        checkbox: false,
+//        cascadeCheck: false,
     });
 
     $('#tt_tree_privilege').tree({
-        url: '../slimProxyEkoOstim/SlimProxyBoot.php?',
-        //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getNaceCodes_nace',
-        //queryParams : { url:'getNaceCodes_nace' },
-        method: 'get',
-        animate: true,
-        checkbox: false,
-        cascadeCheck: false,
-        onClick: function (node) {
-            $(this).tree('beginEdit', node.target);
-        }
+//        url: '../slimProxyEkoOstim/SlimProxyBoot.php?',
+//        //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getNaceCodes_nace',
+//        //queryParams : { url:'getNaceCodes_nace' },
+//        method: 'get',
+//        animate: true,
+//        checkbox: false,
+//        cascadeCheck: false,
+//        onClick: function (node) {
+//            $(this).tree('beginEdit', node.target);
+//        }
     });
 
 //    // binds form submission and fields to the validation engine
