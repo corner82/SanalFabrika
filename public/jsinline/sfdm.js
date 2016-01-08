@@ -25,15 +25,32 @@ $(document).ready(function () {
     // Left menuyu oluşturmak için çağırılan fonksiyon...
     $.fn.leftMenuFunction();
 
+
+    jQuery("#resourceForm").validationEngine();
+    jQuery("#privelegeForm").validationEngine();
+
+
     $('#tt_tree_roles').tree({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillComboBoxMainRoles_sysAclRoles&pk=' + $("#pk").val(),
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillComboBoxFullRoles_sysAclRoles&pk=' + $("#pk").val(),
         //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getNaceCodes_nace',
         //queryParams : { url:'getNaceCodes_nace' },
         method: 'get',
         animate: true,
-        checkbox: true,
-        cascadeCheck: false,        
-    });
+        checkbox: false,
+        cascadeCheck: false,
+        onDblClick: function (node) {
+            $(this).tree('beginEdit', node.target);
+
+        },
+        onClick: function (node) {
+                    alert(node.text);  // alert node text property when clicked
+                    if(node.getParent.text=== node.text){
+                        
+                    }
+                }
+            });
+        
+
 
     $('#tt_tree_resources').tree({
         url: '../slimProxyEkoOstim/SlimProxyBoot.php?url=',
@@ -41,7 +58,7 @@ $(document).ready(function () {
         //queryParams : { url:'getNaceCodes_nace' },
         method: 'get',
         animate: true,
-        checkbox: true,
+        checkbox: false,
         cascadeCheck: false,
     });
 
@@ -51,8 +68,11 @@ $(document).ready(function () {
         //queryParams : { url:'getNaceCodes_nace' },
         method: 'get',
         animate: true,
-        checkbox: true,
+        checkbox: false,
         cascadeCheck: false,
+        onClick: function (node) {
+            $(this).tree('beginEdit', node.target);
+        }
     });
 
 //    // binds form submission and fields to the validation engine
