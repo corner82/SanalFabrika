@@ -100,8 +100,8 @@ $(document).ready(function () {
 //            console.log('root id' + root.id);
 //            console.log(root);
             if (editNode.text === '') {
-
-                $.blockUI({
+                $.ui.blockuiWrapper;
+                /*$.blockUI({
                     message: $('#growlUI-nullName'),
                     fadeIn: 700,
                     fadeOut: 700,
@@ -121,7 +121,7 @@ $(document).ready(function () {
                         opacity: .6,
                         color: '#fff'
                     }
-                });
+                });*/
 //                console.log("entered value is null...");
                 editNode.text = beforeEditTextValue;
 //                console.log('old value is ' + beforeEditTextValue);
