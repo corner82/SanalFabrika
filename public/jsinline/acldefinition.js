@@ -94,7 +94,7 @@ $(document).ready(function () {
                     fadeIn: 700,
                     fadeOut: 700,
                     timeout: 2000,
-                    showOverlay: true,
+                    showOverlay: false,
                     centerY: true,
                     css: {
                         width: '350px',
@@ -126,7 +126,7 @@ $(document).ready(function () {
                     fadeIn: 700,
                     fadeOut: 700,
                     timeout: 2000,
-                    showOverlay: true,
+                    showOverlay: false,
                     centerY: false,
                     css: {
                         width: '350px',
@@ -149,6 +149,9 @@ $(document).ready(function () {
                 console.log('111' + response);
 
             }
+        },
+        onLoadSuccess: function (node, data) {
+            loader.loadImager('removeLoadImage');
         },
         onClick: function (node) {
 
@@ -299,7 +302,7 @@ function newRoleSubmission() {
             fadeIn: 700,
             fadeOut: 7000,
             timeout: 2000,
-            showOverlay: true,
+            showOverlay: false,
             centerY: false,
             css: {
                 width: '350px',
@@ -343,7 +346,7 @@ function newRoleSubmission() {
                         fadeIn: 700,
                         fadeOut: 7000,
                         timeout: 2000,
-                        showOverlay: true,
+                        showOverlay: false,
                         centerY: false,
                         css: {
                             width: '350px',
@@ -368,7 +371,7 @@ function newRoleSubmission() {
                         fadeIn: 700,
                         fadeOut: 700,
                         timeout: 2000,
-                        showOverlay: true,
+                        showOverlay: false,
                         centerY: false,
                         css: {
                             width: '350px',
@@ -398,7 +401,7 @@ function newRoleSubmission() {
                     fadeIn: 700,
                     fadeOut: 700,
                     timeout: 2000,
-                    showOverlay: true,
+                    showOverlay: false,
                     centerY: false,
                     css: {
                         width: '350px',
@@ -444,7 +447,7 @@ function deleteRoleFunction() {
                 fadeIn: 700,
                 fadeOut: 7000,
                 timeout: 2000,
-                showOverlay: true,
+                showOverlay: false,
                 centerY: false,
                 css: {
                     width: '350px',
@@ -486,7 +489,7 @@ function deleteRoleFunction() {
                             fadeIn: 700,
                             fadeOut: 700,
                             timeout: 2000,
-                            showOverlay: true,
+                            showOverlay: false,
                             centerY: false,
                             css: {
                                 width: '350px',
@@ -508,7 +511,7 @@ function deleteRoleFunction() {
                             fadeIn: 700,
                             fadeOut: 700,
                             timeout: 2000,
-                            showOverlay: true,
+                            showOverlay: false,
                             centerY: false,
                             css: {
                                 width: '350px',
@@ -539,7 +542,7 @@ function deleteRoleFunction() {
                         fadeIn: 700,
                         fadeOut: 700,
                         timeout: 2000,
-                        showOverlay: true,
+                        showOverlay: false,
                         centerY: false,
                         css: {
                             width: '350px',
@@ -598,7 +601,7 @@ function activationChangeFunction() {
                 fadeIn: 700,
                 fadeOut: 700,
                 timeout: 2000,
-                showOverlay: true,
+                showOverlay: false,
                 centerY: false,
                 css: {
                     width: '350px',
@@ -649,7 +652,7 @@ function activationChangeFunction() {
                             fadeIn: 700,
                             fadeOut: 700,
                             timeout: 2000,
-                            showOverlay: true,
+                            showOverlay: false,
                             centerY: false,
                             css: {
                                 width: '350px',
@@ -671,7 +674,7 @@ function activationChangeFunction() {
                             fadeIn: 700,
                             fadeOut: 700,
                             timeout: 2000,
-                            showOverlay: true,
+                            showOverlay: false,
                             centerY: false,
                             css: {
                                 width: '350px',
@@ -701,7 +704,7 @@ function activationChangeFunction() {
                         fadeIn: 700,
                         fadeOut: 700,
                         timeout: 2000,
-                        showOverlay: true,
+                        showOverlay: false,
                         centerY: false,
                         css: {
                             width: '350px',
@@ -745,7 +748,7 @@ function activationChangeFunction() {
                 fadeIn: 700,
                 fadeOut: 700,
                 timeout: 2000,
-                showOverlay: true,
+                showOverlay: false,
                 centerY: false,
                 css: {
                     width: '350px',
@@ -796,7 +799,7 @@ function activationChangeFunction() {
                             fadeIn: 700,
                             fadeOut: 700,
                             timeout: 2000,
-                            showOverlay: true,
+                            showOverlay: false,
                             centerY: false,
                             css: {
                                 width: '350px',
@@ -818,7 +821,7 @@ function activationChangeFunction() {
                             fadeIn: 700,
                             fadeOut: 700,
                             timeout: 2000,
-                            showOverlay: true,
+                            showOverlay: false,
                             centerY: false,
                             css: {
                                 width: '350px',
@@ -846,7 +849,7 @@ function activationChangeFunction() {
                         fadeIn: 700,
                         fadeOut: 700,
                         timeout: 2000,
-                        showOverlay: true,
+                        showOverlay: false,
                         centerY: false,
                         css: {
                             width: '350px',
@@ -926,7 +929,7 @@ function confirmation() {
             console.log(jqXHR);
 //                        location.reload();
 
-//            $('#roleFormBlock').unblock();
+            $('#roleFormBlock').unblock();
             console.log('errorInfo is ' + data['errorInfo'][0]);
             if (data['errorInfo'][0] === '00000') {
 
@@ -935,7 +938,7 @@ function confirmation() {
                     fadeIn: 700,
                     fadeOut: 700,
                     timeout: 2000,
-                    showOverlay: true,
+                    showOverlay: false,
                     centerY: false,
                     css: {
                         width: '350px',
@@ -961,7 +964,7 @@ function confirmation() {
                     fadeIn: 700,
                     fadeOut: 700,
                     timeout: 2000,
-                    showOverlay: true,
+                    showOverlay: false,
                     centerY: false,
                     css: {
                         width: '350px',
@@ -993,7 +996,7 @@ function confirmation() {
                 fadeIn: 700,
                 fadeOut: 700,
                 timeout: 2000,
-                showOverlay: true,
+                showOverlay: false,
                 centerY: false,
                 css: {
                     width: '350px',
@@ -1013,15 +1016,14 @@ function confirmation() {
                 target: editNode.target,
                 text: beforeEditTextValue
             });
-             $('#roleFormBlock').unblock();
         }
     });
 }
 
 function rejection() {
     response = 'reject';
-    console.log(response);    
-    
+    console.log(response);
+
     $('#tt_tree_roles').tree('update', {
         target: editNode.target,
         text: beforeEditTextValue

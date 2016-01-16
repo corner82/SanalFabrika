@@ -1037,4 +1037,8 @@ function _init() {
 
     });
     
+    var loader = $("#loading-image").loadImager();
+    
+    
 }(jQuery));
+
