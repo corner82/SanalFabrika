@@ -1057,6 +1057,14 @@ function _init() {
          */
         _create: function () {
             //this.element.append(this.options.overlay)
+            
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        test: function () {
+            //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
                     message: $('#growlUI-nullName'),
                     fadeIn: 700,
@@ -1078,13 +1086,6 @@ function _init() {
                         color: '#fff'
                     }
                 });
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        removeLoadImage: function () {
-            this.element.find(this.options.overlayKey).remove();
         }
     });
     

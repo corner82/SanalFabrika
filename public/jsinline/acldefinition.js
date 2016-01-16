@@ -100,7 +100,7 @@ $(document).ready(function () {
 //            console.log('root id' + root.id);
 //            console.log(root);
             if (editNode.text === '') {
-                $.ui.blockuiWrapper;
+                $.ui.blockuiWrapper('test');
                 /*$.blockUI({
                     message: $('#growlUI-nullName'),
                     fadeIn: 700,
