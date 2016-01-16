@@ -42,7 +42,7 @@ $(document).ready(function () {
     "use strict";
     // Left menuyu oluşturmak için çağırılan fonksiyon...
     $.fn.leftMenuFunction();
-    
+
     //Validation forms binded...
     jQuery("#roleForm").validationEngine();
     jQuery("#resourceForm").validationEngine();
@@ -81,8 +81,8 @@ $(document).ready(function () {
         },
         onAfterEdit: function (node) {
 
-            var id = editNode.id;
-            var root = $(this).tree('getRoot', node.target);
+            id = editNode.id;
+            root = $(this).tree('getRoot', node.target);
 //            console.log(beforeEditValue.id);
 //            console.log(beforeEditValue.text);
 //            console.log('root id' + root.id);
@@ -124,7 +124,7 @@ $(document).ready(function () {
                 $.blockUI({
                     message: $('#growlUI-nameChangeApproval'),
                     fadeIn: 700,
-                    fadeOut: 7000,
+                    fadeOut: 700,
                     timeout: 2000,
                     showOverlay: true,
                     centerY: false,
@@ -142,132 +142,12 @@ $(document).ready(function () {
                         color: '#fff'
                     }
                 });
-                
+
                 active = editNode.attributes.active;
 //                console.log(active);
+
                 console.log('111' + response);
-                if (response == 'confirm') {
-                    
-                    console.log("it is confirmed... response is " + response );
 
-                    $.ajax({
-                        //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
-                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                        data: {
-                            id: editNode.id,
-                            url: 'pkUpdate_sysAclRoles',
-                            name: editNode.text,
-                            root: root.id,
-                            parent: parentId,
-                            icon_class: null,
-                            active: active,
-                            start_date: null,
-                            end_date: null,
-                            user_id: 0,
-                            description: null,
-                            pk: $("#pk").val(),
-                        },
-                        type: 'GET',
-                        dataType: 'json',
-                        success: function (data, textStatus, jqXHR) {
-
-                            console.log(data);
-                            console.log(textStatus);
-                            console.log(jqXHR);
-//                        location.reload();
-
-                            $('#roleFormBlock').unblock();
-                            console.log('errorInfo is ' + data['errorInfo'][0]);
-                            if (data['errorInfo'][0] === '00000') {
-
-                                $.blockUI({
-                                    message: $('#growlUI-successfulNameChange'),
-                                    fadeIn: 700,
-                                    fadeOut: 700,
-                                    timeout: 2000,
-                                    showOverlay: true,
-                                    centerY: false,
-                                    css: {
-                                        width: '350px',
-                                        top: '50px',
-                                        left: '',
-                                        right: '10px',
-                                        border: 'none',
-                                        padding: '5px',
-                                        backgroundColor: '#0080000',
-                                        '-webkit-border-radius': '10px',
-                                        '-moz-border-radius': '10px',
-                                        opacity: .6,
-                                        color: '#fff'
-                                    }
-                                });
-                                $('#tt_tree_roles').tree('update', {
-                                    target: node.target
-                                });
-                            } else {
-                                console.log('errorInfo is ' + data['errorInfo'][0]);
-                                $.blockUI({
-                                    message: $('#growlUI-failedNameChange'),
-                                    fadeIn: 700,
-                                    fadeOut: 700,
-                                    timeout: 2000,
-                                    showOverlay: true,
-                                    centerY: false,
-                                    css: {
-                                        width: '350px',
-                                        top: '50px',
-                                        left: '',
-                                        right: '10px',
-                                        border: 'none',
-                                        padding: '5px',
-                                        backgroundColor: '#FF0000',
-                                        '-webkit-border-radius': '10px',
-                                        '-moz-border-radius': '10px',
-                                        opacity: .6,
-                                        color: '#fff'
-                                    }
-                                });
-                                $('#tt_tree_roles').tree('update', {
-                                    target: node.target,
-                                    text: beforeEditTextValue
-                                });
-                            }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.log(errorThrown);
-                            console.log(jqXHR);
-//                        console.log(textStatus);
-//                        console.warn('error text status-->' + textStatus);
-                            $.blockUI({
-                                message: $('#growlUI-failedNameChange'),
-                                fadeIn: 700,
-                                fadeOut: 700,
-                                timeout: 2000,
-                                showOverlay: true,
-                                centerY: false,
-                                css: {
-                                    width: '350px',
-                                    top: '50px',
-                                    left: '',
-                                    right: '10px',
-                                    border: 'none',
-                                    padding: '5px',
-                                    backgroundColor: '#FF0000',
-                                    '-webkit-border-radius': '10px',
-                                    '-moz-border-radius': '10px',
-                                    opacity: .6,
-                                    color: '#fff'
-                                }
-                            });
-                            $('#tt_tree_roles').tree('update', {
-                                target: node.target,
-                                text: beforeEditTextValue
-                            });
-                        }
-                    });
-                } else if(response == 'reject'){
-                    console.log('it was rejected ... response is ' + response);
-                }
             }
         },
         onClick: function (node) {
@@ -367,6 +247,8 @@ var checkedNodesChildren;
 var rootId;
 var nodesToCheck;
 var search_name;
+var root;
+var id;
 
 /* 
  * @returns {Boolean}
@@ -1014,13 +896,135 @@ function searchForRoles() {
 var response;
 
 function confirmation() {
+
     response = 'confirm';
     console.log(response);
-    return true;
+
+    $.ajax({
+        //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            id: editNode.id,
+            url: 'pkUpdate_sysAclRoles',
+            name: editNode.text,
+            root: root.id,
+            parent: parentId,
+            icon_class: null,
+            active: active,
+            start_date: null,
+            end_date: null,
+            user_id: 0,
+            description: null,
+            pk: $("#pk").val(),
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+//                        location.reload();
+
+//            $('#roleFormBlock').unblock();
+            console.log('errorInfo is ' + data['errorInfo'][0]);
+            if (data['errorInfo'][0] === '00000') {
+
+                $.blockUI({
+                    message: $('#growlUI-successfulNameChange'),
+                    fadeIn: 700,
+                    fadeOut: 700,
+                    timeout: 2000,
+                    showOverlay: true,
+                    centerY: false,
+                    css: {
+                        width: '350px',
+                        top: '50px',
+                        left: '',
+                        right: '10px',
+                        border: 'none',
+                        padding: '5px',
+                        backgroundColor: '#0080000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .6,
+                        color: '#fff'
+                    }
+                });
+                $('#tt_tree_roles').tree('update', {
+                    target: editNode.target
+                });
+            } else {
+                console.log('errorInfo is ' + data['errorInfo'][0]);
+                $.blockUI({
+                    message: $('#growlUI-failedNameChange'),
+                    fadeIn: 700,
+                    fadeOut: 700,
+                    timeout: 2000,
+                    showOverlay: true,
+                    centerY: false,
+                    css: {
+                        width: '350px',
+                        top: '50px',
+                        left: '',
+                        right: '10px',
+                        border: 'none',
+                        padding: '5px',
+                        backgroundColor: '#FF0000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .6,
+                        color: '#fff'
+                    }
+                });
+                $('#tt_tree_roles').tree('update', {
+                    target: editNode.target,
+                    text: beforeEditTextValue
+                });
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+            console.log(jqXHR);
+//                        console.log(textStatus);
+//                        console.warn('error text status-->' + textStatus);
+            $.blockUI({
+                message: $('#growlUI-failedNameChange'),
+                fadeIn: 700,
+                fadeOut: 700,
+                timeout: 2000,
+                showOverlay: true,
+                centerY: false,
+                css: {
+                    width: '350px',
+                    top: '50px',
+                    left: '',
+                    right: '10px',
+                    border: 'none',
+                    padding: '5px',
+                    backgroundColor: '#FF0000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .6,
+                    color: '#fff'
+                }
+            });
+            $('#tt_tree_roles').tree('update', {
+                target: editNode.target,
+                text: beforeEditTextValue
+            });
+             $('#roleFormBlock').unblock();
+        }
+    });
 }
 
 function rejection() {
     response = 'reject';
-    console.log(response);
-    return false;
+    console.log(response);    
+    
+    $('#tt_tree_roles').tree('update', {
+        target: editNode.target,
+        text: beforeEditTextValue
+    });
+
 }
