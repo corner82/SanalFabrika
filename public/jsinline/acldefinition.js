@@ -55,6 +55,10 @@ $(document).ready(function () {
      * Bahram Lotfi Sadigh
      * 2016.01.13
      */
+    
+    
+    
+    var loader = $("#loading-image").loadImager();
 
     $('#tt_tree_roles').tree({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?\n\

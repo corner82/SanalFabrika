@@ -1034,10 +1034,7 @@ function _init() {
         removeLoadImage: function () {
             this.element.find(this.options.overlayKey).remove();
         }
-
     });
-    
-    var loader = $("#loading-image").loadImager();
     
     
 }(jQuery));
