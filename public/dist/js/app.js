@@ -1048,8 +1048,9 @@ function _init() {
          * @returns {null}
          */
         options: {
-            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
-            overlayKey: ".overlay:first",
+            message : '#growlUI-nullName',
+            fadeIn : 700,
+            fadeOut : 700,
         },
         /**
          * private constructor method for jquery widget
@@ -1057,6 +1058,7 @@ function _init() {
          */
         _create: function () {
             //this.element.append(this.options.overlay)
+            
             
         },
         /**
@@ -1066,9 +1068,9 @@ function _init() {
         test: function () {
             //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
-                    message: $('#growlUI-nullName'),
-                    fadeIn: 700,
-                    fadeOut: 700,
+                    message: $(this.options.message),
+                    fadeIn: this.options.fadeIn,
+                    fadeOut: this.options.fadeOut,
                     timeout: 2000,
                     showOverlay: false,
                     centerY: true,
