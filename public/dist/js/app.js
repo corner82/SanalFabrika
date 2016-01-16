@@ -1003,4 +1003,38 @@ function _init() {
             }
         });
     };
+    
+    
+    /**
+     * load imager widget for loading operations
+     * @author Mustafa Zeynel Dağlı
+     * @since 11/01/2016
+     */
+
+    $.widget("sanalfabrika.loadImager", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
+            overlayKey: ".overlay:first",
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+            this.element.append(this.options.overlay)
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        removeLoadImage: function () {
+            this.element.find(this.options.overlayKey).remove();
+        }
+
+    });
+    
 }(jQuery));

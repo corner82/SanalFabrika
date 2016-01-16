@@ -31,37 +31,6 @@ $(document).ready(function () {
         }
     })
 
-    /**
-     * load imager widget for loading operations
-     * @author Mustafa Zeynel Dağlı
-     * @since 11/01/2016
-     */
-
-    $.widget("sanalfabrika.loadImager", {
-        /**
-         * Default options.
-         * @returns {null}
-         */
-        options: {
-            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
-            overlayKey: ".overlay:first",
-        },
-        /**
-         * private constructor method for jquery widget
-         * @returns {null}
-         */
-        _create: function () {
-            this.element.append(this.options.overlay)
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        removeLoadImage: function () {
-            this.element.find(this.options.overlayKey).remove();
-        }
-
-    });
 
 
     /*
@@ -73,6 +42,8 @@ $(document).ready(function () {
     "use strict";
     // Left menuyu oluşturmak için çağırılan fonksiyon...
     $.fn.leftMenuFunction();
+    
+    //Validation forms binded...
     jQuery("#roleForm").validationEngine();
     jQuery("#resourceForm").validationEngine();
     jQuery("#privelegeForm").validationEngine();
@@ -149,7 +120,7 @@ $(document).ready(function () {
                     text: beforeEditTextValue
                 });
             } else {
-
+                response = null;
                 $.blockUI({
                     message: $('#growlUI-nameChangeApproval'),
                     fadeIn: 700,
@@ -171,9 +142,12 @@ $(document).ready(function () {
                         color: '#fff'
                     }
                 });
+                
                 active = editNode.attributes.active;
 //                console.log(active);
+                console.log('111' + response);
                 if (response == 'confirm') {
+                    
                     console.log("it is confirmed... response is " + response );
 
                     $.ajax({
@@ -575,7 +549,7 @@ function newRoleSubmission() {
 function deleteRoleFunction() {
     var i;
 
-    console.log('deleteRoleFunction');
+//    console.log('deleteRoleFunction');
 
     for (i = 0; i < checkedNodes.length; i++) {
         if (confirm('Sure to remove roles ' +
@@ -1041,8 +1015,12 @@ var response;
 
 function confirmation() {
     response = 'confirm';
+    console.log(response);
+    return true;
 }
 
 function rejection() {
     response = 'reject';
+    console.log(response);
+    return false;
 }
