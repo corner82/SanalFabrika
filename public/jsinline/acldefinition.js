@@ -1,18 +1,23 @@
-
-
 $(document).ready(function () {
 
     /*
      *  easyui da lazy loading de gereken sayfanin jsinline dosyasinin basina eklensin. 
      *  Aksi takdride, easyui getRoot fonksyonu dogru calismayacaktir.
      */
-
     var lang = new Lang();
     lang.dynamic('th', '/plugins/jquery-lang-js-master/langpack/th.json');
     lang.init({
         defaultLang: 'en'
     });
     lang.change('th');
+    
+    /**
+     * blockUI wrappert test
+     * @author Mustafa Zeynel Dağlı
+     * @since 18/01/2016
+     */
+    var testBlockui = $("#growlUI-nullName").blockuiWrapper();
+
 
     $.extend($.fn.tree.methods, {
         getRoot: function (jq, nodeEl) {
@@ -101,8 +106,11 @@ $(document).ready(function () {
 //            console.log(root);
             if (editNode.text === '') {
                 //$.ui.blockuiWrapper('test');
-                var testBlockui = $(this).blockuiWrapper();
-                testBlockui.blockuiWrapper();
+                //var testBlockui = $(this).blockuiWrapper();
+                //testBlockui.option({'fadeOut' : 70000});
+                testBlockui.blockuiWrapper('option','fadeOut', 7000);
+                testBlockui.blockuiWrapper('test');
+                
                 /*$.blockUI({
                     message: $('#growlUI-nullName'),
                     fadeIn: 700,

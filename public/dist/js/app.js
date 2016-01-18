@@ -1050,6 +1050,7 @@ function _init() {
         options: {
             message : '#growlUI-nullName',
             backgroundColor: 'FF0000',
+            fadeOut : 700,
         },
         /**
          * private constructor method for jquery widget
@@ -1057,10 +1058,17 @@ function _init() {
          */
         _create: function () {
             //this.element.append(this.options.overlay)
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        test: function () {
+            //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
-                    message: $(this.options.message),
+                    message: $(this.element),
                     fadeIn: 700,
-                    fadeOut: 700,
+                    fadeOut: this.options.fadeOut,
                     timeout: 2000,
                     showOverlay: false,
                     centerY: true,
@@ -1078,35 +1086,6 @@ function _init() {
                         color: '#fff'
                     }
                 });
-            
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        test: function () {
-            //this.element.find(this.options.overlayKey).remove();
-//            $.blockUI({
-//                    message: $(this.options.message),
-//                    fadeIn: 700,
-//                    fadeOut: 700,
-//                    timeout: 2000,
-//                    showOverlay: false,
-//                    centerY: true,
-//                    css: {
-//                        width: '350px',
-//                        top: '50px',
-//                        left: '',
-//                        right: '10px',
-//                        border: 'none',
-//                        padding: '5px',
-//                        backgroundColor: '#' + this.options.backgroundColor,
-//                        '-webkit-border-radius': '10px',
-//                        '-moz-border-radius': '10px',
-//                        opacity: .6,
-//                        color: '#fff'
-//                    }
-//                });
         }
     });
     
