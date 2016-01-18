@@ -970,16 +970,15 @@ function _init() {
 (function ($) {
 
     $.fn.todolist = function (options) {
-        // Render options
+// Render options
         var settings = $.extend({
-            //When the user checks the input
+//When the user checks the input
             onCheck: function (ele) {
             },
             //When the user unchecks the input
             onUncheck: function (ele) {
             }
         }, options);
-
         return this.each(function () {
 
             if (typeof $.fn.iCheck != 'undefined') {
@@ -988,7 +987,6 @@ function _init() {
                     ele.toggleClass("done");
                     settings.onCheck.call(ele);
                 });
-
                 $('input', this).on('ifUnchecked', function (event) {
                     var ele = $(this).parents("li").first();
                     ele.toggleClass("done");
@@ -1003,8 +1001,6 @@ function _init() {
             }
         });
     };
-    
-    
     /**
      * load imager widget for loading operations
      * @author Mustafa Zeynel Dağlı
@@ -1035,7 +1031,6 @@ function _init() {
             this.element.find(this.options.overlayKey).remove();
         }
     });
-    
     /**
      * load imager widget for loading operations
      * @author Mustafa Zeynel Dağlı
@@ -1048,9 +1043,10 @@ function _init() {
          * @returns {null}
          */
         options: {
-            message : '#growlUI-nullName',
+            message: '#growlUI-nullName',
             backgroundColor: 'FF0000',
-            fadeOut : 700,
+            fadeOut: 700,
+            showOverlay: false,
         },
         /**
          * private constructor method for jquery widget
@@ -1066,29 +1062,80 @@ function _init() {
         test: function () {
             //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
-                    message: $(this.element),
-                    fadeIn: 700,
-                    fadeOut: this.options.fadeOut,
-                    timeout: 2000,
-                    showOverlay: false,
-                    centerY: true,
-                    css: {
-                        width: '350px',
-                        top: '50px',
-                        left: '',
-                        right: '10px',
-                        border: 'none',
-                        padding: '5px',
-                        backgroundColor: '#' + this.options.backgroundColor,
-                        '-webkit-border-radius': '10px',
-                        '-moz-border-radius': '10px',
-                        opacity: .6,
-                        color: '#fff'
-                    }
-                });
+                message: $(this.element),
+                fadeIn: 700,
+                fadeOut: this.options.fadeOut,
+                timeout: 2000,
+                showOverlay: this.options.showOverlay,
+                centerY: true,
+                css: {
+                    width: '350px',
+                    top: '50px',
+                    left: '',
+                    right: '10px',
+                    border: 'none',
+                    padding: '5px',
+                    backgroundColor: '#' + this.options.backgroundColor,
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .6,
+                    color: '#fff'
+                }
+            });
         }
     });
-    
-    
+
+    /**
+     * growlUI widget for approval growls with yes no buttons
+     * without fadeout option. Fadeout happens uppon clicking on buttons
+     * @author Bahram Lotfi Sadigh
+     * @since 18/01/2016
+     */
+
+
+    $.widget("sanalfabrika.blockuiApprovalWrapper", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            message: '#growlUI-nameChangeApproval',
+            backgroundColor: 'FFA500',
+            showOverlay: false,
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+            //this.element.append(this.options.overlay)
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        test: function () {
+            //this.element.find(this.options.overlayKey).remove();
+            $.blockUI({
+                message: $(this.element),
+                fadeIn: 700,  
+                showOverlay: this.options.showOverlay,
+                centerY: true,
+                css: {
+                    width: '350px',
+                    top: '50px',
+                    left: '',
+                    right: '10px',
+                    border: 'none',
+                    padding: '5px',
+                    backgroundColor: '#' + this.options.backgroundColor,
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .6,
+                    color: '#fff'
+                }
+            });
+        }
+    });
 }(jQuery));
 

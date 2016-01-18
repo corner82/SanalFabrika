@@ -10,14 +10,14 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change('th');
-    
+
     /**
      * blockUI wrappert test
      * @author Mustafa Zeynel Dağlı
      * @since 18/01/2016
      */
     var testBlockui = $("#growlUI-nullName").blockuiWrapper();
-
+    var testBlockuiNameChangeApproval = $("#growlUI-nameChangeApproval").blockuiApprovalWrapper();
 
     $.extend($.fn.tree.methods, {
         getRoot: function (jq, nodeEl) {
@@ -53,14 +53,7 @@ $(document).ready(function () {
     jQuery("#resourceForm").validationEngine();
     jQuery("#privelegeForm").validationEngine();
 
-    /*
-     * 
-     * @type @call;$@call;tree
-     * Role Tree Fonksiyonu
-     * Bahram Lotfi Sadigh
-     * 2016.01.13
-     */
-    
+
     /*
      * 
      * @type @call;$@call;loadImager
@@ -70,8 +63,16 @@ $(document).ready(function () {
      * this imager goes to #loading-image div in html.
      * imager will be removed on roles tree onLoadSuccess method.
      */
-    
+
     var loader = $("#loading-image").loadImager();
+
+    /*
+     * 
+     * @type @call;$@call;tree
+     * Role Tree Fonksiyonu
+     * Bahram Lotfi Sadigh
+     * 2016.01.13
+     */
 
     $('#tt_tree_roles').tree({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?\n\
@@ -108,30 +109,11 @@ $(document).ready(function () {
                 //$.ui.blockuiWrapper('test');
                 //var testBlockui = $(this).blockuiWrapper();
                 //testBlockui.option({'fadeOut' : 70000});
-                testBlockui.blockuiWrapper('option','fadeOut', 7000);
+
+
+                testBlockui.blockuiWrapper('option', 'fadeOut', 700);
                 testBlockui.blockuiWrapper('test');
-                
-                /*$.blockUI({
-                    message: $('#growlUI-nullName'),
-                    fadeIn: 700,
-                    fadeOut: 700,
-                    timeout: 2000,
-                    showOverlay: false,
-                    centerY: true,
-                    css: {
-                        width: '350px',
-                        top: '50px',
-                        left: '',
-                        right: '10px',
-                        border: 'none',
-                        padding: '5px',
-                        backgroundColor: '#FF0000',
-                        '-webkit-border-radius': '10px',
-                        '-moz-border-radius': '10px',
-                        opacity: .6,
-                        color: '#fff'
-                    }
-                });*/
+
 //                console.log("entered value is null...");
                 editNode.text = beforeEditTextValue;
 //                console.log('old value is ' + beforeEditTextValue);
@@ -143,33 +125,16 @@ $(document).ready(function () {
                 });
             } else {
                 response = null;
-                $.blockUI({
-                    message: $('#growlUI-nameChangeApproval'),
-                    fadeIn: 700,
-                    fadeOut: 700,
-                    timeout: 2000,
-                    showOverlay: false,
-                    centerY: false,
-                    css: {
-                        width: '350px',
-                        top: '50px',
-                        left: '',
-                        right: '10px',
-                        border: 'none',
-                        padding: '5px',
-                        backgroundColor: '#FFA500',
-                        '-webkit-border-radius': '10px',
-                        '-moz-border-radius': '10px',
-                        opacity: .6,
-                        color: '#fff'
-                    }
+
+                console.log('blockuiApprovalWrapper');
+
+                testBlockuiNameChangeApproval.blockuiApprovalWrapper('option', {
+                    showOverlay: true
                 });
+                testBlockuiNameChangeApproval.blockuiApprovalWrapper('test');
 
                 active = editNode.attributes.active;
 //                console.log(active);
-
-                console.log('111' + response);
-
             }
         },
         onLoadSuccess: function (node, data) {
@@ -274,6 +239,25 @@ var nodesToCheck;
 var search_name;
 var root;
 var id;
+var enteredRoleName;
+var roleDescription;
+var i;
+var active;
+
+var testBlockuiSuccessfulNameChange = $("#growlUI-successfulNameChange").blockuiWrapper();
+var testBlockuiFailedNameChange = $("#growlUI-failedNameChange").blockuiWrapper();
+
+var testBlockuiNewRoleSubmitApproval = $("#growlUI-newRoleSubmitApproval").blockuiApprovalWrapper();
+var testBlockuiSuccessfulSubmit = $("#growlUI-successfulSubmit").blockuiWrapper();
+var testBlockuiFailedSubmit = $("#growlUI-failedSubmit").blockuiWrapper();
+
+var testBlockuiDeleteApproval = $("#growlUI-deleteApproval").blockuiApprovalWrapper();
+var testBlockuiSuccessfulDelete = $("#growlUI-successfulDelete").blockuiWrapper();
+var testBlockuiFailedDelete = $("#growlUI-failedDelete").blockuiWrapper();
+
+var testBlockuiActivationChangeApproval = $("#growlUI-activationChangeApproval").blockuiApprovalWrapper();
+var testBlockuiSuccessfulActivationChange = $("#growlUI-successfulActivationChange").blockuiWrapper();
+var testBlockuiFailedActivationChange = $("#growlUI-failedActivationChange").blockuiWrapper();
 
 /* 
  * @returns {Boolean}
@@ -285,8 +269,8 @@ var id;
 function newRoleSubmission() {
     //e.preventDefault();
 
-    var enteredRoleName = $('#roleName').val();
-    var roleDescription = $('#roleDescription').val();
+    enteredRoleName = $('#roleName').val();
+    roleDescription = $('#roleDescription').val();
 
     if ($("#roleForm").validationEngine('validate')) {
         $('#roleFormBlock').block({
@@ -319,129 +303,12 @@ function newRoleSubmission() {
 //                console.log('there is a selected root: ' + rootId);
         }
 
-        $.blockUI({
-            message: $('#growlUI-newRoleSubmitApproval'),
-            fadeIn: 700,
-            fadeOut: 7000,
-            timeout: 2000,
-            showOverlay: false,
-            centerY: false,
-            css: {
-                width: '350px',
-                top: '50px',
-                left: '',
-                right: '10px',
-                border: 'none',
-                padding: '5px',
-                backgroundColor: '#0080000',
-                '-webkit-border-radius': '10px',
-                '-moz-border-radius': '10px',
-                opacity: .6,
-                color: '#fff'
-            }
+        testBlockuiNewRoleSubmitApproval.blockuiApprovalWrapper('option', {
+            showOverlay: true,
         });
+        testBlockuiNewRoleSubmitApproval.blockuiApprovalWrapper('test');
 
-        $.ajax({
-            //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: {
-                url: 'pkInsert_sysAclRoles',
-                icon_class: null,
-                start_date: null,
-                end_date: null,
-                root: rootId,
-                parent: parentId,
-                user_id: 0,
-                name: enteredRoleName,
-                description: roleDescription,
-                pk: $("#pk").val(),
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function (data, textStatus, jqXHR) {
 
-                $('#roleFormBlock').unblock();
-                console.log('errorInfo is ' + data['errorInfo'][0]);
-                if (data['errorInfo'][0] === '00000') {
-                    $.blockUI({
-                        message: $('#growlUI-successfulSubmit'),
-                        fadeIn: 700,
-                        fadeOut: 7000,
-                        timeout: 2000,
-                        showOverlay: false,
-                        centerY: false,
-                        css: {
-                            width: '350px',
-                            top: '50px',
-                            left: '',
-                            right: '10px',
-                            border: 'none',
-                            padding: '5px',
-                            backgroundColor: '#0080000',
-                            '-webkit-border-radius': '10px',
-                            '-moz-border-radius': '10px',
-                            opacity: .6,
-                            color: '#fff'
-                        }
-                    });
-
-                } else {
-
-                    console.log('errorInfo is ' + data['errorInfo'][0]);
-                    $.blockUI({
-                        message: $('#growlUI-failedSubmit'),
-                        fadeIn: 700,
-                        fadeOut: 700,
-                        timeout: 2000,
-                        showOverlay: false,
-                        centerY: false,
-                        css: {
-                            width: '350px',
-                            top: '50px',
-                            left: '',
-                            right: '10px',
-                            border: 'none',
-                            padding: '5px',
-                            backgroundColor: '#FF0000',
-                            '-webkit-border-radius': '10px',
-                            '-moz-border-radius': '10px',
-                            opacity: .6,
-                            color: '#fff'
-                        }
-                    });
-                }
-                return false;
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(errorThrown);
-                console.log(jqXHR);
-                console.log(textStatus);
-//                console.warn('error text status-->' + textStatus);
-                $('#roleFormBlock').unblock();
-                $.blockUI({
-                    message: $('#growlUI-failedSubmit'),
-                    fadeIn: 700,
-                    fadeOut: 700,
-                    timeout: 2000,
-                    showOverlay: false,
-                    centerY: false,
-                    css: {
-                        width: '350px',
-                        top: '50px',
-                        left: '',
-                        right: '10px',
-                        border: 'none',
-                        padding: '5px',
-                        backgroundColor: '#FF0000',
-                        '-webkit-border-radius': '10px',
-                        '-moz-border-radius': '10px',
-                        opacity: .6,
-                        color: '#fff'
-                    }
-                });
-                return false;
-            }
-        });
     }
     return false;
 }
@@ -454,136 +321,19 @@ function newRoleSubmission() {
  */
 
 function deleteRoleFunction() {
-    var i;
 
 //    console.log('deleteRoleFunction');
 
-    for (i = 0; i < checkedNodes.length; i++) {
-        if (confirm('Sure to remove roles ' +
-                checkedNodes[i].text + ' ?')) {
 
 //                    console.log("remove");
 //                    console.log(checkedNodes[i].text);
-            $.blockUI({
-                message: $('#growlUI-newRoleSubmitApproval'),
-                fadeIn: 700,
-                fadeOut: 7000,
-                timeout: 2000,
-                showOverlay: false,
-                centerY: false,
-                css: {
-                    width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
-                    border: 'none',
-                    padding: '5px',
-                    backgroundColor: '#0080000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .6,
-                    color: '#fff'
-                }
-            });
 
 
-            $.ajax({
-                //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
-                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                data: {
-                    url: 'pkDelete_sysAclRoles',
-                    id: checkedNodes[i].id,
-                    user_id: 0,
-                    pk: $("#pk").val(),
-                },
-                type: 'GET',
-                dataType: 'json',
-                success: function (data, textStatus, jqXHR) {
+    testBlockuiDeleteApproval.blockuiApprovalWrapper('option', {
+        showOverlay: true
+    });
+    testBlockuiDeleteApproval.blockuiApprovalWrapper('test');
 
-
-                    console.log(checkedNodes + 'removed');
-//                            location.reload();
-                    $('#roleFormBlock').unblock();
-                    console.log('errorInfo is ' + data['errorInfo'][0]);
-                    if (data['errorInfo'][0] === '00000') {
-                        $.blockUI({
-                            message: $('#growlUI-successfulDelete'),
-                            fadeIn: 700,
-                            fadeOut: 700,
-                            timeout: 2000,
-                            showOverlay: false,
-                            centerY: false,
-                            css: {
-                                width: '350px',
-                                top: '50px',
-                                left: '',
-                                right: '10px',
-                                border: 'none',
-                                padding: '5px',
-                                backgroundColor: '#0080000',
-                                '-webkit-border-radius': '10px',
-                                '-moz-border-radius': '10px',
-                                opacity: .6,
-                                color: '#fff'
-                            }
-                        });
-                    } else {
-                        $.blockUI({
-                            message: $('#growlUI-failedDelete'),
-                            fadeIn: 700,
-                            fadeOut: 700,
-                            timeout: 2000,
-                            showOverlay: false,
-                            centerY: false,
-                            css: {
-                                width: '350px',
-                                top: '50px',
-                                left: '',
-                                right: '10px',
-                                border: 'none',
-                                padding: '5px',
-                                backgroundColor: '#FF0000',
-                                '-webkit-border-radius': '10px',
-                                '-moz-border-radius': '10px',
-                                opacity: .6,
-                                color: '#fff'
-                            }
-                        });
-                    }
-                    return false;
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-//                    console.log(errorThrown);
-//                    console.log(jqXHR);
-//                    console.log(textStatus);
-//                    console.warn('error text status-->' + textStatus);
-                    $('#roleFormBlock').unblock();
-
-                    $.blockUI({
-                        message: $('#growlUI-failedDelete'),
-                        fadeIn: 700,
-                        fadeOut: 700,
-                        timeout: 2000,
-                        showOverlay: false,
-                        centerY: false,
-                        css: {
-                            width: '350px',
-                            top: '50px',
-                            left: '',
-                            right: '10px',
-                            border: 'none',
-                            padding: '5px',
-                            backgroundColor: '#FF0000',
-                            '-webkit-border-radius': '10px',
-                            '-moz-border-radius': '10px',
-                            opacity: .6,
-                            color: '#fff'
-                        }
-                    });
-                }
-            });
-        }
-    }
 }
 
 /* 
@@ -593,19 +343,22 @@ function deleteRoleFunction() {
  * 2016.01.13
  */
 
+
 function activationChangeFunction() {
-    var i;
 
     for (i = 0; i < checkedNodes.length; i++) {
+
+//        console.log('1' + checkedNodes[i]);
+
         if (checkedNodes[i].attributes.active == 0) {
-            var active = 1;
-            var root = $('#tt_tree_roles').tree('getRoot', checkedNodes[i].target);
+            active = 1;
+            root = $('#tt_tree_roles').tree('getRoot', checkedNodes[i].target);
 //                console.log('root ' + root);
 
-            var rootId = root.id;
+            rootId = root.id;
 //                console.log('rootId ' + rootId);
 
-            var parent = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
+            parent = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
 
             if (parent == null) {
                 parentId = 0;
@@ -618,143 +371,26 @@ function activationChangeFunction() {
 //                console.log(checkedNodes[i].text + ' has id ' + checkedNodes[i].id);
 //                console.log(checkedNodes[i].text + ' has activation code ' + checkedNodes[i].attributes.active);
 
-            $.blockUI({
-                message: $('#growlUI-activationChangeApproval'),
-                fadeIn: 700,
-                fadeOut: 700,
-                timeout: 2000,
-                showOverlay: false,
-                centerY: false,
-                css: {
-                    width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
-                    border: 'none',
-                    padding: '5px',
-                    backgroundColor: '#0080000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .6,
-                    color: '#fff'
-                }
+
+            actChangeNode = $('#tt_tree_roles').tree('getData', checkedNodes[i].target);
+
+            testBlockuiActivationChangeApproval.blockuiApprovalWrapper('option', {
+                showOverlay: true,
             });
+            testBlockuiActivationChangeApproval.blockuiApprovalWrapper('test');
 
-            $.ajax({
-                //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
-                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                data: {
-                    id: checkedNodes[i].id,
-                    url: 'pkUpdate_sysAclRoles',
-                    name: checkedNodes[i].text,
-                    root: rootId,
-                    parent: parentId,
-                    icon_class: null,
-                    active: active,
-                    start_date: null,
-                    end_date: null,
-                    user_id: 0,
-                    description: null,
-                    pk: $("#pk").val(),
-                },
-                type: 'GET',
-                dataType: 'json',
-                success: function (data, textStatus, jqXHR) {
 
-                    console.log(data);
-                    console.log(textStatus);
-                    console.log(jqXHR);
-//                        location.reload();
-
-                    $('#roleFormBlock').unblock();
-                    console.log('errorInfo is ' + data['errorInfo'][0]);
-                    if (data['errorInfo'][0] === '00000') {
-                        $.blockUI({
-                            message: $('#growlUI-successfulActivationChange'),
-                            fadeIn: 700,
-                            fadeOut: 700,
-                            timeout: 2000,
-                            showOverlay: false,
-                            centerY: false,
-                            css: {
-                                width: '350px',
-                                top: '50px',
-                                left: '',
-                                right: '10px',
-                                border: 'none',
-                                padding: '5px',
-                                backgroundColor: '#0080000',
-                                '-webkit-border-radius': '10px',
-                                '-moz-border-radius': '10px',
-                                opacity: .6,
-                                color: '#fff'
-                            }
-                        });
-                    } else {
-                        $.blockUI({
-                            message: $('#growlUI-failedActivationChange'),
-                            fadeIn: 700,
-                            fadeOut: 700,
-                            timeout: 2000,
-                            showOverlay: false,
-                            centerY: false,
-                            css: {
-                                width: '350px',
-                                top: '50px',
-                                left: '',
-                                right: '10px',
-                                border: 'none',
-                                padding: '5px',
-                                backgroundColor: '#FF0000',
-                                '-webkit-border-radius': '10px',
-                                '-moz-border-radius': '10px',
-                                opacity: .6,
-                                color: '#fff'
-                            }
-                        });
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-
-                    console.log(errorThrown);
-                    console.log(jqXHR);
-//                    console.log(textStatus);
-//                    console.warn('error text status-->' + textStatus);
-
-                    $.blockUI({
-                        message: $('#growlUI-failedActivationChange'),
-                        fadeIn: 700,
-                        fadeOut: 700,
-                        timeout: 2000,
-                        showOverlay: false,
-                        centerY: false,
-                        css: {
-                            width: '350px',
-                            top: '50px',
-                            left: '',
-                            right: '10px',
-                            border: 'none',
-                            padding: '5px',
-                            backgroundColor: '#FF0000',
-                            '-webkit-border-radius': '10px',
-                            '-moz-border-radius': '10px',
-                            opacity: .6,
-                            color: '#fff'
-                        }
-                    });
-                }
-            });
         } else if (checkedNodes[i].attributes.active == 1) {
 //                console.log(checkedNodes[i].text + ' is deactivated.');
 //                console.log(checkedNodes[i].text + ' has id ' + checkedNodes[i].id);
 //                console.log(checkedNodes[i].text + ' has activation code ' + checkedNodes[i].attributes.active);
 
-            var root = $('#tt_tree_roles').tree('getRoot', checkedNodes[i].target);
+            root = $('#tt_tree_roles').tree('getRoot', checkedNodes[i].target);
 //                console.log('root ' + root);
-            var rootId = root.id;
+            rootId = root.id;
 //                console.log('rootId ' + rootId);
 
-            var parent = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
+            parent = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
 
             if (parent == null) {
                 parentId = 0;
@@ -763,135 +399,20 @@ function activationChangeFunction() {
                 parentId = parent.id;
 //                    console.log('parent ' + parentId);
             }
-            var active = 0;
+            active = 0;
 
-            $.blockUI({
-                message: $('#growlUI-activationChangeApproval'),
-                fadeIn: 700,
-                fadeOut: 700,
-                timeout: 2000,
-                showOverlay: false,
-                centerY: false,
-                css: {
-                    width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
-                    border: 'none',
-                    padding: '5px',
-                    backgroundColor: '#0080000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .6,
-                    color: '#fff'
-                }
+            actChangeNode = $('#tt_tree_roles').tree('getData', checkedNodes[i].target);
+
+//            console.log('1' + actChangeNode);
+            testBlockuiActivationChangeApproval.blockuiApprovalWrapper('option', {
+                showOverlay: true,
             });
+            testBlockuiActivationChangeApproval.blockuiApprovalWrapper('test');
 
-
-            $.ajax({
-                //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
-                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                data: {
-                    id: checkedNodes[i].id,
-                    url: 'pkUpdate_sysAclRoles',
-                    name: checkedNodes[i].text,
-                    root: rootId,
-                    parent: parentId,
-                    icon_class: null,
-                    active: active,
-                    start_date: null,
-                    end_date: null,
-                    user_id: 0,
-                    description: null,
-                    pk: $("#pk").val(),
-                },
-                type: 'GET',
-                dataType: 'json',
-                success: function (data, textStatus, jqXHR) {
-
-                    console.log(data);
-                    console.log(textStatus);
-                    console.log(jqXHR);
-//                        location.reload();
-                    $('#roleFormBlock').unblock();
-                    console.log('errorInfo is ' + data['errorInfo'][0]);
-                    if (data['errorInfo'][0] === '00000') {
-                        $.blockUI({
-                            message: $('#growlUI-successfulActivationChange'),
-                            fadeIn: 700,
-                            fadeOut: 700,
-                            timeout: 2000,
-                            showOverlay: false,
-                            centerY: false,
-                            css: {
-                                width: '350px',
-                                top: '50px',
-                                left: '',
-                                right: '10px',
-                                border: 'none',
-                                padding: '5px',
-                                backgroundColor: '#0080000',
-                                '-webkit-border-radius': '10px',
-                                '-moz-border-radius': '10px',
-                                opacity: .6,
-                                color: '#fff'
-                            }
-                        });
-                    } else {
-                        $.blockUI({
-                            message: $('#growlUI-failedActivationChange'),
-                            fadeIn: 700,
-                            fadeOut: 700,
-                            timeout: 2000,
-                            showOverlay: false,
-                            centerY: false,
-                            css: {
-                                width: '350px',
-                                top: '50px',
-                                left: '',
-                                right: '10px',
-                                border: 'none',
-                                padding: '5px',
-                                backgroundColor: '#FF0000',
-                                '-webkit-border-radius': '10px',
-                                '-moz-border-radius': '10px',
-                                opacity: .6,
-                                color: '#fff'
-                            }
-                        });
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(errorThrown);
-                    console.log(jqXHR);
-//                    console.log(textStatus);
-//                    console.warn('error text status-->' + textStatus);
-                    $.blockUI({
-                        message: $('#growlUI-failedActivationChange'),
-                        fadeIn: 700,
-                        fadeOut: 700,
-                        timeout: 2000,
-                        showOverlay: false,
-                        centerY: false,
-                        css: {
-                            width: '350px',
-                            top: '50px',
-                            left: '',
-                            right: '10px',
-                            border: 'none',
-                            padding: '5px',
-                            backgroundColor: '#FF0000',
-                            '-webkit-border-radius': '10px',
-                            '-moz-border-radius': '10px',
-                            opacity: .6,
-                            color: '#fff'
-                        }
-                    });
-                }
-            });
         }
     }
 }
+
 
 /*
  * Role search function- for searching roles in tree
@@ -920,7 +441,7 @@ function searchForRoles() {
 
 var response;
 
-function confirmation() {
+function nameChangeConfirmation() {
 
     response = 'confirm';
     console.log(response);
@@ -951,98 +472,50 @@ function confirmation() {
             console.log(jqXHR);
 //                        location.reload();
 
+            $.unblockUI();
             $('#roleFormBlock').unblock();
+
             console.log('errorInfo is ' + data['errorInfo'][0]);
             if (data['errorInfo'][0] === '00000') {
 
-                $.blockUI({
-                    message: $('#growlUI-successfulNameChange'),
-                    fadeIn: 700,
-                    fadeOut: 700,
-                    timeout: 2000,
-                    showOverlay: false,
-                    centerY: false,
-                    css: {
-                        width: '350px',
-                        top: '50px',
-                        left: '',
-                        right: '10px',
-                        border: 'none',
-                        padding: '5px',
-                        backgroundColor: '#0080000',
-                        '-webkit-border-radius': '10px',
-                        '-moz-border-radius': '10px',
-                        opacity: .6,
-                        color: '#fff'
-                    }
-                });
+                testBlockuiSuccessfulNameChange.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiSuccessfulNameChange.blockuiWrapper('test');
+
                 $('#tt_tree_roles').tree('update', {
                     target: editNode.target
                 });
             } else {
                 console.log('errorInfo is ' + data['errorInfo'][0]);
-                $.blockUI({
-                    message: $('#growlUI-failedNameChange'),
-                    fadeIn: 700,
-                    fadeOut: 700,
-                    timeout: 2000,
-                    showOverlay: false,
-                    centerY: false,
-                    css: {
-                        width: '350px',
-                        top: '50px',
-                        left: '',
-                        right: '10px',
-                        border: 'none',
-                        padding: '5px',
-                        backgroundColor: '#FF0000',
-                        '-webkit-border-radius': '10px',
-                        '-moz-border-radius': '10px',
-                        opacity: .6,
-                        color: '#fff'
-                    }
-                });
+
+                testBlockuiFailedNameChange.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiFailedNameChange.blockuiWrapper('test');
+
                 $('#tt_tree_roles').tree('update', {
                     target: editNode.target,
                     text: beforeEditTextValue
                 });
             }
+            $.unblockUI();
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(errorThrown);
             console.log(jqXHR);
 //                        console.log(textStatus);
 //                        console.warn('error text status-->' + textStatus);
-            $.blockUI({
-                message: $('#growlUI-failedNameChange'),
-                fadeIn: 700,
-                fadeOut: 700,
-                timeout: 2000,
-                showOverlay: false,
-                centerY: false,
-                css: {
-                    width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
-                    border: 'none',
-                    padding: '5px',
-                    backgroundColor: '#FF0000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .6,
-                    color: '#fff'
-                }
-            });
+
+            testBlockuiFailedNameChange.blockuiWrapper('option', 'fadeOut', 700);
+            testBlockuiFailedNameChange.blockuiWrapper('test');
+
             $('#tt_tree_roles').tree('update', {
                 target: editNode.target,
                 text: beforeEditTextValue
             });
         }
     });
+    $.unblockUI();
 }
 
-function rejection() {
+function nameChangeRejection() {
     response = 'reject';
     console.log(response);
 
@@ -1050,5 +523,206 @@ function rejection() {
         target: editNode.target,
         text: beforeEditTextValue
     });
+    $.unblockUI();
+}
 
+function newRoleSubmissionConfirmation() {
+
+    response = 'confirm';
+    console.log(response);
+
+    $.ajax({
+        //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkInsert_sysAclRoles',
+            icon_class: null,
+            start_date: null,
+            end_date: null,
+            root: rootId,
+            parent: parentId,
+            user_id: 0,
+            name: enteredRoleName,
+            description: roleDescription,
+            pk: $("#pk").val(),
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            $('#roleFormBlock').unblock();
+            console.log('errorInfo is ' + data['errorInfo'][0]);
+            if (data['errorInfo'][0] === '00000') {
+
+                testBlockuiSuccessfulSubmit.blockuiWrapper('option', 'backgroundColor', '0080000');
+                testBlockuiSuccessfulSubmit.blockuiWrapper('test');
+
+            } else {
+
+                console.log('errorInfo is ' + data['errorInfo'][0]);
+
+                testBlockuiFailedSubmit.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiFailedSubmit.blockuiWrapper('test');
+
+            }
+            return false;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+            console.log(errorThrown);
+            console.log(jqXHR);
+            console.log(textStatus);
+//            console.warn('error text status-->' + textStatus);
+
+            $('#roleFormBlock').unblock();
+
+            testBlockuiFailedSubmit.blockuiWrapper('option', 'fadeOut', 700);
+            testBlockuiFailedSubmit.blockuiWrapper('test');
+
+            return false;
+        }
+    });
+    $.unblockUI();
+}
+
+function newRoleSubmissionRejection() {
+    response = 'reject';
+    console.log(response);
+
+    $.unblockUI();
+}
+
+function deleteRoleConfirmation() {
+
+    response = 'confirm';
+    console.log(response);
+
+    for (i = 0; i < checkedNodes.length; i++) {
+        if (confirm('Sure to remove roles ' +
+                checkedNodes[i].text + ' ?')) {
+            $.ajax({
+                //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data: {
+                    url: 'pkDelete_sysAclRoles',
+                    id: checkedNodes[i].id,
+                    user_id: 0,
+                    pk: $("#pk").val(),
+                },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+
+                    console.log(checkedNodes + 'removed');
+//                            location.reload();
+                    $('#roleFormBlock').unblock();
+                    console.log('errorInfo is ' + data['errorInfo'][0]);
+                    if (data['errorInfo'][0] === '00000') {
+
+                        testBlockuiSuccessfulDelete.blockuiWrapper('option', 'backgroundColor', '0080000');
+                        testBlockuiSuccessfulDelete.blockuiWrapper('test');
+
+                    } else {
+
+                        testBlockuiFailedDelete.blockuiWrapper('option', 'fadeOut', 700);
+                        testBlockuiFailedDelete.blockuiWrapper('test');
+
+                    }
+                    return false;
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+//            console.log(errorThrown);
+//            console.log(jqXHR);
+//            console.log(textStatus);
+//            console.warn('error text status-->' + textStatus);
+                    $('#roleFormBlock').unblock();
+
+                    testBlockuiFailedDelete.blockuiWrapper('option', 'fadeOut', 700);
+                    testBlockuiFailedDelete.blockuiWrapper('test');
+
+                }
+            });
+        }
+    }
+
+    $.unblockUI();
+}
+
+function deleteRoleRejection() {
+    response = 'reject';
+    console.log(response);
+
+    $.unblockUI();
+}
+
+function activationChangeConfirmation() {
+
+    console.log(i);
+//    console.log(checkedNodes[i]);
+
+    console.log('2' + actChangeNode);
+
+
+    $.ajax({
+        //url : '../slimProxyEkoOstim/SlimProxyBoot.php', 
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkUpdate_sysAclRoles',
+            id: actChangeNode.id,
+            name: actChangeNode.text,
+            active: active,
+            user_id: 0,
+            pk: $("#pk").val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+//                        location.reload();
+
+//            console.log('2' + actChangeNode);
+//            console.log('2' + parent);
+
+            testBlockuiSuccessfulActivationChange.blockuiWrapper('option', 'backgroundColor', '0080000');
+            testBlockuiSuccessfulActivationChange.blockuiWrapper('test');
+
+//                    reloadNodeTarget = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
+            $('#tt_tree_roles').tree('update', {
+                target: actChangeNode.target
+            });
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+            console.log(errorThrown);
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.warn('error text status-->' + textStatus);
+
+//                    console.log('3' + checkedNodes[i]);
+            console.log('3' + parent);
+
+
+            testBlockuiFailedActivationChange.blockuiWrapper('option', 'fadeOut', 700);
+            testBlockuiFailedActivationChange.blockuiWrapper('test');
+
+//                    reloadNodeTarget = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
+            $('#tt_tree_roles').tree('reload', {
+                target: parent.target
+            });
+        }
+
+    });
+
+    $.unblockUI();
+}
+
+function activationChangeRejection() {
+    response = 'reject';
+    console.log(response);
+
+    $.unblockUI();
 }

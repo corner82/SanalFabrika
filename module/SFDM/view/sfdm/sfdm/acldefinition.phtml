@@ -786,11 +786,11 @@
             <h4>
                 <button type='submit' name='addNewRoleYes' 
                         id='addNewRoleYes-btn' class="btn btn-success" 
-                        onclick="return true">
+                        onclick="newRoleSubmissionConfirmation()">
                     <i class="fa fa-check"></i>Go</button>
                 <button type='button' name='addNewRoleCancel' 
                         id='addNewRoleCancel-btn' class="btn btn-danger" 
-                        onclick="return false">
+                        onclick="newRoleSubmissionRejection()">
                     <i class="fa fa-times"></i>Cancel</button>
             </h4>
         </div>
@@ -807,6 +807,23 @@
 
         <!-- ***************************** -->
 
+        <!-- Delete Role Approval growls -->
+        <!-- Successful Delete Role growl -->
+        <div id="growlUI-deleteApproval" class='growlUI' style="display:none" >    
+            <h3>Role Kayıdı silme işlemini Onaylıyormusunuz?</h3>
+            <h4>
+                <button type='submit' name='addNewRoleYes' 
+                        id='addNewRoleYes-btn' class="btn btn-success" 
+                        onclick="deleteRoleConfirmation()">
+                    <i class="fa fa-check"></i>Go</button>
+                <button type='button' name='addNewRoleCancel' 
+                        id='addNewRoleCancel-btn' class="btn btn-danger" 
+                        onclick="deleteRoleRejection()">
+                    <i class="fa fa-times"></i>Cancel</button>
+            </h4>
+        </div>
+        <!--// successful delete role -->
+        
         <!-- Delete Role growls -->
         <!-- Successful Delete Role growl -->
         <div id="growlUI-successfulDelete" class='growlUI' style="display:none" >
@@ -814,7 +831,6 @@
             <h4></h4>
         </div>
         <!--// successful delete role -->
-
 
         <!-- Failed Delete Role growl -->
         <div id="growlUI-failedDelete" class='growlUI2' style="display:none" >
@@ -844,11 +860,11 @@
             <h4>
                 <button type='submit' name='nameChangeAppYes' 
                         id='nameChangeAppYes-btn' class="btn btn-success" 
-                        onclick="confirmation()">
+                        onclick="nameChangeConfirmation()">
                     <i class="fa fa-check"></i>Go</button>
                 <button type='button' name='nameChangeAppCancel' 
                         id='nameChangeAppCancel-btn' class="btn btn-danger" 
-                        onclick="rejection()">
+                        onclick="nameChangeRejection()">
                     <i class="fa fa-times"></i>Cancel</button>
             </h4>
         </div>
@@ -877,11 +893,11 @@
             <h4>
                 <button type='submit' name='activationChangeAppYes' 
                         id='activationChangeAppYes-btn' class="btn btn-success" 
-                        onclick="return true">
+                        onclick="activationChangeConfirmation()">
                     <i class="fa fa-check"></i>Go</button>
                 <button type='button' name='activationChangeAppCancel' 
                         id='activationChangeAppCancel-btn' class="btn btn-danger" 
-                        onclick="return false">
+                        onclick="activationChangeRejection()">
                     <i class="fa fa-times"></i>Cancel</button>
             </h4>
         </div>
