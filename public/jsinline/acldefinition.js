@@ -102,7 +102,7 @@ $(document).ready(function () {
             if (editNode.text === '') {
                 //$.ui.blockuiWrapper('test');
                 var testBlockui = $(this).blockuiWrapper();
-                testBlockui.blockuiWrapper({"message": "#growlUI-failedActivationChange"});
+                testBlockui.blockuiWrapper();
                 /*$.blockUI({
                     message: $('#growlUI-nullName'),
                     fadeIn: 700,
