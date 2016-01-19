@@ -85,6 +85,7 @@ return array(
         'Admin',
         'SFDM',
         'Supervisor',
+        'Companies'
 
     )
 );
