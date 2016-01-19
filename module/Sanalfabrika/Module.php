@@ -26,23 +26,8 @@ namespace Sanalfabrika;
         $sessionManager = $serviceManager ->get('SessionManagerDefault');
         $serviceManager ->get('sessionExpireControler');
     }
-
-
-    public function authControl(MvcEvent $e) {
-
-        /* 
-         * sessionManager servis çağırılıyor
-         */ 
-        $serviceManager = $e->getApplication()->getServiceManager();
-        
-        
-        // if auth control will be made block
-        if($serviceManager->get('authenticationControlerLocator')) {
-            // calling auth service and makes auth control inside service
-            $serviceManager->get('serviceAuthenticate');
-        } 
-    }
-
+    
+    
     public function getServiceConfig()
     {
          
