@@ -39,7 +39,7 @@ namespace SFDM;
         $eventManager->attach('dispatch', array($this, 'translaterControl'));
         
         // translator service attaching to dispatch error event
-        $eventManager->attach('dispatch.error', array($this, 'Error404PageTranslatorControl'));  
+        $eventManager->attach('dispatch.error', array($this, 'Error404PageTranslatorControl')); 
 
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
                                                     'dispatch', 
@@ -80,29 +80,44 @@ namespace SFDM;
                     $controller->layout($config['module_layouts'][$moduleNamespace]);
                 } else {
                     //print_r('-- method not found--');
+                    //throw new \Zend\Mvc\Exception\BadMethodCallException('404 Page not found',404);
+                    //throw new \Exception();
+                    /**
+                     * When controller not found in the request somehow not triggering
+                     * 'Dispatch.error' event, son in control structure or action not found ,
+                     * 'dispatch.error' event triggrede function is called again,
+                     * before this update, when you have requested an  controller which does not exist,
+                     * the request header status was set '404', but 'dispatch.error' was not triggering and 
+                     * blank page was displyed
+                     * @author Mustafa Zeynel Dağlı
+                     * @since 19/01/2016
+                     */
+                    $this->Error404PageTranslatorControl($e);
                 }
                 
             }
             
         }, 500);
         
-        
+        /**
+         * written for test purposes
+         * @author Mustafa Zeynel Dağlı
+         */
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
                                                     'render.error', 
                                                     function($e) {
             print_r('--render error--');
-            
-            
-            
+
         }, 200);
         
+        /**
+         * written for test purposes
+         * @author Mustafa Zeynel Dağlı
+         */
         $eventManager->getSharedManager()->attach('Zend\Mvc\Controller\AbstractActionController', 
                                                     'finish', 
                                                     function($e) {
             print_r('--finish--');
-            
-            
-            
         }, 300);
         
         
@@ -111,11 +126,25 @@ namespace SFDM;
     }
     
     public function Error404PageTranslatorControl(MvcEvent $e) {
+        //print_r('--dispatch error--');
         $e->getApplication()
           ->getServiceManager()
           ->get('serviceTranslator404ResponseRegulator');
         $vm = $e->getViewModel();
         $vm->setTemplate('layout/error');
+        /**
+         * different approach for same purpose, not moved to be cpnsiered later maybe
+         * @author Mustafa Zeynel Dağlı
+         * @since 19/01/2016
+         * @todo Maybe added to sanalfabrika wiki under bitrix24 application
+         */
+        /*$noroutefoundstrategy = $sm->get('ViewManager')->getRouteNotFoundStrategy(); 
+        $noroutefoundstrategy->setNotFoundTemplate('error/nameoferrorpage');*/ 
+    }
+    
+    public function test(MvcEvent $e) {
+        print_r('--render error--');
+        
     }
 
 
@@ -127,6 +156,7 @@ namespace SFDM;
      * @since 17/12/2015
      */
     public function translaterControl(MvcEvent $e) {
+        print_r('--dispatch event--');
         $e->getApplication()
           ->getServiceManager()
           ->get('serviceTranslator');
