@@ -30,12 +30,9 @@
          /*'template_path_stack' => array(
              'admin' => __DIR__ . '/../view',  
          ),*/  
-         'not_found_template'       => 'error/404',
          'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/sfdm.phtml',   
             'sfdm/index/index' => __DIR__ . '/../view/sfdm/sfdm/index.phtml',
-            /*'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',*/
         ),
          'template_path_stack' => array(
             __DIR__ . '/../view',
