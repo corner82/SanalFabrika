@@ -142,12 +142,6 @@ namespace SFDM;
         $noroutefoundstrategy->setNotFoundTemplate('error/nameoferrorpage');*/ 
     }
     
-    public function test(MvcEvent $e) {
-        print_r('--render error--');
-        
-    }
-
-
     /**
      * Translater service has been launched on 'dispatch' event 
      * in this function scope
@@ -156,7 +150,7 @@ namespace SFDM;
      * @since 17/12/2015
      */
     public function translaterControl(MvcEvent $e) {
-        print_r('--dispatch event--');
+        //print_r('--dispatch event--');
         $e->getApplication()
           ->getServiceManager()
           ->get('serviceTranslator');
