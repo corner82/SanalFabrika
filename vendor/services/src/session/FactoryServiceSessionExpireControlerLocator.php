@@ -35,7 +35,7 @@ class FactoryServiceSessionExpireControlerLocator  implements FactoryInterface{
                 $response->setHeaders( $response->getHeaders ()->addHeaderLine ('Location', $url));
                 $response->setStatusCode(302);
                 $response->sendHeaders();
-                $e->stopPropagation();       
+                $event->stopPropagation();       
                 exit ();
             }
         }
