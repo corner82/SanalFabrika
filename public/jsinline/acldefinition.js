@@ -445,8 +445,8 @@ function roleNameChangeRejection() {
         target: editNode.target,
         text: beforeEditTextValue
     });
-
     $.unblockUI();
+    return false;
 }
 
 /*
