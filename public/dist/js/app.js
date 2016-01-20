@@ -1131,6 +1131,7 @@ function _init() {
                     backgroundColor: '#' + this.options.backgroundColor,
                     '-webkit-border-radius': '10px',
                     '-moz-border-radius': '10px',
+                    'border-radius': '10px',
                     opacity: .6,
                     color: '#fff'
                 }

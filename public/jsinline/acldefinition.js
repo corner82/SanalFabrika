@@ -264,6 +264,7 @@ function newRoleSubmission() {
                 backgroundColor: '#008000',
                 '-webkit-border-radius': '10px',
                 '-moz-border-radius': '10px',
+                'border-radius': '10px',
                 opacity: .5,
                 color: '#fff'}
         });
