@@ -5,19 +5,19 @@ $(document).ready(function () {
      *  Aksi takdride, easyui getRoot fonksyonu dogru calismayacaktir.
      */
     var lang = new Lang();
-    lang.dynamic('th', '/plugins/jquery-lang-js-master/langpack/th.json');
+    lang.dynamic('tr', '/plugins/jquery-lang-js-master/langpack/tr.json');
     lang.init({
         defaultLang: 'en'
     });
-    lang.change('th');
+    lang.change('tr');
 
     /**
      * blockUI wrappert test
      * @author Mustafa Zeynel Dağlı
      * @since 18/01/2016
      */
-    var testBlockui = $("#growlUI-nullName").blockuiWrapper();
-    var testBlockuiNameChangeApproval = $("#growlUI-nameChangeApproval").blockuiApprovalWrapper();
+    var testBlockuiRoleNameChangeNull = $("#growlUI-nullRoleName").blockuiWrapper();
+    var testBlockuiRoleNameChangeApproval = $("#growlUI-roleNameChangeApproval").blockuiApprovalWrapper();
 
 
     $.extend($.fn.tree.methods, {
@@ -71,7 +71,7 @@ $(document).ready(function () {
      * Bahram Lotfi Sadigh
      * 2016.01.13
      */
-    
+
     $('#tt_tree_roles').tree({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?\n\
                 url=pkFillComboBoxFullRoles_sysAclRoles&pk=' + $("#pk").val(),
@@ -99,22 +99,22 @@ $(document).ready(function () {
             root = $(this).tree('getRoot', node.target);
             if (editNode.text === '') {
 
-                testBlockui.blockuiWrapper('option', 'fadeOut', 700);
-                testBlockui.blockuiWrapper('test');
-                
+                testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiRoleNameChangeNull.blockuiWrapper('test');
+
                 editNode.text = beforeEditTextValue;
 
                 $('#tt_tree_roles').tree('update', {
                     target: node.target,
                     text: beforeEditTextValue
                 });
+
             } else {
 
-                testBlockuiNameChangeApproval.blockuiApprovalWrapper('option', {
+                testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
                     showOverlay: true
-                });                
-                testBlockuiNameChangeApproval.blockuiApprovalWrapper('test');
-
+                });
+                testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('test');
                 active = editNode.attributes.active;
             }
         },
@@ -133,14 +133,14 @@ $(document).ready(function () {
             var q;
 
             if (checkedNodes) {
-                
+
                 for (z = 0; z < checkedNodes.length; z++) {
 
                     isLeaf = $(this).tree('isLeaf', checkedNodes[z].target);
                     if (!isLeaf) {
 
                         $('#tt_tree_roles').tree('expand', checkedNodes[z].target);
-                        
+
                         checkedNodesChildren = $('#tt_tree_roles')
                                 .tree('getChildren', checkedNodes[z].target);
 
@@ -163,7 +163,7 @@ $(document).ready(function () {
             if (node.attributes.active == 0) {
                 var s = node.text;
 //                s += '&nbsp;<a href="#"><i class="fa fa-fw fa-trash-o"></i></a>&nbsp;<a href="#" ><i class="fa fa-fw fa-ban"></i></a>';
-                s += '&nbsp;<i class="fa fa-fw fa-trash-o" onclick="deleteRoleFunction()"></i>&nbsp;<i class="fa fa-fw fa-ban" onclick="activationChangeFunction()"></i>';
+                s += '&nbsp;<i class="fa fa-fw fa-trash-o" onclick="deleteRoleFunction()"></i>&nbsp;<i class="fa fa-fw fa-ban" onclick="roleActivationChangeFunction()"></i>';
                 //buda koşullu kullanım için örnek satır    
 //                if (node.children) {
 //                    s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
@@ -173,7 +173,7 @@ $(document).ready(function () {
             } else if (node.attributes.active == 1) {
 
                 var s = node.text;
-                s += '&nbsp;<a href="#"><i class="fa fa-fw fa-trash-o" onclick="deleteRoleFunction()"></i></a>&nbsp;<i class="fa fa-fw fa-check-square-o" onclick="activationChangeFunction()"></i>';
+                s += '&nbsp;<a href="#"><i class="fa fa-fw fa-trash-o" onclick="deleteRoleFunction()"></i></a>&nbsp;<i class="fa fa-fw fa-check-square-o" onclick="roleActivationChangeFunction()"></i>';
 
                 s = "<font color = '#B6B6B4'>" + s + "</font>"
                 //buda koşullu kullanım için örnek satır    
@@ -187,353 +187,364 @@ $(document).ready(function () {
 
     $('#roleForm').submit(newRoleSubmission);
     $("#deleteRole").on('click', deleteRoleFunction);
-    $("#activationRole").on('click', activationChangeFunction);
+    $("#activationRole").on('click', roleActivationChangeFunction);
 });
 
-    /*
-     * 
-     * @type @call;$@call;tree
-     * variables defintion outside scopes
-     * @author: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
-    var selectedRoot;
-    var selectedItem;
-    var beforeEditValue;
-    var parent;
-    var parentId;
-    var checkedNodes;
-    var checkedNodesChildren;
-    var rootId;
-    var nodesToCheck;
-    var search_name;
-    var root;
-    var id;
-    var enteredRoleName;
-    var roleDescription;
-    var i;
-    var active;
-    var response;
+/*
+ * 
+ * @type @call;$@call;tree
+ * variables defintion outside scopes
+ * @author: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
+var selectedRoot;
+var selectedItem;
+var beforeEditValue;
+var parent;
+var parentId;
+var checkedNodes;
+var checkedNodesChildren;
+var rootId;
+var nodesToCheck;
+var search_name;
+var root;
+var id;
+var enteredRoleName;
+var roleDescription;
+var i;
+var active;
+var response;
 
-    /*
-     * 
-     * @type @call;$@call;blockuiWrapper
-     * blockUI variable calls
-     * @author: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
-    var testBlockuiSuccessfulNameChange = $("#growlUI-successfulNameChange").blockuiWrapper();
-    var testBlockuiFailedNameChange = $("#growlUI-failedNameChange").blockuiWrapper();
-    var testBlockuiFailedNameChange23505 = $("#growlUI-failedNameChange23505").blockuiWrapper();
+/*
+ * 
+ * @type @call;$@call;blockuiWrapper
+ * blockUI variable calls
+ * @author: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
 
-    var testBlockuiNewRoleSubmitApproval = $("#growlUI-newRoleSubmitApproval").blockuiApprovalWrapper();
-    var testBlockuiNewPassiveRoleSubmitPrevention = $("#growlUI-newPassiveRoleSubmitPrevention").blockuiApprovalWrapper();
-    var testBlockuiSuccessfulSubmit = $("#growlUI-successfulSubmit").blockuiWrapper();
-    var testBlockuiFailedSubmit = $("#growlUI-failedSubmit").blockuiWrapper();
-    var testBlockuiFailedSubmit23505 = $("#growlUI-failedSubmit23505").blockuiWrapper();
+var testBlockuiSuccessfulRoleNameChange = $("#growlUI-successfulRoleNameChange").blockuiWrapper();
+var testBlockuiFailedRoleNameChange = $("#growlUI-failedRoleNameChange").blockuiWrapper();
+var testBlockuiFailedRoleNameChange23505 = $("#growlUI-failedRoleNameChange23505").blockuiWrapper();
 
-    var testBlockuiDeleteApproval = $("#growlUI-deleteApproval").blockuiApprovalWrapper();
-    var testBlockuiSuccessfulDelete = $("#growlUI-successfulDelete").blockuiWrapper();
-    var testBlockuiFailedDelete = $("#growlUI-failedDelete").blockuiWrapper();
+var testBlockuiNewRoleSubmitApproval = $("#growlUI-newRoleSubmitApproval").blockuiApprovalWrapper();
+var testBlockuiNewPassiveRoleSubmitPrevention = $("#growlUI-newPassiveRoleSubmitPrevention").blockuiApprovalWrapper();
+var testBlockuiSuccessfulRoleSubmit = $("#growlUI-successfulRoleSubmit").blockuiWrapper();
+var testBlockuiFailedRoleSubmit = $("#growlUI-failedRoleSubmit").blockuiWrapper();
+var testBlockuiFailedRoleSubmit23505 = $("#growlUI-failedRoleSubmit23505").blockuiWrapper();
 
-    var testBlockuiActivationChangeApproval = $("#growlUI-activationChangeApproval").blockuiApprovalWrapper();
-    var testBlockuiSuccessfulActivationChange = $("#growlUI-successfulActivationChange").blockuiWrapper();
-    var testBlockuiFailedActivationChange = $("#growlUI-failedActivationChange").blockuiWrapper();
-    var testBlockuiFailedActivationChange23505 = $("#growlUI-failedActivationChange23505").blockuiWrapper();
+var testBlockuiRoleDeleteApproval = $("#growlUI-roleDeleteApproval").blockuiApprovalWrapper();
+var testBlockuiSuccessfulRoleDelete = $("#growlUI-successfulRoleDelete").blockuiWrapper();
+var testBlockuiFailedRoleDelete = $("#growlUI-failedRoleDelete").blockuiWrapper();
+var testBlockuiFailedRoleDeleteNotChecked = $('#grwolUI-failedRoleDeleteNotChecked').blockuiWrapper();
+
+var testBlockuiRoleActivationChangeApproval = $("#growlUI-roleActivationChangeApproval").blockuiApprovalWrapper();
+var testBlockuiSuccessfulRoleActivationChange = $("#growlUI-successfulRoleActivationChange").blockuiWrapper();
+var testBlockuiFailedRoleActivationChange = $("#growlUI-failedRoleActivationChange").blockuiWrapper();
+var testBlockuiFailedRoleActivationChange23505 = $("#growlUI-failedRoleActivationChange23505").blockuiWrapper();
 
 
-    /* 
-     * @returns {Boolean}
-     * Role Tree de yeni role ekleme fonksiyonu
-     * Bahram Lotfi Sadigh
-     * 2016.01.13
-     */
+/* 
+ * @returns {Boolean}
+ * Role Tree de yeni role ekleme fonksiyonu
+ * Bahram Lotfi Sadigh
+ * 2016.01.13
+ */
 
-    function newRoleSubmission() {
+function newRoleSubmission() {
 
-        enteredRoleName = $('#roleName').val();
-        roleDescription = $('#roleDescription').val();
+    enteredRoleName = $('#roleName').val();
+    roleDescription = $('#roleDescription').val();
 
-        if ($("#roleForm").validationEngine('validate')) {
-            $('#roleFormBlock').block({
-                message: '<h1>İşlem yapılıyor..</h1>',
-                css: {border: 'none',
-                    padding: '15px',
-                    backgroundColor: '#008000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    opacity: .5,
-                    color: '#fff'}
-            });
-
-            var passiveControl = $('#tt_tree_roles').tree('getData', selectedItem.target);
-
-            if (passiveControl.attributes.active == 0) {
-                if (selectedItem == null) {
-                    parentId = 0;
-                    rootId = 0;
-                } else {
-                    parentId = selectedItem.id;
-                    rootId = selectedRoot.id;
-                }
-
-                testBlockuiNewRoleSubmitApproval.blockuiApprovalWrapper('option', {
-                    showOverlay: true,
-                });
-                testBlockuiNewRoleSubmitApproval.blockuiApprovalWrapper('test');
-
-            } else {
-
-                testBlockuiNewPassiveRoleSubmitPrevention.blockuiApprovalWrapper('option', {
-                    showOverlay: true,
-                });
-                testBlockuiNewPassiveRoleSubmitPrevention.blockuiApprovalWrapper('test');
-
-            }
-
-        }
-        return false;
-    }
-
-    /* 
-     * @returns {Boolean}
-     * Role Tree de rol silme fonksiyonu
-     * Bahram Lotfi Sadigh
-     * 2016.01.13
-     */
-    function deleteRoleFunction() {
-        testBlockuiDeleteApproval.blockuiApprovalWrapper('option', {
-            showOverlay: true
+    if ($("#roleForm").validationEngine('validate')) {
+        $('#roleFormBlock').block({
+            message: '<h1>İşlem yapılıyor..</h1>',
+            css: {border: 'none',
+                padding: '15px',
+                backgroundColor: '#008000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .5,
+                color: '#fff'}
         });
-        testBlockuiDeleteApproval.blockuiApprovalWrapper('test');
+
+        var passiveControl = $('#tt_tree_roles').tree('getData', selectedItem.target);
+
+        if (passiveControl.attributes.active == 0) {
+            if (selectedItem == null) {
+                parentId = 0;
+                rootId = 0;
+            } else {
+                parentId = selectedItem.id;
+                rootId = selectedRoot.id;
+            }
+
+            testBlockuiNewRoleSubmitApproval.blockuiApprovalWrapper('option', {
+                showOverlay: true,
+            });
+            testBlockuiNewRoleSubmitApproval.blockuiApprovalWrapper('test');
+
+        } else {
+
+            testBlockuiNewPassiveRoleSubmitPrevention.blockuiApprovalWrapper('option', {
+                showOverlay: true,
+            });
+            testBlockuiNewPassiveRoleSubmitPrevention.blockuiApprovalWrapper('test');
+
+        }
 
     }
+    return false;
+}
 
-    /* 
-     * @returns {Boolean}
-     * Role Tree de rol aktif veya pasif degistirme fonksiyonu
-     * Bahram Lotfi Sadigh
-     * 2016.01.13
-     */
-    function activationChangeFunction() {
+/* 
+ * @returns {Boolean}
+ * Role Tree de rol silme fonksiyonu
+ * Bahram Lotfi Sadigh
+ * 2016.01.13
+ */
+function deleteRoleFunction() {
+    testBlockuiRoleDeleteApproval.blockuiApprovalWrapper('option', {
+        showOverlay: true
+    });
+    testBlockuiRoleDeleteApproval.blockuiApprovalWrapper('test');
 
-        for (i = 0; i < checkedNodes.length; i++) {
-            if (checkedNodes[i].attributes.active == 0) {
-                active = 1;
-                root = $('#tt_tree_roles').tree('getRoot', checkedNodes[i].target);
-                rootId = root.id;
-                parent = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
+}
 
-                if (parent == null) {
-                    parentId = 0;
-                } else {
-                    parentId = parent.id;
-                }
-                actChangeNode = $('#tt_tree_roles').tree('getData', checkedNodes[i].target);
-                testBlockuiActivationChangeApproval.blockuiApprovalWrapper('option', {
-                    showOverlay: true,
-                });
-                testBlockuiActivationChangeApproval.blockuiApprovalWrapper('test');
+/* 
+ * @returns {Boolean}
+ * Role Tree de rol aktif veya pasif degistirme fonksiyonu
+ * Bahram Lotfi Sadigh
+ * 2016.01.13
+ */
+function roleActivationChangeFunction() {
 
+    for (i = 0; i < checkedNodes.length; i++) {
+        if (checkedNodes[i].attributes.active == 0) {
+            active = 1;
+            root = $('#tt_tree_roles').tree('getRoot', checkedNodes[i].target);
+            rootId = root.id;
+            parent = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
 
-            } else if (checkedNodes[i].attributes.active == 1) {
-
-                root = $('#tt_tree_roles').tree('getRoot', checkedNodes[i].target);
-                rootId = root.id;
-
-                parent = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
-                if (parent == null) {
-                    parentId = 0;
-                } else {
-                    parentId = parent.id;
-                }
-                active = 0;
-
-                actChangeNode = $('#tt_tree_roles').tree('getData', checkedNodes[i].target);
-                testBlockuiActivationChangeApproval.blockuiApprovalWrapper('option', {
-                    showOverlay: true,
-                });
-                testBlockuiActivationChangeApproval.blockuiApprovalWrapper('test');
+            if (parent == null) {
+                parentId = 0;
+            } else {
+                parentId = parent.id;
             }
+            actChangeNode = $('#tt_tree_roles').tree('getData', checkedNodes[i].target);
+            testBlockuiRoleActivationChangeApproval.blockuiApprovalWrapper('option', {
+                showOverlay: true,
+            });
+            testBlockuiRoleActivationChangeApproval.blockuiApprovalWrapper('test');
+
+
+        } else if (checkedNodes[i].attributes.active == 1) {
+
+            root = $('#tt_tree_roles').tree('getRoot', checkedNodes[i].target);
+            rootId = root.id;
+
+            parent = $('#tt_tree_roles').tree('getParent', checkedNodes[i].target);
+            if (parent == null) {
+                parentId = 0;
+            } else {
+                parentId = parent.id;
+            }
+            active = 0;
+
+            actChangeNode = $('#tt_tree_roles').tree('getData', checkedNodes[i].target);
+            testBlockuiRoleActivationChangeApproval.blockuiApprovalWrapper('option', {
+                showOverlay: true,
+            });
+            testBlockuiRoleActivationChangeApproval.blockuiApprovalWrapper('test');
         }
     }
+}
 
-    /*
-     * Role name change confirmation function
-     * @auhtor: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
+/*
+ * Role name change confirmation function
+ * @auhtor: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
 
-    function nameChangeConfirmation() {
-        response = 'confirm';
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: {
-                id: editNode.id,
-                url: 'pkUpdate_sysAclRoles',
-                name: editNode.text,
-                root: root.id,
-                parent: parentId,
-                icon_class: null,
-                active: active,
-                start_date: null,
-                end_date: null,
-                user_id: 0,
-                description: null,
-                pk: $("#pk").val(),
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function (data, textStatus, jqXHR) {
+function roleNameChangeConfirmation() {
+    response = 'confirm';
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            id: editNode.id,
+            url: 'pkUpdate_sysAclRoles',
+            name: editNode.text,
+            root: root.id,
+            parent: parentId,
+            icon_class: null,
+            active: active,
+            start_date: null,
+            end_date: null,
+            user_id: 0,
+            description: null,
+            pk: $("#pk").val(),
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
 //                $.unblockUI();
 //                $('#roleFormBlock').unblock();
-                    console.log(data['errorInfo']);
 
-            
-                if (data['errorInfo'] === '00000') {
+            if (data['errorInfo'][0] === '00000') {
 
-                    testBlockuiSuccessfulNameChange.blockuiWrapper('option', 'fadeOut', 700);
-                    testBlockuiSuccessfulNameChange.blockuiWrapper('test');
-                    $('#tt_tree_roles').tree('update', {
-                        target: editNode.target
-                    });
-                } else if (data['errorInfo'] === '23505') {
-                    console.log('here');
-                    
-                    testBlockuiFailedNameChange23505.blockuiWrapper('option', 'fadeOut', 700);
-                    testBlockuiFailedNameChange23505.blockuiWrapper('test');
+                testBlockuiSuccessfulRoleNameChange.blockuiWrapper('option', 'backgroundColor', '0080000');
+                testBlockuiSuccessfulRoleNameChange.blockuiWrapper('test');
 
-                    $('#tt_tree_roles').tree('update', {
-                        target: editNode.target,
-                        text: beforeEditTextValue
-                    });
-                } else {
-                    testBlockuiFailedNameChange.blockuiWrapper('option', 'fadeOut', 700);
-                    testBlockuiFailedNameChange.blockuiWrapper('test');
+                $('#tt_tree_roles').tree('update', {
+                    target: editNode.target
+                });
 
-                    $('#tt_tree_roles').tree('update', {
-                        target: editNode.target,
-                        text: beforeEditTextValue
-                    });
-                }
-                $.unblockUI();
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
+            } else if (data['errorInfo'] === '23505') {
 
-                testBlockuiFailedNameChange.blockuiWrapper('option', 'fadeOut', 700);
-                testBlockuiFailedNameChange.blockuiWrapper('test');
+                testBlockuiFailedRoleNameChange23505.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiFailedRoleNameChange23505.blockuiWrapper('test');
+
+                $('#tt_tree_roles').tree('update', {
+                    target: editNode.target,
+                    text: beforeEditTextValue
+                });
+            } else {
+                testBlockuiFailedRoleNameChange.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiFailedRoleNameChange.blockuiWrapper('test');
 
                 $('#tt_tree_roles').tree('update', {
                     target: editNode.target,
                     text: beforeEditTextValue
                 });
             }
-        });
-        $.unblockUI();
-    }
+            $.unblockUI();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
 
-    /*
-     * Role name change rejection function
-     * @auhtor: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
-    function nameChangeRejection() {
-        response = 'reject';
-        $('#tt_tree_roles').tree('update', {
-            target: editNode.target,
-            text: beforeEditTextValue
-        });
+            testBlockuiFailedRoleNameChange.blockuiWrapper('option', 'fadeOut', 700);
+            testBlockuiFailedRoleNameChange.blockuiWrapper('test');
 
-        $.unblockUI();
-    }
+            $('#tt_tree_roles').tree('update', {
+                target: editNode.target,
+                text: beforeEditTextValue
+            });
+        }
+    });
+    $.unblockUI();
+}
 
-    /*
-     * new role submission confirmation function
-     * @auhtor: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
+/*
+ * Role name change rejection function
+ * @auhtor: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
+function roleNameChangeRejection() {
+    response = 'reject';
+    $('#tt_tree_roles').tree('update', {
+        target: editNode.target,
+        text: beforeEditTextValue
+    });
 
-    function newRoleSubmissionConfirmation() {
+    $.unblockUI();
+}
 
-        response = 'confirm';
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: {
-                url: 'pkInsert_sysAclRoles',
-                icon_class: null,
-                start_date: null,
-                end_date: null,
-                root: rootId,
-                parent: parentId,
-                user_id: 0,
-                name: enteredRoleName,
-                description: roleDescription,
-                pk: $("#pk").val(),
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function (data, textStatus, jqXHR) {
+/*
+ * new role submission confirmation function
+ * @auhtor: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
 
-                $('#roleFormBlock').unblock();
-                if (data['errorInfo'][0] === '00000') {
+function newRoleSubmissionConfirmation() {
 
-                    testBlockuiSuccessfulSubmit.blockuiWrapper('option', 'backgroundColor', '0080000');
-                    testBlockuiSuccessfulSubmit.blockuiWrapper('test');
+    response = 'confirm';
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkInsert_sysAclRoles',
+            icon_class: null,
+            start_date: null,
+            end_date: null,
+            root: rootId,
+            parent: parentId,
+            user_id: 0,
+            name: enteredRoleName,
+            description: roleDescription,
+            pk: $("#pk").val(),
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
 
-                } else if (data['errorInfo'][0] === '23505') {
-                    testBlockuiFailedSubmit23505.blockuiWrapper('option', 'fadeOut', 700);
-                    testBlockuiFailedSubmit23505.blockuiWrapper('test');
+            $('#roleFormBlock').unblock();
+            if (data['errorInfo'][0] === '00000') {
+                testBlockuiSuccessfulRoleSubmit.blockuiWrapper('option', 'backgroundColor', '0080000');
+                testBlockuiSuccessfulRoleSubmit.blockuiWrapper('test');
 
-                } else {
-                    testBlockuiFailedSubmit.blockuiWrapper('option', 'fadeOut', 700);
-                    testBlockuiFailedSubmit.blockuiWrapper('test');
+            } else if (data['errorInfo'] === '23505') {
+                testBlockuiFailedRoleSubmit23505.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiFailedRoleSubmit23505.blockuiWrapper('test');
 
-                }
-                return false;
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $('#roleFormBlock').unblock();
+            } else {
+                testBlockuiFailedRoleSubmit.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiFailedRoleSubmit.blockuiWrapper('test');
 
-                testBlockuiFailedSubmit.blockuiWrapper('option', 'fadeOut', 700);
-                testBlockuiFailedSubmit.blockuiWrapper('test');
-
-                return false;
             }
-        });
+            return false;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            $('#roleFormBlock').unblock();
 
-        $('#tt_tree_roles').tree('reload');
-        $.unblockUI();
-    }
+            testBlockuiFailedRoleSubmit.blockuiWrapper('option', 'fadeOut', 700);
+            testBlockuiFailedRoleSubmit.blockuiWrapper('test');
 
-    /*
-     * new role submission rejection function
-     * @auhtor: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
+            return false;
+        }
+    });
 
-    function newRoleSubmissionRejection() {
-        response = 'reject';
-        $('#tt_tree_roles').tree('reload');
-        $.unblockUI();
-    }
+    $('#tt_tree_roles').tree('reload');
+    $.unblockUI();
+}
+
+/*
+ * new role submission rejection function
+ * @auhtor: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
+
+function newRoleSubmissionRejection() {
+    response = 'reject';
+    $('#tt_tree_roles').tree('reload');
+    $.unblockUI();
+}
 
 
-    function newPassiveRoleSubmissionPrevention() {
-        response = 'reject';
-        $('#tt_tree_roles').tree('reload');
-        $.unblockUI();
-    }
+function newPassiveRoleSubmissionPrevention() {
 
-    /*
-     * role remove confirmation function
-     * @auhtor: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
+    $('#tt_tree_roles').tree('reload');
+    $('#roleFormBlock').unblock();
+    $.unblockUI();
+}
 
-    function deleteRoleConfirmation() {
+/*
+ * role remove confirmation function
+ * @auhtor: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
 
-        response = 'confirm';
-        console.log(response);
+function deleteRoleConfirmation() {
+
+    response = 'confirm';
+    console.log(response);
+
+    if (checkedNodes.length == 0) {
+
+        console.log('did not check');        
+        console.log(checkedNodes.length);
+        
+        testBlockuiFailedRoleDeleteNotChecked.blockuiWrapper('option', 'fadeOut', 700);
+        testBlockuiFailedRoleDeleteNotChecked.blockuiWrapper('test');
+
+    } else {
 
         for (i = 0; i < checkedNodes.length; i++) {
             $.ajax({
@@ -550,18 +561,17 @@ $(document).ready(function () {
                 success: function (data, textStatus, jqXHR) {
 
                     console.log(checkedNodes + 'removed');
-//                            location.reload();
                     $('#roleFormBlock').unblock();
                     console.log('errorInfo is ' + data['errorInfo'][0]);
                     if (data['errorInfo'][0] === '00000') {
 
-                        testBlockuiSuccessfulDelete.blockuiWrapper('option', 'backgroundColor', '0080000');
-                        testBlockuiSuccessfulDelete.blockuiWrapper('test');
+                        testBlockuiSuccessfulRoleDelete.blockuiWrapper('option', 'backgroundColor', '0080000');
+                        testBlockuiSuccessfulRoleDelete.blockuiWrapper('test');
 
                     } else {
 
-                        testBlockuiFailedDelete.blockuiWrapper('option', 'fadeOut', 700);
-                        testBlockuiFailedDelete.blockuiWrapper('test');
+                        testBlockuiFailedRoleDelete.blockuiWrapper('option', 'fadeOut', 700);
+                        testBlockuiFailedRoleDelete.blockuiWrapper('test');
 
                     }
                     return false;
@@ -573,94 +583,94 @@ $(document).ready(function () {
 //            console.warn('error text status-->' + textStatus);
                     $('#roleFormBlock').unblock();
 
-                    testBlockuiFailedDelete.blockuiWrapper('option', 'fadeOut', 700);
-                    testBlockuiFailedDelete.blockuiWrapper('test');
-
+                    testBlockuiFailedRoleDelete.blockuiWrapper('option', 'fadeOut', 700);
+                    testBlockuiFailedRoleDelete.blockuiWrapper('test');
                 }
             });
         }
-        $('#tt_tree_roles').tree('reload');
-        $.unblockUI();
     }
+    $('#tt_tree_roles').tree('reload');
+    $.unblockUI();
+}
 
-    /*
-     * role remove rejection function
-     * @auhtor: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
+/*
+ * role remove rejection function
+ * @auhtor: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
 
-    function deleteRoleRejection() {
-        response = 'reject';
-        $('#tt_tree_roles').tree('reload');
-        $.unblockUI();
-    }
+function deleteRoleRejection() {
+    response = 'reject';
+    $('#tt_tree_roles').tree('reload');
+    $.unblockUI();
+}
 
-    /*
-     * role activation change confirmation function
-     * @auhtor: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
+/*
+ * role activation change confirmation function
+ * @auhtor: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
 
-    function activationChangeConfirmation() {
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: {
-                url: 'pkUpdateChild_sysAclRoles',
-                id: actChangeNode.id,
-                name: actChangeNode.text,
-                active: active,
-                user_id: 0,
-                pk: $("#pk").val()
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function (data, textStatus, jqXHR) {
-                $('#roleFormBlock').unblock();
-                if (data['errorInfo'][0] == '00000') {
-                    testBlockuiSuccessfulActivationChange.blockuiWrapper('option', 'backgroundColor', '0080000');
-                    testBlockuiSuccessfulActivationChange.blockuiWrapper('test');
+function roleActivationChangeConfirmation() {
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkUpdateChild_sysAclRoles',
+            id: actChangeNode.id,
+            name: actChangeNode.text,
+            active: active,
+            user_id: 0,
+            pk: $("#pk").val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+            $('#roleFormBlock').unblock();
+            if (data['errorInfo'][0] == '00000') {
+                testBlockuiSuccessfulRoleActivationChange.blockuiWrapper('option', 'backgroundColor', '0080000');
+                testBlockuiSuccessfulRoleActivationChange.blockuiWrapper('test');
 
-                    $('#tt_tree_roles').tree('reload');
+                $('#tt_tree_roles').tree('reload');
 
-                } else if (data['errorInfo'][0] == '23505') {
+            } else if (data['errorInfo'] == '23505') {
 
-                    testBlockuiFailedActivationChange23505.blockuiWrapper('option', 'fadeOut', 700);
-                    testBlockuiFailedActivationChange23505.blockuiWrapper('test');
+                testBlockuiFailedRoleActivationChange23505.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiFailedRoleActivationChange23505.blockuiWrapper('test');
 
-                    $('#tt_tree_roles').tree('reload');
-                } else {
-                    testBlockuiFailedActivationChange.blockuiWrapper('option', 'fadeOut', 700);
-                    testBlockuiFailedActivationChange.blockuiWrapper('test');
-
-                    $('#tt_tree_roles').tree('reload');
-                }
-                $('#tt_tree_roles').tree('update', {
-                    target: actChangeNode.target
-                });
-
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-
-                testBlockuiFailedActivationChange.blockuiWrapper('option', 'fadeOut', 700);
-                testBlockuiFailedActivationChange.blockuiWrapper('test');
+                $('#tt_tree_roles').tree('reload');
+            } else {
+                testBlockuiFailedRoleActivationChange.blockuiWrapper('option', 'fadeOut', 700);
+                testBlockuiFailedRoleActivationChange.blockuiWrapper('test');
 
                 $('#tt_tree_roles').tree('reload');
             }
+            $('#tt_tree_roles').tree('update', {
+                target: actChangeNode.target
+            });       
 
-        });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
 
-        $.unblockUI();
-    }
+            testBlockuiFailedRoleActivationChange.blockuiWrapper('option', 'fadeOut', 700);
+            testBlockuiFailedRoleActivationChange.blockuiWrapper('test');
 
-    /*
-     * role activation change rejection function
-     * @auhtor: bahram lotfi sadigh
-     * @since: 2016.01.18
-     */
+            $('#tt_tree_roles').tree('reload');
+        }
 
-    function activationChangeRejection() {
-        response = 'reject';
-        $('#tt_tree_roles').tree('reload');
-        $.unblockUI();
-    }
+    });
+
+    $.unblockUI();
+}
+
+/*
+ * role activation change rejection function
+ * @auhtor: bahram lotfi sadigh
+ * @since: 2016.01.18
+ */
+
+function roleActivationChangeRejection() {
+    response = 'reject';
+    $('#tt_tree_roles').tree('reload');
+    $.unblockUI();
+}
 
