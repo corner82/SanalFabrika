@@ -15,7 +15,7 @@
         ?>
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?php echo $this->basePath('onyuz/standard/images/favicon.ico') ?>">
-        
+
         <!-- Web Fonts -->
         <link rel="stylesheet" href="<?php echo $this->basePath('fonts.googleapis.com/css0bd2.css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin') ?>">
 
@@ -101,13 +101,10 @@
         <script>
             jQuery(document).ready(function () {
                 App.init();
-                App.initCounter();
-                App.initParallaxBg();
-                LoginForm.initLoginForm();
-                ContactForm.initContactForm();
-                OwlCarousel.initOwlCarousel();
+                Masking.initMasking();
+                Datepicker.initDatepicker();
+                Validation.initValidation();
                 StyleSwitcher.initStyleSwitcher();
-//                RevolutionSlider.initRSfullScreen();
             });
         </script>
         <!--[if lt IE 9]>
@@ -120,9 +117,6 @@
         <!--[if lt IE 10]>
             <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery.placeholder.min.js') ?>"></script>
         <![endif]-->
-
-
-
 
 
     </body>
