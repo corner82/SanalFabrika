@@ -19,10 +19,10 @@ return array(
        'SFDM' => 'layout/sfdm.phtml',
        'Sanalfabrika' => 'layout/sanalfabrika.phtml',
        'Companies' => 'layout/companies.phtml',
-       'Users' => 'layout/users.phtml',
        'Error' => 'layout/error.phtml',
        'Definitions' => 'layout/definitions.phtml',
        'Supervisor' => 'layout/supervisor.phtml',
+       'Signup' => 'layout/signup.phtml',
         
    ),
     'action_layouts' => array(
@@ -30,11 +30,8 @@ return array(
             'acldefinition' => 'layout/acldefinitionLayout.phtml',
                         ),
         'Companies' => array(
-            'registration' => 'layout/registrationLayout.phtml',
+            'companyregistration' => 'layout/companyregistrationLayout.phtml',
             'meeting' => 'layout/meetingLayout.phtml',
-                        ),
-        'Users' => array(
-            'registration' => 'layout/registrationLayout.phtml',
                         ),
         'Supervisor' => array(
             'coreg' => 'layout/coregLayout.phtml',
@@ -44,8 +41,13 @@ return array(
             'umonitoring' => 'layout/umonitoringLayout.phtml',
             'cevaluation' => 'layout/cevaluationLayout.phtml',
                         ),
-   )
-    ,
+        'Signup' => array(
+            'signup' => 'layout/signup.phtml',
+                        ),
+        'Sanalfabrika' => array(
+            'registration' => 'layout/registrationLayout.phtml',
+        ),
+   ),
     'session' => array(
         'config' => array(
             'class' => 'Zend\Session\Config\SessionConfig',     

@@ -14,10 +14,10 @@ return array(
         'SFDM',
         'SanalFabrika',
         'Companies',
-        'Users',
         'Error',
         'Supervisor',
         'Definitions',
+        'Signup'
     ),
     
     // These are various options for the listeners attached to the ModuleManager
