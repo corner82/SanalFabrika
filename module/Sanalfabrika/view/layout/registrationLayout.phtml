@@ -1,5 +1,6 @@
 <?php echo $this->doctype(); ?>
 
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -19,13 +20,17 @@
         <!-- Web Fonts -->
         <link rel="stylesheet" href="<?php echo $this->basePath('fonts.googleapis.com/css0bd2.css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin') ?>">
 
+        <!-- CSS Global Compulsory -->
+        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/bootstrap/css/bootstrap.min.css') ?>">
+        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/style.css') ?>">
+
         <!-- Bootstrap 3.3.4 -->
         <link href="<?php echo $this->basePath('css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" /> 
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/one.style.css') ?>">
 
         <!-- CSS Header and Footer -->
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/headers/header-v7.css') ?>">
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/footers/footer-v7.css') ?>">
+        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/headers/header-default.css') ?>">
+        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/footers/footer-v1.css') ?>">
 
         <!-- CSS Implementing Plugins -->
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/animate.css') ?>">
@@ -35,16 +40,9 @@
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css') ?>">
         <!--[if lt IE 9]><link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css') ?>"><![endif]-->
 
-        <!-- Style Switcher -->
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/plugins/style-switcher.css') ?>">
-
         <!-- CSS Theme -->
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/theme-colors/default.css') ?>" id="style_color">
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/theme-skins/one.dark.css') ?>">
-
-
-        <!-- flaticon insurtry icons -->
-        <link rel="stylesheet" href="<?php echo $this->basePath('css/industry/flaticon/flaticon.css') ?>">
+        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/theme-skins/dark.css') ?>">
 
         <!-- CSS Customization -->
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/custom.css') ?>">
@@ -60,7 +58,6 @@
 
         <?php /* echo $this->inlineScript() */ ?>
 
-
         <!-- jQuery 2.1.4 -->
         <script src="<?php echo $this->basePath('plugins/jQuery/jQuery-2.1.4.min.js') ?>"></script>
         <!-- jQuery UI 1.11.2 -->
@@ -70,42 +67,29 @@
         <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/jquery/jquery-migrate.min.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <!--<script>
-          $.widget.bridge('uibutton', $.ui.button);
-        </script>-->
-        <!-- JS Implementing Plugins -->
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/smoothScroll.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/jquery.easing.min.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/pace/pace.min.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/jquery.parallax.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/counter/waypoints.min.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/counter/jquery.counterup.min.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/owl-carousel/owl.carousel.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery.form.min.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') ?>"></script>
-        <!-- JS Page Level-->
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/one.app.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/forms/login.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/forms/contact.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/pace-loader.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/owl-carousel.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/revolution-slider.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/cube-portfolio/cube-portfolio-lightbox.js') ?>"></script>
 
-        <!-- sayfa içine yazılan js'ler ekleniyor-->
-        <script src="<?php echo $this->basePath('jsinline/sanalfabrika.js') ?>"></script>
+        <!-- JS Implementing Plugins -->
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/back-to-top.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/smoothScroll.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery.maskedinput.min.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js') ?>"></script>
+
+ <!-- JS Page Level-->
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/app.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/masking.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/datepicker.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/validation.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
+
         <script>
-            jQuery(document).ready(function () {
-                App.init();
-                Masking.initMasking();
-                Datepicker.initDatepicker();
-                Validation.initValidation();
-                StyleSwitcher.initStyleSwitcher();
-            });
+    jQuery(document).ready(function () {
+        App.init();
+        Masking.initMasking();
+        Datepicker.initDatepicker();
+        Validation.initValidation();
+        StyleSwitcher.initStyleSwitcher();
+    });
         </script>
         <!--[if lt IE 9]>
             <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/respond.js') ?>"></script>
