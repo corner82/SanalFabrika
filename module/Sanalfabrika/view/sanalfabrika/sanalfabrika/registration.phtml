@@ -1021,7 +1021,7 @@
                                 <li id="companyInfoTab" class="disabled"><a href="" data-toggle="tab"><?php echo $this->translate('Company Information') ?></a></li>
                             </ul>                
                             <div class="tab-content">
-                                <!-- UserInfo Forms -->
+                                <!-- User Info Forms -->
                                 <div class="tab-pane fade in active" id="userInfo">
                                     <form id="userInfoForm" class="sky-form">
                                         <header><?php echo $this->translate('User Information') ?></header>
@@ -1041,52 +1041,61 @@
                                                     <label class="label"><?php echo $this->translate('Last Name') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-users"></i>
-                                                        <input type="text" name="userLastName" id="userLastName">
+                                                        <input type="text" name="userLastName" 
+                                                               id="userLastName" required="true">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-barcode"></i>
-                                                        <input type="text" name="preferedUsername" id="preferedUsername">
+                                                        <input type="text" name="preferedUsername" 
+                                                               id="preferedUsername" required="true">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Email') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-envelope"></i>
-                                                        <input type="email" name="useremail" id="useremail">
+                                                        <input type="email" name="useremail" 
+                                                               id="useremail" required="true">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-lock"></i>
-                                                        <input type="password" name="userPreferedPassword" id="userPreferedPassword">
+                                                        <input type="password" name="userPreferedPassword" 
+                                                               id="userPreferedPassword" required="true">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-lock"></i>
-                                                        <input type="password" name="repeatedUserPreferedPassword" id="repeatedUserPreferedPassword">
+                                                        <input type="password" name="repeatedUserPreferedPassword" 
+                                                               id="repeatedUserPreferedPassword" required="true">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('ID Number (TC Kimlik No for Turkish Citizens)') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-book"></i>
-                                                        <input type="number" name="userIdNumber" id="userIdNumber">
+                                                        <input type="text" name="userIdNumber" 
+                                                               id="userIdNumber" required="true">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Nationality') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-paper-plane"></i>
-                                                        <input type="text" name="userNationality" id="userNationality">
+                                                        <input type="text" name="userNationality" 
+                                                               id="userNationality" required="true">
                                                     </label>
                                                 </section>
                                             </div>
+                                        </fieldset>
+                                        <fieldset>
                                             <div class="row">
                                                 <div class="headline">
                                                     <span><?php echo $this->translate('Address') ?></span> 
@@ -1094,7 +1103,7 @@
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Country') ?></label>
                                                     <label class="select">
-                                                        <select id="usercountry">
+                                                        <select id="usercountry" required="true">
                                                             <option value="-1"><?php echo $this->translate('Please select a country from list...') ?></option>
                                                         </select>
                                                         <i></i>
@@ -1140,7 +1149,8 @@
                                                     <label class="label"><?php echo $this->translate('Street') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-home"></i>
-                                                        <input type="text" name="userStreet" id="userStreet">
+                                                        <input type="text" name="userStreet" 
+                                                               id="userStreet" required="true">
                                                     </label>
                                                 </section>                                                   
                                                 <section>
@@ -1154,7 +1164,8 @@
                                                     <label class="label"><?php echo $this->translate('Number') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-home"></i>
-                                                        <input type="text" name="userAddNumber" id="userAddNumber">
+                                                        <input type="text" name="userAddNumber" 
+                                                               id="userAddNumber" required="true">
                                                     </label>
                                                 </section>                                                  
                                                 <section>
@@ -1165,6 +1176,8 @@
                                                     </label>
                                                 </section>
                                             </div>
+                                        </fieldset>
+                                        <fieldset>
                                             <div class="row">
                                                 <div class="headline">
                                                     <span><?php echo $this->translate('Communication Information') ?></span> 
@@ -1173,14 +1186,16 @@
                                                     <label class="label"><?php echo $this->translate('Telephone') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-phone"></i>
-                                                        <input type="tel" name="userPhone" id="userPhone">
+                                                        <input type="tel" name="userPhone" 
+                                                               id="userPhone" required="true">
                                                     </label>
                                                 </section>                                                                                                
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('GSM') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-mobile"></i>
-                                                        <input type="tel" name="userGSM" id="userGSM">
+                                                        <input type="tel" name="userGSM" 
+                                                               id="userGSM" required="true">
                                                     </label>
                                                 </section>                                                                                               
                                                 <section>
@@ -1191,7 +1206,14 @@
                                                     </label>
                                                 </section>
                                             </div>
-                                        </fieldset> 
+                                            <div class="row">                                                                                                                                            
+                                                <section>
+                                                    <label class="checkbox">
+                                                        <input required="true" type="checkbox" name="terms" id="terms">
+                                                        <i></i>I agree with the Terms and Conditions
+                                                    </label>
+                                                </section>
+                                        </fieldset>
                                         <footer>
                                             <div id="userButtons">
                                                 <button type="submit" id="userInfoFormSubmit" class="btn-u btn-u-default" onclick="submitUserInfoForm()"><?php echo $this->translate('Continue') ?></button>
@@ -1206,7 +1228,6 @@
                                 <div class="tab-pane fade" id="companyInfo">
                                     <form id="companyInfoForm" class="sky-form">
                                         <header><?php echo $this->translate('Company Information') ?></header>
-
                                         <fieldset>
                                             <div class="row">
                                                 <div class="headline">
@@ -1222,15 +1243,8 @@
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Tax Number') ?></label>
                                                     <label class="input">
-                                                        <i class="icon-prepend fa fa-empire"></i>
-                                                        <input type="text" name="companyTaxNumber" id="companyTaxNumber">
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Tax Office') ?></label>
-                                                    <label class="input">
                                                         <i class="icon-prepend fa fa-money"></i>
-                                                        <input type="text" name="companyTaxOffice" id="companyTaxOffice">
+                                                        <input type="text" name="companyTaxNumber" id="companyTaxNumber">
                                                     </label>
                                                 </section>
                                                 <section>
@@ -1243,117 +1257,32 @@
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Social Security Number') ?></label>
                                                     <label class="input">
-                                                        <i class="icon-prepend fa fa-money"></i>
+                                                        <i class="icon-prepend fa fa-plus-square"></i>
                                                         <input type="text" name="companySocialSecurityNumber" id="companySocialSecurityNumber">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Foundation Date') ?></label> 
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-calendar"></i>
+                                                        <i class="icon-prepend fa fa-calendar"></i>
                                                         <input type="text" name="companyFoundationDate" id="companyFoundationDate">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Email') ?></label> 
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-envelope"></i>
+                                                        <i class="icon-prepend fa fa-envelope"></i>
                                                         <input type="email" name="companyEmail" id="companyEmail">
                                                     </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Web Address') ?></label> 
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-envelope"></i>
-                                                        <input type="" name="companyWebAddress" id="companyWebAddress">
-                                                    </label>
-                                                </section>
-                                            </div>
-
-                                            <div class="row">
-                                                <section class="col col-6">
-                                                    <label class="label">URL validation</label>
-                                                    <label class="input">
                                                         <i class="icon-prepend fa fa-globe"></i>
-                                                        <input type="url" name="url">
+                                                        <input type="url" name="companyWebAddress" id="companyWebAddress">
                                                     </label>
                                                 </section>
-                                                <section class="col col-6">
-                                                    <label class="label">Date validation</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-calendar"></i>
-                                                        <input type="text" name="date">
-                                                    </label>
-                                                </section>
-                                            </div>
-
-                                            <div class="row">
-                                                <section class="col col-4">
-                                                    <label class="label">Minimum length</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-asterisk"></i>
-                                                        <input type="text" name="min">
-                                                    </label>
-                                                </section>
-                                                <section class="col col-4">
-                                                    <label class="label">Maximum length</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-asterisk"></i>
-                                                        <input type="text" name="max">
-                                                    </label>
-                                                </section>
-                                                <section class="col col-4">
-                                                    <label class="label">Range length</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-asterisk"></i>
-                                                        <input type="text" name="range">
-                                                    </label>
-                                                </section>
-                                            </div>
-                                        </fieldset>
-
-                                        <fieldset>
-                                            <div class="row">
-                                                <section class="col col-6">
-                                                    <label class="label">Digits validation</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-asterisk"></i>
-                                                        <input type="text" name="digits">
-                                                    </label>
-                                                </section>
-                                                <section class="col col-6">
-                                                    <label class="label">Decimal number validation</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-asterisk"></i>
-                                                        <input type="text" name="number">
-                                                    </label>
-                                                </section>
-                                            </div>
-
-                                            <div class="row">
-                                                <section class="col col-4">
-                                                    <label class="label">Minimum value</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-asterisk"></i>
-                                                        <input type="text" name="minVal">
-                                                    </label>
-                                                </section>
-                                                <section class="col col-4">
-                                                    <label class="label">Maximum value</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-asterisk"></i>
-                                                        <input type="text" name="maxVal">
-                                                    </label>
-                                                </section>
-                                                <section class="col col-4">
-                                                    <label class="label">Range value</label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-asterisk"></i>
-                                                        <input type="text" name="rangeVal">
-                                                    </label>
-                                                </section>
-                                            </div>
-                                        </fieldset>
+                                            </div>                                        
                                         <footer>
                                             <button type="submit" class="btn-u btn-u-default">Submit</button>
                                             <button type="button" class="btn-u" onclick="window.history.back();">Back</button>
@@ -1492,9 +1421,6 @@
             </div>     
             <!--=== End Footer Version 1 ===-->
         </div><!--/End Wrapepr-->
-
-
     </body>
-
     <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:25 GMT -->
 </html>

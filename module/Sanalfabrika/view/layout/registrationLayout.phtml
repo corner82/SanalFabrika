@@ -47,10 +47,6 @@
         <!-- CSS Customization -->
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/custom.css') ?>">
 
-        <!-- blockUI -->
-        <link href="<?php echo $this->basePath('plugins/jquery-BlockUI/jquery.blockUI.css') ?>" rel="stylesheet" type="text/css" />
-
-
 
         <?php echo $this->content; ?>
 
@@ -74,24 +70,21 @@
         <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery-ui.min.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js') ?>"></script>
 
- <!-- JS Page Level-->
+        <!-- JS Page Level-->
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/app.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/masking.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/datepicker.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/validation.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
 
-        <!-- BlockUI -->
-        <script src="<?php echo $this->basePath('plugins/jquery-blockUI/jquery.blockUI.js') ?>"></script>
-
         <script>
-    jQuery(document).ready(function () {
-        App.init();
-        Masking.initMasking();
-        Datepicker.initDatepicker();
-        Validation.initValidation();
-        StyleSwitcher.initStyleSwitcher();
-    });
+            jQuery(document).ready(function () {
+                App.init();
+                Masking.initMasking();
+                Datepicker.initDatepicker();
+                Validation.initValidation();
+                StyleSwitcher.initStyleSwitcher();
+            });
         </script>
         <!--[if lt IE 9]>
             <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/respond.js') ?>"></script>
@@ -103,7 +96,7 @@
         <!--[if lt IE 10]>
             <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/sky-forms-pro/skyforms/js/jquery.placeholder.min.js') ?>"></script>
         <![endif]-->
-        
+
         <!-- inline js -->        
         <script src="<?php echo $this->basePath('jsinline/signup.js') ?>"></script>
 

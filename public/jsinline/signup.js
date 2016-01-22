@@ -18,6 +18,7 @@ $(document).ready(function () {
                 if (data[i].name === null) {
 
                 } else {
+                    
                     var appending_option_html = "<option value = '" + data[i].id + "' >" +
                             data[i].name +
                             "</option>";
@@ -32,16 +33,16 @@ $(document).ready(function () {
 
     $("select#usercountry").on('change', function () {
 
-        var selectedCountry1Id = $('#usercountry :selected').val();
+        var selectedCountryId = $('#usercountry :selected').val();
 
-        $("#usercity").empty();
+        $("#userprovince").empty();
 
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
             data: {
                 url: 'fillComboBox_syscity',
-                country_id: selectedCountry1Id,
+                country_id: selectedCountryId,
                 language_code: $("#langCode").val()
             },
             method: "GET",
@@ -55,11 +56,11 @@ $(document).ready(function () {
 
                     } else {
 
-                        var city_appending_option_html = "<option value = '" + data[i].id + "' >" +
+                        var province_appending_option_html = "<option value = '" + data[i].id + "' >" +
                                 data[i].name +
                                 "</option>";
-                        var newcityappendingOption = $(city_appending_option_html);
-                        $(newcityappendingOption).appendTo($("#usercity"));
+                        var newprovinceappendingOption = $(province_appending_option_html);
+                        $(newprovinceappendingOption).appendTo($("#userprovince"));
                     }
                 }
             }
