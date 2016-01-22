@@ -47,10 +47,9 @@
         <!-- CSS Customization -->
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/custom.css') ?>">
 
-    </head>
-    <!--The #page-top ID is part of the scrolling feature.
-    The data-spy and data-target are part of the built-in Bootstrap scrollspy function.-->
-    <body id="body" data-spy="scroll" data-target=".one-page-header" class="demo-lightbox-gallery">
+        <!-- blockUI -->
+        <link href="<?php echo $this->basePath('plugins/jquery-BlockUI/jquery.blockUI.css') ?>" rel="stylesheet" type="text/css" />
+
 
 
         <?php echo $this->content; ?>
@@ -81,6 +80,9 @@
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/datepicker.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/validation.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
+
+        <!-- BlockUI -->
+        <script src="<?php echo $this->basePath('plugins/jquery-blockUI/jquery.blockUI.js') ?>"></script>
 
         <script>
     jQuery(document).ready(function () {

@@ -251,45 +251,7 @@ var App = function () {
         },
     };
 
-    $('#userInfoFormSubmit').submit(submitUserInfoForm);
-    $("#userInfoFormReset").on('click', resetForm);
-
 }();
 
-
-/*
- * Reset Form Elements
- * @Author: Bahram Lotfi Sadigh
- * @Since: 2016.1.21
- */
-
-
-function resetForm() {
-    
-    var clickedButton = event.target;
-    var clickedForm = clickedButton.closest('form');
-    
-    clickedForm.reset();
-    
-    console.log('cleared');
-    
-}
-
-/*
- * Submit User Form Elements
- * @Author: Bahram Lotfi Sadigh
- * @Since: 2016.1.21
- */
-function submitUserInfoForm() {
-    
-    $('#userInfo').attr('class', "tab-pane fade");    
-    $('#companyInfo').attr('class', "tab-pane fade in active");    
-    $('#userInfoTab').removeClass('active');       
-    $('#companyInfoTab').addClass('active');    
-    event.preventDefault();
-    
-    
-    
-}
 
     

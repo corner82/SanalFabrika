@@ -1180,14 +1180,14 @@
                                                     <label class="label"><?php echo $this->translate('GSM') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-mobile"></i>
-                                                        <input type="text" name="userGSM" id="userGSM">
+                                                        <input type="tel" name="userGSM" id="userGSM">
                                                     </label>
                                                 </section>                                                                                               
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Fax') ?></label>
                                                     <label class="input">
                                                         <i class="icon-prepend fa fa-fax"></i>
-                                                        <input type="text" name="userFax" id="userFax">
+                                                        <input type="tel" name="userFax" id="userFax">
                                                     </label>
                                                 </section>
                                             </div>
@@ -1200,27 +1200,30 @@
                                         </footer>
                                     </form>         
                                 </div>
-                                <!-- End UserInfo Forms -->
+                                <!-- End User Info Form -->
 
-                                <!-- CompanyInfo Forms -->
+                                <!-- Company Info Form -->
                                 <div class="tab-pane fade" id="companyInfo">
                                     <form id="companyInfoForm" class="sky-form">
                                         <header><?php echo $this->translate('Company Information') ?></header>
 
                                         <fieldset>
                                             <div class="row">
-                                                <section class="col col-6">
-                                                    <label class="label">Required field</label>
+                                                <div class="headline">
+                                                    <span><?php echo $this->translate('Company General Information') ?></span> 
+                                                </div>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Company Name') ?></label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
-                                                        <input type="text" name="required">
+                                                        <i class="icon-prepend fa fa-empire"></i>
+                                                        <input type="text" name="companyName" id="companyName">
                                                     </label>
                                                 </section>
-                                                <section class="col col-6">
-                                                    <label class="label">Email validation</label>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Company Name') ?></label>
                                                     <label class="input">
-                                                        <i class="icon-prepend fa fa-envelope"></i>
-                                                        <input type="email" name="email">
+                                                        <i class="icon-prepend fa fa-empire"></i>
+                                                        <input type="text" name="companyName" id="companyName">
                                                     </label>
                                                 </section>
                                             </div>
@@ -1315,62 +1318,8 @@
                                         </footer>
                                     </form>
                                 </div>
-                                <!-- End Validation Forms -->
+                                <!-- End Company Info Forms -->
 
-                                <!-- Masking Forms -->
-                                <div class="tab-pane fade" id="messages-1">
-                                    <form action="#" id="sky-form2" class="sky-form">
-                                        <header>Available masking rules</header>
-
-                                        <fieldset>
-                                            <section>
-                                                <label class="label">Date masking</label>
-                                                <label class="input">
-                                                    <i class="icon-append fa fa-calendar"></i>
-                                                    <input type="text" name="date" id="date1">
-                                                </label>
-                                            </section>
-
-                                            <section>
-                                                <label class="label">Phone masking</label>
-                                                <label class="input">
-                                                    <i class="icon-append fa fa-phone"></i>
-                                                    <input type="tel" name="phone" id="phone">
-                                                </label>
-                                            </section>
-
-                                            <section>
-                                                <label class="label">Credit card masking</label>
-                                                <label class="input">
-                                                    <i class="icon-append fa fa-credit-card"></i>
-                                                    <input type="text" name="card" id="card">
-                                                </label>
-                                            </section>
-
-                                            <section>
-                                                <label class="label">Serial number masking</label>
-                                                <label class="input">
-                                                    <i class="icon-append fa fa-asterisk"></i>
-                                                    <input type="text" name="serial" id="serial">
-                                                </label>
-                                            </section>
-
-                                            <section>
-                                                <label class="label">Tax ID masking</label>
-                                                <label class="input">
-                                                    <i class="icon-append fa fa-briefcase"></i>
-                                                    <input type="text" name="tax" id="tax">
-                                                </label>
-                                            </section>
-                                        </fieldset>
-
-                                        <footer>
-                                            <button type="submit" class="btn-u btn-u-default">Submit</button>
-                                            <button type="button" class="btn-u" onclick="window.history.back();">Back</button>
-                                        </footer>
-                                    </form>
-                                </div>
-                                <!-- End Masking Forms -->
                             </div>
                         </div>
                         <!-- End Tabs-->
