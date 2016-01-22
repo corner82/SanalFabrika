@@ -239,7 +239,7 @@ $("select#city2").on('change', function () {
     });
 });
 
-$("select#district1").on('change', function () {
+$("#district1").on('change', function () {
 
     var selectedDistrict1 = $('#district1 option:selected');
 //    console.log($('#country1 :selected').text()); 
@@ -286,7 +286,7 @@ $("select#district1").on('change', function () {
     });
 });
 
-$("select#district2").on('change', function () {
+$("#district2").on('change', function () {
 
 //    var selectedDistrict2 = $('#district2 option:selected');
 //    console.log($('#country1 :selected').text()); 

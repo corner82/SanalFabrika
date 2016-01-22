@@ -7,6 +7,9 @@
 
     <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:24 GMT -->
 
+    <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
+    <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
+
     <body>
         <!--=== Style Switcher ===-->    
         <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
@@ -813,11 +816,10 @@
             <!--=== Breadcrumbs ===-->
             <div class="breadcrumbs">
                 <div class="container">
-                    <h1 class="pull-left">Advanced Forms</h1>
-                    <ul class="pull-right breadcrumb">
-                        <li><a href="index-2.html">Home</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li class="active">Advanced Forms</li>
+                    <h1 class="pull-left"><?php echo $this->translate('Registration') ?></h1>
+                    <ul class="pull-right breadcrumb">                        
+                        <li><a href="https://www.dev.sanalfabrika.com/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
+                        <li class="active"><?php echo $this->translate('Registration') ?></li>
                     </ul>
                 </div>
             </div><!--/breadcrumbs-->
@@ -1015,90 +1017,194 @@
                         <!-- Tabs -->
                         <div class="tab-v1">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#userInfo" data-toggle="tab"><?php echo $this->translate('User Information') ?></a></li>
-                                <li><a href="#companyInfo" data-toggle="tab"><?php echo $this->translate('Company Information') ?></a></li>
+                                <li id="userInfoTab" class="active"><a href="#userInfo" data-toggle="tab"><?php echo $this->translate('User Information') ?></a></li>
+                                <li id="companyInfoTab" class="disabled"><a href="" data-toggle="tab"><?php echo $this->translate('Company Information') ?></a></li>
                             </ul>                
                             <div class="tab-content">
                                 <!-- UserInfo Forms -->
                                 <div class="tab-pane fade in active" id="userInfo">
-                                    <form action="#" id="userInfoForm" class="sky-form">
+                                    <form id="userInfoForm" class="sky-form">
                                         <header><?php echo $this->translate('User Information') ?></header>
-
                                         <fieldset>
-                                            <fieldset>
-                                                <div class="row">
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('Name') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="text" name="required">
-                                                        </label>
-                                                    </section>
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('Surname') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="text" name="required">
-                                                        </label>
-                                                    </section>
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="text" name="required">
-                                                        </label>
-                                                    </section>
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('Email') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="email" name="required">
-                                                        </label>
-                                                    </section>
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="password" name="required">
-                                                        </label>
-                                                    </section>
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="password" name="required">
-                                                        </label>
-                                                    </section>
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('ID Number (TC Kimlik No for Turkish Citizens)') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="number" name="required">
-                                                        </label>
-                                                    </section>
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('Nationality') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="text" name="required">
-                                                        </label>
-                                                    </section>
-                                                    <section>
-                                                        <label class="label"><?php echo $this->translate('Address') ?></label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-asterisk"></i>
-                                                            <input type="text" name="required">
-                                                        </label>
-                                                    </section>
-                                                </div>                 
-                                            </fieldset>                                            
+                                            <div class="row">
+                                                <div class="headline">
+                                                    <span><?php echo $this->translate('Generl User Information') ?></span> 
+                                                </div>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('First Name') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-users"></i>
+                                                        <input type="text" name="userFirstName" id="userFirstName">
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Last Name') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-users"></i>
+                                                        <input type="text" name="userLastName" id="userLastName">
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-barcode"></i>
+                                                        <input type="text" name="preferedUsername" id="preferedUsername">
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Email') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-envelope"></i>
+                                                        <input type="email" name="useremail" id="useremail">
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-lock"></i>
+                                                        <input type="password" name="userPreferedPassword" id="userPreferedPassword">
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-lock"></i>
+                                                        <input type="password" name="repeatedUserPreferedPassword" id="repeatedUserPreferedPassword">
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('ID Number (TC Kimlik No for Turkish Citizens)') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-book"></i>
+                                                        <input type="number" name="userIdNumber" id="userIdNumber">
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Nationality') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-paper-plane"></i>
+                                                        <input type="text" name="userNationality" id="userNationality">
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="row">
+                                                <div class="headline">
+                                                    <span><?php echo $this->translate('Address') ?></span> 
+                                                </div>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Country') ?></label>
+                                                    <label class="select">
+                                                        <select id="usercountry">
+                                                            <option value="-1"><?php echo $this->translate('Please select a country from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Province') ?></label>
+                                                    <label class="select">
+                                                        <select id="userprovince">
+                                                            <option value="-1"><?php echo $this->translate('Please select a province from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('City') ?></label>
+                                                    <label class="select">
+                                                        <select id="usercity">
+                                                            <option value="-1"><?php echo $this->translate('Please select a city from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('District') ?></label>
+                                                    <label class="select">
+                                                        <select id="userdistrict">
+                                                            <option value="-1"><?php echo $this->translate('Please select a district from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section> 
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Village') ?></label>
+                                                    <label class="select">
+                                                        <select id="uservillage">
+                                                            <option value="-1"><?php echo $this->translate('Please select a village from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>                                  
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Street') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-home"></i>
+                                                        <input type="text" name="userStreet" id="userStreet">
+                                                    </label>
+                                                </section>                                                   
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Alley') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-home"></i>
+                                                        <input type="text" name="userAlley" id="userAlley">
+                                                    </label>
+                                                </section>                                                  
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Number') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-home"></i>
+                                                        <input type="text" name="userAddNumber" id="userAddNumber">
+                                                    </label>
+                                                </section>                                                  
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Postal Code') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-envelope-o"></i>
+                                                        <input type="text" name="userPostalCode" id="userPostalCode">
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <div class="row">
+                                                <div class="headline">
+                                                    <span><?php echo $this->translate('Communication Information') ?></span> 
+                                                </div>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Telephone') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-phone"></i>
+                                                        <input type="tel" name="userPhone" id="userPhone">
+                                                    </label>
+                                                </section>                                                                                                
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('GSM') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-mobile"></i>
+                                                        <input type="text" name="userGSM" id="userGSM">
+                                                    </label>
+                                                </section>                                                                                               
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Fax') ?></label>
+                                                    <label class="input">
+                                                        <i class="icon-prepend fa fa-fax"></i>
+                                                        <input type="text" name="userFax" id="userFax">
+                                                    </label>
+                                                </section>
+                                            </div>
+                                        </fieldset> 
+                                        <footer>
+                                            <div id="userButtons">
+                                                <button type="submit" id="userInfoFormSubmit" class="btn-u btn-u-default" onclick="submitUserInfoForm()"><?php echo $this->translate('Continue') ?></button>
+                                                <button type="button" id="userInfoFormReset" class="btn-u" onclick="resetForm()"><?php echo $this->translate('Reset') ?></button>
+                                            </div>
+                                        </footer>
                                     </form>         
                                 </div>
                                 <!-- End UserInfo Forms -->
 
                                 <!-- CompanyInfo Forms -->
                                 <div class="tab-pane fade" id="companyInfo">
-                                    <form action="#" id="companyInfoForm" class="sky-form">
+                                    <form id="companyInfoForm" class="sky-form">
                                         <header><?php echo $this->translate('Company Information') ?></header>
 
                                         <fieldset>
@@ -1113,7 +1219,7 @@
                                                 <section class="col col-6">
                                                     <label class="label">Email validation</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-envelope"></i>
+                                                        <i class="icon-prepend fa fa-envelope"></i>
                                                         <input type="email" name="email">
                                                     </label>
                                                 </section>
@@ -1123,14 +1229,14 @@
                                                 <section class="col col-6">
                                                     <label class="label">URL validation</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-globe"></i>
+                                                        <i class="icon-prepend fa fa-globe"></i>
                                                         <input type="url" name="url">
                                                     </label>
                                                 </section>
                                                 <section class="col col-6">
                                                     <label class="label">Date validation</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-calendar"></i>
+                                                        <i class="icon-prepend fa fa-calendar"></i>
                                                         <input type="text" name="date">
                                                     </label>
                                                 </section>
@@ -1140,21 +1246,21 @@
                                                 <section class="col col-4">
                                                     <label class="label">Minimum length</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
+                                                        <i class="icon-prepend fa fa-asterisk"></i>
                                                         <input type="text" name="min">
                                                     </label>
                                                 </section>
                                                 <section class="col col-4">
                                                     <label class="label">Maximum length</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
+                                                        <i class="icon-prepend fa fa-asterisk"></i>
                                                         <input type="text" name="max">
                                                     </label>
                                                 </section>
                                                 <section class="col col-4">
                                                     <label class="label">Range length</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
+                                                        <i class="icon-prepend fa fa-asterisk"></i>
                                                         <input type="text" name="range">
                                                     </label>
                                                 </section>
@@ -1166,14 +1272,14 @@
                                                 <section class="col col-6">
                                                     <label class="label">Digits validation</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
+                                                        <i class="icon-prepend fa fa-asterisk"></i>
                                                         <input type="text" name="digits">
                                                     </label>
                                                 </section>
                                                 <section class="col col-6">
                                                     <label class="label">Decimal number validation</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
+                                                        <i class="icon-prepend fa fa-asterisk"></i>
                                                         <input type="text" name="number">
                                                     </label>
                                                 </section>
@@ -1183,27 +1289,26 @@
                                                 <section class="col col-4">
                                                     <label class="label">Minimum value</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
+                                                        <i class="icon-prepend fa fa-asterisk"></i>
                                                         <input type="text" name="minVal">
                                                     </label>
                                                 </section>
                                                 <section class="col col-4">
                                                     <label class="label">Maximum value</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
+                                                        <i class="icon-prepend fa fa-asterisk"></i>
                                                         <input type="text" name="maxVal">
                                                     </label>
                                                 </section>
                                                 <section class="col col-4">
                                                     <label class="label">Range value</label>
                                                     <label class="input">
-                                                        <i class="icon-append fa fa-asterisk"></i>
+                                                        <i class="icon-prepend fa fa-asterisk"></i>
                                                         <input type="text" name="rangeVal">
                                                     </label>
                                                 </section>
                                             </div>
                                         </fieldset>
-
                                         <footer>
                                             <button type="submit" class="btn-u btn-u-default">Submit</button>
                                             <button type="button" class="btn-u" onclick="window.history.back();">Back</button>
