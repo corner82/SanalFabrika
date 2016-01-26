@@ -364,7 +364,6 @@ function resetConfirmation() {
 
 function resetRejection() {
         
-    $.unblockUI();
     return false;
 }
 
