@@ -10,6 +10,10 @@
     <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
     <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 
+    <!-- Success last insert id hidden will be here 
+    <input id="tabActivationController" type="hidden"  value=value="<?php echo $this->tabActivationController; ?>"></input>
+    -->
+
     <body>
         <!--=== Style Switcher ===-->    
         <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
@@ -1133,8 +1137,14 @@
                                                         </div>
                                                         <footer>
                                                             <div id="userButtons">
-                                                                <button type="submit" id="userGeneralInfoFormSubmit" class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()"><?php echo $this->translate('Continue to Address Information') ?></button>
-                                                                <button type="button" id="userGeneralInfoFormReset" class="btn-u" onclick="resetForm()"><?php echo $this->translate('Reset') ?></button>
+                                                                <button type="submit" id="userGeneralInfoFormSubmit" 
+                                                                        class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">
+                                                                            <?php echo $this->translate('Continue to Address Information') ?>
+                                                                </button>
+                                                                <button type="button" id="userGeneralInfoFormReset" 
+                                                                        class="btn-u" onclick="resetForm()">
+                                                                            <?php echo $this->translate('Reset') ?>
+                                                                </button>
                                                             </div>
                                                         </footer>
                                                     </fieldset>
@@ -1261,11 +1271,11 @@
                                                         <div class="row">
                                                             <section>
                                                                 <label class="label"><?php echo $this->translate('Description') ?></label>
-                                                                <label class="input">
-                                                                    <i class="icon-prepend fa fa-pencil"></i>
-                                                                    <input type="text" name="contactDescription" id="contactDescription">
+                                                                <label class="textarea">
+                                                                    <i class="icon-append fa fa-comment"></i>
+                                                                    <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
                                                                 </label>
-                                                            </section>  
+                                                            </section> 
                                                         </div>
                                                         <div class="row">
                                                             <footer>
@@ -1494,6 +1504,47 @@
             </div>     
             <!--=== End Footer Version 1 ===-->
         </div><!--/End Wrapepr-->
+
+        <!--*********************************************************************-->
+        <!--************************* Growls section ****************************-->    
+        <!--*********************************************************************--> 
+
+        <div id='growls' >
+
+            <!-- Reset Successful Growl -->
+            <!-- Successful new role submission growl -->
+            <div id="growlUI-successfulReset" class='growlUI' style="display:none" >    
+                <h3><a lang="en" href=""/>Form fields are clear</h3>
+            </div>
+            <!--// Reset Successful growl -->
+        </div>
+
+        <!-- Reset Approval Growl -->
+        <div id="growlUI-resetFormApproval" class='growlUI' style="display:none" >    
+            <h3><a lang="en" href=""/>Are you sure to erase all form fields?</h3>
+            <h4>
+                <button type='submit' 
+                        id='resetForm-btn' class="btn btn-success" 
+                        onclick="resetConfirmation()">
+                    <i class="fa fa-check"></i><a lang="en" href=""/>Reset</button>
+                <button type='button' 
+                        id='notResetForm-btn' class="btn btn-danger" 
+                        onclick="resetRejection()">
+                    <i class="fa fa-times"></i><a lang="en" href=""/>Cancel</button>
+            </h4>
+        </div>
+        <!--// Reset Approval growl -->
+
+        <!--********************************************************************-->
+        <!--//********************* End of growls ******************************-->
+        <!--********************************************************************-->
+
+
+
+
+
+
+
     </body>
     <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:25 GMT -->
 </html>

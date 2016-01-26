@@ -28,8 +28,12 @@
         $langCode = $this->getServiceLocator()
                             ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
-                            ->get('serviceTranslatorUrlRegulator');  
-//         
+                            ->get('serviceTranslatorUrlRegulator');
+        /*
+        $tabActivationController = $this->success last insert Id from okan first insert call
+         * then based on this id i have to update data
+        */
+        
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,

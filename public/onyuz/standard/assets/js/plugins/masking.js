@@ -19,12 +19,27 @@ var Masking = function () {
              * 
              */
             
-            
+            /*
+             * Post code masks
+             */
             $("#userPostalCode").mask('99999', {placeholder: 'X'});
+            
+            /*
+             * Phone number masks
+             */
             $("#userPhone").mask('(999) 999-9999', {placeholder: 'X'});
             $("#userGSM").mask('(999) 999-9999', {placeholder: 'X'});
-            $("#userFax").mask('(999) 999-9999', {placeholder: 'X'});
-            $("#userIdNumber").mask('99999999999', {placeholder: 'X'});            
+            $("#userFax").mask('(999) 999-9999', {placeholder: 'X'}); 
+            $("#contactNumber").mask('(999) 999-9999', {placeholder: 'X'});
+            
+            /*
+             * Id numbers masks
+             */
+            $("#userIdNumber").mask('99999999999', {placeholder: 'X'}); 
+            
+            /*
+             * Data Masks
+             */
             $("#companyFoundationDate").mask('99/99/9999', {placeholder: 'X'});
             
 //            if(selectedCountry == 'Turkey'){
@@ -40,11 +55,9 @@ var Masking = function () {
 
 
             $("#companyTaxNumber").mask('9999999999', {placeholder: 'X'});
-            
-            
+                        
 //            if (selectedCountry == 'Turkey') {
-//                
-//                
+              
 //            }
         }
 

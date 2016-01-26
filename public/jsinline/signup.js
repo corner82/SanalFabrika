@@ -129,7 +129,6 @@ $(document).ready(function () {
 
     $("select#userdistrict").on('change', function () {
 
-
         var selectedDistrict = $('#userdistrict option:selected');
 //    console.log($('#country1 :selected').text()); 
 //    console.log($('#country1 :selected').val());
@@ -185,8 +184,6 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-
-            console.log(data);
             var i;
 
             for (i = 0; i < data.length; i++) {
@@ -218,7 +215,6 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 
-            console.log(data);
             var i;
 
             for (i = 0; i < data.length; i++) {
@@ -246,8 +242,17 @@ $(document).ready(function () {
     $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
     $("#submitUserCommunicationInfoForm").on('click', submitUserCommunicationInfoForm);
 
+
 });
 
+/*
+ * 
+ * @type @exp;event@pro;target
+ * Signup.js variables
+ * 
+ */
+    var clickedButton;
+    var clickedForm;
 
 
 /*
@@ -256,16 +261,27 @@ $(document).ready(function () {
  * @Since: 2016.1.21
  */
 
-
 function resetForm() {
 
-    var clickedButton = event.target;
-    var clickedForm = clickedButton.closest('form');
+    clickedButton = event.target;
+    clickedForm = clickedButton.closest('form');
 
-    clickedForm.reset();
 
-    console.log('cleared');
 
+    registrationBlockuiResetFormApproval.blockuiApprovalWrapper();
+    $('#userGeneralInfoForm').block({
+            message: '<h1>İşlem yapılıyor..</h1>',
+            css: {border: 'none',
+                padding: '15px',
+                backgroundColor: '#008000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                'border-radius': '10px',
+                opacity: .5,
+                color: '#fff'}
+        });
+        
+    registrationBlockuiResetFormApproval.blockuiApprovalWrapper('test');
 }
 
 /*
@@ -308,12 +324,12 @@ function submitUserCommunicationInfoForm() {
 
 }
 
+function finalizeUserCommunicationInfoForm() {
+
+}
+
+
 function activateButtons() {
-
-    console.log($("#terms").attr("checked"));
-
-    console.log($("#userCommunicationInfoFormFinalize").hasClass('disabled'));
-    console.log($("#userCommunicationInfoFormSubmit").hasClass('disabled'));
 
     if ($("#terms").attr("checked") === "checked") {
 
@@ -331,4 +347,25 @@ function activateButtons() {
     }
 }
 
+/*
+ * Growls section
+ * @author: Bahram Lotfi Sadigh
+ * @since: 2016.1.26
+ */
+
+var registrationBlockuiResetFormApproval = $("#growlUI-resetFormApproval").blockuiApprovalWrapper();
+var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiWrapper();
+
+function resetConfirmation() {
+    clickedForm.reset();    
+    $.unblockUI();
+    return true;
+}
+
+function resetRejection() {
+        
+    $.unblockUI();
+    event.preventDefault();
+    return false;
+}
 

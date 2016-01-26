@@ -47,6 +47,10 @@
         <!-- CSS Customization -->
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/custom.css') ?>">
 
+        
+        <!-- blockUI CSS -->
+        <link href="<?php echo $this->basePath('plugins/jquery-BlockUI/jquery.blockUI.css') ?>" rel="stylesheet" type="text/css" />
+
 
         <?php echo $this->content; ?>
 
@@ -77,6 +81,11 @@
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/validation.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
 
+        
+        <!-- BlockUI -->
+        <script src="<?php echo $this->basePath('plugins/jquery-blockUI/jquery.blockUI.js') ?>"></script>
+        
+        
         <script>
             jQuery(document).ready(function () {
                 App.init();
