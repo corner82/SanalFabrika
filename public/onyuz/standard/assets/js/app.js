@@ -356,7 +356,7 @@ var App = function () {
                     '-moz-border-radius': '10px',
                     'border-radius': '10px',
                     opacity: .9,
-                    color: '#fff',
+                    color: '#fff'
                     
                 }
             });

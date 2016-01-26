@@ -251,8 +251,8 @@ $(document).ready(function () {
  * Signup.js variables
  * 
  */
-    var clickedButton;
-    var clickedForm;
+var clickedButton;
+var clickedForm;
 
 
 /*
@@ -270,17 +270,17 @@ function resetForm() {
 
     registrationBlockuiResetFormApproval.blockuiApprovalWrapper();
     $('#userGeneralInfoForm').block({
-            message: '<h1>İşlem yapılıyor..</h1>',
-            css: {border: 'none',
-                padding: '15px',
-                backgroundColor: '#008000',
-                '-webkit-border-radius': '10px',
-                '-moz-border-radius': '10px',
-                'border-radius': '10px',
-                opacity: .5,
-                color: '#fff'}
-        });
-        
+        message: '<h1>İşlem yapılıyor..</h1>',
+        css: {border: 'none',
+            padding: '15px',
+            backgroundColor: '#008000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            'border-radius': '10px',
+            opacity: .5,
+            color: '#fff'}
+    });
+
     registrationBlockuiResetFormApproval.blockuiApprovalWrapper('test');
 }
 
@@ -347,6 +347,39 @@ function activateButtons() {
     }
 }
 
+function checkUGI() {
+
+    if ($("#tabActivationController").val() === true) {
+
+        console.log('Allowed to continue');
+
+    } else {
+
+        console.log('not allowed');
+
+        registrationBlockuiPreventAddressTab.blockuiWrapper('option', {
+            backgroundColor: '#FF0000',
+            fadeOut: '700'
+        });
+        $('#userGeneralInfoForm').block({
+            message: '<h1>İşlem yapılıyor..</h1>',
+            css: {border: 'none',
+                padding: '15px',
+                backgroundColor: '#FF0000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                'border-radius': '10px',
+                opacity: .5,
+                color: '#fff'}
+        });
+        registrationBlockuiPreventAddressTab.blockuiWrapper('test');
+        console.log('sdfds');
+        $.unblockUI();
+
+    }
+
+}
+
 /*
  * Growls js section
  * @author: Bahram Lotfi Sadigh
@@ -356,14 +389,18 @@ function activateButtons() {
 var registrationBlockuiResetFormApproval = $("#growlUI-resetFormApproval").blockuiApprovalWrapper();
 var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiWrapper();
 
+var registrationBlockuiPreventAddressTab = $("#growlUI-addressTabPrevention").blockuiWrapper();
+
 function resetConfirmation() {
-    clickedForm.reset();    
+    clickedForm.reset();
     $.unblockUI();
     return true;
 }
 
 function resetRejection() {
-        
+
     return false;
 }
+
+
 
