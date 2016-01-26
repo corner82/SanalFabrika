@@ -253,6 +253,7 @@ $(document).ready(function () {
  */
 var clickedButton;
 var clickedForm;
+var currentActiveTabId;
 
 
 /*
@@ -266,23 +267,26 @@ function resetForm() {
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
 
-
-
-    registrationBlockuiResetFormApproval.blockuiApprovalWrapper();
-    $('#userGeneralInfoForm').block({
-        message: '<h1>İşlem yapılıyor..</h1>',
+    registrationBlockuiResetFormApproval.blockuiApprovalWrapper('option', {
+        backgroundColor: '#FF0000',
+        fadeOut: '700'
+    });
+    $('#informationTabContents').block({
+        message: "<h1><?php echo $this->translate('Under progress...') ?></h1>",
         css: {border: 'none',
             padding: '15px',
-            backgroundColor: '#008000',
+            backgroundColor: '#FF0000',
             '-webkit-border-radius': '10px',
             '-moz-border-radius': '10px',
             'border-radius': '10px',
             opacity: .5,
             color: '#fff'}
     });
-
     registrationBlockuiResetFormApproval.blockuiApprovalWrapper('test');
+
 }
+
+
 
 /*
  * Submit User Form Elements
@@ -295,6 +299,18 @@ function submitUserGeneralInfoForm() {
     $('#userAddressInfo').attr('class', "tab-pane fade in active");
     $('#userGeneralInfoTab').removeClass('active');
     $('#userAddressInfoTab').addClass('active');
+    currentActiveTabId = 'userAddressInfoTab';
+    $('#userAddressInfoTab').removeClass('disabled');
+    /*
+     * not to display tab:
+     * use tab plugin close 
+     * or 
+     * append href to the tab attribute
+     */
+    
+    $('#userGeneralInfoTab').attr('href', '#userGeneralInfo');
+    
+    console.log($($('#userGeneralInfoTab').valueOf("href")));
     event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
 
@@ -306,6 +322,8 @@ function submitUserAddressInfoForm() {
     $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
     $('#userAddressInfoTab').removeClass('active');
     $('#userCommunicationInfoTab').addClass('active');
+    currentActiveTabId = 'userCommunicationInfoTab';
+    $('#userCommunicationInfoTab').removeClass('disabled');
     event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
 
@@ -319,6 +337,8 @@ function submitUserCommunicationInfoForm() {
     $('#userCommunicationInfoTab').removeClass('active');
     $('#userInfoTab').removeClass('active');
     $('#companyInfoTab').addClass('active');
+    currentActiveTabId = 'companyInfoTab';
+    $('#companyInfoTab').removeClass('disabled');
     event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
 
@@ -367,6 +387,7 @@ function checkUGI() {
 
         if ($('#userAddressInfoTab').hasClass('active')) {
 
+            console.log('here');
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
 
             registrationBlockuiPreventAddressTab.blockuiApprovalWrapper('option', {
@@ -374,7 +395,7 @@ function checkUGI() {
                 fadeOut: '700'
             });
             $('#informationTabContents').block({
-                message: '<h1>İşlem yapılıyor..</h1>',
+                message: "<h1><?php echo $this->translate('Under progress...') ?></h1>",
                 css: {border: 'none',
                     padding: '15px',
                     backgroundColor: '#FF0000',
@@ -386,7 +407,7 @@ function checkUGI() {
             });
             registrationBlockuiPreventAddressTab.blockuiApprovalWrapper('test');
 
-        }
+        } 
     }
 }
 
@@ -482,6 +503,7 @@ function checkCI() {
 
 var registrationBlockuiResetFormApproval = $("#growlUI-resetFormApproval").blockuiApprovalWrapper();
 var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiWrapper();
+var registrationBlockuiCancelReset = $("#growlUI-cancelReset").blockuiWrapper();
 /*
  * tab controller growls
  */
@@ -491,19 +513,45 @@ var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").bl
 
 function resetConfirmation() {
     clickedForm.reset();
+
     $.unblockUI();
-    return true;
+    $("#informationTabContents").unblock();
+
+    registrationBlockuiSuccessfulReset.blockuiWrapper('option', {
+        fadeOut: '2000',
+        backgroundColor: '0080000'
+    });
+    registrationBlockuiSuccessfulReset.blockuiWrapper('test');
 }
 
+/*
+ * Reject reset operation
+ * @author:Bahram lotfi sadigh
+ * @since:2016.1.26
+ * 
+ */
+
 function resetRejection() {
-        
+
     $.unblockUI();
     $("#informationTabContents").unblock();
     event.preventDefault();
-    
+    registrationBlockuiCancelReset.blockuiWrapper('option', {
+        fadeOut: '2000',
+        backgroundColor: 'FF0000'
+    });
+    registrationBlockuiCancelReset.blockuiWrapper('test');
 }
 
+/*
+ * Function to prevent openning of unallowed tab and return to previous tab
+ * @author:Bahram lotfi sadigh
+ * @since:2016.1.26
+ * 
+ */
+
 function preventTab() {
+
     $.unblockUI();
     $("#informationTabContents").unblock();
     event.preventDefault();
