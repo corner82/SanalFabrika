@@ -1092,8 +1092,6 @@ function _init() {
      * @author Bahram Lotfi Sadigh
      * @since 18/01/2016
      */
-
-
     $.widget("sanalfabrika.blockuiApprovalWrapper", {
         /**
          * Default options.
@@ -1101,8 +1099,17 @@ function _init() {
          */
         options: {
             message: '#growlUI-nameChangeApproval',
-            backgroundColor: 'FFA500',
+            backgroundColor: 'ecf0f5',
             showOverlay: false,
+            top : '40%',
+            left: '40%',
+            right: '60%',
+            width: '350px',
+            border: 'none',
+            padding: '5px',
+            border_radius : '10px',
+            opacity: .6,
+            color: '#fff',
         },
         /**
          * private constructor method for jquery widget
@@ -1115,29 +1122,147 @@ function _init() {
          * public method to remove loading image when necessary
          * @returns {null}
          */
-        test: function () {
+        show: function () {
             //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
                 message: $(this.element),
                 fadeIn: 700,  
                 showOverlay: this.options.showOverlay,
-                centerY: true,
+                centerX: true,
                 css: {
-                    width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
-                    border: 'none',
-                    padding: '5px',
+                    width: this.options.width,
+                    top: this.options.top,
+                    left: this.options.left,
+                    right: this.options.right,
+                    border: this.options.border,
+                    padding: this.options.padding,
                     backgroundColor: '#' + this.options.backgroundColor,
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    'border-radius': '10px',
-                    opacity: .6,
-                    color: '#fff'
+                    '-webkit-border-radius': this.options.border_radius,
+                    '-moz-border-radius': this.options.border_radius,
+                    'border-radius': this.options.border_radius,
+                    opacity: this.options.opacity,
+                    color: this.options.color,
                 }
             });
+        },
+        hide : function () {
+            $.unblockUI();
         }
     });
+    
+    
+    
+    $.widget("sanalfabrika.blockuiCentered", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            message: '#growlUI-nameChangeApproval',
+            backgroundColor: 'ecf0f5',
+            showOverlay: false,
+            /*top : '50px',
+            left: '50px',
+            right: '50px',*/
+            width: '350px',
+            border: 'none',
+            padding: '5px',
+            border_radius : '10px',
+            opacity: .6,
+            color: '#fff',
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+            //this.element.append(this.options.overlay)
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        show : function () {
+            //this.element.find(this.options.overlayKey).remove();
+            $.blockUI({
+                message: $(this.element),
+                fadeIn: 700,  
+                showOverlay: this.options.showOverlay,
+                centerX: true,
+                css: {
+                    width: this.options.width,
+                    /*top: this.options.top,
+                    left: this.options.left,
+                    right: this.options.right,*/
+                    border: this.options.border,
+                    padding: this.options.padding,
+                    backgroundColor: '#' + this.options.backgroundColor,
+                    '-webkit-border-radius': this.options.border_radius,
+                    '-moz-border-radius': this.options.border_radius,
+                    'border-radius': this.options.border_radius,
+                    opacity: this.options.opacity,
+                    color: this.options.color,
+                }
+            });
+        },
+        hide : function () {
+            //this.element.find(this.options.overlayKey).remove();
+            $(this.element).unblock();
+        }
+        
+    });
+    
+    
+    $.widget("sanalfabrika.blockElement", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            message: '<h1 lang="en">Progressing</h1>',
+            backgroundColor: 'ecf0f5',
+            showOverlay: false,
+            width: '350px',
+            border: 'none',
+            padding: '5px',
+            border_radius : '10px',
+            opacity: .6,
+            color: '#fff',
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+            //this.element.append(this.options.overlay)
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        show: function () {
+            //this.element.find(this.options.overlayKey).remove();
+            $(this.element).block({
+                message: this.options.message, 
+                showOverlay: this.options.showOverlay,
+                css: {
+                    width: this.options.width,
+                    border: this.options.border,
+                    padding: this.options.padding,
+                    backgroundColor: '#' + this.options.backgroundColor,
+                    '-webkit-border-radius': this.options.border_radius,
+                    '-moz-border-radius': this.options.border_radius,
+                    'border-radius': this.options.border_radius,
+                    opacity: this.options.opacity,
+                    color: this.options.color,
+                }
+            });
+        },
+        hide : function () {
+            $(this.element).unblock();
+        }
+    });
+    
+    
 }(jQuery));
 
