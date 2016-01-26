@@ -269,7 +269,7 @@ var App = function () {
             message: '#growlUI-successfulReset',
             backgroundColor: '0080000',
             fadeOut: 700,
-            showOverlay: false,
+            showOverlay: false
         },
         /**
          * private constructor method for jquery widget
@@ -356,11 +356,8 @@ var App = function () {
                     '-moz-border-radius': '10px',
                     'border-radius': '10px',
                     opacity: .9,
-                    color: '#fff'
-                    
+                    color: '#fff'                    
                 }
             });
         }
     });
-
-    

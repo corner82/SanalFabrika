@@ -1001,41 +1001,17 @@ function _init() {
             }
         });
     };
-    /**
-     * load imager widget for loading operations
-     * @author Mustafa Zeynel Dağlı
-     * @since 11/01/2016
-     */
 
-    $.widget("sanalfabrika.loadImager", {
-        /**
-         * Default options.
-         * @returns {null}
-         */
-        options: {
-            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
-            overlayKey: ".overlay:first",
-        },
-        /**
-         * private constructor method for jquery widget
-         * @returns {null}
-         */
-        _create: function () {
-            this.element.append(this.options.overlay)
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        removeLoadImage: function () {
-            this.element.find(this.options.overlayKey).remove();
-        }
-    });
-    /**
-     * load imager widget for loading operations
-     * @author Mustafa Zeynel Dağlı
-     * @since 11/01/2016
-     */
+}(jQuery));
+
+
+/**
+ * load imager widget for loading operations
+ * @author Mustafa Zeynel Dağlı
+ * @since 11/01/2016
+ */
+
+(function ($) {
 
     $.widget("sanalfabrika.blockuiWrapper", {
         /**
@@ -1085,14 +1061,15 @@ function _init() {
             });
         }
     });
+}(jQuery));
+/**
+ * growlUI widget for approval growls with yes no buttons
+ * without fadeout option. Fadeout happens uppon clicking on buttons
+ * @author Bahram Lotfi Sadigh
+ * @since 18/01/2016
+ */
 
-    /**
-     * growlUI widget for approval growls with yes no buttons
-     * without fadeout option. Fadeout happens uppon clicking on buttons
-     * @author Bahram Lotfi Sadigh
-     * @since 18/01/2016
-     */
-
+(function ($) {
 
     $.widget("sanalfabrika.blockuiApprovalWrapper", {
         /**
@@ -1119,7 +1096,7 @@ function _init() {
             //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
                 message: $(this.element),
-                fadeIn: 700,  
+                fadeIn: 700,
                 showOverlay: this.options.showOverlay,
                 centerY: true,
                 css: {
@@ -1139,5 +1116,5 @@ function _init() {
             });
         }
     });
-}(jQuery));
 
+}(jQuery));
