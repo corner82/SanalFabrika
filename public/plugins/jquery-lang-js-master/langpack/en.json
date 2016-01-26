@@ -1,5 +1,6 @@
-Lang.prototype.pack.th = {
+{
 	"token": {
+                "test" : "english test",
 		"Property Search":"ค้นหา",
 		"Location":"สถานที่ตั้ง",
 		"Min Beds":"จำนวนห้องนอน",
@@ -67,11 +68,12 @@ Lang.prototype.pack.th = {
 		"Synopsis":"รายละเอียดย่อในประกาศ",
 		"Full Description":"รายละเอียดเพิ่มเติมสำหรับผู้สนใจประกาศ",
 		"Property Photos":"รูปภาพสถานที่",
-               // "test" : "english"
+	  	"http://www.ioling.org/images/flags/uk.gif": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1280px-Flag_of_Thailand.svg.png",
+		"http://www.google.com/": "http://www.yahoo.com/"
 	},
 	"regex": [
-		[/Budget/, "งบประมาณ"],
-		[/^Something at start of text/, ""],
-		[/This will be case insensitive/i, ""]
+		["Budget", "งบประมาณ"],
+		["^Something at start of text", ""],
+		["This will be case insensitive", "i", ""]
 	]
-};
+}

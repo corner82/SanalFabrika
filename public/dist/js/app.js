@@ -1260,6 +1260,47 @@ function _init() {
     });
     
     
+     $.widget("sanalfabrika.test", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            message: '#growlUI-nameChangeApproval',
+            backgroundColor: 'ecf0f5',
+            showOverlay: false,
+            /*top : '50px',
+            left: '50px',
+            right: '50px',*/
+            width: '350px',
+            border: 'none',
+            padding: '5px',
+            border_radius : '10px',
+            opacity: .6,
+            color: '#fff',
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+            //this.element.append(this.options.overlay)
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        show : function () {
+            
+        },
+        hide : function (element) {
+            //this.element.find(this.options.overlayKey).remove();
+            //element.blockuiApprovalWrapper('hide');
+        }
+        
+    });
+    
+    
 
 }(jQuery));
 

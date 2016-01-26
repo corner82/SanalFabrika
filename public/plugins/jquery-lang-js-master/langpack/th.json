@@ -1,5 +1,9 @@
 {
 	"token": {
+                "Successful Submission" : "สถานที่ตั้ง",
+                "Sure" : "บ้าน",
+                "Progressing" : "สถานที่ตั้ง",
+                "test" : "test edildi onaylandı 22",
 		"Property Search":"ค้นหา",
 		"Location":"สถานที่ตั้ง",
 		"Min Beds":"จำนวนห้องนอน",

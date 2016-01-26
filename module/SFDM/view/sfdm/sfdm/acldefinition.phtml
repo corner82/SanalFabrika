@@ -1,6 +1,7 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
+<input id="ln" type="hidden"  value="tr"></input>
 <body class="skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -784,14 +785,15 @@
         <div id="growlUI-newRoleSubmitApproval" class='growlUI' style="display:none" >    
             <h3><a lang="en" href=""/>Do you confirm new role submission?</h3>
             <h4>
-                <button type='submit' 
-                        id='addNewRoleYes-btn' class="btn btn-success" 
-                        onclick="newRoleSubmissionConfirmation()">
-                    <i class="fa fa-check"></i><a lang="en" href=""/>Go</button>
-                <button type='button' 
-                        id='addNewRoleCancel-btn' class="btn btn-danger" 
-                        onclick="newRoleSubmissionRejection()">
-                    <i class="fa fa-times"></i><a lang="en" href=""/>Cancel</button>
+                
+                <div>
+                    <a class="btn btn-success" lang="en" onclick="newRoleSubmissionConfirmation()" >
+                    <i class="fa fa-check"></i> Go
+                            </a>
+                    <a class="btn btn-danger" lang="en" onclick="return newRoleSubmissionRejection();">
+                    <i class="fa fa-close"></i> Cancel
+                            </a>
+                </div>
             </h4>
         </div>
         <!--// New role submission approval growl -->

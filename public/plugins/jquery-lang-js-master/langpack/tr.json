@@ -1,6 +1,10 @@
 {
 	"token": {
-                "Successful Submission":"Kayıt Başarılı",
+                "Successful Submission" : "İşleminiz başarıyla gerçekleştirilmiştir",
+                "Sure" : "Eminmisiniz?",
+                "Progressing" : "İşleminiz yapılıyor...",
+                "test" : "test edildi onaylandı",
+                "Property Search":"Kayıt Başarılı zeynel",
                 "Have a nice day!":"İyi günler!",
                 "Do you confirm new role submission?":"Yeni Rol Kayıdını Onaylıyormusunuz?",
                 "Go":"Devam",
@@ -26,7 +30,7 @@
                 "This name is already registered in System.":"Aynı isimde rol daha önce sisteme eklenmiştir."
 	},
 	"regex": [
-		["Budget", "Büdçe"],
+		["Budget", "Bütçe"],
 		["^Something at start of text", ""],
 		["This will be case insensitive", "i", ""]
 	]
