@@ -73,8 +73,7 @@ $(document).ready(function () {
      */
 
     $('#tt_tree_roles').tree({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?\n\
-                url=pkFillComboBoxFullRoles_sysAclRoles&pk=' + $("#pk").val(),
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillComboBoxFullRoles_sysAclRoles&pk=' + $("#pk").val(),
         method: 'get',
         animate: true,
         checkbox: true,
