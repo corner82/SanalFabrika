@@ -348,7 +348,7 @@ function activateButtons() {
 }
 
 /*
- * Growls section
+ * Growls js section
  * @author: Bahram Lotfi Sadigh
  * @since: 2016.1.26
  */
@@ -364,8 +364,6 @@ function resetConfirmation() {
 
 function resetRejection() {
         
-    $.unblockUI();
-    event.preventDefault();
     return false;
 }
 
