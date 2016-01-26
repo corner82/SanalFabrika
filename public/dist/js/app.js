@@ -1001,97 +1001,8 @@ function _init() {
             }
         });
     };
-    /**
-     * load imager widget for loading operations
-     * @author Mustafa Zeynel Dağlı
-     * @since 11/01/2016
-     */
-
-    $.widget("sanalfabrika.loadImager", {
-        /**
-         * Default options.
-         * @returns {null}
-         */
-        options: {
-            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
-            overlayKey: ".overlay:first",
-        },
-        /**
-         * private constructor method for jquery widget
-         * @returns {null}
-         */
-        _create: function () {
-            this.element.append(this.options.overlay)
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        removeLoadImage: function () {
-            this.element.find(this.options.overlayKey).remove();
-        }
-    });
-    /**
-     * load imager widget for loading operations
-     * @author Mustafa Zeynel Dağlı
-     * @since 11/01/2016
-     */
-
-    $.widget("sanalfabrika.blockuiWrapper", {
-        /**
-         * Default options.
-         * @returns {null}
-         */
-        options: {
-            message: '#growlUI-nullName',
-            backgroundColor: 'FF0000',
-            fadeOut: 700,
-            showOverlay: false,
-        },
-        /**
-         * private constructor method for jquery widget
-         * @returns {null}
-         */
-        _create: function () {
-            //this.element.append(this.options.overlay)
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        test: function () {
-            //this.element.find(this.options.overlayKey).remove();
-            $.blockUI({
-                message: $(this.element),
-                fadeIn: 700,
-                fadeOut: this.options.fadeOut,
-                timeout: 2000,
-                showOverlay: this.options.showOverlay,
-                centerY: true,
-                css: {
-                    width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
-                    border: 'none',
-                    padding: '5px',
-                    backgroundColor: '#' + this.options.backgroundColor,
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    'border-radius': '10px',
-                    opacity: .6,
-                    color: '#fff'
-                }
-            });
-        }
-    });
-
-    /**
-     * growlUI widget for approval growls with yes no buttons
-     * without fadeout option. Fadeout happens uppon clicking on buttons
-     * @author Bahram Lotfi Sadigh
-     * @since 18/01/2016
-     */
+    
+    
     $.widget("sanalfabrika.blockuiApprovalWrapper", {
         /**
          * Default options.
@@ -1126,7 +1037,7 @@ function _init() {
             //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
                 message: $(this.element),
-                fadeIn: 700,  
+                fadeIn: 700,
                 showOverlay: this.options.showOverlay,
                 centerX: true,
                 css: {
@@ -1264,5 +1175,6 @@ function _init() {
     });
     
     
+
 }(jQuery));
 

@@ -251,8 +251,8 @@ $(document).ready(function () {
  * Signup.js variables
  * 
  */
-    var clickedButton;
-    var clickedForm;
+var clickedButton;
+var clickedForm;
 
 
 /*
@@ -270,17 +270,17 @@ function resetForm() {
 
     registrationBlockuiResetFormApproval.blockuiApprovalWrapper();
     $('#userGeneralInfoForm').block({
-            message: '<h1>İşlem yapılıyor..</h1>',
-            css: {border: 'none',
-                padding: '15px',
-                backgroundColor: '#008000',
-                '-webkit-border-radius': '10px',
-                '-moz-border-radius': '10px',
-                'border-radius': '10px',
-                opacity: .5,
-                color: '#fff'}
-        });
-        
+        message: '<h1>İşlem yapılıyor..</h1>',
+        css: {border: 'none',
+            padding: '15px',
+            backgroundColor: '#008000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            'border-radius': '10px',
+            opacity: .5,
+            color: '#fff'}
+    });
+
     registrationBlockuiResetFormApproval.blockuiApprovalWrapper('test');
 }
 
@@ -347,6 +347,133 @@ function activateButtons() {
     }
 }
 
+
+/*
+ * Function: Checks tabs (in this function user address info tab) activation, 
+ * based on user general information form conditions. 
+ * @author: bahram lotfi sadigh
+ * @since: 2016.1.26
+ */
+
+function checkUGI() {
+
+    if ($("#addressTabActivationController").val() === true) {
+
+        /*
+         * last insert id test on query success will be written here 
+         */
+
+    } else {
+
+        if ($('#userAddressInfoTab').hasClass('active')) {
+
+        } else if ($('#userAddressInfoTab').hasClass('disabled')) {
+
+            registrationBlockuiPreventAddressTab.blockuiApprovalWrapper('option', {
+                backgroundColor: '#FF0000',
+                fadeOut: '700'
+            });
+            $('#informationTabContents').block({
+                message: '<h1>İşlem yapılıyor..</h1>',
+                css: {border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#FF0000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    'border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'}
+            });
+            registrationBlockuiPreventAddressTab.blockuiApprovalWrapper('test');
+
+        }
+    }
+}
+
+/*
+ * Function: Checks tabs (in this function user communication info tab) activation, 
+ * based on user address information form conditions. 
+ * @author: bahram lotfi sadigh
+ * @since: 2016.1.26
+ */
+
+function checkUAI() {
+
+    if ($("#communicationTabActivationController").val() === true) {
+
+        /*
+         * last insert id test on query success will be written here 
+         */
+
+    } else {
+
+        if ($('#userCommunicationInfoTab').hasClass('active')) {
+
+        } else if ($('#userCommunicationInfoTab').hasClass('disabled')) {
+
+            registrationBlockuiPreventCommunicationTab.blockuiApprovalWrapper('option', {
+                backgroundColor: '#FF0000',
+                fadeOut: '700'
+            });
+            $('#informationTabContents').block({
+                message: "<h1><?php echo $this->translate('Under progress...') ?></h1>",
+                css: {border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#FF0000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    'border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'}
+            });
+            registrationBlockuiPreventCommunicationTab.blockuiApprovalWrapper('test');
+
+        }
+    }
+}
+
+/*
+ * Function: Checks tabs (in this function user communication info tab) activation, 
+ * based on user address information form conditions. 
+ * @author: bahram lotfi sadigh
+ * @since: 2016.1.26
+ */
+
+function checkCI() {
+
+    if ($("#companyTabActivationController").val() === true) {
+
+        /*
+         * last insert id test on query success will be written here 
+         */
+
+    } else {
+
+        if ($('#companyInfoTab').hasClass('active')) {
+
+        } else if ($('#companyInfoTab').hasClass('disabled')) {
+
+            registrationBlockuiPreventCompanyTab.blockuiApprovalWrapper('option', {
+                backgroundColor: '#FF0000',
+                fadeOut: '700'
+            });
+            $('#informationTabContents').block({
+                message: "<h1><?php echo $this->translate('Under progress...') ?></h1>",
+                css: {border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#FF0000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    'border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'}
+            });
+            registrationBlockuiPreventCompanyTab.blockuiApprovalWrapper('test');
+
+        }
+    }
+}
+
 /*
  * Growls js section
  * @author: Bahram Lotfi Sadigh
@@ -355,15 +482,39 @@ function activateButtons() {
 
 var registrationBlockuiResetFormApproval = $("#growlUI-resetFormApproval").blockuiApprovalWrapper();
 var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiWrapper();
+/*
+ * tab controller growls
+ */
+var registrationBlockuiPreventAddressTab = $("#growlUI-addressTabPrevention").blockuiApprovalWrapper();
+var registrationBlockuiPreventCommunicationTab = $("#growlUI-communicationTabPrevention").blockuiApprovalWrapper();
+var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").blockuiApprovalWrapper();
 
 function resetConfirmation() {
-    clickedForm.reset();    
+    clickedForm.reset();
     $.unblockUI();
     return true;
 }
 
 function resetRejection() {
         
-    return false;
+    $.unblockUI();
+    $("#informationTabContents").unblock();
+    event.preventDefault();
+    
 }
+
+function preventTab() {
+    $.unblockUI();
+    $("#informationTabContents").unblock();
+    event.preventDefault();
+
+    $("#companyInfoTab").removeClass('active');
+    $("#userInfoTab").addClass('active');
+
+    $("#userCommunicationInfoTab").removeClass('active');
+    $("#userAddressInfoTab").removeClass('active');
+    $("#userGeneralInfoTab").addClass('active');
+}
+
+
 

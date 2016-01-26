@@ -11,7 +11,13 @@
     <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 
     <!-- Success last insert id hidden will be here 
-    <input id="tabActivationController" type="hidden"  value=value="<?php echo $this->tabActivationController; ?>"></input>
+    <input id="addressTabActivationController" type="hidden"  value=value="<?php echo $this->tabActivationController; ?>"></input>
+    -->
+    <!-- Success last insert id hidden will be here 
+    <input id="communicationTabActivationController" type="hidden"  value=value="<?php echo $this->tabActivationController; ?>"></input>
+    -->    
+    <!-- Success last insert id hidden will be here 
+    <input id="companyTabActivationController" type="hidden"  value=value="<?php echo $this->tabActivationController; ?>"></input>
     -->
 
     <body>
@@ -1026,7 +1032,7 @@
                                         <?php echo $this->translate('User Information') ?>
                                     </a>
                                 </li>
-                                <li id="companyInfoTab" class="disabled">
+                                <li id="companyInfoTab" class="disabled" onclick="checkCI()">
                                     <a href="" data-toggle="tab">
                                         <?php echo $this->translate('Company Information') ?>
                                     </a>
@@ -1044,18 +1050,18 @@
                                                     <?php echo $this->translate('User General Information') ?>
                                                 </a>
                                             </li>
-                                            <li id="userAddressInfoTab" class="disabled">
+                                            <li id="userAddressInfoTab" class="disabled" onclick="checkUGI()">
                                                 <a href="" data-toggle="tab">
                                                     <?php echo $this->translate('User Address Information') ?>
                                                 </a>
                                             </li>
-                                            <li id="userCommunicationInfoTab" class="disabled">
+                                            <li id="userCommunicationInfoTab" class="disabled" onclick="checkUAI()">
                                                 <a href="" data-toggle="tab">
                                                     <?php echo $this->translate('User Communication Information') ?>
                                                 </a>
                                             </li>
                                         </ul>                
-                                        <div class="tab-content">
+                                        <div class="tab-content" id="informationTabContents">
                                             <!-- User General Info  -->
                                             <div class="tab-pane fade in active" id="userGeneralInfo">
                                                 <form id="userGeneralInfoForm" class="sky-form">
@@ -1514,26 +1520,63 @@
             <!-- Reset Successful Growl -->
             <!-- Successful new role submission growl -->
             <div id="growlUI-successfulReset" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href=""/>Form fields are clear</h3>
+                <h3><a lang="en" href="#"/>Form fields are clear</h3>
             </div>
             <!--// Reset Successful growl -->
+
+            <!-- Reset Approval Growl -->
+            <div id="growlUI-resetFormApproval" class='growlUI2' style="display:none">    
+                <h3><a lang="en" href="#"/>Are you sure to erase all form fields?</h3>
+                <h4>
+                    <button type='submit' 
+                            id='resetForm-btn' class="btn btn-success" 
+                            onclick="resetConfirmation()">
+                        <i class="fa fa-check"></i><a lang="en" href=""/>Reset</button>
+                    <button type='button' 
+                            id='notResetForm-btn' class="btn btn-danger" 
+                            onclick="resetRejection()">
+                        <i class="fa fa-times"></i><a lang="en" href=""/>Cancel</button>
+                </h4>
+            </div>
+            <!--// Reset Approval growl -->
+
+            <!-- Address Tab Prevention Growl -->
+            <div id="growlUI-addressTabPrevention" class='growlUI' style="display:none">    
+                <h3><a lang="en" href="#"/>Please fill user general information form first.</h3>
+                <h4>
+                    <button type='submit' 
+                            id='addressTabPreventionBtn-btn' class="btn btn-danger" 
+                            onclick="preventTab()">
+                        <i class="fa fa-check"></i><a lang="en" href=""/>OK</button>
+                </h4>
+            </div>
+            <!--// Address Tab Prevention growl -->
+            
+            <!-- Communication Tab Prevention Growl -->
+            <div id="growlUI-communicationTabPrevention" class='growlUI' style="display:none">    
+                <h3><a lang="en" href="#"/>Please fill user general and address information forms first</h3>
+                <h4>
+                    <button type='submit' 
+                            id='communicationTabPreventionBtn-btn' class="btn btn-danger" 
+                            onclick="preventTab()">
+                        <i class="fa fa-check"></i><a lang="en" href=""/>OK</button>
+                </h4>
+            </div>
+            <!--// Communication Tab Prevention growl -->
+                        
+            <!-- Company Tab Prevention Growl -->
+            <div id="growlUI-companyTabPrevention" class='growlUI' style="display:none">    
+                <h3><a lang="en" href="#"/>Please fill user information forms first</h3>
+                <h4>
+                    <button type='submit' 
+                            id='companyTabPreventionBtn-btn' class="btn btn-danger" 
+                            onclick="preventTab()">
+                        <i class="fa fa-check"></i><a lang="en" href=""/>OK</button>
+                </h4>
+            </div>
+            <!--// Company Tab Prevention growl -->
         </div>
 
-        <!-- Reset Approval Growl -->
-        <div id="growlUI-resetFormApproval" class='growlUI' style="display:none" >    
-            <h3><a lang="en" href=""/>Are you sure to erase all form fields?</h3>
-            <h4>
-                <button type='submit' 
-                        id='resetForm-btn' class="btn btn-success" 
-                        onclick="resetConfirmation()">
-                    <i class="fa fa-check"></i><a lang="en" href=""/>Reset</button>
-                <button type='button' 
-                        id='notResetForm-btn' class="btn btn-danger" 
-                        onclick="resetRejection()">
-                    <i class="fa fa-times"></i><a lang="en" href=""/>Cancel</button>
-            </h4>
-        </div>
-        <!--// Reset Approval growl -->
 
         <!--********************************************************************-->
         <!--//********************* End of growls ******************************-->
