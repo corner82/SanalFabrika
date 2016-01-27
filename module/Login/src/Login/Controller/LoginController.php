@@ -45,18 +45,18 @@
                      * @since 04/01/2016
                      */
                     $publicKey = $this->getServiceLocator()->get('servicePublicKeyGenerator');
-                    
+
                     /**
                      * when public key not created service returns true,
                      * if public key true we should logout
                      * @author Mustafa Zeynel Dağlı
                      * @since 27/01/2016
                      */
-                    if($publicKey == true) {
+                    if($publicKey!=true) {
+                        $event = $this->getEvent();
                         $authManager->getStorage()->clear();
                         $response = $this->getResponse();  
-                        $url = $this->getEvent()->getRouter()->assemble(array('action' => 'index'), array('name' => 'login'));
-                        //$response = $event->getResponse();  
+                        $url = $event->getRouter()->assemble(array('action' => 'index'), array('name' => 'login'));  
                         $response->setHeaders( $response->getHeaders ()->addHeaderLine ('Location', $url));
                         $response->setStatusCode(302);
                         $response->sendHeaders();
