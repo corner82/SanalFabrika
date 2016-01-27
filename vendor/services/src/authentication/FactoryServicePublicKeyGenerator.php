@@ -36,7 +36,6 @@ class FactoryServicePublicKeyGenerator  implements FactoryInterface{
             $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
             $publicKey = true;
             if(isset($result[0]['public_key'])) $publicKey = $result[0]['public_key'];
-            
 
             $errorInfo = $statement->errorInfo();
             if ($errorInfo[0] != "00000" && $errorInfo[1] != NULL && $errorInfo[2] != NULL)
