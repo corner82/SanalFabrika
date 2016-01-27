@@ -14,7 +14,7 @@
                     "func": function(field, rules, i, options){
                         return (field.val() == "test") ? true : false;
                     },
-                    "alertText": "* Field must equal test"
+                    "alertText": "* Field must be equal to 'test'"
                 },
                 "minSize": {
                     "regex": "none",

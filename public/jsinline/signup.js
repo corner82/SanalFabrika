@@ -11,6 +11,22 @@ $(document).ready(function () {
     $('#userCommunicationInfoFormSubmit').addClass('disabled');
     $('#userCommunicationInfoFormFinalize').attr('disabled', true);
     $('#userCommunicationInfoFormSubmit').attr('disabled', true);
+    
+    /* 
+     * Validations binder
+     * 
+     */
+    
+    jQuery("#userGeneralInfoForm").validationEngine();
+    jQuery("#userAddressInfoForm").validationEngine();
+    jQuery("#userCommunicationInfoForm").validationEngine();
+    jQuery("#companyInfoForm").validationEngine();
+    
+    
+    /*
+     * List of countries combobox ajax
+     */
+    
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -41,6 +57,11 @@ $(document).ready(function () {
             }
         }
     });
+
+   
+    /*
+     * List of provinces combobox ajax based on selected country
+     */
 
     $("select#usercountry").on('change', function () {
 
@@ -80,11 +101,14 @@ $(document).ready(function () {
         });
     });
 
+ 
+    /*
+     * List of districts combobox ajax based on selected country and province
+     */
+    
     $("select#usercity").on('change', function () {
 
         var selectedCity = $('#usercity option:selected');
-//    console.log($('#country1 :selected').text()); 
-//    console.log($('#country1 :selected').val());
         var selectedCityId = $('#usercity :selected').val();
         var selectedCountryId = $('#usercountry :selected').val();
 
@@ -126,12 +150,15 @@ $(document).ready(function () {
         });
     });
 
-
+ 
+    /*
+     * List of villages combobox ajax based on selected country, province
+     * and district
+     */
+    
     $("select#userdistrict").on('change', function () {
 
         var selectedDistrict = $('#userdistrict option:selected');
-//    console.log($('#country1 :selected').text()); 
-//    console.log($('#country1 :selected').val());
         var selectedDistrictId = $('#userdistrict :selected').val();
         var selectedCityId = $('#usercity :selected').val();
         var selectedCountryId = $('#usercountry :selected').val();
@@ -174,6 +201,11 @@ $(document).ready(function () {
         });
     });
 
+ 
+    /*
+     * List of System languages combobox ajax
+     */
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -202,7 +234,10 @@ $(document).ready(function () {
             }
         }
     });
-
+ 
+    /*
+     * List of communication types combobox ajax
+     */
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -235,6 +270,11 @@ $(document).ready(function () {
     });
 
 
+     
+    /*
+     * Buttons function binder
+     */
+
     $('#userGeneralInfoFormSubmit').submit(submitUserGeneralInfoForm);
     $('#userAddressInfoFormSubmit').submit(submitUserAddressInfoForm);
     $('#userCommunicationInfoFormSubmit').submit(submitUserCommunicationInfoForm);
@@ -253,7 +293,10 @@ $(document).ready(function () {
  */
 var clickedButton;
 var clickedForm;
-var currentActiveTabId;
+
+var makePublicProfile;
+
+
 
 
 /*
@@ -299,18 +342,48 @@ function submitUserGeneralInfoForm() {
     $('#userAddressInfo').attr('class', "tab-pane fade in active");
     $('#userGeneralInfoTab').removeClass('active');
     $('#userAddressInfoTab').addClass('active');
-    currentActiveTabId = 'userAddressInfoTab';
     $('#userAddressInfoTab').removeClass('disabled');
+    
     /*
-     * not to display tab:
-     * use tab plugin close 
-     * or 
-     * append href to the tab attribute
+     * not to display tab:*****************************************************
+     * use tab plugin close ***************************************************
+     * or *********************************************************************
+     * append href to the tab attribute ***************************************
      */
     
-    $('#userGeneralInfoTab').attr('href', '#userGeneralInfo');
+    console.log($('#userFirstName').val() + '  ' + $('#userLastName').val() +  '  ' +
+            '   ' + $('#preferedUsername').val() + '  ' + $('#userPreferedPassword').val() +
+            '   ' + $('#useremail').val() + '   ' + $('#userIdNumber').val()+
+            '   ' + $('#userPreferedLanguage').val() + '   ' + makePublicProfile);
+        
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+        data: {
+            url: 'tempInsert_infoUsers',
+            language_code: $("#langCode").val(),      
+            name: $("#userFirstName").val(), 
+            surname: $('#userLastName').val(), 
+            username: $('#preferedUsername').val(), 
+            password: $('#userPreferedPassword').val(), 
+            auth_email: $('#useremail').val(), 
+            personIdNumber: $('#userIdNumber').val(), 
+            preferred_language : $('#userPreferedLanguage').val(),       
+            profile_public: makePublicProfile
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+            console.log(jqXHR);
+        }
+    });
     
-    console.log($($('#userGeneralInfoTab').valueOf("href")));
+    $('#userAddressInfoTab').attr('href', '#userAddressInfo');
+      
     event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
 
@@ -322,7 +395,6 @@ function submitUserAddressInfoForm() {
     $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
     $('#userAddressInfoTab').removeClass('active');
     $('#userCommunicationInfoTab').addClass('active');
-    currentActiveTabId = 'userCommunicationInfoTab';
     $('#userCommunicationInfoTab').removeClass('disabled');
     event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
@@ -337,7 +409,6 @@ function submitUserCommunicationInfoForm() {
     $('#userCommunicationInfoTab').removeClass('active');
     $('#userInfoTab').removeClass('active');
     $('#companyInfoTab').addClass('active');
-    currentActiveTabId = 'companyInfoTab';
     $('#companyInfoTab').removeClass('disabled');
     event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
@@ -387,7 +458,6 @@ function checkUGI() {
 
         if ($('#userAddressInfoTab').hasClass('active')) {
 
-            console.log('here');
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
 
             registrationBlockuiPreventAddressTab.blockuiApprovalWrapper('option', {
@@ -562,6 +632,15 @@ function preventTab() {
     $("#userCommunicationInfoTab").removeClass('active');
     $("#userAddressInfoTab").removeClass('active');
     $("#userGeneralInfoTab").addClass('active');
+}
+
+function changePublicProfile(){
+    
+    if($("#makePublicProfile").attr('checked') === 'checked'){
+        makePublicProfile = 0;
+    }else {
+        makePublicProfile = 1;
+    }
 }
 
 
