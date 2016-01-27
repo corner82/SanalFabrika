@@ -34,13 +34,15 @@ class FactoryServicePublicKeyGenerator  implements FactoryInterface{
             //echo debugPDO($sql, $parameters);
             $statement->execute();
             $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            $publicKey = $result[0]['public_key'];
+            $publicKey = true;
+            if(isset($result[0]['public_key'])) $publicKey = $result[0]['public_key'];
+            
 
             $errorInfo = $statement->errorInfo();
             if ($errorInfo[0] != "00000" && $errorInfo[1] != NULL && $errorInfo[2] != NULL)
                 throw new \PDOException($errorInfo[0]);
             //return array("found" => true, "errorInfo" => $errorInfo, "resultSet" => $result);
-            return $result[0]['public_key'];
+            return $publicKey;
         } catch (\PDOException $e /* Exception $e */) {
             $pdo->rollback();
             return array("found" => false, "errorInfo" => $e->getMessage());

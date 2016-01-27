@@ -26,7 +26,7 @@
             $validatorChain = new \Zend\Validator\ValidatorChain();
             $validatorChain->attach(
                                 new \Zend\Validator\StringLength(array('min' => 6,
-                                                                     'max' => 15)))
+                                                                     'max' => 100)))
                            /*->attach(new \Zend\I18n\Validator\Alnum())*/
                            ->attach(new \Zend\Validator\NotEmpty())
                            ->attach(new \Zend\Validator\EmailAddress());
@@ -45,6 +45,24 @@
                      * @since 04/01/2016
                      */
                     $publicKey = $this->getServiceLocator()->get('servicePublicKeyGenerator');
+                    
+                    /**
+                     * when public key not created service returns true,
+                     * if public key true we should logout
+                     * @author Mustafa Zeynel Dağlı
+                     * @since 27/01/2016
+                     */
+                    if($publicKey == true) {
+                        $authManager->getStorage()->clear();
+                        $response = $this->getResponse();  
+                        $url = $this->getEvent()->getRouter()->assemble(array('action' => 'index'), array('name' => 'login'));
+                        //$response = $event->getResponse();  
+                        $response->setHeaders( $response->getHeaders ()->addHeaderLine ('Location', $url));
+                        $response->setStatusCode(302);
+                        $response->sendHeaders();
+                        $event->stopPropagation();       
+                        exit ();
+                    }
 
                     $authManager->getStorage()->write(
                              array('id'          => $result->getIdentity(),
