@@ -11,22 +11,22 @@ $(document).ready(function () {
     $('#userCommunicationInfoFormSubmit').addClass('disabled');
     $('#userCommunicationInfoFormFinalize').attr('disabled', true);
     $('#userCommunicationInfoFormSubmit').attr('disabled', true);
-    
+
     /* 
      * Validation binder
      * 
      */
-    
-    jQuery("#userGeneralInfoForm").validationEngine();
-    jQuery("#userAddressInfoForm").validationEngine();
-    jQuery("#userCommunicationInfoForm").validationEngine();
-    jQuery("#companyInfoForm").validationEngine();
-    
-    
+
+    $("#userGeneralInfoForm").validationEngine();
+    $("#userAddressInfoForm").validationEngine();
+    $("#userCommunicationInfoForm").validationEngine();
+    $("#companyInfoForm").validationEngine();
+
+
     /*
      * List of countries combobox ajax
      */
-    
+
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -58,7 +58,7 @@ $(document).ready(function () {
         }
     });
 
-   
+
     /*
      * List of provinces combobox ajax based on selected country
      */
@@ -101,11 +101,11 @@ $(document).ready(function () {
         });
     });
 
- 
+
     /*
      * List of districts combobox ajax based on selected country and province
      */
-    
+
     $("select#usercity").on('change', function () {
 
         var selectedCityId = $('#usercity :selected').val();
@@ -149,12 +149,12 @@ $(document).ready(function () {
         });
     });
 
- 
+
     /*
      * List of villages combobox ajax based on selected country, province
      * and district
      */
-    
+
     $("select#userdistrict").on('change', function () {
 
         var selectedDistrictId = $('#userdistrict :selected').val();
@@ -199,7 +199,7 @@ $(document).ready(function () {
         });
     });
 
- 
+
     /*
      * List of System languages combobox ajax
      */
@@ -232,7 +232,7 @@ $(document).ready(function () {
             }
         }
     });
- 
+
     /*
      * List of communication types combobox ajax
      */
@@ -268,7 +268,7 @@ $(document).ready(function () {
     });
 
 
-     
+
     /*
      * Buttons function binder
      */
@@ -291,11 +291,7 @@ $(document).ready(function () {
  */
 var clickedButton;
 var clickedForm;
-
 var makePublicProfile;
-
-
-
 
 /*
  * Reset Form Elements
@@ -308,22 +304,12 @@ function resetForm() {
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
 
-    registrationBlockuiResetFormApproval.blockuiApprovalWrapper('option', {
-        backgroundColor: '#FF0000',
-        fadeOut: '700'
-    });
-    $('#informationTabContents').block({
-        message: "<h1><?php echo $this->translate('Under progress...') ?></h1>",
-        css: {border: 'none',
-            padding: '15px',
-            backgroundColor: '#FF0000',
-            '-webkit-border-radius': '10px',
-            '-moz-border-radius': '10px',
-            'border-radius': '10px',
-            opacity: .5,
-            color: '#fff'}
-    });
-    registrationBlockuiResetFormApproval.blockuiApprovalWrapper('test');
+//    registrationBlockuiResetFormApproval.blockuiCentered('option', {
+//        backgroundColor: '#FF0000',
+//        fadeOut: '700'
+//    });
+    $('#informationTabContents').blockElement();
+    registrationBlockuiResetFormApproval.blockuiCentered('show');
 
 }
 
@@ -336,81 +322,99 @@ function resetForm() {
  */
 function submitUserGeneralInfoForm() {
 
-    $('#userGeneralInfo').attr('class', "tab-pane fade");
-    $('#userAddressInfo').attr('class', "tab-pane fade in active");
-    $('#userGeneralInfoTab').removeClass('active');
-    $('#userAddressInfoTab').addClass('active');
-    $('#userAddressInfoTab').removeClass('disabled');
-    
     /*
      * not to display tab:*****************************************************
      * use tab plugin close ***************************************************
      * or *********************************************************************
      * append href to the tab attribute ***************************************
      */
-    
-    console.log($('#userFirstName').val() + '  ' + $('#userLastName').val() +  '  ' +
+
+    console.log($('#userFirstName').val() + '  ' + $('#userLastName').val() + '  ' +
             '   ' + $('#preferedUsername').val() + '  ' + $('#userPreferedPassword').val() +
-            '   ' + $('#useremail').val() + '   ' + $('#userIdNumber').val()+
+            '   ' + $('#useremail').val() + '   ' + $('#userIdNumber').val() +
             '   ' + $('#userPreferedLanguage').val() + '   ' + makePublicProfile);
-        
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+
+
+    if ($('#userGeneralInfoForm').validationEngine() === 'validate') {
+
+
+        $('#userGeneralInfo').attr('class', "tab-pane fade");
+        $('#userAddressInfo').attr('class', "tab-pane fade in active");
+        $('#userGeneralInfoTab').removeClass('active');
+        $('#userAddressInfoTab').addClass('active');
+        $('#userAddressInfoTab').removeClass('disabled');
+
+        console.log($('#userGeneralInfoForm').validationEngine());
+
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-        data: {
-            url: 'tempInsert_infoUsers',
-            language_code: $("#langCode").val(),      
-            name: $("#userFirstName").val(), 
-            surname: $('#userLastName').val(), 
-            username: $('#preferedUsername').val(), 
-            password: $('#userPreferedPassword').val(), 
-            auth_email: $('#useremail').val(), 
-            personIdNumber: $('#userIdNumber').val(), 
-            preferred_language : $('#userPreferedLanguage').val(),       
-            profile_public: makePublicProfile
-        },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-            console.log(data);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
+            data: {
+                url: 'tempInsert_infoUsers',
+                language_code: $("#langCode").val(),
+                name: $("#userFirstName").val(),
+                surname: $('#userLastName').val(),
+                username: $('#preferedUsername').val(),
+                password: $('#userPreferedPassword').val(),
+                auth_email: $('#useremail').val(),
+                personIdNumber: $('#userIdNumber').val(),
+                preferred_language: $('#userPreferedLanguage').val(),
+                profile_public: makePublicProfile
+            },
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
 
-            console.log(jqXHR);
-        }
-    });
-    
-    $('#userAddressInfoTab').attr('href', '#userAddressInfo');
-      
-    event.preventDefault();
-    $("html, body").animate({scrollTop: 0}, "slow");
+                console.log(jqXHR);
+            }
+        });
 
+        $('#userAddressInfoTab').attr('href', '#userAddressInfo');
+
+        event.preventDefault();
+        $("html, body").animate({scrollTop: 0}, "slow");
+
+    } else {
+        console.log($('#userGenerlaInfoForm').validationEngine());
+    }
 }
 
 function submitUserAddressInfoForm() {
 
-    $('#userAddressInfo').attr('class', "tab-pane fade");
-    $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
-    $('#userAddressInfoTab').removeClass('active');
-    $('#userCommunicationInfoTab').addClass('active');
-    $('#userCommunicationInfoTab').removeClass('disabled');
-    event.preventDefault();
-    $("html, body").animate({scrollTop: 0}, "slow");
+
+    if ($('#userAddressInfoForm').validationEngine() === 'validate') {
+
+
+        $('#userAddressInfo').attr('class', "tab-pane fade");
+        $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
+        $('#userAddressInfoTab').removeClass('active');
+        $('#userCommunicationInfoTab').addClass('active');
+        $('#userCommunicationInfoTab').removeClass('disabled');
+        event.preventDefault();
+        $("html, body").animate({scrollTop: 0}, "slow");
+
+    }
 
 }
 
 function submitUserCommunicationInfoForm() {
 
-    $('#userCommunicationInfo').attr('class', "tab-pane fade");
-    $('#userInfo').attr('class', "tab-pane fade");
-    $('#companyInfo').attr('class', "tab-pane fade in active");
-    $('#userCommunicationInfoTab').removeClass('active');
-    $('#userInfoTab').removeClass('active');
-    $('#companyInfoTab').addClass('active');
-    $('#companyInfoTab').removeClass('disabled');
-    event.preventDefault();
-    $("html, body").animate({scrollTop: 0}, "slow");
+    if ($('#userCommunicationInfoForm').validationEngine() === 'validate') {
 
+
+        $('#userCommunicationInfo').attr('class', "tab-pane fade");
+        $('#userInfo').attr('class', "tab-pane fade");
+        $('#companyInfo').attr('class', "tab-pane fade in active");
+        $('#userCommunicationInfoTab').removeClass('active');
+        $('#userInfoTab').removeClass('active');
+        $('#companyInfoTab').addClass('active');
+        $('#companyInfoTab').removeClass('disabled');
+        event.preventDefault();
+        $("html, body").animate({scrollTop: 0}, "slow");
+    }
 }
 
 function finalizeUserCommunicationInfoForm() {
@@ -458,24 +462,14 @@ function checkUGI() {
 
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
 
-            registrationBlockuiPreventAddressTab.blockuiApprovalWrapper('option', {
-                backgroundColor: '#FF0000',
-                fadeOut: '700'
-            });
-            $('#informationTabContents').block({
-                message: "<h1><?php echo $this->translate('Under progress...') ?></h1>",
-                css: {border: 'none',
-                    padding: '15px',
-                    backgroundColor: '#FF0000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    'border-radius': '10px',
-                    opacity: .5,
-                    color: '#fff'}
-            });
-            registrationBlockuiPreventAddressTab.blockuiApprovalWrapper('test');
+//            registrationBlockuiPreventAddressTab.blockuiCentered('option', {
+//                backgroundColor: '#FF0000',
+//                fadeOut: '700'
+//            });
+            $('#informationTabContents').blockElement();
+            registrationBlockuiPreventAddressTab.blockuiCentered('show');
 
-        } 
+        }
     }
 }
 
@@ -500,22 +494,12 @@ function checkUAI() {
 
         } else if ($('#userCommunicationInfoTab').hasClass('disabled')) {
 
-            registrationBlockuiPreventCommunicationTab.blockuiApprovalWrapper('option', {
-                backgroundColor: '#FF0000',
-                fadeOut: '700'
-            });
-            $('#informationTabContents').block({
-                message: "<h1><?php echo $this->translate('Under progress...') ?></h1>",
-                css: {border: 'none',
-                    padding: '15px',
-                    backgroundColor: '#FF0000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    'border-radius': '10px',
-                    opacity: .5,
-                    color: '#fff'}
-            });
-            registrationBlockuiPreventCommunicationTab.blockuiApprovalWrapper('test');
+//            registrationBlockuiPreventCommunicationTab.blockuiCentered('option', {
+//                backgroundColor: '#FF0000',
+//                fadeOut: '700'
+//            });
+            $('#informationTabContents').blockElement();
+            registrationBlockuiPreventCommunicationTab.blockuiCentered('show');
 
         }
     }
@@ -542,22 +526,9 @@ function checkCI() {
 
         } else if ($('#companyInfoTab').hasClass('disabled')) {
 
-            registrationBlockuiPreventCompanyTab.blockuiApprovalWrapper('option', {
-                backgroundColor: '#FF0000',
-                fadeOut: '700'
-            });
-            $('#informationTabContents').block({
-                message: "<h1><?php echo $this->translate('Under progress...') ?></h1>",
-                css: {border: 'none',
-                    padding: '15px',
-                    backgroundColor: '#FF0000',
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    'border-radius': '10px',
-                    opacity: .5,
-                    color: '#fff'}
-            });
-            registrationBlockuiPreventCompanyTab.blockuiApprovalWrapper('test');
+//            registrationBlockuiPreventCompanyTab.blockuiCentered();
+            $('#informationTabContents').blockElement();
+            registrationBlockuiPreventCompanyTab.blockuiCentered('show');
 
         }
     }
@@ -569,15 +540,22 @@ function checkCI() {
  * @since: 2016.1.26
  */
 
-var registrationBlockuiResetFormApproval = $("#growlUI-resetFormApproval").blockuiApprovalWrapper();
-var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiWrapper();
-var registrationBlockuiCancelReset = $("#growlUI-cancelReset").blockuiWrapper();
+var registrationBlockuiResetFormApproval = $("#growlUI-resetFormApproval").blockuiCentered();
+var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiCentered();
+var registrationBlockuiCancelReset = $("#growlUI-cancelReset").blockuiCentered();
 /*
  * tab controller growls
  */
-var registrationBlockuiPreventAddressTab = $("#growlUI-addressTabPrevention").blockuiApprovalWrapper();
-var registrationBlockuiPreventCommunicationTab = $("#growlUI-communicationTabPrevention").blockuiApprovalWrapper();
-var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").blockuiApprovalWrapper();
+var registrationBlockuiPreventAddressTab = $("#growlUI-addressTabPrevention").blockuiCentered();
+var registrationBlockuiPreventCommunicationTab = $("#growlUI-communicationTabPrevention").blockuiCentered();
+var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").blockuiCentered();
+
+/*
+ * 
+ * @returns {undefined}
+ * functions section
+ * 
+ */
 
 function resetConfirmation() {
     clickedForm.reset();
@@ -585,11 +563,11 @@ function resetConfirmation() {
     $.unblockUI();
     $("#informationTabContents").unblock();
 
-    registrationBlockuiSuccessfulReset.blockuiWrapper('option', {
-        fadeOut: '2000',
-        backgroundColor: '0080000'
-    });
-    registrationBlockuiSuccessfulReset.blockuiWrapper('test');
+//    registrationBlockuiSuccessfulReset.blockuiCentered('option', {
+//        fadeOut: '2000',
+//        backgroundColor: '0080000'
+//    });
+    registrationBlockuiSuccessfulReset.blockuiCentered('show');
 }
 
 /*
@@ -604,11 +582,10 @@ function resetRejection() {
     $.unblockUI();
     $("#informationTabContents").unblock();
     event.preventDefault();
-    registrationBlockuiCancelReset.blockuiWrapper('option', {
-        fadeOut: '2000',
-        backgroundColor: 'FF0000'
+    registrationBlockuiCancelReset.blockuiCentered('option', {
+        fadeOut: '700'
     });
-    registrationBlockuiCancelReset.blockuiWrapper('test');
+    registrationBlockuiCancelReset.blockuiCentered('show');
 }
 
 /*
@@ -632,14 +609,15 @@ function preventTab() {
     $("#userGeneralInfoTab").addClass('active');
 }
 
-function changePublicProfile(){
-    
-    if($("#makePublicProfile").attr('checked') === 'checked'){
+function changePublicProfile() {
+
+    if ($("#makePublicProfile").attr('checked') === 'checked') {
         makePublicProfile = 0;
-    }else {
+    } else {
         makePublicProfile = 1;
     }
 }
+
 
 
 
