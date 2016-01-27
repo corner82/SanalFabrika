@@ -13,7 +13,7 @@ $(document).ready(function () {
     $('#userCommunicationInfoFormSubmit').attr('disabled', true);
     
     /* 
-     * Validations binder
+     * Validation binder
      * 
      */
     
@@ -108,7 +108,6 @@ $(document).ready(function () {
     
     $("select#usercity").on('change', function () {
 
-        var selectedCity = $('#usercity option:selected');
         var selectedCityId = $('#usercity :selected').val();
         var selectedCountryId = $('#usercountry :selected').val();
 
@@ -158,7 +157,6 @@ $(document).ready(function () {
     
     $("select#userdistrict").on('change', function () {
 
-        var selectedDistrict = $('#userdistrict option:selected');
         var selectedDistrictId = $('#userdistrict :selected').val();
         var selectedCityId = $('#usercity :selected').val();
         var selectedCountryId = $('#usercountry :selected').val();
