@@ -1072,7 +1072,8 @@
                                                                 <label class="label"><?php echo $this->translate('First Name') ?></label>
                                                                 <label class="input">
                                                                     <i class="icon-prepend fa fa-users"></i>
-                                                                    <input type="text" name="userFirstName" id="userFirstName">
+                                                                    <input type="text" name="userFirstName" 
+                                                                           id="userFirstName" required="true">
                                                                 </label>
                                                             </section>
                                                             <section>
@@ -1123,14 +1124,14 @@
                                                                            id="userIdNumber" required="true">
                                                                 </label>
                                                             </section>
-                                                            <section>
+<!--                                                            <section>
                                                                 <label class="label"><?php echo $this->translate('Nationality') ?></label>
                                                                 <label class="input">
                                                                     <i class="icon-prepend fa fa-paper-plane"></i>
                                                                     <input type="text" name="userNationality" 
                                                                            id="userNationality" required="true">
                                                                 </label>
-                                                            </section>
+                                                            </section>-->
                                                             <section>
                                                                 <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
                                                                 <label class="select">
@@ -1140,6 +1141,13 @@
                                                                     <i></i>
                                                                 </label>
                                                             </section>
+                                                        </div>
+                                                        <div class="row"> 
+                                                            <label class="checkbox">
+                                                                <input required="true" type="checkbox" name="makePublicProfile" 
+                                                                       id="makePublicProfile" onchange="changePublicProfile()">
+                                                                <i></i><?php echo $this->translate('Make my profile public') ?>
+                                                            </label> 
                                                         </div>
                                                         <footer>
                                                             <div id="userButtons">
@@ -1523,7 +1531,7 @@
                 <h3><a lang="en" href="#"/>Form fields are clear</h3>
             </div>
             <!--// Reset Successful growl -->
-            
+
             <!-- Reset Cancel Growl -->
             <!-- Successful new role submission growl -->
             <div id="growlUI-cancelReset" class='growlUI' style="display:none" >    
@@ -1558,7 +1566,7 @@
                 </h4>
             </div>
             <!--// Address Tab Prevention growl -->
-            
+
             <!-- Communication Tab Prevention Growl -->
             <div id="growlUI-communicationTabPrevention" class='growlUI' style="display:none">    
                 <h3><a lang="en" href="#"/>Please fill user general and address information forms first</h3>
@@ -1570,7 +1578,7 @@
                 </h4>
             </div>
             <!--// Communication Tab Prevention growl -->
-                        
+
             <!-- Company Tab Prevention Growl -->
             <div id="growlUI-companyTabPrevention" class='growlUI' style="display:none">    
                 <h3><a lang="en" href="#"/>Please fill user information forms first</h3>

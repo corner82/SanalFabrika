@@ -47,9 +47,12 @@
         <!-- CSS Customization -->
         <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/custom.css') ?>">
 
-        
         <!-- blockUI CSS -->
         <link href="<?php echo $this->basePath('plugins/jquery-BlockUI/jquery.blockUI.css') ?>" rel="stylesheet" type="text/css" />
+
+        <!-- validation engine css -->
+        <link href="<?php echo $this->basePath('plugins/validationEngine/validationEngine.jquery.css') ?>" rel="stylesheet" type="text/css" />
+
 
 
         <?php echo $this->content; ?>
@@ -78,18 +81,23 @@
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/app.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/masking.js') ?>"></script>
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/datepicker.js') ?>"></script>
-        <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/validation.js') ?>"></script>
+        <!--<script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/validation.js') ?>"></script>-->
         <script src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
-        
+
         <!-- BlockUI -->
         <script src="<?php echo $this->basePath('plugins/jquery-blockUI/jquery.blockUI.js') ?>"></script>
-                
+
+        <!-- Form validation js -->
+        <script src="<?php echo $this->basePath('plugins/validationEngine/jquery.validationEngine-' . $this->layout()->test . '.js'); ?>" type="text/javascript"></script>
+        <!--<script src="<?php echo $this->basePath('plugins/validationEngine/jquery.validationEngine-en.js'); ?>" type="text/javascript"></script>-->
+        <script src="<?php echo $this->basePath('plugins/validationEngine/jquery.validationEngine.js') ?>" type="text/javascript"></script>
+
         <script>
             jQuery(document).ready(function () {
                 App.init();
                 Masking.initMasking();
                 Datepicker.initDatepicker();
-                Validation.initValidation();
+//                Validation.initValidation();
                 StyleSwitcher.initStyleSwitcher();
             });
         </script>
