@@ -8,17 +8,13 @@
     <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:24 GMT -->
 
     <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
-    <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
+    <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>    
+    <input id="pktemp" type="hidden" value=""></input>
+    <input id="lastInsertId" type="hidden"  value=""></input>    
+    <input id="checkGeneralForm" type="hidden" value="0"></input>
+    <input id="checkAddressForm" type="hidden" value="0"></input>
+    <input id="checkCommunicationForm" type="hidden" value="0"></input>
 
-    <!-- Success last insert id hidden will be here 
-    <input id="addressTabActivationController" type="hidden"  value=value="<?php echo $this->tabActivationController; ?>"></input>
-    -->
-    <!-- Success last insert id hidden will be here 
-    <input id="communicationTabActivationController" type="hidden"  value=value="<?php echo $this->tabActivationController; ?>"></input>
-    -->    
-    <!-- Success last insert id hidden will be here 
-    <input id="companyTabActivationController" type="hidden"  value=value="<?php echo $this->tabActivationController; ?>"></input>
-    -->
 
     <body>
         <!--=== Style Switcher ===-->    
@@ -1119,7 +1115,7 @@
                                                                     </div>
                                                                     <input type="password" name="userPreferedPassword" 
                                                                            id="userPreferedPassword" required="true"
-                                                                           class="form-control validate[required,minSize[8]]">
+                                                                           class="form-control validate[required,minSize[8],maxSize[20]]">
                                                                 </div>
                                                             </section>
                                                             <section>
@@ -1238,7 +1234,7 @@
                                                                     </div>
                                                                     <input type="text" name="userStreet" 
                                                                            id="userStreet" required="true"
-                                                                           class="validate[required,custom[onlyLetterNumber]]">
+                                                                           class="form-control validate[required,custom[onlyLetterNumber]]">
                                                                 </div> 
                                                             </section>                                                   
                                                             <section>
@@ -1248,7 +1244,7 @@
                                                                         <i class="fa fa-home"></i>
                                                                     </div>
                                                                     <input type="text" name="userAlley" id="userAlley"
-                                                                           class="validate[required,custom[onlyLetterNumber]]">
+                                                                           class="form-control validate[required,custom[onlyLetterNumber]]">
                                                                 </div>
                                                             </section>                                                  
                                                             <section>
@@ -1259,7 +1255,7 @@
                                                                     </div>
                                                                     <input type="text" name="userAddNumber" 
                                                                            id="userAddNumber" required="true"
-                                                                           class="validate[required,custom[onlyLetterSp]]">
+                                                                           class="form-control validate[required,custom[onlyLetterSp]]">
                                                                 </div>
                                                             </section>                                                  
                                                             <section>
@@ -1269,7 +1265,7 @@
                                                                         <i class="fa fa-home"></i>
                                                                     </div>
                                                                     <input type="text" name="userPostalCode" id="userPostalCode"
-                                                                           class="validate[required,custom[onlyLetterSp]]">
+                                                                           class="form-control validate[required,custom[onlyLetterSp]]">
                                                                 </div>
                                                             </section>
                                                         </div>
@@ -1626,6 +1622,19 @@
             </div>
             <!--// Company Tab Prevention growl -->
         </div>
+
+        <!-- successful general submit Growl -->
+        <div id="growlUI-submitUserGeneralInfoSuccessful" class='growlUI' style="display:none" >    
+            <h3><a lang="en" href="#"/>General information submitted successfully</h3>
+        </div>
+        <!--// successful general submit Growl -->
+        
+        <!-- Unsuccessful general submit Growl -->
+        <div id="growlUI-submitUserGeneralInfoSuccessful" class='growlUI' style="display:none" >    
+            <h3><a lang="en" href="#"/>General information failed</h3>               
+            <h3><a lang="en" href="#"/></h3>
+        </div>
+        <!--// Unsuccessful general submit Growl -->
 
 
         <!--********************************************************************-->

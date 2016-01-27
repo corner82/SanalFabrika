@@ -267,8 +267,6 @@ $(document).ready(function () {
         }
     });
 
-
-
     /*
      * Buttons function binder
      */
@@ -291,7 +289,7 @@ $(document).ready(function () {
  */
 var clickedButton;
 var clickedForm;
-var makePublicProfile;
+var makePublicProfile = 0;
 
 /*
  * Reset Form Elements
@@ -313,13 +311,12 @@ function resetForm() {
 
 }
 
-
-
 /*
  * Submit User Form Elements
  * @Author: Bahram Lotfi Sadigh
  * @Since: 2016.1.21
  */
+
 function submitUserGeneralInfoForm() {
 
     /*
@@ -329,63 +326,116 @@ function submitUserGeneralInfoForm() {
      * append href to the tab attribute ***************************************
      */
 
-    console.log($('#userFirstName').val() + '  ' + $('#userLastName').val() + '  ' +
-            '   ' + $('#preferedUsername').val() + '  ' + $('#userPreferedPassword').val() +
-            '   ' + $('#useremail').val() + '   ' + $('#userIdNumber').val() +
-            '   ' + $('#userPreferedLanguage').val() + '   ' + makePublicProfile);
+
+    if ($('#userGeneralInfoForm').validationEngine('validate')) {
 
 
-    if ($('#userGeneralInfoForm').validationEngine() === 'validate') {
+        $('#userGeneralInfo').removeClass("tab-pane fade in active");
+        $('#userGeneralInfo').addClass("tab-pane fade");
+        $('#userAddressInfo').removeClass("tab-pane fade");
+        $('#userAddressInfo').addClass("tab-pane fade in active");
 
-
-        $('#userGeneralInfo').attr('class', "tab-pane fade");
-        $('#userAddressInfo').attr('class', "tab-pane fade in active");
         $('#userGeneralInfoTab').removeClass('active');
         $('#userAddressInfoTab').addClass('active');
         $('#userAddressInfoTab').removeClass('disabled');
 
-        console.log($('#userGeneralInfoForm').validationEngine());
+        if (!$("#pktemp") === null) {
 
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-            data: {
-                url: 'tempInsert_infoUsers',
-                language_code: $("#langCode").val(),
-                name: $("#userFirstName").val(),
-                surname: $('#userLastName').val(),
-                username: $('#preferedUsername').val(),
-                password: $('#userPreferedPassword').val(),
-                auth_email: $('#useremail').val(),
-                personIdNumber: $('#userIdNumber').val(),
-                preferred_language: $('#userPreferedLanguage').val(),
-                profile_public: makePublicProfile
-            },
-            method: "GET",
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
+            var lastInsertId = $("#lastInsertId");
 
-                console.log(jqXHR);
-            }
-        });
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+                data: {
+                    url: 'pkUpdate_infoUsers',
+                    language_code: $("#langCode").val(),
+                    name: $("#userFirstName").val(),
+                    surname: $('#userLastName').val(),
+                    username: $('#preferedUsername').val(),
+                    password: $('#userPreferedPassword').val(),
+                    auth_email: $('#useremail').val(),
+                    personIdNumber: $('#userIdNumber').val(),
+                    preferred_language: $('#userPreferedLanguage').val(),
+                    profile_public: makePublicProfile,
+                    operation_type_id: 2,
+                    active: 0,
+                    act_parent_id: 0
+                },
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+
+                    $("#checkGeneralForm").val("1");
+                    console.log($("#checkGeneralForm"));
+                    $("#pktemp").val(data.pktemp);
+                    $('#lastInsertId').val(data.lastInsertId);
+
+                    $('#informationTabContents').blockElement();
+                    submitUserGeneralInfoSuccessful.blockuiCentered('show');
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(jqXHR);
+
+                    $('#informationTabContents').blockElement();
+                    submitUserGeneralInfoUnsuccessful.blockuiCentered('show');
+                }
+            });
+
+        } else {
+
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+                data: {
+                    url: 'tempInsert_infoUsers',
+                    language_code: $("#langCode").val(),
+                    name: $("#userFirstName").val(),
+                    surname: $('#userLastName').val(),
+                    username: $('#preferedUsername').val(),
+                    password: $('#userPreferedPassword').val(),
+                    auth_email: $('#useremail').val(),
+                    personIdNumber: $('#userIdNumber').val(),
+                    preferred_language: $('#userPreferedLanguage').val(),
+                    profile_public: makePublicProfile
+                },
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+
+                    $("#pktemp").val(data.pktemp);
+                    console.log('pk ' + $("#pktemp"));
+                    $('#lastInsertId').val(data.lastInsertId);
+                    console.log('lastInsertId ' + $("#lastInsertId"));
+                    $("#checkGeneralForm").val("1");
+                    console.log($("#checkGeneralForm"));
+
+                    $('#informationTabContents').blockElement();
+                    submitUserGeneralInfoSuccessful.blockuiCentered('show');
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    $("#checkGeneralForm").val("0");
+
+
+                    $('#informationTabContents').blockElement();
+                    submitUserGeneralInfoUnsuccessful.blockuiCentered('show');
+                }
+            });
+        }
 
         $('#userAddressInfoTab').attr('href', '#userAddressInfo');
 
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
-
-    } else {
-        console.log($('#userGenerlaInfoForm').validationEngine());
     }
 }
 
 function submitUserAddressInfoForm() {
 
 
-    if ($('#userAddressInfoForm').validationEngine() === 'validate') {
+    if ($('#userAddressInfoForm').validationEngine('validate')) {
 
 
         $('#userAddressInfo').attr('class', "tab-pane fade");
@@ -402,7 +452,7 @@ function submitUserAddressInfoForm() {
 
 function submitUserCommunicationInfoForm() {
 
-    if ($('#userCommunicationInfoForm').validationEngine() === 'validate') {
+    if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
 
         $('#userCommunicationInfo').attr('class', "tab-pane fade");
@@ -450,13 +500,9 @@ function activateButtons() {
 
 function checkUGI() {
 
-    if ($("#addressTabActivationController").val() === true) {
+    if ($("#checkGeneralForm").val() === "1") {
 
-        /*
-         * last insert id test on query success will be written here 
-         */
-
-    } else {
+    } else if ($("#checkGeneralForm").val() === "0") {
 
         if ($('#userAddressInfoTab').hasClass('active')) {
 
@@ -482,13 +528,9 @@ function checkUGI() {
 
 function checkUAI() {
 
-    if ($("#communicationTabActivationController").val() === true) {
+    if ($("#checkAddressForm").val() === "1") {
 
-        /*
-         * last insert id test on query success will be written here 
-         */
-
-    } else {
+    } else if ($("#checkAddressForm").val() === "0") {
 
         if ($('#userCommunicationInfoTab').hasClass('active')) {
 
@@ -514,13 +556,13 @@ function checkUAI() {
 
 function checkCI() {
 
-    if ($("#companyTabActivationController").val() === true) {
+    if ($("#checkCommunicationForm").val() === "1") {
 
         /*
          * last insert id test on query success will be written here 
          */
 
-    } else {
+    } else if ($("#checkCommunicationForm").val() === "0") {
 
         if ($('#companyInfoTab').hasClass('active')) {
 
@@ -549,6 +591,31 @@ var registrationBlockuiCancelReset = $("#growlUI-cancelReset").blockuiCentered()
 var registrationBlockuiPreventAddressTab = $("#growlUI-addressTabPrevention").blockuiCentered();
 var registrationBlockuiPreventCommunicationTab = $("#growlUI-communicationTabPrevention").blockuiCentered();
 var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").blockuiCentered();
+
+/*
+ * @returns {undefined}
+ * Info submission growls
+ * @author: Bahram Lotfi Sadigh
+ * @since: 2016.1.27
+ * 
+ * submit general info
+ */
+var submitUserGeneralInfoSuccessful = $("#growlUI-submitUserGeneralInfoSuccessful").blockuiCentered();
+var submitUserGeneralInfoUnsuccessful = $("#growlUI-submitUserGeneralInfoUnsuccessful").blockuiCentered();
+
+/* 
+ * submit address info
+ */
+var submitUserAddressInfoSuccessful = $("#growlUI-submitUserAddressInfoSuccessful").blockuiCentered();
+var submitUserAddressInfoUnsuccessful = $("#growlUI-submitUserAddressInfoUnsuccessful").blockuiCentered();
+
+
+/* 
+ * submit communication info
+ */
+var submitUserCommunicationInfoSuccessful = $("#growlUI-submitUserCommunicationInfoSuccessful").blockuiCentered();
+var submitUserCommunicationInfoUnsuccessful = $("#growlUI-submitUserCommunicationInfoUnsuccessful").blockuiCentered();
+
 
 /*
  * 
@@ -601,12 +668,54 @@ function preventTab() {
     $("#informationTabContents").unblock();
     event.preventDefault();
 
+    console.log('general    ' + $("#checkGeneralForm").val());
+    console.log('address    ' + $("#checkAddressForm").val());
+    console.log('communication  ' + $("#checkCommunicationForm").val());
+
     $("#companyInfoTab").removeClass('active');
     $("#userInfoTab").addClass('active');
 
     $("#userCommunicationInfoTab").removeClass('active');
     $("#userAddressInfoTab").removeClass('active');
     $("#userGeneralInfoTab").addClass('active');
+
+    if ($("#checkCommunicationForm").val() === "1") {
+        $("#companyInfoTab").addClass('active');
+        $("#userInfoTab").removeClass('active');
+        
+    } else {
+        
+        if ($("#checkAddressForm").val() === "1") {
+
+            $("#companyInfoTab").removeClass('active');
+            $("#userInfoTab").addClass('active');
+            $("#userCommunicationInfoTab").addClass("active");
+            $("#userAddressInfoTab").removeClass('active');
+            $("#userGeneralInfoTab").removeClass('active');
+            
+        } else {
+            
+            if ($("#checkGeneralForm").val() === "1") {
+
+                $("#companyInfoTab").removeClass('active');
+                $("#userInfoTab").addClass('active');
+                $("#userCommunicationInfoTab").removeClass("active");
+                $("#userAddressInfoTab").addClass('active');
+                $("#userGeneralInfoTab").removeClass('active');
+
+            } else {
+
+                $("#companyInfoTab").removeClass('active');
+                $("#userInfoTab").addClass('active');
+                $("#userCommunicationInfoTab").removeClass("active");
+                $("#userAddressInfoTab").removeClass('active');
+                $("#userGeneralInfoTab").addClass('active');
+                
+            }
+        }
+    }
+
+
 }
 
 function changePublicProfile() {
