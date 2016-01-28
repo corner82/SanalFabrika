@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
     /*
      * Disable finalize registration and submit user info before checking 
      * agreement terms and conditions...
@@ -498,15 +499,18 @@ function activateButtons() {
  * @since: 2016.1.26
  */
 
+
 function checkUGI() {
 
     if ($("#checkGeneralForm").val() === "1") {
+
 
     } else if ($("#checkGeneralForm").val() === "0") {
 
         if ($('#userAddressInfoTab').hasClass('active')) {
 
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
+
 
 //            registrationBlockuiPreventAddressTab.blockuiCentered('option', {
 //                backgroundColor: '#FF0000',
@@ -672,19 +676,30 @@ function preventTab() {
     console.log('address    ' + $("#checkAddressForm").val());
     console.log('communication  ' + $("#checkCommunicationForm").val());
 
+    $("#userAddressInfo").hide();
+
     $("#companyInfoTab").removeClass('active');
     $("#userInfoTab").addClass('active');
 
     $("#userCommunicationInfoTab").removeClass('active');
     $("#userAddressInfoTab").removeClass('active');
+    $("#userAddressInfoTab").attr('display', 'hide');
     $("#userGeneralInfoTab").addClass('active');
+
+    $('#userAddressInfo a').tab('hide');
+//    $('#userGeneralInfo a').tab('show');
+
+    $("#secondaryTabs a:last").tab('show');
 
     if ($("#checkCommunicationForm").val() === "1") {
         $("#companyInfoTab").addClass('active');
         $("#userInfoTab").removeClass('active');
-        
+        $("#companyInfoTab").find('a').replaceWith("<a href='#companyInfo' data-toggle='tab'>");
+        console.log($("#companyInfoTab").find('a'));
+
+
     } else {
-        
+
         if ($("#checkAddressForm").val() === "1") {
 
             $("#companyInfoTab").removeClass('active');
@@ -692,9 +707,9 @@ function preventTab() {
             $("#userCommunicationInfoTab").addClass("active");
             $("#userAddressInfoTab").removeClass('active');
             $("#userGeneralInfoTab").removeClass('active');
-            
+
         } else {
-            
+
             if ($("#checkGeneralForm").val() === "1") {
 
                 $("#companyInfoTab").removeClass('active');
@@ -710,7 +725,7 @@ function preventTab() {
                 $("#userCommunicationInfoTab").removeClass("active");
                 $("#userAddressInfoTab").removeClass('active');
                 $("#userGeneralInfoTab").addClass('active');
-                
+
             }
         }
     }

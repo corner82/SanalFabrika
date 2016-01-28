@@ -1022,14 +1022,14 @@
                     <div class="col-md-9">
                         <!-- Tabs -->
                         <div class="tab-v1">
-                            <ul class="nav nav-tabs">
+                            <ul id="primaryTabs" class="nav nav-tabs">
                                 <li id="userInfoTab" class="active">
                                     <a href="#userInfo" data-toggle="tab">
                                         <?php echo $this->translate('User Information') ?>
                                     </a>
                                 </li>
                                 <li id="companyInfoTab" class="disabled" onclick="checkCI()">
-                                    <a href="" data-toggle="tab">
+                                    <a href="#companyInfo" data-toggle="tab">
                                         <?php echo $this->translate('Company Information') ?>
                                     </a>
                                 </li>
@@ -1038,7 +1038,7 @@
                                 <!-- User Info Forms -->
                                 <div class="tab-pane fade in active" id="userInfo">
                                     <div class="tab-v1">
-                                        <ul class="nav nav-tabs">
+                                        <ul id="secondaryTabs" class="nav nav-tabs">
                                             <!-- To disable tabs first it is needed to change tab class to disabled
                                             then remove href attribute value due to deactivate tab transition on click event..-->
                                             <li id="userGeneralInfoTab" class="active">
@@ -1047,12 +1047,12 @@
                                                 </a>
                                             </li>
                                             <li id="userAddressInfoTab" class="disabled" onclick="checkUGI()">
-                                                <a href="" data-toggle="tab">
+                                                <a href="#userAddressInfo" data-toggle="tab">
                                                     <?php echo $this->translate('User Address Information') ?>
                                                 </a>
                                             </li>
                                             <li id="userCommunicationInfoTab" class="disabled" onclick="checkUAI()">
-                                                <a href="" data-toggle="tab">
+                                                <a href="#userCommunicationInfo" data-toggle="tab">
                                                     <?php echo $this->translate('User Communication Information') ?>
                                                 </a>
                                             </li>
