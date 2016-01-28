@@ -676,27 +676,26 @@ function preventTab() {
     console.log('address    ' + $("#checkAddressForm").val());
     console.log('communication  ' + $("#checkCommunicationForm").val());
 
-    $("#userAddressInfo").hide();
-
     $("#companyInfoTab").removeClass('active');
     $("#userInfoTab").addClass('active');
 
     $("#userCommunicationInfoTab").removeClass('active');
     $("#userAddressInfoTab").removeClass('active');
-    $("#userAddressInfoTab").attr('display', 'hide');
     $("#userGeneralInfoTab").addClass('active');
 
     $('#userAddressInfo a').tab('hide');
-//    $('#userGeneralInfo a').tab('show');
-
-    $("#secondaryTabs a:last").tab('show');
+    $('#userInfo a').tab('show');
+    $('#secondaryTabs li:eq(0) a').tab('show');
 
     if ($("#checkCommunicationForm").val() === "1") {
+
         $("#companyInfoTab").addClass('active');
         $("#userInfoTab").removeClass('active');
-        $("#companyInfoTab").find('a').replaceWith("<a href='#companyInfo' data-toggle='tab'>");
-        console.log($("#companyInfoTab").find('a'));
 
+//        if($(this).hasClass('disabled')){
+//            var clickedHref = $(this).attr('href') + ' a';
+//            console.log(clickedHref);
+//        }
 
     } else {
 
@@ -725,6 +724,10 @@ function preventTab() {
                 $("#userCommunicationInfoTab").removeClass("active");
                 $("#userAddressInfoTab").removeClass('active');
                 $("#userGeneralInfoTab").addClass('active');
+
+                $('#userAddressInfo a').tab('hide');
+                $('#userInfo a').tab('show');
+                $('#secondaryTabs li:eq(0) a').tab('show');
 
             }
         }
