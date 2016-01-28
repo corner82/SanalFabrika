@@ -1,5 +1,6 @@
 {
-	"token": {
+	"token": {                
+                "#":"#",
                 "Successful Submission" : "İşleminiz başarıyla gerçekleştirilmiştir",
                 "Sure" : "Eminmisiniz?",
                 "Progressing" : "İşleminiz yapılıyor...",
@@ -37,7 +38,8 @@
                 "Cancel":"İptal",
                 "Are you sure to erase all form fields?":"Bütün alanlara girdiğiniz bilgiler silinecek. Devam etmek istiyormusunuz?",
                 "Reset operation failed...":"Temizleme işlemi başarısız...",
-                "Form fields cleared":"Form alanları temizlendi"                
+                "Form fields cleared":"Form alanları temizlendi",
+                "OK":"Tamam"
 	},
 	"regex": [
 		["Budget", "Bütçe"],
