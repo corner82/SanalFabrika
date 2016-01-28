@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    console.log($('#lastInsertId').val());
 
     /*
      * Disable finalize registration and submit user info before checking 
@@ -328,8 +329,6 @@ function submitUserGeneralInfoForm() {
 
         if (!$("#pktemp") === null) {
 
-            var lastInsertId = $("#lastInsertId");
-
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -358,14 +357,14 @@ function submitUserGeneralInfoForm() {
                     $('#lastInsertId').val(data.lastInsertId);
 
                     $('#informationTabContents').blockElement();
-                    submitUserGeneralInfoSuccessful.blockuiCentered('show');
+                    submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.error(jqXHR);
 
                     $('#informationTabContents').blockElement();
-                    submitUserGeneralInfoUnsuccessful.blockuiCentered('show');
+                    submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
 
@@ -398,7 +397,7 @@ function submitUserGeneralInfoForm() {
                     console.log($("#checkGeneralForm"));
 
                     $('#informationTabContents').blockElement();
-                    submitUserGeneralInfoSuccessful.blockuiCentered('show');
+                    submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -407,7 +406,7 @@ function submitUserGeneralInfoForm() {
 
 
                     $('#informationTabContents').blockElement();
-                    submitUserGeneralInfoUnsuccessful.blockuiCentered('show');
+                    submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
         }
@@ -555,8 +554,8 @@ function checkCI() {
  */
 
 var registrationBlockuiResetFormApproval = $("#growlUI-resetFormApproval").blockuiCentered();
-var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiCentered();
-var registrationBlockuiCancelReset = $("#growlUI-cancelReset").blockuiCentered();
+var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiFadingCentered();
+var registrationBlockuiCancelReset = $("#growlUI-cancelReset").blockuiFadingCentered();
 /*
  * tab controller growls
  */
@@ -572,8 +571,8 @@ var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").bl
  * 
  * submit general info
  */
-var submitUserGeneralInfoSuccessful = $("#growlUI-submitUserGeneralInfoSuccessful").blockuiCentered();
-var submitUserGeneralInfoUnsuccessful = $("#growlUI-submitUserGeneralInfoUnsuccessful").blockuiCentered();
+var submitUserGeneralInfoSuccessful = $("#growlUI-submitUserGeneralInfoSuccessful").blockuiFadingCentered();
+var submitUserGeneralInfoUnsuccessful = $("#growlUI-submitUserGeneralInfoUnsuccessful").blockuiFadingCentered();
 
 /* 
  * submit address info
@@ -596,14 +595,13 @@ var submitUserCommunicationInfoUnsuccessful = $("#growlUI-submitUserCommunicatio
  */
 
 function resetConfirmation() {
-    
+
     clickedForm.reset();
 
     $.unblockUI();
     $("#informationTabContents").unblock();
     event.preventDefault();
-    
-    registrationBlockuiSuccessfulReset.blockuiCentered('show');
+    registrationBlockuiSuccessfulReset.blockuiFadingCentered('show');
 }
 
 /*
@@ -618,9 +616,7 @@ function resetRejection() {
     $.unblockUI();
     $("#informationTabContents").unblock();
     event.preventDefault();
-    
-    registrationBlockuiCancelReset.blockuiCentered('option', 'fadeOut', 700);
-    registrationBlockuiCancelReset.blockuiCentered('show');
+    registrationBlockuiCancelReset.blockuiFadingCentered('show');
 }
 
 /*
@@ -662,25 +658,25 @@ function preventTab() {
             $("#userGeneralInfoTab").removeClass('disable');
 
             if ($(this).id === '#companyInfoTab') {
-                
+
                 $("#companyInfoTab").removeClass('active');
                 $("#userCommunicationInfoTab").addClass('active');
                 $('#primaryTabs .active').tab('show');
             }
         } else {
             if ($("#checkGeneralForm").val() === "1") {
-                
+
                 $("#companyInfoTab").addClass('disable');
                 $("#userCommunicationInfoTab").addClass('disable');
                 $("#userAddressInfoTab").removeClass('disable');
                 $("#userGeneralInfoTab").removeClass('disable');
-                
+
                 if ($(this).hasClass('disabled') === '#companyInfoTab' || '#userCommunicationInfoTab') {
 
                     $("#userCommunicationInfoTab").removeClass('active');
                     $("#companyInfoTab").removeClass('active');
                     $("#userAddressInfoTab").addClass('active');
-                    
+
                     $('#primaryTabs .active').tab('show');
                 }
             } else {
