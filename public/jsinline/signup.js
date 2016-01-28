@@ -275,10 +275,11 @@ $(document).ready(function () {
     $('#userGeneralInfoFormSubmit').submit(submitUserGeneralInfoForm);
     $('#userAddressInfoFormSubmit').submit(submitUserAddressInfoForm);
     $('#userCommunicationInfoFormSubmit').submit(submitUserCommunicationInfoForm);
-    $("#userInfoFormReset").on('click', resetForm);
+    $("#userGeneralInfoFormReset").on('click', resetForm);
+    $("#userAddressInfoFormReset").on('click', resetForm);
+    $("#userCommunicationInfoFormReset").on('click', resetForm);
     $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
     $("#submitUserCommunicationInfoForm").on('click', submitUserCommunicationInfoForm);
-
 
 });
 
@@ -303,10 +304,6 @@ function resetForm() {
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
 
-//    registrationBlockuiResetFormApproval.blockuiCentered('option', {
-//        backgroundColor: '#FF0000',
-//        fadeOut: '700'
-//    });
     $('#informationTabContents').blockElement();
     registrationBlockuiResetFormApproval.blockuiCentered('show');
 
@@ -320,21 +317,10 @@ function resetForm() {
 
 function submitUserGeneralInfoForm() {
 
-    /*
-     * not to display tab:*****************************************************
-     * use tab plugin close ***************************************************
-     * or *********************************************************************
-     * append href to the tab attribute ***************************************
-     */
-
-
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
 
-
-        $('#userGeneralInfo').removeClass("tab-pane fade in active");
-        $('#userGeneralInfo').addClass("tab-pane fade");
-        $('#userAddressInfo').removeClass("tab-pane fade");
-        $('#userAddressInfo').addClass("tab-pane fade in active");
+        $('#userGeneralInfo').attr('class', "tab-pane fade");
+        $('#userAddressInfo').attr('class', "tab-pane fade in active");
 
         $('#userGeneralInfoTab').removeClass('active');
         $('#userAddressInfoTab').addClass('active');
@@ -438,15 +424,15 @@ function submitUserAddressInfoForm() {
 
     if ($('#userAddressInfoForm').validationEngine('validate')) {
 
-
         $('#userAddressInfo').attr('class', "tab-pane fade");
         $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
+
         $('#userAddressInfoTab').removeClass('active');
         $('#userCommunicationInfoTab').addClass('active');
         $('#userCommunicationInfoTab').removeClass('disabled');
+
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
-
     }
 
 }
@@ -455,14 +441,14 @@ function submitUserCommunicationInfoForm() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
+        $('#userCommunicationInfo').attr('class', 'tab-pane fade');
+        $('#companyInfo').attr('class', 'tab-pane fade in active');
 
-        $('#userCommunicationInfo').attr('class', "tab-pane fade");
-        $('#userInfo').attr('class', "tab-pane fade");
-        $('#companyInfo').attr('class', "tab-pane fade in active");
         $('#userCommunicationInfoTab').removeClass('active');
         $('#userInfoTab').removeClass('active');
         $('#companyInfoTab').addClass('active');
         $('#companyInfoTab').removeClass('disabled');
+
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
     }
@@ -479,15 +465,9 @@ function activateButtons() {
 
         $('#userCommunicationInfoFormFinalize').removeClass('disabled');
         $('#userCommunicationInfoFormSubmit').removeClass('disabled');
-
-        $('#userCommunicationInfoFormFinalize').attr('disabled', false);
-        $('#userCommunicationInfoFormSubmit').attr('disabled', false);
     } else {
         $('#userCommunicationInfoFormFinalize').addClass('disabled');
         $('#userCommunicationInfoFormSubmit').addClass('disabled');
-
-        $('#userCommunicationInfoFormFinalize').attr('disabled', true);
-        $('#userCommunicationInfoFormSubmit').attr('disabled', true);
     }
 }
 
@@ -504,21 +484,14 @@ function checkUGI() {
 
     if ($("#checkGeneralForm").val() === "1") {
 
-
     } else if ($("#checkGeneralForm").val() === "0") {
 
         if ($('#userAddressInfoTab').hasClass('active')) {
 
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
 
-
-//            registrationBlockuiPreventAddressTab.blockuiCentered('option', {
-//                backgroundColor: '#FF0000',
-//                fadeOut: '700'
-//            });
             $('#informationTabContents').blockElement();
             registrationBlockuiPreventAddressTab.blockuiCentered('show');
-
         }
     }
 }
@@ -540,10 +513,6 @@ function checkUAI() {
 
         } else if ($('#userCommunicationInfoTab').hasClass('disabled')) {
 
-//            registrationBlockuiPreventCommunicationTab.blockuiCentered('option', {
-//                backgroundColor: '#FF0000',
-//                fadeOut: '700'
-//            });
             $('#informationTabContents').blockElement();
             registrationBlockuiPreventCommunicationTab.blockuiCentered('show');
 
@@ -572,7 +541,6 @@ function checkCI() {
 
         } else if ($('#companyInfoTab').hasClass('disabled')) {
 
-//            registrationBlockuiPreventCompanyTab.blockuiCentered();
             $('#informationTabContents').blockElement();
             registrationBlockuiPreventCompanyTab.blockuiCentered('show');
 
@@ -623,21 +591,18 @@ var submitUserCommunicationInfoUnsuccessful = $("#growlUI-submitUserCommunicatio
 
 /*
  * 
- * @returns {undefined}
  * functions section
  * 
  */
 
 function resetConfirmation() {
+    
     clickedForm.reset();
 
     $.unblockUI();
     $("#informationTabContents").unblock();
-
-//    registrationBlockuiSuccessfulReset.blockuiCentered('option', {
-//        fadeOut: '2000',
-//        backgroundColor: '0080000'
-//    });
+    event.preventDefault();
+    
     registrationBlockuiSuccessfulReset.blockuiCentered('show');
 }
 
@@ -653,9 +618,8 @@ function resetRejection() {
     $.unblockUI();
     $("#informationTabContents").unblock();
     event.preventDefault();
-    registrationBlockuiCancelReset.blockuiCentered('option', {
-        fadeOut: '700'
-    });
+    
+    registrationBlockuiCancelReset.blockuiCentered('option', 'fadeOut', 700);
     registrationBlockuiCancelReset.blockuiCentered('show');
 }
 
@@ -676,64 +640,61 @@ function preventTab() {
     console.log('address    ' + $("#checkAddressForm").val());
     console.log('communication  ' + $("#checkCommunicationForm").val());
 
-    $("#companyInfoTab").removeClass('active');
-    $("#userInfoTab").addClass('active');
-
-    $("#userCommunicationInfoTab").removeClass('active');
-    $("#userAddressInfoTab").removeClass('active');
-    $("#userGeneralInfoTab").addClass('active');
-
-    $('#userAddressInfo a').tab('hide');
-    $('#userInfo a').tab('show');
-    $('#secondaryTabs li:eq(0) a').tab('show');
-
     if ($("#checkCommunicationForm").val() === "1") {
 
-        $("#companyInfoTab").addClass('active');
-        $("#userInfoTab").removeClass('active');
 
-//        if($(this).hasClass('disabled')){
-//            var clickedHref = $(this).attr('href') + ' a';
-//            console.log(clickedHref);
-//        }
+        console.log('communication = 1');
+
+        $("#companyInfoTab").removeClass('disable');
+        $("#userCommunicationInfoTab").removeClass('disable');
+        $("#userAddressInfoTab").removeClass('disable');
+        $("#userGeneralInfoTab").removeClass('disable');
 
     } else {
 
         if ($("#checkAddressForm").val() === "1") {
 
-            $("#companyInfoTab").removeClass('active');
-            $("#userInfoTab").addClass('active');
-            $("#userCommunicationInfoTab").addClass("active");
-            $("#userAddressInfoTab").removeClass('active');
-            $("#userGeneralInfoTab").removeClass('active');
+            console.log('address = 1');
 
-        } else {
+            $("#companyInfoTab").addClass('disable');
+            $("#userCommunicationInfoTab").removeClass('disable');
+            $("#userAddressInfoTab").removeClass('disable');
+            $("#userGeneralInfoTab").removeClass('disable');
 
-            if ($("#checkGeneralForm").val() === "1") {
-
+            if ($(this).id === '#companyInfoTab') {
+                
                 $("#companyInfoTab").removeClass('active');
-                $("#userInfoTab").addClass('active');
-                $("#userCommunicationInfoTab").removeClass("active");
-                $("#userAddressInfoTab").addClass('active');
-                $("#userGeneralInfoTab").removeClass('active');
+                $("#userCommunicationInfoTab").addClass('active');
+                $('#primaryTabs .active').tab('show');
+            }
+        } else {
+            if ($("#checkGeneralForm").val() === "1") {
+                
+                $("#companyInfoTab").addClass('disable');
+                $("#userCommunicationInfoTab").addClass('disable');
+                $("#userAddressInfoTab").removeClass('disable');
+                $("#userGeneralInfoTab").removeClass('disable');
+                
+                if ($(this).hasClass('disabled') === '#companyInfoTab' || '#userCommunicationInfoTab') {
 
+                    $("#userCommunicationInfoTab").removeClass('active');
+                    $("#companyInfoTab").removeClass('active');
+                    $("#userAddressInfoTab").addClass('active');
+                    
+                    $('#primaryTabs .active').tab('show');
+                }
             } else {
 
-                $("#companyInfoTab").removeClass('active');
-                $("#userInfoTab").addClass('active');
-                $("#userCommunicationInfoTab").removeClass("active");
-                $("#userAddressInfoTab").removeClass('active');
-                $("#userGeneralInfoTab").addClass('active');
+                $("#companyInfoTab").addClass('disable');
+                $("#userCommunicationInfoTab").addClass("disable");
+                $("#userAddressInfoTab").addClass('disable');
+                $("#userGeneralInfoTab").removeClass('disable');
 
                 $('#userAddressInfo a').tab('hide');
-                $('#userInfo a').tab('show');
-                $('#secondaryTabs li:eq(0) a').tab('show');
-
+                $('#primaryTabs li:eq(0) a').tab('show');
             }
         }
     }
-
-
 }
 
 function changePublicProfile() {

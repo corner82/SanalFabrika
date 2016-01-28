@@ -1022,10 +1022,22 @@
                     <div class="col-md-9">
                         <!-- Tabs -->
                         <div class="tab-v1">
-                            <ul id="primaryTabs" class="nav nav-tabs">
-                                <li id="userInfoTab" class="active">
-                                    <a href="#userInfo" data-toggle="tab">
-                                        <?php echo $this->translate('User Information') ?>
+                            <ul id="primaryTabs" class="nav nav-tabs">                                
+                                <!-- To disable tabs first it is needed to change tab class to disabled
+                                then remove href attribute value due to deactivate tab transition on click event..-->
+                                <li id="userGeneralInfoTab" class="active">
+                                    <a href="#userGeneralInfo" data-toggle="tab">
+                                        <?php echo $this->translate('General Information') ?>
+                                    </a>
+                                </li>
+                                <li id="userAddressInfoTab" class="disabled" onclick="checkUGI()">
+                                    <a href="#userAddressInfo" data-toggle="tab">
+                                        <?php echo $this->translate('Address Information') ?>
+                                    </a>
+                                </li>
+                                <li id="userCommunicationInfoTab" class="disabled" onclick="checkUAI()">
+                                    <a href="#userCommunicationInfo" data-toggle="tab">
+                                        <?php echo $this->translate('Communication Information') ?>
                                     </a>
                                 </li>
                                 <li id="companyInfoTab" class="disabled" onclick="checkCI()">
@@ -1035,326 +1047,299 @@
                                 </li>
                             </ul>                
                             <div class="tab-content">
-                                <!-- User Info Forms -->
-                                <div class="tab-pane fade in active" id="userInfo">
-                                    <div class="tab-v1">
-                                        <ul id="secondaryTabs" class="nav nav-tabs">
-                                            <!-- To disable tabs first it is needed to change tab class to disabled
-                                            then remove href attribute value due to deactivate tab transition on click event..-->
-                                            <li id="userGeneralInfoTab" class="active">
-                                                <a href="#userGeneralInfo" data-toggle="tab">
-                                                    <?php echo $this->translate('User General Information') ?>
-                                                </a>
-                                            </li>
-                                            <li id="userAddressInfoTab" class="disabled" onclick="checkUGI()">
-                                                <a href="#userAddressInfo" data-toggle="tab">
-                                                    <?php echo $this->translate('User Address Information') ?>
-                                                </a>
-                                            </li>
-                                            <li id="userCommunicationInfoTab" class="disabled" onclick="checkUAI()">
-                                                <a href="#userCommunicationInfo" data-toggle="tab">
-                                                    <?php echo $this->translate('User Communication Information') ?>
-                                                </a>
-                                            </li>
-                                        </ul>                
-                                        <div class="tab-content" id="informationTabContents">
-                                            <!-- User General Info  -->
-                                            <div class="tab-pane fade in active" id="userGeneralInfo">
-                                                <form id="userGeneralInfoForm" class="sky-form">
-                                                    <header><?php echo $this->translate('User General Information') ?></header>
-                                                    <fieldset>
-                                                        <div class="row">
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('First Name') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-users"></i>
-                                                                    </div>
-                                                                    <input type="text" name="userFirstName" 
-                                                                           id="userFirstName" required="true"
-                                                                           class="form-control validate[required,custom[onlyLetterSp]]">
-                                                                </div>
-                                                            </section>
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Last Name') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-users"></i>
-                                                                    </div>
-                                                                    <input type="text" name="userLastName" 
-                                                                           id="userLastName" required="true"
-                                                                           class="form-control validate[required,custom[onlyLetterSp]]">
-                                                                </div>
-                                                            </section>
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-barcode"></i>
-                                                                    </div>
-                                                                    <input type="text" name="preferedUsername" 
-                                                                           id="preferedUsername" required="true"
-                                                                           class="form-control validate[required,custom[onlyLetterNumber]]">
-                                                                </div>
-                                                            </section>
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Email') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-envelope"></i>
-                                                                    </div>
-                                                                    <input class="form-control validate[required,custom[email]]" 
-                                                                           type="email" name="useremail" id="useremail" />
-                                                                </div>
-                                                            </section>
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-lock"></i>
-                                                                    </div>
-                                                                    <input type="password" name="userPreferedPassword" 
-                                                                           id="userPreferedPassword" required="true"
-                                                                           class="form-control validate[required,minSize[8],maxSize[20]]">
-                                                                </div>
-                                                            </section>
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-lock"></i>
-                                                                    </div>
-                                                                    <input type="password" name="repeatedUserPreferedPassword" 
-                                                                           id="repeatedUserPreferedPassword" required="true"
-                                                                           class="form-control validate[required,equals[userPreferedPassword]] text-input">
-                                                                </div>
-                                                            </section>
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('ID Number (TC Kimlik No for Turkish Citizens)') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-book"></i>
-                                                                    </div>
-                                                                    <input type="text" name="userIdNumber" 
-                                                                           id="userIdNumber" required="true"
-                                                                           class="form-control validate[required,custom[onlyNumberSp]]">
-                                                                </div>                                                                
-                                                            </section>
-                                                                <!-- <section>
-                                                                <label class="label"><?php echo $this->translate('Nationality') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-plane"></i>
-                                                                    </div>
-                                                                    <input type="text" name="userNationality" 
-                                                                           id="userNationality" required="true"
-                                                                           class="validate[required,custom[onlyNumberSp]]">
-                                                                </div>
-                                                            </section>-->
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
-                                                                <label class="select">
-                                                                    <select id="userPreferedLanguage" required="true">
-                                                                        <option value="-1"><?php echo $this->translate('Please select yout prefered language from list...') ?></option>
-                                                                    </select>
-                                                                    <i></i>
-                                                                </label>
-                                                            </section>
+                                <!-- User General Info  -->
+                                <div class="tab-pane fade in active" id="userGeneralInfo">
+                                    <form id="userGeneralInfoForm" class="sky-form">
+                                        <header><?php echo $this->translate('General Information') ?></header>
+                                        <fieldset>
+                                            <div class="row">
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('First Name') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-users"></i>
                                                         </div>
-                                                        <div class="row"> 
-                                                            <label class="checkbox">
-                                                                <input required="true" type="checkbox" checked="true" name="makePublicProfile" 
-                                                                       id="makePublicProfile" onchange="changePublicProfile()">
-                                                                <i></i><?php echo $this->translate('Make my profile public') ?>
-                                                            </label> 
+                                                        <input type="text" name="userFirstName" 
+                                                               id="userFirstName" required="true"
+                                                               class="form-control validate[required,custom[onlyLetterSp]]">
+                                                    </div>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Last Name') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-users"></i>
                                                         </div>
-                                                        <footer>
-                                                            <div id="userButtons">
-                                                                <button type="submit" id="userGeneralInfoFormSubmit" 
-                                                                        class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">
-                                                                            <?php echo $this->translate('Continue to Address Information') ?>
-                                                                </button>
-                                                                <button type="button" id="userGeneralInfoFormReset" 
-                                                                        class="btn-u" onclick="resetForm()">
-                                                                            <?php echo $this->translate('Reset') ?>
-                                                                </button>
-                                                            </div>
-                                                        </footer>
-                                                    </fieldset>
-                                                </form>         
+                                                        <input type="text" name="userLastName" 
+                                                               id="userLastName" required="true"
+                                                               class="form-control validate[required,custom[onlyLetterSp]]">
+                                                    </div>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-barcode"></i>
+                                                        </div>
+                                                        <input type="text" name="preferedUsername" 
+                                                               id="preferedUsername" required="true"
+                                                               class="form-control validate[required,custom[onlyLetterNumber]]">
+                                                    </div>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Email') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </div>
+                                                        <input class="form-control validate[required,custom[email]]" 
+                                                               type="email" name="useremail" id="useremail" />
+                                                    </div>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-lock"></i>
+                                                        </div>
+                                                        <input type="password" name="userPreferedPassword" 
+                                                               id="userPreferedPassword" required="true"
+                                                               class="form-control validate[required,minSize[8],maxSize[20]]">
+                                                    </div>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-lock"></i>
+                                                        </div>
+                                                        <input type="password" name="repeatedUserPreferedPassword" 
+                                                               id="repeatedUserPreferedPassword" required="true"
+                                                               class="form-control validate[required,equals[userPreferedPassword]] text-input">
+                                                    </div>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('ID Number (TC Kimlik No for Turkish Citizens)') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-book"></i>
+                                                        </div>
+                                                        <input type="text" name="userIdNumber" 
+                                                               id="userIdNumber" required="true"
+                                                               class="form-control validate[required,custom[onlyNumberSp]]">
+                                                    </div>                                                                
+                                                </section>
+                                                    <!-- <section>
+                                                    <label class="label"><?php echo $this->translate('Nationality') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-plane"></i>
+                                                        </div>
+                                                        <input type="text" name="userNationality" 
+                                                               id="userNationality" required="true"
+                                                               class="validate[required,custom[onlyNumberSp]]">
+                                                    </div>
+                                                </section>-->
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
+                                                    <label class="select">
+                                                        <select id="userPreferedLanguage" required="true">
+                                                            <option value="-1"><?php echo $this->translate('Please select yout prefered language from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>
                                             </div>
-                                            <!--// End User General Info  -->
-                                            <!-- User Address Info  -->
-                                            <div class="tab-pane fade" id="userAddressInfo">
-                                                <form id="userAddressInfoForm" class="sky-form">
-                                                    <header><?php echo $this->translate('User Address Information') ?></header>
-                                                    <fieldset>
-                                                        <div class="row">
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Country') ?></label>
-                                                                <label class="select">
-                                                                    <select id="usercountry" required="true">
-                                                                        <option value="-1"><?php echo $this->translate('Please select a country from list...') ?></option>
-                                                                    </select>
-                                                                    <i></i>
-                                                                </label>
-                                                            </section>
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('City') ?></label>
-                                                                <label class="select">
-                                                                    <select id="usercity">
-                                                                        <option value="-1"><?php echo $this->translate('Please select a city from list...') ?></option>
-                                                                    </select>
-                                                                    <i></i>
-                                                                </label>
-                                                            </section>                                                            
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('District') ?></label>
-                                                                <label class="select">
-                                                                    <select id="userdistrict">
-                                                                        <option value="-1"><?php echo $this->translate('Please select a district from list...') ?></option>
-                                                                    </select>
-                                                                    <i></i>
-                                                                </label>
-                                                            </section> 
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Village') ?></label>
-                                                                <label class="select">
-                                                                    <select id="uservillage">
-                                                                        <option value="-1"><?php echo $this->translate('Please select a village from list...') ?></option>
-                                                                    </select>
-                                                                    <i></i>
-                                                                </label>
-                                                            </section>                                  
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Street') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-home"></i>
-                                                                    </div>
-                                                                    <input type="text" name="userStreet" 
-                                                                           id="userStreet" required="true"
-                                                                           class="form-control validate[required,custom[onlyLetterNumber]]">
-                                                                </div> 
-                                                            </section>                                                   
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Alley') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-home"></i>
-                                                                    </div>
-                                                                    <input type="text" name="userAlley" id="userAlley"
-                                                                           class="form-control validate[required,custom[onlyLetterNumber]]">
-                                                                </div>
-                                                            </section>                                                  
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Number') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-home"></i>
-                                                                    </div>
-                                                                    <input type="text" name="userAddNumber" 
-                                                                           id="userAddNumber" required="true"
-                                                                           class="form-control validate[required,custom[onlyLetterSp]]">
-                                                                </div>
-                                                            </section>                                                  
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Postal Code') ?></label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-home"></i>
-                                                                    </div>
-                                                                    <input type="text" name="userPostalCode" id="userPostalCode"
-                                                                           class="form-control validate[required,custom[onlyLetterSp]]">
-                                                                </div>
-                                                            </section>
-                                                        </div>
-                                                        <footer>
-                                                            <div id="userButtons">
-                                                                <button type="submit" id="userAddressInfoFormSubmit" class="btn-u btn-u-dark-blue" onclick="submitUserAddressInfoForm()"><?php echo $this->translate('Continue to Communication Information') ?></button>
-                                                                <button type="button" id="userAddressInfoFormReset" class="btn-u" onclick="resetForm()"><?php echo $this->translate('Reset') ?></button>
-                                                            </div>
-                                                        </footer>
-                                                    </fieldset>
-                                                </form>
+                                            <div class="row"> 
+                                                <label class="checkbox">
+                                                    <input required="true" type="checkbox" checked="true" name="makePublicProfile" 
+                                                           id="makePublicProfile" onchange="changePublicProfile()">
+                                                    <i></i><?php echo $this->translate('Make my profile public') ?>
+                                                </label> 
                                             </div>
-                                            <!--// End User Address Info  -->
-                                            <!-- User Communication Info  -->
-                                            <div class="tab-pane fade" id="userCommunicationInfo">
-                                                <form id="userCommunicationInfoForm" class="sky-form">
-                                                    <header><?php echo $this->translate('User Communication Information') ?></header>
-                                                    <fieldset>
-                                                        <div class="row">
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Select a Communication Type') ?></label>
-                                                                <label class="select">
-                                                                    <select id="communicationTypes" required="true">
-                                                                        <option value="-1"><?php echo $this->translate('Please select a communication type from list...') ?></option>
-                                                                    </select>
-                                                                    <i></i>
-                                                                </label>
-                                                            </section>                                                                                                                                            
-                                                            <section>
-                                                                <label class="checkbox">
-                                                                    <input type="checkbox" name="defaultContactNumber" id="defaultContactNumber">
-                                                                    <i></i>Set this number as your default contact number 
-                                                                </label>
-                                                            </section>
-                                                        </div>                                                        
-                                                        <div class="row">
-                                                            <section>                                                                
-                                                                <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
-                                                                <div class="input-group">                                                                    
-                                                                    <i class="icon-prepend fa fa-phone"></i>
-                                                                    <input type="phone" class="form-control validation[custom[onlyNumberSp]]" name="contactNumber" id="contactNumber" >                                                                    
-                                                                    <span class="input-group-btn">
-                                                                        <button class="btn btn-u" type="button" id="submitContactNumber">Submit Number!</button>
-                                                                    </span>
-                                                                </div>
-                                                            </section>
-                                                        </div>
-                                                        <div class="row">
-                                                            <section>
-                                                                <label class="label"><?php echo $this->translate('Description') ?></label>
-                                                                <label class="textarea">
-                                                                    <i class="icon-append fa fa-comment"></i>
-                                                                    <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
-                                                                </label>
-                                                            </section> 
-                                                        </div>
-                                                        <div class="row">
-                                                            <footer>
-                                                                <header><?php echo $this->translate('Added Contacts') ?></header>
-                                                                <div id="tt_grid_dynamic_Main">
-                                                                    <table  id="tt_tree" title="Added Contacts" ></table>
-                                                                </div><!--/. Easyui grid table-->
-                                                            </footer>
-                                                        </div>
-                                                    </fieldset>
-                                                    <fieldset>
-                                                        <div class="row"> 
-                                                            <label class="checkbox">
-                                                                <input required="true" type="checkbox" name="terms" id="terms" onchange="activateButtons()">
-                                                                <i></i>I agree with the Terms and Conditions
-                                                            </label> 
-                                                        </div>
-                                                    </fieldset>
-                                                    <fieldset>
-                                                        <div class="row">
-                                                            <div id="userButtons">
-                                                                <button type="submit" id="userCommunicationInfoFormFinalize" class="btn-u btn-u-dark-blue disabled"  onclick="finalizeUserCommunicationInfoForm()"><?php echo $this->translate('Finzalize Submittion Process') ?></button>
-                                                                <button type="submit" id="userCommunicationInfoFormSubmit" class="btn-u btn-u-default disabled"  onclick="submitUserCommunicationInfoForm()"><?php echo $this->translate('Continue to Company Information') ?></button>
-                                                                <button type="button" id="userCommunicationInfoFormReset" class="btn-u" onclick="resetForm()"><?php echo $this->translate('Reset') ?></button>
-                                                            </div>
-                                                        </div>
-                                                    </fieldset> 
-                                                </form>   
-                                            </div>
-                                            <!--// End User Communication Info  -->
-                                        </div>
-                                    </div>
+                                            <footer>
+                                                <div id="userButtons">
+                                                    <button type="submit" id="userGeneralInfoFormSubmit" 
+                                                            class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">
+                                                                <?php echo $this->translate('Continue to Address Information') ?>
+                                                    </button>
+                                                    <button type="button" id="userGeneralInfoFormReset" 
+                                                            class="btn-u" onclick="resetForm()">
+                                                                <?php echo $this->translate('Reset') ?>
+                                                    </button>
+                                                </div>
+                                            </footer>
+                                        </fieldset>
+                                    </form>         
                                 </div>
-                                <!--// End User Info  -->
+                                <!--// End User General Info  -->
+                                <!-- User Address Info  -->
+                                <div class="tab-pane fade" id="userAddressInfo">
+                                    <form id="userAddressInfoForm" class="sky-form">
+                                        <header><?php echo $this->translate('Address Information') ?></header>
+                                        <fieldset>
+                                            <div class="row">
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Country') ?></label>
+                                                    <label class="select">
+                                                        <select id="usercountry" required="true">
+                                                            <option value="-1"><?php echo $this->translate('Please select a country from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('City') ?></label>
+                                                    <label class="select">
+                                                        <select id="usercity">
+                                                            <option value="-1"><?php echo $this->translate('Please select a city from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>                                                            
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('District') ?></label>
+                                                    <label class="select">
+                                                        <select id="userdistrict">
+                                                            <option value="-1"><?php echo $this->translate('Please select a district from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section> 
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Village') ?></label>
+                                                    <label class="select">
+                                                        <select id="uservillage">
+                                                            <option value="-1"><?php echo $this->translate('Please select a village from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>                                  
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Street') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <input type="text" name="userStreet" 
+                                                               id="userStreet" required="true"
+                                                               class="form-control validate[required,custom[onlyLetterNumber]]">
+                                                    </div> 
+                                                </section>                                                   
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Alley') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <input type="text" name="userAlley" id="userAlley"
+                                                               class="form-control validate[required,custom[onlyLetterNumber]]">
+                                                    </div>
+                                                </section>                                                  
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Number') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <input type="text" name="userAddNumber" 
+                                                               id="userAddNumber" required="true"
+                                                               class="form-control validate[required,custom[onlyLetterSp]]">
+                                                    </div>
+                                                </section>                                                  
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Postal Code') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <input type="text" name="userPostalCode" id="userPostalCode"
+                                                               class="form-control validate[required,custom[onlyLetterSp]]">
+                                                    </div>
+                                                </section>
+                                            </div>
+                                            <footer>
+                                                <div id="userButtons">
+                                                    <button type="submit" id="userAddressInfoFormSubmit" class="btn-u btn-u-dark-blue" onclick="submitUserAddressInfoForm()"><?php echo $this->translate('Continue to Communication Information') ?></button>
+                                                    <button type="button" id="userAddressInfoFormReset" class="btn-u" onclick="resetForm()"><?php echo $this->translate('Reset') ?></button>
+                                                </div>
+                                            </footer>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <!--// End User Address Info  -->
+                                <!-- User Communication Info  -->
+                                <div class="tab-pane fade" id="userCommunicationInfo">
+                                    <form id="userCommunicationInfoForm" class="sky-form">
+                                        <header><?php echo $this->translate('Communication Information') ?></header>
+                                        <fieldset>
+                                            <div class="row">
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Select a Communication Type') ?></label>
+                                                    <label class="select">
+                                                        <select id="communicationTypes" required="true">
+                                                            <option value="-1"><?php echo $this->translate('Please select a communication type from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>                                                                                                                                            
+                                                <section>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" name="defaultContactNumber" id="defaultContactNumber">
+                                                        <i></i>Set this number as your default contact number 
+                                                    </label>
+                                                </section>
+                                            </div>                                                        
+                                            <div class="row">
+                                                <section>                                                                
+                                                    <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
+                                                    <div class="input-group">                                                                    
+                                                        <i class="icon-prepend fa fa-phone"></i>
+                                                        <input type="phone" class="form-control validation[custom[onlyNumberSp]]" name="contactNumber" id="contactNumber" >                                                                    
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-u" type="button" id="submitContactNumber">Submit Number!</button>
+                                                        </span>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                            <div class="row">
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Description') ?></label>
+                                                    <label class="textarea">
+                                                        <i class="icon-append fa fa-comment"></i>
+                                                        <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
+                                                    </label>
+                                                </section> 
+                                            </div>
+                                            <div class="row">
+                                                <footer>
+                                                    <header><?php echo $this->translate('Added Contacts') ?></header>
+                                                    <div id="tt_grid_dynamic_Main">
+                                                        <table  id="tt_tree" title="Added Contacts" ></table>
+                                                    </div><!--/. Easyui grid table-->
+                                                </footer>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="row"> 
+                                                <label class="checkbox">
+                                                    <input required="true" type="checkbox" name="terms" id="terms" onchange="activateButtons()">
+                                                    <i></i>I agree with the Terms and Conditions
+                                                </label> 
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="row">
+                                                <div id="userButtons">
+                                                    <button type="submit" id="userCommunicationInfoFormFinalize" class="btn-u btn-u-dark-blue disabled"  onclick="finalizeUserCommunicationInfoForm()"><?php echo $this->translate('Finzalize Submittion Process') ?></button>
+                                                    <button type="submit" id="userCommunicationInfoFormSubmit" class="btn-u btn-u-default disabled"  onclick="submitUserCommunicationInfoForm()"><?php echo $this->translate('Continue to Company Information') ?></button>
+                                                    <button type="button" id="userCommunicationInfoFormReset" class="btn-u" onclick="resetForm()"><?php echo $this->translate('Reset') ?></button>
+                                                </div>
+                                            </div>
+                                        </fieldset> 
+                                    </form>   
+                                </div>
+                                <!--// End User Communication Info  -->
                                 <!-- Company Info Form -->
                                 <div class="tab-pane fade" id="companyInfo">
                                     <form id="companyInfoForm" class="sky-form">
@@ -1628,7 +1613,7 @@
             <h3><a lang="en" href="#"/>General information submitted successfully</h3>
         </div>
         <!--// successful general submit Growl -->
-        
+
         <!-- Unsuccessful general submit Growl -->
         <div id="growlUI-submitUserGeneralInfoSuccessful" class='growlUI' style="display:none" >    
             <h3><a lang="en" href="#"/>General information failed</h3>               

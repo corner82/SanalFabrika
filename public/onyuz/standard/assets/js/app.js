@@ -252,118 +252,8 @@ var App = function () {
     };
 
 }();
-
     
-    /**
-     * load imager widget for loading operations
-     * @author Mustafa Zeynel Dağlı
-     * @since 11/01/2016
-     */
-
-    $.widget("sanalfabrika.blockuiWrapper", {
-        /**
-         * Default options.
-         * @returns {null}
-         */
-        options: {
-            message: '#growlUI-successfulReset',
-            backgroundColor: '0080000',
-            fadeOut: 700,
-            showOverlay: false
-        },
-        /**
-         * private constructor method for jquery widget
-         * @returns {null}
-         */
-        _create: function () {
-            //this.element.append(this.options.overlay)
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        test: function () {
-            //this.element.find(this.options.overlayKey).remove();
-            $.blockUI({
-                message: $(this.element),
-                fadeIn: 700,
-                fadeOut: this.options.fadeOut,
-                timeout: 2000,
-                showOverlay: this.options.showOverlay,
-                centerY: true,
-                css: {
-                    width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
-                    border: 'none',
-                    padding: '5px',
-                    backgroundColor: '#' + this.options.backgroundColor,
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    'border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'
-                }
-            });
-        }
-    });
-
-    /**
-     * growlUI widget for approval growls with yes no buttons
-     * without fadeout option. Fadeout happens uppon clicking on buttons
-     * @author Bahram Lotfi Sadigh
-     * @since 18/01/2016
-     */
-
-    $.widget("sanalfabrika.blockuiApprovalWrapper", {
-        /**
-         * Default options.
-         * @returns {null}
-         */
-        options: {
-            message: '#growlUI-resetFormApproval',
-            backgroundColor: '008080',
-            showOverlay: false,
-        },
-        /**
-         * private constructor method for jquery widget
-         * @returns {null}
-         */
-        _create: function () {
-            //this.element.append(this.options.overlay)
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        test: function () {
-            //this.element.find(this.options.overlayKey).remove();
-            $.blockUI({
-                message: $(this.element),
-                fadeIn: 700,  
-                showOverlay: this.options.showOverlay,
-                centerY: true,
-                css: {
-                    width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
-                    border: 'none',
-                    padding: '5px',
-                    backgroundColor: '#' + this.options.backgroundColor,
-                    '-webkit-border-radius': '10px',
-                    '-moz-border-radius': '10px',
-                    'border-radius': '10px',
-                    opacity: .9,
-                    color: '#fff'                    
-                }
-            });
-        }
-    });
-    
-    
-    $.widget("sanalfabrika.blockuiCentered", {
+    $.widget("registration.blockuiCentered", {
         /**
          * Default options.
          * @returns {null}
@@ -379,8 +269,8 @@ var App = function () {
             border: 'none',
             padding: '5px',
             border_radius : '10px',
-            opacity: .6,
-            color: '#fff'            
+            opacity: .8,
+            color: '#fff'
         },
         /**
          * private constructor method for jquery widget
@@ -412,8 +302,7 @@ var App = function () {
                     '-moz-border-radius': this.options.border_radius,
                     'border-radius': this.options.border_radius,
                     opacity: this.options.opacity,
-                    color: this.options.color,
-                    fadeOut: this.options.fadeOut,
+                    color: this.options.color
                 }
             });
         },
@@ -425,7 +314,7 @@ var App = function () {
     });
     
     
-    $.widget("sanalfabrika.blockElement", {
+    $.widget("registration.blockElement", {
         /**
          * Default options.
          * @returns {null}
@@ -438,7 +327,7 @@ var App = function () {
             border: 'none',
             padding: '5px',
             border_radius : '10px',
-            opacity: .6,
+            opacity: .8,
             color: '#fff',
         },
         /**
