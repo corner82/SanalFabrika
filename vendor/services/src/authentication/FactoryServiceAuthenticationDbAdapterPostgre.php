@@ -21,7 +21,7 @@ class FactoryServiceAuthenticationDbAdapterPostgre  implements FactoryInterface{
         $authDbAdapter ->setTableName($config['authentication']['database']['table'])
                        ->setIdentityColumn($config['authentication']['database']['identityColumn'])
                        ->setCredentialColumn($config['authentication']['database']['credentialColumn'])
-                       ->setCredentialTreatment(' MD5(?) AND active=0 ')
+                       ->setCredentialTreatment(' MD5(?) AND active=0 AND deleted=0')
         ;
         return $authDbAdapter;
     }
