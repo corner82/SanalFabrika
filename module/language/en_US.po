@@ -372,9 +372,6 @@ msgstr ""
 msgid "Virtual Enterprise Company Registration"
 msgstr ""
 
-msgid "General Information"
-msgstr ""
-
 msgid "Communication"
 msgstr ""
 
@@ -530,3 +527,106 @@ msgstr ""
 
 msgid "Search..."
 msgstr ""
+
+
+msgid "General Information"
+msgstr ""
+
+msgid "Address Information"
+msgstr ""
+
+msgid "Communication Information"
+msgstr ""
+
+msgid "Company Information"
+msgstr ""
+
+
+msgid "Please select a country from list..."
+msgstr ""
+
+msgid "Please select a city from list..."
+msgstr ""
+
+msgid "Please select a district from list..."
+msgstr ""
+
+msgid "Please select a village from list..."
+msgstr ""
+
+msgid "Continue to Address Information"
+msgstr ""
+
+msgid "Continue to Communication Information"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid "First Name"
+msgstr ""
+
+msgid "Last Name"
+msgstr ""
+
+msgid "Prefered Username"
+msgstr ""
+
+msgid "Prefered Password"
+msgstr ""
+
+msgid "Repeat Password"
+msgstr ""
+
+msgid "ID Number (TC Kimlik No for Turkish Citizens)"
+msgstr ""
+
+msgid "Prefered Language"
+msgstr ""
+
+msgid "Make my profile public"
+msgstr ""
+
+msgid "Select a Communication Type"
+msgstr ""
+
+msgid "Please select a communication type from list..."
+msgstr ""
+
+msgid "Set this number as your default contact number"
+msgstr ""
+
+msgid "Contact Number"
+msgstr ""
+
+msgid "Submit Number"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Added Contacts"
+msgstr ""
+
+msgid "I agree with the Terms and Conditions"
+msgstr ""
+
+msgid "Finzalize Submittion Process"
+msgstr ""
+
+msgid "Continue to Company Information"
+msgstr ""
+
+msgid "Company Name"
+msgstr ""
+
+msgid "Please select your prefered language from list..."
+msgstr ""
+
+
+
+
+

@@ -1,6 +1,17 @@
 $(document).ready(function () {
 
     console.log($('#lastInsertId').val());
+    
+     /**
+     * multilanguage plugin 
+     * @type Lang
+     */
+    var lang = new Lang();
+    lang.dynamic($('#ln').val(), '/plugins/jquery-lang-js-master/langpack/'+$('#ln').val()+'.json');
+    lang.init({
+        defaultLang: 'en'
+    });
+    lang.change($('#ln').val());
 
     /*
      * Disable finalize registration and submit user info before checking 
@@ -444,7 +455,6 @@ function submitUserCommunicationInfoForm() {
         $('#companyInfo').attr('class', 'tab-pane fade in active');
 
         $('#userCommunicationInfoTab').removeClass('active');
-        $('#userInfoTab').removeClass('active');
         $('#companyInfoTab').addClass('active');
         $('#companyInfoTab').removeClass('disabled');
 

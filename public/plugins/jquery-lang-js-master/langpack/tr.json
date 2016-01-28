@@ -27,7 +27,17 @@
                 "Activation changed successfully":"Aktivasiyon Değişikliği Başarılı",
                 "Are you sure to change the activation?":"Aktivasiyon Değişikliğini Onaylıyormusunuz?",
                 "Activation change failed!":"Aktivasiyon değişikliği başarısız olmuştur",
-                "This name is already registered in System.":"Aynı isimde rol daha önce sisteme eklenmiştir."
+                "This name is already registered in System.":"Aynı isimde rol daha önce sisteme eklenmiştir.",
+                "Please fill user information forms first":"Lütfen daha önce kullanıcı bilgilerini giriniz",
+                "General information submission failed":"Genel bilgilerin kaydı yapılamadı",
+                "General information submitted successfully":"Genel bilgiler kaydı başarılı olmuştur",
+                "Please fill user general and address information forms first":"Lütfen önce kullanıcı genel ve adres bilgilerini giriniz",
+                "Please fill user general information form first":"Lütfen önce kullanıcı genel bilgilerini giriniz",
+                "Reset":"Temizle",
+                "Cancel":"İptal",
+                "Are you sure to erase all form fields?":"Bütün alanlara girdiğiniz bilgiler silinecek. Devam etmek istiyormusunuz?",
+                "Reset operation failed...":"Temizleme işlemi başarısız...",
+                "Form fields cleared":"Form alanları temizlendi"                
 	},
 	"regex": [
 		["Budget", "Bütçe"],

@@ -509,7 +509,7 @@ msgid "Virtual Enterprise Company Registration"
 msgstr "Sanal Fabrika Firma Kaydı"
 
 msgid "General Information"
-msgstr "Genel Bilgi"
+msgstr "Genel Bilgiler"
 
 msgid "Communication"
 msgstr "İletişim"
@@ -649,7 +649,6 @@ msgstr "Yazılımlar Listesi"
 msgid "Update Information"
 msgstr "Bilgileri Güncelle"
 
-
 msgid "Update software information"
 msgstr "Yazılım Bilgilerini Güncelle"
 
@@ -670,3 +669,99 @@ msgstr "Köy veya semt seçiniz ... "
 
 msgid "Search..."
 msgstr "Ara..."
+
+msgid "Address Information"
+msgstr "Adres Bilgileri"
+
+msgid "Communication Information"
+msgstr "İletişim Bilgileri"
+
+msgid "Company Information"
+msgstr "Firma Bilgileri"
+
+
+msgid "Please select a country from list..."
+msgstr "Lütfen listeden bir ülke seçiniz..."
+
+msgid "Please select a city from list..."
+msgstr "Lütfen listeden bir il seçiniz..."
+
+msgid "Please select a district from list..."
+msgstr "Lütfen listeden bir ilçe seçiniz..."
+
+msgid "Please select a village from list..."
+msgstr "Lütfen listeden bir köy seçiniz..."
+
+msgid "Continue to Address Information"
+msgstr "Kayd et ve adres bilgilerine geç"
+
+msgid "Continue to Communication Information"
+msgstr "Kayd et ve iletişim bilgilerine geç"
+
+
+msgid "Reset"
+msgstr "Temizle"
+
+msgid "Registration"
+msgstr "Yeni Kayıt"
+
+msgid "First Name"
+msgstr "Ad"
+
+msgid "Last Name"
+msgstr "Soyad"
+
+msgid "Prefered Username"
+msgstr "Kullanıcı adı"
+
+msgid "Prefered Password"
+msgstr "Şifre"
+
+msgid "Repeat Password"
+msgstr "Şifre (Tekrar)"
+
+msgid "ID Number (TC Kimlik No for Turkish Citizens)"
+msgstr "TC Kimlik Numarası"
+
+msgid "Prefered Language"
+msgstr "Tercih edilen dil"
+
+msgid "Make my profile public"
+msgstr "Profilimi her kes görebilir"
+
+msgid "Select a Communication Type"
+msgstr "İletişim tipi seçiniz"
+
+msgid "Please select a communication type from list..."
+msgstr "Listeden iletişim tipini seçiniz..."
+
+msgid "Set this number as your default contact number"
+msgstr "Varsayılan iletişim numaram olarak kaydet"
+
+msgid "Contact Number"
+msgstr "İletişim Numarası"
+
+msgid "Submit Number"
+msgstr "Numarayı kaydet"
+
+msgid "Description"
+msgstr "Açıklama"
+
+msgid "Added Contacts"
+msgstr "Eklenmiş Numaralar"
+
+msgid "I agree with the Terms and Conditions"
+msgstr "Şartlar ve koşulları kabul ediyorum"
+
+msgid "Finzalize Submittion Process"
+msgstr "Kayıt işlemini sonlandır"
+
+msgid "Continue to Company Information"
+msgstr "Kaydet ve firma bilgilerine geç"
+
+msgid "Company Name"
+msgstr "Firma adı"
+
+msgid "Please select your prefered language from list..."
+msgstr "Lütfen listeden tercih ettiğiniz dili seçiniz..."
+

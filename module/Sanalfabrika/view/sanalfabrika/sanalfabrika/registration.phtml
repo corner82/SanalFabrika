@@ -8,7 +8,8 @@
     <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:24 GMT -->
 
     <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
-    <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>    
+    <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input> 
+    <input id="ln" type="hidden"  value="tr"></input>   
     <input id="pktemp" type="hidden" value=""></input>
     <input id="lastInsertId" type="hidden"  value=""></input>    
     <input id="checkGeneralForm" type="hidden" value="0"></input>
@@ -1144,7 +1145,7 @@
                                                     <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
                                                     <label class="select">
                                                         <select id="userPreferedLanguage" required="true">
-                                                            <option value="-1"><?php echo $this->translate('Please select yout prefered language from list...') ?></option>
+                                                            <option value="-1"><?php echo $this->translate('Please select your prefered language from list...') ?></option>
                                                         </select>
                                                         <i></i>
                                                     </label>
@@ -1244,7 +1245,7 @@
                                                         </div>
                                                         <input type="text" name="userAddNumber" 
                                                                id="userAddNumber" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterSp]]">
+                                                               class="form-control validate[required,custom[onlyNumberSp]]">
                                                     </div>
                                                 </section>                                                  
                                                 <section>
@@ -1254,7 +1255,7 @@
                                                             <i class="fa fa-home"></i>
                                                         </div>
                                                         <input type="text" name="userPostalCode" id="userPostalCode"
-                                                               class="form-control validate[required,custom[onlyLetterSp]]">
+                                                               class="form-control validate[required,custom[onlyNumberSp]]">
                                                     </div>
                                                 </section>
                                             </div>
@@ -1286,7 +1287,7 @@
                                                 <section>
                                                     <label class="checkbox">
                                                         <input type="checkbox" name="defaultContactNumber" id="defaultContactNumber">
-                                                        <i></i>Set this number as your default contact number 
+                                                        <i></i><?php echo $this->translate('Set this number as your default contact number') ?> 
                                                     </label>
                                                 </section>
                                             </div>                                                        
@@ -1297,7 +1298,7 @@
                                                         <i class="icon-prepend fa fa-phone"></i>
                                                         <input type="phone" class="form-control validation[custom[onlyNumberSp]]" name="contactNumber" id="contactNumber" >                                                                    
                                                         <span class="input-group-btn">
-                                                            <button class="btn btn-u" type="button" id="submitContactNumber">Submit Number!</button>
+                                                            <button class="btn btn-u" type="button" id="submitContactNumber"><?php echo $this->translate('Submit Number') ?></button>
                                                         </span>
                                                     </div>
                                                 </section>
@@ -1324,7 +1325,7 @@
                                             <div class="row"> 
                                                 <label class="checkbox">
                                                     <input required="true" type="checkbox" name="terms" id="terms" onchange="activateButtons()">
-                                                    <i></i>I agree with the Terms and Conditions
+                                                    <i></i><?php echo $this->translate('I agree with the Terms and Conditions') ?>
                                                 </label> 
                                             </div>
                                         </fieldset>
@@ -1397,7 +1398,7 @@
                                                 </section>
                                             </div>                                        
                                             <footer>
-                                                <button type="submit" class="btn-u btn-u-default">Submit</button>
+                                                <button type="submit" class="btn-u btn-u-default"><?php echo $this->translate('Submit') ?></button>
                                                 <button type="button" class="btn-u" onclick="window.history.back();">Back</button>
                                             </footer>
                                         </fieldset>
@@ -1544,7 +1545,7 @@
             <!-- Reset Successful Growl -->
             <!-- Successful new role submission growl -->
             <div id="growlUI-successfulReset" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>Form fields are clear</h3>
+                <h3><a lang="en" href="#"/>Form fields cleared</h3>
             </div>
             <!--// Reset Successful growl -->
 
@@ -1573,7 +1574,7 @@
 
             <!-- Address Tab Prevention Growl -->
             <div id="growlUI-addressTabPrevention" class='growlUI' style="display:none">    
-                <h3><a lang="en" href="#"/>Please fill user general information form first.</h3>
+                <h3><a lang="en" href="#"/>Please fill user general information form first</h3>
                 <h4>
                     <button type='submit' 
                             id='addressTabPreventionBtn-btn' class="btn btn-danger" 
@@ -1616,7 +1617,7 @@
 
         <!-- Unsuccessful general submit Growl -->
         <div id="growlUI-submitUserGeneralInfoSuccessful" class='growlUI' style="display:none" >    
-            <h3><a lang="en" href="#"/>General information failed</h3>               
+            <h3><a lang="en" href="#"/>General information submission failed</h3>               
             <h3><a lang="en" href="#"/></h3>
         </div>
         <!--// Unsuccessful general submit Growl -->
