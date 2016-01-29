@@ -1047,7 +1047,7 @@
                                     </a>
                                 </li>
                             </ul>                
-                            <div class="tab-content">
+                            <div id="tabsContentsSection" class="tab-content">
                                 <!-- User General Info  -->
                                 <div class="tab-pane fade in active" id="userGeneralInfo">
                                     <form id="userGeneralInfoForm" class="sky-form">
@@ -1119,28 +1119,6 @@
                                                                class="form-control validate[required,equals[userPreferedPassword]] text-input">
                                                     </div>
                                                 </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('ID Number (TC Kimlik No for Turkish Citizens)') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-book"></i>
-                                                        </div>
-                                                        <input type="text" name="userIdNumber" 
-                                                               id="userIdNumber" required="true"
-                                                               class="form-control validate[required,custom[onlyNumberSp]]">
-                                                    </div>                                                                
-                                                </section>
-                                                    <!-- <section>
-                                                    <label class="label"><?php echo $this->translate('Nationality') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-plane"></i>
-                                                        </div>
-                                                        <input type="text" name="userNationality" 
-                                                               id="userNationality" required="true"
-                                                               class="validate[required,custom[onlyNumberSp]]">
-                                                    </div>
-                                                </section>-->
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
                                                     <label class="select">
@@ -1616,11 +1594,18 @@
         <!--// successful general submit Growl -->
 
         <!-- Unsuccessful general submit Growl -->
-        <div id="growlUI-submitUserGeneralInfoSuccessful" class='growlUI' style="display:none" >    
+        <div id="growlUI-submitUserGeneralInfoUnsuccessful" class='growlUI' style="display:none" >    
             <h3><a lang="en" href="#"/>General information submission failed</h3>               
             <h3><a lang="en" href="#"/></h3>
         </div>
         <!--// Unsuccessful general submit Growl -->
+        
+        
+        <!-- Unsuccessful 23505 general submit Growl -->
+        <div id="growlUI-submitUserGeneralInfoUnsuccessful" class='growlUI' style="display:none" >    
+            <h3><a lang="en" href="#"/>This username has already been registered in the system</h3>
+        </div>
+        <!--// Unsuccessful 23505 general submit Growl -->
 
 
         <!--********************************************************************-->

@@ -31,6 +31,7 @@
                 "This name is already registered in System.":"Aynı isimde rol daha önce sisteme eklenmiştir.",
                 "Please fill user information forms first":"Lütfen daha önce kullanıcı bilgilerini giriniz",
                 "General information submission failed":"Genel bilgilerin kaydı yapılamadı",
+                "This username has already been registered in the system":"Bu kullanıcı adı sistemde kayıtlıdır",
                 "General information submitted successfully":"Genel bilgiler kaydı başarılı olmuştur",
                 "Please fill user general and address information forms first":"Lütfen önce kullanıcı genel ve adres bilgilerini giriniz",
                 "Please fill user general information form first":"Lütfen önce kullanıcı genel bilgilerini giriniz",

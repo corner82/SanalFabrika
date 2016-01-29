@@ -253,6 +253,13 @@ var App = function () {
 
 }();
 
+/*
+ * 
+ * Automatically fading blockui growl after arranged duration
+ * @author: Mustafa Zeynel Dagli
+ * @Edited: Bahram Lotfi Sadigh
+ */
+
     $.widget("registration.blockuiFadingCentered", {
             /**
          * Default options.
@@ -309,11 +316,13 @@ var App = function () {
                 }
             });
         }
-    });    
-    
-
-                
-    
+    });   
+    /*
+     * This function is written for blocking page and popup a growl 
+     * unless a button is triggered. 
+     * @Author: Mustafa Zeynel Dağlı
+     * 
+     */
     
     $.widget("registration.blockuiCentered", {
         /**
@@ -384,7 +393,7 @@ var App = function () {
         options: {
             message: '<h1 lang="en">Progressing</h1>',
             backgroundColor: 'ecf0f5',
-            showOverlay: false,
+            showOverlay: true,
             width: '350px',
             border: 'none',
             padding: '5px',
