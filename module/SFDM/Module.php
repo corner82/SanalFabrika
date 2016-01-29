@@ -38,6 +38,8 @@ namespace SFDM;
         // translator service attaching to dispatch 
         $eventManager->attach('dispatch', array($this, 'translaterControl'));
         
+        $eventManager->attach('dispatch', array($this, 'aclCreater'));
+        
         // translator service attaching to dispatch error event
         $eventManager->attach('dispatch.error', array($this, 'Error404PageTranslatorControl')); 
 
@@ -50,11 +52,13 @@ namespace SFDM;
              * @since 16/12/2015
              */
             $controlerName = $e->getRouteMatch()->getParam('action');
+            print_r($controlerName);
             $controller = $e->getTarget();
             $controllerClass = get_class($controller);
             $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
-            $config          = $e->getApplication()->getServiceManager()->get('config');
-            
+            print_r(strtolower(trim($moduleNamespace)));
+            $config = $e->getApplication()->getServiceManager()->get('config');
+            print_r($config['ACL']['pages']['consultant']);
             /**
              *  added for layout control due to module action
              *  @author Mustafa Zeynel Dağlı
@@ -125,6 +129,14 @@ namespace SFDM;
         
     }
     
+    public function aclCreater(MvcEvent $e) {
+        print_r('--dispatch event acl creater--');
+        $e->getApplication()
+          ->getServiceManager()
+          ->get('serviceAclRolePages');
+    }
+
+
     public function Error404PageTranslatorControl(MvcEvent $e) {
         //print_r('--dispatch error--');
         $e->getApplication()
@@ -150,7 +162,7 @@ namespace SFDM;
      * @since 17/12/2015
      */
     public function translaterControl(MvcEvent $e) {
-        //print_r('--dispatch event--');
+        print_r('--dispatch event translater control--');
         $e->getApplication()
           ->getServiceManager()
           ->get('serviceTranslator');

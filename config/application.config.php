@@ -106,6 +106,8 @@ return array(
             'servicePublicKeyGenerator' => 'Custom\Services\Authentication\FactoryServicePublicKeyGenerator',
             'servicePublicKeySaver' => 'Custom\Services\Authentication\FactoryServicePublicKeySaver',
             'servicePublicKeyReader' => 'Custom\Services\Authentication\FactoryServicePublicKeyReader',
+            'serviceRole' => 'Custom\Services\Acl\FactoryServiceRole',
+            'serviceAclRolePages' => 'Custom\Services\Acl\FactoryServiceACLRolePages',
         ],  
         
     ),

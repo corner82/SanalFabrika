@@ -89,5 +89,11 @@ return array(
         'Supervisor',
         'Companies'
 
+    ),
+    'ACL' => array(
+        'pages' => array('consultant' => 
+                        array('sfdm')
+                   )
+        
     )
 );

@@ -38,6 +38,7 @@
                             ->setIdentity($_POST['eposta'])
                             ->setCredential($_POST['sifre']);
                 $result = $authManager->authenticate();
+                //print_r($result);
                 if($result->getCode() == 1) {
                     /**
                      * creating a public key for every login operation
@@ -45,7 +46,7 @@
                      * @since 04/01/2016
                      */
                     $publicKey = $this->getServiceLocator()->get('servicePublicKeyGenerator');
-
+                    //print_r($publicKey);
                     /**
                      * when public key not created service returns true,
                      * if public key true we should logout
@@ -72,6 +73,14 @@
                                     'pk' => $publicKey, )
                         );
                     /**
+                     * user role service will be tested
+                     * @author Mustafa Zeynel Dağlı
+                     * @since 28/01/2016
+                     */
+                    $this->getServiceLocator()->get('serviceRole');
+                    
+                    
+                    /**
                      * the public key cretaed is being inserted to database
                      * @author Mustafa Zeynel Dağlı
                      * @since 04/01/2016
@@ -84,6 +93,7 @@
                 $viewModel->notValidated = true;
             }
         }
+        
     }
      
     public function logoutAction()

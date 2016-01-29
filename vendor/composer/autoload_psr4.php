@@ -61,4 +61,5 @@ return array(
     'Custom\\Services\\Authentication\\' => array($vendorDir . '/services/src/authentication'),
     'Custom\\Services\\MultiLanguage\\' => array($vendorDir . '/services/src/multiLanguage'),
     'Custom\\Services\\Filter\\' => array($vendorDir . '/services/src/filter'),
+    'Custom\\Services\\Acl\\' => array($vendorDir . '/services/src/acl'),
 );
