@@ -1,18 +1,14 @@
 $(document).ready(function () {
-
-    console.log($('#lastInsertId').val());
-    
-     /**
+    /**
      * multilanguage plugin 
      * @type Lang
      */
     var lang = new Lang();
-    lang.dynamic($('#ln').val(), '/plugins/jquery-lang-js-master/langpack/'+$('#ln').val()+'.json');
+    lang.dynamic($('#ln').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#ln').val() + '.json');
     lang.init({
         defaultLang: 'en'
     });
     lang.change($('#ln').val());
-
     /*
      * Disable finalize registration and submit user info before checking 
      * agreement terms and conditions...
@@ -24,7 +20,6 @@ $(document).ready(function () {
     $('#userCommunicationInfoFormSubmit').addClass('disabled');
     $('#userCommunicationInfoFormFinalize').attr('disabled', true);
     $('#userCommunicationInfoFormSubmit').attr('disabled', true);
-
     /* 
      * Validation binder
      * 
@@ -34,8 +29,6 @@ $(document).ready(function () {
     $("#userAddressInfoForm").validationEngine();
     $("#userCommunicationInfoForm").validationEngine();
     $("#companyInfoForm").validationEngine();
-
-
     /*
      * List of countries combobox ajax
      */
@@ -53,7 +46,6 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
             var i;
-
             for (i = 0; i < data.length; i++) {
                 if (data[i].name === null) {
 
@@ -62,16 +54,12 @@ $(document).ready(function () {
                     var appending_option_html = "<option value = '" + data[i].id + "' >" +
                             data[i].name +
                             "</option>";
-
                     var newappendingOption = $(appending_option_html);
                     $(newappendingOption).appendTo($("#usercountry"));
-
                 }
             }
         }
     });
-
-
     /*
      * List of provinces combobox ajax based on selected country
      */
@@ -79,11 +67,9 @@ $(document).ready(function () {
     $("select#usercountry").on('change', function () {
 
         var selectedCountryId = $('#usercountry :selected').val();
-
         $("#usercity").empty();
         $("#userdistrict").empty();
         $("#uservillage").empty();
-
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -97,7 +83,6 @@ $(document).ready(function () {
             success: function (data) {
 
                 var i;
-
                 for (i = 0; i < data.length; i++) {
                     if (data[i].name === null) {
 
@@ -113,8 +98,6 @@ $(document).ready(function () {
             }
         });
     });
-
-
     /*
      * List of districts combobox ajax based on selected country and province
      */
@@ -123,10 +106,8 @@ $(document).ready(function () {
 
         var selectedCityId = $('#usercity :selected').val();
         var selectedCountryId = $('#usercountry :selected').val();
-
         $("#userdistrict").empty();
         $("#uservillage").empty();
-
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -141,7 +122,6 @@ $(document).ready(function () {
             success: function (data) {
 
                 var i;
-
                 for (i = 0; i < data.length; i++) {
                     if (data[i].name === null) {
 
@@ -152,7 +132,6 @@ $(document).ready(function () {
                                 "</option>";
                         var newdistrictappendingOption = $(district_appending_option_html);
                         $(newdistrictappendingOption).appendTo($("#userdistrict"));
-
 //                    $(newappendingOption).on("click", function (event) {
 
 //                    });
@@ -161,8 +140,6 @@ $(document).ready(function () {
             }
         });
     });
-
-
     /*
      * List of villages combobox ajax based on selected country, province
      * and district
@@ -173,9 +150,7 @@ $(document).ready(function () {
         var selectedDistrictId = $('#userdistrict :selected').val();
         var selectedCityId = $('#usercity :selected').val();
         var selectedCountryId = $('#usercountry :selected').val();
-
         $("#uservillage").empty();
-
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -191,7 +166,6 @@ $(document).ready(function () {
             success: function (data) {
 
                 var i;
-
                 for (i = 0; i < data.length; i++) {
                     if (data[i].name === null) {
 
@@ -202,7 +176,6 @@ $(document).ready(function () {
                                 "</option>";
                         var newdistrictappendingOption = $(district_appending_option_html);
                         $(newdistrictappendingOption).appendTo($("#uservillage"));
-
 //                    $(newappendingOption).on("click", function (event) {
 
 //                    });
@@ -211,8 +184,6 @@ $(document).ready(function () {
             }
         });
     });
-
-
     /*
      * List of System languages combobox ajax
      */
@@ -228,24 +199,21 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
             var i;
-
+            console.log(data);
             for (i = 0; i < data.length; i++) {
                 if (data[i].language === null) {
 
                 } else {
-
+                    
                     var appending_option_html = "<option value = '" + data[i].id + "' >" +
-                            data[i].language +
+                            data[i].language +  
                             "</option>";
-
                     var newappendingOption = $(appending_option_html);
                     $(newappendingOption).appendTo($("#userPreferedLanguage"));
-
                 }
             }
         }
     });
-
     /*
      * List of communication types combobox ajax
      */
@@ -262,7 +230,6 @@ $(document).ready(function () {
         success: function (data) {
 
             var i;
-
             for (i = 0; i < data.length; i++) {
                 if (data[i].text === null) {
 
@@ -271,15 +238,12 @@ $(document).ready(function () {
                     var appending_option_html = "<option value = '" + data[i].id + "' >" +
                             data[i].text +
                             "</option>";
-
                     var newappendingOption = $(appending_option_html);
                     $(newappendingOption).appendTo($("#communicationTypes"));
-
                 }
             }
         }
     });
-
     /*
      * Buttons function binder
      */
@@ -292,9 +256,7 @@ $(document).ready(function () {
     $("#userCommunicationInfoFormReset").on('click', resetForm);
     $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
     $("#submitUserCommunicationInfoForm").on('click', submitUserCommunicationInfoForm);
-
 });
-
 /*
  * 
  * @type @exp;event@pro;target
@@ -304,7 +266,6 @@ $(document).ready(function () {
 var clickedButton;
 var clickedForm;
 var makePublicProfile = 0;
-
 /*
  * Reset Form Elements
  * @Author: Bahram Lotfi Sadigh
@@ -315,10 +276,8 @@ function resetForm() {
 
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
-
-    $('#informationTabContents').blockElement();
+    contentBlocker.blockElement('show');
     registrationBlockuiResetFormApproval.blockuiCentered('show');
-
 }
 
 /*
@@ -330,13 +289,6 @@ function resetForm() {
 function submitUserGeneralInfoForm() {
 
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
-
-        $('#userGeneralInfo').attr('class', "tab-pane fade");
-        $('#userAddressInfo').attr('class', "tab-pane fade in active");
-
-        $('#userGeneralInfoTab').removeClass('active');
-        $('#userAddressInfoTab').addClass('active');
-        $('#userAddressInfoTab').removeClass('disabled');
 
         if (!$("#pktemp") === null) {
 
@@ -351,7 +303,6 @@ function submitUserGeneralInfoForm() {
                     username: $('#preferedUsername').val(),
                     password: $('#userPreferedPassword').val(),
                     auth_email: $('#useremail').val(),
-                    personIdNumber: $('#userIdNumber').val(),
                     preferred_language: $('#userPreferedLanguage').val(),
                     profile_public: makePublicProfile,
                     operation_type_id: 2,
@@ -362,23 +313,38 @@ function submitUserGeneralInfoForm() {
                 dataType: "json",
                 success: function (data) {
 
-                    $("#checkGeneralForm").val("1");
-                    console.log($("#checkGeneralForm"));
-                    $("#pktemp").val(data.pktemp);
-                    $('#lastInsertId').val(data.lastInsertId);
+                    if (data['errorInfo'][0] === '00000') {
+                        $("#checkGeneralForm").val("1");
+                        $("#pktemp").val(data.pktemp);
+                        $('#lastInsertId').val(data.lastInsertId);
 
-                    $('#informationTabContents').blockElement();
-                    submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
+                        console.log('update success: ' + data);
+                        submitUserGeneralInfoSuccessful.blockuiFadingCentered('option',{
+                            background: 'newCheck-1.png'
+                        });
+                        submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
 
+                        $('#userGeneralInfo').attr('class', "tab-pane fade");
+                        $('#userAddressInfo').attr('class', "tab-pane fade in active");
+                        $('#userGeneralInfoTab').removeClass('active');
+                        $('#userAddressInfoTab').addClass('active');
+                        $('#userAddressInfoTab').removeClass('disabled');
+
+                    } else if (data['errorInfo'] === '23505') {
+
+                        console.log('insert success: ' + data['errorInfo']);
+                        submitUserGeneralInfoUnsuccessful23505.blockuiFadingCentered('show');
+                    }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.error(jqXHR);
 
-                    $('#informationTabContents').blockElement();
+                    console.error('update error: ' + jqXHR);
+                    console.error('update error text : ' + textStatus);
+                    console.error('update error thrown : ' + errorThrown);
+                    
                     submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
-
         } else {
 
             $.ajax({
@@ -392,7 +358,6 @@ function submitUserGeneralInfoForm() {
                     username: $('#preferedUsername').val(),
                     password: $('#userPreferedPassword').val(),
                     auth_email: $('#useremail').val(),
-                    personIdNumber: $('#userIdNumber').val(),
                     preferred_language: $('#userPreferedLanguage').val(),
                     profile_public: makePublicProfile
                 },
@@ -400,32 +365,48 @@ function submitUserGeneralInfoForm() {
                 dataType: "json",
                 success: function (data) {
 
-                    $("#pktemp").val(data.pktemp);
-                    console.log('pk ' + $("#pktemp"));
-                    $('#lastInsertId').val(data.lastInsertId);
-                    console.log('lastInsertId ' + $("#lastInsertId"));
-                    $("#checkGeneralForm").val("1");
-                    console.log($("#checkGeneralForm"));
+                    if (data['errorInfo'][0] === '00000') {
 
-                    $('#informationTabContents').blockElement();
-                    submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
+                        $("#pktemp").val(data.pktemp);
+                        $('#lastInsertId').val(data.lastInsertId);
+                        $("#checkGeneralForm").val("1");
 
+                        console.log('insert success: ' + data['errorInfo'][0]);
+
+                        submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
+
+                        $('#userGeneralInfo').attr('class', "tab-pane fade");
+                        $('#userAddressInfo').attr('class', "tab-pane fade in active");
+                        $('#userGeneralInfoTab').removeClass('active');
+                        $('#userAddressInfoTab').addClass('active');
+                        $('#userAddressInfoTab').removeClass('disabled');
+
+                    } else if (data['errorInfo'] === '23505') {
+
+                        console.log('insert success: ' + data['errorInfo']);
+                        submitUserGeneralInfoUnsuccessful23505.blockuiFadingCentered('show');
+                    }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 
+                    console.error('insert error: ' + jqXHR);
+                    console.error('insert error text : ' + textStatus);
+                    console.error('insert error thrown : ' + errorThrown);
+
                     $("#checkGeneralForm").val("0");
 
-
-                    $('#informationTabContents').blockElement();
+                    submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('option', {
+                        backgroundColor: "#FF0000"
+                    });                    
                     submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
         }
 
-        $('#userAddressInfoTab').attr('href', '#userAddressInfo');
 
-        event.preventDefault();
+
         $("html, body").animate({scrollTop: 0}, "slow");
+        event.preventDefault();
     }
 }
 
@@ -436,11 +417,9 @@ function submitUserAddressInfoForm() {
 
         $('#userAddressInfo').attr('class', "tab-pane fade");
         $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
-
         $('#userAddressInfoTab').removeClass('active');
         $('#userCommunicationInfoTab').addClass('active');
         $('#userCommunicationInfoTab').removeClass('disabled');
-
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
     }
@@ -453,11 +432,9 @@ function submitUserCommunicationInfoForm() {
 
         $('#userCommunicationInfo').attr('class', 'tab-pane fade');
         $('#companyInfo').attr('class', 'tab-pane fade in active');
-
         $('#userCommunicationInfoTab').removeClass('active');
         $('#companyInfoTab').addClass('active');
         $('#companyInfoTab').removeClass('disabled');
-
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
     }
@@ -499,7 +476,7 @@ function checkUGI() {
 
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
 
-            $('#informationTabContents').blockElement();
+            contentBlocker.blockElement('show');
             registrationBlockuiPreventAddressTab.blockuiCentered('show');
         }
     }
@@ -522,9 +499,8 @@ function checkUAI() {
 
         } else if ($('#userCommunicationInfoTab').hasClass('disabled')) {
 
-            $('#informationTabContents').blockElement();
+            contentBlocker.blockElement('show');
             registrationBlockuiPreventCommunicationTab.blockuiCentered('show');
-
         }
     }
 }
@@ -550,9 +526,8 @@ function checkCI() {
 
         } else if ($('#companyInfoTab').hasClass('disabled')) {
 
-            $('#informationTabContents').blockElement();
+            contentBlocker.blockElement('show');
             registrationBlockuiPreventCompanyTab.blockuiCentered('show');
-
         }
     }
 }
@@ -572,7 +547,6 @@ var registrationBlockuiCancelReset = $("#growlUI-cancelReset").blockuiFadingCent
 var registrationBlockuiPreventAddressTab = $("#growlUI-addressTabPrevention").blockuiCentered();
 var registrationBlockuiPreventCommunicationTab = $("#growlUI-communicationTabPrevention").blockuiCentered();
 var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").blockuiCentered();
-
 /*
  * @returns {undefined}
  * Info submission growls
@@ -583,21 +557,22 @@ var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").bl
  */
 var submitUserGeneralInfoSuccessful = $("#growlUI-submitUserGeneralInfoSuccessful").blockuiFadingCentered();
 var submitUserGeneralInfoUnsuccessful = $("#growlUI-submitUserGeneralInfoUnsuccessful").blockuiFadingCentered();
-
+var submitUserGeneralInfoUnsuccessful23505 = $("#growlUI-submitUserGeneralInfoUnsuccessful23505").blockuiFadingCentered();
 /* 
  * submit address info
  */
 var submitUserAddressInfoSuccessful = $("#growlUI-submitUserAddressInfoSuccessful").blockuiCentered();
 var submitUserAddressInfoUnsuccessful = $("#growlUI-submitUserAddressInfoUnsuccessful").blockuiCentered();
-
-
 /* 
  * submit communication info
  */
 var submitUserCommunicationInfoSuccessful = $("#growlUI-submitUserCommunicationInfoSuccessful").blockuiCentered();
 var submitUserCommunicationInfoUnsuccessful = $("#growlUI-submitUserCommunicationInfoUnsuccessful").blockuiCentered();
+/*
+ * Content blocker
+ */
 
-
+var contentBlocker = $("#tabsContentsSection").blockElement();
 /*
  * 
  * functions section
@@ -607,9 +582,8 @@ var submitUserCommunicationInfoUnsuccessful = $("#growlUI-submitUserCommunicatio
 function resetConfirmation() {
 
     clickedForm.reset();
-
     $.unblockUI();
-    $("#informationTabContents").unblock();
+    $("#tabsContentsSection").unblock();
     event.preventDefault();
     registrationBlockuiSuccessfulReset.blockuiFadingCentered('show');
 }
@@ -624,8 +598,13 @@ function resetConfirmation() {
 function resetRejection() {
 
     $.unblockUI();
-    $("#informationTabContents").unblock();
+    $("#tabsContentsSection").unblock();
     event.preventDefault();
+//    registrationBlockuiCancelReset.blockuiFadingCentered('option', {
+//                .div.growlUI { 
+//    background: url(check48.png) no-repeat 10px 10px 
+//}
+//    });
     registrationBlockuiCancelReset.blockuiFadingCentered('show');
 }
 
@@ -639,34 +618,22 @@ function resetRejection() {
 function preventTab() {
 
     $.unblockUI();
-    $("#informationTabContents").unblock();
+    $("#tabsContentsSection").unblock();
     event.preventDefault();
-
-    console.log('general    ' + $("#checkGeneralForm").val());
-    console.log('address    ' + $("#checkAddressForm").val());
-    console.log('communication  ' + $("#checkCommunicationForm").val());
-
     if ($("#checkCommunicationForm").val() === "1") {
-
-
-        console.log('communication = 1');
 
         $("#companyInfoTab").removeClass('disable');
         $("#userCommunicationInfoTab").removeClass('disable');
         $("#userAddressInfoTab").removeClass('disable');
         $("#userGeneralInfoTab").removeClass('disable');
-
     } else {
 
         if ($("#checkAddressForm").val() === "1") {
-
-            console.log('address = 1');
 
             $("#companyInfoTab").addClass('disable');
             $("#userCommunicationInfoTab").removeClass('disable');
             $("#userAddressInfoTab").removeClass('disable');
             $("#userGeneralInfoTab").removeClass('disable');
-
             if ($(this).id === '#companyInfoTab') {
 
                 $("#companyInfoTab").removeClass('active');
@@ -680,13 +647,11 @@ function preventTab() {
                 $("#userCommunicationInfoTab").addClass('disable');
                 $("#userAddressInfoTab").removeClass('disable');
                 $("#userGeneralInfoTab").removeClass('disable');
-
                 if ($(this).hasClass('disabled') === '#companyInfoTab' || '#userCommunicationInfoTab') {
 
                     $("#userCommunicationInfoTab").removeClass('active');
                     $("#companyInfoTab").removeClass('active');
                     $("#userAddressInfoTab").addClass('active');
-
                     $('#primaryTabs .active').tab('show');
                 }
             } else {
@@ -695,7 +660,6 @@ function preventTab() {
                 $("#userCommunicationInfoTab").addClass("disable");
                 $("#userAddressInfoTab").addClass('disable');
                 $("#userGeneralInfoTab").removeClass('disable');
-
                 $('#userAddressInfo a').tab('hide');
                 $('#primaryTabs li:eq(0) a').tab('show');
             }
