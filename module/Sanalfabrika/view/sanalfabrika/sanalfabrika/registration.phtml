@@ -1084,7 +1084,7 @@
                                                         </div>
                                                         <input type="text" name="preferedUsername" 
                                                                id="preferedUsername" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterNumber]]">
+                                                               class="form-control validate[required,custom[sfUserName]]">
                                                     </div>
                                                 </section>
                                                 <section>
@@ -1116,8 +1116,15 @@
                                                         </div>
                                                         <input type="password" name="repeatedUserPreferedPassword" 
                                                                id="repeatedUserPreferedPassword" required="true"
-                                                               class="form-control validate[required,equals[userPreferedPassword]] text-input">
+                                                               class="form-control [required,equals[userPreferedPassword]] text-input">
                                                     </div>
+                                                </section>                                                
+                                                <section> 
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" name="showPassword" 
+                                                               id="showPassword">
+                                                        <i></i><?php echo $this->translate('Show my password') ?> 
+                                                    </label>
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
@@ -1148,6 +1155,14 @@
                                                     </button>
                                                 </div>
                                             </footer>
+                                            <footer>
+                                                <div>
+                                                    <button type="button" class="btn-u btn-u-dark" 
+                                                            id="testShowAllAddresses_btn" data-toggle="modal" data-target="#testaddressModal">
+                                                                <?php echo $this->translate('Show all my registered addresses') ?>
+                                                    </button>                                                
+                                                </div>
+                                            </footer>
                                         </fieldset>
                                     </form>         
                                 </div>
@@ -1156,6 +1171,14 @@
                                 <div class="tab-pane fade" id="userAddressInfo">
                                     <form id="userAddressInfoForm" class="sky-form">
                                         <header><?php echo $this->translate('Address Information') ?></header>
+                                        <header>
+                                            <div>
+                                                <button type="button" class="btn-u btn-u-dark" 
+                                                        id="showAllAddresses_btn" data-toggle="modal" data-target="#addressModal">
+                                                            <?php echo $this->translate('Show all my registered addresses') ?>
+                                                </button>                                                
+                                            </div>
+                                        </header>
                                         <fieldset>
                                             <div class="row">
                                                 <section>
@@ -1599,25 +1622,122 @@
             <h3><a lang="en" href="#"/></h3>
         </div>
         <!--// Unsuccessful general submit Growl -->
-        
-        
-        <!-- Unsuccessful 23505 general submit Growl -->
-        <div id="growlUI-submitUserGeneralInfoUnsuccessful" class='growlUI' style="display:none" >    
-            <h3><a lang="en" href="#"/>This username has already been registered in the system</h3>
+
+        <!-- Unsuccessful 23505_auth_email general submit Growl -->
+        <div id="growlUI-submitUserGeneralInfoUnsuccessful23505_auth_email" class='growlUI' style="display:none" >    
+            <h3><a lang="en" href="#"/>Entered email address has already been registered in the system</h3>
         </div>
-        <!--// Unsuccessful 23505 general submit Growl -->
+        <!--// Unsuccessful 23505_auth_email general submit Growl -->
+
+        <!-- Unsuccessful 23505_username general submit Growl -->
+        <div id="growlUI-submitUserGeneralInfoUnsuccessful23505_username" class='growlUI' style="display:none" >    
+            <h3><a lang="en" href="#"/>Entered username has already been registered in the system</h3>
+        </div>
+        <!--// Unsuccessful 23505_username general submit Growl -->
+
+        <!-- Unsuccessful 23502 general submit Growl -->
+        <div id="growlUI-submitUserGeneralInfoUnsuccessful23502" class='growlUI' style="display:none" >    
+            <h3><a lang="en" href="#"/>System is unable to find required information</h3>
+        </div>
+        <!--// Unsuccessful 23502 general submit Growl -->
 
 
         <!--********************************************************************-->
         <!--//********************* End of growls ******************************-->
         <!--********************************************************************-->
 
+        <!--********************************************************************-->
+        <!--//********************* Modals Section******************************-->
+        <!--********************************************************************-->
+
+        <!-- Registered Address Modal -->
+        <div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h4 id="addressModalLabel1" class="modal-title">My Registered Addresses</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="address_tt_grid">
+                            <table  id="address_tt_grid" title="My registered addresses" ></table>
+                        </div>   
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn-u btn-u-default" type="button">Close</button>
+                        <button class="btn-u" type="button">Edit selected address</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// End of Registered Address Modal-->
+
+        <!-- test of Registered Address Modal -->
+        <div class="modal fade" id="testaddressModal" tabindex="-1" role="dialog" aria-labelledby="testaddressModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <h4 id="testaddressModalLabel1" class="modal-title">My Registered Addresses</h4>
+                    </div>
+                    <<!--Hover Rows-->
+                    <div>
+                        <div class="panel panel-yellow margin-bottom-40">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-gear"></i> Hover rows</h3>
+                            </div>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Username</th>
+                                        <th>Link</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td><a class="btn btn-danger btn-xs">Pending</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jacob</td>
+                                        <td><a class="btn btn-warning btn-xs">Demo Link</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Larry</td>
+                                        <td><a class="btn btn-info btn-xs">Share Info</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>htmlstream</td>
+                                        <td><a class="btn btn-success btn-xs">Testing Box</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                  
+                    </div>
+                <!--End Striped and Hover Rows-->
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn-u btn-u-default" type="button">Close</button>
+                    <button class="btn-u" type="button">Edit selected address</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// End of test of Registered Address Modal-->
+
+
+    <!--********************************************************************-->
+    <!--//********************* End of Modals Section******************************-->
+    <!--********************************************************************-->
 
 
 
 
 
-
-    </body>
-    <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:25 GMT -->
+</body>
+<!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:25 GMT -->
 </html>

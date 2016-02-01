@@ -124,11 +124,15 @@
                     "alertText": "* Numbers only"
                 },
                 "onlyLetterSp": {
-                    "regex": /^[a-zA-Z\ \']+$/,
+                    "regex": /^[a-zA-ZıçşğöüİÇŞĞÜÖ\ \']+$/,
                     "alertText": "* Letters only"
                 },
                 "onlyLetterNumber": {
-                    "regex": /^[0-9a-zA-Z]+$/,
+                    "regex": /^[0-9a-zA-ZıçşğöüİÇŞĞÜÖ]+$/,
+                    "alertText": "* No special characters allowed"
+                },
+                "sfUserName": {
+                    "regex": /^[0-9a-zA-Z_@ıçşğöüİÇŞĞÜÖ.]+$/,
                     "alertText": "* No special characters allowed"
                 },
                 // --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings

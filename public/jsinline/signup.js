@@ -1,4 +1,37 @@
 $(document).ready(function () {
+
+    $('#testaddress_tt_grid').datagrid({
+        onDblClickRow: function (index, row) {
+            $('.nav-tabs a[href="#tab_1-1"]').tab('show');
+            //alert('test');
+        },
+//        url: '../../../slimProxyEkoOstim/SlimProxyBoot.php?url=getCompaniesInfo_company',
+        //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
+        width: '100%',
+        singleSelect: true,
+        pagination: true,
+        collapsible: true,
+        method: 'get',
+        idField: 'id',
+        //toolbar:'#tb5',
+        //fit:true,
+        //fitColumns : true,
+        remoteFilter: true,
+        remoteSort: true,
+        multiSort: false,
+        columns:
+                [[
+                        {field: 'id', title: 'ID'},
+                        {field: 'firm_name', title: 'Firma', sortable: true, width: 300},
+                        {field: 'foundation_year', title: 'Kuruluş Yılı', sortable: true, width: 100},
+                        {field: 'firm_web', title: 'Web Adresi', width: 200},
+                        {field: 'tax_office', title: 'Vergi Dairesi', width: 200},
+                        {field: 'tax_no', title: ' Vergi Numarası', sortable: true, width: 200},
+                        {field: 'sgk_sicil_no', title: 'SGK Sicil No', width: 200}
+                    ]]
+    });
+
+
     /**
      * multilanguage plugin 
      * @type Lang
@@ -29,10 +62,29 @@ $(document).ready(function () {
     $("#userAddressInfoForm").validationEngine();
     $("#userCommunicationInfoForm").validationEngine();
     $("#companyInfoForm").validationEngine();
+
+    /*
+     * Show or hide password content
+     * @author: Bahram Lotfi Sadigh
+     * @Since: 2016.2.1
+     * 
+     */
+
+    $('#showPassword').change(function () {
+        var isChecked = $(this).prop('checked');
+        if (isChecked) {
+            $('#userPreferedPassword').attr('type', 'text');
+            $('#repeatedUserPreferedPassword').attr('type', 'text');
+        }
+        else {
+            $('#userPreferedPassword').attr('type', 'password');
+            $('#repeatedUserPreferedPassword').attr('type', 'password');
+        }
+    });
+
     /*
      * List of countries combobox ajax
      */
-
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -204,9 +256,9 @@ $(document).ready(function () {
                 if (data[i].language === null) {
 
                 } else {
-                    
+
                     var appending_option_html = "<option value = '" + data[i].id + "' >" +
-                            data[i].language +  
+                            data[i].language +
                             "</option>";
                     var newappendingOption = $(appending_option_html);
                     $(newappendingOption).appendTo($("#userPreferedLanguage"));
@@ -319,7 +371,8 @@ function submitUserGeneralInfoForm() {
                         $('#lastInsertId').val(data.lastInsertId);
 
                         console.log('update success: ' + data);
-                        submitUserGeneralInfoSuccessful.blockuiFadingCentered('option',{
+
+                        submitUserGeneralInfoSuccessful.blockuiFadingCentered('option', {
                             background: 'newCheck-1.png'
                         });
                         submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
@@ -330,10 +383,30 @@ function submitUserGeneralInfoForm() {
                         $('#userAddressInfoTab').addClass('active');
                         $('#userAddressInfoTab').removeClass('disabled');
 
+                        /*
+                         * OKan pktemp servisi yazilacak************************
+                         * *****************************************************
+                         */
+
                     } else if (data['errorInfo'] === '23505') {
 
                         console.log('insert success: ' + data['errorInfo']);
-                        submitUserGeneralInfoUnsuccessful23505.blockuiFadingCentered('show');
+                        console.log(data);
+
+                        var errorInfoColumn = data['errorInfoColumn'];
+                        console.log('erroInfoColumn value is: ' + errorInfoColumn);
+
+                        if (errorInfoColumn = 'auth_email') {
+                            submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
+                        } else if (errorInfoColumn = 'username') {
+                            submitUserGeneralInfoUnsuccessful23505_username.blockuiFadingCentered('show');
+                        }
+
+                    } else if (data['errorInfo'] === '23502') {
+
+                        console.log('insert success: ' + data['errorInfo']);
+                        console.log(data);
+                        submitUserGeneralInfoUnsuccessful23502.blockuiFadingCentered('show');
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -341,7 +414,10 @@ function submitUserGeneralInfoForm() {
                     console.error('update error: ' + jqXHR);
                     console.error('update error text : ' + textStatus);
                     console.error('update error thrown : ' + errorThrown);
-                    
+
+                    submitUserGeneralInfoSuccessful.blockuiFadingCentered('option', {
+                        background: 'newCross-1.png'
+                    });
                     submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
@@ -381,10 +457,31 @@ function submitUserGeneralInfoForm() {
                         $('#userAddressInfoTab').addClass('active');
                         $('#userAddressInfoTab').removeClass('disabled');
 
+
+                        /*
+                         * OKan pktemp servisi yazilacak************************
+                         * *****************************************************
+                         */
+
                     } else if (data['errorInfo'] === '23505') {
 
                         console.log('insert success: ' + data['errorInfo']);
-                        submitUserGeneralInfoUnsuccessful23505.blockuiFadingCentered('show');
+                        console.log(data);
+
+                        var errorInfoColumn = data['errorInfoColumn'];
+                        console.log('erroInfoColumn value is: ' + errorInfoColumn);
+
+                        if (errorInfoColumn = 'auth_email') {
+                            submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
+                        } else if (errorInfoColumn = 'username') {
+                            submitUserGeneralInfoUnsuccessful23505_username.blockuiFadingCentered('show');
+                        }
+
+                    } else if (data['errorInfo'] === '23502') {
+
+                        console.log('insert success: ' + data['errorInfo']);
+                        console.log(data);
+                        submitUserGeneralInfoUnsuccessful23502.blockuiFadingCentered('show');
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -397,7 +494,7 @@ function submitUserGeneralInfoForm() {
 
                     submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('option', {
                         backgroundColor: "#FF0000"
-                    });                    
+                    });
                     submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
@@ -557,7 +654,10 @@ var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").bl
  */
 var submitUserGeneralInfoSuccessful = $("#growlUI-submitUserGeneralInfoSuccessful").blockuiFadingCentered();
 var submitUserGeneralInfoUnsuccessful = $("#growlUI-submitUserGeneralInfoUnsuccessful").blockuiFadingCentered();
-var submitUserGeneralInfoUnsuccessful23505 = $("#growlUI-submitUserGeneralInfoUnsuccessful23505").blockuiFadingCentered();
+var submitUserGeneralInfoUnsuccessful23505_auth_email = $("#growlUI-submitUserGeneralInfoUnsuccessful23505_auth_email").blockuiFadingCentered();
+var submitUserGeneralInfoUnsuccessful23505_username = $("#growlUI-submitUserGeneralInfoUnsuccessful23505_username").blockuiFadingCentered();
+var submitUserGeneralInfoUnsuccessful23502 = $("#growlUI-submitUserGeneralInfoUnsuccessful23502").blockuiFadingCentered();
+
 /* 
  * submit address info
  */
@@ -675,7 +775,5 @@ function changePublicProfile() {
         makePublicProfile = 1;
     }
 }
-
-
 
 
