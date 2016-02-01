@@ -1,6 +1,25 @@
 $(document).ready(function () {
+    
+    $('#table_test').bootstrapTable({
+        onClickRow : function (row, element) {
+           alert('onclick');
+           console.warn(row);
+        },
+      columns: [{
+       field: 'id',
+       title: 'Item ID'
+       },
+       {field: 'name',
+        title: 'Item Name'
+       }, 
+      {
+        field: 'price',
+        title: 'Item Price',
+        formatter : '<i class="glyphicon glyphicon-heart"></i>',
+       }, ]
+    });
 
-    $('#testaddress_tt_grid').datagrid({
+    /*$('#testaddress_tt_grid').datagrid({
         onDblClickRow: function (index, row) {
             $('.nav-tabs a[href="#tab_1-1"]').tab('show');
             //alert('test');
@@ -29,7 +48,7 @@ $(document).ready(function () {
                         {field: 'tax_no', title: ' Vergi Numarası', sortable: true, width: 200},
                         {field: 'sgk_sicil_no', title: 'SGK Sicil No', width: 200}
                     ]]
-    });
+    });*/
 
 
     /**
