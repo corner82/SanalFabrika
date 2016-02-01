@@ -19,37 +19,6 @@ $(document).ready(function () {
        }, ]
     });
 
-    /*$('#testaddress_tt_grid').datagrid({
-        onDblClickRow: function (index, row) {
-            $('.nav-tabs a[href="#tab_1-1"]').tab('show');
-            //alert('test');
-        },
-//        url: '../../../slimProxyEkoOstim/SlimProxyBoot.php?url=getCompaniesInfo_company',
-        //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
-        width: '100%',
-        singleSelect: true,
-        pagination: true,
-        collapsible: true,
-        method: 'get',
-        idField: 'id',
-        //toolbar:'#tb5',
-        //fit:true,
-        //fitColumns : true,
-        remoteFilter: true,
-        remoteSort: true,
-        multiSort: false,
-        columns:
-                [[
-                        {field: 'id', title: 'ID'},
-                        {field: 'firm_name', title: 'Firma', sortable: true, width: 300},
-                        {field: 'foundation_year', title: 'Kuruluş Yılı', sortable: true, width: 100},
-                        {field: 'firm_web', title: 'Web Adresi', width: 200},
-                        {field: 'tax_office', title: 'Vergi Dairesi', width: 200},
-                        {field: 'tax_no', title: ' Vergi Numarası', sortable: true, width: 200},
-                        {field: 'sgk_sicil_no', title: 'SGK Sicil No', width: 200}
-                    ]]
-    });*/
-
 
     /**
      * multilanguage plugin 
