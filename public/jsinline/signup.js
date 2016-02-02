@@ -869,13 +869,18 @@ $.ajax({
     dataType: "json",
     success: function (datas) {
         // data you need
-        console.log(datas);
+//        console.log(datas);
         // just use setTimeout
         $('#table_test').bootstrapTable({
             onClickRow: function (row, $element) {
                 // row: the record corresponding to the clicked row, 
                 // $element: the tr element.
-//                console.log(row.name);
+                console.log(row.name);
+            },
+            onCheck: function (row, $element) {
+                // row: the record corresponding to the clicked row, 
+                // $element: the tr element.
+                console.log(row.id);
             },
             toggle: "table",
             height: "300",
