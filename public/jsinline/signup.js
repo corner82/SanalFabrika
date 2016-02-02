@@ -852,47 +852,27 @@ function changePublicCommunication() {
  * @Since:2016.1.2
  */
 
-
-var $table = $('#table_test');
-// your custom ajax request here
-
-
-$.ajax({
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-    data: {
-        url: 'fillComboBox_syscountrys',
-        language_code: $("#langCode").val()
-
+$('#table_test').bootstrapTable({
+    onClickRow: function (row, $element) {
+        // row: the record corresponding to the clicked row, 
+        // $element: the tr element.
+        console.log(row.name);
     },
-    method: "GET",
-    dataType: "json",
-    success: function (datas) {
-        // data you need
-//        console.log(datas);
-        // just use setTimeout
-        $('#table_test').bootstrapTable({
-            onClickRow: function (row, $element) {
-                // row: the record corresponding to the clicked row, 
-                // $element: the tr element.
-                console.log(row.name);
-            },
-            onCheck: function (row, $element) {
-                // row: the record corresponding to the clicked row, 
-                // $element: the tr element.
-                console.log(row.id);
-            },
-            toggle: "table",
-            height: "300",
-            pagination: "true",
-            search: "true",
-            toolbar: "#toolbar",
-//            data-show-refresh="true",
-//            data-show-toggle="true",
-//            data-show-columns="true",
-            data: datas
-
-        });
+    onCheck: function (row, $element) {
+        // row: the record corresponding to the clicked row, 
+        // $element: the tr element.
+        console.log(row.id);
+    },
+    toggle: "table",
+    height: "300",
+    pagination: "true",
+    search: "true",
+    toolbar: "#toolbar",
+    url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=fillComboBox_syscountrys",
+    queryParams: function (p) {
+        return{
+            language_code: $('#langCode').val()
+        };
     }
 });
 
