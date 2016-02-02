@@ -1,33 +1,5 @@
 $(document).ready(function () {
-
-    /*
-     $('#table_test').bootstrapTable({
-     onClickRow: function (row, element) {
-     //           alert('onclick');
-     console.warn(row);
-     console.warn(row.id);
-     console.warn(row.name);
-     },
-     columns: [{
-     field: 'id',
-     title: 'Item ID'
-     },
-     {field: 'name',
-     title: 'Item Name'
-     },
-     {
-     field: 'price',
-     title: 'Item Price',
-     formatter: '<i class="glyphicon glyphicon-heart"></i>'
-     }]
-     });
-     */
-
-
-
-
-
-
+    
     /**
      * multilanguage plugin 
      * @type Lang
@@ -761,58 +733,18 @@ function preventTab() {
     $("#tabsContentsSection").unblock();
     event.preventDefault();
     if ($("#checkCommunicationForm").val() === "1") {
-        /*
-         $("#companyInfoTab").removeClass('disabled');
-         $("#userCommunicationInfoTab").removeClass('disabled');
-         $("#userAddressInfoTab").removeClass('disabled');
-         $("#userGeneralInfoTab").removeClass('disabled');
-         */
+
         $("#companyInfoTab").addClass('active');
     } else {
-
         $("#companyInfoTab").removeClass('active');
         $("#companyInfoTab").addClass('disabled');
-        if ($("#checkAddressForm").val() === "1") {
-            /*
-             $("#companyInfoTab").addClass('disabled');
-             $("#userCommunicationInfoTab").removeClass('disabled');
-             $("#userAddressInfoTab").removeClass('disabled');
-             $("#userGeneralInfoTab").removeClass('disabled');
-             
-             
-             $("#companyInfoTab").removeClass('active');
-             
-             $('#companyInfo a').tab('hide');
-             */
+        if ($("#checkAddressForm").val() === "1") {            
             $("#userCommunicationInfoTab").addClass('active');
             $('#primaryTabs a[href ="#userCommunicationInfo"]').tab('show');
         } else {
             if ($("#checkGeneralForm").val() === "1") {
-
-                /*$("#companyInfoTab").addClass('disabled');
-                 $("#userCommunicationInfoTab").addClass('disabled');
-                 $("#userAddressInfoTab").removeClass('disabled');
-                 $("#userGeneralInfoTab").removeClass('disabled');
-                 
-                 $("#userCommunicationInfoTab").removeClass('active');
-                 $("#companyInfoTab").removeClass('active');
-                 $("#userAddressInfoTab").addClass('active');*/
-
-                //$('#primaryTabs a[href="#companyInfo"]').tab('hide');
-                //$('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
-
-//                $('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
-
-//                $('#primaryTabs .disabled a').tab('hide');
                 $('#primaryTabs a[href ="#userAddressInfo"]').tab('show');
-            } else {
-                /*
-                 $("#companyInfoTab").addClass('disabled');
-                 $("#userCommunicationInfoTab").addClass("disabled");
-                 $("#userAddressInfoTab").addClass('disabled');
-                 $("#userGeneralInfoTab").removeClass('disabled');
-                 $('#userAddressInfo a').tab('hide');
-                 */
+            } else {                
                 $('#primaryTabs li:eq(0) a').tab('show');
             }
         }
