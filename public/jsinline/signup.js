@@ -1,72 +1,27 @@
 $(document).ready(function () {
 
-    $(function () {
-        var $result = $('#eventsResult');
-
-        $('#eventsTable').on('all.bs.table', function (e, name, args) {
-            console.log('Event:', name, ', data:', args);
-        })
-                .on('click-row.bs.table', function (e, row, $element) {
-                    $result.text('Event: click-row.bs.table');
-                })
-                .on('dbl-click-row.bs.table', function (e, row, $element) {
-                    $result.text('Event: dbl-click-row.bs.table');
-                })
-                .on('sort.bs.table', function (e, name, order) {
-                    $result.text('Event: sort.bs.table');
-                })
-                .on('check.bs.table', function (e, row) {
-                    $result.text('Event: check.bs.table');
-                })
-                .on('uncheck.bs.table', function (e, row) {
-                    $result.text('Event: uncheck.bs.table');
-                })
-                .on('check-all.bs.table', function (e) {
-                    $result.text('Event: check-all.bs.table');
-                })
-                .on('uncheck-all.bs.table', function (e) {
-                    $result.text('Event: uncheck-all.bs.table');
-                })
-                .on('load-success.bs.table', function (e, data) {
-                    $result.text('Event: load-success.bs.table');
-                })
-                .on('load-error.bs.table', function (e, status) {
-                    $result.text('Event: load-error.bs.table');
-                })
-                .on('column-switch.bs.table', function (e, field, checked) {
-                    $result.text('Event: column-switch.bs.table');
-                })
-                .on('page-change.bs.table', function (e, number, size) {
-                    $result.text('Event: page-change.bs.table');
-                })
-                .on('search.bs.table', function (e, text) {
-                    $result.text('Event: search.bs.table');
-                });
-    });
-
-
-/*
-$('#table_test').bootstrapTable({
-        onClickRow: function (row, element) {
-//           alert('onclick');
-            console.warn(row);
-            console.warn(row.id);
-            console.warn(row.name);
-        },
-        columns: [{
-                field: 'id',
-                title: 'Item ID'
-            },
-            {field: 'name',
-                title: 'Item Name'
-            },
-            {
-                field: 'price',
-                title: 'Item Price',
-                formatter: '<i class="glyphicon glyphicon-heart"></i>'
-            }]
-    });
-*/
+    /*
+     $('#table_test').bootstrapTable({
+     onClickRow: function (row, element) {
+     //           alert('onclick');
+     console.warn(row);
+     console.warn(row.id);
+     console.warn(row.name);
+     },
+     columns: [{
+     field: 'id',
+     title: 'Item ID'
+     },
+     {field: 'name',
+     title: 'Item Name'
+     },
+     {
+     field: 'price',
+     title: 'Item Price',
+     formatter: '<i class="glyphicon glyphicon-heart"></i>'
+     }]
+     });
+     */
 
 
 
@@ -891,4 +846,37 @@ function changePublicCommunication() {
     }
 }
 
+
+
+var $table = $('#table_test');
+// your custom ajax request here
+$.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+    data: {
+        url: 'fillComboBox_syscountrys',
+        language_code: $("#langCode").val()
+
+    },
+    method: "GET",
+    dataType: "json",
+    success: function (datas) {
+        // data you need
+//        console.log(response);
+        // just use setTimeout
+        $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['tr-TR']);
+        $('#table_test').bootstrapTable({
+            toggle: "table",
+            height: "500",
+            pagination: "true",
+            search: "true",
+            toolbar: "#toolbar",
+//            data-show-refresh="true",
+//            data-show-toggle="true",
+//            data-show-columns="true",
+            data : datas
+
+        });
+    }
+});
 

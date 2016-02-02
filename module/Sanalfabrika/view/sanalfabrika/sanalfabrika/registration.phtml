@@ -1738,25 +1738,18 @@
                                 <h3 class="panel-title"><i class="fa fa-phone"></i> List of Contacts</h3>
                             </div>
                             <div class="panel-body">
-                                <table id="table_test"
-                                       data-toggle="table"
-                                       data-height="300"
-                                       data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1"
-                                       data-pagination="true"
-                                       data-search="true"
-                                       data-show-refresh="true"
-                                       data-show-toggle="true"
-                                       data-show-columns="true"
-                                       data-toolbar="#toolbar">
+                                <table id="table_test">
+                                       <!--data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1"-->
+                                       
                                     <thead>
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
+                                            <th data-field="id">Id</th>
                                             <th data-field="name">Name</th>
-                                            <th data-field="stargazers_count">Stars</th>
-                                            <th data-field="forks_count">Forks</th>
-                                            <th data-field="description">Description</th>
                                         </tr>
                                     </thead>
+                                    <tbody id="table_test_tbody">                                        
+                                    </tbody>
                                 </table>
                             </div>                  
                         </div>
