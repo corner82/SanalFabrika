@@ -550,6 +550,8 @@ function submitUserAddressInfoForm() {
 
     if ($('#userAddressInfoForm').validationEngine('validate')) {
 
+        $('#checkAddressForm').val('1');
+
         $('#userAddressInfo').attr('class', "tab-pane fade");
         $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
         $('#userAddressInfoTab').removeClass('active');
@@ -564,6 +566,8 @@ function submitUserAddressInfoForm() {
 function submitUserCommunicationInfoForm() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
+
+        $('#userCommunicationInfoForm').val('1');
 
         $('#userCommunicationInfo').attr('class', 'tab-pane fade');
         $('#companyInfo').attr('class', 'tab-pane fade in active');
@@ -611,7 +615,7 @@ function checkUGI() {
 
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
 
-            contentBlocker.blockElement('show');
+            contentBlockerWText.blockElementWithoutText('show');
             $('div.growlUI')
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -637,7 +641,7 @@ function checkUAI() {
 
         } else if ($('#userCommunicationInfoTab').hasClass('disabled')) {
 
-            contentBlocker.blockElement('show');
+            contentBlockerWText.blockElementWithoutText('show');
             $('div.growlUI')
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -662,12 +666,10 @@ function checkCI() {
          */
 
     } else if ($("#checkCommunicationForm").val() === "0") {
+        
+        if ($('#companyInfoTab').hasClass('disabled')) {
 
-        if ($('#companyInfoTab').hasClass('active')) {
-
-        } else if ($('#companyInfoTab').hasClass('disabled')) {
-
-            contentBlocker.blockElement('show');
+            contentBlockerWText.blockElementWithoutText('show');
             $('div.growlUI')
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -719,7 +721,8 @@ var submitUserCommunicationInfoUnsuccessful = $("#growlUI-submitUserCommunicatio
  * Content blocker
  */
 
-var contentBlocker = $("#tabsContentsSection").blockElement();
+var contentBlocker = $("#tabsContentsSection").blockuiCentered();
+var contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
 /*
  * 
  * functions section
@@ -774,54 +777,60 @@ function preventTab() {
     $("#tabsContentsSection").unblock();
     event.preventDefault();
     if ($("#checkCommunicationForm").val() === "1") {
-
-        $("#companyInfoTab").removeClass('disabled');
-        $("#userCommunicationInfoTab").removeClass('disabled');
-        $("#userAddressInfoTab").removeClass('disabled');
-        $("#userGeneralInfoTab").removeClass('disabled');
+        /*
+         $("#companyInfoTab").removeClass('disabled');
+         $("#userCommunicationInfoTab").removeClass('disabled');
+         $("#userAddressInfoTab").removeClass('disabled');
+         $("#userGeneralInfoTab").removeClass('disabled');
+         */
+        $("#companyInfoTab").addClass('active');
     } else {
-
+        
+        $("#companyInfoTab").removeClass('active');
+        $("#companyInfoTab").addClass('disabled');
         if ($("#checkAddressForm").val() === "1") {
-
-            $("#companyInfoTab").addClass('disabled');
-            $("#userCommunicationInfoTab").removeClass('disabled');
-            $("#userAddressInfoTab").removeClass('disabled');
-            $("#userGeneralInfoTab").removeClass('disabled');
-
-
-            $("#companyInfoTab").removeClass('active');
+            /*
+             $("#companyInfoTab").addClass('disabled');
+             $("#userCommunicationInfoTab").removeClass('disabled');
+             $("#userAddressInfoTab").removeClass('disabled');
+             $("#userGeneralInfoTab").removeClass('disabled');
+             
+             
+             $("#companyInfoTab").removeClass('active');
+             
+             $('#companyInfo a').tab('hide');
+             */
             $("#userCommunicationInfoTab").addClass('active');
-
-            $('#companyInfo a').tab('hide');
-            $('#primaryTabs .active a').tab('show');
+            $('#primaryTabs a[href ="#userCommunicationInfo"]').tab('show');
 
         } else {
             if ($("#checkGeneralForm").val() === "1") {
 
                 /*$("#companyInfoTab").addClass('disabled');
-                $("#userCommunicationInfoTab").addClass('disabled');
-                $("#userAddressInfoTab").removeClass('disabled');
-                $("#userGeneralInfoTab").removeClass('disabled');
+                 $("#userCommunicationInfoTab").addClass('disabled');
+                 $("#userAddressInfoTab").removeClass('disabled');
+                 $("#userGeneralInfoTab").removeClass('disabled');
+                 
+                 $("#userCommunicationInfoTab").removeClass('active');
+                 $("#companyInfoTab").removeClass('active');
+                 $("#userAddressInfoTab").addClass('active');*/
 
-                $("#userCommunicationInfoTab").removeClass('active');
-                $("#companyInfoTab").removeClass('active');
-                $("#userAddressInfoTab").addClass('active');*/
-                
                 //$('#primaryTabs a[href="#companyInfo"]').tab('hide');
                 //$('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
-                
+
 //                $('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
-                
+
 //                $('#primaryTabs .disabled a').tab('hide');
                 $('#primaryTabs a[href ="#userAddressInfo"]').tab('show');
 
             } else {
-
-                $("#companyInfoTab").addClass('disabled');
-                $("#userCommunicationInfoTab").addClass("disabled");
-                $("#userAddressInfoTab").addClass('disabled');
-                $("#userGeneralInfoTab").removeClass('disabled');
-                $('#userAddressInfo a').tab('hide');
+                /*
+                 $("#companyInfoTab").addClass('disabled');
+                 $("#userCommunicationInfoTab").addClass("disabled");
+                 $("#userAddressInfoTab").addClass('disabled');
+                 $("#userGeneralInfoTab").removeClass('disabled');
+                 $('#userAddressInfo a').tab('hide');
+                 */
                 $('#primaryTabs li:eq(0) a').tab('show');
             }
         }

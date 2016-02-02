@@ -434,3 +434,56 @@ $.widget("registration.blockElement", {
         $(this.element).unblock();
     }
 });
+
+
+$.widget("registration.blockElementWithoutText", {
+    /**
+     * Default options.
+     * @returns {null}
+     */
+    options: {
+        message: '',
+        backgroundColor: 'ecf0f5',
+        showOverlay: true,
+        width: '350px',
+        border: 'none',
+        padding: '5px',
+        border_radius: '10px',
+        opacity: .8,
+        color: '#fff'
+    },
+    /**
+     * private constructor method for jquery widget
+     * @returns {null}
+     */
+    _create: function () {
+        //this.element.append(this.options.overlay)
+    },
+    /**
+     * public method to remove loading image when necessary
+     * @returns {null}
+     */
+    show: function () {
+        //this.element.find(this.options.overlayKey).remove();
+        $(this.element).block({
+            message: this.options.message,
+            showOverlay: this.options.showOverlay,
+            css: {
+                width: this.options.width,
+                border: this.options.border,
+                padding: this.options.padding,
+                backgroundColor: '#' + this.options.backgroundColor,
+                '-webkit-border-radius': this.options.border_radius,
+                '-moz-border-radius': this.options.border_radius,
+                'border-radius': this.options.border_radius,
+                opacity: this.options.opacity,
+                color: this.options.color
+            }
+        });
+    },
+    hide: function () {
+        $(this.element).unblock();
+    }
+});
+
+
