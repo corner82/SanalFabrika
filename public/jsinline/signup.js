@@ -798,22 +798,22 @@ function preventTab() {
         } else {
             if ($("#checkGeneralForm").val() === "1") {
 
-                $("#companyInfoTab").addClass('disabled');
+                /*$("#companyInfoTab").addClass('disabled');
                 $("#userCommunicationInfoTab").addClass('disabled');
                 $("#userAddressInfoTab").removeClass('disabled');
                 $("#userGeneralInfoTab").removeClass('disabled');
 
                 $("#userCommunicationInfoTab").removeClass('active');
                 $("#companyInfoTab").removeClass('active');
-                $("#userAddressInfoTab").addClass('active');
+                $("#userAddressInfoTab").addClass('active');*/
                 
-                $('#primaryTabs a[href="#companyInfo"]').tab('hide');
-                $('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
+                //$('#primaryTabs a[href="#companyInfo"]').tab('hide');
+                //$('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
                 
 //                $('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
                 
 //                $('#primaryTabs .disabled a').tab('hide');
-                $('#primaryTabs .active a').tab('show');
+                $('#primaryTabs a[href ="#userAddressInfo"]').tab('show');
 
             } else {
 
