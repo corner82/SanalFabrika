@@ -38,6 +38,7 @@ namespace SFDM;
         // translator service attaching to dispatch 
         $eventManager->attach('dispatch', array($this, 'translaterControl'));
         
+        // acl for page restrictiones attaching to dispatch
         $eventManager->attach('dispatch', array($this, 'aclCreater'));
         
         // translator service attaching to dispatch error event
@@ -58,7 +59,6 @@ namespace SFDM;
             $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
             //print_r(strtolower(trim($moduleNamespace)));
             $config = $e->getApplication()->getServiceManager()->get('config');
-            //print_r($config['ACL']['pages']['consultant']);
             /**
              *  added for layout control due to module action
              *  @author Mustafa Zeynel Dağlı
@@ -131,9 +131,31 @@ namespace SFDM;
     
     public function aclCreater(MvcEvent $e) {
         //print_r('--dispatch event acl creater--');
-        $e->getApplication()
-          ->getServiceManager()
-          ->get('serviceAclRolePages');
+        $acl = $e->getApplication()
+                 ->getServiceManager()
+                 ->get('serviceAclRolePages');
+        $controlerName = $e->getRouteMatch()->getParam('action');
+        //print_r($controlerName);
+        $controller = $e->getTarget();
+        $controllerClass = get_class($controller);
+        $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
+        $moduleNamespace = strtolower(trim($moduleNamespace));
+        //print_r($moduleNamespace);
+        /*if ( ! $acl->isAllowed('admin', $moduleNamespace, $controlerName)){
+            $route = $e ->getRouteMatch()
+                            ->getMatchedRouteName();
+            if($route !== 'error') {   
+               $router = $e->getRouter();
+                // $url    = $router->assemble(array(), array('name' => 'Login/auth')); // assemble a login route
+               $url    = $router->assemble(array('action' => 'index'), 
+                                           array('name' => 'error'));
+               $response = $e->getResponse();
+               $response->setStatusCode(302);
+               // redirect to login page or other page.
+               $response->getHeaders()->addHeaderLine('Location', $url);
+               $e->stopPropagation(); 
+            } 
+        }*/
     }
 
 
