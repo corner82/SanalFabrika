@@ -9,11 +9,13 @@
 
     <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
     <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input> 
-    <input id="ln" type="hidden"  value="tr"></input>   
     <input id="pktemp" type="hidden" value=""></input>
-    <input id="lastInsertId" type="hidden"  value=""></input>    
+    <input id="lastInsertId" type="hidden"  value=""></input>
+    <!--checks if first tab is completed and submitted successfully.-->
     <input id="checkGeneralForm" type="hidden" value="0"></input>
+    <!--checks if second tab is completed and submitted successfully.-->
     <input id="checkAddressForm" type="hidden" value="0"></input>
+    <!--checks if third tab is completed and submitted successfully.-->
     <input id="checkCommunicationForm" type="hidden" value="0"></input>
 
 
@@ -1261,6 +1263,13 @@
                                                 </section>
                                             </div>
                                             <footer>
+                                                <label class="checkbox">
+                                                    <input required="true" type="checkbox" checked="true" name="makePublicAddress" 
+                                                           id="makePublicAddress" onchange="changePublicAddress()">
+                                                    <i></i><?php echo $this->translate('Make my address information public') ?>
+                                                </label> 
+                                            </footer>
+                                            <footer>
                                                 <div id="userButtons">
                                                     <button type="submit" id="userAddressInfoFormSubmit" class="btn-u btn-u-dark-blue" onclick="submitUserAddressInfoForm()"><?php echo $this->translate('Continue to Communication Information') ?></button>
                                                     <button type="button" id="userAddressInfoFormReset" class="btn-u" onclick="resetForm()"><?php echo $this->translate('Reset') ?></button>
@@ -1305,22 +1314,29 @@
                                                 </section>
                                             </div>
                                             <div class="row">
-                                                <section>
+                                                <footer>
                                                     <label class="label"><?php echo $this->translate('Description') ?></label>
                                                     <label class="textarea">
                                                         <i class="icon-append fa fa-comment"></i>
                                                         <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
                                                     </label>
-                                                </section> 
+                                                </footer> 
                                             </div>
                                             <div class="row">
-                                                <footer>
+                                                <section>
                                                     <header><?php echo $this->translate('Added Contacts') ?></header>
                                                     <div id="tt_grid_dynamic_Main">
                                                         <table  id="tt_tree" title="Added Contacts" ></table>
                                                     </div><!--/. Easyui grid table-->
-                                                </footer>
-                                            </div>
+                                                </section>
+                                            </div>    
+                                            <footer>
+                                                <label class="checkbox">
+                                                    <input required="true" type="checkbox" checked="true" name="makePublicCommunication" 
+                                                           id="makePublicCommunication" onchange="changePublicCommunication()">
+                                                    <i></i><?php echo $this->translate('Make my contact information public') ?>
+                                                </label> 
+                                            </footer>
                                         </fieldset>
                                         <fieldset>
                                             <div class="row"> 
@@ -1651,58 +1667,58 @@
         <!--********************************************************************-->
 
         <!-- Registered Address Modal -->
-        <div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                        <h4 id="addressModalLabel1" class="modal-title">My Registered Addresses</h4>
-                    </div>
-                    <div>
-                        <div class="panel panel-yellow margin-bottom-40">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-gear"></i> Hover rows</h3>
+        <!--        <div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">Ã—</button>
+                                <h4 id="addressModalLabel1" class="modal-title">My Registered Addresses</h4>
                             </div>
-                            <table id='table_test' class="table table-hover">
-                                <!--<thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Username</th>
-                                        <th>Link</th>
-                                    </tr>
-                                </thead>-->
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td><a class="btn btn-danger btn-xs">Pending</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td><a class="btn btn-warning btn-xs">Demo Link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td><a class="btn btn-info btn-xs">Share Info</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>htmlstream</td>
-                                        <td><a class="btn btn-success btn-xs">Testing Box</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>                  
+                            <div>
+                                <div class="panel panel-yellow margin-bottom-40">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-gear"></i> Hover rows</h3>
+                                    </div>
+                                    <table id='table_test' class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Username</th>
+                                                <th>Link</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Mark</td>
+                                                <td><a class="btn btn-danger btn-xs">Pending</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Jacob</td>
+                                                <td><a class="btn btn-warning btn-xs">Demo Link</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Larry</td>
+                                                <td><a class="btn btn-info btn-xs">Share Info</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>htmlstream</td>
+                                                <td><a class="btn btn-success btn-xs">Testing Box</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>                  
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn-u btn-u-default" type="button">Close</button>
+                                <button class="btn-u" type="button">Edit selected address</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button data-dismiss="modal" class="btn-u btn-u-default" type="button">Close</button>
-                        <button class="btn-u" type="button">Edit selected address</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </div>-->
         <!--// End of Registered Address Modal-->
 
         <!-- test of Registered Address Modal -->
@@ -1710,7 +1726,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">x</button>
                         <h4 id="testaddressModalLabel1" class="modal-title">My Registered Addresses</h4>
                     </div>
                     <!--Hover Rows-->
@@ -1752,25 +1768,25 @@
                             </table>
                         </div>                  
                     </div>
-                <!--End Striped and Hover Rows-->
-                <div class="modal-footer">
-                    <button data-dismiss="modal" class="btn-u btn-u-default" type="button">Close</button>
-                    <button class="btn-u" type="button">Edit selected address</button>
+                    <!--End Striped and Hover Rows-->
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn-u btn-u-default" type="button">Close</button>
+                        <button class="btn-u" type="button">Edit selected address</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--// End of test of Registered Address Modal-->
+        <!--// End of test of Registered Address Modal-->
 
 
-    <!--********************************************************************-->
-    <!--//********************* End of Modals Section******************************-->
-    <!--********************************************************************-->
-
-
+        <!--********************************************************************-->
+        <!--//********************* End of Modals Section******************************-->
+        <!--********************************************************************-->
 
 
 
-</body>
-<!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:25 GMT -->
+
+
+    </body>
+    <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:25 GMT -->
 </html>

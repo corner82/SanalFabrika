@@ -1,22 +1,24 @@
 $(document).ready(function () {
-    
+
     $('#table_test').bootstrapTable({
-        onClickRow : function (row, element) {
-           alert('onclick');
-           console.warn(row);
+        onClickRow: function (row, element) {
+//           alert('onclick');
+            console.warn(row);
+            console.warn(row.id);
+            console.warn(row.name);
         },
-      columns: [{
-       field: 'id',
-       title: 'Item ID'
-       },
-       {field: 'name',
-        title: 'Item Name'
-       }, 
-      {
-        field: 'price',
-        title: 'Item Price',
-        formatter : '<i class="glyphicon glyphicon-heart"></i>',
-       }, ]
+        columns: [{
+                field: 'id',
+                title: 'Item ID'
+            },
+            {field: 'name',
+                title: 'Item Name'
+            },
+            {
+                field: 'price',
+                title: 'Item Price',
+                formatter: '<i class="glyphicon glyphicon-heart"></i>'
+            }]
     });
 
 
@@ -25,11 +27,11 @@ $(document).ready(function () {
      * @type Lang
      */
     var lang = new Lang();
-    lang.dynamic($('#ln').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#ln').val() + '.json');
+    lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
         defaultLang: 'en'
     });
-    lang.change($('#ln').val());
+    lang.change($('#langCode').val());
     /*
      * Disable finalize registration and submit user info before checking 
      * agreement terms and conditions...
@@ -239,7 +241,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
             var i;
-            console.log(data);
+//            console.log(data);
             for (i = 0; i < data.length; i++) {
                 if (data[i].language === null) {
 
@@ -305,7 +307,10 @@ $(document).ready(function () {
  */
 var clickedButton;
 var clickedForm;
+
 var makePublicProfile = 0;
+var makePublicAddress = 0;
+var makePublicCommunication = 0;
 /*
  * Reset Form Elements
  * @Author: Bahram Lotfi Sadigh
@@ -317,6 +322,14 @@ function resetForm() {
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
     contentBlocker.blockElement('show');
+    /*
+     * Changes Growl icon to warning...
+     * @author:Bahram Lotfi Sadigh
+     * @Since:2016/2/1
+     */
+    $('div.growlUI')
+            .css("background",
+                    "url(../../plugins/jquery-BlockUI/newWarning-1.png) no-repeat 10px 10px");
     registrationBlockuiResetFormApproval.blockuiCentered('show');
 }
 
@@ -359,10 +372,14 @@ function submitUserGeneralInfoForm() {
                         $('#lastInsertId').val(data.lastInsertId);
 
                         console.log('update success: ' + data);
-
-                        submitUserGeneralInfoSuccessful.blockuiFadingCentered('option', {
-                            background: 'newCheck-1.png'
-                        });
+                        /*
+                         * Changes Growl icon to success check...
+                         * @author:Bahram Lotfi Sadigh
+                         * @Since:2016/2/1
+                         */
+                        $('div.growlUI')
+                                .css("background",
+                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
 
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
@@ -385,8 +402,19 @@ function submitUserGeneralInfoForm() {
                         console.log('erroInfoColumn value is: ' + errorInfoColumn);
 
                         if (errorInfoColumn = 'auth_email') {
+                            /*
+                             * Changes Growl icon to fail cross...
+                             * @author:Bahram Lotfi Sadigh
+                             * @Since:2016/2/1
+                             */
+                            $('div.growlUI')
+                                    .css("background",
+                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
                         } else if (errorInfoColumn = 'username') {
+                            $('div.growlUI')
+                                    .css("background",
+                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             submitUserGeneralInfoUnsuccessful23505_username.blockuiFadingCentered('show');
                         }
 
@@ -394,6 +422,9 @@ function submitUserGeneralInfoForm() {
 
                         console.log('insert success: ' + data['errorInfo']);
                         console.log(data);
+                        $('div.growlUI')
+                                .css("background",
+                                        "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                         submitUserGeneralInfoUnsuccessful23502.blockuiFadingCentered('show');
                     }
                 },
@@ -403,9 +434,9 @@ function submitUserGeneralInfoForm() {
                     console.error('update error text : ' + textStatus);
                     console.error('update error thrown : ' + errorThrown);
 
-                    submitUserGeneralInfoSuccessful.blockuiFadingCentered('option', {
-                        background: 'newCross-1.png'
-                    });
+                    $('div.growlUI')
+                            .css("background",
+                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                     submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
@@ -437,6 +468,9 @@ function submitUserGeneralInfoForm() {
 
                         console.log('insert success: ' + data['errorInfo'][0]);
 
+                        $('div.growlUI')
+                                .css("background",
+                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
 
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
@@ -460,8 +494,15 @@ function submitUserGeneralInfoForm() {
                         console.log('erroInfoColumn value is: ' + errorInfoColumn);
 
                         if (errorInfoColumn = 'auth_email') {
+                            $('div.growlUI')
+                                    .css("background",
+                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
+
                         } else if (errorInfoColumn = 'username') {
+                            $('div.growlUI')
+                                    .css("background",
+                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             submitUserGeneralInfoUnsuccessful23505_username.blockuiFadingCentered('show');
                         }
 
@@ -469,6 +510,9 @@ function submitUserGeneralInfoForm() {
 
                         console.log('insert success: ' + data['errorInfo']);
                         console.log(data);
+                        $('div.growlUI')
+                                .css("background",
+                                        "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                         submitUserGeneralInfoUnsuccessful23502.blockuiFadingCentered('show');
                     }
                 },
@@ -480,9 +524,15 @@ function submitUserGeneralInfoForm() {
 
                     $("#checkGeneralForm").val("0");
 
+                    $('div.growlUI')
+                            .css("background",
+                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                     submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('option', {
                         backgroundColor: "#FF0000"
                     });
+                    $('div.growlUI')
+                            .css("background",
+                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                     submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
@@ -562,6 +612,9 @@ function checkUGI() {
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
 
             contentBlocker.blockElement('show');
+            $('div.growlUI')
+                    .css("background",
+                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
             registrationBlockuiPreventAddressTab.blockuiCentered('show');
         }
     }
@@ -585,6 +638,9 @@ function checkUAI() {
         } else if ($('#userCommunicationInfoTab').hasClass('disabled')) {
 
             contentBlocker.blockElement('show');
+            $('div.growlUI')
+                    .css("background",
+                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
             registrationBlockuiPreventCommunicationTab.blockuiCentered('show');
         }
     }
@@ -612,6 +668,9 @@ function checkCI() {
         } else if ($('#companyInfoTab').hasClass('disabled')) {
 
             contentBlocker.blockElement('show');
+            $('div.growlUI')
+                    .css("background",
+                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
             registrationBlockuiPreventCompanyTab.blockuiCentered('show');
         }
     }
@@ -673,6 +732,9 @@ function resetConfirmation() {
     $.unblockUI();
     $("#tabsContentsSection").unblock();
     event.preventDefault();
+    $('div.growlUI')
+            .css("background",
+                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
     registrationBlockuiSuccessfulReset.blockuiFadingCentered('show');
 }
 
@@ -693,6 +755,9 @@ function resetRejection() {
 //    background: url(check48.png) no-repeat 10px 10px 
 //}
 //    });
+    $('div.growlUI')
+            .css("background",
+                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
     registrationBlockuiCancelReset.blockuiFadingCentered('show');
 }
 
@@ -710,44 +775,47 @@ function preventTab() {
     event.preventDefault();
     if ($("#checkCommunicationForm").val() === "1") {
 
-        $("#companyInfoTab").removeClass('disable');
-        $("#userCommunicationInfoTab").removeClass('disable');
-        $("#userAddressInfoTab").removeClass('disable');
-        $("#userGeneralInfoTab").removeClass('disable');
+        $("#companyInfoTab").removeClass('disabled');
+        $("#userCommunicationInfoTab").removeClass('disabled');
+        $("#userAddressInfoTab").removeClass('disabled');
+        $("#userGeneralInfoTab").removeClass('disabled');
     } else {
 
         if ($("#checkAddressForm").val() === "1") {
 
-            $("#companyInfoTab").addClass('disable');
-            $("#userCommunicationInfoTab").removeClass('disable');
-            $("#userAddressInfoTab").removeClass('disable');
-            $("#userGeneralInfoTab").removeClass('disable');
-            if ($(this).id === '#companyInfoTab') {
+            $("#companyInfoTab").addClass('disabled');
+            $("#userCommunicationInfoTab").removeClass('disabled');
+            $("#userAddressInfoTab").removeClass('disabled');
+            $("#userGeneralInfoTab").removeClass('disabled');
 
-                $("#companyInfoTab").removeClass('active');
-                $("#userCommunicationInfoTab").addClass('active');
-                $('#primaryTabs .active').tab('show');
-            }
+
+            $("#companyInfoTab").removeClass('active');
+            $("#userCommunicationInfoTab").addClass('active');
+
+            $('#companyInfo a').tab('hide');
+            $('#primaryTabs .active a').tab('show');
+
         } else {
             if ($("#checkGeneralForm").val() === "1") {
 
-                $("#companyInfoTab").addClass('disable');
-                $("#userCommunicationInfoTab").addClass('disable');
-                $("#userAddressInfoTab").removeClass('disable');
-                $("#userGeneralInfoTab").removeClass('disable');
-                if ($(this).hasClass('disabled') === '#companyInfoTab' || '#userCommunicationInfoTab') {
+                $("#companyInfoTab").addClass('disabled');
+                $("#userCommunicationInfoTab").addClass('disabled');
+                $("#userAddressInfoTab").removeClass('disabled');
+                $("#userGeneralInfoTab").removeClass('disabled');
 
-                    $("#userCommunicationInfoTab").removeClass('active');
-                    $("#companyInfoTab").removeClass('active');
-                    $("#userAddressInfoTab").addClass('active');
-                    $('#primaryTabs .active').tab('show');
-                }
+                $("#userCommunicationInfoTab").removeClass('active');
+                $("#companyInfoTab").removeClass('active');
+                $("#userAddressInfoTab").addClass('active');
+                
+                $('.nav-tabs .disabled a').tab('hide');
+                $('.nav-tabs .active a').tab('show');
+
             } else {
 
-                $("#companyInfoTab").addClass('disable');
-                $("#userCommunicationInfoTab").addClass("disable");
-                $("#userAddressInfoTab").addClass('disable');
-                $("#userGeneralInfoTab").removeClass('disable');
+                $("#companyInfoTab").addClass('disabled');
+                $("#userCommunicationInfoTab").addClass("disabled");
+                $("#userAddressInfoTab").addClass('disabled');
+                $("#userGeneralInfoTab").removeClass('disabled');
                 $('#userAddressInfo a').tab('hide');
                 $('#primaryTabs li:eq(0) a').tab('show');
             }
@@ -761,6 +829,24 @@ function changePublicProfile() {
         makePublicProfile = 0;
     } else {
         makePublicProfile = 1;
+    }
+}
+
+function changePublicAddress() {
+
+    if ($("#makePublicAddress").attr('checked') === 'checked') {
+        makePublicAddress = 0;
+    } else {
+        makePublicAddress = 1;
+    }
+}
+
+function changePublicCommunication() {
+
+    if ($("#makePubliccommunication").attr('checked') === 'checked') {
+        makePubliccommunication = 0;
+    } else {
+        makePubliccommunication = 1;
     }
 }
 
