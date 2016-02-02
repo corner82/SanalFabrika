@@ -1,6 +1,52 @@
 $(document).ready(function () {
 
-    $('#table_test').bootstrapTable({
+    $(function () {
+        var $result = $('#eventsResult');
+
+        $('#eventsTable').on('all.bs.table', function (e, name, args) {
+            console.log('Event:', name, ', data:', args);
+        })
+                .on('click-row.bs.table', function (e, row, $element) {
+                    $result.text('Event: click-row.bs.table');
+                })
+                .on('dbl-click-row.bs.table', function (e, row, $element) {
+                    $result.text('Event: dbl-click-row.bs.table');
+                })
+                .on('sort.bs.table', function (e, name, order) {
+                    $result.text('Event: sort.bs.table');
+                })
+                .on('check.bs.table', function (e, row) {
+                    $result.text('Event: check.bs.table');
+                })
+                .on('uncheck.bs.table', function (e, row) {
+                    $result.text('Event: uncheck.bs.table');
+                })
+                .on('check-all.bs.table', function (e) {
+                    $result.text('Event: check-all.bs.table');
+                })
+                .on('uncheck-all.bs.table', function (e) {
+                    $result.text('Event: uncheck-all.bs.table');
+                })
+                .on('load-success.bs.table', function (e, data) {
+                    $result.text('Event: load-success.bs.table');
+                })
+                .on('load-error.bs.table', function (e, status) {
+                    $result.text('Event: load-error.bs.table');
+                })
+                .on('column-switch.bs.table', function (e, field, checked) {
+                    $result.text('Event: column-switch.bs.table');
+                })
+                .on('page-change.bs.table', function (e, number, size) {
+                    $result.text('Event: page-change.bs.table');
+                })
+                .on('search.bs.table', function (e, text) {
+                    $result.text('Event: search.bs.table');
+                });
+    });
+
+
+/*
+$('#table_test').bootstrapTable({
         onClickRow: function (row, element) {
 //           alert('onclick');
             console.warn(row);
@@ -20,6 +66,11 @@ $(document).ready(function () {
                 formatter: '<i class="glyphicon glyphicon-heart"></i>'
             }]
     });
+*/
+
+
+
+
 
 
     /**
@@ -52,7 +103,6 @@ $(document).ready(function () {
     $("#userAddressInfoForm").validationEngine();
     $("#userCommunicationInfoForm").validationEngine();
     $("#companyInfoForm").validationEngine();
-
     /*
      * Show or hide password content
      * @author: Bahram Lotfi Sadigh
@@ -71,7 +121,6 @@ $(document).ready(function () {
             $('#repeatedUserPreferedPassword').attr('type', 'password');
         }
     });
-
     /*
      * List of countries combobox ajax
      */
@@ -307,7 +356,6 @@ $(document).ready(function () {
  */
 var clickedButton;
 var clickedForm;
-
 var makePublicProfile = 0;
 var makePublicAddress = 0;
 var makePublicCommunication = 0;
@@ -370,7 +418,6 @@ function submitUserGeneralInfoForm() {
                         $("#checkGeneralForm").val("1");
                         $("#pktemp").val(data.pktemp);
                         $('#lastInsertId').val(data.lastInsertId);
-
                         console.log('update success: ' + data);
                         /*
                          * Changes Growl icon to success check...
@@ -381,13 +428,11 @@ function submitUserGeneralInfoForm() {
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
-
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
                         $('#userAddressInfo').attr('class', "tab-pane fade in active");
                         $('#userGeneralInfoTab').removeClass('active');
                         $('#userAddressInfoTab').addClass('active');
                         $('#userAddressInfoTab').removeClass('disabled');
-
                         /*
                          * OKan pktemp servisi yazilacak************************
                          * *****************************************************
@@ -397,10 +442,8 @@ function submitUserGeneralInfoForm() {
 
                         console.log('insert success: ' + data['errorInfo']);
                         console.log(data);
-
                         var errorInfoColumn = data['errorInfoColumn'];
                         console.log('erroInfoColumn value is: ' + errorInfoColumn);
-
                         if (errorInfoColumn = 'auth_email') {
                             /*
                              * Changes Growl icon to fail cross...
@@ -433,7 +476,6 @@ function submitUserGeneralInfoForm() {
                     console.error('update error: ' + jqXHR);
                     console.error('update error text : ' + textStatus);
                     console.error('update error thrown : ' + errorThrown);
-
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -465,21 +507,16 @@ function submitUserGeneralInfoForm() {
                         $("#pktemp").val(data.pktemp);
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
-
                         console.log('insert success: ' + data['errorInfo'][0]);
-
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
-
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
                         $('#userAddressInfo').attr('class', "tab-pane fade in active");
                         $('#userGeneralInfoTab').removeClass('active');
                         $('#userAddressInfoTab').addClass('active');
                         $('#userAddressInfoTab').removeClass('disabled');
-
-
                         /*
                          * OKan pktemp servisi yazilacak************************
                          * *****************************************************
@@ -489,16 +526,13 @@ function submitUserGeneralInfoForm() {
 
                         console.log('insert success: ' + data['errorInfo']);
                         console.log(data);
-
                         var errorInfoColumn = data['errorInfoColumn'];
                         console.log('erroInfoColumn value is: ' + errorInfoColumn);
-
                         if (errorInfoColumn = 'auth_email') {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
-
                         } else if (errorInfoColumn = 'username') {
                             $('div.growlUI')
                                     .css("background",
@@ -521,9 +555,7 @@ function submitUserGeneralInfoForm() {
                     console.error('insert error: ' + jqXHR);
                     console.error('insert error text : ' + textStatus);
                     console.error('insert error thrown : ' + errorThrown);
-
                     $("#checkGeneralForm").val("0");
-
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -551,7 +583,6 @@ function submitUserAddressInfoForm() {
     if ($('#userAddressInfoForm').validationEngine('validate')) {
 
         $('#checkAddressForm').val('1');
-
         $('#userAddressInfo').attr('class', "tab-pane fade");
         $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
         $('#userAddressInfoTab').removeClass('active');
@@ -568,7 +599,6 @@ function submitUserCommunicationInfoForm() {
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
         $('#userCommunicationInfoForm').val('1');
-
         $('#userCommunicationInfo').attr('class', 'tab-pane fade');
         $('#companyInfo').attr('class', 'tab-pane fade in active');
         $('#userCommunicationInfoTab').removeClass('active');
@@ -666,7 +696,7 @@ function checkCI() {
          */
 
     } else if ($("#checkCommunicationForm").val() === "0") {
-        
+
         if ($('#companyInfoTab').hasClass('disabled')) {
 
             contentBlockerWText.blockElementWithoutText('show');
@@ -706,7 +736,6 @@ var submitUserGeneralInfoUnsuccessful = $("#growlUI-submitUserGeneralInfoUnsucce
 var submitUserGeneralInfoUnsuccessful23505_auth_email = $("#growlUI-submitUserGeneralInfoUnsuccessful23505_auth_email").blockuiFadingCentered();
 var submitUserGeneralInfoUnsuccessful23505_username = $("#growlUI-submitUserGeneralInfoUnsuccessful23505_username").blockuiFadingCentered();
 var submitUserGeneralInfoUnsuccessful23502 = $("#growlUI-submitUserGeneralInfoUnsuccessful23502").blockuiFadingCentered();
-
 /* 
  * submit address info
  */
@@ -785,7 +814,7 @@ function preventTab() {
          */
         $("#companyInfoTab").addClass('active');
     } else {
-        
+
         $("#companyInfoTab").removeClass('active');
         $("#companyInfoTab").addClass('disabled');
         if ($("#checkAddressForm").val() === "1") {
@@ -802,7 +831,6 @@ function preventTab() {
              */
             $("#userCommunicationInfoTab").addClass('active');
             $('#primaryTabs a[href ="#userCommunicationInfo"]').tab('show');
-
         } else {
             if ($("#checkGeneralForm").val() === "1") {
 
@@ -822,7 +850,6 @@ function preventTab() {
 
 //                $('#primaryTabs .disabled a').tab('hide');
                 $('#primaryTabs a[href ="#userAddressInfo"]').tab('show');
-
             } else {
                 /*
                  $("#companyInfoTab").addClass('disabled');
