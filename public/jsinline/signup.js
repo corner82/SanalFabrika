@@ -846,10 +846,17 @@ function changePublicCommunication() {
     }
 }
 
+/*
+ * Contact information table pop up on modal
+ * @author:Bahram
+ * @Since:2016.1.2
+ */
 
 
 var $table = $('#table_test');
 // your custom ajax request here
+
+
 $.ajax({
     url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -862,21 +869,26 @@ $.ajax({
     dataType: "json",
     success: function (datas) {
         // data you need
-//        console.log(response);
+        console.log(datas);
         // just use setTimeout
-        $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['tr-TR']);
         $('#table_test').bootstrapTable({
+            onClickRow: function (row, $element) {
+                // row: the record corresponding to the clicked row, 
+                // $element: the tr element.
+//                console.log(row.name);
+            },
             toggle: "table",
-            height: "500",
+            height: "300",
             pagination: "true",
             search: "true",
             toolbar: "#toolbar",
 //            data-show-refresh="true",
 //            data-show-toggle="true",
 //            data-show-columns="true",
-            data : datas
+            data: datas
 
         });
     }
 });
+
 
