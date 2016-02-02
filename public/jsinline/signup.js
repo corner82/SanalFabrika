@@ -807,8 +807,13 @@ function preventTab() {
                 $("#companyInfoTab").removeClass('active');
                 $("#userAddressInfoTab").addClass('active');
                 
-                $('.nav-tabs .disabled a').tab('hide');
-                $('.nav-tabs .active a').tab('show');
+                $('#primaryTabs a[href="#companyInfo"]').tab('hide');
+                $('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
+                
+//                $('#primaryTabs a[href="#userCommunicationInfo"]').tab('hide');
+                
+//                $('#primaryTabs .disabled a').tab('hide');
+                $('#primaryTabs .active a').tab('show');
 
             } else {
 
