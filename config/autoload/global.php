@@ -47,6 +47,9 @@ return array(
         'Sanalfabrika' => array(
             'registration' => 'layout/registrationLayout.phtml',
         ),
+        'Error' => array(
+            'index' => 'layout/401layout.phtml',
+                        ),
    ),
     'session' => array(
         'config' => array(
@@ -90,10 +93,40 @@ return array(
         'Companies'
 
     ),
-    'ACL' => array(
-        'pages' => array('consultant' => 
-                        array('sfdm')
-                   )
+    'ACL_pages' => array(
+        'consultant' => array(
+                         'action' => array('sfdm' => array ('index'),
+                                     'admin' => array('index'),
+                                     'login' => array('index'),
+                                     'sanalfabrika' => array ('index',
+                                                              'registration')),
+                   ),
+        'supervisor' => array(
+                         'parent' => 'consultant',
+                         'action' => array('sfdm' => array ('index'))
+                   ),
+        'admin' => array(
+                         'parent' => 'supervisor',
+                         'action' => array('admin' => array ('index'),
+                                           )
+                   ),
+        'guest' => array(
+                         'action' => array('sanalfabrika' => array ('index',
+                                                                    'registration'))
+                   ),
+        'new user' => array(
+                         'action' => array('sanalfabrika' => array ('index'))
+                   ),
+        
+        'firm user' => array(
+                         'parent' => 'new user',
+                         'action' => array('sanalfabrika' => array ('index'))
+                   ),
+        'firm owner' => array(
+                         'parent' => 'firm user',
+                         'action' => array('sanalfabrika' => array ('index'))
+                   ),
+        
         
     )
 );

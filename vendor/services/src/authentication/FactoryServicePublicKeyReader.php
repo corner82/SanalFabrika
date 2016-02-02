@@ -11,9 +11,12 @@ class FactoryServicePublicKeyReader  implements FactoryInterface{
         $config = $serviceLocator->get('config'); 
         $authManager = $serviceLocator->get('authenticationManagerDefault');
         $authStorage = $authManager->getStorage()->read();
-        $publicKey = $authStorage['pk'];
-
-        return $publicKey;
+        if(isset($authStorage['pk'])) {
+            $publicKey = $authStorage['pk'];
+            return $publicKey;
+        }
+        //throw new \Exception('FactoryServicePublicKeyReader auth storage public key not found!!');
+        return false;
     }
         
         
