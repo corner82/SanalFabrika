@@ -42,6 +42,7 @@
              'admin' => __DIR__ . '/../view',  
          ),*/ 
          'not_found_template'       => 'error/404',
+         'exception_template'       => 'error/index',
          'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/error.phtml',   
             'error/index/index' => __DIR__ . '/../view/errorview/error/index.phtml',
