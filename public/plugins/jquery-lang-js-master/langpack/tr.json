@@ -32,6 +32,7 @@
                 "Please fill user information forms first":"Lütfen daha önce kullanıcı bilgilerini giriniz",
                 "General information submission failed":"Genel bilgilerin kaydı yapılamadı",
                 "This username has already been registered in the system":"Bu kullanıcı adı sistemde kayıtlıdır",
+                "This email address has already been registered in the system":"Bu eposta adresi sisteme kayıtlıdır",
                 "General information submitted successfully":"Genel bilgiler kaydı başarılı olmuştur",
                 "Please fill user general and address information forms first":"Lütfen önce kullanıcı genel ve adres bilgilerini giriniz",
                 "Please fill user general information form first":"Lütfen önce kullanıcı genel bilgilerini giriniz",
@@ -40,7 +41,8 @@
                 "Are you sure to erase all form fields?":"Bütün alanlara girdiğiniz bilgiler silinecek. Devam etmek istiyormusunuz?",
                 "Reset operation failed...":"Temizleme işlemi başarısız...",
                 "Form fields cleared":"Form alanları temizlendi",
-                "OK":"Tamam"
+                "OK":"Tamam",
+                "System is unable to find required information":"Sistem gerekli bilgileri bulamamıştır."
 	},
 	"regex": [
 		["Budget", "Bütçe"],

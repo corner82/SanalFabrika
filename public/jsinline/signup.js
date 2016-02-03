@@ -784,7 +784,7 @@ function changePublicCommunication() {
  * @Since:2016.1.2
  */
 
-$('#table_test').bootstrapTable({
+$('#table_address_modal').bootstrapTable({
     onClickRow: function (row, $element) {
         // row: the record corresponding to the clicked row, 
         // $element: the tr element.

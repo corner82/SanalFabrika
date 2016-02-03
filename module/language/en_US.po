@@ -626,7 +626,18 @@ msgstr ""
 msgid "Please select your prefered language from list..."
 msgstr ""
 
+msgid "Show all my registered addresses"
+msgstr ""
 
+msgid "My Registered Addresses"
+msgstr ""
 
+msgid "List of Contacts"
+msgstr ""
 
+msgid "Edit selected address"
+msgstr ""
+
+msgid "Close"
+msgstr ""
 

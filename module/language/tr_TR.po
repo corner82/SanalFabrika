@@ -693,10 +693,10 @@ msgid "Please select a village from list..."
 msgstr "Lütfen listeden bir köy seçiniz..."
 
 msgid "Continue to Address Information"
-msgstr "Kayd et ve adres bilgilerine geç"
+msgstr "Kaydet ve adres bilgilerine geç"
 
 msgid "Continue to Communication Information"
-msgstr "Kayd et ve iletişim bilgilerine geç"
+msgstr "Kaydet ve iletişim bilgilerine geç"
 
 
 msgid "Reset"
@@ -765,3 +765,17 @@ msgstr "Firma adı"
 msgid "Please select your prefered language from list..."
 msgstr "Lütfen listeden tercih ettiğiniz dili seçiniz..."
 
+msgid "Show all my registered addresses"
+msgstr "Bütün kayıtlı adreslerimi göster"
+
+msgid "My Registered Addresses"
+msgstr "Kayıtlı Adreslerim"
+
+msgid "List of Contacts"
+msgstr "İrtibat bilgileri"
+
+msgid "Edit selected address"
+msgstr "Seçili adres bilgilerini güncelle"
+
+msgid "Close"
+msgstr "Kapat"
