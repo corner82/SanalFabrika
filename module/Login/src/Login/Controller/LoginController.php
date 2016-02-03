@@ -14,7 +14,7 @@
          $this->authenticate(null, $viewModel);
          return $viewModel;
          
-     }  
+     } 
      
      /** this function called by indexAction to reduce complexity of function */
     protected function authenticate($form = null, $viewModel = null)
@@ -72,12 +72,14 @@
                                     'user_agent'    => $request->getServer('HTTP_USER_AGENT'),
                                     'pk' => $publicKey, )
                         );
+                    
+                    
                     /**
                      * user role service will be tested
                      * @author Mustafa Zeynel Dağlı
                      * @since 28/01/2016
                      */
-                    $this->getServiceLocator()->get('serviceRole');
+                    $this->getServiceLocator()->get('serviceRoleSessionWriter');
                     
                     
                     /**

@@ -32,6 +32,7 @@ namespace SFDM;
         
         // session expire control event
         $eventManager->attach('route', array($this, 'sessionExpireControl'));
+        
         // auth control event
         $eventManager->attach('route', array($this, 'authControl'));
         
@@ -40,6 +41,10 @@ namespace SFDM;
         
         // acl for page restrictiones attaching to dispatch
         $eventManager->attach('dispatch', array($this, 'aclCreater'));
+        
+        
+        
+        
         
         // translator service attaching to dispatch error event
         $eventManager->attach('dispatch.error', array($this, 'Error404PageTranslatorControl')); 
@@ -131,9 +136,12 @@ namespace SFDM;
     
     public function aclCreater(MvcEvent $e) {
         //print_r('--dispatch event acl creater--');
+        $roleResult = $e->getApplication()
+                        ->getServiceManager()
+                        ->get('serviceRoleSessionWriter');
         $acl = $e->getApplication()
                  ->getServiceManager()
-                 ->get('serviceAclRolePages');
+                 ->get('serviceAclRolePagesCreator');
         $controlerName = $e->getRouteMatch()->getParam('action');
         //print_r($controlerName);
         $controller = $e->getTarget();
@@ -141,7 +149,9 @@ namespace SFDM;
         $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
         $moduleNamespace = strtolower(trim($moduleNamespace));
         //print_r($moduleNamespace);
-        /*if ( ! $acl->isAllowed('admin', $moduleNamespace, $controlerName)){
+
+        if ( !$acl->isAllowed(strtolower(trim($roleResult['name'])), $moduleNamespace, $controlerName)){
+            print_r('--acl not allowed--');
             $route = $e ->getRouteMatch()
                             ->getMatchedRouteName();
             if($route !== 'error') {   
@@ -155,7 +165,7 @@ namespace SFDM;
                $response->getHeaders()->addHeaderLine('Location', $url);
                $e->stopPropagation(); 
             } 
-        }*/
+        }
     }
 
 
@@ -198,7 +208,7 @@ namespace SFDM;
 
 
     public function authControl(MvcEvent $e) {
-
+        //print_r('--dispatch event authControl--');
         /* 
          * sessionManager servis çağırılıyor
          */ 
@@ -206,10 +216,10 @@ namespace SFDM;
         
         
         // if auth control will be made block
-        if($serviceManager->get('authenticationControlerLocator')) {
+        //if($serviceManager->get('authenticationControlerLocator')) {
             // calling auth service and makes auth control inside service
-            $serviceManager->get('serviceAuthenticate');
-        } 
+            //$serviceManager->get('serviceAuthenticate');
+        //} 
     }
 
     public function getServiceConfig()

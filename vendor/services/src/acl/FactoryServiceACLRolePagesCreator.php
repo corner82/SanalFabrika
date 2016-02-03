@@ -19,7 +19,7 @@ use Zend\Permissions\Acl\Role\GenericRole as Role;
  * @since 29/01/2016
  * @todo user roles will be held from db or some other source will be implemented
  */
-class FactoryServiceACLRolePages  implements FactoryInterface{
+class FactoryServiceACLRolePagesCreator  implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
         
@@ -83,18 +83,7 @@ class FactoryServiceACLRolePages  implements FactoryInterface{
         /*$acl->allow('anonymous', 'album', 'album:add'); 
         $acl->deny('anonymous', 'album', 'album:hello'); 
         $acl->allow('anonymous', 'album', 'album:view');
-        $acl->allow('anonymous', 'album', 'album:edit'); */
-        
-
-        $role = $serviceLocator->get('serviceRole');  
-        if($role){
-            //print_r('role bulundu');
-        } else {
-            //print_r('role bulunamadı');
-        }
-        
-        
-            
+        $acl->allow('anonymous', 'album', 'album:edit'); */    
         return $acl;
     }
 

@@ -97,7 +97,7 @@ return array(
         'consultant' => array(
                          'action' => array('sfdm' => array ('index'),
                                      'admin' => array('index'),
-                                     'login' => array('index'),
+                                     'login' => array('index','logout'),
                                      'sanalfabrika' => array ('index',
                                                               'registration')),
                    ),
@@ -112,7 +112,8 @@ return array(
                    ),
         'guest' => array(
                          'action' => array('sanalfabrika' => array ('index',
-                                                                    'registration'))
+                                                                    'registration'),
+                                     'login' => array('index'),)
                    ),
         'new user' => array(
                          'action' => array('sanalfabrika' => array ('index'))
