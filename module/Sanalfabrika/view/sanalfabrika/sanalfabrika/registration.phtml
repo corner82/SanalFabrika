@@ -837,8 +837,8 @@
             <!--=== Content Part ===-->
             <div class="container content">
                 <div class="row">
-                    
-                    
+
+
                     <!-- Begin Sidebar Menu -->
                     <div class="col-md-3">
 
@@ -1111,6 +1111,20 @@
                                             </div>
                                         </header>
                                         <fieldset>
+                                            <div class="row">
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Address type') ?></label>
+                                                    <label class="toggle col-md-6">
+                                                        <input id="addressTypeBilling" type="radio" name="radio-toggle" checked>
+                                                        <i class="no-rounded"></i><?php echo $this->translate('Billing Address') ?>
+                                                    </label>
+                                                    <label class="toggle col-md-6">
+                                                        <input id="addressTypeMailing" type="radio" name="radio-toggle">
+                                                        <i class="no-rounded"></i><?php echo $this->translate('Mailing Address') ?>
+                                                    </label>
+                                                </section>
+                                            </div>
+                                            <hr>
                                             <div class="row">
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Country') ?></label>
