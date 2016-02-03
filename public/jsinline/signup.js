@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    
+        
+console.log('locale:'+ ($('#langCode').val()+ '-' + $('#langCode').val().toUpperCase()));
     /**
      * multilanguage plugin 
      * @type Lang
@@ -784,6 +785,9 @@ function changePublicCommunication() {
  * @Since:2016.1.2
  */
 
+
+
+
 $('#table_address_modal').bootstrapTable({
     onClickRow: function (row, $element) {
         // row: the record corresponding to the clicked row, 
@@ -794,7 +798,8 @@ $('#table_address_modal').bootstrapTable({
         // row: the record corresponding to the clicked row, 
         // $element: the tr element.
         console.log(row.id);
-    },
+    },    
+    locale:"'" + ($('#langCode').val()+ '-' + $('#langCode').val().toUpperCase()) + "'",
     toggle: "table",
     height: "300",
     pagination: "true",
