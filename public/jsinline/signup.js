@@ -1,6 +1,6 @@
 $(document).ready(function () {
-        
-console.log('locale:'+ ($('#langCode').val()+ '-' + $('#langCode').val().toUpperCase()));
+
+    console.log('locale:' + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()));
     /**
      * multilanguage plugin 
      * @type Lang
@@ -297,16 +297,20 @@ function resetForm() {
 
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
-    contentBlocker.blockElement('show');
+//    contentBlocker.blockElement('show');
     /*
      * Changes Growl icon to warning...
      * @author:Bahram Lotfi Sadigh
      * @Since:2016/2/1
      */
+
+
+    contentBlockerWText.blockElementWithoutText('show');
     $('div.growlUI')
             .css("background",
                     "url(../../plugins/jquery-BlockUI/newWarning-1.png) no-repeat 10px 10px");
     registrationBlockuiResetFormApproval.blockuiCentered('show');
+
 }
 
 /*
@@ -733,19 +737,19 @@ function preventTab() {
     $.unblockUI();
     $("#tabsContentsSection").unblock();
     event.preventDefault();
-    if ($("#checkCommunicationForm").val() === "1") {
 
+    if ($("#checkCommunicationForm").val() === "1") {
         $("#companyInfoTab").addClass('active');
     } else {
         $("#companyInfoTab").removeClass('active');
         $("#companyInfoTab").addClass('disabled');
-        if ($("#checkAddressForm").val() === "1") {            
+        if ($("#checkAddressForm").val() === "1") {
             $("#userCommunicationInfoTab").addClass('active');
             $('#primaryTabs a[href ="#userCommunicationInfo"]').tab('show');
         } else {
             if ($("#checkGeneralForm").val() === "1") {
                 $('#primaryTabs a[href ="#userAddressInfo"]').tab('show');
-            } else {                
+            } else {
                 $('#primaryTabs li:eq(0) a').tab('show');
             }
         }
@@ -798,8 +802,8 @@ $('#table_address_modal').bootstrapTable({
         // row: the record corresponding to the clicked row, 
         // $element: the tr element.
         console.log(row.id);
-    },    
-    locale:"'" + ($('#langCode').val()+ '-' + $('#langCode').val().toUpperCase()) + "'",
+    },
+    locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
     toggle: "table",
     height: "300",
     pagination: "true",
