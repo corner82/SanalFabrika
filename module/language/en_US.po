@@ -641,3 +641,11 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+msgid "Address type"
+msgstr ""
+
+msgid "Billing address"
+msgstr ""
+
+msgid "Mailing address"
+msgstr ""

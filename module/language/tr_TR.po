@@ -448,7 +448,7 @@ msgstr "Portfolyomuz"
 
 #: ../view/layout/sfdm.phtml:25
 msgid "Load More"
-msgstr "Daha fazla yüklen"
+msgstr "Daha fazla göster"
 
 #: ../view/layout/sfdm.phtml:25
 msgid "Our Clients"
@@ -779,3 +779,12 @@ msgstr "Seçili adres bilgilerini güncelle"
 
 msgid "Close"
 msgstr "Kapat"
+
+msgid "Address type"
+msgstr "Adres tipi"
+
+msgid "Billing Address"
+msgstr "Fatura Adresi"
+
+msgid "Mailing Address"
+msgstr "İletişim Adresi"

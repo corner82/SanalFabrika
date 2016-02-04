@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    console.log('locale:' + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()));
     /**
      * multilanguage plugin 
      * @type Lang
@@ -796,12 +795,12 @@ $('#table_address_modal').bootstrapTable({
     onClickRow: function (row, $element) {
         // row: the record corresponding to the clicked row, 
         // $element: the tr element.
-        console.log(row.name);
+//        console.log(row.name);
     },
     onCheck: function (row, $element) {
         // row: the record corresponding to the clicked row, 
         // $element: the tr element.
-        console.log(row.id);
+//        console.log(row.id);
     },
     locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
     toggle: "table",

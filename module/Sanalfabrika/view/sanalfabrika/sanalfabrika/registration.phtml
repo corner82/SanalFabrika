@@ -840,7 +840,7 @@
 
 
                     <!-- Begin Sidebar Menu -->
-                    <div class="col-md-3">
+                    <div class="col-md-3 ">
 
                         <!-- Begin Task Progress -->
                         <div id="taskProgress">
@@ -865,80 +865,91 @@
                             </div>
                         </div>
                         <!-- End Task Progress -->
-                        <hr>
+                        <hr>                       
 
                         <!--Notification-->
-                        <div id="notificationsSection">
+                        <div class="profile">
                             <div class="panel-heading-v2 overflow-h">
-                                <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notifications') ?> </h2>
+                                <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i><?php echo $this->translate(' Notification ') ?> </h2>
                                 <a href="#"><i class="fa fa-cog pull-right"></i></a>
                             </div>
-                            <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+                            <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
+                                data-mcs-theme="minimal-dark">
                                 <li class="notification">
                                     <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
                                     <div class="overflow-h">
-                                        <span><strong>Albert Heller</strong> <?php echo $this->translate('has sent you email.') ?></span>
-                                        <small> <?php echo $this->translate(' Two ') ?> <?php echo $this->translate('minutes ago') ?></small>
+                                        <span><strong>Albert Heller</strong><?php echo $this->translate(' has sent you email.') ?> </span>
+                                        <small><?php echo $this->translate(' Two') ?><?php echo $this->translate(' minutes ago') ?></small>
                                     </div>    
                                 </li>
                                 <li class="notification">
-                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img4.jpg') ?>" alt="">
+                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg') ?>" alt="">
                                     <div class="overflow-h">
-                                        <span><strong>Taylor Lee</strong> <?php echo $this->translate('started following you.') ?></span>
-                                        <small><?php echo $this->translate('Today') ?> 18:25 <?php echo $this->translate('pm') ?></small>
+                                        <span><strong>Taylor Lee</strong><?php echo $this->translate(' started following you.') ?> </span>
+                                        <small><?php echo $this->translate(' Today') ?> 18:25 <?php echo $this->translate(' pm') ?></small>
                                     </div>    
                                 </li>
                                 <li class="notification">
                                     <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
                                     <div class="overflow-h">
-                                        <span><strong>Natasha Kolnikova</strong> <?php echo $this->translate('accepted your invitation.') ?></span>
-                                        <small><?php echo $this->translate('Yesterday') ?> 1:07 <?php echo $this->translate('am') ?></small>
-                                    </div>    
-                                </li>
-                                <li class="notification">
-                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg') ?>" alt="">
-                                    <div class="overflow-h">
-                                        <span><strong>Mikel Andrews</strong><?php echo $this->translate('commented on your Timeline.') ?></span>
-                                        <small>23/12 11:01 <?php echo $this->translate('am') ?></small>
-                                    </div>    
-                                </li>
-                                <li class="notification">
-                                    <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                                    <div class="overflow-h">
-                                        <span><strong>Bruno Js.</strong><?php echo $this->translate('added you to group chating.') ?> </span>
-                                        <small><?php echo $this->translate('Yesterday') ?> 1:07 <?php echo $this->translate('pm') ?></small>
+                                        <span><strong>Natasha Kolnikova</strong><?php echo $this->translate(' accepted your invitation.') ?> </span>
+                                        <small><?php echo $this->translate(' Yesterday') ?> 1:07 <?php echo $this->translate(' pm') ?></small>
                                     </div>    
                                 </li>
                                 <li class="notification">
                                     <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg') ?>" alt="">
                                     <div class="overflow-h">
-                                        <span><strong>Taylor Lee</strong> <?php echo $this->translate('changed profile picture.') ?></span>
-                                        <small>23/12 15:15 <?php echo $this->translate('pm') ?></small>
+                                        <span><strong>Mikel Andrews</strong><?php echo $this->translate(' commented on your Timeline.') ?> </span>
+                                        <small>23/12 11:01 <?php echo $this->translate(' am') ?></small>
+                                    </div>    
+                                </li>
+                                <li class="notification">
+                                    <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                                    <div class="overflow-h">
+                                        <span><strong>Bruno Js.</strong><?php echo $this->translate(' added you to group chating.') ?> </span>
+                                        <small><?php echo $this->translate(' Yesterday') ?> 1:07 <?php echo $this->translate(' pm') ?></small>
+                                    </div>    
+                                </li>
+                                <li class="notification">
+                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <span><strong>Taylor Lee</strong><?php echo $this->translate(' changed profile picture.') ?> </span>
+                                        <small>23/12 15:15 <?php echo $this->translate(' pm') ?></small>
                                     </div>    
                                 </li>
                             </ul>    
                             <button type="button" class="btn-u btn-u-default btn-u-sm btn-block"><?php echo $this->translate('Load More') ?></button>
                         </div>
                         <!--End Notification-->
-
-
-                        <!-- Clients Block-->
+                        <hr>
+                        <!-- Clients Block -->
                         <div id="clients">
-                            <div class="row clients-page">
-                                <div class="col-md-6">
-                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/baderbrau.png') ?>" class="img-responsive hover-effect" alt="" />
-                                </div>
-                                <div class="col-md-12">
-                                    <h3>Cisco Systems, Inc</h3>
-                                    <ul class="list-inline">
-                                        <li><i class="fa fa-map-marker color-green"></i><?php echo $this->translate('USA') ?> </li>
-                                        <li><i class="fa fa-globe color-green"></i> <a class="linked" href="#">http://www.example.com</a></li>
-                                        <li><i class="fa fa-briefcase color-green"></i><?php echo $this->translate('Web Design and Development') ?> </li>
-                                    </ul>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati</p>
-                                    <p>Olerano ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna edetquam lacus. Fusce condimentum eleifend enim a sint occaecati feugiat..</p>
-                                </div>
+                            <div class="panel-heading-v2 overflow-h">
+                                <h2 class="heading-xs pull-left"><i class="fa fa-shopping-cart"></i><?php echo $this->translate(' Clients ') ?> </h2>
+                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
                             </div>
+                            <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
+                                data-mcs-theme="minimal-dark">
+                                <li class="clients-page">
+                                    <div class="row clients-page">
+                                        <div>
+                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/baderbrau.png') ?>" 
+                                                 class="img-responsive hover-effect" 
+                                                 alt="" />
+                                        </div>
+                                        <div class="overflow-h col-md-12">
+                                            <h3>Cisco Systems, Inc</h3>
+                                            <ul class="list-unstyled">
+                                                <li><i class="fa fa-map-marker color-green"></i><?php echo $this->translate('USA') ?> </li>
+                                                <li><i class="fa fa-globe color-green"></i> <a class="linked" href="#">http://www.example.com</a></li>
+                                                <li><i class="fa fa-briefcase color-green"></i><?php echo $this->translate('Web Design and Development') ?> </li>
+                                            </ul>
+                                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati</p>
+                                            <p>Olerano ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna edetquam lacus. Fusce condimentum eleifend enim a sint occaecati feugiat..</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         <!-- End Clients Block-->
 
@@ -1082,16 +1093,6 @@
                                                     </button>
                                                 </div>
                                             </footer>
-                                            <footer>
-                                                <div>
-                                                    <button type="button" class="btn-u btn-u-dark" 
-                                                            id="showAllAddresses_btn" 
-                                                            data-toggle="modal" 
-                                                            data-target="#addressModal">
-                                                                <?php echo $this->translate('Show all my registered addresses') ?>
-                                                    </button>                                                
-                                                </div>
-                                            </footer>
                                         </fieldset>
                                     </form>         
                                 </div>
@@ -1100,31 +1101,29 @@
                                 <div class="tab-pane fade" id="userAddressInfo">
                                     <form id="userAddressInfoForm" class="sky-form">
                                         <header><?php echo $this->translate('Address Information') ?></header>
-                                        <header>
-                                            <div>
-                                                <button type="button" class="btn-u btn-u-dark" 
+                                        <fieldset>
+                                            <div  class="row">
+                                                <button type="button" class="btn-u btn-green col-md-12" 
                                                         id="showAllAddresses_btn" 
                                                         data-toggle="modal" 
                                                         data-target="#addressModal">
                                                             <?php echo $this->translate('Show all my registered addresses') ?>
                                                 </button>                                                
                                             </div>
-                                        </header>
-                                        <fieldset>
+                                            <hr>
                                             <div class="row">
                                                 <section>
-                                                    <label class="label"><?php echo $this->translate('Address type') ?></label>
-                                                    <label class="toggle col-md-6">
+                                                    <label class="label col-md-12"><?php echo $this->translate('Address type') ?></label>
+                                                    <label class="toggle col-md-3">
                                                         <input id="addressTypeBilling" type="radio" name="radio-toggle" checked>
-                                                        <i class="no-rounded"></i><?php echo $this->translate('Billing Address') ?>
+                                                        <i class="no-rounded col-md-5"></i><?php echo $this->translate('Billing Address') ?>
                                                     </label>
-                                                    <label class="toggle col-md-6">
-                                                        <input id="addressTypeMailing" type="radio" name="radio-toggle">
-                                                        <i class="no-rounded"></i><?php echo $this->translate('Mailing Address') ?>
+                                                    <label class="toggle col-md-3">
+                                                        <input id="addressTypeMailing col-md-3" type="radio" name="radio-toggle">
+                                                        <i class="no-rounded col-md-5"></i><?php echo $this->translate('Mailing Address') ?>
                                                     </label>
                                                 </section>
                                             </div>
-                                            <hr>
                                             <div class="row">
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Country') ?></label>
