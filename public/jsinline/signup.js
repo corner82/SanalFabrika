@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+
+    $("#userRegistrationProgress").val(userRegistrationProgress + '%'); 
+    $("#companyRegistrationProgress").val(companyRegistrationProgress + '%'); 
+    $("#overallRegistrationProgress").val(overallRegistrationProgress + '%'); 
+
     /**
      * multilanguage plugin 
      * @type Lang
@@ -274,6 +279,9 @@ $(document).ready(function () {
     $("#userCommunicationInfoFormReset").on('click', resetForm);
     $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
     $("#submitUserCommunicationInfoForm").on('click', submitUserCommunicationInfoForm);
+
+
+
 });
 /*
  * 
@@ -500,8 +508,7 @@ function submitUserGeneralInfoForm() {
                 }
             });
         }
-
-
+        taskProgressCalculation();
 
         $("html, body").animate({scrollTop: 0}, "slow");
         event.preventDefault();
@@ -519,6 +526,8 @@ function submitUserAddressInfoForm() {
         $('#userAddressInfoTab').removeClass('active');
         $('#userCommunicationInfoTab').addClass('active');
         $('#userCommunicationInfoTab').removeClass('disabled');
+        
+        taskProgressCalculation();
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
     }
@@ -535,6 +544,8 @@ function submitUserCommunicationInfoForm() {
         $('#userCommunicationInfoTab').removeClass('active');
         $('#companyInfoTab').addClass('active');
         $('#companyInfoTab').removeClass('disabled');
+        
+        taskProgressCalculation();
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
     }
@@ -815,5 +826,74 @@ $('#table_address_modal').bootstrapTable({
         };
     }
 });
+
+
+
+var userRegistrationProgress = '0';
+var companyRegistrationProgress = '0';
+var overallRegistrationProgress = '0';
+
+function taskProgressCalculation() {
+
+    if ($('#checkGeneralForm').val() === '0') {
+
+        userRegistrationProgress = '0';
+        companyRegistrationProgress = '0';
+        overallRegistrationProgress = '0';
+
+    } else if ($('#checkGeneralForm').val() === '1') {
+        if ($('#checkAddressForm').val() === '0') {
+
+            userRegistrationProgress = '30';
+            companyRegistrationProgress = '0';
+            overallRegistrationProgress = '20';
+
+        } else if ($('#checkGeneralForm').val() === '1') {
+            if ($('#checkAddressForm').val() === '1') {
+                if ($('#checkCommunicationForm').val() === '0') {
+
+                    userRegistrationProgress = '60';
+                    companyRegistrationProgress = '0';
+                    overallRegistrationProgress = '40';
+
+                } else if ($('#checkCommunicationForm').val() === '1') {
+                    if ($('#checkCompanyForm').val() === '0') {
+
+                        userRegistrationProgress = '100';
+                        companyRegistrationProgress = '0';
+                        overallRegistrationProgress = '60';
+
+                    } else if ($('#checkCompanyForm').val() === '1') {
+
+                        userRegistrationProgress = '100';
+                        companyRegistrationProgress = '50';
+                        overallRegistrationProgress = '70';
+
+                    }
+                }
+            }
+        }
+    }
+    
+    console.log($('#checkGeneralForm').val());
+    
+    console.log('before' + $("#userRegistrationProgress").val());
+    $("#userRegistrationProgress").val(userRegistrationProgress);    
+    console.log('after' + $("#userRegistrationProgress").val());
+    
+    $("#userRegistrationProgressStyle").css({"width": userRegistrationProgress + '%', "aria-valuenow": userRegistrationProgress});
+
+    document.getElementById("companyRegistrationProgress").innerHTML = companyRegistrationProgress;
+    $("#companyRegistrationProgressStyle").css({"width": companyRegistrationProgress + '%', "aria-valuenow": companyRegistrationProgress});
+
+    document.getElementById("overallRegistrationProgress").innerHTML = overallRegistrationProgress;
+    $("#overallRegistrationProgressStyle").css({"width": overallRegistrationProgress + '%', "aria-valuenow": overallRegistrationProgress});
+
+    console.log(userRegistrationProgress);
+    console.log(companyRegistrationProgress);
+    console.log(overallRegistrationProgress);
+
+}
+
 
 
