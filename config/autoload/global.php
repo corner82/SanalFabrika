@@ -95,7 +95,9 @@ return array(
     ),
     'ACL_pages' => array(
         'consultant' => array(
-                         'action' => array('sfdm' => array ('index'),
+                         'action' => array('sfdm' => array ('index',
+                                                            'profile',
+                                                            'confirm'),
                                      'admin' => array('index'),
                                      'login' => array('index','logout'),
                                      'sanalfabrika' => array ('index',

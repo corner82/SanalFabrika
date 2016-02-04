@@ -57,20 +57,26 @@
                         $event = $this->getEvent();
                         $authManager->getStorage()->clear();
                         $response = $this->getResponse();  
-                        $url = $event->getRouter()->assemble(array('action' => 'index'), array('name' => 'login'));  
-                        $response->setHeaders( $response->getHeaders ()->addHeaderLine ('Location', $url));
+                        $url = $event->getRouter()->assemble(array('action' => 'index'), 
+                                                             array('name' => 'login'));  
+                        $response->setHeaders( $response->getHeaders()->addHeaderLine('Location', $url));
                         $response->setStatusCode(302);
                         $response->sendHeaders();
                         $event->stopPropagation();       
                         exit ();
                     }
-
+                    $this->getServiceLocator()->setService('identity', $result->getIdentity());
+                    //print_r($this->getServiceLocator()->get('identity'));
+                    $userID = null;
+                    $userIDService = $this->getServiceLocator()->get('serviceUserIDFinder');
+                    if(is_integer($userIDService)) $userID = $userIDService;
+                    $userID = $userIDService;
                     $authManager->getStorage()->write(
-                             array('id'          => $result->getIdentity(),
+                             array('id'          => $userID,
                                     'username'   => $result->getIdentity(),
                                     'ip_address' => $this->getRequest()->getServer('REMOTE_ADDR'),
-                                    'user_agent'    => $request->getServer('HTTP_USER_AGENT'),
-                                    'pk' => $publicKey, )
+                                    'user_agent' => $request->getServer('HTTP_USER_AGENT'),
+                                    'pk'         => $publicKey, )
                         );
                     
                     

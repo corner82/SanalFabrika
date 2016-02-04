@@ -89,6 +89,7 @@ return array(
             'dbAdapterPostgre' => 'Custom\Services\Database\FactoryServiceDbAdapterPostgre',
             'servicePostgrePdo' => 'Custom\Services\Database\FactoryServicePostgreSQLConnectPDO',
             'sessionDbSaveHandler' => 'Custom\Services\Session\FactoryServiceSessionDbSaveLocator',
+            'serviceUserIDFinder' => 'Custom\Services\Session\FactoryServiceUserIDFinder',
             'authenticationDbAdapterPostgre' => 'Custom\Services\Authentication\FactoryServiceAuthenticationDbAdapterPostgre',
             'authenticationManagerDefault' => 'Custom\Services\Authentication\FactoryServiceAuthenticationLocator',
             'authenticationControlerLocator' => 'Custom\Services\Authentication\FactoryServiceAuthenticationControlerLocator',

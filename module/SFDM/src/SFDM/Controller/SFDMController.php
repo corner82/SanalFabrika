@@ -25,6 +25,41 @@
         return $view;
      }
      
+     public function profileAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+     }
+     
+     public function confirmAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+     }
+     
+     
      public function acldefinitionAction(){
         $langCode = $this->getServiceLocator()
                             ->get('serviceTranslator');
