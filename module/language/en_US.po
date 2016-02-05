@@ -661,3 +661,9 @@ msgstr ""
 
 msgid "Registration process"
 msgstr ""
+
+msgid "Address 1"
+msgstr ""
+
+msgid "Address 2"
+msgstr ""

@@ -800,3 +800,9 @@ msgstr "Firma Kaydı"
 
 msgid "Registration process"
 msgstr "Kayıt İşlemleri"
+
+msgid "Address 1"
+msgstr "Adres 1"
+
+msgid "Address 2"
+msgstr "Adres 2"

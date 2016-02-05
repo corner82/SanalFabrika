@@ -1115,14 +1115,12 @@
                                             <hr>
                                             <div class="row">
                                                 <section>
-                                                    <label class="label col-md-12"><?php echo $this->translate('Address type') ?></label>
-                                                    <label class="toggle col-md-3">
-                                                        <input id="addressTypeBilling" type="radio" name="radio-toggle" checked>
-                                                        <i class="no-rounded col-md-5"></i><?php echo $this->translate('Billing Address') ?>
-                                                    </label>
-                                                    <label class="toggle col-md-3">
-                                                        <input id="addressTypeMailing col-md-3" type="radio" name="radio-toggle">
-                                                        <i class="no-rounded col-md-5"></i><?php echo $this->translate('Mailing Address') ?>
+                                                    <label class="label"><?php echo $this->translate('Address type') ?></label>
+                                                    <label class="select">
+                                                        <select id="addressTypesCombo" required="true">
+                                                            <option value="-1"><?php echo $this->translate('Please select address type from list...') ?></option>
+                                                        </select>
+                                                        <i></i>
                                                     </label>
                                                 </section>
                                             </div>
@@ -1137,64 +1135,66 @@
                                                     </label>
                                                 </section>
                                                 <section>
-                                                    <label class="label"><?php echo $this->translate('City') ?></label>
-                                                    <label class="select">
-                                                        <select id="usercity">
-                                                            <option value="-1"><?php echo $this->translate('Please select a city from list...') ?></option>
-                                                        </select>
-                                                        <i></i>
-                                                    </label>
+                                                    <div id='cityNameSection'>
+                                                        <label class="label"><?php echo $this->translate('City') ?></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-home"></i>
+                                                            </div>
+                                                            <input type="text" name="userCityName" 
+                                                                   id="userCityName"
+                                                                   class="form-control validate[required,onlyLetterSp]">
+                                                        </div> 
+                                                    </div>
+                                                </section>
+                                                <section>
+                                                    <div id='cityDropdownSection'>
+                                                        <label class="label"><?php echo $this->translate('City') ?></label>
+                                                        <label class="select">
+                                                            <select id="usercity">
+                                                                <option value="-1">
+                                                                    <?php echo $this->translate('Please select a city from list...') ?>
+                                                                </option>
+                                                            </select>
+                                                            <i></i>
+                                                        </label>
+                                                    </div>
                                                 </section>                                                            
                                                 <section>
-                                                    <label class="label"><?php echo $this->translate('District') ?></label>
-                                                    <label class="select">
-                                                        <select id="userdistrict">
-                                                            <option value="-1"><?php echo $this->translate('Please select a district from list...') ?></option>
-                                                        </select>
-                                                        <i></i>
-                                                    </label>
-                                                </section> 
+                                                    <div id='districtDropdownSection'>
+                                                        <label class="label"><?php echo $this->translate('District') ?></label>
+                                                        <label class="select">
+                                                            <select id="userdistrict">
+                                                                <option value="-1">
+                                                                    <?php echo $this->translate('Please select a district from list...') ?>
+                                                                </option>
+                                                            </select>
+                                                            <i></i>
+                                                        </label>
+                                                    </div>
+                                                </section>
                                                 <section>
-                                                    <label class="label"><?php echo $this->translate('Village') ?></label>
-                                                    <label class="select">
-                                                        <select id="uservillage">
-                                                            <option value="-1"><?php echo $this->translate('Please select a village from list...') ?></option>
-                                                        </select>
-                                                        <i></i>
-                                                    </label>
-                                                </section>                                  
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Street') ?></label>
+                                                    <label class="label"><?php echo $this->translate('Address 1') ?></label>
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-home"></i>
                                                         </div>
-                                                        <input type="text" name="userStreet" 
-                                                               id="userStreet" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterNumber]]">
+                                                        <input type="text" name="userAddress1" 
+                                                               id="userAddress1"
+                                                               class="form-control validate[sfAddress]">
                                                     </div> 
-                                                </section>                                                   
+                                                </section>
                                                 <section>
-                                                    <label class="label"><?php echo $this->translate('Alley') ?></label>
+                                                    <label class="label"><?php echo $this->translate('Address 2') ?></label>
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-home"></i>
                                                         </div>
-                                                        <input type="text" name="userAlley" id="userAlley"
-                                                               class="form-control validate[required,custom[onlyLetterNumber]]">
-                                                    </div>
-                                                </section>                                                  
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Number') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-home"></i>
-                                                        </div>
-                                                        <input type="text" name="userAddNumber" 
-                                                               id="userAddNumber" required="true"
-                                                               class="form-control validate[required,custom[onlyNumberSp]]">
-                                                    </div>
-                                                </section>                                                  
+                                                        <input type="text" name="userAddress2" 
+                                                               id="userAddress2"
+                                                               class="form-control validate[sfAddress]">
+                                                    </div> 
+                                                </section>                                                 
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Postal Code') ?></label>
                                                     <div class="input-group">
