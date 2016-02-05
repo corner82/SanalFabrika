@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
-
-    $("#userRegistrationProgress").val(userRegistrationProgress + '%'); 
-    $("#companyRegistrationProgress").val(companyRegistrationProgress + '%'); 
-    $("#overallRegistrationProgress").val(overallRegistrationProgress + '%'); 
-
+    /*
+     $("#userRegistrationProgress").val(userRegistrationProgress + '%');
+     $("#companyRegistrationProgress").val(companyRegistrationProgress + '%');
+     $("#overallRegistrationProgress").val(overallRegistrationProgress + '%');
+     */
     /**
      * multilanguage plugin 
      * @type Lang
@@ -383,7 +383,7 @@ function submitUserGeneralInfoForm() {
                         console.log(data);
                         var errorInfoColumn = data['errorInfoColumn'];
                         console.log('erroInfoColumn value is: ' + errorInfoColumn);
-                        if (errorInfoColumn = 'auth_email') {
+                        if (errorInfoColumn === 'auth_email') {
                             /*
                              * Changes Growl icon to fail cross...
                              * @author:Bahram Lotfi Sadigh
@@ -393,7 +393,7 @@ function submitUserGeneralInfoForm() {
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
-                        } else if (errorInfoColumn = 'username') {
+                        } else if (errorInfoColumn === 'username') {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -461,18 +461,20 @@ function submitUserGeneralInfoForm() {
                          * *****************************************************
                          */
 
+                        taskProgressCalculation();
+
                     } else if (data['errorInfo'] === '23505') {
 
                         console.log('insert success: ' + data['errorInfo']);
                         console.log(data);
                         var errorInfoColumn = data['errorInfoColumn'];
                         console.log('erroInfoColumn value is: ' + errorInfoColumn);
-                        if (errorInfoColumn = 'auth_email') {
+                        if (errorInfoColumn === 'auth_email') {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
-                        } else if (errorInfoColumn = 'username') {
+                        } else if (errorInfoColumn === 'username') {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -488,6 +490,8 @@ function submitUserGeneralInfoForm() {
                                         "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                         submitUserGeneralInfoUnsuccessful23502.blockuiFadingCentered('show');
                     }
+
+                    console.log("here 3" + $("#checkGeneralForm").val());
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 
@@ -508,8 +512,6 @@ function submitUserGeneralInfoForm() {
                 }
             });
         }
-        taskProgressCalculation();
-
         $("html, body").animate({scrollTop: 0}, "slow");
         event.preventDefault();
     }
@@ -526,7 +528,7 @@ function submitUserAddressInfoForm() {
         $('#userAddressInfoTab').removeClass('active');
         $('#userCommunicationInfoTab').addClass('active');
         $('#userCommunicationInfoTab').removeClass('disabled');
-        
+
         taskProgressCalculation();
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
@@ -544,7 +546,7 @@ function submitUserCommunicationInfoForm() {
         $('#userCommunicationInfoTab').removeClass('active');
         $('#companyInfoTab').addClass('active');
         $('#companyInfoTab').removeClass('disabled');
-        
+
         taskProgressCalculation();
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
@@ -828,7 +830,6 @@ $('#table_address_modal').bootstrapTable({
 });
 
 
-
 var userRegistrationProgress = '0';
 var companyRegistrationProgress = '0';
 var overallRegistrationProgress = '0';
@@ -836,14 +837,14 @@ var overallRegistrationProgress = '0';
 function taskProgressCalculation() {
 
     if ($('#checkGeneralForm').val() === '0') {
-
+        
         userRegistrationProgress = '0';
         companyRegistrationProgress = '0';
         overallRegistrationProgress = '0';
 
     } else if ($('#checkGeneralForm').val() === '1') {
         if ($('#checkAddressForm').val() === '0') {
-
+            
             userRegistrationProgress = '30';
             companyRegistrationProgress = '0';
             overallRegistrationProgress = '20';
@@ -858,7 +859,7 @@ function taskProgressCalculation() {
 
                 } else if ($('#checkCommunicationForm').val() === '1') {
                     if ($('#checkCompanyForm').val() === '0') {
-
+                        
                         userRegistrationProgress = '100';
                         companyRegistrationProgress = '0';
                         overallRegistrationProgress = '60';
@@ -875,23 +876,15 @@ function taskProgressCalculation() {
         }
     }
     
-    console.log($('#checkGeneralForm').val());
-    
-    console.log('before' + $("#userRegistrationProgress").val());
-    $("#userRegistrationProgress").val(userRegistrationProgress);    
-    console.log('after' + $("#userRegistrationProgress").val());
-    
+    $("#userRegistrationProgress").html(userRegistrationProgress + '%');
     $("#userRegistrationProgressStyle").css({"width": userRegistrationProgress + '%', "aria-valuenow": userRegistrationProgress});
 
-    document.getElementById("companyRegistrationProgress").innerHTML = companyRegistrationProgress;
+    $("#companyRegistrationProgress").html(companyRegistrationProgress + '%');
     $("#companyRegistrationProgressStyle").css({"width": companyRegistrationProgress + '%', "aria-valuenow": companyRegistrationProgress});
 
-    document.getElementById("overallRegistrationProgress").innerHTML = overallRegistrationProgress;
+    $("#overallRegistrationProgress").html(overallRegistrationProgress + '%');
     $("#overallRegistrationProgressStyle").css({"width": overallRegistrationProgress + '%', "aria-valuenow": overallRegistrationProgress});
 
-    console.log(userRegistrationProgress);
-    console.log(companyRegistrationProgress);
-    console.log(overallRegistrationProgress);
 
 }
 
