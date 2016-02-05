@@ -1,9 +1,5 @@
 $(document).ready(function () {
 
-     $('#todolistbox').loadImager();
-     var filler = $('#todolistbox').todolistFiller();
-     
-     
 //    console.error("document ready adminIndex.js");
 
 
@@ -17,53 +13,34 @@ $(document).ready(function () {
      $("#toplam_header_3_container").headerSetter(data[2]);
      $("#toplam_header_4_container").headerSetter(data[3]);
      });*/
-    
-    $.ajax({
-        //url: '../slim_2/index.php/columnflows_json_test',
-        //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySector',
-        //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySector',
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkGetConsWaitingForConfirm_blActivationReport' ,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        language_id:647,
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            //console.log(data);
-            filler.todolistFiller('option','domObjectKey','span[data-fill="true"]');
-            filler.todolistFiller('option','otherDomObjectKeys','small[data-fill-number="true"],small[data-fill-number2="true"]');
-            filler.todolistFiller('option','otherDomObjectKeysDataLabels',new Array('sure'));
-            filler.todolistFiller('option','data',data);
-            filler.todolistFiller('fill');
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-//            console.error(textStatus);
-        }
-
-    });
-
-    
-  
 
     // sektörlere göre tezgah sayıları grafiği (#container_tezgah)
     $.ajax({
         //url: '../slim_2/index.php/columnflows_json_test',
         //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySector',
         //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySector',
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkGetConsultantUpDashBoardCount_blActivationReport' ,
-                pk : $("#pk").val()}, 
+        url: 'https://anket.sanalfabrika.com/tezgah.php/getMachineryBySector',
+        //data: { url:'totalAnket'  },
         type: 'GET',
         dataType: 'json',
         language_id:647,
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
+//            console.error("zeynel test jsonp");
+//            console.warn(data);
+            var dataArr = [];
+            var catArr = [];
             $("#toplam_header_1_container").headerSetter(data[0]);
             $("#toplam_header_2_container").headerSetter(data[1]);
             $("#toplam_header_3_container").headerSetter(data[2]);
             $("#toplam_header_4_container").headerSetter(data[3]);
-            $('#todolistbox').loadImager("removeLoadImage");
+            /*$.each(data,function(index) {
+             catArr.push(data[index].aciklama);
+             //dataArr.push(parseInt(data[index].adet));
+             dataArr.push({y:parseInt(data[index].adet), color:'#DBC63D'});
+             
+             });*/
+            //console.error(data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
 //            console.error(textStatus);
@@ -76,11 +53,11 @@ $(document).ready(function () {
         //url: '../slim_2/index.php/columnflows_json_test',
         //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryByResources',
         // url: 'https://slim.localhost.com/tezgah.php/getMachineryByResources',
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkGetConsultantOperation_blActivationReport' ,
-                pk : $("#pk").val()}, 
+        url: 'https://anket.sanalfabrika.com/tezgah.php/getMachineryByResources',
+        //data: { url:'totalAnket'  },
         type: 'GET',
         dataType: 'json',
+        language_id:647,
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
 //            console.warn(data);
@@ -103,7 +80,7 @@ $(document).ready(function () {
                     plotShadow: false
                 },
                 title: {
-                    text: 'Danışman Operasyonları',
+                    text: 'Hammadde Kullanım Miktarlarına Göre Tezgah Oranları',
                     align: 'center',
                     verticalAlign: 'top',
                     y: 50

@@ -28,6 +28,8 @@ return array(
     'action_layouts' => array(
         'SFDM' => array(
             'acldefinition' => 'layout/acldefinitionLayout.phtml',
+            'profile' => 'layout/profile.phtml',
+            'confirm' => 'layout/confirm.phtml',
                         ),
         'Companies' => array(
             'companyregistration' => 'layout/companyregistrationLayout.phtml',
