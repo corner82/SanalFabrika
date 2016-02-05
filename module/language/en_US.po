@@ -644,8 +644,20 @@ msgstr ""
 msgid "Address type"
 msgstr ""
 
-msgid "Billing address"
+msgid "Billing Address"
 msgstr ""
 
-msgid "Mailing address"
+msgid "Mailing Address"
+msgstr ""
+
+msgid "Task Progress"
+msgstr ""
+
+msgid "User registration"
+msgstr ""
+
+msgid "Company registration"
+msgstr ""
+
+msgid "Registration process"
 msgstr ""
