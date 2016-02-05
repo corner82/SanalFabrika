@@ -788,3 +788,15 @@ msgstr "Fatura Adresi"
 
 msgid "Mailing Address"
 msgstr "İletişim Adresi"
+
+msgid "Task Progress"
+msgstr "Kayıt Süreci"
+
+msgid "User registration"
+msgstr "Kullanıcı Kaydı"
+
+msgid "Company registration"
+msgstr "Firma Kaydı"
+
+msgid "Registration process"
+msgstr "Kayıt İşlemleri"
