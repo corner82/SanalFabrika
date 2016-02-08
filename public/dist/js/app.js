@@ -1002,36 +1002,7 @@ function _init() {
         });
     };
     
-    /**
-     * load imager widget for loading operations
-     * @author Mustafa Zeynel Dağlı
-     * @since 11/01/2016
-     */
 
-    $.widget("sanalfabrika.loadImager", {
-        /**
-         * Default options.
-         * @returns {null}
-         */
-        options: {
-            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
-            overlayKey: ".overlay:first",
-        },
-        /**
-         * private constructor method for jquery widget
-         * @returns {null}
-         */
-        _create: function () {
-            this.element.append(this.options.overlay)
-        },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        removeLoadImage: function () {
-            this.element.find(this.options.overlayKey).remove();
-        }
-    });
     /**
      * load imager widget for loading operations
      * @author Mustafa Zeynel Dağlı
@@ -1060,7 +1031,7 @@ function _init() {
          * public method to remove loading image when necessary
          * @returns {null}
          */
-        test: function () {
+        show: function () {
             //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
                 message: $(this.element),
@@ -1071,9 +1042,9 @@ function _init() {
                 centerY: true,
                 css: {
                     width: '350px',
-                    top: '50px',
-                    left: '',
-                    right: '10px',
+                    top: '20%',
+                    left: '40%',
+                    right: '60%',
                     border: 'none',
                     padding: '5px',
                     backgroundColor: '#' + this.options.backgroundColor,
@@ -1143,6 +1114,9 @@ function _init() {
         },
         hide : function () {
             $.unblockUI();
+        },
+        find : function() {
+            this.element.find('.btn-danger:first').remove();
         }
     });
     

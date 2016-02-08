@@ -1,46 +1,97 @@
 $(document).ready(function () {
 
-//    console.error("document ready adminIndex.js");
 
-
-    /*$.getJSON( "http://slim.localhost.com/tezgah.php/getMachineryBySector", function( data ) {
-     console.error("zeynel test jsonp");   
-     console.warn(data);
-     var dataArr = [];
-     var catArr = [];
-     $("#toplam_header_1_container").headerSetter(data[0]);
-     $("#toplam_header_2_container").headerSetter(data[1]);
-     $("#toplam_header_3_container").headerSetter(data[2]);
-     $("#toplam_header_4_container").headerSetter(data[3]);
-     });*/
-
-    // sektörlere göre tezgah sayıları grafiği (#container_tezgah)
+    $('#todolistbox').loadImager();
+    var filler = $('#todolistbox').todolistFiller();
+    
+    /**
+     * Kullanıcı onay tab click
+     */
+    $('#tab_confirm_container #tab_confirm_clicker').click(function (e) {
+        e.preventDefault();
+        //alert('test');
+        $('#tab_confirm_image_loader').loadImager();
+        //$(this).tab('show')
+     })
+    
+    
     $.ajax({
         //url: '../slim_2/index.php/columnflows_json_test',
         //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySector',
         //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySector',
-        url: 'https://anket.sanalfabrika.com/tezgah.php/getMachineryBySector',
-        //data: { url:'totalAnket'  },
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: { url:'pkGetConsWaitingForConfirm_blActivationReport' ,
+                pk : $("#pk").val()}, 
         type: 'GET',
         dataType: 'json',
         language_id:647,
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
-//            console.error("zeynel test jsonp");
-//            console.warn(data);
-            var dataArr = [];
-            var catArr = [];
+            //console.log(data);
+            filler.todolistFiller('option','domObjectKey','span[data-fill="true"]');
+            filler.todolistFiller('option','otherDomObjectKeys','small[data-fill-number="true"],small[data-fill-number2="true"]');
+            filler.todolistFiller('option','otherDomObjectKeysDataLabels',new Array('sure'));
+            filler.todolistFiller('option','data',data);
+            filler.todolistFiller('fill');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+//            console.error(textStatus);
+        }
+
+    });
+
+    // 
+    $('#grid_confirm_registration').datagrid({
+            onDblClickRow : function (index, row) {
+                $('.nav-tabs a[href="#tab_1-1"]').tab('show');  
+                //alert('test');
+            },  
+            /*url : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'getCompaniesInfo_company' ,
+                }, */
+            //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
+            width : '100%',
+            singleSelect:true,
+            pagination : true,
+            collapsible:true,
+            method:'get',
+            idField:'id',
+            //toolbar:'#tb5',
+            //fit:true,
+            //fitColumns : true,
+            remoteFilter: true,
+            remoteSort:true,
+            multiSort:false,
+            columns:
+                [[
+                    {field:'id',title:'ID'},
+                    {field:'username',title:'Kullanıcı Adı',sortable:true,width:300},
+                    {field:'operation_name',title:'İşlem',sortable:true, width:100},
+                    {field:'company_name',title:'Firma', width:200},
+                    {field:'c_date',title:'Fat. Adres', width:200},
+                    {field:'s_date',title:'Kayıt Tarihi', width:200},
+                    {field:'c_date',title:'İşlem Tarihi', width:200},
+                    {field:'c_date',title:'İlet. Adres', width:200},
+                    {field:'c_date',title:'Fat. Adres', width:200},
+                ]]   
+      });  
+
+    // sektörlere göre tezgah sayıları grafiği (#container_tezgah)
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: { url:'pkGetConsultantUpDashBoardCount_blActivationReport' ,
+                pk : $("#pk").val()},
+        type: 'GET',
+        dataType: 'json',
+        language_id:647,
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
             $("#toplam_header_1_container").headerSetter(data[0]);
             $("#toplam_header_2_container").headerSetter(data[1]);
             $("#toplam_header_3_container").headerSetter(data[2]);
             $("#toplam_header_4_container").headerSetter(data[3]);
-            /*$.each(data,function(index) {
-             catArr.push(data[index].aciklama);
-             //dataArr.push(parseInt(data[index].adet));
-             dataArr.push({y:parseInt(data[index].adet), color:'#DBC63D'});
-             
-             });*/
-            //console.error(data);
+            $('#todolistbox').loadImager("removeLoadImage");
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
 //            console.error(textStatus);
@@ -50,11 +101,9 @@ $(document).ready(function () {
 
     // grafik machinery by resource (#container_machinerByResource)
     $.ajax({
-        //url: '../slim_2/index.php/columnflows_json_test',
-        //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryByResources',
-        // url: 'https://slim.localhost.com/tezgah.php/getMachineryByResources',
-        url: 'https://anket.sanalfabrika.com/tezgah.php/getMachineryByResources',
-        //data: { url:'totalAnket'  },
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: { url:'pkGetConsultantOperation_blActivationReport' ,
+                pk : $("#pk").val()},
         type: 'GET',
         dataType: 'json',
         language_id:647,
@@ -80,7 +129,7 @@ $(document).ready(function () {
                     plotShadow: false
                 },
                 title: {
-                    text: 'Hammadde Kullanım Miktarlarına Göre Tezgah Oranları',
+                    text: 'Danışman Operasyonları',
                     align: 'center',
                     verticalAlign: 'top',
                     y: 50
@@ -107,7 +156,7 @@ $(document).ready(function () {
                 },
                 series: [{
                         type: 'pie',
-                        name: 'Tezgah Toplamı',
+                        name: 'Danışman İşlem Toplamları',
                         innerSize: '80%',
                         data: dataArr,
                         /*data: [

@@ -9,8 +9,11 @@
                return this.each(function() {
                     $this = $(this);
                     //$this.find('div:first').html( data.adet);
-                    $this.find('div:first h3:first-child').html( data.adet);
-                    $this.find('p:first').html(data.aciklama);
+                    if(typeof data!= 'undefined') { 
+                        $this.find('div:first h3:first-child').html( data.adet);
+                        $this.find('p:first').html(data.aciklama);
+                    }
+                    
                     //$this.find('span:last').html(data.adet);
                     //$this.attr('data-original-title', data.aciklama).tooltip('fixTitle');
                     //$('[rel="tooltip"],[data-rel="tooltip"]').tooltip({"placement":"top",delay: { show: 400, hide: 200 }});
@@ -25,6 +28,36 @@
 }(jQuery));
 
 (function($) {
+    
+       /**
+     * load imager widget for loading operations
+     * @author Mustafa Zeynel Dağlı
+     * @since 11/01/2016
+     */
+    $.widget("sanalfabrika.loadImager", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
+            overlayKey: ".overlay:first",
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+            this.element.append(this.options.overlay)
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        removeLoadImage: function () {
+            this.element.find(this.options.overlayKey).remove();
+        }
+    });
     
     
   /**

@@ -2,21 +2,6 @@ $(document).ready(function () {
 
      $('#todolistbox').loadImager();
      var filler = $('#todolistbox').todolistFiller();
-     
-     
-//    console.error("document ready adminIndex.js");
-
-
-    /*$.getJSON( "http://slim.localhost.com/tezgah.php/getMachineryBySector", function( data ) {
-     console.error("zeynel test jsonp");   
-     console.warn(data);
-     var dataArr = [];
-     var catArr = [];
-     $("#toplam_header_1_container").headerSetter(data[0]);
-     $("#toplam_header_2_container").headerSetter(data[1]);
-     $("#toplam_header_3_container").headerSetter(data[2]);
-     $("#toplam_header_4_container").headerSetter(data[3]);
-     });*/
     
     $.ajax({
         //url: '../slim_2/index.php/columnflows_json_test',
@@ -73,15 +58,11 @@ $(document).ready(function () {
 
     // grafik machinery by resource (#container_machinerByResource)
     $.ajax({
-        //url: '../slim_2/index.php/columnflows_json_test',
-        //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryByResources',
-        // url: 'https://slim.localhost.com/tezgah.php/getMachineryByResources',
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsultantOperation_blActivationReport' ,
                 pk : $("#pk").val()}, 
         type: 'GET',
         dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
 //            console.warn(data);
             var dataArr = [];
@@ -130,7 +111,7 @@ $(document).ready(function () {
                 },
                 series: [{
                         type: 'pie',
-                        name: 'Tezgah Toplamı',
+                        name: 'Danışman İşlem Toplamları',
                         innerSize: '80%',
                         data: dataArr,
                         /*data: [
