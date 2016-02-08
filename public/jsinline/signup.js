@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     /*
      * Hide and show city input fields based on country dropdown input
      */
@@ -134,7 +133,7 @@ $(document).ready(function () {
         $("#uservillage").empty();
 
         if ($('#usercountry :selected').val() === '91') {
-            
+
             $('#cityNameSection').hide();
             $('#cityDropdownSection').show();
             $('#districtDropdownSection').show();
@@ -319,8 +318,8 @@ $(document).ready(function () {
             }
         }
     });
-    
-    
+
+
     /*
      * Buttons function binder
      */
@@ -381,7 +380,7 @@ function resetForm() {
  */
 
 function submitUserGeneralInfoForm() {
-    
+
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
 
         if (!$("#pktemp") === null) {
@@ -430,6 +429,8 @@ function submitUserGeneralInfoForm() {
                          * OKan pktemp servisi yazilacak************************
                          * *****************************************************
                          */
+
+                        taskProgressPerTabs();
 
                     } else if (data['errorInfo'] === '23505') {
 
@@ -515,7 +516,8 @@ function submitUserGeneralInfoForm() {
                          * *****************************************************
                          */
 
-                        taskProgressCalculation();
+
+                        taskProgressPerTabs();
 
                     } else if (data['errorInfo'] === '23505') {
 
@@ -579,168 +581,170 @@ function submitUserAddressInfoForm() {
 
     if ($('#userAddressInfoForm').validationEngine('validate')) {
 
-        if($('#usercountry :selected').val() === '91'){
-           
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        if ($('#usercountry :selected').val() === '91') {
+
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-            data: {
-                url: 'pktempInsert_infoUsersAddresses',
-                pktemp: $("#pktemp"),
-                profile_public: makePublicAddress,
-                language_code: $("#langCode").val(),
-                operation_type_id: '1',
-                address_type_id: $('#addressTypesCombo :selected').val(),
-                address1: $('#userAddress1').val(),
-                address2: $('#userAddress2').val(),
-                postal_code: $('#userPostalCode'),
-                country_id: $('#usercountry :selected').val(),
-                city_id: $('#usercity :selected').val(),
-                borough_id: $('#userdistrict :selected').val(),
-                city_name: null,
-                description: null
-            },
-            method: "GET",
-            dataType: "json",
-            success: function (data) {
+                data: {
+                    url: 'pktempInsert_infoUsersAddresses',
+                    pktemp: $("#pktemp"),
+                    profile_public: makePublicAddress,
+                    language_code: $("#langCode").val(),
+                    operation_type_id: '1',
+                    address_type_id: $('#addressTypesCombo :selected').val(),
+                    address1: $('#userAddress1').val(),
+                    address2: $('#userAddress2').val(),
+                    postal_code: $('#userPostalCode'),
+                    country_id: $('#usercountry :selected').val(),
+                    city_id: $('#usercity :selected').val(),
+                    borough_id: $('#userdistrict :selected').val(),
+                    city_name: null,
+                    description: null
+                },
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
 
-                if (data['errorInfo'][0] === '00000') {
+                    if (data['errorInfo'][0] === '00000') {
 
-                    $("#pktemp").val(data.pktemp);
-                    $('#lastInsertId').val(data.lastInsertId);
-                    $("#checkGeneralForm").val("1");
-                    console.log('insert success: ' + data['errorInfo'][0]);
+                        $("#pktemp").val(data.pktemp);
+                        $('#lastInsertId').val(data.lastInsertId);
+                        $("#checkGeneralForm").val("1");
+                        console.log('insert success: ' + data['errorInfo'][0]);
 
+                        $('div.growlUI')
+                                .css("background",
+                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+                        submitUserAddressInfoSuccessful.blockuiFadingCentered('show');
+
+                        $('#checkAddressForm').val('1');
+                        $('#userAddressInfo').attr('class', "tab-pane fade");
+                        $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
+                        $('#userAddressInfoTab').removeClass('active');
+                        $('#userCommunicationInfoTab').addClass('active');
+                        $('#userCommunicationInfoTab').removeClass('disabled');
+
+
+                        taskProgressPerTabs();
+
+                    }
+                    /*else if (data['errorInfo'] === '23505') {
+                     
+                     console.log('insert success: ' + data['errorInfo']);
+                     console.log(data);
+                     
+                     var errorInfoColumn = data['errorInfoColumn'];
+                     
+                     console.log('erroInfoColumn value is: ' + errorInfoColumn);
+                     
+                     } else if (data['errorInfo'] === '23502') {
+                     
+                     console.log('insert success: ' + data['errorInfo']);
+                     console.log(data);
+                     }
+                     */
+                }, error: function (jqXHR, textStatus, errorThrown) {
+
+                    console.error('insert error: ' + jqXHR);
+                    console.error('insert error text : ' + textStatus);
+                    console.error('insert error thrown : ' + errorThrown);
+
+                    $("#checkAddressForm").val("0");
                     $('div.growlUI')
                             .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-                    submitUserAddressInfoSuccessful.blockuiFadingCentered('show');
-
-                    $('#checkAddressForm').val('1');
-                    $('#userAddressInfo').attr('class', "tab-pane fade");
-                    $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
-                    $('#userAddressInfoTab').removeClass('active');
-                    $('#userCommunicationInfoTab').addClass('active');
-                    $('#userCommunicationInfoTab').removeClass('disabled');
-
-                    taskProgressCalculation();
-
-                }
-                /*else if (data['errorInfo'] === '23505') {
-                 
-                 console.log('insert success: ' + data['errorInfo']);
-                 console.log(data);
-                 
-                 var errorInfoColumn = data['errorInfoColumn'];
-                 
-                 console.log('erroInfoColumn value is: ' + errorInfoColumn);
-                 
-                 } else if (data['errorInfo'] === '23502') {
-                 
-                 console.log('insert success: ' + data['errorInfo']);
-                 console.log(data);
-                 }
-                 */
-            }, error: function (jqXHR, textStatus, errorThrown) {
-
-                console.error('insert error: ' + jqXHR);
-                console.error('insert error text : ' + textStatus);
-                console.error('insert error thrown : ' + errorThrown);
-
-                $("#checkAddressForm").val("0");
-                $('div.growlUI')
-                        .css("background",
-                                "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                submitUserAddressInfoUnsuccessful.blockuiFadingCentered('option', {
-                    backgroundColor: "#FF0000"
-                });
-                $('div.growlUI')
-                        .css("background",
-                                "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                submitUserAddressInfoUnsuccessful.blockuiFadingCentered('show');
-            }
-        });
-    } else{
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-            data: {
-                url: 'pktempInsert_infoUsersAddresses',
-                pktemp: $("#pktemp"),
-                profile_public: makePublicAddress,
-                language_code: $("#langCode").val(),
-                operation_type_id: '1',
-                address_type_id: $('#addressTypesCombo :selected').val(),
-                address1: $('#userAddress1').val(),
-                address2: $('#userAddress2').val(),
-                postal_code: $('#userPostalCode'),
-                country_id: $('#usercountry :selected').val(),
-                city_id: null,
-                borough_id: null,
-                city_name: $('#userCityName').val(),
-                description: null
-            },
-            method: "GET",
-            dataType: "json",
-            success: function (data) {
-
-                if (data['errorInfo'][0] === '00000') {
-
-                    $("#pktemp").val(data.pktemp);
-                    $('#lastInsertId').val(data.lastInsertId);
-                    $("#checkGeneralForm").val("1");
-                    console.log('insert success: ' + data['errorInfo'][0]);
-
+                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+                    submitUserAddressInfoUnsuccessful.blockuiFadingCentered('option', {
+                        backgroundColor: "#FF0000"
+                    });
                     $('div.growlUI')
                             .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-                    submitUserAddressInfoSuccessful.blockuiFadingCentered('show');
-
-                    $('#checkAddressForm').val('1');
-                    $('#userAddressInfo').attr('class', "tab-pane fade");
-                    $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
-                    $('#userAddressInfoTab').removeClass('active');
-                    $('#userCommunicationInfoTab').addClass('active');
-                    $('#userCommunicationInfoTab').removeClass('disabled');
-
-                    taskProgressCalculation();
-
+                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+                    submitUserAddressInfoUnsuccessful.blockuiFadingCentered('show');
                 }
-                /*else if (data['errorInfo'] === '23505') {
-                 
-                 console.log('insert success: ' + data['errorInfo']);
-                 console.log(data);
-                 
-                 var errorInfoColumn = data['errorInfoColumn'];
-                 
-                 console.log('erroInfoColumn value is: ' + errorInfoColumn);
-                 
-                 } else if (data['errorInfo'] === '23502') {
-                 
-                 console.log('insert success: ' + data['errorInfo']);
-                 console.log(data);
-                 }
-                 */
-            }, error: function (jqXHR, textStatus, errorThrown) {
+            });
+        } else {
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+                data: {
+                    url: 'pktempInsert_infoUsersAddresses',
+                    pktemp: $("#pktemp"),
+                    profile_public: makePublicAddress,
+                    language_code: $("#langCode").val(),
+                    operation_type_id: '1',
+                    address_type_id: $('#addressTypesCombo :selected').val(),
+                    address1: $('#userAddress1').val(),
+                    address2: $('#userAddress2').val(),
+                    postal_code: $('#userPostalCode'),
+                    country_id: $('#usercountry :selected').val(),
+                    city_id: null,
+                    borough_id: null,
+                    city_name: $('#userCityName').val(),
+                    description: null
+                },
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
 
-                console.error('insert error: ' + jqXHR);
-                console.error('insert error text : ' + textStatus);
-                console.error('insert error thrown : ' + errorThrown);
+                    if (data['errorInfo'][0] === '00000') {
 
-                $("#checkAddressForm").val("0");
-                $('div.growlUI')
-                        .css("background",
-                                "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                submitUserAddressInfoUnsuccessful.blockuiFadingCentered('option', {
-                    backgroundColor: "#FF0000"
-                });
-                $('div.growlUI')
-                        .css("background",
-                                "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                submitUserAddressInfoUnsuccessful.blockuiFadingCentered('show');
-            }
-        });
-    }
+                        $("#pktemp").val(data.pktemp);
+                        $('#lastInsertId').val(data.lastInsertId);
+                        $("#checkGeneralForm").val("1");
+                        console.log('insert success: ' + data['errorInfo'][0]);
+
+                        $('div.growlUI')
+                                .css("background",
+                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+                        submitUserAddressInfoSuccessful.blockuiFadingCentered('show');
+
+                        $('#checkAddressForm').val('1');
+                        $('#userAddressInfo').attr('class', "tab-pane fade");
+                        $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
+                        $('#userAddressInfoTab').removeClass('active');
+                        $('#userCommunicationInfoTab').addClass('active');
+                        $('#userCommunicationInfoTab').removeClass('disabled');
+
+
+                        taskProgressPerTabs();
+
+                    }
+                    /*else if (data['errorInfo'] === '23505') {
+                     
+                     console.log('insert success: ' + data['errorInfo']);
+                     console.log(data);
+                     
+                     var errorInfoColumn = data['errorInfoColumn'];
+                     
+                     console.log('erroInfoColumn value is: ' + errorInfoColumn);
+                     
+                     } else if (data['errorInfo'] === '23502') {
+                     
+                     console.log('insert success: ' + data['errorInfo']);
+                     console.log(data);
+                     }
+                     */
+                }, error: function (jqXHR, textStatus, errorThrown) {
+
+                    console.error('insert error: ' + jqXHR);
+                    console.error('insert error text : ' + textStatus);
+                    console.error('insert error thrown : ' + errorThrown);
+
+                    $("#checkAddressForm").val("0");
+                    $('div.growlUI')
+                            .css("background",
+                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+                    submitUserAddressInfoUnsuccessful.blockuiFadingCentered('option', {
+                        backgroundColor: "#FF0000"
+                    });
+                    $('div.growlUI')
+                            .css("background",
+                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+                    submitUserAddressInfoUnsuccessful.blockuiFadingCentered('show');
+                }
+            });
+        }
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
     }
@@ -923,6 +927,8 @@ function resetConfirmation() {
             .css("background",
                     "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
     registrationBlockuiSuccessfulReset.blockuiFadingCentered('show');
+    taskProgressPerTabs();
+
 }
 
 /*
@@ -1037,95 +1043,138 @@ $('#table_address_modal').bootstrapTable({
     queryParams: function (p) {
         return{
             language_code: $('#langCode').val(),
-            pk:'',
+            pk: '',
         };
     }
 });
 
-    
-    
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+
+
+$.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-        data: {
-            url: 'fillCommunicationsTypes_sysSpecificDefinitions',
-            language_code: $("#langCode").val()
-        },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-            var i;
-            for (i = 0; i < data.length; i++) {
-                if (data[i].text === null) {
+    data: {
+        url: 'fillCommunicationsTypes_sysSpecificDefinitions',
+        language_code: $("#langCode").val()
+    },
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+        var i;
+        for (i = 0; i < data.length; i++) {
+            if (data[i].text === null) {
 
-                } else {
+            } else {
 
-                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
-                            data[i].text +
-                            "</option>";
-                    var newappendingOption = $(appending_option_html);
-                    $(newappendingOption).appendTo($("#communicationTypes"));
-                }
+                var appending_option_html = "<option value = '" + data[i].id + "' >" +
+                        data[i].text +
+                        "</option>";
+                var newappendingOption = $(appending_option_html);
+                $(newappendingOption).appendTo($("#communicationTypes"));
             }
         }
-    });
+    }
+});
 
 
-var userRegistrationProgress = '0';
-var companyRegistrationProgress = '0';
-var overallRegistrationProgress = '0';
+var userGeneralInformationProgress = "0";
+var userAddressInformationProgress = "0";
+var userCommunicationInformationProgress = "0";
+var overallRegistrationProgress = "0";
 
-function taskProgressCalculation() {
+
+function taskProgressPerTabs() {
 
     if ($('#checkGeneralForm').val() === '0') {
 
-        userRegistrationProgress = '0';
-        companyRegistrationProgress = '0';
-        overallRegistrationProgress = '0';
+        userGeneralInformationProgressNumber = 0;
+        overallRegistrationProgressNumber = 0;
+
+        if ($('#userFirstName').val()) {
+            userGeneralInformationProgressNumber += 20;
+            overallRegistrationProgressNumber += 6;
+        }
+        if ($('#userLastName').val()) {
+            userGeneralInformationProgressNumber += 20;
+            overallRegistrationProgressNumber += 6;
+        }
+        if ($('#preferedUsername').val()) {
+            userGeneralInformationProgressNumber += 20;
+            overallRegistrationProgressNumber += 6;
+        }
+        if (!$('#useremail').validationEngine('validate')) {
+            userGeneralInformationProgressNumber += 20;
+            overallRegistrationProgressNumber += 6;
+        }
+        if (!$('#userPreferedPassword').validationEngine('validate')) {
+            userGeneralInformationProgressNumber += 20;
+            overallRegistrationProgressNumber += 6;
+        }
+        userGeneralInformationProgress = userGeneralInformationProgressNumber.toString();
+
+        $("#userGeneralInfoRegistrationProgress").
+                html(userGeneralInformationProgress + '%');
+        $("#userGeneralInfoRegistrationProgressStyle").
+                css({"width": userGeneralInformationProgress +
+                            '%', "aria-valuenow": userGeneralInformationProgress});
+
+
+        overallRegistrationProgress = overallRegistrationProgressNumber.toString();
+        $("#overallRegistrationProgress").
+                html(overallRegistrationProgress + '%');
+        $("#overallRegistrationProgressStyle").
+                css({"width": overallRegistrationProgress +
+                            '%', "aria-valuenow": overallRegistrationProgress});
 
     } else if ($('#checkGeneralForm').val() === '1') {
         if ($('#checkAddressForm').val() === '0') {
 
-            userRegistrationProgress = '30';
-            companyRegistrationProgress = '0';
-            overallRegistrationProgress = '20';
+            userAddressInformationProgressNumber = 0;
+            overallRegistrationProgressNumber = 33;
 
-        } else if ($('#checkGeneralForm').val() === '1') {
-            if ($('#checkAddressForm').val() === '1') {
-                if ($('#checkCommunicationForm').val() === '0') {
-
-                    userRegistrationProgress = '60';
-                    companyRegistrationProgress = '0';
-                    overallRegistrationProgress = '40';
-
-                } else if ($('#checkCommunicationForm').val() === '1') {
-                    if ($('#checkCompanyForm').val() === '0') {
-
-                        userRegistrationProgress = '100';
-                        companyRegistrationProgress = '0';
-                        overallRegistrationProgress = '60';
-
-                    } else if ($('#checkCompanyForm').val() === '1') {
-
-                        userRegistrationProgress = '100';
-                        companyRegistrationProgress = '50';
-                        overallRegistrationProgress = '70';
-
-                    }
+            if ($('#addressTypesCombo :selected').val()) {
+                userAddressInformationProgressNumber += 25;
+            }
+            if ($('#usercountry :selected').val() === "91") {
+                userAddressInformationProgressNumber += 25;
+                if ($('#usercity :selected').val()>=0) {
+                    userAddressInformationProgressNumber += 15;
+                }
+                if ($('#userdistrict :selected').val()>=0) {
+                    userAddressInformationProgressNumber += 10;
+                }
+            } else if ($('#usercountry :selected').val() === "-1") {
+            } else {
+                userAddressInformationProgressNumber += 25;
+                if ($('#userCityName').val()) {
+                    userAddressInformationProgressNumber += 25;
                 }
             }
+            if ($('#userAddress1').val()) {
+                userAddressInformationProgressNumber += 10;
+            }
+            if ($('#userAddress2').val()) {
+                userAddressInformationProgressNumber += 10;
+            }
+            if ($('#userPostalCode').val()) {
+                userAddressInformationProgressNumber += 5;
+            }
+            userAddressInformationProgress = userAddressInformationProgressNumber.toString();
+
+            $("#userAddressInfoRegistrationProgress").
+                    html(userAddressInformationProgress + '%');
+            $("#userAddressInfoRegistrationProgressStyle").
+                    css({"width": userAddressInformationProgress +
+                                '%', "aria-valuenow": userAddressInformationProgress});
+
+            overallRegistrationProgress = overallRegistrationProgressNumber.toString();
+            $("#overallRegistrationProgress").
+                    html(overallRegistrationProgress + '%');
+            $("#overallRegistrationProgressStyle").
+                    css({"width": overallRegistrationProgress +
+                                '%', "aria-valuenow": overallRegistrationProgress});
         }
     }
-
-    $("#userRegistrationProgress").html(userRegistrationProgress + '%');
-    $("#userRegistrationProgressStyle").css({"width": userRegistrationProgress + '%', "aria-valuenow": userRegistrationProgress});
-
-    $("#companyRegistrationProgress").html(companyRegistrationProgress + '%');
-    $("#companyRegistrationProgressStyle").css({"width": companyRegistrationProgress + '%', "aria-valuenow": companyRegistrationProgress});
-
-    $("#overallRegistrationProgress").html(overallRegistrationProgress + '%');
-    $("#overallRegistrationProgressStyle").css({"width": overallRegistrationProgress + '%', "aria-valuenow": overallRegistrationProgress});
-
 }
 
 

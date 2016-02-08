@@ -847,22 +847,56 @@
                         <!-- Begin Task Progress -->
                         <div id="taskProgress">
                             <div class="panel-heading-v2 overflow-h">
-                                <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i><?php echo $this->translate('Task Progress') ?></h2>
+                                <h2 class="heading-xs pull-left">
+                                    <i class="fa fa-bar-chart-o"></i>
+                                        <?php echo $this->translate('Task Progress') ?>
+                                </h2>
                                 <a href="#"><i class="fa fa-cog pull-right"></i></a>
                             </div>
-                            <h3 class="heading-xs"><?php echo $this->translate('User registration') ?><span id="userRegistrationProgress" class="pull-right">0%</span></h3>
+                            <h3 class="heading-xs">
+                                <?php echo $this->translate('General Information') ?>
+                                <span id="userGeneralInfoRegistrationProgress" 
+                                      class="pull-right">0%</span>
+                            </h3>
                             <div class="progress progress-u progress-xxs">
-                                <div id='userRegistrationProgressStyle' style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-u">
+                                <div id='userGeneralInfoRegistrationProgressStyle' 
+                                     style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
+                                     aria-valuenow="0" role="progressbar" 
+                                     class="progress-bar progress-bar-u">
                                 </div>
                             </div>
-                            <h3 class="heading-xs"><?php echo $this->translate('Company registration') ?> <span id="companyRegistrationProgress" class="pull-right">0%</span></h3>
+                            <h3 class="heading-xs">
+                                <?php echo $this->translate('Address Information') ?>
+                                <span id="userAddressInfoRegistrationProgress" 
+                                      class="pull-right">0%</span>
+                            </h3>
                             <div class="progress progress-u progress-xxs">
-                                <div id='companyRegistrationProgressStyle' style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-blue">
+                                <div id='userAddressInfoRegistrationProgressStyle' 
+                                     style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
+                                     aria-valuenow="0" role="progressbar" 
+                                     class="progress-bar progress-bar-blue">
                                 </div>
                             </div>
-                            <h3 class="heading-xs"><?php echo $this->translate('Registration process') ?><span id="overallRegistrationProgress" class="pull-right">0%</span></h3>
+                            <h3 class="heading-xs">
+                                <?php echo $this->translate('Communication Information') ?>
+                                <span id="userCommunicationInfoRegistrationProgress" 
+                                      class="pull-right">0%</span>
+                            </h3>
+                            <div class="progress progress-u progress-xxs">
+                                <div id='userCommunicationInfoRegistrationProgressStyle' 
+                                     style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
+                                     aria-valuenow="0" role="progressbar" 
+                                     class="progress-bar progress-bar-dark">
+                                </div>
+                            </div>                            
+                            <h3 class="heading-xs">
+                                <?php echo $this->translate('Registration process') ?>
+                                <span id="overallRegistrationProgress" class="pull-right">0%</span>
+                            </h3>
                             <div class="progress progress-u progress-xxs margin-bottom-40">
-                                <div id='overallRegistrationProgressStyle' style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-dark">
+                                <div id='overallRegistrationProgressStyle' style="width: 0%" 
+                                     aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" 
+                                     role="progressbar" class="progress-bar progress-bar-dark">
                                 </div>
                             </div>
                         </div>
@@ -1002,7 +1036,8 @@
                                                         </div>
                                                         <input type="text" name="userFirstName" 
                                                                id="userFirstName" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterSp]]">
+                                                               class="form-control validate[required,custom[onlyLetterSp]]"
+                                                               onchange="taskProgressPerTabs()">
                                                     </div>
                                                 </section>
                                                 <section>
@@ -1013,7 +1048,8 @@
                                                         </div>
                                                         <input type="text" name="userLastName" 
                                                                id="userLastName" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterSp]]">
+                                                               class="form-control validate[required,custom[onlyLetterSp]]"
+                                                               onchange="taskProgressPerTabs()">
                                                     </div>
                                                 </section>
                                                 <section>
@@ -1024,7 +1060,8 @@
                                                         </div>
                                                         <input type="text" name="preferedUsername" 
                                                                id="preferedUsername" required="true"
-                                                               class="form-control validate[required,custom[sfUserName]]">
+                                                               class="form-control validate[required,custom[sfUserName]]"
+                                                               onchange="taskProgressPerTabs()">
                                                     </div>
                                                 </section>
                                                 <section>
@@ -1034,7 +1071,8 @@
                                                             <i class="fa fa-envelope"></i>
                                                         </div>
                                                         <input class="form-control validate[required,custom[email]]" 
-                                                               type="email" name="useremail" id="useremail" />
+                                                               type="email" name="useremail" id="useremail" 
+                                                               onchange="taskProgressPerTabs()">
                                                     </div>
                                                 </section>
                                                 <section>
@@ -1045,7 +1083,8 @@
                                                         </div>
                                                         <input type="password" name="userPreferedPassword" 
                                                                id="userPreferedPassword" required="true"
-                                                               class="form-control validate[required,minSize[8],maxSize[20]]">
+                                                               class="form-control validate[required,minSize[8],maxSize[20]]"
+                                                               onchange="taskProgressPerTabs()">
                                                     </div>
                                                 </section>
                                                 <section>
@@ -1117,7 +1156,7 @@
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Address type') ?></label>
                                                     <label class="select">
-                                                        <select id="addressTypesCombo" required="true">
+                                                        <select id="addressTypesCombo" required="true" onchange="taskProgressPerTabs()">
                                                             <option value="-1"><?php echo $this->translate('Please select address type from list...') ?></option>
                                                         </select>
                                                         <i></i>
@@ -1128,7 +1167,7 @@
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Country') ?></label>
                                                     <label class="select">
-                                                        <select id="usercountry" required="true">
+                                                        <select id="usercountry" required="true" onchange="taskProgressPerTabs()">
                                                             <option value="-1"><?php echo $this->translate('Please select a country from list...') ?></option>
                                                         </select>
                                                         <i></i>
@@ -1143,7 +1182,8 @@
                                                             </div>
                                                             <input type="text" name="userCityName" 
                                                                    id="userCityName"
-                                                                   class="form-control validate[required,onlyLetterSp]">
+                                                                   class="form-control validate[required,onlyLetterSp]"
+                                                                   onchange="taskProgressPerTabs()">
                                                         </div> 
                                                     </div>
                                                 </section>
@@ -1151,7 +1191,7 @@
                                                     <div id='cityDropdownSection'>
                                                         <label class="label"><?php echo $this->translate('City') ?></label>
                                                         <label class="select">
-                                                            <select id="usercity">
+                                                            <select id="usercity" onchange="taskProgressPerTabs()">
                                                                 <option value="-1">
                                                                     <?php echo $this->translate('Please select a city from list...') ?>
                                                                 </option>
@@ -1164,7 +1204,7 @@
                                                     <div id='districtDropdownSection'>
                                                         <label class="label"><?php echo $this->translate('District') ?></label>
                                                         <label class="select">
-                                                            <select id="userdistrict">
+                                                            <select id="userdistrict" onchange="taskProgressPerTabs()">
                                                                 <option value="-1">
                                                                     <?php echo $this->translate('Please select a district from list...') ?>
                                                                 </option>
@@ -1181,7 +1221,8 @@
                                                         </div>
                                                         <input type="text" name="userAddress1" 
                                                                id="userAddress1"
-                                                               class="form-control validate[sfAddress]">
+                                                               class="form-control validate[sfAddress]"
+                                                               onchange="taskProgressPerTabs()">
                                                     </div> 
                                                 </section>
                                                 <section>
@@ -1192,7 +1233,8 @@
                                                         </div>
                                                         <input type="text" name="userAddress2" 
                                                                id="userAddress2"
-                                                               class="form-control validate[sfAddress]">
+                                                               class="form-control validate[sfAddress]"
+                                                               onchange="taskProgressPerTabs()">
                                                     </div> 
                                                 </section>                                                 
                                                 <section>
@@ -1202,7 +1244,8 @@
                                                             <i class="fa fa-home"></i>
                                                         </div>
                                                         <input type="text" name="userPostalCode" id="userPostalCode"
-                                                               class="form-control validate[required,custom[onlyNumberSp]]">
+                                                               class="form-control validate[required,custom[onlyNumberSp]]"
+                                                               onchange="taskProgressPerTabs()">
                                                     </div>
                                                 </section>
                                             </div>
