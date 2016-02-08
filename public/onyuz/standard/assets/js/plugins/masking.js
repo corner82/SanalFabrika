@@ -22,7 +22,7 @@ var Masking = function () {
             /*
              * Post code masks
              */
-            $("#userPostalCode").mask('99999', {placeholder: 'X'});
+//            $("#userPostalCode").mask('99999', {placeholder: 'X'});
             
             /*
              * Phone number masks

@@ -576,9 +576,6 @@ function submitUserAddressInfoForm() {
 
     console.log($('#addressTypesCombo').val().id);
 
-    var addressType = $('#addressTypeBilling');
-    console.log(addressType);
-
     if ($('#userAddressInfoForm').validationEngine('validate')) {
 
         if ($('#usercountry :selected').val() === '91') {
@@ -664,11 +661,12 @@ function submitUserAddressInfoForm() {
                 }
             });
         } else {
+
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
                 data: {
-                    url: 'pktempInsert_infoUsersAddresses',
+                    url: 'pktempFillUserAddressesTypes_infoUsersAddresses',
                     pktemp: $("#pktemp"),
                     profile_public: makePublicAddress,
                     language_code: $("#langCode").val(),
@@ -676,11 +674,12 @@ function submitUserAddressInfoForm() {
                     address_type_id: $('#addressTypesCombo :selected').val(),
                     address1: $('#userAddress1').val(),
                     address2: $('#userAddress2').val(),
-                    postal_code: $('#userPostalCode'),
+                    postal_code: $('#userPostalCode').val(),
                     country_id: $('#usercountry :selected').val(),
-                    city_id: null,
-                    borough_id: null,
+                    city_id: $('#usercity :selected').val(),
+                    borough_id: $('#userdistrict :selected').val(),
                     city_name: $('#userCityName').val(),
+//                        city_name: null,
                     description: null
                 },
                 method: "GET",
@@ -744,6 +743,8 @@ function submitUserAddressInfoForm() {
                     submitUserAddressInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
+
+
         }
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
@@ -1137,10 +1138,10 @@ function taskProgressPerTabs() {
             }
             if ($('#usercountry :selected').val() === "91") {
                 userAddressInformationProgressNumber += 25;
-                if ($('#usercity :selected').val()>=0) {
+                if ($('#usercity :selected').val() >= 0) {
                     userAddressInformationProgressNumber += 15;
                 }
-                if ($('#userdistrict :selected').val()>=0) {
+                if ($('#userdistrict :selected').val() >= 0) {
                     userAddressInformationProgressNumber += 10;
                 }
             } else if ($('#usercountry :selected').val() === "-1") {
