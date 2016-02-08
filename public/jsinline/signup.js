@@ -303,7 +303,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
+//            console.log(data);
             var i;
             for (i = 0; i < data.length; i++) {
                 if (!data[i].text === null) {
@@ -600,6 +600,7 @@ function submitUserAddressInfoForm() {
                         $("#pktemp").val(data.pktemp);
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
+
                         console.log('insert success: ' + data['errorInfo'][0]);
 
                         $('div.growlUI')
@@ -993,23 +994,69 @@ $('#table_address_modal').bootstrapTable({
 //        $element: the tr element.
 //        console.log(row.id);
     },
+    url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?pktempFillUserAddressesTypes_infoUsersAddresses",
+    queryParams: function (p) {
+        return{
+            language_code: $('#langCode').val(),
+            pktemp: $("#pktemp").val()
+        };
+    },
     locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
     toggle: "table",
     height: "300",
     pagination: "true",
     search: "true",
     toolbar: "#toolbar",
-    url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?pktempFillUserAddressesTypes_infoUsersAddresses",
-    queryParams: function (p) {
-        return{
-            language_code: $('#langCode').val(),
-            pktempt: $("#pktemp").val()
-        };
-    }
-
+    columns: [
+        {
+            field: 'address_type_id',
+            title: 'Address type',
+            sortable: true
+//            width: 100
+        },
+        {
+            field: 'country_id',
+            title: 'Country',
+            sortable: true
+//            width: 200
+        },
+        {
+            field: 'city_id',
+            title: 'City',
+            sortable: true
+        },
+        {
+            field: 'city_name',
+            title: 'City Name',
+            sortable: true
+        },
+        {
+            field: 'borough_id',
+            title: 'District',
+            sortable: true
+        },
+        {
+            field: 'address1',
+            title: 'Address 1',
+            sortable: true
+        },
+        {
+            field: 'address2',
+            title: 'Address 2',
+            sortable: true
+        },
+        {
+            field: 'postal_code',
+            title: 'Postal Code',
+            sortable: true
+        },
+        {
+            field: 'description',
+            title: 'Description',
+            sortable: true
+        }
+    ]
 });
-
-
 
 $.ajax({
     url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -1219,7 +1266,7 @@ function taskProgressPerTabs() {
                             setTimeout(function () {
                                 $('#userCommunicationInfoRegistrationProgress').validationEngine('hide');
                             }, 3000);
-                        }else{
+                        } else {
                             $("#userCommunicationInfoRegistrationProgress").validationEngine(
                                     'showPrompt',
                                     'After accepting conditions and terms you may continue ...',
@@ -1233,24 +1280,6 @@ function taskProgressPerTabs() {
                 }
             }
         }
-    }
-}
-
-
-function checkTaskBarValue() {
-
-    console.log('changed');
-    if ($('#userGeneralInfoRegistrationProgressStyle').css('aria-valuenow') === "100") {
-        console.log("you may continue....");
-    }
-    if ($('#userAddressInfoRegistrationProgressStyle').css('aria-valuenow') === "100") {
-        console.log("you may continue....");
-    }
-    if ($('#userCommunicationInfoRegistrationProgressStyle').css('aria-valuenow') === "100") {
-        console.log("you may continue....");
-    }
-    if ($('#overallRegistrationProgressStyle').css('aria-valuenow') === "100") {
-        console.log("you may continue....");
     }
 }
 
