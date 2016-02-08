@@ -1010,7 +1010,7 @@
                                         <?php echo $this->translate('Address Information') ?>
                                     </a>
                                 </li>
-                                <li id="userCommunicationInfoTab" class="disabled" onclick="checkUAI()">
+                                <li id="userCommunicationInfoTab" onclick="checkUAI()">
                                     <a href="#userCommunicationInfo" data-toggle="tab">
                                         <?php echo $this->translate('Communication Information') ?>
                                     </a>
@@ -1249,6 +1249,13 @@
                                                                minSize[5],maxSize[10]]]"
                                                                onchange="taskProgressPerTabs()">
                                                     </div>
+                                                </section>                                                                                                
+                                                <section>
+                                                    <label class="label"><?php echo $this->translate('Description') ?></label>
+                                                    <label class="textarea">
+                                                        <i class="icon-append fa fa-comment"></i>
+                                                        <textarea rows="4" name="addressDescription" id="addressDescription"></textarea>
+                                                    </label>
                                                 </section>
                                             </div>
                                             <footer>
@@ -1277,7 +1284,7 @@
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Select a Communication Type') ?></label>
                                                     <label class="select">
-                                                        <select id="communicationTypes" required="true">
+                                                        <select id="communicationTypes" required="true" onchange="taskProgressPerTabs()">
                                                             <option value="-1"><?php echo $this->translate('Please select a communication type from list...') ?></option>
                                                         </select>
                                                         <i></i>
@@ -1295,7 +1302,8 @@
                                                     <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
                                                     <div class="input-group">                                                                    
                                                         <i class="icon-prepend fa fa-phone"></i>
-                                                        <input type="phone" class="form-control validation[custom[onlyNumberSp]]" name="contactNumber" id="contactNumber" >                                                                    
+                                                        <input type="phone" class="form-control validation[custom[onlyNumberSp]]" 
+                                                               name="contactNumber" id="contactNumber" onchange="taskProgressPerTabs()">                                                                    
                                                         <span class="input-group-btn">
                                                             <button class="btn btn-u" type="button" id="submitContactNumber"><?php echo $this->translate('Submit Number') ?></button>
                                                         </span>
@@ -1330,7 +1338,8 @@
                                         <fieldset>
                                             <div class="row"> 
                                                 <label class="checkbox">
-                                                    <input required="true" type="checkbox" name="terms" id="terms" onchange="activateButtons()">
+                                                    <input required="true" type="checkbox" 
+                                                           name="terms" id="terms" onchange="activateButtons(),taskProgressPerTabs()">
                                                     <i></i><?php echo $this->translate('I agree with the Terms and Conditions') ?>
                                                 </label> 
                                             </div>
@@ -1682,8 +1691,14 @@
                                     <thead>
                                         <tr>
                                             <th data-field="state" data-checkbox="true"></th>
-                                            <th data-field="id"><?php echo $this->translate('Id') ?></th>
-                                            <th data-field="name"><?php echo $this->translate('Name') ?></th>
+                                            <th data-field="id"><?php echo $this->translate('Address type') ?></th>
+                                            <th data-field="name"><?php echo $this->translate('Country') ?></th>
+                                            <th data-field="name"><?php echo $this->translate('City') ?></th>
+                                            <th data-field="name"><?php echo $this->translate('District') ?></th>
+                                            <th data-field="name"><?php echo $this->translate('Address 1') ?></th>
+                                            <th data-field="name"><?php echo $this->translate('Address 2') ?></th>
+                                            <th data-field="name"><?php echo $this->translate('Postal Code') ?></th>
+                                            <th data-field="name"><?php echo $this->translate('Description') ?></th> 
                                         </tr>
                                     </thead>
                                 </table>
