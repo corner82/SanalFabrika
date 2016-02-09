@@ -1,17 +1,25 @@
 $(document).ready(function () {
 
-
+    //$('#tab_confirm_container a:first').tab('show');
+    //$('#tab_confirm_container a[href="#tab_3"]').tab('show');
     $('#todolistbox').loadImager();
+    
     var filler = $('#todolistbox').todolistFiller();
     
     /**
      * Kullanıcı onay tab click
      */
     $('#tab_confirm_container #tab_confirm_clicker').click(function (e) {
-        e.preventDefault();
+        
         //alert('test');
-        $('#tab_confirm_image_loader').loadImager();
-        //$(this).tab('show')
+        //$('#tab_confirm_image_loader').loadImager();
+        //$('#tab_confirm_container #tab_confirm_company').tab('show');
+        //$('#tab_confirm').removeClass('active');
+
+        $('#tab_confirm_container a[href="#tab_confirm_company"]').tab('show');
+        $('#tab_confirm_container a:first').tab('show');
+        //alert('test');
+        //e.preventDefault();
      })
     
     
@@ -43,12 +51,12 @@ $(document).ready(function () {
     // 
     $('#grid_confirm_registration').datagrid({
             onDblClickRow : function (index, row) {
-                $('.nav-tabs a[href="#tab_1-1"]').tab('show');  
+                //$('.nav-tabs a[href="#tab_1-1"]').tab('show');  
                 //alert('test');
             },  
-            /*url : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: { url:'getCompaniesInfo_company' ,
-                }, */
+            url : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            queryParams : { url:'pkGetConsPendingFirmProfile_sysOsbConsultants' ,
+                            pk : $('#pk').val()}, 
             //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
             width : '100%',
             singleSelect:true,
@@ -66,13 +74,13 @@ $(document).ready(function () {
                 [[
                     {field:'id',title:'ID'},
                     {field:'username',title:'Kullanıcı Adı',sortable:true,width:300},
-                    {field:'operation_name',title:'İşlem',sortable:true, width:100},
+                    //{field:'operation_name',title:'İşlem',sortable:true, width:100},
                     {field:'company_name',title:'Firma', width:200},
-                    {field:'c_date',title:'Fat. Adres', width:200},
+                    //{field:'c_date',title:'Fat. Adres', width:200},
                     {field:'s_date',title:'Kayıt Tarihi', width:200},
-                    {field:'c_date',title:'İşlem Tarihi', width:200},
+                    /*{field:'c_date',title:'İşlem Tarihi', width:200},
                     {field:'c_date',title:'İlet. Adres', width:200},
-                    {field:'c_date',title:'Fat. Adres', width:200},
+                    {field:'c_date',title:'Fat. Adres', width:200},*/
                 ]]   
       });  
 
