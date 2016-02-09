@@ -6,21 +6,7 @@ $(document).ready(function () {
     
     var filler = $('#todolistbox').todolistFiller();
     
-    /**
-     * Kullanıcı onay tab click
-     */
-    $('#tab_confirm_container #tab_confirm_clicker').click(function (e) {
-        
-        //alert('test');
-        //$('#tab_confirm_image_loader').loadImager();
-        //$('#tab_confirm_container #tab_confirm_company').tab('show');
-        //$('#tab_confirm').removeClass('active');
-
-        $('#tab_confirm_container a[href="#tab_confirm_company"]').tab('show');
-        $('#tab_confirm_container a:first').tab('show');
-        //alert('test');
-        //e.preventDefault();
-     })
+    
     
     
     $.ajax({
@@ -47,6 +33,50 @@ $(document).ready(function () {
         }
 
     });
+    
+    /**
+     * consultant detail  tab click
+     * @author Mustafa Zeynel Dağlı
+     * @since 08/02/2016
+     */
+    $('#tab_confirm_container #tab_confirm_clicker').click(function (e) {
+        //alert('test');
+        if(!$('#tab_confirm').hasClass('active')) {
+            $('#tab_confirm_image_loader').loadImager();
+            $('#tab_confirm_image_loader').loadImager('appendImage');
+        }
+        e.preventDefault();
+     })
+    
+    /**
+     * 'grid_confirm_registration' easyui grid detail click function
+     * @param {type} target
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     * @since 09/02/2016
+     */
+    window.gridDetailClick= function (target) {
+        var rows = $('#grid_confirm_registration').datagrid('getRows'); 
+        var row = rows[getRowIndex(target)];
+        console.log(row);
+        if($('#tab_confirm_image_loader').loadImager() != 'undefined') {
+            $('#tab_confirm_image_loader').loadImager('removeLoadImage');
+        }
+        
+        $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
+    }
+    
+    /**
+     * trying to get row index from easyui grid
+     * @param {type} target
+     * @returns integer
+     * @author Mustafa Zeynel Dağlı
+     * @since 09/02/2016
+     */
+    window.getRowIndex = function (target){
+        var tr = $(target).closest('tr.datagrid-row');
+        return parseInt(tr.attr('datagrid-row-index'));
+    }
 
     // 
     $('#grid_confirm_registration').datagrid({
@@ -70,19 +100,35 @@ $(document).ready(function () {
             remoteFilter: true,
             remoteSort:true,
             multiSort:false,
+            sortable : true,
             columns:
                 [[
                     {field:'id',title:'ID'},
-                    {field:'username',title:'Kullanıcı Adı',sortable:true,width:300},
+                    {field:'username',title:'Kullanıcı Adı',sortable:true,width:350},
                     //{field:'operation_name',title:'İşlem',sortable:true, width:100},
-                    {field:'company_name',title:'Firma', width:200},
+                    {field:'company_name',title:'Firma',sortable:true, width:350},
                     //{field:'c_date',title:'Fat. Adres', width:200},
-                    {field:'s_date',title:'Kayıt Tarihi', width:200},
+                    {field:'s_date',title:'Kayıt Tarihi',sortable:true, width:200},
+                    {field:'detay',title:'Detay',sortable:false, align:'center', 
+                        width:100,
+                        formatter:function(value,row,index){
+                            var e = '<a href="javascript:void(0)" onclick="gridDetailClick(this)">Detay</a> ';
+                            return e;
+                        }
+                    },
                     /*{field:'c_date',title:'İşlem Tarihi', width:200},
                     {field:'c_date',title:'İlet. Adres', width:200},
                     {field:'c_date',title:'Fat. Adres', width:200},*/
                 ]]   
-      });  
+      }); 
+      
+    /**
+     * grid_confirm_registration datagrid filter 
+     * @type @call;$@call;datagrid
+     */ 
+    var grid_confirm_registration_filter = $('#grid_confirm_registration').datagrid();
+    grid_confirm_registration_filter.datagrid('enableFilter');
+      
 
     // sektörlere göre tezgah sayıları grafiği (#container_tezgah)
     $.ajax({
