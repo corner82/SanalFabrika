@@ -10,15 +10,11 @@ $(document).ready(function () {
     
     
     $.ajax({
-        //url: '../slim_2/index.php/columnflows_json_test',
-        //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySector',
-        //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySector',
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsWaitingForConfirm_blActivationReport' ,
                 pk : $("#pk").val()}, 
         type: 'GET',
         dataType: 'json',
-        language_id:647,
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             //console.log(data);
@@ -40,7 +36,6 @@ $(document).ready(function () {
      * @since 08/02/2016
      */
     $('#tab_confirm_container #tab_confirm_clicker').click(function (e) {
-        //alert('test');
         if(!$('#tab_confirm').hasClass('active')) {
             $('#tab_confirm_image_loader').loadImager();
             $('#tab_confirm_image_loader').loadImager('appendImage');
@@ -58,12 +53,31 @@ $(document).ready(function () {
     window.gridDetailClick= function (target) {
         var rows = $('#grid_confirm_registration').datagrid('getRows'); 
         var row = rows[getRowIndex(target)];
-        console.log(row);
-        if($('#tab_confirm_image_loader').loadImager() != 'undefined') {
-            $('#tab_confirm_image_loader').loadImager('removeLoadImage');
-        }
+        //console.log(row);
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'pkGetConsConfirmationProcessDetails_sysOsbConsultants' ,
+                    pk : $("#pk").val(),
+                    profile_id : row.id}, 
+            type: 'GET',
+            dataType: 'json',
+            success: function (data, textStatus, jqXHR) {
+                console.log(data);
+                console.log(data[0]['id']);
+                console.log(data[0]['adresbilgileri']); 
+                //console.log(data.adresbilgileri);
+                if($('#tab_confirm_image_loader').loadImager() != 'undefined') {
+                    $('#tab_confirm_image_loader').loadImager('removeLoadImage');
+                    $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                //console.error(textStatus);
+            }
+        });
         
-        $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
+        
+        
     }
     
     /**
