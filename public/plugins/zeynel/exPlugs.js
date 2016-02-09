@@ -48,7 +48,7 @@
          * @returns {null}
          */
         _create: function () {
-            this.element.append(this.options.overlay)
+            this.element.append(this.options.overlay);
         },
         /**
          * public method to remove loading image when necessary
@@ -56,6 +56,10 @@
          */
         removeLoadImage: function () {
             this.element.find(this.options.overlayKey).remove();
+        },
+        
+        appendImage : function() {
+            this.element.append(this.options.overlay);
         }
     });
     
