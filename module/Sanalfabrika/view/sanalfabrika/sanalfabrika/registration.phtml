@@ -1005,7 +1005,7 @@
                                         <?php echo $this->translate('General Information') ?>
                                     </a>
                                 </li>
-                                <li id="userAddressInfoTab" class="disabled" onclick="checkUGI()">
+                                <li id="userAddressInfoTab" onclick="checkUGI()">
                                     <a href="#userAddressInfo" data-toggle="tab">
                                         <?php echo $this->translate('Address Information') ?>
                                     </a>
@@ -1156,13 +1156,16 @@
                                             <hr>
                                             <div class="row">
                                                 <section>
-                                                    <label class="label"><?php echo $this->translate('Address type') ?></label>
+                                                    <div id="addressTypesCombo">
+                                                    </div>
+
+<!--                                                    <label class="label"><?php echo $this->translate('Address type') ?></label>
                                                     <label class="select">
                                                         <select id="addressTypesCombo" required="true" onchange="taskProgressPerTabs()">
                                                             <option value="-1"><?php echo $this->translate('Please select address type from list...') ?></option>
                                                         </select>
                                                         <i></i>
-                                                    </label>
+                                                    </label>-->
                                                 </section>
                                             </div>
                                             <div class="row">
@@ -1311,24 +1314,24 @@
                                                         <i></i><?php echo $this->translate('Set this number as your default contact number') ?> 
                                                     </label>
                                                 </section>       
-                                                    <section>                                                                
-                                                        <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
-                                                        <div class="input-group">                                                                    
-                                                            <input type="phone" class="form-control validation[custom[onlyNumberSp]]" 
-                                                                   name="contactNumber" id="contactNumber" onchange="taskProgressPerTabs()">                                                                    
-                                                            <span class="input-group-btn">
-                                                                <button class="btn btn-u" type="button" id="submitContactNumber" onclick="submitUserCommunicationInfoForm()"><?php echo $this->translate('Submit Number') ?></button>
-                                                            </span>
-                                                        </div>
-                                                    </section>
-                                                    <section>
-                                                        <button type="button" class="btn-u btn-green col-md-12" 
-                                                                id="showAllContacts_btn" 
-                                                                data-toggle="modal" 
-                                                                data-target="#contactsModal">
-                                                                    <?php echo $this->translate('Show all my registered contact Information') ?>
-                                                        </button> 
-                                                    </section> 
+                                                <section>                                                                
+                                                    <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
+                                                    <div class="input-group">                                                                    
+                                                        <input type="phone" class="form-control validation[custom[onlyNumberSp]]" 
+                                                               name="contactNumber" id="contactNumber" onchange="taskProgressPerTabs()">                                                                    
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-u" type="button" id="submitContactNumber" onclick="submitUserCommunicationInfoForm()"><?php echo $this->translate('Submit Number') ?></button>
+                                                        </span>
+                                                    </div>
+                                                </section>
+                                                <section>
+                                                    <button type="button" class="btn-u btn-green col-md-12" 
+                                                            id="showAllContacts_btn" 
+                                                            data-toggle="modal" 
+                                                            data-target="#contactsModal">
+                                                                <?php echo $this->translate('Show all my registered contact Information') ?>
+                                                    </button> 
+                                                </section> 
                                             </div>
                                         </fieldset>
                                         <fieldset>
@@ -1546,132 +1549,6 @@
             </div>     
             <!--=== End Footer Version 1 ===-->
         </div><!--/End Wrapepr-->
-
-        <!--*********************************************************************-->
-        <!--************************* Growls section ****************************-->    
-        <!--*********************************************************************--> 
-
-        <div id='growls' >
-
-            <!-- Reset Successful Growl -->
-            <div id="growlUI-successfulReset" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>Form fields cleared</h3> 
-            </div>
-            <!--// Reset Successful growl -->
-
-            <!-- Reset Cancel Growl -->
-            <div id="growlUI-cancelReset" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>Reset operation failed...</h3> 
-            </div>
-            <!--// Reset Cancel growl -->
-
-            <!-- Reset Approval Growl -->
-            <div id="growlUI-resetFormApproval" class='growlUI' style="display:none">    
-                <h3><a lang="en" href="#"/>Are you sure to erase all form fields?</h3>
-                <h4>
-                    <button type='submit' 
-                            id='resetForm-btn' class="btn btn-success" 
-                            onclick="resetConfirmation()">
-                        <i class="fa fa-check"></i><a lang="en" href=""/>Reset</button>
-                    <button type='button' 
-                            id='notResetForm-btn' class="btn btn-danger" 
-                            onclick="resetRejection()">
-                        <i class="fa fa-times"></i><a lang="en" href=""/>Cancel</button>
-                </h4>
-            </div>
-            <!--// Reset Approval growl -->
-
-            <!-- Address Tab Prevention Growl -->
-            <div id="growlUI-addressTabPrevention" class='growlUI' style="display:none">    
-                <h3><a lang="en" href="#"/>Please fill user general information form first</h3>
-                <h4>
-                    <button type='submit' 
-                            id='addressTabPreventionBtn-btn' class="btn btn-u" 
-                            onclick="preventTab()">
-                        <i class="fa fa-check"></i></button>
-                </h4>
-            </div>
-            <!--// Address Tab Prevention growl -->
-
-            <!-- Communication Tab Prevention Growl -->
-            <div id="growlUI-communicationTabPrevention" class='growlUI' style="display:none">    
-                <h3><a lang="en" href="#"/>Please fill user general and address information forms first</h3>
-                <h4>
-                    <button type='submit' 
-                            id='communicationTabPreventionBtn-btn' class="btn btn-u" 
-                            onclick="preventTab()">
-                        <i class="fa fa-check"></i></button>
-                </h4>
-            </div>
-            <!--// Communication Tab Prevention growl -->
-
-            <!-- Company Tab Prevention Growl -->
-            <div id="growlUI-companyTabPrevention" class='growlUI' style="display:none">    
-                <h3><a lang="en" href="#"/>Please fill user information forms first</h3>
-                <h4>
-                    <button type='submit' 
-                            id='companyTabPreventionBtn-btn' class="btn btn-u" 
-                            onclick="preventTab()">
-                        <i class="fa fa-check"></i></button>
-                </h4>
-            </div>
-            <!--// Company Tab Prevention growl -->
-
-            <!-- successful general submit Growl -->
-            <div id="growlUI-submitUserGeneralInfoSuccessful" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>General information submitted successfully</h3>              
-                <h3><a lang="en" href="#"/></h3>
-            </div>
-            <!--// successful general submit Growl -->
-
-            <!-- Unsuccessful general submit Growl -->
-            <div id="growlUI-submitUserGeneralInfoUnsuccessful" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>General information submission failed</h3>               
-                <h3><a lang="en" href="#"/></h3>
-            </div>
-            <!--// Unsuccessful general submit Growl -->
-
-            <!-- Unsuccessful 23505_auth_email general submit Growl -->
-            <div id="growlUI-submitUserGeneralInfoUnsuccessful23505_auth_email" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>This email address has already been registered in the system</h3>
-            </div>
-            <!--// Unsuccessful 23505_auth_email general submit Growl -->
-
-            <!-- Unsuccessful 23505_username general submit Growl -->
-            <div id="growlUI-submitUserGeneralInfoUnsuccessful23505_username" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>This username has already been registered in the system</h3>
-            </div>
-            <!--// Unsuccessful 23505_username general submit Growl -->
-
-            <!-- Unsuccessful 23502 general submit Growl -->
-            <div id="growlUI-submitUserGeneralInfoUnsuccessful23502" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>System is unable to find required information</h3>
-            </div>
-            <!--// Unsuccessful 23502 general submit Growl -->
-
-
-            <!-- successful address submit Growl -->
-            <div id="growlUI-submitUserAddressInfoSuccessful" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>Address information submitted successfully</h3>              
-                <h3><a lang="en" href="#"/></h3>
-            </div>
-            <!--// successful address submit Growl -->
-
-            <!-- Unsuccessful address submit Growl -->
-            <div id="growlUI-submitUserAddressInfoUnsuccessful" class='growlUI' style="display:none" >    
-                <h3><a lang="en" href="#"/>Address information submission failed</h3>               
-                <h3><a lang="en" href="#"/></h3>
-            </div>
-            <!--// Unsuccessful address submit Growl -->
-
-
-
-
-        </div>
-
-        <!--********************************************************************-->
-        <!--//********************* End of growls ******************************-->
-        <!--********************************************************************-->
 
         <!--********************************************************************-->
         <!--//********************* Modals Section******************************-->

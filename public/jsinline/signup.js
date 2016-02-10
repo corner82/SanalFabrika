@@ -12,7 +12,7 @@ $(document).ready(function () {
      * multilanguage plugin 
      * @type Lang
      */
-    var lang = new Lang();
+    window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
         defaultLang: 'en'
@@ -64,32 +64,62 @@ $(document).ready(function () {
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
             url: 'fillAddressTypes_sysSpecificDefinitions',
             language_code: $("#langCode").val()
-
         },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-//            console.log(data);
-            var i;
-            for (i = 0; i < data.length; i++) {
-                if (data[i].text === null) {
-
-                } else {
-
-                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
-                            data[i].text +
-                            "</option>";
-                    var newappendingOption = $(appending_option_html);
-                    $(newappendingOption).appendTo($("#addressTypesCombo"));
-
-                }
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+                $('#addressTypesCombo').ddslick({
+                    data: data,
+                    width: 300,
+                    selectText: "Select your preferred social network",
+                    imagePosition: "right",
+                    onSelected: function (selectedData) {
+                        console.log();
+                        //callback function: do something with selectedData;
+                    }
+                });
+            } else {
+                console.error('"fillAddressTypes_sysSpecificDefinitions" servis datası boştur!!');
             }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
         }
     });
+
+//    $.ajax({
+//        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+////        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+//        data: {
+//            url: 'fillAddressTypes_sysSpecificDefinitions',
+//            language_code: $("#langCode").val()
+//
+//        },
+//        method: "GET",
+//        dataType: "json",
+//        success: function (data) {
+////            console.log(data);
+//            var i;
+//            for (i = 0; i < data.length; i++) {
+//                if (data[i].text === null) {
+//
+//                } else {
+//
+//                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
+//                            data[i].text +
+//                            "</option>";
+//                    var newappendingOption = $(appending_option_html);
+//                    $(newappendingOption).appendTo($("#addressTypesCombo"));
+//
+//                }
+//            }
+//        }
+//    });
 
     /*
      * List of countries combobox ajax
@@ -353,6 +383,8 @@ var makePublicCommunication = 0;
 
 function resetForm() {
 
+    event.stopImmediatePropagation();
+
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
 //    contentBlocker.blockElement('show');
@@ -367,8 +399,81 @@ function resetForm() {
     $('div.growlUI')
             .css("background",
                     "url(../../plugins/jquery-BlockUI/newWarning-1.png) no-repeat 10px 10px");
-    registrationBlockuiResetFormApproval.blockuiCentered('show');
 
+    BootstrapDialog.confirm({
+        title: window.lang.translate("Form Reset"),
+        message: window.lang.translate("Are you sure to erase all form fields?"),
+        type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+//        closable: true, // <-- Default value is false
+//        draggable: true, // <-- Default value is false
+        btnCancelLabel: window.lang.translate("Cancel"), // <-- Default value is 'Cancel',
+        btnOKLabel: window.lang.translate("Reset"), // <-- Default value is 'OK',
+        btnOKClass: 'btn-warning', // <-- If you didn't specify it, dialog type will be used,
+        callback: function (result) {
+            // result will be true if button was click, while it will be false if users close the dialog directly.
+            if (result) {
+                resetConfirmation();
+            } else {
+                resetRejection();
+            }
+        }
+    });
+
+}
+
+/*
+ * 
+ * functions section
+ * 
+ */
+
+function resetConfirmation() {
+
+    clickedForm.reset();
+    $.unblockUI();
+    $("#tabsContentsSection").unblock();
+    event.preventDefault();
+    $('div.growlUI')
+            .css("background",
+                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+
+    BootstrapDialog.show({
+        title: window.lang.translate('Form Reset'),
+        message: window.lang.translate('Form fields cleared'),
+        type: BootstrapDialog.TYPE_SUCCESS
+
+    });
+    taskProgressPerTabs();
+
+}
+
+/*
+ * Reject reset operation
+ * @author:Bahram lotfi sadigh
+ * @since:2016.1.26
+ * 
+ */
+
+function resetRejection() {
+
+    $.unblockUI();
+    $("#tabsContentsSection").unblock();
+    event.preventDefault();
+//    registrationBlockuiCancelReset.blockuiFadingCentered('option', {
+//                .div.growlUI { 
+//    background: url(check48.png) no-repeat 10px 10px 
+//}
+//    });
+    $('div.growlUI')
+            .css("background",
+                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+
+    BootstrapDialog.show({
+        title: window.lang.translate('Form Reset'),
+        message: window.lang.translate('Reset operation failed...'),
+        type: BootstrapDialog.TYPE_DANGER
+    });
+//    registrationBlockuiCancelReset.blockuiFadingCentered('show');
 }
 
 /*
@@ -420,7 +525,14 @@ function submitUserGeneralInfoForm() {
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-                        submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
+
+                        BootstrapDialog.show({
+                            title: window.lang.translate('Submission Process'),
+                            message: window.lang.translate('General information submitted successfully'),
+                            type: BootstrapDialog.TYPE_SUCCESS
+
+                        });
+
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
                         $('#userAddressInfo').attr('class', "tab-pane fade in active");
                         $('#userGeneralInfoTab').removeClass('active');
@@ -448,12 +560,23 @@ function submitUserGeneralInfoForm() {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                            submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
+
+                            BootstrapDialog.show({
+                                title: window.lang.translate('Submission Process'),
+                                message: window.lang.translate('This email address has already been registered in the system'),
+                                type: BootstrapDialog.TYPE_DANGER
+
+                            });
                         } else if (errorInfoColumn === 'username') {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                            submitUserGeneralInfoUnsuccessful23505_username.blockuiFadingCentered('show');
+                            BootstrapDialog.show({
+                                title: window.lang.translate('Submission Process'),
+                                message: window.lang.translate('This username has already been registered in the system'),
+                                type: BootstrapDialog.TYPE_DANGER
+
+                            });
                         }
 
                     } else if (data['errorInfo'] === '23502') {
@@ -463,7 +586,12 @@ function submitUserGeneralInfoForm() {
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                        submitUserGeneralInfoUnsuccessful23502.blockuiFadingCentered('show');
+                        BootstrapDialog.show({
+                            title: window.lang.translate('Submission Process'),
+                            message: window.lang.translate('System is unable to find required information'),
+                            type: BootstrapDialog.TYPE_DANGER
+
+                        });
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -474,7 +602,12 @@ function submitUserGeneralInfoForm() {
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('System is unable to find required information'),
+                        type: BootstrapDialog.TYPE_DANGER
+
+                    });
                 }
             });
         } else {
@@ -507,7 +640,13 @@ function submitUserGeneralInfoForm() {
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-                        submitUserGeneralInfoSuccessful.blockuiFadingCentered('show');
+                        BootstrapDialog.show({
+                            title: window.lang.translate('Submission Process'),
+                            message: window.lang.translate('General information submitted successfully'),
+                            type: BootstrapDialog.TYPE_SUCCESS
+
+                        });
+
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
                         $('#userAddressInfo').attr('class', "tab-pane fade in active");
                         $('#userGeneralInfoTab').removeClass('active');
@@ -531,12 +670,22 @@ function submitUserGeneralInfoForm() {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                            submitUserGeneralInfoUnsuccessful23505_auth_email.blockuiFadingCentered('show');
+                            BootstrapDialog.show({
+                                title: window.lang.translate('Submission Process'),
+                                message: window.lang.translate('This email address has already been registered in the system'),
+                                type: BootstrapDialog.TYPE_DANGER
+
+                            });
                         } else if (errorInfoColumn === 'username') {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                            submitUserGeneralInfoUnsuccessful23505_username.blockuiFadingCentered('show');
+                            BootstrapDialog.show({
+                                title: window.lang.translate('Submission Process'),
+                                message: window.lang.translate('This username has already been registered in the system'),
+                                type: BootstrapDialog.TYPE_DANGER
+
+                            });
                         }
 
                     } else if (data['errorInfo'] === '23502') {
@@ -546,7 +695,12 @@ function submitUserGeneralInfoForm() {
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                        submitUserGeneralInfoUnsuccessful23502.blockuiFadingCentered('show');
+                        BootstrapDialog.show({
+                            title: window.lang.translate('Submission Process'),
+                            message: window.lang.translate('System is unable to find required information'),
+                            type: BootstrapDialog.TYPE_DANGER
+
+                        });
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -558,13 +712,16 @@ function submitUserGeneralInfoForm() {
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('option', {
-                        backgroundColor: "#FF0000"
-                    });
+
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    submitUserGeneralInfoUnsuccessful.blockuiFadingCentered('show');
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('System is unable to find required information'),
+                        type: BootstrapDialog.TYPE_DANGER
+
+                    });
                 }
             });
         }
@@ -610,7 +767,12 @@ function submitUserAddressInfoForm() {
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-                        submitUserAddressInfoSuccessful.blockuiFadingCentered('show');
+                        BootstrapDialog.show({
+                            title: window.lang.translate('Submission Process'),
+                            message: window.lang.translate('Address information submitted successfully'),
+                            type: BootstrapDialog.TYPE_SUCCESS
+
+                        });
 
                         $('#checkAddressForm').val('1');
                         $('#userAddressInfo').attr('class', "tab-pane fade");
@@ -631,13 +793,16 @@ function submitUserAddressInfoForm() {
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    submitUserAddressInfoUnsuccessful.blockuiFadingCentered('option', {
-                        backgroundColor: "#FF0000"
-                    });
+
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    submitUserAddressInfoUnsuccessful.blockuiFadingCentered('show');
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('Address information submission failed'),
+                        type: BootstrapDialog.TYPE_SUCCESS
+
+                    });
                 }
             });
 
@@ -741,7 +906,7 @@ function submitUserCommunicationInfoForm() {
                     $("#pktemp").val(data.pktemp);
                     $('#lastInsertId').val(data.lastInsertId);
                     $("#checkGeneralForm").val("1");
-                    
+
                     console.log('insert success: ' + data['errorInfo'][0]);
 
                     $('div.growlUI')
@@ -825,7 +990,20 @@ function checkUGI() {
             $('div.growlUI')
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-            registrationBlockuiPreventAddressTab.blockuiCentered('show');
+
+            BootstrapDialog.show({
+                message: window.lang.translate('Please fill user general information form first'),
+                buttons: [{
+                        label: 'Close',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                            onclick:{
+                                preventTab();
+                            }
+                        }
+                    }]
+            });
+//            registrationBlockuiPreventAddressTab.blockuiCentered('show');
         }
     }
 }
@@ -851,7 +1029,20 @@ function checkUAI() {
             $('div.growlUI')
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-            registrationBlockuiPreventCommunicationTab.blockuiCentered('show');
+
+            BootstrapDialog.show({
+                message: window.lang.translate('Please fill user general and address information forms first'),
+                buttons: [{
+                        label: 'Close',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                            onclick:{
+                                preventTab();
+                            }
+                        }
+                    }]
+            });
+//            registrationBlockuiPreventCommunicationTab.blockuiCentered('show');
         }
     }
 }
@@ -879,7 +1070,19 @@ function checkCI() {
             $('div.growlUI')
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-            registrationBlockuiPreventCompanyTab.blockuiCentered('show');
+            BootstrapDialog.show({
+                message: window.lang.translate('Please fill user information forms first'),
+                buttons: [{
+                        label: 'Close',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                            onclick:{
+                                preventTab();
+                            }
+                        }
+                    }]
+            });
+//            registrationBlockuiPreventCompanyTab.blockuiCentered('show');
         }
     }
 }
@@ -928,48 +1131,7 @@ var submitUserCommunicationInfoUnsuccessful = $("#growlUI-submitUserCommunicatio
 
 var contentBlocker = $("#tabsContentsSection").blockuiCentered();
 var contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
-/*
- * 
- * functions section
- * 
- */
 
-function resetConfirmation() {
-
-    clickedForm.reset();
-    $.unblockUI();
-    $("#tabsContentsSection").unblock();
-    event.preventDefault();
-    $('div.growlUI')
-            .css("background",
-                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-    registrationBlockuiSuccessfulReset.blockuiFadingCentered('show');
-    taskProgressPerTabs();
-
-}
-
-/*
- * Reject reset operation
- * @author:Bahram lotfi sadigh
- * @since:2016.1.26
- * 
- */
-
-function resetRejection() {
-
-    $.unblockUI();
-    $("#tabsContentsSection").unblock();
-    event.preventDefault();
-//    registrationBlockuiCancelReset.blockuiFadingCentered('option', {
-//                .div.growlUI { 
-//    background: url(check48.png) no-repeat 10px 10px 
-//}
-//    });
-    $('div.growlUI')
-            .css("background",
-                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-    registrationBlockuiCancelReset.blockuiFadingCentered('show');
-}
 
 /*
  * Function to prevent openning of unallowed tab and return to previous tab
