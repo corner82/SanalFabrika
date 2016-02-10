@@ -6,6 +6,71 @@ $(document).ready(function () {
     
     var filler = $('#todolistbox').todolistFiller();
     
+    var dropdownOperationsToolsData = [
+        {
+            text: "Lütfen Onay seçiniz",
+            value: -1,
+            selected: true,
+            description: "Operasyon tipi 'Onay' olarak seçilirse bu alan dolacaktır...",
+            imageSrc: ""
+        }
+    ];
+    
+    /**
+     * operation type tool select box filling
+     * @author Mustafa Zeynel Dağlı
+     * @since 10/02/2016
+     */
+    $('#dropdownOperationsTools').ddslick({
+        data : dropdownOperationsToolsData, 
+        width:'100%',
+        //selectText: "Select your preferred social network",
+        imagePosition:"right",
+        onSelected: function(selectedData){
+            console.log(selectedData.selectedData.text);
+            console.log(selectedData.selectedData.value);
+        }   
+    });
+    
+    
+    /**
+     * return operation type tools
+     * @returns {boolean}
+     * @author Mustafa Zeynel Dağlı
+     * @since 10/02/2016
+     */
+    window.getOperationTypeTools = function () {
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'pkFillConsultantOperationsDropDown_sysOperationTypes' ,
+                    language_code : 'tr',
+                    main_group : 2,
+                    pk : $("#pk").val()}, 
+            type: 'GET',
+            dataType: 'json',
+            success: function (datas, textStatus, jqXHR) {
+                console.log('data length sonrası');
+                if(datas.length!==0) {
+                    console.log('data length >0');
+                    $('#dropdownOperationsTools').ddslick('destroy');
+                    $('#dropdownOperationsTools').ddslick({
+                        data : datas,
+                        width:'100%',
+                        //selectText: "Select your preferred social network",
+                        imagePosition:"right",
+
+                    });
+                } else {
+                    console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis datası boştur!!');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {           
+                console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis hatası->'+textStatus);
+            }
+
+        });
+    }
+    
     /**
      * operation type select box filling
      * @author Mustafa Zeynel Dağlı
@@ -22,13 +87,17 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if(data.length!==0) {
-                $('#myDropdown').ddslick({
+                $('#dropdownOperations').ddslick({
                     data : data, 
-                    width:300,
+                    width:'100%',
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
                     onSelected: function(selectedData){
-                        //callback function: do something with selectedData;
+                        console.log(selectedData.selectedData.text);
+                        console.log(selectedData.selectedData.value);
+                        if(selectedData.selectedData.value==6) {
+                            window.getOperationTypeTools();
+                        }
                     }   
                 });
             } else {
