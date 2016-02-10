@@ -1291,49 +1291,45 @@
                                                         </select>
                                                         <i></i>
                                                     </label>
-                                                </section>                                                                                                                                            
+                                                </section> 
+                                                <section>
+                                                    <label class="checkbox">
+                                                        <input required="true" type="checkbox" checked="true" name="makePublicCommunication" 
+                                                               id="makePublicCommunication" onchange="changePublicCommunication()">
+                                                        <i></i><?php echo $this->translate('Make my contact information public') ?>
+                                                    </label> 
+                                                </section> 
+                                                <label class="label"><?php echo $this->translate('Description') ?></label>
+                                                <label class="textarea">
+                                                    <i class="icon-prepend fa fa-comment"></i>
+                                                    <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
+                                                </label>
+
                                                 <section>
                                                     <label class="checkbox">
                                                         <input type="checkbox" name="defaultContactNumber" id="defaultContactNumber">
                                                         <i></i><?php echo $this->translate('Set this number as your default contact number') ?> 
                                                     </label>
-                                                </section>
+                                                </section>       
+                                                    <section>                                                                
+                                                        <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
+                                                        <div class="input-group">                                                                    
+                                                            <input type="phone" class="form-control validation[custom[onlyNumberSp]]" 
+                                                                   name="contactNumber" id="contactNumber" onchange="taskProgressPerTabs()">                                                                    
+                                                            <span class="input-group-btn">
+                                                                <button class="btn btn-u" type="button" id="submitContactNumber" onclick="submitUserCommunicationInfoForm()"><?php echo $this->translate('Submit Number') ?></button>
+                                                            </span>
+                                                        </div>
+                                                    </section>
+                                                    <section>
+                                                        <button type="button" class="btn-u btn-green col-md-12" 
+                                                                id="showAllContacts_btn" 
+                                                                data-toggle="modal" 
+                                                                data-target="#contactsModal">
+                                                                    <?php echo $this->translate('Show all my registered contact Information') ?>
+                                                        </button> 
+                                                    </section> 
                                             </div>
-                                            <div class="row">
-                                                <label class="label"><?php echo $this->translate('Description') ?></label>
-                                                <label class="textarea">
-                                                    <i class="icon-append fa fa-comment"></i>
-                                                    <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
-                                                </label>
-                                            </div>
-                                            <div class="row">
-                                                <label class="checkbox">
-                                                    <input required="true" type="checkbox" checked="true" name="makePublicCommunication" 
-                                                           id="makePublicCommunication" onchange="changePublicCommunication()">
-                                                    <i></i><?php echo $this->translate('Make my contact information public') ?>
-                                                </label> 
-                                            </div>                                                        
-                                            <div class="row">
-                                                <section>                                                                
-                                                    <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
-                                                    <div class="input-group">                                                                    
-                                                        <i class="icon-prepend fa fa-phone"></i>
-                                                        <input type="phone" class="form-control validation[custom[onlyNumberSp]]" 
-                                                               name="contactNumber" id="contactNumber" onchange="taskProgressPerTabs()">                                                                    
-                                                        <span class="input-group-btn">
-                                                            <button class="btn btn-u" type="button" id="submitContactNumber" onclick="submitUserCommunicationInfoForm()"><?php echo $this->translate('Submit Number') ?></button>
-                                                        </span>
-                                                    </div>
-                                                </section>
-                                            </div>
-                                            <div class="row">
-                                                <section id="contactsListSection">
-                                                    <header><?php echo $this->translate('Added Contacts') ?></header>
-                                                    <div id="tt_grid_dynamic_Main">
-                                                        <table  id="tt_tree" title="Added Contacts" ></table>
-                                                    </div><!--/. Easyui grid table-->
-                                                </section>
-                                            </div>   
                                         </fieldset>
                                         <fieldset>
                                             <div class="row"> 
