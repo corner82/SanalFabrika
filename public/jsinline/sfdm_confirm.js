@@ -6,9 +6,42 @@ $(document).ready(function () {
     
     var filler = $('#todolistbox').todolistFiller();
     
+    /**
+     * operation type select box filling
+     * @author Mustafa Zeynel Dağlı
+     * @since 10/02/2016
+     */
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: { url:'pkFillConsultantOperationsDropDown_sysOperationTypes' ,
+                language_code : 'tr',
+                main_group : 2,
+                pk : $("#pk").val()}, 
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if(data.length!==0) {
+                $('#myDropdown').ddslick({
+                    data : data, 
+                    width:300,
+                    //selectText: "Select your preferred social network",
+                    imagePosition:"right",
+                    onSelected: function(selectedData){
+                        //callback function: do something with selectedData;
+                    }   
+                });
+            } else {
+                console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis datası boştur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {           
+            console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis hatası->'+textStatus);
+        }
+
+    });
     
-    
-    
+ 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsWaitingForConfirm_blActivationReport' ,
@@ -37,8 +70,18 @@ $(document).ready(function () {
      */
     $('#tab_confirm_container #tab_confirm_clicker').click(function (e) {
         if(!$('#tab_confirm').hasClass('active')) {
+            BootstrapDialog.alert({
+                title: 'Kulllanıcı seçiniz',
+                message: 'Lütfen önce "kullanıcı onayı" tablosundan bir kullanıcı seçiniz...',
+                description: 'Kullanıcı belirleyip onay için işlem yapınız.',
+                type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+                closable: true, // <-- Default value is false
+                draggable: true, // <-- Default value is false
+                buttonLabel: 'Tamam', // <-- Default value is 'OK',
+            });
             $('#tab_confirm_image_loader').loadImager();
             $('#tab_confirm_image_loader').loadImager('appendImage');
+            //$('#tab_confirm_container a:first').tab('show');
         }
         e.preventDefault();
      })
@@ -62,14 +105,37 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'json',
             success: function (data, textStatus, jqXHR) {
-                console.log(data);
-                console.log(data[0]['id']);
-                console.log(data[0]['adresbilgileri']); 
+                //console.log(data);
+                //console.log(data[0]['id']);
+                //console.log(data[0]['adresbilgileri']); 
                 //console.log(data.adresbilgileri);
-                if($('#tab_confirm_image_loader').loadImager() != 'undefined') {
-                    $('#tab_confirm_image_loader').loadImager('removeLoadImage');
-                    $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
-                }
+                console.log(data.length);
+                if(data.length!==0) {
+                    $("#username").val(data[0]['username']);
+                    $("#languagecode").val(data[0]['languagecode']);
+                    $("#firmname").val(data[0]['firmname']);
+                    $("#sgkno").val(data[0]['sgkno']);
+                    $("#irtibattel").val(data[0]['irtibattel']);
+                    $("#irtibatcep").val(data[0]['irtibatcep']);
+                    $("#iletisimadresi").val(data[0]['iletisimadresi']);
+                    $("#faturaadresi").val(data[0]['faturaadresi']);
+                    $("#sdate").val(data[0]['sdate']);
+                    
+                    if($('#tab_confirm_image_loader').loadImager() != 'undefined') {
+                        $('#tab_confirm_image_loader').loadImager('removeLoadImage');
+                        $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
+                    }
+                } else {
+                    BootstrapDialog.alert({
+                        title: 'DİKKAT!! Kullanıcı detayları belirlenememiştir',
+                        message: 'Kullanıcı dateyları belirlenememiştir, lütfen başka kullanıcı seçiniz!!',
+                        type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+                        closable: true, // <-- Default value is false
+                        draggable: true, // <-- Default value is false
+                        buttonLabel: 'Tamam', // <-- Default value is 'OK',
+                    });
+                    
+                } 
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 //console.error(textStatus);
@@ -126,7 +192,7 @@ $(document).ready(function () {
                     {field:'detay',title:'Detay',sortable:false, align:'center', 
                         width:100,
                         formatter:function(value,row,index){
-                            var e = '<a href="javascript:void(0)" onclick="gridDetailClick(this)">Detay</a> ';
+                            var e = '<a style="color:#f39c12" href="javascript:void(0)" onclick="gridDetailClick(this)">Detay</a> ';
                             return e;
                         }
                     },

@@ -517,7 +517,7 @@
                           <label>Tercih edilen dil</label>
                           <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-language"></i></span>
-                                <input id="language_code" name="language_code" type="text"  class="form-control" placeholder="Süreç">
+                                <input id="languagecode" name="languagecode" type="text"  class="form-control" placeholder="Süreç">
                             </div>
                         </div>
 
@@ -525,7 +525,7 @@
                           <label>Firma</label>
                           <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
-                                <input id="company_name" name="company_name" type="text"  class="form-control" placeholder="Kullanıcı adı...">
+                                <input id="firmname" name="firmname" type="text"  class="form-control" placeholder="Kullanıcı adı...">
                             </div>
                         </div>
                           
@@ -533,7 +533,7 @@
                           <label>SGK no</label>
                           <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
-                                <input id="sgk_sicil_no" name="sgk_sicil_no" type="text"  class="form-control " placeholder="Kullanıcı adı...">
+                                <input id="sgkno" name="sgkno" type="text"  class="form-control " placeholder="Kullanıcı adı...">
                             </div>
                         </div>
 
@@ -541,7 +541,7 @@
                           <label>İrtibat Tel</label>
                           <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                <textarea id='tel' name='tel' class="form-control" rows="3" placeholder="Sabit tel..."></textarea>
+                                <textarea id='irtibattel' name='irtibattel' class="form-control" rows="3" placeholder="Sabit tel..."></textarea>
                             </div>
                         </div>
 
@@ -549,7 +549,7 @@
                           <label>İrtibat Cep</label>
                           <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                                <textarea id='cep' name='cep' class="form-control" rows="3" placeholder="Cep..."></textarea>
+                                <textarea id='irtibatcep' name='irtibatcep' class="form-control" rows="3" placeholder="Cep..."></textarea>
                           </div>
                         </div>
 
@@ -557,7 +557,7 @@
                           <label>İletişim Adresi</label>
                           <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-random"></i></span>
-                                <textarea id='adresses1' name='adresses1' class="form-control" rows="3" placeholder="Adres..."></textarea>
+                                <textarea id='iletisimadresi' name='iletisimadresi' class="form-control" rows="3" placeholder="Adres..."></textarea>
                             </div>
                         </div>
 
@@ -565,7 +565,7 @@
                           <label>Fatura Adresi</label>
                           <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-calculator"></i></span>
-                                <textarea id='adresses2' name='adresses2' class="form-control" rows="3" placeholder="Fatura adresi..."></textarea>
+                                <textarea id='faturaadresi' name='faturaadresi' class="form-control" rows="3" placeholder="Fatura adresi..."></textarea>
                             </div>
                         </div>
 
@@ -573,9 +573,19 @@
                           <label>Kayıt Tarihi</label>
                           <div class="input-group"> 
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                <input id="s_date" name="s_date" type="text"  class="form-control validate[required]" placeholder="Kayıt tarihi">
+                                <input id="sdate" name="sdate" type="text"  class="form-control validate[required]" placeholder="Kayıt tarihi">
                             </div>
                         </div>
+                          
+                        <div class="form-group">
+                          <label>Kayıt Tarihi</label>
+                          <div class="input-group"> 
+                                <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                                <div id="myDropdown"></div>
+                            </div>
+                        </div>
+                          
+                          
 
                         <button onclick="setWorkflowProcess();" class="btn btn-warning btn-block btn-lg">Firma Süreç ve Proses Kaydet</button>
 
