@@ -1186,14 +1186,11 @@
                                                 <section>
                                                     <div id='districtDropdownSection'>
                                                         <label class="label"><?php echo $this->translate('District') ?></label>
-                                                        <label class="select">
-                                                            <select id="userdistrict" onchange="taskProgressPerTabs()">
-                                                                <option value="-1">
-                                                                    <?php echo $this->translate('Please select a district from list...') ?>
-                                                                </option>
-                                                            </select>
-                                                            <i></i>
-                                                        </label>
+                                                        <div id="userdistrict" >  </div>                                                         
+                                                        <i></i>
+
+                                                        <?php echo $this->translate('Please select a district from list...') ?>
+
                                                     </div>
                                                 </section>
                                                 <section>
@@ -1266,11 +1263,9 @@
                                             <div class="row">
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Select a Communication Type') ?></label>
-                                                    <label class="select">
-                                                        <select id="communicationTypes" required="true" onchange="taskProgressPerTabs()">
-                                                            <option value="-1"><?php echo $this->translate('Please select a communication type from list...') ?></option>
-                                                        </select>
-                                                        <i></i>
+                                                    <div id='communicationTypes'>                                                        
+                                                    </div>
+                                                    <i></i>
                                                     </label>
                                                 </section> 
                                                 <section>
