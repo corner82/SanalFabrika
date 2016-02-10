@@ -75,11 +75,12 @@ $(document).ready(function () {
             if (data.length !== 0) {
                 $('#addressTypesCombo').ddslick({
                     data: data,
-                    width: 300,
-                    selectText: "Select your preferred social network",
+                    width: '100%',
+                    background: false,
+                    selectText: window.lang.translate("Please select a communication type from list..."),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
-                        console.log();
+                        console.log(selectedData);
                         //callback function: do something with selectedData;
                     }
                 });
@@ -92,65 +93,69 @@ $(document).ready(function () {
         }
     });
 
-//    $.ajax({
-//        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-////        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-//        data: {
-//            url: 'fillAddressTypes_sysSpecificDefinitions',
-//            language_code: $("#langCode").val()
-//
-//        },
-//        method: "GET",
-//        dataType: "json",
-//        success: function (data) {
-////            console.log(data);
-//            var i;
-//            for (i = 0; i < data.length; i++) {
-//                if (data[i].text === null) {
-//
-//                } else {
-//
-//                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
-//                            data[i].text +
-//                            "</option>";
-//                    var newappendingOption = $(appending_option_html);
-//                    $(newappendingOption).appendTo($("#addressTypesCombo"));
-//
-//                }
-//            }
-//        }
-//    });
-
     /*
      * List of countries combobox ajax
      */
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
             url: 'fillComboBox_syscountrys',
             language_code: $("#langCode").val()
-
         },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-            var i;
-            for (i = 0; i < data.length; i++) {
-                if (data[i].name === null) {
-
-                } else {
-
-                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
-                            data[i].name +
-                            "</option>";
-                    var newappendingOption = $(appending_option_html);
-                    $(newappendingOption).appendTo($("#usercountry"));
-                }
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+                console.log(data);
+                $('#usercountry').ddslick({
+                    data: data,
+                    width: '100%',
+                    height:'500%',
+                    background: false,
+                    selectText: window.lang.translate("Please select a country from list..."),
+                    imagePosition: 'right',
+                    onSelected: function (selectedData) {
+                        console.log(selectedData);
+                        //callback function: do something with selectedData;
+                    }
+                });
+            } else {
+                console.error('"fillComboBox_syscountrys" servis datası boştur!!');
             }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillComboBox_syscountrys" servis hatası->' + textStatus);
         }
     });
+//
+//    $.ajax({
+//        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+////        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+//        data: {
+//            url: 'fillComboBox_syscountrys',
+//            language_code: $("#langCode").val()
+//
+//        },
+//        method: "GET",
+//        dataType: "json",
+//        success: function (data) {
+//            var i;
+//            for (i = 0; i < data.length; i++) {
+//                if (data[i].name === null) {
+//
+//                } else {
+//
+//                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
+//                            data[i].name +
+//                            "</option>";
+//                    var newappendingOption = $(appending_option_html);
+//                    $(newappendingOption).appendTo($("#usercountry"));
+//                }
+//            }
+//        }
+//    });
     /*
      * List of provinces combobox ajax based on selected country
      */
@@ -293,32 +298,63 @@ $(document).ready(function () {
      * List of System languages combobox ajax
      */
 
-    $.ajax({
+$.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
         data: {
             url: 'fillComboBox_syslanguage',
             language_code: $("#langCode").val()
         },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-            var i;
-//            console.log(data);
-            for (i = 0; i < data.length; i++) {
-                if (data[i].language === null) {
-
-                } else {
-
-                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
-                            data[i].language +
-                            "</option>";
-                    var newappendingOption = $(appending_option_html);
-                    $(newappendingOption).appendTo($("#userPreferedLanguage"));
-                }
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+                $('#userPreferedLanguage').ddslick({
+                    data: data,
+                    width: '100%',
+                    background: false,
+                    selectText: window.lang.translate("Please select your prefered language from list..."),
+                    imagePosition: "right",
+                    onSelected: function (selectedData) {
+                        console.log(selectedData);
+                        //callback function: do something with selectedData;
+                    }
+                });
+            } else {
+                console.error('"fillComboBox_syslanguage" servis datası boştur!!');
             }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillComboBox_syslanguage" servis hatası->' + textStatus);
         }
     });
+//
+//    $.ajax({
+//        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+////        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+//        data: {
+//            url: 'fillComboBox_syslanguage',
+//            language_code: $("#langCode").val()
+//        },
+//        method: "GET",
+//        dataType: "json",
+//        success: function (data) {
+//            var i;
+////            console.log(data);
+//            for (i = 0; i < data.length; i++) {
+//                if (data[i].language === null) {
+//
+//                } else {
+//
+//                    var appending_option_html = "<option value = '" + data[i].id + "' >" +
+//                            data[i].language +
+//                            "</option>";
+//                    var newappendingOption = $(appending_option_html);
+//                    $(newappendingOption).appendTo($("#userPreferedLanguage"));
+//                }
+//            }
+//        }
+//    });
     /*
      * List of communication types combobox ajax
      */

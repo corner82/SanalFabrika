@@ -1107,13 +1107,9 @@
                                                 </section>
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
-                                                    <label class="select">
-                                                        <select id="userPreferedLanguage" required="true">
-                                                            <option value="-1"><?php echo $this->translate('Please select your prefered language from list...') ?></option>
-                                                        </select>
-                                                        <i></i>
-                                                    </label>
-                                                </section>
+                                                    <div id="userPreferedLanguage" />                                                     
+                                                    <i></i>
+                                                </section>                                                  
                                             </div>
                                             <div class="row"> 
                                                 <label class="checkbox">
@@ -1156,55 +1152,37 @@
                                             <hr>
                                             <div class="row">
                                                 <section>
-                                                    <div id="addressTypesCombo">
-                                                    </div>
-
-<!--                                                    <label class="label"><?php echo $this->translate('Address type') ?></label>
-                                                    <label class="select">
-                                                        <select id="addressTypesCombo" required="true" onchange="taskProgressPerTabs()">
-                                                            <option value="-1"><?php echo $this->translate('Please select address type from list...') ?></option>
-                                                        </select>
-                                                        <i></i>
-                                                    </label>-->
+                                                    <label class="label"><?php echo $this->translate('Address type') ?></label>
+                                                    <div id="addressTypesCombo" />                                                     
+                                                    <i></i>
                                                 </section>
                                             </div>
                                             <div class="row">
                                                 <section>
                                                     <label class="label"><?php echo $this->translate('Country') ?></label>
-                                                    <label class="select">
-                                                        <select id="usercountry" required="true" onchange="taskProgressPerTabs()">
-                                                            <option value="-1"><?php echo $this->translate('Please select a country from list...') ?></option>
-                                                        </select>
-                                                        <i></i>
-                                                    </label>
+                                                    <div id="usercountry" />                                                           
+                                                    <i></i>
                                                 </section>
-                                                <section>
-                                                    <div id='cityNameSection'>
-                                                        <label class="label"><?php echo $this->translate('City') ?></label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-home"></i>
-                                                            </div>
-                                                            <input type="text" name="userCityName" 
-                                                                   id="userCityName"
-                                                                   class="form-control validate[required,onlyLetterSp]"
-                                                                   onchange="taskProgressPerTabs()">
-                                                        </div> 
-                                                    </div>
+                                                <div id='cityNameSection'>
+                                                    <label class="label"><?php echo $this->translate('City') ?></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-home"></i>
+                                                        </div>
+                                                        <input type="text" name="userCityName" 
+                                                               id="userCityName"
+                                                               class="form-control validate[required,onlyLetterSp]"
+                                                               onchange="taskProgressPerTabs()">
+                                                    </div> 
+                                                </div>
                                                 </section>
                                                 <section>
                                                     <div id='cityDropdownSection'>
                                                         <label class="label"><?php echo $this->translate('City') ?></label>
-                                                        <label class="select">
-                                                            <select id="usercity" onchange="taskProgressPerTabs()">
-                                                                <option value="-1">
-                                                                    <?php echo $this->translate('Please select a city from list...') ?>
-                                                                </option>
-                                                            </select>
-                                                            <i></i>
-                                                        </label>
+                                                        <div id="usercity" >  </div>                                                         
+                                                        <i></i>
                                                     </div>
-                                                </section>                                                            
+                                                </section>
                                                 <section>
                                                     <div id='districtDropdownSection'>
                                                         <label class="label"><?php echo $this->translate('District') ?></label>

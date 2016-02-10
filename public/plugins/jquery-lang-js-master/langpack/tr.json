@@ -42,7 +42,11 @@
                 "Reset operation failed...":"Temizleme işlemi başarısız...",
                 "Form fields cleared":"Form alanları temizlendi",
                 "OK":"Tamam",
-                "System is unable to find required information":"Sistem gerekli bilgileri bulamamıştır."
+                "System is unable to find required information":"Sistem gerekli bilgileri bulamamıştır.",
+                "Please select a communication type from list...":"Listeden iletişim tipini seçiniz...",
+                "Please select an address type from list...":"Listeden adres tipini seçiniz...",
+                "Please select a country from list...":"Lütfen listeden bir ülke seçiniz...",
+                "Please select a city from list...":"Lütfen listeden bir il seçiniz..."
 	},
 	"regex": [
 		["Budget", "Bütçe"],
