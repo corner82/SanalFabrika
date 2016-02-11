@@ -17,6 +17,31 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
+
+    /*
+     * Signup.js variables
+     * 
+     */
+
+    window.clickedButton;
+    window.clickedForm;
+    window.makePublicProfile = 0;
+    window.makePublicAddress = 0;
+    window.makePublicCommunication = 0;
+    window.selectedCountryId;
+    window.selectedCityId;
+    window.selectedDistrictId;
+    window.selectedPreferedLanguageId;
+    window.selectedPreferedLanguageId;
+    window.pktemp;
+    /*
+     * Content blocker
+     */
+
+    window.contentBlocker = $("#tabsContentsSection").blockuiCentered();
+    window.contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
+
+
     /*
      * Disable finalize registration and submit user info before checking 
      * agreement terms and conditions...
@@ -63,7 +88,8 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'fillAddressTypes_sysSpecificDefinitions',
-            language_code: $("#langCode").val()
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
         },
         type: 'GET',
         dataType: 'json',
@@ -97,7 +123,8 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'fillComboBox_syscountrys',
-            language_code: $("#langCode").val()
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
         },
         type: 'GET',
         dataType: 'json',
@@ -113,7 +140,12 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Please select a country from list..."),
                     imagePosition: 'right',
                     onSelected: function (selectedData) {
-                        console.log(selectedData);
+
+                        selectedCountryId = selectedData.selectedData.value;
+                        console.log(selectedCountryId);
+                        userCityDropDownUpdate();
+//                        console.log(selectedData);
+//                        console.log(selectedCountryId);
                         //callback function: do something with selectedData;
                     }
                 });
@@ -129,13 +161,11 @@ $(document).ready(function () {
      * List of provinces combobox ajax based on selected country
      */
 
-    $("select#usercountry").on('change', function () {
+    function userCityDropDownUpdate() {
 
-        var selectedCountryId = $('#usercountry :selected').val();
         $("#usercity").empty();
         $("#userdistrict").empty();
-        $("#uservillage").empty();
-        if ($('#usercountry :selected').val() === '91') {
+        if (selectedCountryId === '91') {
 
             $('#cityNameSection').hide();
             $('#cityDropdownSection').show();
@@ -151,7 +181,8 @@ $(document).ready(function () {
             data: {
                 url: 'fillComboBox_syscity',
                 country_id: selectedCountryId,
-                language_code: $("#langCode").val()
+                language_code: $("#langCode").val(),
+                component_type: 'ddslick'
             },
             type: 'GET',
             dataType: 'json',
@@ -167,7 +198,10 @@ $(document).ready(function () {
                         selectText: window.lang.translate("Please select a city from list..."),
                         imagePosition: 'right',
                         onSelected: function (selectedData) {
+                            selectedCityId = selectedData.selectedData.value;
                             console.log(selectedData);
+                            console.log(selectedCityId);
+                            districtDropDownUpdate();
                             //callback function: do something with selectedData;
                         }
                     });
@@ -179,15 +213,14 @@ $(document).ready(function () {
                 console.error('"fillComboBox_syscity" servis hatası->' + textStatus);
             }
         });
-    });
+    }
+    ;
     /*
      * List of districts combobox ajax based on selected country and province
      */
 
-    $("select#usercity").on('change', function () {
+    function districtDropDownUpdate() {
 
-        var selectedCityId = $('#usercity :selected').val();
-        var selectedCountryId = $('#usercountry :selected').val();
         $("#userdistrict").empty();
         $("#uservillage").empty();
         $.ajax({
@@ -196,7 +229,8 @@ $(document).ready(function () {
                 url: 'fillComboBox_sysborough',
                 country_id: selectedCountryId,
                 city_id: selectedCityId,
-                language_code: $("#langCode").val()
+                language_code: $("#langCode").val(),
+                component_type: 'ddslick'
             },
             type: 'GET',
             dataType: 'json',
@@ -212,7 +246,9 @@ $(document).ready(function () {
                         selectText: window.lang.translate("Please select a district from list..."),
                         imagePosition: 'right',
                         onSelected: function (selectedData) {
+                            selectedDistrictId = selectedData.selectedData.value;
                             console.log(selectedData);
+                            console.log(selectedDistrictId);
                             //callback function: do something with selectedData;
                         }
                     });
@@ -224,7 +260,8 @@ $(document).ready(function () {
                 console.error('"fillComboBox_sysborough" servis hatası->' + textStatus);
             }
         });
-    });
+    }
+    ;
     /*
      * List of System languages combobox ajax
      */
@@ -248,10 +285,11 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Please select your prefered language from list..."),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
+                        selectedPreferedLanguageId = selectedData.selectedData.value;
                         console.log(selectedData);
+                        console.log(selectedPreferedLanguageId);
                         //callback function: do something with selectedData;
                     }
-
                 });
             } else {
                 console.error('"fillComboBox_syslanguage" servis datası boştur!!');
@@ -268,7 +306,8 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'fillCommunicationsTypes_sysSpecificDefinitions',
-            language_code: $("#langCode").val()
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
         },
         type: 'GET',
         dataType: 'json',
@@ -284,7 +323,9 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Select a Communication Type"),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
+                        selectedCommunicationTypeId = selectedData.selectedData.value;
                         console.log(selectedData);
+                        console.log(selectedCommunicationTypeId);
                         //callback function: do something with selectedData;
                     }
                 });
@@ -309,17 +350,7 @@ $(document).ready(function () {
     $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
     $("#submitUserCommunicationInfoForm").on('click', submitUserCommunicationInfoForm);
 });
-/*
- * 
- * @type @exp;event@pro;target
- * Signup.js variables
- * 
- */
-var clickedButton;
-var clickedForm;
-var makePublicProfile = 0;
-var makePublicAddress = 0;
-var makePublicCommunication = 0;
+
 /*
  * Reset Form Elements
  * @Author: Bahram Lotfi Sadigh
@@ -421,7 +452,6 @@ function resetRejection() {
  * @Since: 2016.1.21
  */
 
-var pktemp;
 function submitUserGeneralInfoForm() {
 
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
@@ -998,12 +1028,7 @@ function checkCI() {
         }
     }
 }
-/*
- * Content blocker
- */
 
-var contentBlocker = $("#tabsContentsSection").blockuiCentered();
-var contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
 
 /*
  * Function to prevent openning of unallowed tab and return to previous tab

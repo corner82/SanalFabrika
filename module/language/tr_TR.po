@@ -806,3 +806,15 @@ msgstr "Adres 1"
 
 msgid "Address 2"
 msgstr "Adres 2"
+
+msgid "Show my password"
+msgstr "Şifreyi Göster"
+
+msgid "Make my address information public"
+msgstr "Adres bilgilerimi her kes görebilir"
+
+msgid "Make my contact information public"
+msgstr "İletişim bilgilerimi her kes görebilir"
+
+msgid "Show all my registered contact Information"
+msgstr "Bütün kayıtlı iletişim bilgilerimi göster"

@@ -667,3 +667,17 @@ msgstr ""
 
 msgid "Address 2"
 msgstr ""
+
+msgid "Show my password"
+msgstr ""
+
+msgid "Make my address information public"
+msgstr ""
+
+msgid "Make my contact information public"
+msgstr ""
+
+msgid "Show all my registered contact Information"
+msgstr ""
+
+
