@@ -46,7 +46,10 @@
                 "Please select a communication type from list...":"Listeden iletişim tipini seçiniz...",
                 "Please select an address type from list...":"Listeden adres tipini seçiniz...",
                 "Please select a country from list...":"Lütfen listeden bir ülke seçiniz...",
-                "Please select a city from list...":"Lütfen listeden bir il seçiniz..."
+                "Please select a city from list...":"Lütfen listeden bir il seçiniz...",
+                "Form Reset":"Form Temizleme",
+                "Select a Communication Type":"İletişim tipi seçiniz",
+                "Please select your prefered language from list...":"Tercih ettiğiniz dili seçiniz..."
 	},
 	"regex": [
 		["Budget", "Bütçe"],

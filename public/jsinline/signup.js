@@ -7,7 +7,6 @@ $(document).ready(function () {
     $('#cityNameSection').show();
     $('#cityDropdownSection').hide();
     $('#districtDropdownSection').hide();
-
     /**
      * multilanguage plugin 
      * @type Lang
@@ -56,8 +55,6 @@ $(document).ready(function () {
             $('#repeatedUserPreferedPassword').attr('type', 'password');
         }
     });
-
-
     /*
      * Address types
      */
@@ -92,7 +89,6 @@ $(document).ready(function () {
             console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
         }
     });
-
     /*
      * List of countries combobox ajax
      */
@@ -129,7 +125,6 @@ $(document).ready(function () {
             console.error('"fillComboBox_syscountrys" servis hatası->' + textStatus);
         }
     });
-
     /*
      * List of provinces combobox ajax based on selected country
      */
@@ -140,14 +135,11 @@ $(document).ready(function () {
         $("#usercity").empty();
         $("#userdistrict").empty();
         $("#uservillage").empty();
-
         if ($('#usercountry :selected').val() === '91') {
 
             $('#cityNameSection').hide();
             $('#cityDropdownSection').show();
             $('#districtDropdownSection').show();
-
-
         } else {
             $('#cityNameSection').show();
             $('#cityDropdownSection').hide();
@@ -233,7 +225,6 @@ $(document).ready(function () {
             }
         });
     });
-
     /*
      * List of System languages combobox ajax
      */
@@ -242,7 +233,8 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'fillComboBox_syslanguage',
-            language_code: $("#langCode").val()
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
         },
         type: 'GET',
         dataType: 'json',
@@ -259,7 +251,7 @@ $(document).ready(function () {
                         console.log(selectedData);
                         //callback function: do something with selectedData;
                     }
-                    
+
                 });
             } else {
                 console.error('"fillComboBox_syslanguage" servis datası boştur!!');
@@ -269,7 +261,6 @@ $(document).ready(function () {
             console.error('"fillComboBox_syslanguage" servis hatası->' + textStatus);
         }
     });
-
     /*
      * List of communication types combobox ajax
      */
@@ -283,7 +274,9 @@ $(document).ready(function () {
         dataType: 'json',
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
+
             if (data.length !== 0) {
+                console.log(data);
                 $('#communicationTypes').ddslick({
                     data: data,
                     width: '100%',
@@ -298,12 +291,11 @@ $(document).ready(function () {
             } else {
                 console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis datası boştur!!');
             }
-        },        
+        },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
-        }        
+        }
     });
-
     /*
      * Buttons function binder
      */
@@ -316,9 +308,6 @@ $(document).ready(function () {
     $("#userCommunicationInfoFormReset").on('click', resetForm);
     $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
     $("#submitUserCommunicationInfoForm").on('click', submitUserCommunicationInfoForm);
-
-
-
 });
 /*
  * 
@@ -340,7 +329,6 @@ var makePublicCommunication = 0;
 function resetForm() {
 
     event.stopImmediatePropagation();
-
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
 //    contentBlocker.blockElement('show');
@@ -355,7 +343,6 @@ function resetForm() {
     $('div.growlUI')
             .css("background",
                     "url(../../plugins/jquery-BlockUI/newWarning-1.png) no-repeat 10px 10px");
-
     BootstrapDialog.confirm({
         title: window.lang.translate("Form Reset"),
         message: window.lang.translate("Are you sure to erase all form fields?"),
@@ -374,7 +361,6 @@ function resetForm() {
             }
         }
     });
-
 }
 
 /*
@@ -392,7 +378,6 @@ function resetConfirmation() {
     $('div.growlUI')
             .css("background",
                     "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Form fields cleared'),
@@ -400,7 +385,6 @@ function resetConfirmation() {
 
     });
     taskProgressPerTabs();
-
 }
 
 /*
@@ -423,7 +407,6 @@ function resetRejection() {
     $('div.growlUI')
             .css("background",
                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Reset operation failed...'),
@@ -439,7 +422,6 @@ function resetRejection() {
  */
 
 var pktemp;
-
 function submitUserGeneralInfoForm() {
 
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
@@ -481,14 +463,12 @@ function submitUserGeneralInfoForm() {
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
                             type: BootstrapDialog.TYPE_SUCCESS
 
                         });
-
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
                         $('#userAddressInfo').attr('class', "tab-pane fade in active");
                         $('#userGeneralInfoTab').removeClass('active');
@@ -500,7 +480,6 @@ function submitUserGeneralInfoForm() {
                          */
 
                         taskProgressPerTabs();
-
                     } else if (data['errorInfo'] === '23505') {
 
                         console.log('insert success: ' + data['errorInfo']);
@@ -516,7 +495,6 @@ function submitUserGeneralInfoForm() {
                             $('div.growlUI')
                                     .css("background",
                                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
@@ -602,7 +580,6 @@ function submitUserGeneralInfoForm() {
                             type: BootstrapDialog.TYPE_SUCCESS
 
                         });
-
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
                         $('#userAddressInfo').attr('class', "tab-pane fade in active");
                         $('#userGeneralInfoTab').removeClass('active');
@@ -615,7 +592,6 @@ function submitUserGeneralInfoForm() {
 
 
                         taskProgressPerTabs();
-
                     } else if (data['errorInfo'] === '23505') {
 
                         console.log('insert success: ' + data['errorInfo']);
@@ -668,7 +644,6 @@ function submitUserGeneralInfoForm() {
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -717,9 +692,7 @@ function submitUserAddressInfoForm() {
                         $("#pktemp").val(data.pktemp);
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
-
                         console.log('insert success: ' + data['errorInfo'][0]);
-
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
@@ -729,7 +702,6 @@ function submitUserAddressInfoForm() {
                             type: BootstrapDialog.TYPE_SUCCESS
 
                         });
-
                         $('#checkAddressForm').val('1');
                         $('#userAddressInfo').attr('class', "tab-pane fade");
                         $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
@@ -737,19 +709,16 @@ function submitUserAddressInfoForm() {
                         $('#userCommunicationInfoTab').addClass('active');
                         $('#userCommunicationInfoTab').removeClass('disabled');
                         taskProgressPerTabs();
-
                     }
                 }, error: function (jqXHR, textStatus, errorThrown) {
 
                     console.error(jqXHR);
                     console.error(textStatus);
                     console.error(errorThrown);
-
                     $("#checkAddressForm").val("0");
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
@@ -761,8 +730,6 @@ function submitUserAddressInfoForm() {
                     });
                 }
             });
-
-
         } else {
 
             $.ajax({
@@ -793,14 +760,11 @@ function submitUserAddressInfoForm() {
                         $("#pktemp").val(data.pktemp);
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
-
                         console.log('insert success: ' + data['errorInfo'][0]);
-
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         submitUserAddressInfoSuccessful.blockuiFadingCentered('show');
-
                         $('#checkAddressForm').val('1');
                         $('#userAddressInfo').attr('class', "tab-pane fade");
                         $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
@@ -808,16 +772,13 @@ function submitUserAddressInfoForm() {
                         $('#userCommunicationInfoTab').addClass('active');
                         $('#userCommunicationInfoTab').removeClass('disabled');
                         $('#primaryTabs a[href ="#userCommunicationInfo"]').tab('show');
-
                         taskProgressPerTabs();
-
                     }
                 }, error: function (jqXHR, textStatus, errorThrown) {
 
                     console.error(jqXHR);
                     console.error(textStatus);
                     console.error(errorThrown);
-
                     $("#checkAddressForm").val("0");
                     $('div.growlUI')
                             .css("background",
@@ -862,14 +823,11 @@ function submitUserCommunicationInfoForm() {
                     $("#pktemp").val(data.pktemp);
                     $('#lastInsertId').val(data.lastInsertId);
                     $("#checkGeneralForm").val("1");
-
                     console.log('insert success: ' + data['errorInfo'][0]);
-
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                     submitUserCommunicationInfoSuccessful.blockuiFadingCentered('show');
-
                     $('#userCommunicationInfoForm').val('1');
                     $('#userCommunicationInfo').attr('class', 'tab-pane fade');
                     $('#companyInfo').attr('class', 'tab-pane fade in active');
@@ -877,14 +835,12 @@ function submitUserCommunicationInfoForm() {
                     $('#companyInfoTab').addClass('active');
                     $('#companyInfoTab').removeClass('disabled');
                     taskProgressPerTabs();
-
                 }
             }, error: function (jqXHR, textStatus, errorThrown) {
 
                 console.error(jqXHR);
                 console.error(textStatus);
                 console.error(errorThrown);
-
                 $("#checkAddressForm").val("0");
                 $('div.growlUI')
                         .css("background",
@@ -901,7 +857,6 @@ function submitUserCommunicationInfoForm() {
         $('#contactsListSection').html();
         event.preventDefault();
         $("html, body").animate({scrollTop: 0}, "slow");
-
     }
 }
 
@@ -946,9 +901,10 @@ function checkUGI() {
             $('div.growlUI')
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-
             BootstrapDialog.show({
+                title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user general information form first'),
+                type: BootstrapDialog.TYPE_WARNING,
                 buttons: [{
                         label: 'Close',
                         action: function (dialogItself) {
@@ -959,7 +915,6 @@ function checkUGI() {
                         }
                     }]
             });
-//            registrationBlockuiPreventAddressTab.blockuiCentered('show');
         }
     }
 }
@@ -985,9 +940,10 @@ function checkUAI() {
             $('div.growlUI')
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-
             BootstrapDialog.show({
+                title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user general and address information forms first'),
+                type: BootstrapDialog.TYPE_WARNING,
                 buttons: [{
                         label: 'Close',
                         action: function (dialogItself) {
@@ -998,7 +954,6 @@ function checkUAI() {
                         }
                     }]
             });
-//            registrationBlockuiPreventCommunicationTab.blockuiCentered('show');
         }
     }
 }
@@ -1027,7 +982,9 @@ function checkCI() {
                     .css("background",
                             "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
             BootstrapDialog.show({
+                title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user information forms first'),
+                type: BootstrapDialog.TYPE_WARNING,
                 buttons: [{
                         label: 'Close',
                         action: function (dialogItself) {
@@ -1038,56 +995,15 @@ function checkCI() {
                         }
                     }]
             });
-//            registrationBlockuiPreventCompanyTab.blockuiCentered('show');
         }
     }
 }
-
-/*
- * Growls js section
- * @author: Bahram Lotfi Sadigh
- * @since: 2016.1.26
- */
-
-var registrationBlockuiResetFormApproval = $("#growlUI-resetFormApproval").blockuiCentered();
-var registrationBlockuiSuccessfulReset = $("#growlUI-successfulReset").blockuiFadingCentered();
-var registrationBlockuiCancelReset = $("#growlUI-cancelReset").blockuiFadingCentered();
-/*
- * tab controller growls
- */
-var registrationBlockuiPreventAddressTab = $("#growlUI-addressTabPrevention").blockuiCentered();
-var registrationBlockuiPreventCommunicationTab = $("#growlUI-communicationTabPrevention").blockuiCentered();
-var registrationBlockuiPreventCompanyTab = $("#growlUI-companyTabPrevention").blockuiCentered();
-/*
- * @returns {undefined}
- * Info submission growls
- * @author: Bahram Lotfi Sadigh
- * @since: 2016.1.27
- * 
- * submit general info
- */
-var submitUserGeneralInfoSuccessful = $("#growlUI-submitUserGeneralInfoSuccessful").blockuiFadingCentered();
-var submitUserGeneralInfoUnsuccessful = $("#growlUI-submitUserGeneralInfoUnsuccessful").blockuiFadingCentered();
-var submitUserGeneralInfoUnsuccessful23505_auth_email = $("#growlUI-submitUserGeneralInfoUnsuccessful23505_auth_email").blockuiFadingCentered();
-var submitUserGeneralInfoUnsuccessful23505_username = $("#growlUI-submitUserGeneralInfoUnsuccessful23505_username").blockuiFadingCentered();
-var submitUserGeneralInfoUnsuccessful23502 = $("#growlUI-submitUserGeneralInfoUnsuccessful23502").blockuiFadingCentered();
-/* 
- * submit address info
- */
-var submitUserAddressInfoSuccessful = $("#growlUI-submitUserAddressInfoSuccessful").blockuiFadingCentered();
-var submitUserAddressInfoUnsuccessful = $("#growlUI-submitUserAddressInfoUnsuccessful").blockuiFadingCentered();
-/* 
- * submit communication info
- */
-var submitUserCommunicationInfoSuccessful = $("#growlUI-submitUserCommunicationInfoSuccessful").blockuiFadingCentered();
-var submitUserCommunicationInfoUnsuccessful = $("#growlUI-submitUserCommunicationInfoUnsuccessful").blockuiFadingCentered();
 /*
  * Content blocker
  */
 
 var contentBlocker = $("#tabsContentsSection").blockuiCentered();
 var contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
-
 
 /*
  * Function to prevent openning of unallowed tab and return to previous tab
@@ -1101,7 +1017,6 @@ function preventTab() {
     $.unblockUI();
     $("#tabsContentsSection").unblock();
     event.preventDefault();
-
     if ($("#checkCommunicationForm").val() === "1") {
         $("#companyInfoTab").addClass('active');
     } else {
@@ -1138,7 +1053,6 @@ function changePublicAddress() {
     }
 }
 
-
 function changePublicCommunication() {
 
     if ($("#makePubliccommunication").attr('checked') === 'checked') {
@@ -1153,6 +1067,7 @@ function changePublicCommunication() {
  * @author:Bahram
  * @Since:2016.1.2
  */
+
 $('#table_address_modal').bootstrapTable({
     onClickRow: function (row, $element) {
 //        row: the record corresponding to the clicked row, 
@@ -1198,54 +1113,19 @@ $('#table_address_modal').bootstrapTable({
                 {field: 'address2', sortable: true, width: 200},
                 {field: 'postal_code', sortable: true, width: 50},
                 {field: 'description', width: 300}
-
             ]
 });
-
-/*
- * Communications type combobox service
- */
-
-$.ajax({
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-    data: {
-        url: 'fillCommunicationsTypes_sysSpecificDefinitions',
-        language_code: $("#langCode").val()
-    },
-    method: "GET",
-    dataType: "json",
-    success: function (data) {
-        var i;
-        for (i = 0; i < data.length; i++) {
-            if (data[i].text === null) {
-
-            } else {
-
-                var appending_option_html = "<option value = '" + data[i].id + "' >" +
-                        data[i].text +
-                        "</option>";
-                var newappendingOption = $(appending_option_html);
-                $(newappendingOption).appendTo($("#communicationTypes"));
-            }
-        }
-    }
-});
-
 
 var userGeneralInformationProgress = "0";
 var userAddressInformationProgress = "0";
 var userCommunicationInformationProgress = "0";
 var overallRegistrationProgress = "0";
-
-
 function taskProgressPerTabs() {
 
     if ($('#checkGeneralForm').val() === '0') {
 
         userGeneralInformationProgressNumber = 0;
         overallRegistrationProgressNumber = 0;
-
         if ($('#userFirstName').val()) {
             userGeneralInformationProgressNumber += 20;
             overallRegistrationProgressNumber += 6;
@@ -1267,13 +1147,11 @@ function taskProgressPerTabs() {
             overallRegistrationProgressNumber += 6;
         }
         userGeneralInformationProgress = userGeneralInformationProgressNumber.toString();
-
         $("#userGeneralInfoRegistrationProgress").
                 html(userGeneralInformationProgress + '%');
         $("#userGeneralInfoRegistrationProgressStyle").
                 css({"width": userGeneralInformationProgress +
                             '%', "aria-valuenow": userGeneralInformationProgress});
-
         /*
          * popup a prompt on task progress and hide after 3 secs.
          */
@@ -1288,7 +1166,6 @@ function taskProgressPerTabs() {
             setTimeout(function () {
                 $('#userGeneralInfoRegistrationProgress').validationEngine('hide');
             }, 3000);
-
         }
 
         overallRegistrationProgress = overallRegistrationProgressNumber.toString();
@@ -1297,13 +1174,11 @@ function taskProgressPerTabs() {
         $("#overallRegistrationProgressStyle").
                 css({"width": overallRegistrationProgress +
                             '%', "aria-valuenow": overallRegistrationProgress});
-
     } else if ($('#checkGeneralForm').val() === '1') {
         if ($('#checkAddressForm').val() === '0') {
 
             userAddressInformationProgressNumber = 0;
             overallRegistrationProgressNumber = 30;
-
             if ($('#addressTypesCombo :selected').val()) {
                 userAddressInformationProgressNumber += 25;
             }
@@ -1332,20 +1207,17 @@ function taskProgressPerTabs() {
                 userAddressInformationProgressNumber += 5;
             }
             userAddressInformationProgress = userAddressInformationProgressNumber.toString();
-
             $("#userAddressInfoRegistrationProgress").
                     html(userAddressInformationProgress + '%');
             $("#userAddressInfoRegistrationProgressStyle").
                     css({"width": userAddressInformationProgress +
                                 '%', "aria-valuenow": userAddressInformationProgress});
-
             overallRegistrationProgress = overallRegistrationProgressNumber.toString();
             $("#overallRegistrationProgress").
                     html(overallRegistrationProgress + '%');
             $("#overallRegistrationProgressStyle").
                     css({"width": overallRegistrationProgress +
                                 '%', "aria-valuenow": overallRegistrationProgress});
-
             /*
              * popup a prompt on task progress and hide after 3 secs.
              */
@@ -1367,7 +1239,6 @@ function taskProgressPerTabs() {
 
                     userCommunicationInformationProgressNumber = 0;
                     overallRegistrationProgressNumber = 60;
-
                     if ($('#communicationTypes :selected').val()) {
                         userCommunicationInformationProgressNumber += 50;
                         overallRegistrationProgressNumber += 15;
@@ -1384,20 +1255,17 @@ function taskProgressPerTabs() {
 
                     userCommunicationInfoRegistrationProgress = userCommunicationInformationProgressNumber.toString();
                     overallRegistrationProgress = overallRegistrationProgressNumber.toString();
-
                     $("#userCommunicationInfoRegistrationProgress").
                             html(userCommunicationInfoRegistrationProgress + '%');
                     $("#userCommunicationInfoRegistrationProgressStyle").
                             css({"width": userCommunicationInfoRegistrationProgress +
                                         '%', "aria-valuenow": userCommunicationInfoRegistrationProgress});
-
                     overallRegistrationProgress = overallRegistrationProgressNumber.toString();
                     $("#overallRegistrationProgress").
                             html(overallRegistrationProgress + '%');
                     $("#overallRegistrationProgressStyle").
                             css({"width": overallRegistrationProgress +
                                         '%', "aria-valuenow": overallRegistrationProgress});
-
                     /*
                      * popup a prompt on task progress and hide after 3 secs.
                      */
