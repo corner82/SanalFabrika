@@ -233,7 +233,8 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'fillComboBox_syslanguage',
-            language_code: $("#langCode").val()
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
         },
         type: 'GET',
         dataType: 'json',
