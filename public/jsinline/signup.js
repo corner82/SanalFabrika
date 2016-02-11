@@ -17,6 +17,42 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
+
+    /*
+     * Signup.js variables
+     * 
+     */
+
+    window.clickedButton;
+    window.clickedForm;
+
+    window.makePublicProfile = 0;
+    window.makePublicAddress = 0;
+    window.makeCommunicationPublic = 0;
+
+    window.selectedCountryId;
+    window.selectedCityId;
+    window.selectedDistrictId;
+    window.selectedPreferedLanguageId;
+    window.selectedAddTypeId;
+    window.selectedCommunicationTypeId;
+    window.defaultContactNumber;
+
+    window.pktemp;
+
+    window.userGeneralInformationProgress = "0";
+    window.userAddressInformationProgress = "0";
+    window.userCommunicationInformationProgress = "0";
+    window.overallRegistrationProgress = "0";
+
+    /*
+     * Content blocker
+     */
+
+    contentBlocker = $("#tabsContentsSection").blockuiCentered();
+    contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
+
+
     /*
      * Disable finalize registration and submit user info before checking 
      * agreement terms and conditions...
@@ -63,13 +99,15 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'fillAddressTypes_sysSpecificDefinitions',
-            language_code: $("#langCode").val()
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
         },
         type: 'GET',
         dataType: 'json',
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
+                $('#addressTypesCombo').ddslick('destroy');
                 $('#addressTypesCombo').ddslick({
                     data: data,
                     width: '100%',
@@ -77,7 +115,8 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Please select a communication type from list..."),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
-                        console.log(selectedData);
+                        selectedAddTypeId = selectedData.selectedData.value;
+                        taskProgressPerTabs();
                         //callback function: do something with selectedData;
                     }
                 });
@@ -97,14 +136,14 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'fillComboBox_syscountrys',
-            language_code: $("#langCode").val()
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
         },
         type: 'GET',
         dataType: 'json',
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
-                console.log(data);
                 $('#usercountry').ddslick({
                     data: data,
                     width: '100%',
@@ -113,7 +152,12 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Please select a country from list..."),
                     imagePosition: 'right',
                     onSelected: function (selectedData) {
-                        console.log(selectedData);
+
+                        selectedCountryId = selectedData.selectedData.value;
+//                        console.log(selectedCountryId);
+                        userCityDropDownUpdate();
+//                        console.log(selectedData);
+//                        console.log(selectedCountryId);
                         //callback function: do something with selectedData;
                     }
                 });
@@ -129,13 +173,11 @@ $(document).ready(function () {
      * List of provinces combobox ajax based on selected country
      */
 
-    $("select#usercountry").on('change', function () {
+    function userCityDropDownUpdate() {
 
-        var selectedCountryId = $('#usercountry :selected').val();
         $("#usercity").empty();
         $("#userdistrict").empty();
-        $("#uservillage").empty();
-        if ($('#usercountry :selected').val() === '91') {
+        if (selectedCountryId === '91') {
 
             $('#cityNameSection').hide();
             $('#cityDropdownSection').show();
@@ -151,15 +193,17 @@ $(document).ready(function () {
             data: {
                 url: 'fillComboBox_syscity',
                 country_id: selectedCountryId,
-                language_code: $("#langCode").val()
+                language_code: $("#langCode").val(),
+                component_type: 'ddslick'
             },
             type: 'GET',
             dataType: 'json',
             //data: 'rowIndex='+rowData.id,
             success: function (data, textStatus, jqXHR) {
                 if (data.length !== 0) {
-                    console.log(data);
-                    $('#usercountry').ddslick({
+
+                    $('#usercity').ddslick('destroy');
+                    $('#usercity').ddslick({
                         data: data,
                         width: '100%',
                         height: '500%',
@@ -167,7 +211,10 @@ $(document).ready(function () {
                         selectText: window.lang.translate("Please select a city from list..."),
                         imagePosition: 'right',
                         onSelected: function (selectedData) {
-                            console.log(selectedData);
+                            selectedCityId = selectedData.selectedData.value;
+//                            console.log(selectedData);
+//                            console.log(selectedCityId);
+                            districtDropDownUpdate();
                             //callback function: do something with selectedData;
                         }
                     });
@@ -179,15 +226,14 @@ $(document).ready(function () {
                 console.error('"fillComboBox_syscity" servis hatası->' + textStatus);
             }
         });
-    });
+    }
+    ;
     /*
      * List of districts combobox ajax based on selected country and province
      */
 
-    $("select#usercity").on('change', function () {
+    function districtDropDownUpdate() {
 
-        var selectedCityId = $('#usercity :selected').val();
-        var selectedCountryId = $('#usercountry :selected').val();
         $("#userdistrict").empty();
         $("#uservillage").empty();
         $.ajax({
@@ -196,7 +242,8 @@ $(document).ready(function () {
                 url: 'fillComboBox_sysborough',
                 country_id: selectedCountryId,
                 city_id: selectedCityId,
-                language_code: $("#langCode").val()
+                language_code: $("#langCode").val(),
+                component_type: 'ddslick'
             },
             type: 'GET',
             dataType: 'json',
@@ -204,7 +251,8 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 if (data.length !== 0) {
                     console.log(data);
-                    $('#usercountry').ddslick({
+                    $('#userdistrict').ddslick('destroy');
+                    $('#userdistrict').ddslick({
                         data: data,
                         width: '100%',
                         height: '500%',
@@ -212,7 +260,9 @@ $(document).ready(function () {
                         selectText: window.lang.translate("Please select a district from list..."),
                         imagePosition: 'right',
                         onSelected: function (selectedData) {
-                            console.log(selectedData);
+                            selectedDistrictId = selectedData.selectedData.value;
+//                            console.log(selectedData);
+//                            console.log(selectedDistrictId);
                             //callback function: do something with selectedData;
                         }
                     });
@@ -224,7 +274,8 @@ $(document).ready(function () {
                 console.error('"fillComboBox_sysborough" servis hatası->' + textStatus);
             }
         });
-    });
+    }
+    ;
     /*
      * List of System languages combobox ajax
      */
@@ -248,10 +299,11 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Please select your prefered language from list..."),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
-                        console.log(selectedData);
+                        selectedPreferedLanguageId = selectedData.selectedData.value;
+//                        console.log(selectedData);
+                        console.log(selectedPreferedLanguageId);
                         //callback function: do something with selectedData;
                     }
-
                 });
             } else {
                 console.error('"fillComboBox_syslanguage" servis datası boştur!!');
@@ -268,7 +320,8 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'fillCommunicationsTypes_sysSpecificDefinitions',
-            language_code: $("#langCode").val()
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
         },
         type: 'GET',
         dataType: 'json',
@@ -276,7 +329,6 @@ $(document).ready(function () {
         success: function (data, textStatus, jqXHR) {
 
             if (data.length !== 0) {
-                console.log(data);
                 $('#communicationTypes').ddslick({
                     data: data,
                     width: '100%',
@@ -284,7 +336,9 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Select a Communication Type"),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
-                        console.log(selectedData);
+                        selectedCommunicationTypeId = selectedData.selectedData.value;
+//                        console.log(selectedData);
+//                        console.log(selectedCommunicationTypeId);
                         //callback function: do something with selectedData;
                     }
                 });
@@ -309,17 +363,7 @@ $(document).ready(function () {
     $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
     $("#submitUserCommunicationInfoForm").on('click', submitUserCommunicationInfoForm);
 });
-/*
- * 
- * @type @exp;event@pro;target
- * Signup.js variables
- * 
- */
-var clickedButton;
-var clickedForm;
-var makePublicProfile = 0;
-var makePublicAddress = 0;
-var makePublicCommunication = 0;
+
 /*
  * Reset Form Elements
  * @Author: Bahram Lotfi Sadigh
@@ -421,7 +465,6 @@ function resetRejection() {
  * @Since: 2016.1.21
  */
 
-var pktemp;
 function submitUserGeneralInfoForm() {
 
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
@@ -439,7 +482,7 @@ function submitUserGeneralInfoForm() {
                     username: $('#preferedUsername').val(),
                     password: $('#userPreferedPassword').val(),
                     auth_email: $('#useremail').val(),
-                    preferred_language: $('#userPreferedLanguage :selected').val(),
+                    preferred_language: selectedPreferedLanguageId,
                     profile_public: makePublicProfile,
                     operation_type_id: 2,
                     active: 0,
@@ -557,7 +600,7 @@ function submitUserGeneralInfoForm() {
                     username: $('#preferedUsername').val(),
                     password: $('#userPreferedPassword').val(),
                     auth_email: $('#useremail').val(),
-                    preferred_language: $('#userPreferedLanguage :selected').val(),
+                    preferred_language: selectedPreferedLanguageId,
                     profile_public: makePublicProfile
                 },
                 method: "GET",
@@ -664,7 +707,7 @@ function submitUserGeneralInfoForm() {
 function submitUserAddressInfoForm() {
 
     if ($('#userAddressInfoForm').validationEngine('validate')) {
-        if ($('#usercountry :selected').val() === "91") {
+        if (selectedCountryId === "91") {
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -674,13 +717,13 @@ function submitUserAddressInfoForm() {
                     profile_public: makePublicAddress,
                     language_code: $("#langCode").val(),
                     operation_type_id: '1',
-                    address_type_id: $('#addressTypesCombo :selected').val(),
+                    address_type_id: selectedAddTypeId,
                     address1: $('#userAddress1').val(),
                     address2: $('#userAddress2').val(),
                     postal_code: $('#userPostalCode').val(),
-                    country_id: $('#usercountry :selected').val(),
-                    city_id: $('#usercity :selected').val(),
-                    borough_id: $('#userdistrict :selected').val(),
+                    country_id: selectedCountryId,
+                    city_id: selectedCityId,
+                    borough_id: selectedDistrictId,
                     city_name: "",
                     description: $('#addressDescription').val()
                 },
@@ -741,11 +784,11 @@ function submitUserAddressInfoForm() {
                     profile_public: makePublicAddress,
                     language_code: $("#langCode").val(),
                     operation_type_id: '1',
-                    address_type_id: $('#addressTypesCombo :selected').val(),
+                    address_type_id: selectedAddTypeId,
                     address1: $('#userAddress1').val(),
                     address2: $('#userAddress2').val(),
                     postal_code: $('#userPostalCode').val(),
-                    country_id: $('#usercountry :selected').val(),
+                    country_id: selectedCountryId,
                     city_id: "0",
                     borough_id: "0",
                     city_name: $('#userCityName').val(),
@@ -802,18 +845,25 @@ function submitUserCommunicationInfoForm() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
+        if($('#defaultContactNumber').attr('chekced') === 'checked'){
+            defaultContactNumber = 1;
+        }else{
+            defaultContactNumber = 0;
+        }
+
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
             data: {
                 url: 'pktempInsert_infoUsersCommunications',
                 pktemp: pktemp,
-                profile_public: makePublicCommunication,
+                profile_public: makeCommunicationPublic,
                 language_code: $("#langCode").val(),
-                communications_type_id: $('#communicationTypes :selected').val(),
+                communications_type_id: selectedCommunicationTypeId,
                 communications_no: $('#contactNumber').val(),
                 description: $('#contactDescription').val(),
-                description_eng: ''
+                description_eng: '',
+                default_communication_id: defaultContactNumber
             },
             method: "GET",
             dataType: "json",
@@ -998,12 +1048,7 @@ function checkCI() {
         }
     }
 }
-/*
- * Content blocker
- */
 
-var contentBlocker = $("#tabsContentsSection").blockuiCentered();
-var contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
 
 /*
  * Function to prevent openning of unallowed tab and return to previous tab
@@ -1055,10 +1100,10 @@ function changePublicAddress() {
 
 function changePublicCommunication() {
 
-    if ($("#makePubliccommunication").attr('checked') === 'checked') {
-        makePubliccommunication = '0';
+    if ($("#makeCommunicationPublic").attr('checked') === 'checked') {
+        makeCommunicationPublic = '0';
     } else {
-        makePubliccommunication = '1';
+        makeCommunicationPublic = '1';
     }
 }
 
@@ -1116,10 +1161,6 @@ $('#table_address_modal').bootstrapTable({
             ]
 });
 
-var userGeneralInformationProgress = "0";
-var userAddressInformationProgress = "0";
-var userCommunicationInformationProgress = "0";
-var overallRegistrationProgress = "0";
 function taskProgressPerTabs() {
 
     if ($('#checkGeneralForm').val() === '0') {
@@ -1179,18 +1220,19 @@ function taskProgressPerTabs() {
 
             userAddressInformationProgressNumber = 0;
             overallRegistrationProgressNumber = 30;
-            if ($('#addressTypesCombo :selected').val()) {
+            if (selectedAddTypeId === "-1") {
                 userAddressInformationProgressNumber += 25;
             }
-            if ($('#usercountry :selected').val() === "91") {
+            if (selectedCountryId === "91") {
                 userAddressInformationProgressNumber += 25;
-                if ($('#usercity :selected').val() >= 0) {
+                if (selectedCityId >= 0) {
                     userAddressInformationProgressNumber += 15;
                 }
-                if ($('#userdistrict :selected').val() >= 0) {
+                if (selectedDistrictId >= 0) {
                     userAddressInformationProgressNumber += 10;
                 }
-            } else if ($('#usercountry :selected').val() === "-1") {
+            } else if (selectedCountryId === "-1") {
+
             } else {
                 userAddressInformationProgressNumber += 25;
                 if ($('#userCityName').val()) {
@@ -1239,7 +1281,7 @@ function taskProgressPerTabs() {
 
                     userCommunicationInformationProgressNumber = 0;
                     overallRegistrationProgressNumber = 60;
-                    if ($('#communicationTypes :selected').val()) {
+                    if (!selectedCommunicationTypeId === '-1') {
                         userCommunicationInformationProgressNumber += 50;
                         overallRegistrationProgressNumber += 15;
                     }

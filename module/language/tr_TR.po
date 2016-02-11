@@ -729,8 +729,8 @@ msgstr "Tercih edilen dil"
 msgid "Make my profile public"
 msgstr "Profilimi her kes görebilir"
 
-msgid "Select a Communication Type"
-msgstr "İletişim tipi seçiniz"
+msgid "Communication Type"
+msgstr "İletişim tipi"
 
 msgid "Please select a communication type from list..."
 msgstr "Listeden iletişim tipini seçiniz..."
@@ -806,3 +806,15 @@ msgstr "Adres 1"
 
 msgid "Address 2"
 msgstr "Adres 2"
+
+msgid "Show my password"
+msgstr "Şifreyi Göster"
+
+msgid "Make my address information public"
+msgstr "Adres bilgilerimi her kes görebilir"
+
+msgid "Make my contact information public"
+msgstr "İletişim bilgilerimi her kes görebilir"
+
+msgid "Show all my registered contact Information"
+msgstr "Bütün kayıtlı iletişim bilgilerimi göster"
