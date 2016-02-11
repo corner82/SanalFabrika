@@ -29,7 +29,7 @@
 
 (function($) {
     
-       /**
+    /**
      * load imager widget for loading operations
      * @author Mustafa Zeynel Dağlı
      * @since 11/01/2016
@@ -128,5 +128,63 @@
             
         }
     });
+    
+    
+  /**
+    * error service widget for ajax and system errors
+    * @author Mustafa Zeynel Dağlı
+    * @since 11/02/2016
+    */
+   $.widget("sanalfabrika.errorService", {
+       /**
+        * Default options.
+        * @returns {null}
+        */
+       options: {
+           url : null,
+           errorCode : null,
+           pk : null,
+           page : null,
+           service : null,
+           proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+           errorInfo : null,
+           errorUrl : null
+       },
+       /**
+        * private constructor method for jquery widget
+        * @returns {null}
+        */
+       _create: function () {
+       },
+       /**
+        * send error message to service
+        * @returns {null}
+        */
+       send : function () {
+           $.ajax({
+                url: this.options.proxy,
+                data: { url: this.options.url ,
+                        error_code : this.options.errorCode,
+                        pk : this.options.pk,
+                        page_name : this.options.page,
+                        service_name : this.options.service,
+                        error_info : this.options.errorInfo,
+                        url_full : this.options.errorUrl
+}, 
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+                    
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    
+                }
+            });
+       },
+       test : function() {
+           alert('test');
+       }
+   });
+   
 }(jQuery));
 
