@@ -7,10 +7,12 @@ $(document).ready(function () {
     $('#cityNameSection').show();
     $('#cityDropdownSection').hide();
     $('#districtDropdownSection').hide();
+
     /**
      * multilanguage plugin 
      * @type Lang
      */
+
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
@@ -38,8 +40,6 @@ $(document).ready(function () {
     window.selectedCommunicationTypeId;
     window.defaultContactNumber;
 
-    window.pktemp;
-
     window.userGeneralInformationProgress = "0";
     window.userAddressInformationProgress = "0";
     window.userCommunicationInformationProgress = "0";
@@ -64,6 +64,7 @@ $(document).ready(function () {
     $('#userCommunicationInfoFormSubmit').addClass('disabled');
     $('#userCommunicationInfoFormFinalize').attr('disabled', true);
     $('#userCommunicationInfoFormSubmit').attr('disabled', true);
+
     /* 
      * Validation binder
      * 
@@ -73,283 +74,7 @@ $(document).ready(function () {
     $("#userAddressInfoForm").validationEngine();
     $("#userCommunicationInfoForm").validationEngine();
     $("#companyInfoForm").validationEngine();
-    /*
-     * Show or hide password content
-     * @author: Bahram Lotfi Sadigh
-     * @Since: 2016.2.1
-     * 
-     */
 
-    $('#showPassword').change(function () {
-        var isChecked = $(this).prop('checked');
-        if (isChecked) {
-            $('#userPreferedPassword').attr('type', 'text');
-            $('#repeatedUserPreferedPassword').attr('type', 'text');
-        }
-        else {
-            $('#userPreferedPassword').attr('type', 'password');
-            $('#repeatedUserPreferedPassword').attr('type', 'password');
-        }
-    });
-    /*
-     * Address types
-     */
-
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'fillAddressTypes_sysSpecificDefinitions',
-            language_code: $("#langCode").val(),
-            component_type: 'ddslick'
-        },
-        type: 'GET',
-        dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            if (data.length !== 0) {
-                $('#addressTypesCombo').ddslick('destroy');
-                $('#addressTypesCombo').ddslick({
-                    data: data,
-                    width: '100%',
-                    background: false,
-                    selectText: window.lang.translate("Please select a communication type from list..."),
-                    imagePosition: "right",
-                    onSelected: function (selectedData) {
-                        selectedAddTypeId = selectedData.selectedData.value;
-                        taskProgressPerTabs();
-                        //callback function: do something with selectedData;
-                    }
-                });
-            } else {
-                console.error('"fillAddressTypes_sysSpecificDefinitions" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
-        }
-    });
-    /*
-     * List of countries combobox ajax
-     */
-
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'fillComboBox_syscountrys',
-            language_code: $("#langCode").val(),
-            component_type: 'ddslick'
-        },
-        type: 'GET',
-        dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            if (data.length !== 0) {
-                $('#usercountry').ddslick({
-                    data: data,
-                    width: '100%',
-                    height: '500%',
-                    background: false,
-                    selectText: window.lang.translate("Please select a country from list..."),
-                    imagePosition: 'right',
-                    onSelected: function (selectedData) {
-
-                        selectedCountryId = selectedData.selectedData.value;
-//                        console.log(selectedCountryId);
-                        userCityDropDownUpdate();
-//                        console.log(selectedData);
-//                        console.log(selectedCountryId);
-                        //callback function: do something with selectedData;
-                    }
-                });
-            } else {
-                console.error('"fillComboBox_syscountrys" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillComboBox_syscountrys" servis hatası->' + textStatus);
-        }
-    });
-    /*
-     * List of provinces combobox ajax based on selected country
-     */
-
-    function userCityDropDownUpdate() {
-
-        $("#usercity").empty();
-        $("#userdistrict").empty();
-        if (selectedCountryId === '91') {
-
-            $('#cityNameSection').hide();
-            $('#cityDropdownSection').show();
-            $('#districtDropdownSection').show();
-        } else {
-            $('#cityNameSection').show();
-            $('#cityDropdownSection').hide();
-            $('#districtDropdownSection').hide();
-        }
-
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: {
-                url: 'fillComboBox_syscity',
-                country_id: selectedCountryId,
-                language_code: $("#langCode").val(),
-                component_type: 'ddslick'
-            },
-            type: 'GET',
-            dataType: 'json',
-            //data: 'rowIndex='+rowData.id,
-            success: function (data, textStatus, jqXHR) {
-                if (data.length !== 0) {
-
-                    $('#usercity').ddslick('destroy');
-                    $('#usercity').ddslick({
-                        data: data,
-                        width: '100%',
-                        height: '500%',
-                        background: false,
-                        selectText: window.lang.translate("Please select a city from list..."),
-                        imagePosition: 'right',
-                        onSelected: function (selectedData) {
-                            selectedCityId = selectedData.selectedData.value;
-//                            console.log(selectedData);
-//                            console.log(selectedCityId);
-                            districtDropDownUpdate();
-                            //callback function: do something with selectedData;
-                        }
-                    });
-                } else {
-                    console.error('"fillComboBox_syscity" servis datası boştur!!');
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.error('"fillComboBox_syscity" servis hatası->' + textStatus);
-            }
-        });
-    }
-    ;
-    /*
-     * List of districts combobox ajax based on selected country and province
-     */
-
-    function districtDropDownUpdate() {
-
-        $("#userdistrict").empty();
-        $("#uservillage").empty();
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: {
-                url: 'fillComboBox_sysborough',
-                country_id: selectedCountryId,
-                city_id: selectedCityId,
-                language_code: $("#langCode").val(),
-                component_type: 'ddslick'
-            },
-            type: 'GET',
-            dataType: 'json',
-            //data: 'rowIndex='+rowData.id,
-            success: function (data, textStatus, jqXHR) {
-                if (data.length !== 0) {
-                    console.log(data);
-                    $('#userdistrict').ddslick('destroy');
-                    $('#userdistrict').ddslick({
-                        data: data,
-                        width: '100%',
-                        height: '500%',
-                        background: false,
-                        selectText: window.lang.translate("Please select a district from list..."),
-                        imagePosition: 'right',
-                        onSelected: function (selectedData) {
-                            selectedDistrictId = selectedData.selectedData.value;
-//                            console.log(selectedData);
-//                            console.log(selectedDistrictId);
-                            //callback function: do something with selectedData;
-                        }
-                    });
-                } else {
-                    console.error('"fillComboBox_sysborough" servis datası boştur!!');
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.error('"fillComboBox_sysborough" servis hatası->' + textStatus);
-            }
-        });
-    }
-    ;
-    /*
-     * List of System languages combobox ajax
-     */
-
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'fillComboBox_syslanguage',
-            language_code: $("#langCode").val(),
-            component_type: 'ddslick'
-        },
-        type: 'GET',
-        dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            if (data.length !== 0) {
-                $('#userPreferedLanguage').ddslick({
-                    data: data,
-                    width: '100%',
-                    background: false,
-                    selectText: window.lang.translate("Please select your prefered language from list..."),
-                    imagePosition: "right",
-                    onSelected: function (selectedData) {
-                        selectedPreferedLanguageId = selectedData.selectedData.value;
-//                        console.log(selectedData);
-                        console.log(selectedPreferedLanguageId);
-                        //callback function: do something with selectedData;
-                    }
-                });
-            } else {
-                console.error('"fillComboBox_syslanguage" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillComboBox_syslanguage" servis hatası->' + textStatus);
-        }
-    });
-    /*
-     * List of communication types combobox ajax
-     */
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'fillCommunicationsTypes_sysSpecificDefinitions',
-            language_code: $("#langCode").val(),
-            component_type: 'ddslick'
-        },
-        type: 'GET',
-        dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-
-            if (data.length !== 0) {
-                $('#communicationTypes').ddslick({
-                    data: data,
-                    width: '100%',
-                    background: false,
-                    selectText: window.lang.translate("Select a Communication Type"),
-                    imagePosition: "right",
-                    onSelected: function (selectedData) {
-                        selectedCommunicationTypeId = selectedData.selectedData.value;
-//                        console.log(selectedData);
-//                        console.log(selectedCommunicationTypeId);
-                        //callback function: do something with selectedData;
-                    }
-                });
-            } else {
-                console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
-        }
-    });
     /*
      * Buttons function binder
      */
@@ -360,9 +85,295 @@ $(document).ready(function () {
     $("#userGeneralInfoFormReset").on('click', resetForm);
     $("#userAddressInfoFormReset").on('click', resetForm);
     $("#userCommunicationInfoFormReset").on('click', resetForm);
-    $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
-    $("#submitUserCommunicationInfoForm").on('click', submitUserCommunicationInfoForm);
+//    $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
+    $("#submitUserCommunicationInfoForm").on('click', submitUserInfoForm);
 });
+
+var pktemp = $('#pktemp').value;
+
+/*
+ * Show or hide password content
+ * @author: Bahram Lotfi Sadigh
+ * @Since: 2016.2.1
+ * 
+ */
+
+$('#showPassword').change(function () {
+    var isChecked = $(this).prop('checked');
+    if (isChecked) {
+        $('#userPreferedPassword').attr('type', 'text');
+        $('#repeatedUserPreferedPassword').attr('type', 'text');
+    }
+    else {
+        $('#userPreferedPassword').attr('type', 'password');
+        $('#repeatedUserPreferedPassword').attr('type', 'password');
+    }
+});
+
+/*
+ * Address types
+ */
+
+$.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+    data: {
+        url: 'fillAddressTypes_sysSpecificDefinitions',
+        language_code: $("#langCode").val(),
+        component_type: 'ddslick'
+    },
+    type: 'GET',
+    dataType: 'json',
+    //data: 'rowIndex='+rowData.id,
+    success: function (data, textStatus, jqXHR) {
+        if (data.length !== 0) {
+            $('#addressTypesCombo').ddslick('destroy');
+            $('#addressTypesCombo').ddslick({
+                data: data,
+                width: '100%',
+                background: false,
+                selectText: window.lang.translate("Please select a communication type from list..."),
+                imagePosition: "right",
+                onSelected: function (selectedData) {
+                    selectedAddTypeId = selectedData.selectedData.value;
+                    taskProgressPerTabs();
+                    //callback function: do something with selectedData;
+                }
+            });
+        } else {
+            console.error('"fillAddressTypes_sysSpecificDefinitions" servis datası boştur!!');
+        }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+        console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
+    }
+});
+
+/*
+ * List of countries combobox ajax
+ */
+
+$.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+    data: {
+        url: 'fillComboBox_syscountrys',
+        language_code: $("#langCode").val(),
+        component_type: 'ddslick'
+    },
+    type: 'GET',
+    dataType: 'json',
+    //data: 'rowIndex='+rowData.id,
+    success: function (data, textStatus, jqXHR) {
+        if (data.length !== 0) {
+            $('#usercountry').ddslick({
+                data: data,
+                width: '100%',
+                height: '500%',
+                background: false,
+                selectText: window.lang.translate("Please select a country from list..."),
+                imagePosition: 'right',
+                onSelected: function (selectedData) {
+
+                    selectedCountryId = selectedData.selectedData.value;
+//                        console.log(selectedCountryId);
+                    userCityDropDownUpdate();
+//                        console.log(selectedData);
+//                        console.log(selectedCountryId);
+                    //callback function: do something with selectedData;
+                }
+            });
+        } else {
+            console.error('"fillComboBox_syscountrys" servis datası boştur!!');
+        }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+        console.error('"fillComboBox_syscountrys" servis hatası->' + textStatus);
+    }
+});
+
+/*
+ * List of provinces combobox ajax 
+ * based on selected country
+ */
+
+function userCityDropDownUpdate() {
+
+    $("#usercity").empty();
+    $("#userdistrict").empty();
+    if (selectedCountryId === '91') {
+
+        $('#cityNameSection').hide();
+        $('#cityDropdownSection').show();
+        $('#districtDropdownSection').show();
+    } else {
+        $('#cityNameSection').show();
+        $('#cityDropdownSection').hide();
+        $('#districtDropdownSection').hide();
+    }
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillComboBox_syscity',
+            country_id: selectedCountryId,
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+                $('#usercity').ddslick('destroy');
+                $('#usercity').ddslick({
+                    data: data,
+                    width: '100%',
+                    height: '500%',
+                    background: false,
+                    selectText: window.lang.translate("Please select a city from list..."),
+                    imagePosition: 'right',
+                    onSelected: function (selectedData) {
+                        selectedCityId = selectedData.selectedData.value;
+//                            console.log(selectedData);
+//                            console.log(selectedCityId);
+                        districtDropDownUpdate();
+                        //callback function: do something with selectedData;
+                    }
+                });
+            } else {
+                console.error('"fillComboBox_syscity" servis datası boştur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillComboBox_syscity" servis hatası->' + textStatus);
+        }
+    });
+}
+
+/*
+ * List of districts combobox ajax 
+ * based on selected country and province
+ */
+
+function districtDropDownUpdate() {
+
+    $("#userdistrict").empty();
+    $("#uservillage").empty();
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillComboBox_sysborough',
+            country_id: selectedCountryId,
+            city_id: selectedCityId,
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+//                console.log(data);
+                $('#userdistrict').ddslick('destroy');
+                $('#userdistrict').ddslick({
+                    data: data,
+                    width: '100%',
+                    height: '500%',
+                    background: false,
+                    selectText: window.lang.translate("Please select a district from list..."),
+                    imagePosition: 'right',
+                    onSelected: function (selectedData) {
+                        selectedDistrictId = selectedData.selectedData.value;
+//                            console.log(selectedData);
+//                            console.log(selectedDistrictId);
+                        //callback function: do something with selectedData;
+                    }
+                });
+            } else {
+                console.error('"fillComboBox_sysborough" servis datası boştur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillComboBox_sysborough" servis hatası->' + textStatus);
+        }
+    });
+}
+
+/*
+ * List of System languages combobox ajax
+ */
+
+$.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+    data: {
+        url: 'fillComboBox_syslanguage',
+        language_code: $("#langCode").val(),
+        component_type: 'ddslick'
+    },
+    type: 'GET',
+    dataType: 'json',
+    //data: 'rowIndex='+rowData.id,
+    success: function (data, textStatus, jqXHR) {
+        if (data.length !== 0) {
+            $('#userPreferedLanguage').ddslick({
+                data: data,
+                width: '100%',
+                background: false,
+                selectText: window.lang.translate("Please select your prefered language from list..."),
+                imagePosition: "right",
+                onSelected: function (selectedData) {
+                    selectedPreferedLanguageId = selectedData.selectedData.value;
+//                    console.log(selectedData);
+//                    console.log(selectedPreferedLanguageId);
+                    //callback function: do something with selectedData;
+                }
+            });
+        } else {
+            console.error('"fillComboBox_syslanguage" servis datası boştur!!');
+        }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+        console.error('"fillComboBox_syslanguage" servis hatası->' + textStatus);
+    }
+});
+/*
+ * List of communication types combobox ajax
+ */
+$.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+    data: {
+        url: 'fillCommunicationsTypes_sysSpecificDefinitions',
+        language_code: $("#langCode").val(),
+        component_type: 'ddslick'
+    },
+    type: 'GET',
+    dataType: 'json',
+    //data: 'rowIndex='+rowData.id,
+    success: function (data, textStatus, jqXHR) {
+
+        if (data.length !== 0) {
+            $('#communicationTypes').ddslick({
+                data: data,
+                width: '100%',
+                background: false,
+                selectText: window.lang.translate("Select a Communication Type"),
+                imagePosition: "right",
+                onSelected: function (selectedData) {
+                    selectedCommunicationTypeId = selectedData.selectedData.value;
+//                        console.log(selectedData);
+//                        console.log(selectedCommunicationTypeId);
+                    //callback function: do something with selectedData;
+                }
+            });
+        } else {
+            console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis datası boştur!!');
+        }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+        console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
+    }
+});
+
 
 /*
  * Reset Form Elements
@@ -408,9 +419,9 @@ function resetForm() {
 }
 
 /*
- * 
- * functions section
- * 
+ * Confirm reset operation
+ * @author:Bahram lotfi sadigh
+ * @since:2016.1.26
  */
 
 function resetConfirmation() {
@@ -460,7 +471,7 @@ function resetRejection() {
 }
 
 /*
- * Submit User Form Elements
+ * Submit User general information
  * @Author: Bahram Lotfi Sadigh
  * @Since: 2016.1.21
  */
@@ -704,6 +715,11 @@ function submitUserGeneralInfoForm() {
     }
 }
 
+/*
+ * Submit User address information
+ * @Author: Bahram Lotfi Sadigh
+ * @Since: 2016.1.23
+ */
 function submitUserAddressInfoForm() {
 
     if ($('#userAddressInfoForm').validationEngine('validate')) {
@@ -732,7 +748,7 @@ function submitUserAddressInfoForm() {
                 success: function (data) {
                     if (data['errorInfo'][0] === '00000') {
 
-                        $("#pktemp").val(data.pktemp);
+//                        $("#pktemp").val(data.pktemp);
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
                         console.log('insert success: ' + data['errorInfo'][0]);
@@ -768,7 +784,7 @@ function submitUserAddressInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Address information submission failed'),
-                        type: BootstrapDialog.TYPE_SUCCESS
+                        type: BootstrapDialog.TYPE_DANGER
 
                     });
                 }
@@ -800,14 +816,19 @@ function submitUserAddressInfoForm() {
 
                     if (data['errorInfo'][0] === '00000') {
 
-                        $("#pktemp").val(data.pktemp);
+//                        $("#pktemp").val(data.pktemp);
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
                         console.log('insert success: ' + data['errorInfo'][0]);
                         $('div.growlUI')
                                 .css("background",
                                         "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-                        submitUserAddressInfoSuccessful.blockuiFadingCentered('show');
+                        BootstrapDialog.show({
+                            title: window.lang.translate('Submission Process'),
+                            message: window.lang.translate('Address information submitted sucessfully'),
+                            type: BootstrapDialog.TYPE_SUCCESS
+
+                        });
                         $('#checkAddressForm').val('1');
                         $('#userAddressInfo').attr('class', "tab-pane fade");
                         $('#userCommunicationInfo').attr('class', "tab-pane fade in active");
@@ -823,16 +844,12 @@ function submitUserAddressInfoForm() {
                     console.error(textStatus);
                     console.error(errorThrown);
                     $("#checkAddressForm").val("0");
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    submitUserAddressInfoUnsuccessful.blockuiFadingCentered('option', {
-                        backgroundColor: "#FF0000"
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('Address information submission failed'),
+                        type: BootstrapDialog.TYPE_DANGER
+
                     });
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    submitUserAddressInfoUnsuccessful.blockuiFadingCentered('show');
                 }
             });
         }
@@ -841,90 +858,120 @@ function submitUserAddressInfoForm() {
     }
 }
 
+
+/*
+ * Check default contact number check box
+ * @author:Bahram
+ * @Since: 2016.2.11
+ */
+
+function defContactNumber() {
+    
+    if ($('#defaultContactNumber').is(':checked')) {
+        defaultContactNumber = 1;
+    } else {
+        defaultContactNumber = 0;
+    }
+}
+
+
+/*
+ * Submit User address information
+ * @Author: Bahram Lotfi Sadigh
+ * @Since: 2016.2.1
+ */
 function submitUserCommunicationInfoForm() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
-        if($('#defaultContactNumber').attr('chekced') === 'checked'){
-            defaultContactNumber = 1;
-        }else{
-            defaultContactNumber = 0;
-        }
 
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+    $.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
             data: {
-                url: 'pktempInsert_infoUsersCommunications',
-                pktemp: pktemp,
-                profile_public: makeCommunicationPublic,
-                language_code: $("#langCode").val(),
-                communications_type_id: selectedCommunicationTypeId,
-                communications_no: $('#contactNumber').val(),
-                description: $('#contactDescription').val(),
-                description_eng: '',
-                default_communication_id: defaultContactNumber
+            url: 'pktempInsert_infoUsersCommunications',
+                    pktemp: pktemp,
+                    profile_public: makeCommunicationPublic,
+                    language_code: $("#langCode").val(),
+                    communications_type_id: selectedCommunicationTypeId,
+                    communications_no: $('#contactNumber').val(),
+                    description: $('#contactDescription').val(),
+                    description_eng: '',
+                    default_communication_id:defaultContactNumber
             },
             method: "GET",
             dataType: "json",
             success: function (data) {
                 if (data['errorInfo'][0] === '00000') {
 
-                    $("#pktemp").val(data.pktemp);
+//                    $("#pktemp").val(data.pktemp);
                     $('#lastInsertId').val(data.lastInsertId);
-                    $("#checkGeneralForm").val("1");
                     console.log('insert success: ' + data['errorInfo'][0]);
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
-                    submitUserCommunicationInfoSuccessful.blockuiFadingCentered('show');
-                    $('#userCommunicationInfoForm').val('1');
-                    $('#userCommunicationInfo').attr('class', 'tab-pane fade');
-                    $('#companyInfo').attr('class', 'tab-pane fade in active');
-                    $('#userCommunicationInfoTab').removeClass('active');
-                    $('#companyInfoTab').addClass('active');
-                    $('#companyInfoTab').removeClass('disabled');
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('Contact information submitted successfully'),
+                        type: BootstrapDialog.TYPE_SUCCESS
+                    });
                     taskProgressPerTabs();
+                    }
                 }
-            }, error: function (jqXHR, textStatus, errorThrown) {
+        , error: function (jqXHR, textStatus, errorThrown) {
 
-                console.error(jqXHR);
-                console.error(textStatus);
-                console.error(errorThrown);
-                $("#checkAddressForm").val("0");
-                $('div.growlUI')
-                        .css("background",
-                                "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                submitUserCommunicationInfoUnsuccessful.blockuiFadingCentered('option', {
-                    backgroundColor: "#FF0000"
-                });
-                $('div.growlUI')
-                        .css("background",
-                                "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                submitUserCommunicationInfoUnsuccessful.blockuiFadingCentered('show');
-            }
+        console.error(jqXHR);
+        console.error(textStatus);
+        console.error(errorThrown);
+        $("#checkAddressForm").val("0");
+        BootstrapDialog.show({
+        title: window.lang.translate('Submission Process'),
+                message: window.lang.translate('Contact information submission failed'),
+                type: BootstrapDialog.TYPE_DANGER
         });
-        $('#contactsListSection').html();
-        event.preventDefault();
-        $("html, body").animate({scrollTop: 0}, "slow");
+        }
+    });
     }
+            $('#contactsListSection').html();
+    event.preventDefault();
+    $("html, body").animate({scrollTop: 0}, "slow");
+    
 }
 
 
-function finalizeUserCommunicationInfoForm() {
+function submitUserInfoForm() {
 
+    $('#userCommunicationInfoForm').val('1');
+
+    $('#userCommunicationInfo').attr('class', 'tab-pane fade');
+    $('#companyInfo').attr('class', 'tab-pane fade in active');
+    $('#userCommunicationInfoTab').removeClass('active');
+    $('#companyInfoTab').addClass('active');
+    $('#companyInfoTab').removeClass('disabled');
+
+    event.preventDefault();
+    $("html, body").animate({scrollTop: 0}, "slow");
+}
+
+/*
+ * Complete user information submission process and go to login page..
+ * @author: Bahram Lotfi Sadigh
+ * @Since: 2016.2.11
+ */
+
+function completeUserSubmissionProcess() {
 }
 
 
 function activateButtons() {
-
     if ($("#terms").attr("checked") === "checked") {
-
-        $('#userCommunicationInfoFormFinalize').removeClass('disabled');
-        $('#userCommunicationInfoFormSubmit').removeClass('disabled');
+        console.log('yes');
+        $('#userCommunicationInfoFormFinalize').attr("disabled", false);
+        $('#userCommunicationInfoFormSubmit').attr("disabled", false);
     } else {
-        $('#userCommunicationInfoFormFinalize').addClass('disabled');
-        $('#userCommunicationInfoFormSubmit').addClass('disabled');
+        console.log('no');
+        $('#userCommunicationInfoFormFinalize').attr("disabled", true);
+        $('#userCommunicationInfoFormSubmit').attr("disabled", true);
     }
 }
 
@@ -1019,9 +1066,6 @@ function checkCI() {
 
     if ($("#checkCommunicationForm").val() === "1") {
 
-        /*
-         * last insert id test on query success will be written here 
-         */
 
     } else if ($("#checkCommunicationForm").val() === "0") {
 
@@ -1107,59 +1151,13 @@ function changePublicCommunication() {
     }
 }
 
-/*
- * Contact information table pop up on modal
- * @author:Bahram
- * @Since:2016.1.2
- */
 
-$('#table_address_modal').bootstrapTable({
-    onClickRow: function (row, $element) {
-//        row: the record corresponding to the clicked row, 
-//        $element: the tr element.
-        console.log($("#pktemp").val());
-        console.log(pktemp);
-    },
-    onCheck: function (row, $element) {
-//        row: the record corresponding to the clicked row, 
-//        $element: the tr element.
-//        console.log(row.id);
-    },
-    url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersAddresses",
-    method: 'GET',
-    locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
-    toggle: "table",
-    height: "300",
-    width: "500",
-    pagination: "true",
-    search: "true",
-    toolbar: "#toolbar",
-    showColumns: true,
-    showRefresh: true,
-    showToggle: true,
-    queryParams: function (p) {
-        return {
-            language_code: $('#langCode').val(),
-            pktemp: pktemp,
-//            pktemp: $("#pktemp").val()
-            table_type: 'bootstrap'
-        };
-    },
-    total: {field: 'total'},
-    columns:
-            [
-                {checkbox: true},
-                {field: 'address_type', sortable: true, width: 100},
-                {field: 'tr_country_name', sortable: true, width: 100},
-                {field: 'tr_city_name', sortable: true, width: 100},
-                {field: 'tr_borough_name', sortable: true, width: 100},
-                {field: 'city_name', sortable: true, width: 100},
-                {field: 'address1', sortable: true, width: 200},
-                {field: 'address2', sortable: true, width: 200},
-                {field: 'postal_code', sortable: true, width: 50},
-                {field: 'description', width: 300}
-            ]
-});
+/*
+ * Task progress bars control function
+ * @author: Bahram Lotfi
+ * @Since: 2016.2.1
+ * 
+ */
 
 function taskProgressPerTabs() {
 
@@ -1341,5 +1339,98 @@ function taskProgressPerTabs() {
     }
 }
 
+/*
+ * Contact information table pop up on modal
+ * @author:Bahram
+ * @Since:2016.1.2
+ */
 
+$('#table_address_modal').bootstrapTable({
+    url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersAddresses",
+    method: 'GET',
+    locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
+    toggle: "table",
+    width: "500",
+    pagination: "true",
+    search: "true",
+    toolbar: "#toolbar",
+    showColumns: true,
+    showRefresh: true,
+    showToggle: true,
+    queryParams: function (p) {
+        if (pktemp === null) {
+            return false;
+        } else {
+            return {
+                language_code: $('#langCode').val(),
+                pktemp: pktemp,
+                component_type: 'bootstrap'
+            };
+        }
+    }
+    , columns:
+            [
+                {checkbox: true},
+                {field: 'address_type', sortable: true, width: 100},
+                {field: 'tr_country_name', sortable: true, width: 100},
+                {field: 'tr_city_name', sortable: true, width: 100},
+                {field: 'tr_borough_name', sortable: true, width: 100},
+                {field: 'city_name', sortable: true, width: 100},
+                {field: 'address1', sortable: true, width: 200},
+                {field: 'address2', sortable: true, width: 200},
+                {field: 'postal_code', sortable: true, width: 50},
+                {field: 'description', width: 300}
+            ]
+});
+
+
+/*
+ * List of contacts Modal
+ * @author: Bahram Lotfi
+ * @Since: 2016.2.11
+ */
+
+
+$('#table_contacts_modal').bootstrapTable({
+    onClickRow: function (row, $element) {
+        //        row: the record corresponding to the clicked row, 
+//                $element: the tr element.
+//        console.log($("#pktemp").val());
+//        console.log(pktemp);
+    },
+    onCheck: function (row, $element) {
+//        row: the record corresponding to the clicked row, 
+        //        $element: the tr element.
+//        console.log(row.id);
+    },
+    url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersCommunications",
+    method: 'GET',
+    locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
+    toggle: "table",
+    width: "500",
+    pagination: "true",
+    search: "true",
+    toolbar: "#toolbar",
+    showColumns: true,
+    showRefresh: true,
+    showToggle: true,
+    queryParams: function (p) {
+        if (pktemp === null) {
+            return false;
+        } else {
+            return {
+                language_code: $('#langCode').val(),
+                pktemp: pktemp,
+                component_type: 'bootstrap'
+            };
+        }
+    },
+    columns:
+            [
+                {field: 'state', checkbox: true},
+                {field: 'comminication_type', sortable: true, width: 100},
+                {field: 'communications_no', sortable: true, width: 100},
+                {field: 'profile_public', sortable: true, width: 100}
+            ]
+});
 

@@ -51,7 +51,8 @@
                 "Select a Communication Type":"İletişim tipi seçiniz",
                 "Please select your prefered language from list...":"Tercih ettiğiniz dili seçiniz...",
                 "Submission Process":"Kayıt İşlemi",
-                "Warning":"Uyarı"
+                "Warning":"Uyarı",
+                "Please select a district from list...":"Lütfen ilçe seçiniz..."
 	},
 	"regex": [
 		["Budget", "Bütçe"],

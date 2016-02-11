@@ -753,8 +753,8 @@ msgstr "Eklenmiş Numaralar"
 msgid "I agree with the Terms and Conditions"
 msgstr "Şartlar ve koşulları kabul ediyorum"
 
-msgid "Finzalize Submittion Process"
-msgstr "Kayıt işlemini sonlandır"
+msgid "Complete User Submittion Process"
+msgstr "Kullanici Kayıt işlemini tamamla"
 
 msgid "Continue to Company Information"
 msgstr "Kaydet ve firma bilgilerine geç"
