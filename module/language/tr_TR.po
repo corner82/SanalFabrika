@@ -729,8 +729,8 @@ msgstr "Tercih edilen dil"
 msgid "Make my profile public"
 msgstr "Profilimi her kes görebilir"
 
-msgid "Select a Communication Type"
-msgstr "İletişim tipi seçiniz"
+msgid "Communication Type"
+msgstr "İletişim tipi"
 
 msgid "Please select a communication type from list..."
 msgstr "Listeden iletişim tipini seçiniz..."

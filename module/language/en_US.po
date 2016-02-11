@@ -590,7 +590,7 @@ msgstr ""
 msgid "Make my profile public"
 msgstr ""
 
-msgid "Select a Communication Type"
+msgid "Communication Type"
 msgstr ""
 
 msgid "Please select a communication type from list..."

@@ -25,15 +25,25 @@ $(document).ready(function () {
 
     window.clickedButton;
     window.clickedForm;
+
     window.makePublicProfile = 0;
     window.makePublicAddress = 0;
     window.makePublicCommunication = 0;
+
     window.selectedCountryId;
     window.selectedCityId;
     window.selectedDistrictId;
     window.selectedPreferedLanguageId;
-    window.selectedPreferedLanguageId;
+    window.selectedAddressTypeId;
+    window.selectedCommunicationTypeId;
+
     window.pktemp;
+
+    window.userGeneralInformationProgress = "0";
+    window.userAddressInformationProgress = "0";
+    window.userCommunicationInformationProgress = "0";
+    window.overallRegistrationProgress = "0";
+
     /*
      * Content blocker
      */
@@ -103,7 +113,7 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Please select a communication type from list..."),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
-                        console.log(selectedData);
+                        taskProgressPerTabs();
                         //callback function: do something with selectedData;
                     }
                 });
@@ -131,7 +141,6 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
-                console.log(data);
                 $('#usercountry').ddslick({
                     data: data,
                     width: '100%',
@@ -142,7 +151,7 @@ $(document).ready(function () {
                     onSelected: function (selectedData) {
 
                         selectedCountryId = selectedData.selectedData.value;
-                        console.log(selectedCountryId);
+//                        console.log(selectedCountryId);
                         userCityDropDownUpdate();
 //                        console.log(selectedData);
 //                        console.log(selectedCountryId);
@@ -189,8 +198,9 @@ $(document).ready(function () {
             //data: 'rowIndex='+rowData.id,
             success: function (data, textStatus, jqXHR) {
                 if (data.length !== 0) {
-                    console.log(data);
-                    $('#usercountry').ddslick({
+
+                    $('#usercity').ddslick('destroy');
+                    $('#usercity').ddslick({
                         data: data,
                         width: '100%',
                         height: '500%',
@@ -199,8 +209,8 @@ $(document).ready(function () {
                         imagePosition: 'right',
                         onSelected: function (selectedData) {
                             selectedCityId = selectedData.selectedData.value;
-                            console.log(selectedData);
-                            console.log(selectedCityId);
+//                            console.log(selectedData);
+//                            console.log(selectedCityId);
                             districtDropDownUpdate();
                             //callback function: do something with selectedData;
                         }
@@ -237,8 +247,9 @@ $(document).ready(function () {
             //data: 'rowIndex='+rowData.id,
             success: function (data, textStatus, jqXHR) {
                 if (data.length !== 0) {
-                    console.log(data);
-                    $('#usercountry').ddslick({
+                    console.log(data);                    
+                    $('#userdistrict').ddslick('destroy');
+                    $('#userdistrict').ddslick({
                         data: data,
                         width: '100%',
                         height: '500%',
@@ -247,8 +258,8 @@ $(document).ready(function () {
                         imagePosition: 'right',
                         onSelected: function (selectedData) {
                             selectedDistrictId = selectedData.selectedData.value;
-                            console.log(selectedData);
-                            console.log(selectedDistrictId);
+//                            console.log(selectedData);
+//                            console.log(selectedDistrictId);
                             //callback function: do something with selectedData;
                         }
                     });
@@ -286,7 +297,7 @@ $(document).ready(function () {
                     imagePosition: "right",
                     onSelected: function (selectedData) {
                         selectedPreferedLanguageId = selectedData.selectedData.value;
-                        console.log(selectedData);
+//                        console.log(selectedData);
                         console.log(selectedPreferedLanguageId);
                         //callback function: do something with selectedData;
                     }
@@ -315,7 +326,6 @@ $(document).ready(function () {
         success: function (data, textStatus, jqXHR) {
 
             if (data.length !== 0) {
-                console.log(data);
                 $('#communicationTypes').ddslick({
                     data: data,
                     width: '100%',
@@ -324,8 +334,8 @@ $(document).ready(function () {
                     imagePosition: "right",
                     onSelected: function (selectedData) {
                         selectedCommunicationTypeId = selectedData.selectedData.value;
-                        console.log(selectedData);
-                        console.log(selectedCommunicationTypeId);
+//                        console.log(selectedData);
+//                        console.log(selectedCommunicationTypeId);
                         //callback function: do something with selectedData;
                     }
                 });
@@ -469,7 +479,7 @@ function submitUserGeneralInfoForm() {
                     username: $('#preferedUsername').val(),
                     password: $('#userPreferedPassword').val(),
                     auth_email: $('#useremail').val(),
-                    preferred_language: $('#userPreferedLanguage :selected').val(),
+                    preferred_language: selectedPreferedLanguageId,
                     profile_public: makePublicProfile,
                     operation_type_id: 2,
                     active: 0,
@@ -587,7 +597,7 @@ function submitUserGeneralInfoForm() {
                     username: $('#preferedUsername').val(),
                     password: $('#userPreferedPassword').val(),
                     auth_email: $('#useremail').val(),
-                    preferred_language: $('#userPreferedLanguage :selected').val(),
+                    preferred_language: selectedPreferedLanguageId,
                     profile_public: makePublicProfile
                 },
                 method: "GET",
@@ -694,7 +704,7 @@ function submitUserGeneralInfoForm() {
 function submitUserAddressInfoForm() {
 
     if ($('#userAddressInfoForm').validationEngine('validate')) {
-        if ($('#usercountry :selected').val() === "91") {
+        if (selectedCountryId === "91") {
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -704,13 +714,13 @@ function submitUserAddressInfoForm() {
                     profile_public: makePublicAddress,
                     language_code: $("#langCode").val(),
                     operation_type_id: '1',
-                    address_type_id: $('#addressTypesCombo :selected').val(),
+                    address_type_id: selectedAddressTypeId,
                     address1: $('#userAddress1').val(),
                     address2: $('#userAddress2').val(),
                     postal_code: $('#userPostalCode').val(),
-                    country_id: $('#usercountry :selected').val(),
-                    city_id: $('#usercity :selected').val(),
-                    borough_id: $('#userdistrict :selected').val(),
+                    country_id: selectedCountryId,
+                    city_id: selectedCityId,
+                    borough_id: selectedDistrictId,
                     city_name: "",
                     description: $('#addressDescription').val()
                 },
@@ -771,11 +781,11 @@ function submitUserAddressInfoForm() {
                     profile_public: makePublicAddress,
                     language_code: $("#langCode").val(),
                     operation_type_id: '1',
-                    address_type_id: $('#addressTypesCombo :selected').val(),
+                    address_type_id: selectedAddressTypeId,
                     address1: $('#userAddress1').val(),
                     address2: $('#userAddress2').val(),
                     postal_code: $('#userPostalCode').val(),
-                    country_id: $('#usercountry :selected').val(),
+                    country_id: selectedCountryId,
                     city_id: "0",
                     borough_id: "0",
                     city_name: $('#userCityName').val(),
@@ -840,7 +850,7 @@ function submitUserCommunicationInfoForm() {
                 pktemp: pktemp,
                 profile_public: makePublicCommunication,
                 language_code: $("#langCode").val(),
-                communications_type_id: $('#communicationTypes :selected').val(),
+                communications_type_id: selectedCommunicationTypeId,
                 communications_no: $('#contactNumber').val(),
                 description: $('#contactDescription').val(),
                 description_eng: ''
@@ -1141,10 +1151,6 @@ $('#table_address_modal').bootstrapTable({
             ]
 });
 
-var userGeneralInformationProgress = "0";
-var userAddressInformationProgress = "0";
-var userCommunicationInformationProgress = "0";
-var overallRegistrationProgress = "0";
 function taskProgressPerTabs() {
 
     if ($('#checkGeneralForm').val() === '0') {
@@ -1204,18 +1210,19 @@ function taskProgressPerTabs() {
 
             userAddressInformationProgressNumber = 0;
             overallRegistrationProgressNumber = 30;
-            if ($('#addressTypesCombo :selected').val()) {
+            if (!selectedAddressTypeId === '-1') {
                 userAddressInformationProgressNumber += 25;
             }
-            if ($('#usercountry :selected').val() === "91") {
+            if (selectedCountryId === "91") {
                 userAddressInformationProgressNumber += 25;
-                if ($('#usercity :selected').val() >= 0) {
+                if (selectedCityId >= 0) {
                     userAddressInformationProgressNumber += 15;
                 }
-                if ($('#userdistrict :selected').val() >= 0) {
+                if (selectedDistrictId >= 0) {
                     userAddressInformationProgressNumber += 10;
                 }
-            } else if ($('#usercountry :selected').val() === "-1") {
+            } else if (selectedCountryId === "-1") {
+
             } else {
                 userAddressInformationProgressNumber += 25;
                 if ($('#userCityName').val()) {
@@ -1264,7 +1271,7 @@ function taskProgressPerTabs() {
 
                     userCommunicationInformationProgressNumber = 0;
                     overallRegistrationProgressNumber = 60;
-                    if ($('#communicationTypes :selected').val()) {
+                    if (!selectedCommunicationTypeId === '-1') {
                         userCommunicationInformationProgressNumber += 50;
                         overallRegistrationProgressNumber += 15;
                     }
