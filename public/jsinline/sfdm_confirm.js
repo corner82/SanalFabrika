@@ -6,31 +6,38 @@ $(document).ready(function () {
     
     var filler = $('#todolistbox').todolistFiller();
     
-    var dropdownOperationsToolsData = [
-        {
-            text: "Lütfen Onay seçiniz",
-            value: -1,
-            selected: true,
-            description: "Operasyon tipi 'Onay' olarak seçilirse bu alan dolacaktır...",
-            imageSrc: ""
-        }
-    ];
+    
     
     /**
-     * operation type tool select box filling
+     * operation type tool select box filling for please select item
      * @author Mustafa Zeynel Dağlı
-     * @since 10/02/2016
+     * @since 11/02/2016
      */
-    $('#dropdownOperationsTools').ddslick({
-        data : dropdownOperationsToolsData, 
-        width:'100%',
-        //selectText: "Select your preferred social network",
-        imagePosition:"right",
-        onSelected: function(selectedData){
-            console.log(selectedData.selectedData.text);
-            console.log(selectedData.selectedData.value);
-        }   
-    });
+    window.getOperationTypeToolsPleaseSelect = function() {
+        var dropdownOperationsToolsData = [
+            {
+                text: "Lütfen Onay Aracı Seçiniz",
+                value: -1,
+                selected: true,
+                description: "Operasyon tipi 'Onay' olarak seçilirse bu alan dolacaktır...",
+                imageSrc: ""
+            }
+        ];
+        
+        $('#dropdownOperationsTools').ddslick({
+            data : dropdownOperationsToolsData, 
+            width:'100%',
+            //selectText: "Select your preferred social network",
+            imagePosition:"right",
+            onSelected: function(selectedData){
+                console.log(selectedData.selectedData.text);
+                console.log(selectedData.selectedData.value);
+            }   
+        });
+    }
+    
+    window.getOperationTypeToolsPleaseSelect();
+    
     
     
     /**
@@ -49,9 +56,7 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'json',
             success: function (datas, textStatus, jqXHR) {
-                console.log('data length sonrası');
                 if(datas.length!==0) {
-                    console.log('data length >0');
                     $('#dropdownOperationsTools').ddslick('destroy');
                     $('#dropdownOperationsTools').ddslick({
                         data : datas,
@@ -97,6 +102,9 @@ $(document).ready(function () {
                         console.log(selectedData.selectedData.value);
                         if(selectedData.selectedData.value==6) {
                             window.getOperationTypeTools();
+                        } else {
+                            $('#dropdownOperationsTools').ddslick('destroy');
+                            window.getOperationTypeToolsPleaseSelect();
                         }
                     }   
                 });
@@ -107,10 +115,13 @@ $(document).ready(function () {
         error: function (jqXHR, textStatus, errorThrown) {           
             console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis hatası->'+textStatus);
         }
-
     });
     
- 
+    /**
+     * filling page content header widget with user confirmation statistics
+     * @author Mustafa Zeynel Dağlı
+     * @since 09/02/2016
+     */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsWaitingForConfirm_blActivationReport' ,
@@ -174,11 +185,6 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'json',
             success: function (data, textStatus, jqXHR) {
-                //console.log(data);
-                //console.log(data[0]['id']);
-                //console.log(data[0]['adresbilgileri']); 
-                //console.log(data.adresbilgileri);
-                console.log(data.length);
                 if(data.length!==0) {
                     $("#username").val(data[0]['username']);
                     $("#languagecode").val(data[0]['languagecode']);
@@ -203,7 +209,6 @@ $(document).ready(function () {
                         draggable: true, // <-- Default value is false
                         buttonLabel: 'Tamam', // <-- Default value is 'OK',
                     });
-                    
                 } 
             },
             error: function (jqXHR, textStatus, errorThrown) {
