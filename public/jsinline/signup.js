@@ -28,14 +28,15 @@ $(document).ready(function () {
 
     window.makePublicProfile = 0;
     window.makePublicAddress = 0;
-    window.makePublicCommunication = 0;
+    window.makeCommunicationPublic = 0;
 
     window.selectedCountryId;
     window.selectedCityId;
     window.selectedDistrictId;
     window.selectedPreferedLanguageId;
-    window.selectedAddressTypeId;
+    window.selectedAddTypeId;
     window.selectedCommunicationTypeId;
+    window.defaultContactNumber;
 
     window.pktemp;
 
@@ -48,8 +49,8 @@ $(document).ready(function () {
      * Content blocker
      */
 
-    window.contentBlocker = $("#tabsContentsSection").blockuiCentered();
-    window.contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
+    contentBlocker = $("#tabsContentsSection").blockuiCentered();
+    contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
 
 
     /*
@@ -106,6 +107,7 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
+                $('#addressTypesCombo').ddslick('destroy');
                 $('#addressTypesCombo').ddslick({
                     data: data,
                     width: '100%',
@@ -113,6 +115,7 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Please select a communication type from list..."),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
+                        selectedAddTypeId = selectedData.selectedData.value;
                         taskProgressPerTabs();
                         //callback function: do something with selectedData;
                     }
@@ -247,7 +250,7 @@ $(document).ready(function () {
             //data: 'rowIndex='+rowData.id,
             success: function (data, textStatus, jqXHR) {
                 if (data.length !== 0) {
-                    console.log(data);                    
+                    console.log(data);
                     $('#userdistrict').ddslick('destroy');
                     $('#userdistrict').ddslick({
                         data: data,
@@ -714,7 +717,7 @@ function submitUserAddressInfoForm() {
                     profile_public: makePublicAddress,
                     language_code: $("#langCode").val(),
                     operation_type_id: '1',
-                    address_type_id: selectedAddressTypeId,
+                    address_type_id: selectedAddTypeId,
                     address1: $('#userAddress1').val(),
                     address2: $('#userAddress2').val(),
                     postal_code: $('#userPostalCode').val(),
@@ -781,7 +784,7 @@ function submitUserAddressInfoForm() {
                     profile_public: makePublicAddress,
                     language_code: $("#langCode").val(),
                     operation_type_id: '1',
-                    address_type_id: selectedAddressTypeId,
+                    address_type_id: selectedAddTypeId,
                     address1: $('#userAddress1').val(),
                     address2: $('#userAddress2').val(),
                     postal_code: $('#userPostalCode').val(),
@@ -842,18 +845,25 @@ function submitUserCommunicationInfoForm() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
+        if($('#defaultContactNumber').attr('chekced') === 'checked'){
+            defaultContactNumber = 1;
+        }else{
+            defaultContactNumber = 0;
+        }
+
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
             data: {
                 url: 'pktempInsert_infoUsersCommunications',
                 pktemp: pktemp,
-                profile_public: makePublicCommunication,
+                profile_public: makeCommunicationPublic,
                 language_code: $("#langCode").val(),
                 communications_type_id: selectedCommunicationTypeId,
                 communications_no: $('#contactNumber').val(),
                 description: $('#contactDescription').val(),
-                description_eng: ''
+                description_eng: '',
+                default_communication_id: defaultContactNumber
             },
             method: "GET",
             dataType: "json",
@@ -1090,10 +1100,10 @@ function changePublicAddress() {
 
 function changePublicCommunication() {
 
-    if ($("#makePubliccommunication").attr('checked') === 'checked') {
-        makePubliccommunication = '0';
+    if ($("#makeCommunicationPublic").attr('checked') === 'checked') {
+        makeCommunicationPublic = '0';
     } else {
-        makePubliccommunication = '1';
+        makeCommunicationPublic = '1';
     }
 }
 
@@ -1210,7 +1220,7 @@ function taskProgressPerTabs() {
 
             userAddressInformationProgressNumber = 0;
             overallRegistrationProgressNumber = 30;
-            if (!selectedAddressTypeId === '-1') {
+            if (selectedAddTypeId === "-1") {
                 userAddressInformationProgressNumber += 25;
             }
             if (selectedCountryId === "91") {

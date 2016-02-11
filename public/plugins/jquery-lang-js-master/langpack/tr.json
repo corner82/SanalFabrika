@@ -50,7 +50,8 @@
                 "Form Reset":"Form Temizleme",
                 "Select a Communication Type":"İletişim tipi seçiniz",
                 "Please select your prefered language from list...":"Tercih ettiğiniz dili seçiniz...",
-                "Submission Process":"Kayıt İşlemi"
+                "Submission Process":"Kayıt İşlemi",
+                "Warning":"Uyarı"
 	},
 	"regex": [
 		["Budget", "Bütçe"],
