@@ -1,12 +1,19 @@
 $(document).ready(function () {
 
-    //$('#tab_confirm_container a:first').tab('show');
-    //$('#tab_confirm_container a[href="#tab_3"]').tab('show');
+    /**
+     * while widget todolist is being filled, loading image is displayed
+     * @author Mustafa Zeynel Dağlı
+     * @since 09/02/2016
+     */
     $('#todolistbox').loadImager();
+    //$('#todolistbox').loadImager('appendImage');
     
+    /**
+     * todo list box widget is being filled
+     * @author Mustafa Zeynel Dağlı
+     * @since 09/02/2016
+     */
     var filler = $('#todolistbox').todolistFiller();
-    
-    
     
     /**
      * operation type tool select box filling for please select item
@@ -30,16 +37,16 @@ $(document).ready(function () {
             //selectText: "Select your preferred social network",
             imagePosition:"right",
             onSelected: function(selectedData){
-                console.log(selectedData.selectedData.text);
-                console.log(selectedData.selectedData.value);
+                //console.log(selectedData.selectedData.text);
             }   
         });
+        if($('#dropdownOperationsToolsContainer').loadImager()!='undefined') {
+            $('#dropdownOperationsToolsContainer').loadImager('removeLoadImage');
+        }
+        
     }
-    
     window.getOperationTypeToolsPleaseSelect();
-    
-    
-    
+
     /**
      * return operation type tools
      * @returns {boolean}
@@ -49,9 +56,9 @@ $(document).ready(function () {
     window.getOperationTypeTools = function () {
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: { url:'pkFillConsultantOperationsDropDown_sysOperationTypes' ,
+            data: { url:'pkFillConsultantOperationsToolsDropDown_sysOperationTypesTools' ,
                     language_code : 'tr',
-                    main_group : 2,
+                    main_group : 0,
                     pk : $("#pk").val()}, 
             type: 'GET',
             dataType: 'json',
@@ -68,11 +75,37 @@ $(document).ready(function () {
                 } else {
                     console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis datası boştur!!');
                 }
+                $('#dropdownOperationsToolsContainer').loadImager('removeLoadImage');
             },
-            error: function (jqXHR, textStatus, errorThrown) {           
-                console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis hatası->'+textStatus);
+            error: function (jqXHR, textStatus, errorThrown) {
+                BootstrapDialog.show({
+                    title: 'Servis Hatası- Hata Kodu : AAA11',
+                    message: 'Servis hatası oluşmuştur, hata kodu sistem yöneticine yollanacaktır!!',
+                    description: 'Servis hatası oluşmuştur, hata kodu sistem yöneticine yollanacaktır!!',
+                    type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+                    closable: true, // <-- Default value is false
+                    draggable: true, // <-- Default value is false
+                    buttons: [ {
+                        icon: 'glyphicon glyphicon-ban-circle',
+                        label: 'Tamam',
+                        cssClass: 'btn-warning',
+                        action: function(dialogItself){
+                            var error = $(this).errorService();
+                            error.errorService('option', 'url', 'pkInsert_infoError');
+                            error.errorService('option', 'errorCode', 'AAA11');
+                            error.errorService('option', 'errorInfo', textStatus);
+                            error.errorService('option', 'errorUrl', 'sfdm/confirm');
+                            error.errorService('option', 'page', 'Danışman Onay Sayfası');
+                            error.errorService('option', 'pk', $("#pk").val());
+                            error.errorService('option', 'service', 'pkFillConsultantOperationsToolsDropDown_sysOperationTypesTools');
+                            error.errorService('send');
+                            dialogItself.close();
+                        }
+                    }]
+                });
+                console.error('"pkFillConsultantOperationsToolsDropDown_sysOperationTypes" servis hatası->'+textStatus);
+                $('#dropdownOperationsToolsContainer').loadImager('removeLoadImage');
             }
-
         });
     }
     
@@ -89,7 +122,6 @@ $(document).ready(function () {
                 pk : $("#pk").val()}, 
         type: 'GET',
         dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if(data.length!==0) {
                 $('#dropdownOperations').ddslick({
@@ -98,11 +130,14 @@ $(document).ready(function () {
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
                     onSelected: function(selectedData){
-                        console.log(selectedData.selectedData.text);
-                        console.log(selectedData.selectedData.value);
+                        //console.log(selectedData.selectedData.value);
                         if(selectedData.selectedData.value==6) {
+                            $('#dropdownOperationsToolsContainer').loadImager();
+                            $('#dropdownOperationsToolsContainer').loadImager('appendImage');
                             window.getOperationTypeTools();
                         } else {
+                            $('#dropdownOperationsToolsContainer').loadImager();
+                            $('#dropdownOperationsToolsContainer').loadImager('appendImage');
                             $('#dropdownOperationsTools').ddslick('destroy');
                             window.getOperationTypeToolsPleaseSelect();
                         }
@@ -136,11 +171,11 @@ $(document).ready(function () {
             filler.todolistFiller('option','otherDomObjectKeysDataLabels',new Array('sure'));
             filler.todolistFiller('option','data',data);
             filler.todolistFiller('fill');
+            //$('#todolistbox').loadImager("removeLoadImage");
         },
         error: function (jqXHR, textStatus, errorThrown) {
 //            console.error(textStatus);
         }
-
     });
     
     /**
@@ -214,10 +249,7 @@ $(document).ready(function () {
             error: function (jqXHR, textStatus, errorThrown) {
                 //console.error(textStatus);
             }
-        });
-        
-        
-        
+        });  
     }
     
     /**
@@ -232,7 +264,12 @@ $(document).ready(function () {
         return parseInt(tr.attr('datagrid-row-index'));
     }
 
-    // 
+    /**
+     * grid_confirm_registration easyui datagrid
+     * user confirmation datagrid listing for confirmation
+     * @author Mustafa Zeynel Dağlı
+     * @since 10/02/2016
+     */
     $('#grid_confirm_registration').datagrid({
             onDblClickRow : function (index, row) {
                 //$('.nav-tabs a[href="#tab_1-1"]').tab('show');  
@@ -276,15 +313,20 @@ $(document).ready(function () {
                 ]]   
       }); 
       
-    /**
+    /** 
      * grid_confirm_registration datagrid filter 
-     * @type @call;$@call;datagrid
-     */ 
+     * @author Mustafa Zeynel Dağlı
+     * @since 11/02/2016  
+     */  
     var grid_confirm_registration_filter = $('#grid_confirm_registration').datagrid();
     grid_confirm_registration_filter.datagrid('enableFilter');
       
 
-    // sektörlere göre tezgah sayıları grafiği (#container_tezgah)
+    /**
+     * page contetnt header widgets are filled here (small colorfull boxes)
+     * @author Mustafa Zeynel Dağlı
+     * @since 11/02/2016
+     */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsultantUpDashBoardCount_blActivationReport' ,
@@ -298,7 +340,7 @@ $(document).ready(function () {
             $("#toplam_header_2_container").headerSetter(data[1]);
             $("#toplam_header_3_container").headerSetter(data[2]);
             $("#toplam_header_4_container").headerSetter(data[3]);
-            $('#todolistbox').loadImager("removeLoadImage");
+            //$('#todolistbox').loadImager("removeLoadImage");
             
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -307,7 +349,11 @@ $(document).ready(function () {
 
     });
 
-    // grafik machinery by resource (#container_machinerByResource)
+    /**
+     * cretaes half donut graghic for display
+     * @author Mustafa Zeynel Dağlı
+     * @since 10/02/2016
+     */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsultantOperation_blActivationReport' ,
@@ -386,73 +432,6 @@ $(document).ready(function () {
         }
 
     });
-
-
-    // sanayi sektöründe çalışanların sayısına göre tezgah bilgileri (#container_employees)
-    $.ajax({
-        //url: '../slim_2/index.php/columnflows_json_test',
-        //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySectorByEmployees',
-        //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySectorByEmployees',
-        url: 'https://anket.sanalfabrika.com/tezgah.php/getMachineryBySectorByEmployees',
-        //data: { url:'totalAnket'  },
-        type: 'GET',
-        dataType: 'json',
-        language_id:647,
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            //console.error(data);
-
-            $('#container_employees').highcharts({
-                chart: {
-                    type: 'bar',
-                    //margin: 0
-                },
-                title: {
-                    text: 'Sektör Bazında Çalışan Sayılarına Göre Tezgah Top.'
-                },
-                xAxis: {
-                    categories: ['Sanayi', 'Ticaret', 'Hizmet', 'Diğer', 'Depo']
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Sektörlere ve  Çalışan sayılarına göre tezgah sayıları'
-                    }
-                },
-                legend: {
-                    reversed: true
-                },
-                plotOptions: {
-                    series: {
-                        stacking: 'normal'
-                    }
-                },
-                series: [{
-                        name: 'Çalışan 10 dan az',
-                        data: [parseFloat(data[0]['adet']), parseFloat(data[4]['adet']), parseFloat(data[8]['adet']), parseFloat(data[12]['adet']), parseFloat(data[16]['adet'])]
-                    }, {
-                        name: 'Çalışan 10 ve 20 arasında',
-                        data: [parseFloat(data[1]['adet']), parseFloat(data[5]['adet']), parseFloat(data[9]['adet']), parseFloat(data[13]['adet']), parseFloat(data[17]['adet'])]
-                    }, {
-                        name: 'Çalışan 20 ve 50 arasında',
-                        data: [parseFloat(data[2]['adet']), parseFloat(data[6]['adet']), parseFloat(data[10]['adet']), parseFloat(data[14]['adet']), parseFloat(data[18]['adet'])]
-                    },
-                    {
-                        name: 'Çalışan 50 ve 100 arasında',
-                        data: [parseFloat(data[3]['adet']), parseFloat(data[7]['adet']), parseFloat(data[11]['adet']), parseFloat(data[15]['adet']), parseFloat(data[19]['adet'])]
-
-                    }]
-            });
-            //console.error(data);
-            //console.error(resultArray);
-        }
-
-    });
-
-
-
-
-
 
     /*
      * Author: Abdullah A Almsaeed
