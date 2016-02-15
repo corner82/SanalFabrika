@@ -58,7 +58,8 @@
                 "Register and Continue to Company Information":"Kaydet ve Firma Bilgilerine Geç",
                 "Update and Continue to Address Information":"Güncelle ve Adres Bilgilerine Geç",
                 "Update and Continue to Communication Information":"Güncelle ve İletişim Bilgilerine Geç",
-                "Update and Continue to Company Information":"Güncelle ve Firma Bilgilerine Geç"                
+                "Update and Continue to Company Information":"Güncelle ve Firma Bilgilerine Geç", 
+                "Address information submitted sucessfully":"Adres Bilgileri Başarıyla kaydedildi"
 	},
 	"regex": [
 		["Budget", "Bütçe"],

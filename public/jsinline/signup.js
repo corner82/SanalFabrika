@@ -82,7 +82,7 @@ $(document).ready(function () {
 
     $('#userGeneralInfoFormSubmit').submit(submitUserGeneralInfoForm);
     $('#userAddressInfoFormSubmit').submit(submitUserAddressInfoForm);
-    $('#submitContactNumber').on('click', submitUserContactNumber);
+//    $('#submitContactNumber').on('click', submitUserContactNumber);
     $("#userGeneralInfoFormReset").on('click', resetForm);
     $("#userAddressInfoFormReset").on('click', resetForm);
     $("#userCommunicationInfoFormReset").on('click', resetForm);
@@ -191,6 +191,7 @@ $.ajax({
                 imagePosition: "right",
                 onSelected: function (selectedData) {
                     selectedAddTypeId = selectedData.selectedData.value;
+                    console.log(selectedAddTypeId);
                     taskProgressPerTabs();
                     //callback function: do something with selectedData;
                 }
@@ -370,6 +371,7 @@ $.ajax({
     dataType: 'json',
     //data: 'rowIndex='+rowData.id,
     success: function (data, textStatus, jqXHR) {
+
         if (data.length !== 0) {
             $('#userPreferedLanguage').ddslick({
                 data: data,
@@ -731,13 +733,9 @@ function submitUserGeneralInfoForm() {
                         $('#userGeneralInfoTab').removeClass('active');
                         $('#userAddressInfoTab').addClass('active');
                         $('#userAddressInfoTab').removeClass('disabled');
-                        /*
-                         * OKan pktemp servisi yazilacak************************
-                         * *****************************************************
-                         */
-
-
+                        
                         taskProgressPerTabs();
+                        
                     } else if (data['errorInfo'] === '23505') {
 
                         console.log('insert success: ' + data['errorInfo']);
@@ -972,13 +970,13 @@ function defContactNumber() {
  */
 
 function submitUserContactNumber() {
+    event.preventDefault();
+    event.stopImmediatePropagation();
 
-
-    if ($('#userCommunicationInfoForm').validationEngine('validate')) {
-
+    if ($('#userCommunicationInfoForm').validationEngine('validate')) { 
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+////                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
             data: {
                 url: 'pktempInsert_infoUsersCommunications',
                 pktemp: pktemp,
@@ -994,10 +992,6 @@ function submitUserContactNumber() {
             dataType: "json",
             success: function (data) {
                 if (data['errorInfo'][0] === '00000') {
-                    console.log(data);
-//                    $("#pktemp").val(data.pktemp);
-                    $('#lastInsertId').val(data.lastInsertId);
-                    console.log('insert success: ' + data['errorInfo'][0]);
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
@@ -1006,15 +1000,18 @@ function submitUserContactNumber() {
                         message: window.lang.translate('Contact information submitted successfully'),
                         type: BootstrapDialog.TYPE_SUCCESS
                     });
+                    $('#userGeneralInfoForm').val('1');
+                    $('#userAddressInfoForm').val('1');
+                    $('#userCommunicationInfoForm').val('1');
+                    $("#userCommunicationInfoForm").trigger('reset');
                     taskProgressPerTabs();
                 }
             }
             , error: function (jqXHR, textStatus, errorThrown) {
-
+//
                 console.error(jqXHR);
                 console.error(textStatus);
                 console.error(errorThrown);
-                $("#checkAddressForm").val("0");
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Contact information submission failed'),
@@ -1023,9 +1020,7 @@ function submitUserContactNumber() {
             }
         });
     }
-    event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
-
 }
 
 /*
@@ -1381,6 +1376,7 @@ function changePublicCommunication() {
     } else {
         makeCommunicationPublic = '1';
     }
+
 }
 
 /*
@@ -1391,11 +1387,13 @@ function changePublicCommunication() {
  */
 
 function taskProgressPerTabs() {
+
     if ($('#checkGeneralForm').val() === '0') {
 
         userGeneralInformationProgressNumber = 0;
         overallRegistrationProgressNumber = 0;
         if ($('#userFirstName').val()) {
+
             userGeneralInformationProgressNumber += 20;
             overallRegistrationProgressNumber += 6;
         }
@@ -1472,7 +1470,7 @@ function taskProgressPerTabs() {
             if ($('#userAddress2').val()) {
                 userAddressInformationProgressNumber += 10;
             }
-            if ($('#userPostalCode').val()) {
+            if ($('#userPostalCode').validationEngine('validate')) {
                 userAddressInformationProgressNumber += 5;
             }
             userAddressInformationProgress = userAddressInformationProgressNumber.toString();
@@ -1505,6 +1503,7 @@ function taskProgressPerTabs() {
         } else if ($('#checkGeneralForm').val() === '1') {
             if ($('#checkAddressForm').val() === '1') {
                 if ($('#checkCommunicationForm').val() === '0') {
+
 
                     userCommunicationInformationProgressNumber = 0;
                     overallRegistrationProgressNumber = 60;

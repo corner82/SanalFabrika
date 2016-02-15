@@ -360,7 +360,7 @@
                                         <?php echo $this->translate('Address Information') ?>
                                     </a>
                                 </li>
-                                <li id="userCommunicationInfoTab"  onclick="checkUAI()">
+                                <li id="userCommunicationInfoTab" class="disabled"  onclick="checkUAI()">
                                     <a href="#userCommunicationInfo" data-toggle="tab">
                                         <?php echo $this->translate('Communication Information') ?>
                                     </a>
@@ -565,9 +565,7 @@
                                                             <i class="fa fa-home"></i>
                                                         </div>
                                                         <input type="text" name="userPostalCode" id="userPostalCode"
-                                                               class="form-control 
-                                                               validate[custom[onlyLetterNumber,
-                                                               minSize[5],maxSize[10]]]"
+                                                               class="form-control validate[required, custom[onlyLetterNumber] ,minSize[5],maxSize[10]]"
                                                                onchange="taskProgressPerTabs()">
                                                     </div>
                                                 </section>                                                                                                
