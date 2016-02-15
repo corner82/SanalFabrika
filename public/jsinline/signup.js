@@ -733,9 +733,9 @@ function submitUserGeneralInfoForm() {
                         $('#userGeneralInfoTab').removeClass('active');
                         $('#userAddressInfoTab').addClass('active');
                         $('#userAddressInfoTab').removeClass('disabled');
-                        
+
                         taskProgressPerTabs();
-                        
+
                     } else if (data['errorInfo'] === '23505') {
 
                         console.log('insert success: ' + data['errorInfo']);
@@ -972,8 +972,9 @@ function defContactNumber() {
 function submitUserContactNumber() {
     event.preventDefault();
     event.stopImmediatePropagation();
+    defContactNumber();
 
-    if ($('#userCommunicationInfoForm').validationEngine('validate')) { 
+    if ($('#userCommunicationInfoForm').validationEngine('validate')) {
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 ////                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -1141,30 +1142,35 @@ function companyInfoSubmission() {
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-            data: {url: 'pktempInsert_infoUsersCommunications',
+            data: {url: 'pktempInsert_infofirmprofile',
                 pktemp: pktemp,
-                profile_public: makeCommunicationPublic,
                 language_code: $("#langCode").val(),
-                communications_type_id: selectedCommunicationTypeId,
-                communications_no: $('#contactNumber').val(),
-                description: $('#contactDescription').val(),
-                description_eng: '',
-                default_communication_id: defaultContactNumber
+                company_name: $('#companyName').val(),
+                company_tax_number: $('#companyTaxNumber').val(),
+                company_tax_office: $('#companyTaxOffice').val(),
+                companuY_social_security_number: $('#companySocialSecurityNumber').val(),
+                company_foundation_date: $('#companyFoundationDate').val(),
+                company_email: $('#companyEmail').val(),
+                company_web_address: $('#companyWebAddress').val()
             },
             method: "GET",
             dataType: "json",
             success: function (data) {
                 if (data['errorInfo'][0] === '00000') {
 
-                    //                    $("#pktemp").val(data.pktemp);
-                    $('#lastInsertId').val(data.lastInsertId);
-                    console.log('insert success: ' + data['errorInfo'][0]);
+//                    console.log('insert success: ' + data['errorInfo'][0]);
+
                     $('div.growlUI')
                             .css("background",
                                     "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
-                        message: window.lang.translate('Contact information submitted successfully'),
+                        message: window.lang.translate('Company information submitted successfully. \n\
+            You will be directed to the system main page. \n\
+            An email sent to your submitted email address.\n\
+            Please click on provided confirmation link to activate your account and login to the system.\n\
+            System consultant will call you soon to proceed registration confirmation procedure.\n\
+            '),
                         type: BootstrapDialog.TYPE_SUCCESS
                     });
                     taskProgressPerTabs();
@@ -1178,7 +1184,7 @@ function companyInfoSubmission() {
                 $("#checkAddressForm").val("0");
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
-                    message: window.lang.translate('Contact information submission failed'), type: BootstrapDialog.TYPE_DANGER
+                    message: window.lang.translate('Company information submission failed'), type: BootstrapDialog.TYPE_DANGER
                 });
             }
         });
