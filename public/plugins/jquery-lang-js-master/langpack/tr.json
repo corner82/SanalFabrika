@@ -52,7 +52,13 @@
                 "Please select your prefered language from list...":"Tercih ettiğiniz dili seçiniz...",
                 "Submission Process":"Kayıt İşlemi",
                 "Warning":"Uyarı",
-                "Please select a district from list...":"Lütfen ilçe seçiniz..."
+                "Please select a district from list...":"Lütfen ilçe seçiniz...",
+                "Register and Continue to Address Information":"Kaydet ve Adres Bilgilerine Geç",
+                "Register and Continue to Communication Information":"Kaydet ve İletişim Bilgilerine Geç",
+                "Register and Continue to Company Information":"Kaydet ve Firma Bilgilerine Geç",
+                "Update and Continue to Address Information":"Güncelle ve Adres Bilgilerine Geç",
+                "Update and Continue to Communication Information":"Güncelle ve İletişim Bilgilerine Geç",
+                "Update and Continue to Company Information":"Güncelle ve Firma Bilgilerine Geç"                
 	},
 	"regex": [
 		["Budget", "Bütçe"],

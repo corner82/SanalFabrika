@@ -1,12 +1,5 @@
 $(document).ready(function () {
 
-    /*
-     * Hide and show city input fields based on country dropdown input
-     */
-
-    $('#cityNameSection').show();
-    $('#cityDropdownSection').hide();
-    $('#districtDropdownSection').hide();
 
     /**
      * multilanguage plugin 
@@ -54,6 +47,14 @@ $(document).ready(function () {
 
 
     /*
+     * Hide and show city input fields based on country dropdown input
+     */
+
+    $('#cityNameSection').show();
+    $('#cityDropdownSection').hide();
+    $('#districtDropdownSection').hide();
+
+    /*
      * Disable finalize registration and submit user info before checking 
      * agreement terms and conditions...
      * @author: Bahram Lotfi Sadigh
@@ -81,15 +82,70 @@ $(document).ready(function () {
 
     $('#userGeneralInfoFormSubmit').submit(submitUserGeneralInfoForm);
     $('#userAddressInfoFormSubmit').submit(submitUserAddressInfoForm);
-    $('#userCommunicationInfoFormSubmit').submit(submitUserCommunicationInfoForm);
+    $('#submitContactNumber').on('click', submitUserContactNumber);
     $("#userGeneralInfoFormReset").on('click', resetForm);
     $("#userAddressInfoFormReset").on('click', resetForm);
     $("#userCommunicationInfoFormReset").on('click', resetForm);
-//    $("#userCommunicationInfoFormFinalize").on('click', finalizeUserCommunicationInfoForm);
-    $("#submitUserCommunicationInfoForm").on('click', submitUserInfoForm);
+//    $("#userCommunicationInfoFormFinalize").submit(completeUserSubmissionProcess);
+//    $("#submitUserCommunicationInfoForm").on('click', submitUserInfoForm);
+
+
+    /*
+     * Arrange buttons based on pktemp presence or absence
+     * @author:Bahram
+     * @Since: 2016.2.12
+     */
+
+    if (!$('#pktemp').val().length) {
+        if ($('#userGeneralInfoForm') === '0') {
+            $("#userGeneralInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Address Information"));
+        } else {
+            $("#userGeneralInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Address Information"));
+            event.preventDefault();
+        }
+        if ($('#userAddressInfoForm') === '0') {
+            $("#userAddressInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Communication Information"));
+        } else {
+            $("#userAddressInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Communication Information"));
+        }
+        if ($('#userCommunicationInfoForm') === '0') {
+            $("#userCommunicationInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Company Information"));
+        } else {
+            $("#userCommunicationInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Company Information"));
+        }
+    } else {
+        if ($('#userGeneralInfoForm') === '0') {
+            $("#userGeneralInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Address Information"));
+        } else {
+            $("#userGeneralInfoFormSubmit").
+                    text(window.lang.translate("Update and Continue to Address Information"));
+        }
+        if ($('#userAddressInfoForm') === '0') {
+            $("#userAddressInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Communication Information"));
+        } else {
+            $("#userAddressInfoFormSubmit").
+                    text(window.lang.translate("Update and Continue to Communication Information"));
+        }
+        if ($('#userCommunicationInfoForm') === '0') {
+            $("#userCommunicationInfoFormSubmit").
+                    text(window.lang.translate("Register and Continue to Company Information"));
+        } else {
+            $("#userCommunicationInfoFormSubmit").
+                    text(window.lang.translate("Update and Continue to Company Information"));
+        }
+    }
+
 });
 
-var pktemp = $('#pktemp').value;
+var pktemp = $('#pktemp').val();
 
 /*
  * Show or hide password content
@@ -323,11 +379,9 @@ $.ajax({
                 imagePosition: "right",
                 onSelected: function (selectedData) {
                     selectedPreferedLanguageId = selectedData.selectedData.value;
-//                    console.log(selectedData);
-//                    console.log(selectedPreferedLanguageId);
-                    //callback function: do something with selectedData;
                 }
             });
+
         } else {
             console.error('"fillComboBox_syslanguage" servis datası boştur!!');
         }
@@ -336,9 +390,45 @@ $.ajax({
         console.error('"fillComboBox_syslanguage" servis hatası->' + textStatus);
     }
 });
+
+
+/*
+ * Language bar on top of page...
+ * @author:Bahram
+ * @Since: 2016.2.12
+ */
+
+$.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+    data: {
+        url: 'fillComboBox_syslanguage',
+        language_code: $("#langCode").val()
+    },
+    type: 'GET',
+    dataType: 'json',
+    //data: 'rowIndex='+rowData.id,
+    success: function (data, textStatus, jqXHR) {
+        if (data.length !== 0) {
+            $.fn.multiLanguageBarSetter.defaults.requestUriTranslated = $("#requestUriRegulated").val();
+            $.fn.multiLanguageBarSetter.defaults.langCode = $("#langCode").val();
+            $.fn.multiLanguageBarSetter.defaults.basePath = 'ostim/sanalfabrika';
+            $.fn.multiLanguageBarSetter.defaults.baseLanguage = 'tr';
+            $(".languages").multiLanguageBarSetter(data);
+
+        } else {
+            console.error('"fillComboBox_syslanguage" servis datası boştur!!');
+        }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+        console.error('"fillComboBox_syslanguage" servis hatası->' + textStatus);
+    }
+});
+
+
 /*
  * List of communication types combobox ajax
  */
+
 $.ajax({
     url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
     data: {
@@ -373,7 +463,6 @@ $.ajax({
         console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
     }
 });
-
 
 /*
  * Reset Form Elements
@@ -480,13 +569,13 @@ function submitUserGeneralInfoForm() {
 
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
 
-        if (!$("#pktemp") === null) {
-
+        if ($("#pktemp").val().length) {
+            console.log('update' + $("#pktemp").val());
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
                 data: {
-                    url: 'pkUpdate_infoUsers',
+                    url: 'pktempUpdate_infoUsers',
                     language_code: $("#langCode").val(),
                     name: $("#userFirstName").val(),
                     surname: $('#userLastName').val(),
@@ -497,7 +586,8 @@ function submitUserGeneralInfoForm() {
                     profile_public: makePublicProfile,
                     operation_type_id: 2,
                     active: 0,
-                    act_parent_id: 0
+                    act_parent_id: 0,
+                    pktemp: $("#pktemp").val()
                 },
                 method: "GET",
                 dataType: "json",
@@ -600,6 +690,7 @@ function submitUserGeneralInfoForm() {
             });
         } else {
 
+            console.log('insert ' + $("#pktemp").val());
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -622,6 +713,7 @@ function submitUserGeneralInfoForm() {
 
                         $("#pktemp").val(data.pktemp);
                         pktemp = data.pktemp;
+//                        console.log(pktemp);
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
                         console.log('insert success: ' + data['errorInfo'][0]);
@@ -858,7 +950,6 @@ function submitUserAddressInfoForm() {
     }
 }
 
-
 /*
  * Check default contact number check box
  * @author:Bahram
@@ -866,7 +957,7 @@ function submitUserAddressInfoForm() {
  */
 
 function defContactNumber() {
-    
+
     if ($('#defaultContactNumber').is(':checked')) {
         defaultContactNumber = 1;
     } else {
@@ -874,36 +965,36 @@ function defContactNumber() {
     }
 }
 
-
 /*
  * Submit User address information
  * @Author: Bahram Lotfi Sadigh
  * @Since: 2016.2.1
  */
-function submitUserCommunicationInfoForm() {
+
+function submitUserContactNumber() {
+
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
-
-    $.ajax({
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
             data: {
-            url: 'pktempInsert_infoUsersCommunications',
-                    pktemp: pktemp,
-                    profile_public: makeCommunicationPublic,
-                    language_code: $("#langCode").val(),
-                    communications_type_id: selectedCommunicationTypeId,
-                    communications_no: $('#contactNumber').val(),
-                    description: $('#contactDescription').val(),
-                    description_eng: '',
-                    default_communication_id:defaultContactNumber
+                url: 'pktempInsert_infoUsersCommunications',
+                pktemp: pktemp,
+                profile_public: makeCommunicationPublic,
+                language_code: $("#langCode").val(),
+                communications_type_id: selectedCommunicationTypeId,
+                communications_no: $('#contactNumber').val(),
+                description: $('#contactDescription').val(),
+                description_eng: '',
+                default_communication_id: defaultContactNumber
             },
             method: "GET",
             dataType: "json",
             success: function (data) {
                 if (data['errorInfo'][0] === '00000') {
-
+                    console.log(data);
 //                    $("#pktemp").val(data.pktemp);
                     $('#lastInsertId').val(data.lastInsertId);
                     console.log('insert success: ' + data['errorInfo'][0]);
@@ -916,38 +1007,45 @@ function submitUserCommunicationInfoForm() {
                         type: BootstrapDialog.TYPE_SUCCESS
                     });
                     taskProgressPerTabs();
-                    }
                 }
-        , error: function (jqXHR, textStatus, errorThrown) {
+            }
+            , error: function (jqXHR, textStatus, errorThrown) {
 
-        console.error(jqXHR);
-        console.error(textStatus);
-        console.error(errorThrown);
-        $("#checkAddressForm").val("0");
-        BootstrapDialog.show({
-        title: window.lang.translate('Submission Process'),
-                message: window.lang.translate('Contact information submission failed'),
-                type: BootstrapDialog.TYPE_DANGER
+                console.error(jqXHR);
+                console.error(textStatus);
+                console.error(errorThrown);
+                $("#checkAddressForm").val("0");
+                BootstrapDialog.show({
+                    title: window.lang.translate('Submission Process'),
+                    message: window.lang.translate('Contact information submission failed'),
+                    type: BootstrapDialog.TYPE_DANGER
+                });
+            }
         });
-        }
-    });
     }
-            $('#contactsListSection').html();
     event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
-    
+
 }
 
+/*
+ * Submit User Info form and continues to company general info page
+ * @author: Bahram
+ * @Since: 2016.1.8
+ */
 
 function submitUserInfoForm() {
 
-    $('#userCommunicationInfoForm').val('1');
+    if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
-    $('#userCommunicationInfo').attr('class', 'tab-pane fade');
-    $('#companyInfo').attr('class', 'tab-pane fade in active');
-    $('#userCommunicationInfoTab').removeClass('active');
-    $('#companyInfoTab').addClass('active');
-    $('#companyInfoTab').removeClass('disabled');
+        $('#userCommunicationInfoForm').val('1');
+
+        $('#userCommunicationInfo').attr('class', 'tab-pane fade');
+        $('#companyInfo').attr('class', 'tab-pane fade in active');
+        $('#userCommunicationInfoTab').removeClass('active');
+        $('#companyInfoTab').addClass('active');
+        $('#companyInfoTab').removeClass('disabled');
+    }
 
     event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
@@ -960,6 +1058,140 @@ function submitUserInfoForm() {
  */
 
 function completeUserSubmissionProcess() {
+
+    event.stopImmediatePropagation();
+
+    if ($('#userCommunicationInfoForm').validationEngine('validate')) {
+        if ($('#userGeneralInfoForm').val() === '1') {
+
+            if ($('#userAddressInfoForm').val() === '1') {
+
+                if ($('#userCommunicationInfoForm').val() === '1') {
+
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('User information submission completed successfully. \n\
+            You will be directed to the system main page. \n\
+            An email sent to your submitted email address.\n\
+            Please click on provided confirmation link to activate your account and login to the system.\n\
+            '),
+                        type: BootstrapDialog.TYPE_SUCCESS,
+                        buttons: [{
+                                icon: 'glyphicon glyphicon-check',
+                                label: 'OK',
+                                cssClass: 'btn-success',
+                                action: function () {
+                                    window.location.href =
+                                            "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika";
+                                }
+                            }]
+                    });
+                } else {
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('Please fill user communication information first'),
+                        type: BootstrapDialog.TYPE_SUCCESS,
+                        buttons: [{
+                                icon: 'glyphicon glyphicon-check',
+                                label: 'OK',
+                                cssClass: 'btn-success',
+                                action: function () {
+                                    $("html, body").animate({scrollTop: 0}, "slow");
+                                    event.preventDefault();
+                                }
+                            }]
+                    });
+                }
+            } else {
+                BootstrapDialog.show({
+                    title: window.lang.translate('Submission Process'),
+                    message: window.lang.translate('Please fill user address information form first'),
+                    type: BootstrapDialog.TYPE_SUCCESS,
+                    buttons: [{
+                            icon: 'glyphicon glyphicon-check',
+                            label: 'OK',
+                            cssClass: 'btn-success',
+                            action: function () {
+                                window.location.href =
+                                        "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika/registration#userAddressInfoForm";
+                                event.preventDefault();
+                            }
+                        }]
+                });
+            }
+        } else {
+            BootstrapDialog.show({
+                title: window.lang.translate('Submission Process'),
+                message: window.lang.translate('Please fill user general information form first'),
+                type: BootstrapDialog.TYPE_SUCCESS,
+                buttons: [{
+                        icon: 'glyphicon glyphicon-check',
+                        label: 'OK',
+                        cssClass: 'btn-success',
+                        action: function () {
+                            window.location.href =
+                                    "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika/registration#userGeneralInfoForm";
+                            event.preventDefault();
+                        }
+                    }]
+            });
+        }
+    }
+}
+
+function companyInfoSubmission() {
+
+    if ($('#companyInfoForm').validationEngine('validate')) {
+
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
+            data: {url: 'pktempInsert_infoUsersCommunications',
+                pktemp: pktemp,
+                profile_public: makeCommunicationPublic,
+                language_code: $("#langCode").val(),
+                communications_type_id: selectedCommunicationTypeId,
+                communications_no: $('#contactNumber').val(),
+                description: $('#contactDescription').val(),
+                description_eng: '',
+                default_communication_id: defaultContactNumber
+            },
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+                if (data['errorInfo'][0] === '00000') {
+
+                    //                    $("#pktemp").val(data.pktemp);
+                    $('#lastInsertId').val(data.lastInsertId);
+                    console.log('insert success: ' + data['errorInfo'][0]);
+                    $('div.growlUI')
+                            .css("background",
+                                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('Contact information submitted successfully'),
+                        type: BootstrapDialog.TYPE_SUCCESS
+                    });
+                    taskProgressPerTabs();
+                }
+            }
+            , error: function (jqXHR, textStatus, errorThrown) {
+
+                console.error(jqXHR);
+                console.error(textStatus);
+                console.error(errorThrown);
+                $("#checkAddressForm").val("0");
+                BootstrapDialog.show({
+                    title: window.lang.translate('Submission Process'),
+                    message: window.lang.translate('Contact information submission failed'), type: BootstrapDialog.TYPE_DANGER
+                });
+            }
+        });
+    }
+    $('#contactsListSection').html();
+    event.preventDefault();
+    $("html, body").animate({scrollTop: 0}, "slow");
+
 }
 
 
@@ -1151,7 +1383,6 @@ function changePublicCommunication() {
     }
 }
 
-
 /*
  * Task progress bars control function
  * @author: Bahram Lotfi
@@ -1160,7 +1391,6 @@ function changePublicCommunication() {
  */
 
 function taskProgressPerTabs() {
-
     if ($('#checkGeneralForm').val() === '0') {
 
         userGeneralInformationProgressNumber = 0;
@@ -1206,7 +1436,6 @@ function taskProgressPerTabs() {
                 $('#userGeneralInfoRegistrationProgress').validationEngine('hide');
             }, 3000);
         }
-
         overallRegistrationProgress = overallRegistrationProgressNumber.toString();
         $("#overallRegistrationProgress").
                 html(overallRegistrationProgress + '%');
@@ -1353,8 +1582,7 @@ $('#table_address_modal').bootstrapTable({
     width: "500",
     pagination: "true",
     search: "true",
-    toolbar: "#toolbar",
-    showColumns: true,
+    toolbar: "#toolbar", showColumns: true,
     showRefresh: true,
     showToggle: true,
     queryParams: function (p) {
@@ -1372,6 +1600,34 @@ $('#table_address_modal').bootstrapTable({
             [
                 {checkbox: true},
                 {field: 'address_type', sortable: true, width: 100},
+                /*        
+                 editable: {
+                 type: 'select',
+                 source: [
+                 {value: 1, text: 'Active'},
+                 {value: 2, text: 'Blocked'},
+                 {value: 3, text: 'Deleted'}
+                 ],
+                 //'title': 'Herd Tag',
+                 'prepend': {none: "--------------"}
+                 }
+                 },
+                 
+                 update action will be done eactely like as sfdm-confirm page 
+                 In this place a new tab will be opened based on selected row information 
+                 with a filled form (like user addres form) and data could be changed and 
+                 updated accordingly. 
+                 
+                 Second option is using bootstrap-table editable format which is given
+                 as a sample here. reference for this option is on the link below:
+                 
+                 http://bootstrap-table.wenzhixin.net.cn/examples/
+                 and 
+                 https://github.com/wenzhixin/bootstrap-table/issues/986
+                 and
+                 http://jsfiddle.net/wenyi/e3nk137y/28/light/
+                 
+                 */
                 {field: 'tr_country_name', sortable: true, width: 100},
                 {field: 'tr_city_name', sortable: true, width: 100},
                 {field: 'tr_borough_name', sortable: true, width: 100},
@@ -1390,18 +1646,16 @@ $('#table_address_modal').bootstrapTable({
  * @Since: 2016.2.11
  */
 
-
 $('#table_contacts_modal').bootstrapTable({
     onClickRow: function (row, $element) {
         //        row: the record corresponding to the clicked row, 
 //                $element: the tr element.
-//        console.log($("#pktemp").val());
-//        console.log(pktemp);
+        //        console.log($("#pktemp").val());
+        //        console.log(pktemp);
     },
     onCheck: function (row, $element) {
-//        row: the record corresponding to the clicked row, 
-        //        $element: the tr element.
-//        console.log(row.id);
+        //        row: the record corresponding to the clicked row,          //        $element: the tr element.
+        //        console.log(row.id);
     },
     url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersCommunications",
     method: 'GET',
@@ -1434,3 +1688,7 @@ $('#table_contacts_modal').bootstrapTable({
             ]
 });
 
+
+function ok() {
+
+}
