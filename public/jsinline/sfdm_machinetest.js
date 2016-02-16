@@ -1,45 +1,99 @@
 $(document).ready(function () {
-
-     $('#todolistbox').loadImager();
-     var filler = $('#todolistbox').todolistFiller();
     
+   /* var testTool = $(this).machineTree();
+    testTool.machineTree({
+        tested : function(event) {
+            alert('tested worked');
+        }
+        
+    });*/
+    
+    $(document.getElementById('form-builder-template')).formBuilder();
+    
+    
+    var tree = $('.tree2').machineTree();  
+    tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
+    tree.machineTree('option', 'pk', $("#pk").val());
+    tree.machineTree('setMainRoot');
+    
+    
+    //testTool.machineTree('test');  
+    
+    
+    /**
+     * machine tool tree
+     * @author Mustafa Zeynel Dağlı
+     * @since 12/02/2016
+     */
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+    $('.tree li.parent_li > span').on('click', function (e) {
+        //alert('test');
+        var children = $(this).parent('li.parent_li').find(' > ul > li');
+        if (children.is(":visible")) {
+            children.hide('fast');
+            //$(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+            $(this).attr('title', 'Expand this branch').find(' > i').addClass('fa-cogs').removeClass('fa-spin');
+        } else {
+            children.show('fast');
+            //$(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+            $(this).attr('title', 'Expand this branch').find(' > i').addClass('fa-spin').removeClass('fa-cogs');
+        }
+        e.stopPropagation();
+    });
+    
+    
+
+    /**
+     * while widget todolist is being filled, loading image is displayed
+     * @author Mustafa Zeynel Dağlı
+     * @since 09/02/2016
+     */
+    $('#todolistboxcontainer').loadImager();
+    //$('#todolistbox').loadImager('appendImage');
+    
+    /**
+     * todo list box widget is being filled
+     * @author Mustafa Zeynel Dağlı
+     * @since 09/02/2016
+     */
+    var filler = $('#todolistbox').todolistFiller();
+
+    /**
+     * filling todo list widget with user confirmation statistics
+     * @author Mustafa Zeynel Dağlı
+     * @since 09/02/2016
+     */
     $.ajax({
-        //url: '../slim_2/index.php/columnflows_json_test',
-        //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySector',
-        //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySector',
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsWaitingForConfirm_blActivationReport' ,
                 pk : $("#pk").val()}, 
         type: 'GET',
         dataType: 'json',
-        language_id:647,
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             //console.log(data);
+            $('#todolistboxcontainer').loadImager("removeLoadImage");
             filler.todolistFiller('option','domObjectKey','span[data-fill="true"]');
             filler.todolistFiller('option','otherDomObjectKeys','small[data-fill-number="true"],small[data-fill-number2="true"]');
             filler.todolistFiller('option','otherDomObjectKeysDataLabels',new Array('sure'));
             filler.todolistFiller('option','data',data);
             filler.todolistFiller('fill');
-            $('#todolistbox').loadImager('removeLoadImage');  
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
 //            console.error(textStatus);
         }
-
     });
-
     
-  
-
-    // sektörlere göre tezgah sayıları grafiği (#container_tezgah)
+    /**
+     * page contetnt header widgets are filled here (small colorfull boxes)
+     * @author Mustafa Zeynel Dağlı
+     * @since 11/02/2016
+     */
     $.ajax({
-        //url: '../slim_2/index.php/columnflows_json_test',
-        //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySector',
-        //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySector',
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsultantUpDashBoardCount_blActivationReport' ,
-                pk : $("#pk").val()}, 
+                pk : $("#pk").val()},
         type: 'GET',
         dataType: 'json',
         language_id:647,
@@ -49,7 +103,8 @@ $(document).ready(function () {
             $("#toplam_header_2_container").headerSetter(data[1]);
             $("#toplam_header_3_container").headerSetter(data[2]);
             $("#toplam_header_4_container").headerSetter(data[3]);
-            $('#todolistbox').loadImager("removeLoadImage");
+            //$('#todolistbox').loadImager("removeLoadImage");
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
 //            console.error(textStatus);
@@ -57,13 +112,19 @@ $(document).ready(function () {
 
     });
 
-    // grafik machinery by resource (#container_machinerByResource)
+    /**
+     * cretaes half donut graghic for display
+     * @author Mustafa Zeynel Dağlı
+     * @since 10/02/2016
+     */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkGetConsultantOperation_blActivationReport' ,
-                pk : $("#pk").val()}, 
+                pk : $("#pk").val()},
         type: 'GET',
         dataType: 'json',
+        language_id:647,
+        //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
 //            console.warn(data);
             var dataArr = [];
@@ -134,73 +195,6 @@ $(document).ready(function () {
         }
 
     });
-
-
-    // sanayi sektöründe çalışanların sayısına göre tezgah bilgileri (#container_employees)
-    $.ajax({
-        //url: '../slim_2/index.php/columnflows_json_test',
-        //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySectorByEmployees',
-        //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySectorByEmployees',
-        url: 'https://anket.sanalfabrika.com/tezgah.php/getMachineryBySectorByEmployees',
-        //data: { url:'totalAnket'  },
-        type: 'GET',
-        dataType: 'json',
-        language_id:647,
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            //console.error(data);
-
-            $('#container_employees').highcharts({
-                chart: {
-                    type: 'bar',
-                    //margin: 0
-                },
-                title: {
-                    text: 'Sektör Bazında Çalışan Sayılarına Göre Tezgah Top.'
-                },
-                xAxis: {
-                    categories: ['Sanayi', 'Ticaret', 'Hizmet', 'Diğer', 'Depo']
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Sektörlere ve  Çalışan sayılarına göre tezgah sayıları'
-                    }
-                },
-                legend: {
-                    reversed: true
-                },
-                plotOptions: {
-                    series: {
-                        stacking: 'normal'
-                    }
-                },
-                series: [{
-                        name: 'Çalışan 10 dan az',
-                        data: [parseFloat(data[0]['adet']), parseFloat(data[4]['adet']), parseFloat(data[8]['adet']), parseFloat(data[12]['adet']), parseFloat(data[16]['adet'])]
-                    }, {
-                        name: 'Çalışan 10 ve 20 arasında',
-                        data: [parseFloat(data[1]['adet']), parseFloat(data[5]['adet']), parseFloat(data[9]['adet']), parseFloat(data[13]['adet']), parseFloat(data[17]['adet'])]
-                    }, {
-                        name: 'Çalışan 20 ve 50 arasında',
-                        data: [parseFloat(data[2]['adet']), parseFloat(data[6]['adet']), parseFloat(data[10]['adet']), parseFloat(data[14]['adet']), parseFloat(data[18]['adet'])]
-                    },
-                    {
-                        name: 'Çalışan 50 ve 100 arasında',
-                        data: [parseFloat(data[3]['adet']), parseFloat(data[7]['adet']), parseFloat(data[11]['adet']), parseFloat(data[15]['adet']), parseFloat(data[19]['adet'])]
-
-                    }]
-            });
-            //console.error(data);
-            //console.error(resultArray);
-        }
-
-    });
-
-
-
-
-
 
     /*
      * Author: Abdullah A Almsaeed

@@ -243,6 +243,7 @@ $(document).ready(function () {
        test.test('hide',testBlockuiNewRoleSubmitApproval);
        //testBlockuiNewRoleSubmitApproval.blockuiApprovalWrapper('hide');
        aclProcessing.blockElement('hide');
+       testBlockuiNewRoleSubmitApproval.blockuiApprovalWrapper('find');
        return false;
    }
     

@@ -54,6 +54,16 @@ $(document).ready(function () {
      * @since 10/02/2016
      */
     window.getOperationTypeTools = function () {
+        
+        /*try {
+            writeMyFile(theData); //This may throw a error
+          } catch(e) {  
+            handleError(e); // If we got a error we handle it
+          } finally {
+            closeMyFile(); // always close the resource
+          }*/
+        
+        
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: { url:'pkFillConsultantOperationsToolsDropDown_sysOperationTypesTools' ,
