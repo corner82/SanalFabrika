@@ -348,7 +348,12 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
     var field = '',
         lastID = 1,
         boxID = frmbID + '-control-box';
-
+     
+    /**
+     * form element palce holders are placed here(right elements column items)
+     * @type Array
+     * @author Mustafa Zeynel Dağlı
+     */
     // create array of field objects to cycle through
     var frmbFields = [{
       label: opts.messages.text,
@@ -420,7 +425,12 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       id: boxID,
       'class': 'frmb-control'
     });
-
+    
+    /**
+     * right column form elements are rendered due to attributes
+     * @type Number|@exp;frmbFields@pro;length
+     * @author Mustafa Zeynel Dağlı
+     */
     // Loop through
     for (var i = frmbFields.length - 1; i >= 0; i--) {
       var $field = $('<li/>', {
@@ -1135,7 +1145,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
 
     // Attach a callback to add new checkboxes
     $sortableFields.delegate('.add_ck', 'click', function () {
-        alert('ad click event');
+        //alert('ad click event');
       $(this).parent().before(selectFieldOptions());
       return false;
     });
@@ -1143,24 +1153,35 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
     $sortableFields.delegate('li.disabled .form-element', 'mouseenter', function () {
       _helpers.disabledTT($(this));
     });
-
+     
+     /**
+      * form editor, dragged form element 'add option' (if there is option) action binding
+      * @author Mustafa Zeynel Dağlı
+      */
     // Attach a callback to add new options
     $sortableFields.delegate('.add_opt', 'click', function (e) {
+      //alert('add option');
       e.preventDefault();
       var isMultiple = $(this).parents('.fields').first().find('input[name="multiple"]')[0].checked,
           name = $(this).parents('.fields').find('.select-option:eq(0)').attr('name');
       $(this).parents('.fields').first().find('.sortable-options').append(selectFieldOptions(false, name, false, isMultiple));
       _helpers.updateMultipleSelect();
     });
-
+    
+    /**
+     * form editor, dragged form element 'close option' (if there is option) action binding
+     * @author Mustafa Zeynel Dağlı
+     */
     // Attach a callback to close link
     $sortableFields.delegate('.close_field', 'click', function (e) {
+      //alert('close option field action');
       e.preventDefault();
       $(this).parents('li.form-field').find('.toggle-form').trigger('click');
     });
 
     // Attach a callback to add new radio fields
     $sortableFields.delegate('.add_rd', 'click', function (e) {
+      //alert('add new radio fields');
       e.preventDefault();
       $(this).parent().before(selectFieldOptions(false, $(this).parents('.frm-holder').attr('id')));
     });
@@ -1168,9 +1189,14 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
     $('.form-elements .fields .remove, .frmb .del-button').on('hover', function () {
       $(this).parents('li.form-field').toggleClass('delete');
     });
-
+    
+    /**
+     * view xml button action binding
+     * @author Mustafa Zeynel Dağlı
+     */
     // View XML
     $(document.getElementById(frmbID + '-export-xml')).click(function (e) {
+      //alert('view xml action');
       e.preventDefault();
       var xml = elem.val(),
           $pre = $('<pre />').text(xml);
@@ -1204,9 +1230,14 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         $sortableFields.append(opts.disableFields.after);
       }
     });
-
+    
+    /**
+     * form editor, form save button action
+     * @author Mustafa Zeynel Dağlı
+     */
     // Save Idea Template
     $(document.getElementById(frmbID + '-save')).click(function (e) {
+        //alert('form save action');
       if ($(this).find('.ldkInlineEdit').length === 0) {
         e.preventDefault();
         if (!$stageWrap.hasClass('edit-xml')) {
