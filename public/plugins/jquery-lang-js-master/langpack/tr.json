@@ -59,7 +59,9 @@
                 "Update and Continue to Address Information":"Güncelle ve Adres Bilgilerine Geç",
                 "Update and Continue to Communication Information":"Güncelle ve İletişim Bilgilerine Geç",
                 "Update and Continue to Company Information":"Güncelle ve Firma Bilgilerine Geç", 
-                "Address information submitted sucessfully":"Adres Bilgileri Başarıyla kaydedildi"
+                "Address information submitted sucessfully":"Adres Bilgileri Başarıyla kaydedildi",
+                "Please select company ownership situation from list...":"Lütfen firmanın mülkiyet durumuna uygun seçeneği seçiniz...",
+                "Contact information submitted successfully":""
 	},
 	"regex": [
 		["Budget", "Bütçe"],
