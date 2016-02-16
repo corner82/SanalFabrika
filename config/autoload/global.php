@@ -48,6 +48,7 @@ return array(
                         ),
         'Sanalfabrika' => array(
             'registration' => 'layout/registrationLayout.phtml',
+            'sflogin' => 'layout/sfloginLayout.phtml',
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -103,7 +104,8 @@ return array(
                                      'admin' => array('index'),
                                      'login' => array('index','logout'),
                                      'sanalfabrika' => array ('index',
-                                                              'registration')),
+                                                              'registration',
+                                                              'sflogin')),
                    ),
         'supervisor' => array(
                          'parent' => 'consultant',
@@ -116,7 +118,7 @@ return array(
                    ),
         'guest' => array(
                          'action' => array('sanalfabrika' => array ('index',
-                                                                    'registration'),
+                                                                    'registration','sflogin'),
                                      'login' => array('index'),)
                    ),
         'new user' => array(

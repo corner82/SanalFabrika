@@ -847,5 +847,8 @@ msgstr "Altkırılımlar"
 msgid "Main"
 msgstr "Ana başlık"
 
+msgid "Ownership Status"
+msgstr "Mülkiyet Durumu"
+
 
 

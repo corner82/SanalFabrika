@@ -21,9 +21,12 @@ $(document).ready(function () {
     window.clickedButton;
     window.clickedForm;
 
+    window.enteredEmailAddress;
+
     window.makePublicProfile = 0;
     window.makePublicAddress = 0;
     window.makeCommunicationPublic = 0;
+    window.makePublicCompany = 0;
 
     window.selectedCountryId;
     window.selectedCityId;
@@ -147,6 +150,16 @@ $(document).ready(function () {
 
 var pktemp = $('#pktemp').val();
 
+
+function checkUserName() {
+    
+    enteredEmailAddress = $('#useremail').val();
+    $('#preferedUsername').val(enteredEmailAddress);
+//        $('#preferedUsername').prop('disabled',true);
+
+}
+
+
 /*
  * Show or hide password content
  * @author: Bahram Lotfi Sadigh
@@ -236,6 +249,18 @@ $.ajax({
 //                        console.log(selectedData);
 //                        console.log(selectedCountryId);
                     //callback function: do something with selectedData;
+                }
+            });
+            $('#companyCountry').ddslick({
+                data: data,
+                width: '100%',
+                height: '500%',
+                background: false,
+                selectText: window.lang.translate("Please select a country from list..."),
+                imagePosition: 'right',
+                onSelected: function (selectedData) {
+
+                    selectedCompanyCountryId = selectedData.selectedData.value;
                 }
             });
         } else {
@@ -393,6 +418,39 @@ $.ajax({
     }
 });
 
+
+$.ajax({
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+    data: {
+        url: 'fillOwnershipType_sysSpecificDefinitions',
+        language_code: $("#langCode").val(),
+        component_type: 'ddslick'
+    },
+    type: 'GET',
+    dataType: 'json',
+    //data: 'rowIndex='+rowData.id,
+    success: function (data, textStatus, jqXHR) {
+
+        if (data.length !== 0) {
+            $('#companyOwnershipStatus').ddslick({
+                data: data,
+                width: '100%',
+                background: false,
+                selectText: window.lang.translate("Please select company ownership situation from list..."),
+                imagePosition: "right",
+                onSelected: function (selectedData) {
+                    selectedOwnershipId = selectedData.selectedData.value;
+                }
+            });
+
+        } else {
+            console.error('"fillOwnershipType_sysSpecificDefinitions" servis datası boştur!!');
+        }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+        console.error('"fillOwnershipType_sysSpecificDefinitions" servis hatası->' + textStatus);
+    }
+});
 
 /*
  * Language bar on top of page...
@@ -1048,7 +1106,7 @@ function submitUserInfoForm() {
 }
 
 /*
- * Complete user information submission process and go to login page..
+ * Complete user information submission process and go to home page..
  * @author: Bahram Lotfi Sadigh
  * @Since: 2016.2.11
  */
@@ -1142,16 +1200,22 @@ function companyInfoSubmission() {
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-            data: {url: 'pktempInsert_infofirmprofile',
+            data: {url: 'pktempInsert_infoFirmProfile',
                 pktemp: pktemp,
                 language_code: $("#langCode").val(),
-                company_name: $('#companyName').val(),
-                company_tax_number: $('#companyTaxNumber').val(),
-                company_tax_office: $('#companyTaxOffice').val(),
-                companuY_social_security_number: $('#companySocialSecurityNumber').val(),
-                company_foundation_date: $('#companyFoundationDate').val(),
-                company_email: $('#companyEmail').val(),
-                company_web_address: $('#companyWebAddress').val()
+                profile_public: makePublicCompany,
+                country_id: selectedCompanyCountryId,
+                ownership_status_id: selectedOwnershipId,
+                firm_name: $('#companyName').val(),
+                firm_name_short: $('#companyShortName').val(),
+                tax_office: $('#companyTaxOffice').val(),
+                tax_no: $('#companyTaxNumber').val(),
+                sgk_sicil_no: $('#companySocialSecurityNumber').val(),
+                foundation_year: $('#companyFoundationDate').val(),
+                duns_number: $('#companyDUNSNumber').val(),
+                description: $('#companyDescription').val(),
+                web_address: $('#companyWebAddress').val()
+
             },
             method: "GET",
             dataType: "json",
@@ -1174,6 +1238,8 @@ function companyInfoSubmission() {
                         type: BootstrapDialog.TYPE_SUCCESS
                     });
                     taskProgressPerTabs();
+                    window.location.href =
+                            "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika";
                 }
             }
             , error: function (jqXHR, textStatus, errorThrown) {
@@ -1385,6 +1451,16 @@ function changePublicCommunication() {
 
 }
 
+function changePublicCompany() {
+
+    if ($("#changePublicCompany").attr('checked') === 'checked') {
+        changePublicCompany = '0';
+    } else {
+        changePublicCompany = '1';
+    }
+
+}
+
 /*
  * Task progress bars control function
  * @author: Bahram Lotfi
@@ -1411,24 +1487,27 @@ function taskProgressPerTabs() {
             userGeneralInformationProgressNumber += 20;
             overallRegistrationProgressNumber += 6;
         }
-        if (!$('#useremail').validationEngine('validate')) {
-            userGeneralInformationProgressNumber += 20;
-            overallRegistrationProgressNumber += 6;
+        if ($('#useremail').val()) {
+            if (!$('#useremail').validationEngine('validate')) {
+                userGeneralInformationProgressNumber += 20;
+                overallRegistrationProgressNumber += 6;
+            }
         }
-        if (!$('#userPreferedPassword').validationEngine('validate')) {
-            userGeneralInformationProgressNumber += 20;
-            overallRegistrationProgressNumber += 6;
+        if ($('#userPreferedPassword').val()) {
+            if (!$('#userPreferedPassword').validationEngine('validate')) {
+                userGeneralInformationProgressNumber += 20;
+                overallRegistrationProgressNumber += 6;
+            }
+            userGeneralInformationProgress = userGeneralInformationProgressNumber.toString();
+            $("#userGeneralInfoRegistrationProgress").
+                    html(userGeneralInformationProgress + '%');
+            $("#userGeneralInfoRegistrationProgressStyle").
+                    css({"width": userGeneralInformationProgress +
+                                '%', "aria-valuenow": userGeneralInformationProgress});
+            /*
+             * popup a prompt on task progress and hide after 3 secs.
+             */
         }
-        userGeneralInformationProgress = userGeneralInformationProgressNumber.toString();
-        $("#userGeneralInfoRegistrationProgress").
-                html(userGeneralInformationProgress + '%');
-        $("#userGeneralInfoRegistrationProgressStyle").
-                css({"width": userGeneralInformationProgress +
-                            '%', "aria-valuenow": userGeneralInformationProgress});
-        /*
-         * popup a prompt on task progress and hide after 3 secs.
-         */
-
         if (userGeneralInformationProgressNumber === 100) {
 
             $("#userGeneralInfoRegistrationProgress").validationEngine(

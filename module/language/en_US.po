@@ -706,3 +706,6 @@ msgstr ""
 
 msgid "Main"
 msgstr ""
+
+msgid "Ownership Status"
+msgstr ""

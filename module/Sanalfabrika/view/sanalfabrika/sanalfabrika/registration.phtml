@@ -5,8 +5,6 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 
-    <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:24 GMT -->
-
     <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
     <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input> 
     <input id="pktemp" type="hidden" value=""></input>
@@ -116,7 +114,7 @@
                                 <li class="topbar-devider"></li>   
                                 <li><a href="page_faq.html">Help</a></li>  
                                 <li class="topbar-devider"></li>   
-                                <li><a href="page_login.html">Login</a></li>   
+                                <li><a href="sflogin.phtml">Login</a></li>   
                             </ul>
                         </div>
                         <!-- End Topbar -->
@@ -143,7 +141,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li class="page-scroll"><a href="#body">
-                                            <?php echo $this->translate('OSTIM Services') ?></a>
+                                                <?php echo $this->translate('OSTIM Services') ?></a>
                                         </li>
                                     </ul>
                                 </li>
@@ -317,19 +315,26 @@
                             <li class="clients-page">
                                 <div class="row clients-page">
                                     <div>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/baderbrau.png') ?>" 
-                                             class="img-responsive hover-effect" 
+                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emge-small.png') ?>" 
+                                             class="img-responsive hover-effect center-block" 
                                              alt="" />
                                     </div>
                                     <div class="overflow-h col-md-12">
-                                        <h3>Cisco Systems, Inc</h3>
+                                        <h3>EMGE</h3>
                                         <ul class="list-unstyled">
-                                            <li><i class="fa fa-map-marker color-green"></i><?php echo $this->translate('USA') ?> </li>
-                                            <li><i class="fa fa-globe color-green"></i> <a class="linked" href="#">http://www.example.com</a></li>
-                                            <li><i class="fa fa-briefcase color-green"></i><?php echo $this->translate('Web Design and Development') ?> </li>
+                                            <li><i class="fa fa-map-marker color-green"></i><?php echo $this->translate('Turkey') ?> </li>
+                                            <li><i class="fa fa-globe color-green"></i> <a class="linked" href="#">http://www.emge.com.tr/</a></li>
+                                            <li><i class="fa fa-briefcase color-green"></i><?php echo $this->translate('Aviation and Defense Cluster') ?> </li>
                                         </ul>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati</p>
-                                        <p>Olerano ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna edetquam lacus. Fusce condimentum eleifend enim a sint occaecati feugiat..</p>
+                                        <p><?php echo $this->translate('1975 yılında DEMİR SANAYİ’ de 90m2’lik bir alanda “ERTUĞLAR” adı altında kurulmuş olan firmamız 
+                                            1979 yılında OSTİM’ de 400m2’lik bir alanda üretimlerine devam etmiştir.') ?>
+                                            <?php echo $this->translate('1981 yılında unvanını EMGE KOLLEKTİF ŞİRKETİ ELEKTRO MEKANİK GEREÇLER ENDÜSTRİSİ olarak değiştiren firmamız 1986 yılında 58. 
+                                            sokak 16 numarada 800m2’lik kendi binasında üretimlerini sürdürmüş ve 2002 yılı Kasım ayında da 3000 m2’lik yeni binasına taşınmıştır.') ?> 
+                                            <?php echo $this->translate('Ürün yelpazesini her geçen gün biraz daha genişleten firmamız, kalite ve müşteri memnuniyetini her zaman 
+                                                ön planda tutmuş ve bu doğrultuda ISO 9001–2000 belgesini de almıştır. Yeni yerinde 7 adet atölye ile birçok sektörde üretimine devam etmektedir. ') ?>
+                                            <?php echo $this->translate('Kurulduğu günden bugüne kadar her geçen gün alt yapısını güçlendirerek ve değişen teknolojiyi takip ederek, müşteri beklentilerinin önünde üretim yapmayı ve en iyi hizmeti süreklilik anlayışı içerisinde sunmayı benimsemiştir. 
+                                            Seçkin kadrosuyla ülke ekonomisine katkıda bulunmaya çalışan firmamızın faaliyetleri arasında talaşlı imalat, plastik enjeksiyon ve kesme kalıpları, plastik enjeksiyon baskı işleri, ultrasonik kaynak işleri, 
+                                            analog ve dijital ölçü aletleri, akım trafoları, born klemens üretimi, buksel soket üretimi, orta gerilim emniyet teçhizatları üretimi, hortum kesme makineleri, akortlu montaj bantları ve özel sistem makine üretimleri yer almaktadır.') ?>
                                     </div>
                                 </div>
                             </li>
@@ -401,18 +406,6 @@
                                                 </div>
                                             </section>
                                             <section>
-                                                <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-barcode"></i>
-                                                    </div>
-                                                    <input type="text" name="preferedUsername" 
-                                                           id="preferedUsername" required="true"
-                                                           class="form-control validate[required,custom[sfUserName]]"
-                                                           onchange="taskProgressPerTabs()">
-                                                </div>
-                                            </section>
-                                            <section>
                                                 <label class="label"><?php echo $this->translate('Email') ?></label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
@@ -420,9 +413,21 @@
                                                     </div>
                                                     <input class="form-control validate[required,custom[email]]" 
                                                            type="email" name="useremail" id="useremail" 
-                                                           onchange="taskProgressPerTabs()">
+                                                           onchange="taskProgressPerTabs(); checkUserName()">
                                                 </div>
                                             </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-barcode"></i>
+                                                    </div>
+                                                    <input disabled='disabled' type="text" name="preferedUsername" 
+                                                           id="preferedUsername" required="true"
+                                                           class="form-control validate[required,custom[sfUserName]] disabled "
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>                                            
                                             <section>
                                                 <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
                                                 <div class="input-group">
@@ -629,11 +634,11 @@
                                                 </label> 
                                             </section>
                                             <section>
-                                            <label class="label"><?php echo $this->translate('Description') ?></label>
-                                            <label class="textarea">
-                                                <i class="icon-prepend fa fa-comment"></i>
-                                                <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
-                                            </label>
+                                                <label class="label"><?php echo $this->translate('Description') ?></label>
+                                                <label class="textarea">
+                                                    <i class="icon-prepend fa fa-comment"></i>
+                                                    <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
+                                                </label>
                                             </section>
                                             <section>
                                                 <label class="checkbox">
@@ -705,6 +710,10 @@
                                                 </label>
                                             </section>
                                             <section>
+                                                <label class="label"><?php echo $this->translate("Company's Established Country") ?></label>
+                                                <div id="companyCountry" />
+                                            </section>                                            
+                                            <section>
                                                 <label class="label"><?php echo $this->translate('Tax Number') ?></label>
                                                 <label class="input">
                                                     <i class="icon-prepend fa fa-money"></i>
@@ -726,9 +735,14 @@
                                                 </label>
                                             </section>
                                             <section>
+                                                <label class="label"><?php echo $this->translate('Ownership Status') ?></label>
+                                                <div id='companyOwnershipStatus'>                                                        
+                                                </div>
+                                            </section> 
+                                            <section>
                                                 <label class="label"><?php echo $this->translate('DUNS Number') ?></label>
                                                 <label class="input">
-                                                    <i class="icon-prepend fa fa-plus-square"></i>
+                                                    <i class="icon-prepend fa fa-barcode"></i>
                                                     <input type="DUNS" class="form-control validation[custom[onlyNumberSp]]" 
                                                            name="companyDUNSNumber" id="companyDUNSNumber">
                                                 </label>
@@ -741,30 +755,29 @@
                                                 </label>
                                             </section>
                                             <section>
-                                                <label class="label"><?php echo $this->translate('Email') ?></label> 
-                                                <label class="input">
-                                                    <i class="icon-prepend fa fa-envelope"></i>
-                                                    <input class="form-control validate[required,custom[email]]"
-                                                        type="email" name="companyEmail" id="companyEmail">
-                                                </label>
-                                            </section>
-                                            <section>
                                                 <label class="label"><?php echo $this->translate('Web Address') ?></label> 
                                                 <label class="input">
                                                     <i class="icon-prepend fa fa-globe"></i>
                                                     <input class="form-control validate[required,custom[url]]"
-                                                        type="url" name="companyWebAddress" id="companyWebAddress">
+                                                           type="url" name="companyWebAddress" id="companyWebAddress">
                                                 </label>
                                             </section>
-                                            
+
                                             <section>
-                                            <label class="label"><?php echo $this->translate('Description') ?></label>
-                                            <label class="textarea">
-                                                <i class="icon-prepend fa fa-comment"></i>
-                                                <textarea rows="4" name="companyDescription" id="companyDescription"></textarea>
-                                            </label>
+                                                <label class="label"><?php echo $this->translate('Description') ?></label>
+                                                <label class="textarea">
+                                                    <i class="icon-prepend fa fa-comment"></i>
+                                                    <textarea rows="4" name="companyDescription" id="companyDescription"></textarea>
+                                                </label>
                                             </section>
-                                        </div>                                        
+                                            <section>
+                                                <label class="checkbox">
+                                                    <input required="true" type="checkbox" checked="true" name="makePublicCompany" 
+                                                           id="makePublicCompany" onchange="makePublicCompany()">
+                                                    <i></i><?php echo $this->translate('Keep company information public') ?>
+                                                </label> 
+                                            </section>   
+                                        </div>                                     
                                         <footer>
                                             <button id='companyInfoSubmissionBtn' type="submit" class="btn-u btn-u-default" onclick="companyInfoSubmission()"><?php echo $this->translate('Submit') ?></button>
                                             <button id='companyInfoCancelBtn' type="button" class="btn-u" onclick="window.history.back();"><?php echo $this->translate('Back') ?></button>
@@ -789,28 +802,34 @@
                     <div class="row">
                         <!-- About -->
                         <div class="col-md-3 md-margin-bottom-40">
-                            <a href="index-2.html"><img id="logo-footer" class="footer-logo" src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" alt=""></a>
-                            <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
-                            <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>    
+                            <a href="index-2.html"><img id="logo-footer" class="footer-logo" 
+                                                        src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                                        alt=""></a>
+                            <p><?php
+                                echo $this->translate('A virtual enterprise (VE) is a temporary alliance of '
+                                        . 'businesses that come together to share skills or core competencies and resources '
+                                        . 'in order to better respond to business opportunities, and whose cooperation is '
+                                        . 'supported by computer networks.')
+                                ?></p>
                         </div><!--/col-md-3-->
                         <!-- End About -->
 
                         <!-- Latest -->
                         <div class="col-md-3 md-margin-bottom-40">
                             <div class="posts">
-                                <div class="headline"><h2>Latest Posts</h2></div>
+                                <div class="headline"><h2><?php echo $this->translate('Latest Posts') ?></h2></div>
                                 <ul class="list-unstyled latest-list">
                                     <li>
-                                        <a href="#">Incredible content</a>
-                                        <small>May 8, 2014</small>
+                                        <a href="#"><?php echo $this->translate('Latest News about OSTIM VE') ?></a>
+                                        <small><?php echo $this->translate('February') ?> 8, 2016</small>
                                     </li>
                                     <li>
-                                        <a href="#">Best shoots</a>
-                                        <small>June 23, 2014</small>
+                                        <a href="#"><?php echo $this->translate('OSTIM Clusters News') ?></a>
+                                        <small><?php echo $this->translate('January') ?> 23, 2016</small>
                                     </li>
                                     <li>
-                                        <a href="#">New Terms and Conditions</a>
-                                        <small>September 15, 2014</small>
+                                        <a href="#"><?php echo $this->translate('New Project Calls') ?></a>
+                                        <small><?php echo $this->translate('December') ?> 15, 2015</small>
                                     </li>
                                 </ul>
                             </div>
@@ -819,26 +838,27 @@
 
                         <!-- Link List -->
                         <div class="col-md-3 md-margin-bottom-40">
-                            <div class="headline"><h2>Useful Links</h2></div>
+                            <div class="headline"><h2><?php echo $this->translate('Useful Links') ?></h2></div>
                             <ul class="list-unstyled link-list">
-                                <li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
-                                <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#"><?php echo $this->translate('Ostim Organized Industrial Zone') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#"><?php echo $this->translate('Turkish Ministry of SIT') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#"><?php echo $this->translate('TUBITAK') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#"><?php echo $this->translate('KOSGEB') ?></a><i class="fa fa-angle-right"></i></li>
+                                <!--<li><a href="#"><?php echo $this->translate('') ?></a><i class="fa fa-angle-right"></i></li>-->
                             </ul>
                         </div><!--/col-md-3-->
                         <!-- End Link List -->                    
 
                         <!-- Address -->
                         <div class="col-md-3 map-img md-margin-bottom-40">
-                            <div class="headline"><h2>Contact Us</h2></div>                         
+                            <div class="headline"><h2><?php echo $this->translate('Contact Us') ?></h2></div>                         
                             <address class="md-margin-bottom-40">
-                                25, Lorem Lis Street, Orange <br />
-                                California, US <br />
-                                Phone: 800 123 3456 <br />
-                                Fax: 800 123 3456 <br />
-                                Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                                100. Yıl Bulvarı No: 101/A <br />
+                                OSTIM, Ankara <br />
+                                Turkey <br />
+                                <?php echo $this->translate('Phone') ?> :  +90 312 385 50 90 <br />
+                                <?php echo $this->translate('Fax') ?>:    +90 312 354 58 98 <br />
+                                <?php echo $this->translate('Email') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
                             </address>
                         </div><!--/col-md-3-->
                         <!-- End Address -->
@@ -851,8 +871,8 @@
                     <div class="row">
                         <div class="col-md-6">                     
                             <p>
-                                2015 &copy; All Rights Reserved.
-                                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                                2015 &copy; <?php echo $this->translate('All Rights Reserved.') ?>
+                                <a href="#"><?php echo $this->translate('Privacy Policy') ?></a> | <a href="#"><?php echo $this->translate('Terms of Service') ?></a>
                             </p>
                         </div>
 
