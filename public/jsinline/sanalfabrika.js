@@ -38,5 +38,7 @@ $(document).ready(function () {
      * @author Mustafa Zeynel Dağlı
      * @since 30/12/2015
      */
-    $('.js-newTabClients').linkOpenerInNewTab(); 
+    $('.js-newTabClients').linkOpenerInNewTab();
+    
+    $('.js-sociaLinks').linkOpenerInNewTab(); 
 });
