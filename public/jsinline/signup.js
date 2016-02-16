@@ -191,7 +191,7 @@ $.ajax({
                 imagePosition: "right",
                 onSelected: function (selectedData) {
                     selectedAddTypeId = selectedData.selectedData.value;
-                    console.log(selectedAddTypeId);
+//                    console.log(selectedAddTypeId);
                     taskProgressPerTabs();
                     //callback function: do something with selectedData;
                 }

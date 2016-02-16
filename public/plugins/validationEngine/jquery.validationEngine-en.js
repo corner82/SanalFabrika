@@ -137,7 +137,11 @@
                 },
                 "sfAddress": {
                     "regex": /^[0-9a-zA-Z_@ıçşğöüİÇŞĞÜÖ]+$/,
-                    "alertText": "* Bu alanda özel karakterler olamaz"
+                    "alertText": "* No special characters allowed"
+                },
+                "dunsNumber": {
+                    "regex": /^[0-9\ ]+$/,
+                    "alertText": "* Numbers only"
                 },
                 // --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings
                 "ajaxUserCall": {

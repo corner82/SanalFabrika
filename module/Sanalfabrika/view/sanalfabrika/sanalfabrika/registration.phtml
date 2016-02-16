@@ -70,10 +70,8 @@
                     <div class="col-xs-6">
                         <a href="javascript:void(0);" class="btn-u btn-u-xs btn-u-dark btn-block boxed-layout-btn">Boxed</a>                
                     </div>
-                </div>            
-
+                </div>
                 <hr>
-
                 <!-- Theme Type -->
                 <div class="style-switcher-heading">Theme Types and Versions</div>
                 <div class="row no-col-space margin-bottom-10">
@@ -96,886 +94,912 @@
             </div>
         </div><!--/style-switcher-->
         <!--=== End Style Switcher ===-->    
-
-        <div class="wrapper">
-            <!--=== Header ===-->    
-            <div class="header">
-                <div class="container">
-                    <!-- Logo -->
-                    <a class="logo" href="index-2.html">
-                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
-                    </a>
-                    <!-- End Logo -->
-
-                    <!-- Topbar -->
-                    <div class="topbar">
-                        <ul class="loginbar pull-right">
-                            <li class="hoverSelector">
-                                <i class="fa fa-globe"></i>
-                                <a>Languages</a>
-                                <ul id='topLanguageBar' class="languages hoverSelectorBlock">                                    
-                                </ul>
-                            </li>
-                            <li class="topbar-devider"></li>   
-                            <li><a href="page_faq.html">Help</a></li>  
-                            <li class="topbar-devider"></li>   
-                            <li><a href="page_login.html">Login</a></li>   
-                        </ul>
-                    </div>
-                    <!-- End Topbar -->
-
-                    <!-- Toggle get grouped for better mobile display -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <!-- End Toggle -->
-                </div><!--/end container-->
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse menu-xs navbar-responsive-collapse">
+        <div class="row">
+            <div class="wrapper">
+                <!--=== Header ===-->    
+                <div class="header">
                     <div class="container">
-                        <ul class="nav navbar-nav " style="font-size: 10px;">
-                            <li class="page-scroll home">
-                                <a href="#body"><?php echo $this->translate('Home') ?></a>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="#about"><?php echo $this->translate('About Us') ?></a>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="#services"><?php echo $this->translate('Services') ?></a>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="#ostimServices"><?php echo $this->translate('OSTIM Services') ?></a>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="#news"><?php echo $this->translate('News') ?></a>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="#portfolio"><?php echo $this->translate('Portfolio') ?></a>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="#contact"><?php echo $this->translate('Contacts') ?></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                    <?php echo $this->translate('Submenus') ?>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="page-scroll"><a href="#body"><?php echo $this->translate('Home') ?></a></li>
-                                </ul>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="../index-2.html"><?php echo $this->translate('Main') ?></a>
-                            </li>
-                        </ul>
-                    </div><!--/end container-->
-                </div><!--/navbar-collapse-->
-            </div>
-            <!--=== End Header ===-->
-
-            <!--=== Breadcrumbs ===-->
-            <div class="breadcrumbs">
-                <div class="container">
-                    <h1 class="pull-left"><?php echo $this->translate('Registration') ?></h1>
-                    <ul class="pull-right breadcrumb">                        
-                        <li><a href="https://www.dev.sanalfabrika.com/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
-                        <li class="active"><?php echo $this->translate('Registration') ?></li>
-                    </ul>
-                </div>
-            </div><!--/breadcrumbs-->
-            <!--=== End Breadcrumbs ===-->
-
-            <!--=== Content Part ===-->
-            <div class="container content">
-                <div class="row">
-
-
-                    <!-- Begin Sidebar Menu -->
-                    <div class="col-md-3 ">
-
-                        <!-- Begin Task Progress -->
-                        <div id="taskProgress">
-                            <div class="panel-heading-v2 overflow-h">
-                                <h2 class="heading-xs pull-left">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                    <?php echo $this->translate('Task Progress') ?>
-                                </h2>
-                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                            </div>
-                            <h3 class="heading-xs">
-                                <?php echo $this->translate('General Information') ?>
-                                <span id="userGeneralInfoRegistrationProgress" 
-                                      class="pull-right">0%</span>
-                            </h3>
-                            <div class="progress progress-u progress-xxs">
-                                <div id='userGeneralInfoRegistrationProgressStyle' 
-                                     style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
-                                     aria-valuenow="0" role="progressbar" 
-                                     class="progress-bar progress-bar-u">
-                                </div>
-                            </div>
-                            <h3 class="heading-xs">
-                                <?php echo $this->translate('Address Information') ?>
-                                <span id="userAddressInfoRegistrationProgress" 
-                                      class="pull-right">0%</span>
-                            </h3>
-                            <div class="progress progress-u progress-xxs">
-                                <div id='userAddressInfoRegistrationProgressStyle' 
-                                     style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
-                                     aria-valuenow="0" role="progressbar" 
-                                     class="progress-bar progress-bar-blue">
-                                </div>
-                            </div>
-                            <h3 class="heading-xs">
-                                <?php echo $this->translate('Communication Information') ?>
-                                <span id="userCommunicationInfoRegistrationProgress" 
-                                      class="pull-right">0%</span>
-                            </h3>
-                            <div class="progress progress-u progress-xxs">
-                                <div id='userCommunicationInfoRegistrationProgressStyle' 
-                                     style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
-                                     aria-valuenow="0" role="progressbar" 
-                                     class="progress-bar progress-bar-dark">
-                                </div>
-                            </div>                            
-                            <h3 class="heading-xs">
-                                <?php echo $this->translate('Registration process') ?>
-                                <span id="overallRegistrationProgress" class="pull-right">0%</span>
-                            </h3>
-                            <div class="progress progress-u progress-xxs margin-bottom-40">
-                                <div id='overallRegistrationProgressStyle' style="width: 0%" 
-                                     aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" 
-                                     role="progressbar" class="progress-bar progress-bar-dark">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Task Progress -->
-                        <hr>                       
-
-                        <!--Notification-->
-                        <div class="profile">
-                            <div class="panel-heading-v2 overflow-h">
-                                <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i><?php echo $this->translate(' Notification ') ?> </h2>
-                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                            </div>
-                            <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
-                                data-mcs-theme="minimal-dark">
-                                <li class="notification">
-                                    <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
-                                    <div class="overflow-h">
-                                        <span><strong>Albert Heller</strong><?php echo $this->translate(' has sent you email.') ?> </span>
-                                        <small><?php echo $this->translate(' Two') ?><?php echo $this->translate(' minutes ago') ?></small>
-                                    </div>    
+                        <!-- Logo -->
+                        <a class="logo" href="index.phtml">
+                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
+                        </a>
+                        <!-- End Logo -->
+                        <!-- Topbar -->
+                        <div class="topbar">
+                            <ul class="loginbar pull-right">
+                                <li class="hoverSelector">
+                                    <i class="fa fa-globe"></i>
+                                    <a>Languages</a>
+                                    <ul id='topLanguageBar' class="languages hoverSelectorBlock">                                    
+                                    </ul>
                                 </li>
-                                <li class="notification">
-                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg') ?>" alt="">
-                                    <div class="overflow-h">
-                                        <span><strong>Taylor Lee</strong><?php echo $this->translate(' started following you.') ?> </span>
-                                        <small><?php echo $this->translate(' Today') ?> 18:25 <?php echo $this->translate(' pm') ?></small>
-                                    </div>    
-                                </li>
-                                <li class="notification">
-                                    <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
-                                    <div class="overflow-h">
-                                        <span><strong>Natasha Kolnikova</strong><?php echo $this->translate(' accepted your invitation.') ?> </span>
-                                        <small><?php echo $this->translate(' Yesterday') ?> 1:07 <?php echo $this->translate(' pm') ?></small>
-                                    </div>    
-                                </li>
-                                <li class="notification">
-                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg') ?>" alt="">
-                                    <div class="overflow-h">
-                                        <span><strong>Mikel Andrews</strong><?php echo $this->translate(' commented on your Timeline.') ?> </span>
-                                        <small>23/12 11:01 <?php echo $this->translate(' am') ?></small>
-                                    </div>    
-                                </li>
-                                <li class="notification">
-                                    <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                                    <div class="overflow-h">
-                                        <span><strong>Bruno Js.</strong><?php echo $this->translate(' added you to group chating.') ?> </span>
-                                        <small><?php echo $this->translate(' Yesterday') ?> 1:07 <?php echo $this->translate(' pm') ?></small>
-                                    </div>    
-                                </li>
-                                <li class="notification">
-                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg') ?>" alt="">
-                                    <div class="overflow-h">
-                                        <span><strong>Taylor Lee</strong><?php echo $this->translate(' changed profile picture.') ?> </span>
-                                        <small>23/12 15:15 <?php echo $this->translate(' pm') ?></small>
-                                    </div>    
-                                </li>
-                            </ul>    
-                            <button type="button" class="btn-u btn-u-default btn-u-sm btn-block"><?php echo $this->translate('Load More') ?></button>
-                        </div>
-                        <!--End Notification-->
-                        <hr>
-                        <!-- Clients Block -->
-                        <div id="clients">
-                            <div class="panel-heading-v2 overflow-h">
-                                <h2 class="heading-xs pull-left"><i class="fa fa-shopping-cart"></i><?php echo $this->translate(' Clients ') ?> </h2>
-                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                            </div>
-                            <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
-                                data-mcs-theme="minimal-dark">
-                                <li class="clients-page">
-                                    <div class="row clients-page">
-                                        <div>
-                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/baderbrau.png') ?>" 
-                                                 class="img-responsive hover-effect" 
-                                                 alt="" />
-                                        </div>
-                                        <div class="overflow-h col-md-12">
-                                            <h3>Cisco Systems, Inc</h3>
-                                            <ul class="list-unstyled">
-                                                <li><i class="fa fa-map-marker color-green"></i><?php echo $this->translate('USA') ?> </li>
-                                                <li><i class="fa fa-globe color-green"></i> <a class="linked" href="#">http://www.example.com</a></li>
-                                                <li><i class="fa fa-briefcase color-green"></i><?php echo $this->translate('Web Design and Development') ?> </li>
-                                            </ul>
-                                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati</p>
-                                            <p>Olerano ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna edetquam lacus. Fusce condimentum eleifend enim a sint occaecati feugiat..</p>
-                                        </div>
-                                    </div>
-                                </li>
+                                <li class="topbar-devider"></li>   
+                                <li><a href="page_faq.html">Help</a></li>  
+                                <li class="topbar-devider"></li>   
+                                <li><a href="page_login.html">Login</a></li>   
                             </ul>
                         </div>
-                        <!-- End Clients Block-->
+                        <!-- End Topbar -->
+                        <!-- Toggle get grouped for better mobile display -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="fa fa-bars"></span>
+                        </button>
+                        <!-- End Toggle -->
+                    </div><!--/end container-->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse menu-xs navbar-responsive-collapse" >
+                        <div class="container">
+                            <ul class="nav navbar-nav " style="font-size: 10px;">
+                                <li class="page-scroll home">
+                                    <a href="#body"><?php echo $this->translate('Home') ?></a>
+                                </li>
+                                <li class="page-scroll">
+                                    <a href="#about"><?php echo $this->translate('About Us') ?></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                        <?php echo $this->translate('Services') ?>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="page-scroll"><a href="#body">
+                                            <?php echo $this->translate('OSTIM Services') ?></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="page-scroll">
+                                    <a href="#news"><?php echo $this->translate('News') ?></a>
+                                </li>
+                                <li class="page-scroll">
+                                    <a href="#contact"><?php echo $this->translate('Contacts') ?></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                        <?php echo $this->translate('Submenus') ?>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="page-scroll">
+                                            <a href="#body"><?php echo $this->translate('Home') ?></a>
+                                        </li>
+                                        <li class="page-scroll">
+                                            <a href="../index-2.html"><?php echo $this->translate('Main') ?></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div><!--/end container-->
+                    </div><!--/navbar-collapse-->
+                </div>
+            </div>
+        </div>
+        <!--=== End Header ===-->
 
+        <!--=== Breadcrumbs ===-->
+        <div class="breadcrumbs">
+            <div class="container">
+                <h1 class="pull-left"><?php echo $this->translate('Registration') ?></h1>
+                <ul class="pull-right breadcrumb">                        
+                    <li><a href="https://www.dev.sanalfabrika.com/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
+                    <li class="active"><?php echo $this->translate('Registration') ?></li>
+                </ul>
+            </div>
+        </div><!--/breadcrumbs-->
+        <!--=== End Breadcrumbs ===-->
 
+        <!--=== Content Part ===-->
+        <div class="container content">
+            <div class="row">
+                <!-- Begin Sidebar Menu -->
+                <div class="col-md-3 ">
+
+                    <!-- Begin Task Progress -->
+                    <div id="taskProgress">
+                        <div class="panel-heading-v2 overflow-h">
+                            <h2 class="heading-xs pull-left">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <?php echo $this->translate('Task Progress') ?>
+                            </h2>
+                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                        </div>
+                        <h3 class="heading-xs">
+                            <?php echo $this->translate('General Information') ?>
+                            <span id="userGeneralInfoRegistrationProgress" 
+                                  class="pull-right">0%</span>
+                        </h3>
+                        <div class="progress progress-u progress-xxs">
+                            <div id='userGeneralInfoRegistrationProgressStyle' 
+                                 style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
+                                 aria-valuenow="0" role="progressbar" 
+                                 class="progress-bar progress-bar-u">
+                            </div>
+                        </div>
+                        <h3 class="heading-xs">
+                            <?php echo $this->translate('Address Information') ?>
+                            <span id="userAddressInfoRegistrationProgress" 
+                                  class="pull-right">0%</span>
+                        </h3>
+                        <div class="progress progress-u progress-xxs">
+                            <div id='userAddressInfoRegistrationProgressStyle' 
+                                 style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
+                                 aria-valuenow="0" role="progressbar" 
+                                 class="progress-bar progress-bar-blue">
+                            </div>
+                        </div>
+                        <h3 class="heading-xs">
+                            <?php echo $this->translate('Communication Information') ?>
+                            <span id="userCommunicationInfoRegistrationProgress" 
+                                  class="pull-right">0%</span>
+                        </h3>
+                        <div class="progress progress-u progress-xxs">
+                            <div id='userCommunicationInfoRegistrationProgressStyle' 
+                                 style="width: 0%" aria-valuemax="100" aria-valuemin="0" 
+                                 aria-valuenow="0" role="progressbar" 
+                                 class="progress-bar progress-bar-dark">
+                            </div>
+                        </div>                            
+                        <h3 class="heading-xs">
+                            <?php echo $this->translate('Registration process') ?>
+                            <span id="overallRegistrationProgress" class="pull-right">0%</span>
+                        </h3>
+                        <div class="progress progress-u progress-xxs margin-bottom-40">
+                            <div id='overallRegistrationProgressStyle' style="width: 0%" 
+                                 aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" 
+                                 role="progressbar" class="progress-bar progress-bar-dark">
+                            </div>
+                        </div>
                     </div>
-                    <!-- End Sidebar Menu -->
+                    <!-- End Task Progress -->
+                    <hr>                       
 
-                    <!-- Begin Content -->
-                    <div class="col-md-9">
-                        <!-- Tabs -->
-                        <div class="tab-v1">
-                            <ul id="primaryTabs" class="nav nav-tabs">                                
-                                <!-- To disable tabs first it is needed to change tab class to disabled
-                                then remove href attribute value due to deactivate tab transition on click event..-->
-                                <li id="userGeneralInfoTab" class="active">
-                                    <a href="#userGeneralInfo" data-toggle="tab">
-                                        <?php echo $this->translate('General Information') ?>
-                                    </a>
-                                </li>
-                                <li id="userAddressInfoTab" onclick="checkUGI()">
-                                    <a href="#userAddressInfo" data-toggle="tab">
-                                        <?php echo $this->translate('Address Information') ?>
-                                    </a>
-                                </li>
-                                <li id="userCommunicationInfoTab" class="disabled"  onclick="checkUAI()">
-                                    <a href="#userCommunicationInfo" data-toggle="tab">
-                                        <?php echo $this->translate('Communication Information') ?>
-                                    </a>
-                                </li>
-                                <li id="companyInfoTab" class="disabled" onclick="checkCI()">
-                                    <a href="#companyInfo" data-toggle="tab">
-                                        <?php echo $this->translate('Company Information') ?>
-                                    </a>
-                                </li>
-                            </ul>                
-                            <div id="tabsContentsSection" class="tab-content">
-                                <!-- User General Info  -->
-                                <div class="tab-pane fade in active" id="userGeneralInfo">
-                                    <form id="userGeneralInfoForm" class="sky-form">
-                                        <header><?php echo $this->translate('General Information') ?></header>
-                                        <fieldset>
-                                            <div class="row">
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('First Name') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-users"></i>
-                                                        </div>
-                                                        <input type="text" name="userFirstName" 
-                                                               id="userFirstName" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterSp]]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Last Name') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-users"></i>
-                                                        </div>
-                                                        <input type="text" name="userLastName" 
-                                                               id="userLastName" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterSp]]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-barcode"></i>
-                                                        </div>
-                                                        <input type="text" name="preferedUsername" 
-                                                               id="preferedUsername" required="true"
-                                                               class="form-control validate[required,custom[sfUserName]]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Email') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-envelope"></i>
-                                                        </div>
-                                                        <input class="form-control validate[required,custom[email]]" 
-                                                               type="email" name="useremail" id="useremail" 
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-lock"></i>
-                                                        </div>
-                                                        <input type="password" name="userPreferedPassword" 
-                                                               id="userPreferedPassword" required="true"
-                                                               class="form-control validate[required,minSize[8],maxSize[20]]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-key"></i>
-                                                        </div>
-                                                        <input type="password" name="repeatedUserPreferedPassword" 
-                                                               id="repeatedUserPreferedPassword" required="true"
-                                                               class="form-control validate[required,equals[userPreferedPassword]] text-input">
-                                                    </div>
-                                                </section>                                                
-                                                <section> 
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" name="showPassword" 
-                                                               id="showPassword">
-                                                        <i></i><?php echo $this->translate('Show my password') ?> 
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
-                                                    <div id="userPreferedLanguage" />                                                     
-                                                    <i></i>
-                                                </section>                                                  
-                                            </div>
-                                            <div class="row"> 
-                                                <label class="checkbox">
-                                                    <input required="true" type="checkbox" checked="true" name="makePublicProfile" 
-                                                           id="makePublicProfile" onchange="changePublicProfile()">
-                                                    <i></i><?php echo $this->translate('Make my profile public') ?>
-                                                </label> 
-                                            </div>
-                                            <footer>
-                                                <div id="userButtons">
-                                                    <button type="submit" id="userGeneralInfoFormSubmit" 
-                                                            class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">                                                                
-                                                    </button>
-                                                    <button type="button" id="userGeneralInfoFormReset" 
-                                                            class="btn-u" onclick="resetForm()">
-                                                                <?php echo $this->translate('Reset') ?>
-                                                    </button>
-                                                </div>
-                                            </footer>
-                                        </fieldset>
-                                    </form>         
+                    <!--Notification-->
+                    <div class="profile">
+                        <div class="panel-heading-v2 overflow-h">
+                            <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i><?php echo $this->translate(' Notification ') ?> </h2>
+                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                        </div>
+                        <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
+                            data-mcs-theme="minimal-dark">
+                            <li class="notification">
+                                <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
+                                <div class="overflow-h">
+                                    <span><strong>Albert Heller</strong><?php echo $this->translate(' has sent you email.') ?> </span>
+                                    <small><?php echo $this->translate(' Two') ?><?php echo $this->translate(' minutes ago') ?></small>
+                                </div>    
+                            </li>
+                            <li class="notification">
+                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg') ?>" alt="">
+                                <div class="overflow-h">
+                                    <span><strong>Taylor Lee</strong><?php echo $this->translate(' started following you.') ?> </span>
+                                    <small><?php echo $this->translate(' Today') ?> 18:25 <?php echo $this->translate(' pm') ?></small>
+                                </div>    
+                            </li>
+                            <li class="notification">
+                                <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
+                                <div class="overflow-h">
+                                    <span><strong>Natasha Kolnikova</strong><?php echo $this->translate(' accepted your invitation.') ?> </span>
+                                    <small><?php echo $this->translate(' Yesterday') ?> 1:07 <?php echo $this->translate(' pm') ?></small>
+                                </div>    
+                            </li>
+                            <li class="notification">
+                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg') ?>" alt="">
+                                <div class="overflow-h">
+                                    <span><strong>Mikel Andrews</strong><?php echo $this->translate(' commented on your Timeline.') ?> </span>
+                                    <small>23/12 11:01 <?php echo $this->translate(' am') ?></small>
+                                </div>    
+                            </li>
+                            <li class="notification">
+                                <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                                <div class="overflow-h">
+                                    <span><strong>Bruno Js.</strong><?php echo $this->translate(' added you to group chating.') ?> </span>
+                                    <small><?php echo $this->translate(' Yesterday') ?> 1:07 <?php echo $this->translate(' pm') ?></small>
+                                </div>    
+                            </li>
+                            <li class="notification">
+                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg') ?>" alt="">
+                                <div class="overflow-h">
+                                    <span><strong>Taylor Lee</strong><?php echo $this->translate(' changed profile picture.') ?> </span>
+                                    <small>23/12 15:15 <?php echo $this->translate(' pm') ?></small>
+                                </div>    
+                            </li>
+                        </ul>    
+                        <button type="button" class="btn-u btn-u-default btn-u-sm btn-block"><?php echo $this->translate('Load More') ?></button>
+                    </div>
+                    <!--End Notification-->
+                    <hr>
+                    <!-- Clients Block -->
+                    <div id="clients">
+                        <div class="panel-heading-v2 overflow-h">
+                            <h2 class="heading-xs pull-left"><i class="fa fa-shopping-cart"></i><?php echo $this->translate(' Clients ') ?> </h2>
+                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                        </div>
+                        <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
+                            data-mcs-theme="minimal-dark">
+                            <li class="clients-page">
+                                <div class="row clients-page">
+                                    <div>
+                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/baderbrau.png') ?>" 
+                                             class="img-responsive hover-effect" 
+                                             alt="" />
+                                    </div>
+                                    <div class="overflow-h col-md-12">
+                                        <h3>Cisco Systems, Inc</h3>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fa fa-map-marker color-green"></i><?php echo $this->translate('USA') ?> </li>
+                                            <li><i class="fa fa-globe color-green"></i> <a class="linked" href="#">http://www.example.com</a></li>
+                                            <li><i class="fa fa-briefcase color-green"></i><?php echo $this->translate('Web Design and Development') ?> </li>
+                                        </ul>
+                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati</p>
+                                        <p>Olerano ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna edetquam lacus. Fusce condimentum eleifend enim a sint occaecati feugiat..</p>
+                                    </div>
                                 </div>
-                                <!--// End User General Info  -->
-                                <!-- User Address Info  -->
-                                <div class="tab-pane fade" id="userAddressInfo">
-                                    <form id="userAddressInfoForm" class="sky-form">
-                                        <header><?php echo $this->translate('Address Information') ?></header>
-                                        <fieldset>
-                                            <div class="row">
-                                                <section>
-                                                    <button type="button" class="btn-u btn-green col-md-12" 
-                                                            id="showAllAddresses_btn" 
-                                                            data-toggle="modal" 
-                                                            data-target="#addressModal">
-                                                                <?php echo $this->translate('Show all my registered addresses') ?>
-                                                    </button> 
-                                                </section>                                               
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Clients Block-->
+
+
+                </div>
+                <!-- End Sidebar Menu -->
+
+                <!-- Begin Content -->
+                <div class="col-md-9">
+                    <!-- Tabs -->
+                    <div class="tab-v1">
+                        <ul id="primaryTabs" class="nav nav-tabs">                                
+                            <!-- To disable tabs first it is needed to change tab class to disabled
+                            then remove href attribute value due to deactivate tab transition on click event..-->
+                            <li id="userGeneralInfoTab" class="active">
+                                <a href="#userGeneralInfo" data-toggle="tab">
+                                    <?php echo $this->translate('General Information') ?>
+                                </a>
+                            </li>
+                            <li id="userAddressInfoTab" class="disabled" onclick="checkUGI()">
+                                <a href="#userAddressInfo" data-toggle="tab">
+                                    <?php echo $this->translate('Address Information') ?>
+                                </a>
+                            </li>
+                            <li id="userCommunicationInfoTab" class="disabled"  onclick="checkUAI()">
+                                <a href="#userCommunicationInfo" data-toggle="tab">
+                                    <?php echo $this->translate('Communication Information') ?>
+                                </a>
+                            </li>
+                            <li id="companyInfoTab" onclick="checkCI()">
+                                <a href="#companyInfo" data-toggle="tab">
+                                    <?php echo $this->translate('Company Information') ?>
+                                </a>
+                            </li>
+                        </ul>                
+                        <div id="tabsContentsSection" class="tab-content">
+                            <!-- User General Info  -->
+                            <div class="tab-pane fade in active" id="userGeneralInfo">
+                                <form id="userGeneralInfoForm" class="sky-form">
+                                    <header><?php echo $this->translate('General Information') ?></header>
+                                    <fieldset>
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('First Name') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-users"></i>
+                                                    </div>
+                                                    <input type="text" name="userFirstName" 
+                                                           id="userFirstName" required="true"
+                                                           class="form-control validate[required,custom[onlyLetterSp]]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Last Name') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-users"></i>
+                                                    </div>
+                                                    <input type="text" name="userLastName" 
+                                                           id="userLastName" required="true"
+                                                           class="form-control validate[required,custom[onlyLetterSp]]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-barcode"></i>
+                                                    </div>
+                                                    <input type="text" name="preferedUsername" 
+                                                           id="preferedUsername" required="true"
+                                                           class="form-control validate[required,custom[sfUserName]]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Email') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </div>
+                                                    <input class="form-control validate[required,custom[email]]" 
+                                                           type="email" name="useremail" id="useremail" 
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-lock"></i>
+                                                    </div>
+                                                    <input type="password" name="userPreferedPassword" 
+                                                           id="userPreferedPassword" required="true"
+                                                           class="form-control validate[required,minSize[8],maxSize[20]]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-key"></i>
+                                                    </div>
+                                                    <input type="password" name="repeatedUserPreferedPassword" 
+                                                           id="repeatedUserPreferedPassword" required="true"
+                                                           class="form-control validate[required,equals[userPreferedPassword]] text-input">
+                                                </div>
+                                            </section>                                                
+                                            <section> 
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="showPassword" 
+                                                           id="showPassword">
+                                                    <i></i><?php echo $this->translate('Show my password') ?> 
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
+                                                <div id="userPreferedLanguage" />                                                     
+                                                <i></i>
+                                            </section>                                                  
+                                        </div>
+                                        <div class="row"> 
+                                            <label class="checkbox">
+                                                <input required="true" type="checkbox" checked="true" name="makePublicProfile" 
+                                                       id="makePublicProfile" onchange="changePublicProfile()">
+                                                <i></i><?php echo $this->translate('Make my profile public') ?>
+                                            </label> 
+                                        </div>
+                                        <footer>
+                                            <div id="userButtons">
+                                                <button type="submit" id="userGeneralInfoFormSubmit" 
+                                                        class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">                                                                
+                                                </button>
+                                                <button type="button" id="userGeneralInfoFormReset" 
+                                                        class="btn-u" onclick="resetForm()">
+                                                            <?php echo $this->translate('Reset') ?>
+                                                </button>
                                             </div>
-                                            <hr>
-                                            <div class="row">
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Address type') ?></label>
-                                                    <div id="addressTypesCombo" />
-                                                </section>
+                                        </footer>
+                                    </fieldset>
+                                </form>         
+                            </div>
+                            <!--// End User General Info  -->
+                            <!-- User Address Info  -->
+                            <div class="tab-pane fade" id="userAddressInfo">
+                                <form id="userAddressInfoForm" class="sky-form">
+                                    <header><?php echo $this->translate('Address Information') ?></header>
+                                    <fieldset>
+                                        <div class="row">
+                                            <section>
+                                                <button type="button" class="btn-u btn-green col-md-12" 
+                                                        id="showAllAddresses_btn" 
+                                                        data-toggle="modal" 
+                                                        data-target="#addressModal">
+                                                            <?php echo $this->translate('Show all my registered addresses') ?>
+                                                </button> 
+                                            </section>                                               
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Address type') ?></label>
+                                                <div id="addressTypesCombo" />
+                                            </section>
+                                        </div>
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Country') ?></label>
+                                                <div id="usercountry" />
+                                            </section>
+                                            <div id='cityNameSection'>
+                                                <label class="label"><?php echo $this->translate('City') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-home"></i>
+                                                    </div>
+                                                    <input type="text" name="userCityName" 
+                                                           id="userCityName"
+                                                           class="form-control validate[required,onlyLetterSp]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div> 
                                             </div>
-                                            <div class="row">
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Country') ?></label>
-                                                    <div id="usercountry" />
-                                                </section>
-                                                <div id='cityNameSection'>
+                                            </section>
+                                            <section>
+                                                <div id='cityDropdownSection'>
                                                     <label class="label"><?php echo $this->translate('City') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-home"></i>
-                                                        </div>
-                                                        <input type="text" name="userCityName" 
-                                                               id="userCityName"
-                                                               class="form-control validate[required,onlyLetterSp]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div> 
+                                                    <div id="usercity" >  </div> 
                                                 </div>
-                                                </section>
-                                                <section>
-                                                    <div id='cityDropdownSection'>
-                                                        <label class="label"><?php echo $this->translate('City') ?></label>
-                                                        <div id="usercity" >  </div> 
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <div id='districtDropdownSection'>
-                                                        <label class="label"><?php echo $this->translate('District') ?></label>
-                                                        <div id="userdistrict" ></div> 
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Address 1') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-home"></i>
-                                                        </div>
-                                                        <input type="text" name="userAddress1" 
-                                                               id="userAddress1"
-                                                               class="form-control validate[sfAddress]">
-                                                    </div> 
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Address 2') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-home"></i>
-                                                        </div>
-                                                        <input type="text" name="userAddress2" 
-                                                               id="userAddress2"
-                                                               class="form-control validate[sfAddress]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div> 
-                                                </section>                                                 
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Postal Code') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-home"></i>
-                                                        </div>
-                                                        <input type="text" name="userPostalCode" id="userPostalCode"
-                                                               class="form-control validate[required, custom[onlyLetterNumber] ,minSize[5],maxSize[10]]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>                                                                                                
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Description') ?></label>
-                                                    <label class="textarea">
-                                                        <i class="icon-prepend fa fa-comment"></i>
-                                                        <textarea rows="4" name="addressDescription" id="addressDescription"></textarea>
-                                                    </label>
-                                                </section>
-                                            </div>
-                                            <footer>
-                                                <label class="checkbox">
-                                                    <input required="true" type="checkbox" checked="true" name="makePublicAddress" 
-                                                           id="makePublicAddress" onchange="changePublicAddress()">
-                                                    <i></i><?php echo $this->translate('Make my address information public') ?>
-                                                </label> 
-                                            </footer>
-                                            <footer>
-                                                <div id="userButtons">
-                                                    <button type="submit" id="userAddressInfoFormSubmit" 
-                                                            class="btn-u btn-u-dark-blue" 
-                                                            onclick="submitUserAddressInfoForm()">                                                                
-                                                    </button>
-                                                    <button type="button" id="userAddressInfoFormReset" 
-                                                            class="btn-u" 
-                                                            onclick="resetForm()">
-                                                                <?php echo $this->translate('Reset') ?>
-                                                    </button>
+                                            </section>
+                                            <section>
+                                                <div id='districtDropdownSection'>
+                                                    <label class="label"><?php echo $this->translate('District') ?></label>
+                                                    <div id="userdistrict" ></div> 
                                                 </div>
-                                            </footer>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <!--// End User Address Info  -->
-                                <!-- User Communication Info  -->
-                                <div class="tab-pane fade" id="userCommunicationInfo">
-                                    <form id="userCommunicationInfoForm" class="sky-form">
-                                        <header><?php echo $this->translate('Communication Information') ?></header>
-                                        <fieldset>
-                                            <div class='row'>                                                
-                                                <section>
-                                                    <button type="button" class="btn-u btn-green col-md-12" 
-                                                            id="showAllContacts_btn" 
-                                                            data-toggle="modal" 
-                                                            data-target="#contactsModal">
-                                                                <?php echo $this->translate('Show all my registered contact Information') ?>
-                                                    </button> 
-                                                </section> 
-                                            </div> 
-                                            <hr>                                           
-                                            <div class="row">
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Communication Type') ?></label>
-                                                    <div id='communicationTypes'>                                                        
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Address 1') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-home"></i>
                                                     </div>
-                                                </section> 
-                                                <section>
-                                                    <label class="checkbox">
-                                                        <input required="true" type="checkbox" checked="true" name="makePublicCommunication" 
-                                                               id="makePublicCommunication" onchange="changePublicCommunication()">
-                                                        <i></i><?php echo $this->translate('Make my contact information public') ?>
-                                                    </label> 
-                                                </section> 
+                                                    <input type="text" name="userAddress1" 
+                                                           id="userAddress1"
+                                                           class="form-control validate[sfAddress]">
+                                                </div> 
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Address 2') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-home"></i>
+                                                    </div>
+                                                    <input type="text" name="userAddress2" 
+                                                           id="userAddress2"
+                                                           class="form-control validate[sfAddress]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div> 
+                                            </section>                                                 
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Postal Code') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-home"></i>
+                                                    </div>
+                                                    <input type="text" name="userPostalCode" id="userPostalCode"
+                                                           class="form-control validate[required, custom[onlyLetterNumber] ,minSize[5],maxSize[10]]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>                                                                                                
+                                            <section>
                                                 <label class="label"><?php echo $this->translate('Description') ?></label>
                                                 <label class="textarea">
                                                     <i class="icon-prepend fa fa-comment"></i>
-                                                    <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
+                                                    <textarea rows="4" name="addressDescription" id="addressDescription"></textarea>
                                                 </label>
-
-                                                <section>
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" name="defaultContactNumber" id="defaultContactNumber">
-                                                        <i></i><?php echo $this->translate('Set this number as your default contact number') ?> 
-                                                    </label>
-                                                </section>       
-                                                <section>                                                                
-                                                    <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
-                                                    <div class="input-group">                                                                    
-                                                        <input type="phone" class="form-control validation[custom[onlyNumberSp]]" 
-                                                               name="contactNumber" id="contactNumber" onchange="taskProgressPerTabs()">                                                                    
-                                                        <span class="input-group-btn">
-                                                            <button class="btn btn-u" type="button" id="submitContactNumber" onclick="submitUserContactNumber()"><?php echo $this->translate('Submit Number') ?></button>
-                                                        </span>
-                                                    </div>
-                                                </section>
+                                            </section>
+                                        </div>
+                                        <footer>
+                                            <label class="checkbox">
+                                                <input required="true" type="checkbox" checked="true" name="makePublicAddress" 
+                                                       id="makePublicAddress" onchange="changePublicAddress()">
+                                                <i></i><?php echo $this->translate('Make my address information public') ?>
+                                            </label> 
+                                        </footer>
+                                        <footer>
+                                            <div id="userButtons">
+                                                <button type="submit" id="userAddressInfoFormSubmit" 
+                                                        class="btn-u btn-u-dark-blue" 
+                                                        onclick="submitUserAddressInfoForm()">                                                                
+                                                </button>
+                                                <button type="button" id="userAddressInfoFormReset" 
+                                                        class="btn-u" 
+                                                        onclick="resetForm()">
+                                                            <?php echo $this->translate('Reset') ?>
+                                                </button>
                                             </div>
-                                        </fieldset>
-                                        <fieldset>
-                                            <div class="row"> 
-                                                <label class="checkbox">
-                                                    <input required="true" type="checkbox" 
-                                                           name="terms" id="terms" onchange="activateButtons(), taskProgressPerTabs()">
-                                                    <i></i><?php echo $this->translate('I agree with the Terms and Conditions') ?>
-                                                </label> 
-                                            </div>
-                                        </fieldset>
-                                        <fieldset>
-                                            <div class="row">
-                                                <div id="userButtons">
-                                                    <button type="button" id="userCommunicationInfoFormFinalize" 
-                                                            class="btn-u btn-u-dark-blue disabled"  
-                                                            onclick="completeUserSubmissionProcess()">
-                                                                <?php echo $this->translate('Complete User Submittion Process') ?>
-                                                    </button>
-                                                    <button type="submit" id="userCommunicationInfoFormSubmit" 
-                                                            class="btn-u btn-u-default disabled"  
-                                                            onclick="submitUserInfoForm()">
-                                                    </button>
-                                                    <button type="button" id="userCommunicationInfoFormReset" 
-                                                            class="btn-u" onclick="resetForm()">
-                                                                <?php echo $this->translate('Reset') ?>
-                                                    </button>
+                                        </footer>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!--// End User Address Info  -->
+                            <!-- User Communication Info  -->
+                            <div class="tab-pane fade" id="userCommunicationInfo">
+                                <form id="userCommunicationInfoForm" class="sky-form">
+                                    <header><?php echo $this->translate('Communication Information') ?></header>
+                                    <fieldset>
+                                        <div class='row'>                                                
+                                            <section>
+                                                <button type="button" class="btn-u btn-green col-md-12" 
+                                                        id="showAllContacts_btn" 
+                                                        data-toggle="modal" 
+                                                        data-target="#contactsModal">
+                                                            <?php echo $this->translate('Show all my registered contact Information') ?>
+                                                </button> 
+                                            </section> 
+                                        </div> 
+                                        <hr>                                           
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Communication Type') ?></label>
+                                                <div id='communicationTypes'>                                                        
                                                 </div>
+                                            </section> 
+                                            <section>
+                                                <label class="checkbox">
+                                                    <input required="true" type="checkbox" checked="true" name="makePublicCommunication" 
+                                                           id="makePublicCommunication" onchange="changePublicCommunication()">
+                                                    <i></i><?php echo $this->translate('Make my contact information public') ?>
+                                                </label> 
+                                            </section>
+                                            <section>
+                                            <label class="label"><?php echo $this->translate('Description') ?></label>
+                                            <label class="textarea">
+                                                <i class="icon-prepend fa fa-comment"></i>
+                                                <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
+                                            </label>
+                                            </section>
+                                            <section>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="defaultContactNumber" id="defaultContactNumber">
+                                                    <i></i><?php echo $this->translate('Set this number as your default contact number') ?> 
+                                                </label>
+                                            </section>       
+                                            <section>                                                                
+                                                <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
+                                                <div class="input-group">                                                                    
+                                                    <input type="phone" class="form-control validation[custom[onlyNumberSp]]" 
+                                                           name="contactNumber" id="contactNumber" onchange="taskProgressPerTabs()">                                                                    
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-u" type="button" id="submitContactNumber" onclick="submitUserContactNumber()"><?php echo $this->translate('Submit Number') ?></button>
+                                                    </span>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row"> 
+                                            <label class="checkbox">
+                                                <input required="true" type="checkbox" 
+                                                       name="terms" id="terms" onchange="activateButtons(), taskProgressPerTabs()">
+                                                <i></i><?php echo $this->translate('I agree with the Terms and Conditions') ?>
+                                            </label> 
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div id="userButtons">
+                                                <button type="button" id="userCommunicationInfoFormFinalize" 
+                                                        class="btn-u btn-u-dark-blue disabled"  
+                                                        onclick="completeUserSubmissionProcess()">
+                                                            <?php echo $this->translate('Complete User Submittion Process') ?>
+                                                </button>
+                                                <button type="submit" id="userCommunicationInfoFormSubmit" 
+                                                        class="btn-u btn-u-default disabled"  
+                                                        onclick="submitUserInfoForm()">
+                                                </button>
+                                                <button type="button" id="userCommunicationInfoFormReset" 
+                                                        class="btn-u" onclick="resetForm()">
+                                                            <?php echo $this->translate('Reset') ?>
+                                                </button>
                                             </div>
-                                        </fieldset> 
-                                    </form>   
-                                </div>
-                                <!--// End User Communication Info  -->
-                                <!-- Company Info Form -->
-                                <div class="tab-pane fade" id="companyInfo">
-                                    <form id="companyInfoForm" class="sky-form">
-                                        <header><?php echo $this->translate('Company Information') ?></header>
-                                        <fieldset>
-                                            <div class="row">
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Company Name') ?></label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-empire"></i>
-                                                        <input type="text" name="companyName" id="companyName">
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Tax Number') ?></label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-money"></i>
-                                                        <input type="text" name="companyTaxNumber" id="companyTaxNumber">
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Tax Office') ?></label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-money"></i>
-                                                        <input type="text" name="companyTaxOffice" id="companyTaxOffice">
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Social Security Number') ?></label>
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-plus-square"></i>
-                                                        <input type="text" name="companySocialSecurityNumber" id="companySocialSecurityNumber">
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Foundation Date') ?></label> 
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-calendar"></i>
-                                                        <input type="text" name="companyFoundationDate" id="companyFoundationDate">
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Email') ?></label> 
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-envelope"></i>
-                                                        <input type="email" name="companyEmail" id="companyEmail">
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Web Address') ?></label> 
-                                                    <label class="input">
-                                                        <i class="icon-prepend fa fa-globe"></i>
-                                                        <input type="url" name="companyWebAddress" id="companyWebAddress">
-                                                    </label>
-                                                </section>
-                                            </div>                                        
-                                            <footer>
-                                                <button id='companyInfoSubmissionBtn' type="submit" class="btn-u btn-u-default" onclick="companyInfoSubmission()"><?php echo $this->translate('Submit') ?></button>
-                                                <button id='companyInfoCancelBtn' type="button" class="btn-u" onclick="window.history.back();">Back</button>
-                                            </footer>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <!-- End Company Info Forms -->
+                                        </div>
+                                    </fieldset> 
+                                </form>   
                             </div>
+                            <!--// End User Communication Info  -->
+                            <!-- Company Info Form -->
+                            <div class="tab-pane fade" id="companyInfo">
+                                <form id="companyInfoForm" class="sky-form">
+                                    <header><?php echo $this->translate('Company Information') ?></header>
+                                    <fieldset>
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Company Name') ?></label>
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-empire"></i>
+                                                    <input required="true" type="text" name="companyName" id="companyName">
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Company Short Name') ?></label>
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-empire"></i>
+                                                    <input type="text" name="companyShortName" id="companyShortName">
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Tax Number') ?></label>
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-money"></i>
+                                                    <input type="text" name="companyTaxNumber" id="companyTaxNumber">
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Tax Office') ?></label>
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-money"></i>
+                                                    <input type="text" name="companyTaxOffice" id="companyTaxOffice">
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Social Security Number') ?></label>
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-plus-square"></i>
+                                                    <input type="text" name="companySocialSecurityNumber" id="companySocialSecurityNumber">
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('DUNS Number') ?></label>
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-plus-square"></i>
+                                                    <input type="DUNS" class="form-control validation[custom[onlyNumberSp]]" 
+                                                           name="companyDUNSNumber" id="companyDUNSNumber">
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Foundation Date') ?></label> 
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-calendar"></i>
+                                                    <input type="text" name="companyFoundationDate" id="companyFoundationDate">
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Email') ?></label> 
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-envelope"></i>
+                                                    <input class="form-control validate[required,custom[email]]"
+                                                        type="email" name="companyEmail" id="companyEmail">
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Web Address') ?></label> 
+                                                <label class="input">
+                                                    <i class="icon-prepend fa fa-globe"></i>
+                                                    <input class="form-control validate[required,custom[url]]"
+                                                        type="url" name="companyWebAddress" id="companyWebAddress">
+                                                </label>
+                                            </section>
+                                            
+                                            <section>
+                                            <label class="label"><?php echo $this->translate('Description') ?></label>
+                                            <label class="textarea">
+                                                <i class="icon-prepend fa fa-comment"></i>
+                                                <textarea rows="4" name="companyDescription" id="companyDescription"></textarea>
+                                            </label>
+                                            </section>
+                                        </div>                                        
+                                        <footer>
+                                            <button id='companyInfoSubmissionBtn' type="submit" class="btn-u btn-u-default" onclick="companyInfoSubmission()"><?php echo $this->translate('Submit') ?></button>
+                                            <button id='companyInfoCancelBtn' type="button" class="btn-u" onclick="window.history.back();"><?php echo $this->translate('Back') ?></button>
+                                        </footer>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!-- End Company Info Forms -->
                         </div>
-                        <!-- End Tabs-->
                     </div>
-                    <!-- End Content -->
-                </div>          
-            </div><!--/container-->     
-            <!--=== End Content Part ===-->
+                    <!-- End Tabs-->
+                </div>
+                <!-- End Content -->
+            </div>          
+        </div><!--/container-->     
+        <!--=== End Content Part ===-->
 
-            <!--=== Footer Version 1 ===-->
-            <div class="footer-v1">
-                <div class="footer">
-                    <div class="container">
-                        <div class="row">
-                            <!-- About -->
-                            <div class="col-md-3 md-margin-bottom-40">
-                                <a href="index-2.html"><img id="logo-footer" class="footer-logo" src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" alt=""></a>
-                                <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
-                                <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>    
-                            </div><!--/col-md-3-->
-                            <!-- End About -->
+        <!--=== Footer Version 1 ===-->
+        <div class="footer-v1">
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- About -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <a href="index-2.html"><img id="logo-footer" class="footer-logo" src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" alt=""></a>
+                            <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
+                            <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>    
+                        </div><!--/col-md-3-->
+                        <!-- End About -->
 
-                            <!-- Latest -->
-                            <div class="col-md-3 md-margin-bottom-40">
-                                <div class="posts">
-                                    <div class="headline"><h2>Latest Posts</h2></div>
-                                    <ul class="list-unstyled latest-list">
-                                        <li>
-                                            <a href="#">Incredible content</a>
-                                            <small>May 8, 2014</small>
-                                        </li>
-                                        <li>
-                                            <a href="#">Best shoots</a>
-                                            <small>June 23, 2014</small>
-                                        </li>
-                                        <li>
-                                            <a href="#">New Terms and Conditions</a>
-                                            <small>September 15, 2014</small>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div><!--/col-md-3-->  
-                            <!-- End Latest --> 
-
-                            <!-- Link List -->
-                            <div class="col-md-3 md-margin-bottom-40">
-                                <div class="headline"><h2>Useful Links</h2></div>
-                                <ul class="list-unstyled link-list">
-                                    <li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
-                                </ul>
-                            </div><!--/col-md-3-->
-                            <!-- End Link List -->                    
-
-                            <!-- Address -->
-                            <div class="col-md-3 map-img md-margin-bottom-40">
-                                <div class="headline"><h2>Contact Us</h2></div>                         
-                                <address class="md-margin-bottom-40">
-                                    25, Lorem Lis Street, Orange <br />
-                                    California, US <br />
-                                    Phone: 800 123 3456 <br />
-                                    Fax: 800 123 3456 <br />
-                                    Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
-                                </address>
-                            </div><!--/col-md-3-->
-                            <!-- End Address -->
-                        </div>
-                    </div> 
-                </div><!--/footer-->
-
-                <div class="copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">                     
-                                <p>
-                                    2015 &copy; All Rights Reserved.
-                                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-                                </p>
-                            </div>
-
-                            <!-- Social Links -->
-                            <div class="col-md-6">
-                                <ul class="footer-socials list-inline">
+                        <!-- Latest -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="posts">
+                                <div class="headline"><h2>Latest Posts</h2></div>
+                                <ul class="list-unstyled latest-list">
                                     <li>
-                                        <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
+                                        <a href="#">Incredible content</a>
+                                        <small>May 8, 2014</small>
                                     </li>
                                     <li>
-                                        <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
-                                            <i class="fa fa-skype"></i>
-                                        </a>
+                                        <a href="#">Best shoots</a>
+                                        <small>June 23, 2014</small>
                                     </li>
                                     <li>
-                                        <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
-                                            <i class="fa fa-linkedin"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
-                                            <i class="fa fa-pinterest"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
-                                            <i class="fa fa-dribbble"></i>
-                                        </a>
+                                        <a href="#">New Terms and Conditions</a>
+                                        <small>September 15, 2014</small>
                                     </li>
                                 </ul>
                             </div>
-                            <!-- End Social Links -->
-                        </div>
-                    </div> 
-                </div><!--/copyright-->
-            </div>     
-            <!--=== End Footer Version 1 ===-->
-        </div><!--/End Wrapepr-->
+                        </div><!--/col-md-3-->  
+                        <!-- End Latest --> 
 
-        <!--********************************************************************-->
-        <!--//********************* Modals Section******************************-->
-        <!--********************************************************************-->
+                        <!-- Link List -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="headline"><h2>Useful Links</h2></div>
+                            <ul class="list-unstyled link-list">
+                                <li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                            </ul>
+                        </div><!--/col-md-3-->
+                        <!-- End Link List -->                    
 
-
-        <!-- Registered Address Modal -->        
-        <div class="modal fade bs-example-modal-lg" id="addressModal" tabindex="-1" 
-             role="dialog" aria-labelledby="addressModalLabel" 
-             aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">x</button>
-                        <h4 id="addressModalLabel1" class="modal-title"><?php echo $this->translate('My Registered Addresses') ?></h4>
+                        <!-- Address -->
+                        <div class="col-md-3 map-img md-margin-bottom-40">
+                            <div class="headline"><h2>Contact Us</h2></div>                         
+                            <address class="md-margin-bottom-40">
+                                25, Lorem Lis Street, Orange <br />
+                                California, US <br />
+                                Phone: 800 123 3456 <br />
+                                Fax: 800 123 3456 <br />
+                                Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                            </address>
+                        </div><!--/col-md-3-->
+                        <!-- End Address -->
                     </div>
-                    <!--Hover Rows-->
-                    <div>
-                        <div class="panel panel-grey margin-bottom-40">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-phone"></i><?php echo $this->translate('List of Addresses') ?></h3>
-                            </div>
-                            <div class="panel-body">
-                                <table id="table_address_modal">
-                                    <thead>
-                                        <tr>
-                                            <th data-field="state" data-checkbox="true"></th>
-                                            <th><?php echo $this->translate('Address type') ?></th>
-                                            <th><?php echo $this->translate('Country') ?></th>
-                                            <th><?php echo $this->translate('City') ?></th>
-                                            <th><?php echo $this->translate('District') ?></th>
-                                            <th><?php echo $this->translate('City Name') ?></th>
-                                            <th><?php echo $this->translate('Address 1') ?></th>
-                                            <th><?php echo $this->translate('Address 2') ?></th>
-                                            <th><?php echo $this->translate('Postal Code') ?></th>
-                                            <th><?php echo $this->translate('Description') ?></th> 
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>                  
+                </div> 
+            </div><!--/footer-->
+
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">                     
+                            <p>
+                                2015 &copy; All Rights Reserved.
+                                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                            </p>
                         </div>
-                        <!--End Striped and Hover Rows-->
-                        <div class="modal-footer">
-                            <button data-dismiss="modal" class="btn-u btn-u-default" type="button"><?php echo $this->translate('Close') ?></button>
+
+                        <!-- Social Links -->
+                        <div class="col-md-6">
+                            <ul class="footer-socials list-inline">
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
+                                        <i class="fa fa-skype"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
+                                        <i class="fa fa-pinterest"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
+                                        <i class="fa fa-dribbble"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
+                        <!-- End Social Links -->
+                    </div>
+                </div> 
+            </div><!--/copyright-->
+        </div>     
+        <!--=== End Footer Version 1 ===-->
+    </div><!--/End Wrapepr-->
+
+    <!--********************************************************************-->
+    <!--//********************* Modals Section******************************-->
+    <!--********************************************************************-->
+
+
+    <!-- Registered Address Modal -->        
+    <div class="modal fade bs-example-modal-lg" id="addressModal" tabindex="-1" 
+         role="dialog" aria-labelledby="addressModalLabel" 
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">x</button>
+                    <h4 id="addressModalLabel1" class="modal-title"><?php echo $this->translate('My Registered Addresses') ?></h4>
+                </div>
+                <!--Hover Rows-->
+                <div>
+                    <div class="panel panel-grey margin-bottom-40">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-phone"></i><?php echo $this->translate('List of Addresses') ?></h3>
+                        </div>
+                        <div class="panel-body">
+                            <table id="table_address_modal">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th><?php echo $this->translate('Address type') ?></th>
+                                        <th><?php echo $this->translate('Country') ?></th>
+                                        <th><?php echo $this->translate('City') ?></th>
+                                        <th><?php echo $this->translate('District') ?></th>
+                                        <th><?php echo $this->translate('City Name') ?></th>
+                                        <th><?php echo $this->translate('Address 1') ?></th>
+                                        <th><?php echo $this->translate('Address 2') ?></th>
+                                        <th><?php echo $this->translate('Postal Code') ?></th>
+                                        <th><?php echo $this->translate('Description') ?></th> 
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>                  
+                    </div>
+                    <!--End Striped and Hover Rows-->
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn-u btn-u-default" type="button"><?php echo $this->translate('Close') ?></button>
                     </div>
                 </div>
             </div>
         </div>
-        <!--// End of test of Registered Address Modal-->
+    </div>
+    <!--// End of test of Registered Address Modal-->
 
 
 
 
-        <!-- Registered Contacts Modal -->        
-        <div class="modal fade bs-example-modal-lg" id="contactsModal" tabindex="-1" 
-             role="dialog" aria-labelledby="contactModalLabel" 
-             aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">x</button>
-                        <h4 id="contactModalLabel1" class="modal-title"><?php echo $this->translate('My Registered Contacts') ?></h4>
+    <!-- Registered Contacts Modal -->        
+    <div class="modal fade bs-example-modal-lg" id="contactsModal" tabindex="-1" 
+         role="dialog" aria-labelledby="contactModalLabel" 
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">x</button>
+                    <h4 id="contactModalLabel1" class="modal-title"><?php echo $this->translate('My Registered Contacts') ?></h4>
+                </div>
+                <!--Hover Rows-->
+                <div>
+                    <div class="panel panel-grey margin-bottom-40">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-phone"></i><?php echo $this->translate('List of Contacts') ?></h3>
+                        </div>
+                        <div class="panel-body">
+                            <table id="table_contacts_modal">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th ><?php echo $this->translate('Contact type') ?></th>
+                                        <th ><?php echo $this->translate('Contact Number') ?></th>
+                                        <th ><?php echo $this->translate('Default Contact') ?></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>                  
                     </div>
-                    <!--Hover Rows-->
-                    <div>
-                        <div class="panel panel-grey margin-bottom-40">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-phone"></i><?php echo $this->translate('List of Contacts') ?></h3>
-                            </div>
-                            <div class="panel-body">
-                                <table id="table_contacts_modal">
-                                    <thead>
-                                        <tr>
-                                            <th data-field="state" data-checkbox="true"></th>
-                                            <th ><?php echo $this->translate('Contact type') ?></th>
-                                            <th ><?php echo $this->translate('Contact Number') ?></th>
-                                            <th ><?php echo $this->translate('Default Contact') ?></th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>                  
-                        </div>
-                        <!--End Striped and Hover Rows-->
-                        <div class="modal-footer">
-                            <button data-dismiss="modal" class="btn-u btn-u-default" type="button"><?php echo $this->translate('Close') ?></button>
-                        </div>
+                    <!--End Striped and Hover Rows-->
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn-u btn-u-default" type="button"><?php echo $this->translate('Close') ?></button>
                     </div>
                 </div>
             </div>
         </div>
-        <!--// End of test of Registered Contacts Modal-->
+    </div>
+    <!--// End of test of Registered Contacts Modal-->
 
-        <!--********************************************************************-->
-        <!--//********************* End of Modals Section******************************-->
-        <!--********************************************************************-->
+    <!--********************************************************************-->
+    <!--//********************* End of Modals Section******************************-->
+    <!--********************************************************************-->
 
-    </body>
-    <!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:25 GMT -->
+</body>
+<!-- Mirrored from htmlstream.com/preview/unify-v1.8/shortcode_form_advanced.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 09 Dec 2015 11:56:25 GMT -->
 </html>

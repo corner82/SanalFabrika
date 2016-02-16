@@ -680,4 +680,29 @@ msgstr ""
 msgid "Show all my registered contact Information"
 msgstr ""
 
+msgid "DUNS Number"
+msgstr ""
 
+msgid "Company Short Name"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "About Us"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Submenus"
+msgstr ""
+
+msgid "Main"
+msgstr ""

@@ -818,3 +818,34 @@ msgstr "İletişim bilgilerimi her kes görebilir"
 
 msgid "Show all my registered contact Information"
 msgstr "Bütün kayıtlı iletişim bilgilerimi göster"
+
+
+msgid "DUNS Number"
+msgstr "DUNS Numarası"
+
+msgid "Company Short Name"
+msgstr "Firma Kısaltılmış Adı"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "About Us"
+msgstr "Hakkımızda"
+
+msgid "Services"
+msgstr "Hizmetler"
+
+msgid "News"
+msgstr "Haberler"
+
+msgid "Contacts"
+msgstr "İletişim"
+
+msgid "Submenus"
+msgstr "Altkırılımlar"
+
+msgid "Main"
+msgstr "Ana başlık"
+
+
+

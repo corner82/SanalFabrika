@@ -37,6 +37,12 @@ var Masking = function () {
              */
             $("#userIdNumber").mask('99999999999', {placeholder: 'X'}); 
             
+            
+            /*
+             * DUNS numbers masks
+             */
+            $("#companyDUNSNumber").mask('99-999-9999', {placeholder: 'X'}); 
+            
             /*
              * Data Masks
              */
