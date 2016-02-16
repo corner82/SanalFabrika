@@ -187,7 +187,7 @@
 
         <!--=== Parallax Counter v4 ===-->
         <div class="parallax-counter-v4 parallaxBg">
-            <div class="container content-sm">
+            <div class="container content-xs">
                 <div class="row">
                     <div class="col-md-3 col-xs-6 md-margin-bottom-50">
                         <i class="icon-cup"></i>
@@ -224,8 +224,12 @@
                     <div id="taskProgress">
                         <div class="panel-heading-v2 overflow-h">
                             <h2 class="heading-xs pull-left">
-                                <i class="fa fa-bar-chart-o"></i>
-                                <?php echo $this->translate('Task Progress') ?>
+                                <div class='headline'>
+                                    <h4>
+                                        <i class="fa fa-bar-chart-o"></i>
+                                        <?php echo $this->translate('Task Progress') ?>
+                                    </h4>
+                                </div>
                             </h2>
                             <a href="#"><i class="fa fa-cog pull-right"></i></a>
                         </div>
@@ -282,7 +286,14 @@
                     <!--Notification-->
                     <div class="profile">
                         <div class="panel-heading-v2 overflow-h">
-                            <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i><?php echo $this->translate(' Notification ') ?> </h2>
+                            <h2 class="heading-xs pull-left">
+                                <div class='headline'>
+                                    <h4>
+                                        <i class="fa fa-bell-o"></i>
+                                        <?php echo $this->translate(' Notification ') ?>
+                                    </h4>
+                                </div>
+                            </h2>
                             <a href="#"><i class="fa fa-cog pull-right"></i></a>
                         </div>
                         <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
@@ -337,7 +348,14 @@
                     <!-- Clients Block -->
                     <div id="clients">
                         <div class="panel-heading-v2 overflow-h">
-                            <h2 class="heading-xs pull-left"><i class="fa fa-shopping-cart"></i><?php echo $this->translate(' Clients ') ?> </h2>
+                            <h2 class="heading-xs pull-left">
+                                <div class='headline'>
+                                    <h4>
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <?php echo $this->translate(' Clients ') ?>
+                                    </h4>
+                                </div>
+                            </h2>
                             <a href="#"><i class="fa fa-cog pull-right"></i></a>
                         </div>
                         <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
@@ -349,12 +367,12 @@
                                              class="img-responsive hover-effect center-block" 
                                              alt="" />
                                     </div>
-                                    <div class="overflow-h col-md-12">
+                                    <div class="overflow-h col-md-12 headline">
                                         <h3>EMGE</h3>
                                         <ul class="list-unstyled">
-                                            <li><i class="fa fa-map-marker color-green"></i><?php echo $this->translate('Turkey') ?> </li>
-                                            <li><i class="fa fa-globe color-green"></i> <a class="linked" href="#">http://www.emge.com.tr/</a></li>
-                                            <li><i class="fa fa-briefcase color-green"></i><?php echo $this->translate('Aviation and Defense Cluster') ?> </li>
+                                            <li><i class="fa fa-map-marker color-green"></i><?php echo $this->translate(' Turkey ') ?> </li>
+                                            <li><i class="fa fa-globe color-green"></i> <a class="linked" href="#"> http://www.emge.com.tr/</a></li>
+                                            <li><i class="fa fa-briefcase color-green"></i><?php echo $this->translate(' Aviation and Defense Cluster ') ?> </li>
                                         </ul>
                                         <p><?php echo $this->translate('1975 yılında DEMİR SANAYİ’ de 90m2’lik bir alanda “ERTUĞLAR” adı altında kurulmuş olan firmamız 
                                             1979 yılında OSTİM’ de 400m2’lik bir alanda üretimlerine devam etmiştir.') ?>
@@ -398,7 +416,7 @@
                                     <?php echo $this->translate('Communication Information') ?>
                                 </a>
                             </li>
-                            <li id="companyInfoTab" onclick="checkCI()">
+                            <li id="companyInfoTab" class="disabled" onclick="checkCI()">
                                 <a href="#companyInfo" data-toggle="tab">
                                     <?php echo $this->translate('Company Information') ?>
                                 </a>
@@ -408,7 +426,11 @@
                             <!-- User General Info  -->
                             <div class="tab-pane fade in active" id="userGeneralInfo">
                                 <form id="userGeneralInfoForm" class="sky-form">
-                                    <header><?php echo $this->translate('General Information') ?></header>
+                                    <header>
+                                        <div class='headline'>
+                                            <h2><?php echo $this->translate('General Information') ?></h2>
+                                        </div>
+                                    </header>
                                     <fieldset>
                                         <div class="row">
                                             <section>
@@ -520,7 +542,11 @@
                             <!-- User Address Info  -->
                             <div class="tab-pane fade" id="userAddressInfo">
                                 <form id="userAddressInfoForm" class="sky-form">
-                                    <header><?php echo $this->translate('Address Information') ?></header>
+                                    <header>
+                                        <div class='headline'>
+                                            <?php echo $this->translate('Address Information') ?>
+                                        </div>
+                                    </header>
                                     <fieldset>
                                         <div class="row">
                                             <section>
@@ -638,7 +664,11 @@
                             <!-- User Communication Info  -->
                             <div class="tab-pane fade" id="userCommunicationInfo">
                                 <form id="userCommunicationInfoForm" class="sky-form">
-                                    <header><?php echo $this->translate('Communication Information') ?></header>
+                                    <header>
+                                        <div class='headline'>
+                                            <?php echo $this->translate('Communication Information') ?>
+                                        </div>
+                                    </header>
                                     <fieldset>
                                         <div class='row'>                                                
                                             <section>
@@ -723,7 +753,11 @@
                             <!-- Company Info Form -->
                             <div class="tab-pane fade" id="companyInfo">
                                 <form id="companyInfoForm" class="sky-form">
-                                    <header><?php echo $this->translate('Company Information') ?></header>
+                                    <header>
+                                        <div class='headline'>
+                                            <?php echo $this->translate('Company Information') ?>
+                                        </div>
+                                    </header>
                                     <fieldset>
                                         <div class="row">
                                             <section>
