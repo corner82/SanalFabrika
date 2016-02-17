@@ -45,9 +45,8 @@ $(document).ready(function () {
      * Content blocker
      */
 
-    contentBlocker = $("#tabsContentsSection").blockuiCentered();
-    contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
-
+//    contentBlocker = $("#tabsContentsSection").blockuiCentered();
+//    contentBlockerWText = $("#tabsContentsSection").blockElementWithoutText();
 
     /*
      * Hide and show city input fields based on country dropdown input
@@ -543,13 +542,13 @@ function resetForm() {
      * @Since:2016/2/1
      */
 
-    contentBlockerWText.blockElementWithoutText('show');
-    $('div.growlUI')
-            .css("background",
-                    "url(../../plugins/jquery-BlockUI/newWarning-1.png) no-repeat 10px 10px");
+//    contentBlockerWText.blockElementWithoutText('show');
+//    $('div.growlUI')
+//            .css("background",
+//                    "url(../../plugins/jquery-BlockUI/newWarning-1.png) no-repeat 10px 10px");
 
-    clickedForm.loadImager();
-    clickedForm.loadImager('appendImage');
+    var loader = $('#tabsContentsSection').loadImager();
+    loader.loadImager('appendImage');
 
     BootstrapDialog.confirm({
         title: window.lang.translate("Form Reset"),
@@ -566,10 +565,10 @@ function resetForm() {
             // result will be true if button was click, while it will be false if users close the dialog directly.
             if (result) {
                 resetConfirmation();
-                clickedForm.loadImager().loadImager('removeLoadImage');
+                loader.loadImager('removeLoadImage');
             } else {
                 resetRejection();
-                clickedForm.loadImager().loadImager('removeLoadImage');
+                loader.loadImager('removeLoadImage');
             }
         }
     });
@@ -584,19 +583,23 @@ function resetForm() {
 function resetConfirmation() {
 
     clickedForm.reset();
-    $.unblockUI();
-    $("#tabsContentsSection").unblock();
+//    $.unblockUI();
+//    $("#tabsContentsSection").unblock();
     event.preventDefault();
-    $('div.growlUI')
-            .css("background",
-                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+//    $('div.growlUI')
+//            .css("background",
+//                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+
+    var loader = $('#tabsContentsSection').loadImager();
+    loader.loadImager('appendImage');
+
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Form fields cleared'),
-        type: BootstrapDialog.TYPE_SUCCESS,
-        closable: false
-
+        type: BootstrapDialog.TYPE_SUCCESS
+//        closable: false
     });
+    loader.loadImager('removeLoadImage');
     taskProgressPerTabs();
 }
 
@@ -609,24 +612,24 @@ function resetConfirmation() {
 
 function resetRejection() {
 
-    $.unblockUI();
-    $("#tabsContentsSection").unblock();
+//    $.unblockUI();
+//    $("#tabsContentsSection").unblock();
     event.preventDefault();
-//    registrationBlockuiCancelReset.blockuiFadingCentered('option', {
-//                .div.growlUI { 
-//    background: url(check48.png) no-repeat 10px 10px 
-//}
-//    });
-    $('div.growlUI')
-            .css("background",
-                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+
+//    $('div.growlUI')
+//            .css("background",
+//                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+
+    var loader = $('#tabsContentsSection').loadImager();
+    loader.loadImager('appendImage');
+
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Reset operation failed...'),
-        type: BootstrapDialog.TYPE_DANGER,
-        closable: false
+        type: BootstrapDialog.TYPE_DANGER
+//        closable: false
     });
-//    registrationBlockuiCancelReset.blockuiFadingCentered('show');
+    loader.loadImager('removeLoadImage');
 }
 
 /*
@@ -638,6 +641,9 @@ function resetRejection() {
 function submitUserGeneralInfoForm() {
 
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
+
+        var loader = $('#userGeneralInfoForm').loadImager();
+        loader.loadImager('appendImage');
 
         if ($("#pktemp").val().length) {
             console.log('update' + $("#pktemp").val());
@@ -674,16 +680,17 @@ function submitUserGeneralInfoForm() {
                          * @author:Bahram Lotfi Sadigh
                          * @Since:2016/2/1
                          */
-                        $('div.growlUI')
-                                .css("background",
-                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+//                        $('div.growlUI')
+//                                .css("background",
+//                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            closable: false
+                            type: BootstrapDialog.TYPE_SUCCESS
+//                            closable: false
 
                         });
+
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
                         $('#userAddressInfo').attr('class', "tab-pane fade in active");
                         $('#userGeneralInfoTab').removeClass('active');
@@ -707,42 +714,41 @@ function submitUserGeneralInfoForm() {
                              * @author:Bahram Lotfi Sadigh
                              * @Since:2016/2/1
                              */
-                            $('div.growlUI')
-                                    .css("background",
-                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                            $('div.growlUI')
+//                                    .css("background",
+//                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER,
-                                closable: false
+                                type: BootstrapDialog.TYPE_DANGER
+//                                closable: false
 
                             });
+
                         } else if (errorInfoColumn === 'username') {
-                            $('div.growlUI')
-                                    .css("background",
-                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                            $('div.growlUI')
+//                                    .css("background",
+//                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This username has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER,
-                                closable: false
+                                type: BootstrapDialog.TYPE_DANGER
+//                                closable: false
 
                             });
                         }
-
                     } else if (data['errorInfo'] === '23502') {
 
                         console.log('insert success: ' + data['errorInfo']);
                         console.log(data);
-                        $('div.growlUI')
-                                .css("background",
-                                        "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                        $('div.growlUI')
+//                                .css("background",
+//                                        "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('System is unable to find required information'),
-                            type: BootstrapDialog.TYPE_DANGER,
-                            closable: false
-
+                            type: BootstrapDialog.TYPE_DANGER
+//                            closable: false
                         });
                     }
                 },
@@ -751,18 +757,18 @@ function submitUserGeneralInfoForm() {
                     console.error('update error: ' + jqXHR);
                     console.error('update error text : ' + textStatus);
                     console.error('update error thrown : ' + errorThrown);
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                    $('div.growlUI')
+//                            .css("background",
+//                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('System is unable to find required information'),
-                        type: BootstrapDialog.TYPE_DANGER,
-                        closable: false
-
+                        type: BootstrapDialog.TYPE_DANGER
+//                        closable: false
                     });
                 }
             });
+
         } else {
 
             console.log('insert ' + $("#pktemp").val());
@@ -792,15 +798,14 @@ function submitUserGeneralInfoForm() {
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
                         console.log('insert success: ' + data['errorInfo'][0]);
-                        $('div.growlUI')
-                                .css("background",
-                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+//                        $('div.growlUI')
+//                                .css("background",
+//                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            closable: false
-
+                            type: BootstrapDialog.TYPE_SUCCESS
+//                            closable: false
                         });
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
                         $('#userAddressInfo').attr('class', "tab-pane fade in active");
@@ -817,42 +822,38 @@ function submitUserGeneralInfoForm() {
                         var errorInfoColumn = data['errorInfoColumn'];
                         console.log('erroInfoColumn value is: ' + errorInfoColumn);
                         if (errorInfoColumn === 'auth_email') {
-                            $('div.growlUI')
-                                    .css("background",
-                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                            $('div.growlUI')
+//                                    .css("background",
+//                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER,
-                                closable: false
-
+                                type: BootstrapDialog.TYPE_DANGER
+//                                closable: false
                             });
                         } else if (errorInfoColumn === 'username') {
-                            $('div.growlUI')
-                                    .css("background",
-                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                            $('div.growlUI')
+//                                    .css("background",
+//                                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This username has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER,
-                                closable: false
-
+                                type: BootstrapDialog.TYPE_DANGER
+//                                closable: false
                             });
                         }
-
                     } else if (data['errorInfo'] === '23502') {
 
                         console.log('insert success: ' + data['errorInfo']);
                         console.log(data);
-                        $('div.growlUI')
-                                .css("background",
-                                        "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                        $('div.growlUI')
+//                                .css("background",
+//                                        "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('System is unable to find required information'),
-                            type: BootstrapDialog.TYPE_DANGER,
-                            closable: false
-
+                            type: BootstrapDialog.TYPE_DANGER
+//                            closable: false
                         });
                     }
                 },
@@ -862,22 +863,22 @@ function submitUserGeneralInfoForm() {
                     console.error('insert error text : ' + textStatus);
                     console.error('insert error thrown : ' + errorThrown);
                     $("#checkGeneralForm").val("0");
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                    $('div.growlUI')
+//                            .css("background",
+//                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                    $('div.growlUI')
+//                            .css("background",
+//                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('System is unable to find required information'),
-                        type: BootstrapDialog.TYPE_DANGER,
-                        closable: false
-
+                        type: BootstrapDialog.TYPE_DANGER
+//                        closable: false
                     });
                 }
             });
         }
+        loader.loadImager('removeLoadImage');
         $("html, body").animate({scrollTop: 0}, "slow");
         event.preventDefault();
     }
@@ -891,6 +892,10 @@ function submitUserGeneralInfoForm() {
 function submitUserAddressInfoForm() {
 
     if ($('#userAddressInfoForm').validationEngine('validate')) {
+
+        var loader = $('#userAddressInfoForm').loadImager();
+        loader.loadImager('appendImage');
+
         if (selectedCountryId === "91") {
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -920,14 +925,14 @@ function submitUserAddressInfoForm() {
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
                         console.log('insert success: ' + data['errorInfo'][0]);
-                        $('div.growlUI')
-                                .css("background",
-                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+//                        $('div.growlUI')
+//                                .css("background",
+//                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('Address information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            closable: false
+                            type: BootstrapDialog.TYPE_SUCCESS
+//                            closable: false
 
                         });
                         $('#checkAddressForm').val('1');
@@ -944,17 +949,17 @@ function submitUserAddressInfoForm() {
                     console.error(textStatus);
                     console.error(errorThrown);
                     $("#checkAddressForm").val("0");
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                    $('div.growlUI')
+//                            .css("background",
+//                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//                    $('div.growlUI')
+//                            .css("background",
+//                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Address information submission failed'),
-                        type: BootstrapDialog.TYPE_DANGER,
-                        closable: false
+                        type: BootstrapDialog.TYPE_DANGER
+//                        closable: false
 
                     });
                 }
@@ -990,14 +995,14 @@ function submitUserAddressInfoForm() {
                         $('#lastInsertId').val(data.lastInsertId);
                         $("#checkGeneralForm").val("1");
                         console.log('insert success: ' + data['errorInfo'][0]);
-                        $('div.growlUI')
-                                .css("background",
-                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+//                        $('div.growlUI')
+//                                .css("background",
+//                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('Address information submitted sucessfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            closable: false
+                            type: BootstrapDialog.TYPE_SUCCESS
+//                            closable: false
 
                         });
                         $('#checkAddressForm').val('1');
@@ -1018,14 +1023,15 @@ function submitUserAddressInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Address information submission failed'),
-                        type: BootstrapDialog.TYPE_DANGER,
-                        closable: false
+                        type: BootstrapDialog.TYPE_DANGER
+//                        closable: false
                     });
                 }
             });
         }
-        event.preventDefault();
+        loader.loadImager('removeLoadImage');
         $("html, body").animate({scrollTop: 0}, "slow");
+        event.preventDefault();
     }
 }
 
@@ -1056,6 +1062,10 @@ function submitUserContactNumber() {
     defContactNumber();
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
+
+        var loader = $('#userCommunicationInfoForm').loadImager();
+        loader.loadImager('appendImage');
+
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 ////                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -1074,14 +1084,14 @@ function submitUserContactNumber() {
             dataType: "json",
             success: function (data) {
                 if (data['errorInfo'][0] === '00000') {
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+//                    $('div.growlUI')
+//                            .css("background",
+//                                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Contact information submitted successfully'),
-                        type: BootstrapDialog.TYPE_SUCCESS,
-                        closable: false
+                        type: BootstrapDialog.TYPE_SUCCESS
+//                        closable: false
                     });
                     $('#userGeneralInfoForm').val('1');
                     $('#userAddressInfoForm').val('1');
@@ -1098,13 +1108,15 @@ function submitUserContactNumber() {
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Contact information submission failed'),
-                    type: BootstrapDialog.TYPE_DANGER,
-                    closable: false
+                    type: BootstrapDialog.TYPE_DANGER
+//                    closable: false
                 });
             }
         });
     }
+    loader.loadImager('removeLoadImage');
     $("html, body").animate({scrollTop: 0}, "slow");
+    event.preventDefault();
 }
 
 /*
@@ -1117,6 +1129,9 @@ function submitUserInfoForm() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
+        var loader = $('#userCommunicationInfoForm').loadImager();
+        loader.loadImager('appendImage');
+
         $('#userCommunicationInfoForm').val('1');
 
         $('#userCommunicationInfo').attr('class', 'tab-pane fade');
@@ -1126,8 +1141,9 @@ function submitUserInfoForm() {
         $('#companyInfoTab').removeClass('disabled');
     }
 
-    event.preventDefault();
+    loader.loadImager('removeLoadImage');
     $("html, body").animate({scrollTop: 0}, "slow");
+    event.preventDefault();
 }
 
 /*
@@ -1141,6 +1157,10 @@ function completeUserSubmissionProcess() {
     event.stopImmediatePropagation();
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
+
+        var loader = $('#userCommunicationInfoForm').loadImager();
+        loader.loadImager('appendImage');
+
         if ($('#userGeneralInfoForm').val() === '1') {
 
             if ($('#userAddressInfoForm').val() === '1') {
@@ -1161,7 +1181,7 @@ function completeUserSubmissionProcess() {
                                 cssClass: 'btn-success',
                                 action: function () {
                                     window.location.href =
-                                            "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika";
+                                            "/ostim/sanalfabrika";
                                 }
                             }],
                         closable: false
@@ -1195,7 +1215,7 @@ function completeUserSubmissionProcess() {
                             cssClass: 'btn-success',
                             action: function () {
                                 window.location.href =
-                                        "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika/registration#userAddressInfoForm";
+                                        "/ostim/sanalfabrika/registration#userAddressInfoForm";
                                 event.preventDefault();
                             }
                         }]
@@ -1213,18 +1233,22 @@ function completeUserSubmissionProcess() {
                         cssClass: 'btn-success',
                         action: function () {
                             window.location.href =
-                                    "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika/registration#userGeneralInfoForm";
+                                    "/ostim/sanalfabrika/registration#userGeneralInfoForm";
                             event.preventDefault();
                         }
                     }]
             });
         }
+        loader.loadImager('removeLoadImage');
     }
 }
 
 function companyInfoSubmission() {
 
     if ($('#companyInfoForm').validationEngine('validate')) {
+
+        var loader = $('#companyInfoForm').loadImager();
+        loader.loadImager('appendImage');
 
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -1253,9 +1277,9 @@ function companyInfoSubmission() {
 
 //                    console.log('insert success: ' + data['errorInfo'][0]);
 
-                    $('div.growlUI')
-                            .css("background",
-                                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+//                    $('div.growlUI')
+//                            .css("background",
+//                                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Company information submitted successfully. \n\
@@ -1264,12 +1288,12 @@ function companyInfoSubmission() {
             Please click on provided confirmation link to activate your account and login to the system.\n\
             System consultant will call you soon to proceed registration confirmation procedure.\n\
             '),
-                        type: BootstrapDialog.TYPE_SUCCESS,
-                        closable: false
+                        type: BootstrapDialog.TYPE_SUCCESS
+//                        closable: false
                     });
                     taskProgressPerTabs();
                     window.location.href =
-                            "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika";
+                            "/ostim/sanalfabrika";
                 }
             }
             , error: function (jqXHR, textStatus, errorThrown) {
@@ -1281,15 +1305,17 @@ function companyInfoSubmission() {
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Company information submission failed'),
-                    type: BootstrapDialog.TYPE_DANGER,
-                    closable: false
+                    type: BootstrapDialog.TYPE_DANGER
+//                    closable: false
                 });
             }
         });
     }
+
+    loader.loadImager('removeLoadImage');
     $('#contactsListSection').html();
-    event.preventDefault();
     $("html, body").animate({scrollTop: 0}, "slow");
+    event.preventDefault();
 
 }
 
@@ -1325,10 +1351,16 @@ function checkUGI() {
 
         } else if ($('#userAddressInfoTab').hasClass('disabled')) {
 
-            contentBlockerWText.blockElementWithoutText('show');
-            $('div.growlUI')
-                    .css("background",
-                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//            contentBlockerWText.blockElementWithoutText('show');
+
+//            $('div.growlUI')
+//                    .css("background",
+//                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+
+
+            var loader = $('#tabsContentsSection').loadImager();
+            loader.loadImager('appendImage');
+
             BootstrapDialog.show({
                 title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user general information form first'),
@@ -1344,6 +1376,7 @@ function checkUGI() {
                         }
                     }]
             });
+            loader.loadImager('removeLoadImage');
         }
     }
 }
@@ -1365,10 +1398,14 @@ function checkUAI() {
 
         } else if ($('#userCommunicationInfoTab').hasClass('disabled')) {
 
-            contentBlockerWText.blockElementWithoutText('show');
-            $('div.growlUI')
-                    .css("background",
-                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//            contentBlockerWText.blockElementWithoutText('show');
+//            $('div.growlUI')
+//                    .css("background",
+//                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+
+            var loader = $('#tabsContentsSection').loadImager();
+            loader.loadImager('appendImage');
+
             BootstrapDialog.show({
                 title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user general and address information forms first'),
@@ -1384,6 +1421,7 @@ function checkUAI() {
                         }
                     }]
             });
+            loader.loadImager('removeLoadImage');
         }
     }
 }
@@ -1404,10 +1442,14 @@ function checkCI() {
 
         if ($('#companyInfoTab').hasClass('disabled')) {
 
-            contentBlockerWText.blockElementWithoutText('show');
-            $('div.growlUI')
-                    .css("background",
-                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+//            contentBlockerWText.blockElementWithoutText('show');
+//            $('div.growlUI')
+//                    .css("background",
+//                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+            
+            var loader = $('#tabsContentsSection').loadImager();
+            loader.loadImager('appendImage');
+            
             BootstrapDialog.show({
                 title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user information forms first'),
@@ -1423,6 +1465,7 @@ function checkCI() {
                         }
                     }]
             });
+            loader.loadImager('removeLoadImage');
         }
     }
 }
@@ -1437,8 +1480,8 @@ function checkCI() {
 
 function preventTab() {
 
-    $.unblockUI();
-    $("#tabsContentsSection").unblock();
+//    $.unblockUI();
+//    $("#tabsContentsSection").unblock();
     event.preventDefault();
     if ($("#checkCommunicationForm").val() === "1") {
         $("#companyInfoTab").addClass('active');

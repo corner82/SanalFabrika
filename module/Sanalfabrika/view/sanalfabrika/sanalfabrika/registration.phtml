@@ -433,118 +433,116 @@
                             <!-- User General Info  -->
                             <div class="tab-pane fade in active" id="userGeneralInfo">
                                 <form id="userGeneralInfoForm" class="sky-form">
-                                    <div id="loading-image">
-                                        <header>
-                                            <div class='headline'>
-                                                <h2><?php echo $this->translate('General Information') ?></h2>
-                                            </div>
-                                        </header>
-                                        <fieldset>
-                                            <div class="row">
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('First Name') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-users"></i>
-                                                        </div>
-                                                        <input type="text" name="userFirstName" 
-                                                               id="userFirstName" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterSp]]"
-                                                               onchange="taskProgressPerTabs()">
+                                    <header>
+                                        <div class='headline'>
+                                            <h2><?php echo $this->translate('General Information') ?></h2>
+                                        </div>
+                                    </header>
+                                    <fieldset>
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('First Name') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-users"></i>
                                                     </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Last Name') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-users"></i>
-                                                        </div>
-                                                        <input type="text" name="userLastName" 
-                                                               id="userLastName" required="true"
-                                                               class="form-control validate[required,custom[onlyLetterSp]]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Email') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-envelope"></i>
-                                                        </div>
-                                                        <input class="form-control validate[required,custom[email]]" 
-                                                               type="email" name="useremail" id="useremail" 
-                                                               onchange="taskProgressPerTabs();
-                                                                       checkUserName()">
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-barcode"></i>
-                                                        </div>
-                                                        <input disabled='disabled' type="text" name="preferedUsername" 
-                                                               id="preferedUsername" required="true"
-                                                               class="form-control validate[required,custom[sfUserName]] disabled "
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>                                            
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-lock"></i>
-                                                        </div>
-                                                        <input type="password" name="userPreferedPassword" 
-                                                               id="userPreferedPassword" required="true"
-                                                               class="form-control validate[required,minSize[8],maxSize[20]]"
-                                                               onchange="taskProgressPerTabs()">
-                                                    </div>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-key"></i>
-                                                        </div>
-                                                        <input type="password" name="repeatedUserPreferedPassword" 
-                                                               id="repeatedUserPreferedPassword" required="true"
-                                                               class="form-control validate[required,equals[userPreferedPassword]] text-input">
-                                                    </div>
-                                                </section>                                                
-                                                <section> 
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" name="showPassword" 
-                                                               id="showPassword">
-                                                        <i></i><?php echo $this->translate('Show my password') ?> 
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
-                                                    <div id="userPreferedLanguage" />                                                     
-                                                    <i></i>
-                                                </section>                                                  
-                                            </div>
-                                            <div class="row"> 
-                                                <label class="checkbox">
-                                                    <input required="true" type="checkbox" checked="true" name="makePublicProfile" 
-                                                           id="makePublicProfile" onchange="changePublicProfile()">
-                                                    <i></i><?php echo $this->translate('Make my profile public') ?>
-                                                </label> 
-                                            </div>
-                                            <footer>
-                                                <div id="userButtons">
-                                                    <button type="submit" id="userGeneralInfoFormSubmit" 
-                                                            class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">                                                                
-                                                    </button>
-                                                    <button type="button" id="userGeneralInfoFormReset" 
-                                                            class="btn-u" onclick="resetForm()">
-                                                                <?php echo $this->translate('Reset') ?>
-                                                    </button>
+                                                    <input type="text" name="userFirstName" 
+                                                           id="userFirstName" required="true"
+                                                           class="form-control validate[required,custom[onlyLetterSp]]"
+                                                           onchange="taskProgressPerTabs()">
                                                 </div>
-                                            </footer>
-                                        </fieldset>
-                                    </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Last Name') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-users"></i>
+                                                    </div>
+                                                    <input type="text" name="userLastName" 
+                                                           id="userLastName" required="true"
+                                                           class="form-control validate[required,custom[onlyLetterSp]]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Email') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </div>
+                                                    <input class="form-control validate[required,custom[email]]" 
+                                                           type="email" name="useremail" id="useremail" 
+                                                           onchange="taskProgressPerTabs();
+                                                                   checkUserName()">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-barcode"></i>
+                                                    </div>
+                                                    <input disabled='disabled' type="text" name="preferedUsername" 
+                                                           id="preferedUsername" required="true"
+                                                           class="form-control validate[required,custom[sfUserName]] disabled "
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>                                            
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-lock"></i>
+                                                    </div>
+                                                    <input type="password" name="userPreferedPassword" 
+                                                           id="userPreferedPassword" required="true"
+                                                           class="form-control validate[required,minSize[8],maxSize[20]]"
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-key"></i>
+                                                    </div>
+                                                    <input type="password" name="repeatedUserPreferedPassword" 
+                                                           id="repeatedUserPreferedPassword" required="true"
+                                                           class="form-control validate[required,equals[userPreferedPassword]] text-input">
+                                                </div>
+                                            </section>                                                
+                                            <section> 
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="showPassword" 
+                                                           id="showPassword">
+                                                    <i></i><?php echo $this->translate('Show my password') ?> 
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
+                                                <div id="userPreferedLanguage" />                                                     
+                                                <i></i>
+                                            </section>                                                  
+                                        </div>
+                                        <div class="row"> 
+                                            <label class="checkbox">
+                                                <input required="true" type="checkbox" checked="true" name="makePublicProfile" 
+                                                       id="makePublicProfile" onchange="changePublicProfile()">
+                                                <i></i><?php echo $this->translate('Make my profile public') ?>
+                                            </label> 
+                                        </div>
+                                        <footer>
+                                            <div id="userButtons">
+                                                <button type="submit" id="userGeneralInfoFormSubmit" 
+                                                        class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">                                                                
+                                                </button>
+                                                <button type="button" id="userGeneralInfoFormReset" 
+                                                        class="btn-u" onclick="resetForm()">
+                                                            <?php echo $this->translate('Reset') ?>
+                                                </button>
+                                            </div>
+                                        </footer>
+                                    </fieldset>
                                 </form>         
                             </div>
                             <!--// End User General Info  -->
