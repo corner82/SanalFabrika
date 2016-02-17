@@ -49,7 +49,7 @@ return array(
                         ),
         'Sanalfabrika' => array(
             'registration' => 'layout/registrationLayout.phtml',
-            'login  ' => 'layout/loginLayout.phtml',
+            'login' => 'layout/loginLayout.phtml',
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
