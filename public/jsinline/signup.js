@@ -152,7 +152,7 @@ var pktemp = $('#pktemp').val();
 
 
 function checkUserName() {
-    
+
     enteredEmailAddress = $('#useremail').val();
     $('#preferedUsername').val(enteredEmailAddress);
 //        $('#preferedUsername').prop('disabled',true);
@@ -210,11 +210,11 @@ $.ajax({
                 }
             });
         } else {
-            console.error('"fillAddressTypes_sysSpecificDefinitions" servis datası boştur!!');
+            console.error('"fillAddressTypes_sysSpecificDefinitions" servis datasÄ± boÅŸtur!!');
         }
     },
     error: function (jqXHR, textStatus, errorThrown) {
-        console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
+        console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
     }
 });
 
@@ -264,11 +264,11 @@ $.ajax({
                 }
             });
         } else {
-            console.error('"fillComboBox_syscountrys" servis datası boştur!!');
+            console.error('"fillComboBox_syscountrys" servis datasÄ± boÅŸtur!!');
         }
     },
     error: function (jqXHR, textStatus, errorThrown) {
-        console.error('"fillComboBox_syscountrys" servis hatası->' + textStatus);
+        console.error('"fillComboBox_syscountrys" servis hatasÄ±->' + textStatus);
     }
 });
 
@@ -323,11 +323,11 @@ function userCityDropDownUpdate() {
                     }
                 });
             } else {
-                console.error('"fillComboBox_syscity" servis datası boştur!!');
+                console.error('"fillComboBox_syscity" servis datasÄ± boÅŸtur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillComboBox_syscity" servis hatası->' + textStatus);
+            console.error('"fillComboBox_syscity" servis hatasÄ±->' + textStatus);
         }
     });
 }
@@ -372,11 +372,11 @@ function districtDropDownUpdate() {
                     }
                 });
             } else {
-                console.error('"fillComboBox_sysborough" servis datası boştur!!');
+                console.error('"fillComboBox_sysborough" servis datasÄ± boÅŸtur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillComboBox_sysborough" servis hatası->' + textStatus);
+            console.error('"fillComboBox_sysborough" servis hatasÄ±->' + textStatus);
         }
     });
 }
@@ -410,11 +410,11 @@ $.ajax({
             });
 
         } else {
-            console.error('"fillComboBox_syslanguage" servis datası boştur!!');
+            console.error('"fillComboBox_syslanguage" servis datasÄ± boÅŸtur!!');
         }
     },
     error: function (jqXHR, textStatus, errorThrown) {
-        console.error('"fillComboBox_syslanguage" servis hatası->' + textStatus);
+        console.error('"fillComboBox_syslanguage" servis hatasÄ±->' + textStatus);
     }
 });
 
@@ -444,11 +444,11 @@ $.ajax({
             });
 
         } else {
-            console.error('"fillOwnershipType_sysSpecificDefinitions" servis datası boştur!!');
+            console.error('"fillOwnershipType_sysSpecificDefinitions" servis datasÄ± boÅŸtur!!');
         }
     },
     error: function (jqXHR, textStatus, errorThrown) {
-        console.error('"fillOwnershipType_sysSpecificDefinitions" servis hatası->' + textStatus);
+        console.error('"fillOwnershipType_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
     }
 });
 
@@ -476,11 +476,11 @@ $.ajax({
             $(".languages").multiLanguageBarSetter(data);
 
         } else {
-            console.error('"fillComboBox_syslanguage" servis datası boştur!!');
+            console.error('"fillComboBox_syslanguage" servis datasÄ± boÅŸtur!!');
         }
     },
     error: function (jqXHR, textStatus, errorThrown) {
-        console.error('"fillComboBox_syslanguage" servis hatası->' + textStatus);
+        console.error('"fillComboBox_syslanguage" servis hatasÄ±->' + textStatus);
     }
 });
 
@@ -516,11 +516,11 @@ $.ajax({
                 }
             });
         } else {
-            console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis datası boştur!!');
+            console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis datasÄ± boÅŸtur!!');
         }
     },
     error: function (jqXHR, textStatus, errorThrown) {
-        console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis hatası->' + textStatus);
+        console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
     }
 });
 
@@ -550,7 +550,10 @@ function resetForm() {
     BootstrapDialog.confirm({
         title: window.lang.translate("Form Reset"),
         message: window.lang.translate("Are you sure to erase all form fields?"),
-        type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+        type: BootstrapDialog.TYPE_WARNING,
+        closable: false,
+        
+        // <-- Default value is BootstrapDialog.TYPE_PRIMARY
 //        closable: true, // <-- Default value is false
 //        draggable: true, // <-- Default value is false
         btnCancelLabel: window.lang.translate("Cancel"), // <-- Default value is 'Cancel',
@@ -585,7 +588,8 @@ function resetConfirmation() {
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Form fields cleared'),
-        type: BootstrapDialog.TYPE_SUCCESS
+        type: BootstrapDialog.TYPE_SUCCESS,                            
+                            closable: false
 
     });
     taskProgressPerTabs();
@@ -614,7 +618,8 @@ function resetRejection() {
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Reset operation failed...'),
-        type: BootstrapDialog.TYPE_DANGER
+        type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
     });
 //    registrationBlockuiCancelReset.blockuiFadingCentered('show');
 }
@@ -670,7 +675,8 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS
+                            type: BootstrapDialog.TYPE_SUCCESS,                            
+                            closable: false
 
                         });
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
@@ -702,7 +708,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER
+                                type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                             });
                         } else if (errorInfoColumn === 'username') {
@@ -712,7 +719,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This username has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER
+                                type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                             });
                         }
@@ -727,7 +735,8 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('System is unable to find required information'),
-                            type: BootstrapDialog.TYPE_DANGER
+                            type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                         });
                     }
@@ -743,7 +752,8 @@ function submitUserGeneralInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('System is unable to find required information'),
-                        type: BootstrapDialog.TYPE_DANGER
+                        type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                     });
                 }
@@ -783,7 +793,8 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS
+                            type: BootstrapDialog.TYPE_SUCCESS,                            
+                            closable: false
 
                         });
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
@@ -807,7 +818,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER
+                                type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                             });
                         } else if (errorInfoColumn === 'username') {
@@ -817,7 +829,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This username has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER
+                                type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                             });
                         }
@@ -832,7 +845,8 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('System is unable to find required information'),
-                            type: BootstrapDialog.TYPE_DANGER
+                            type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                         });
                     }
@@ -852,7 +866,8 @@ function submitUserGeneralInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('System is unable to find required information'),
-                        type: BootstrapDialog.TYPE_DANGER
+                        type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                     });
                 }
@@ -906,7 +921,8 @@ function submitUserAddressInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('Address information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS
+                            type: BootstrapDialog.TYPE_SUCCESS,                            
+                            closable: false
 
                         });
                         $('#checkAddressForm').val('1');
@@ -932,7 +948,8 @@ function submitUserAddressInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Address information submission failed'),
-                        type: BootstrapDialog.TYPE_DANGER
+                        type: BootstrapDialog.TYPE_DANGER,                            
+                            closable: false
 
                     });
                 }
@@ -974,7 +991,8 @@ function submitUserAddressInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('Address information submitted sucessfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS
+                            type: BootstrapDialog.TYPE_SUCCESS,
+                            closable: false
 
                         });
                         $('#checkAddressForm').val('1');
@@ -995,7 +1013,8 @@ function submitUserAddressInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Address information submission failed'),
-                        type: BootstrapDialog.TYPE_DANGER
+                        type: BootstrapDialog.TYPE_DANGER,
+                        closable: false
 
                     });
                 }
@@ -1057,7 +1076,8 @@ function submitUserContactNumber() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Contact information submitted successfully'),
-                        type: BootstrapDialog.TYPE_SUCCESS
+                        type: BootstrapDialog.TYPE_SUCCESS,
+                        closable: false
                     });
                     $('#userGeneralInfoForm').val('1');
                     $('#userAddressInfoForm').val('1');
@@ -1074,7 +1094,8 @@ function submitUserContactNumber() {
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Contact information submission failed'),
-                    type: BootstrapDialog.TYPE_DANGER
+                    type: BootstrapDialog.TYPE_DANGER,
+                    closable: false
                 });
             }
         });
@@ -1138,13 +1159,15 @@ function completeUserSubmissionProcess() {
                                     window.location.href =
                                             "https://www.bahram.sanalfabrika.com/ostim/sanalfabrika";
                                 }
-                            }]
+                            }],
+                        closable: false
                     });
                 } else {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Please fill user communication information first'),
                         type: BootstrapDialog.TYPE_SUCCESS,
+                        closable: false,
                         buttons: [{
                                 icon: 'glyphicon glyphicon-check',
                                 label: 'OK',
@@ -1161,6 +1184,7 @@ function completeUserSubmissionProcess() {
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Please fill user address information form first'),
                     type: BootstrapDialog.TYPE_SUCCESS,
+                    closable: false,
                     buttons: [{
                             icon: 'glyphicon glyphicon-check',
                             label: 'OK',
@@ -1178,6 +1202,7 @@ function completeUserSubmissionProcess() {
                 title: window.lang.translate('Submission Process'),
                 message: window.lang.translate('Please fill user general information form first'),
                 type: BootstrapDialog.TYPE_SUCCESS,
+                closable: false,
                 buttons: [{
                         icon: 'glyphicon glyphicon-check',
                         label: 'OK',
@@ -1235,7 +1260,8 @@ function companyInfoSubmission() {
             Please click on provided confirmation link to activate your account and login to the system.\n\
             System consultant will call you soon to proceed registration confirmation procedure.\n\
             '),
-                        type: BootstrapDialog.TYPE_SUCCESS
+                        type: BootstrapDialog.TYPE_SUCCESS,
+                        closable: false
                     });
                     taskProgressPerTabs();
                     window.location.href =
@@ -1250,7 +1276,9 @@ function companyInfoSubmission() {
                 $("#checkAddressForm").val("0");
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
-                    message: window.lang.translate('Company information submission failed'), type: BootstrapDialog.TYPE_DANGER
+                    message: window.lang.translate('Company information submission failed'),
+                    type: BootstrapDialog.TYPE_DANGER,
+                    closable: false
                 });
             }
         });
@@ -1301,6 +1329,7 @@ function checkUGI() {
                 title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user general information form first'),
                 type: BootstrapDialog.TYPE_WARNING,
+                closable: false,
                 buttons: [{
                         label: 'Close',
                         action: function (dialogItself) {
@@ -1340,6 +1369,7 @@ function checkUAI() {
                 title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user general and address information forms first'),
                 type: BootstrapDialog.TYPE_WARNING,
+                closable: false,
                 buttons: [{
                         label: 'Close',
                         action: function (dialogItself) {
@@ -1378,6 +1408,7 @@ function checkCI() {
                 title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user information forms first'),
                 type: BootstrapDialog.TYPE_WARNING,
+                closable: false,
                 buttons: [{
                         label: 'Close',
                         action: function (dialogItself) {
