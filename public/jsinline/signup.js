@@ -536,23 +536,26 @@ function resetForm() {
     clickedButton = event.target;
     clickedForm = clickedButton.closest('form');
 //    contentBlocker.blockElement('show');
+
     /*
      * Changes Growl icon to warning...
      * @author:Bahram Lotfi Sadigh
      * @Since:2016/2/1
      */
 
-
     contentBlockerWText.blockElementWithoutText('show');
     $('div.growlUI')
             .css("background",
                     "url(../../plugins/jquery-BlockUI/newWarning-1.png) no-repeat 10px 10px");
+
+    clickedForm.loadImager();
+    clickedForm.loadImager('appendImage');
+
     BootstrapDialog.confirm({
         title: window.lang.translate("Form Reset"),
         message: window.lang.translate("Are you sure to erase all form fields?"),
         type: BootstrapDialog.TYPE_WARNING,
         closable: false,
-        
         // <-- Default value is BootstrapDialog.TYPE_PRIMARY
 //        closable: true, // <-- Default value is false
 //        draggable: true, // <-- Default value is false
@@ -563,8 +566,10 @@ function resetForm() {
             // result will be true if button was click, while it will be false if users close the dialog directly.
             if (result) {
                 resetConfirmation();
+                clickedForm.loadImager().loadImager('removeLoadImage');
             } else {
                 resetRejection();
+                clickedForm.loadImager().loadImager('removeLoadImage');
             }
         }
     });
@@ -588,8 +593,8 @@ function resetConfirmation() {
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Form fields cleared'),
-        type: BootstrapDialog.TYPE_SUCCESS,                            
-                            closable: false
+        type: BootstrapDialog.TYPE_SUCCESS,
+        closable: false
 
     });
     taskProgressPerTabs();
@@ -618,8 +623,8 @@ function resetRejection() {
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Reset operation failed...'),
-        type: BootstrapDialog.TYPE_DANGER,                            
-                            closable: false
+        type: BootstrapDialog.TYPE_DANGER,
+        closable: false
     });
 //    registrationBlockuiCancelReset.blockuiFadingCentered('show');
 }
@@ -675,7 +680,7 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS,                            
+                            type: BootstrapDialog.TYPE_SUCCESS,
                             closable: false
 
                         });
@@ -708,8 +713,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER,                            
-                            closable: false
+                                type: BootstrapDialog.TYPE_DANGER,
+                                closable: false
 
                             });
                         } else if (errorInfoColumn === 'username') {
@@ -719,8 +724,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This username has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER,                            
-                            closable: false
+                                type: BootstrapDialog.TYPE_DANGER,
+                                closable: false
 
                             });
                         }
@@ -735,7 +740,7 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('System is unable to find required information'),
-                            type: BootstrapDialog.TYPE_DANGER,                            
+                            type: BootstrapDialog.TYPE_DANGER,
                             closable: false
 
                         });
@@ -752,8 +757,8 @@ function submitUserGeneralInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('System is unable to find required information'),
-                        type: BootstrapDialog.TYPE_DANGER,                            
-                            closable: false
+                        type: BootstrapDialog.TYPE_DANGER,
+                        closable: false
 
                     });
                 }
@@ -793,7 +798,7 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS,                            
+                            type: BootstrapDialog.TYPE_SUCCESS,
                             closable: false
 
                         });
@@ -818,8 +823,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER,                            
-                            closable: false
+                                type: BootstrapDialog.TYPE_DANGER,
+                                closable: false
 
                             });
                         } else if (errorInfoColumn === 'username') {
@@ -829,8 +834,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This username has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER,                            
-                            closable: false
+                                type: BootstrapDialog.TYPE_DANGER,
+                                closable: false
 
                             });
                         }
@@ -845,7 +850,7 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('System is unable to find required information'),
-                            type: BootstrapDialog.TYPE_DANGER,                            
+                            type: BootstrapDialog.TYPE_DANGER,
                             closable: false
 
                         });
@@ -866,8 +871,8 @@ function submitUserGeneralInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('System is unable to find required information'),
-                        type: BootstrapDialog.TYPE_DANGER,                            
-                            closable: false
+                        type: BootstrapDialog.TYPE_DANGER,
+                        closable: false
 
                     });
                 }
@@ -921,7 +926,7 @@ function submitUserAddressInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('Address information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS,                            
+                            type: BootstrapDialog.TYPE_SUCCESS,
                             closable: false
 
                         });
@@ -948,8 +953,8 @@ function submitUserAddressInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Address information submission failed'),
-                        type: BootstrapDialog.TYPE_DANGER,                            
-                            closable: false
+                        type: BootstrapDialog.TYPE_DANGER,
+                        closable: false
 
                     });
                 }
@@ -1015,7 +1020,6 @@ function submitUserAddressInfoForm() {
                         message: window.lang.translate('Address information submission failed'),
                         type: BootstrapDialog.TYPE_DANGER,
                         closable: false
-
                     });
                 }
             });
