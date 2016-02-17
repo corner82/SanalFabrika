@@ -1358,9 +1358,9 @@ function checkUGI() {
 //                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
 
 
-            var loader = $('#tabsContentsSection').loadImager();
-            loader.loadImager('appendImage');
-
+            var loader = $('#userAddressInfo').loadImager();
+            $('#userAddressInfo').loadImager('appendImage');
+            //alert('test');
             BootstrapDialog.show({
                 title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user general information form first'),
@@ -1369,6 +1369,7 @@ function checkUGI() {
                 buttons: [{
                         label: 'Close',
                         action: function (dialogItself) {
+                            $('#userAddressInfo').loadImager('removeLoadImage');
                             dialogItself.close();
                             onclick:{
                                 preventTab();
@@ -1376,7 +1377,6 @@ function checkUGI() {
                         }
                     }]
             });
-            loader.loadImager('removeLoadImage');
         }
     }
 }
