@@ -45,8 +45,7 @@
      }
        
      public function loginAction()  
-     {
-         
+     {         
         $langCode = $this->getServiceLocator()
                             ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
