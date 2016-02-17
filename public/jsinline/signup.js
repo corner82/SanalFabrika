@@ -547,8 +547,9 @@ function resetForm() {
 //            .css("background",
 //                    "url(../../plugins/jquery-BlockUI/newWarning-1.png) no-repeat 10px 10px");
 
+
     var loader = $('#tabsContentsSection').loadImager();
-    loader.loadImager('appendImage');
+    $('#tabsContentsSection').loadImager('appendImage');
 
     BootstrapDialog.confirm({
         title: window.lang.translate("Form Reset"),
@@ -565,10 +566,10 @@ function resetForm() {
             // result will be true if button was click, while it will be false if users close the dialog directly.
             if (result) {
                 resetConfirmation();
-                loader.loadImager('removeLoadImage');
+                $('#tabsContentsSection').loadImager('removeLoadImage');
             } else {
                 resetRejection();
-                loader.loadImager('removeLoadImage');
+                $('#tabsContentsSection').loadImager('removeLoadImage');
             }
         }
     });
@@ -590,16 +591,13 @@ function resetConfirmation() {
 //            .css("background",
 //                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
 
-    var loader = $('#tabsContentsSection').loadImager();
-    loader.loadImager('appendImage');
 
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Form fields cleared'),
-        type: BootstrapDialog.TYPE_SUCCESS
+        type: BootstrapDialog.TYPE_SUCCESS,
 //        closable: false
     });
-    loader.loadImager('removeLoadImage');
     taskProgressPerTabs();
 }
 
@@ -618,18 +616,14 @@ function resetRejection() {
 
 //    $('div.growlUI')
 //            .css("background",
-//                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-
-    var loader = $('#tabsContentsSection').loadImager();
-    loader.loadImager('appendImage');
+//                    "url(../../plugins/jquery-BlockUI/
 
     BootstrapDialog.show({
         title: window.lang.translate('Form Reset'),
         message: window.lang.translate('Reset operation failed...'),
-        type: BootstrapDialog.TYPE_DANGER
+        type: BootstrapDialog.TYPE_DANGER,
 //        closable: false
     });
-    loader.loadImager('removeLoadImage');
 }
 
 /*
@@ -641,9 +635,6 @@ function resetRejection() {
 function submitUserGeneralInfoForm() {
 
     if ($('#userGeneralInfoForm').validationEngine('validate')) {
-
-        var loader = $('#userGeneralInfoForm').loadImager();
-        loader.loadImager('appendImage');
 
         if ($("#pktemp").val().length) {
             console.log('update' + $("#pktemp").val());
@@ -686,9 +677,8 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS
+                            type: BootstrapDialog.TYPE_SUCCESS,
 //                            closable: false
-
                         });
 
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
@@ -720,8 +710,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER
-//                                closable: false
+                                type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
 
                             });
 
@@ -732,9 +722,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This username has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER
-//                                closable: false
-
+                                type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
                             });
                         }
                     } else if (data['errorInfo'] === '23502') {
@@ -747,7 +736,7 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('System is unable to find required information'),
-                            type: BootstrapDialog.TYPE_DANGER
+                            type: BootstrapDialog.TYPE_DANGER,
 //                            closable: false
                         });
                     }
@@ -763,8 +752,8 @@ function submitUserGeneralInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('System is unable to find required information'),
-                        type: BootstrapDialog.TYPE_DANGER
-//                        closable: false
+                        type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
                     });
                 }
             });
@@ -804,7 +793,7 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('General information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS
+                            type: BootstrapDialog.TYPE_SUCCESS,
 //                            closable: false
                         });
                         $('#userGeneralInfo').attr('class', "tab-pane fade");
@@ -828,8 +817,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This email address has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER
-//                                closable: false
+                                type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
                             });
                         } else if (errorInfoColumn === 'username') {
 //                            $('div.growlUI')
@@ -838,8 +827,8 @@ function submitUserGeneralInfoForm() {
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('This username has already been registered in the system'),
-                                type: BootstrapDialog.TYPE_DANGER
-//                                closable: false
+                                type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
                             });
                         }
                     } else if (data['errorInfo'] === '23502') {
@@ -852,7 +841,7 @@ function submitUserGeneralInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('System is unable to find required information'),
-                            type: BootstrapDialog.TYPE_DANGER
+                            type: BootstrapDialog.TYPE_DANGER,
 //                            closable: false
                         });
                     }
@@ -872,13 +861,12 @@ function submitUserGeneralInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('System is unable to find required information'),
-                        type: BootstrapDialog.TYPE_DANGER
-//                        closable: false
+                        type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
                     });
                 }
             });
         }
-        loader.loadImager('removeLoadImage');
         $("html, body").animate({scrollTop: 0}, "slow");
         event.preventDefault();
     }
@@ -892,9 +880,6 @@ function submitUserGeneralInfoForm() {
 function submitUserAddressInfoForm() {
 
     if ($('#userAddressInfoForm').validationEngine('validate')) {
-
-        var loader = $('#userAddressInfoForm').loadImager();
-        loader.loadImager('appendImage');
 
         if (selectedCountryId === "91") {
             $.ajax({
@@ -931,7 +916,7 @@ function submitUserAddressInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('Address information submitted successfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS
+                            type: BootstrapDialog.TYPE_SUCCESS,
 //                            closable: false
 
                         });
@@ -958,8 +943,8 @@ function submitUserAddressInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Address information submission failed'),
-                        type: BootstrapDialog.TYPE_DANGER
-//                        closable: false
+                        type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
 
                     });
                 }
@@ -1001,7 +986,7 @@ function submitUserAddressInfoForm() {
                         BootstrapDialog.show({
                             title: window.lang.translate('Submission Process'),
                             message: window.lang.translate('Address information submitted sucessfully'),
-                            type: BootstrapDialog.TYPE_SUCCESS
+                            type: BootstrapDialog.TYPE_SUCCESS,
 //                            closable: false
 
                         });
@@ -1023,13 +1008,12 @@ function submitUserAddressInfoForm() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Address information submission failed'),
-                        type: BootstrapDialog.TYPE_DANGER
-//                        closable: false
+                        type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
                     });
                 }
             });
         }
-        loader.loadImager('removeLoadImage');
         $("html, body").animate({scrollTop: 0}, "slow");
         event.preventDefault();
     }
@@ -1063,8 +1047,6 @@ function submitUserContactNumber() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
-        var loader = $('#userCommunicationInfoForm').loadImager();
-        loader.loadImager('appendImage');
 
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -1090,8 +1072,8 @@ function submitUserContactNumber() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Contact information submitted successfully'),
-                        type: BootstrapDialog.TYPE_SUCCESS
-//                        closable: false
+                        type: BootstrapDialog.TYPE_SUCCESS,
+//                            closable: false
                     });
                     $('#userGeneralInfoForm').val('1');
                     $('#userAddressInfoForm').val('1');
@@ -1108,13 +1090,12 @@ function submitUserContactNumber() {
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Contact information submission failed'),
-                    type: BootstrapDialog.TYPE_DANGER
-//                    closable: false
+                    type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
                 });
             }
         });
     }
-    loader.loadImager('removeLoadImage');
     $("html, body").animate({scrollTop: 0}, "slow");
     event.preventDefault();
 }
@@ -1129,8 +1110,26 @@ function submitUserInfoForm() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
-        var loader = $('#userCommunicationInfoForm').loadImager();
-        loader.loadImager('appendImage');
+        var loader = $('#tabsContentsSection').loadImager();
+        $('#tabsContentsSection').loadImager('appendImage');
+        BootstrapDialog.show({
+            title: window.lang.translate('Submission Process'),
+            message: window.lang.translate('Congratulations! User information submitted sucessfully. \n\
+            You will be directed to the system main page. \n\
+            An email sent to your submitted email address.\n\
+            Please click on provided confirmation link to activate your account and login to the system.\n\
+            System consultant will call you soon to proceed registration confirmation procedure.\n\
+            '),
+            type: BootstrapDialog.TYPE_SUCCESS,
+//                            closable: false
+            buttons: [{
+                    label: 'OK',
+                    cssClass: 'btn-success',
+                    action: function () {
+                        $('#tabsContentsSection').loadImager('removeLoadImage');
+                    }
+                }]
+        });
 
         $('#userCommunicationInfoForm').val('1');
 
@@ -1141,7 +1140,6 @@ function submitUserInfoForm() {
         $('#companyInfoTab').removeClass('disabled');
     }
 
-    loader.loadImager('removeLoadImage');
     $("html, body").animate({scrollTop: 0}, "slow");
     event.preventDefault();
 }
@@ -1158,8 +1156,9 @@ function completeUserSubmissionProcess() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
-        var loader = $('#userCommunicationInfoForm').loadImager();
-        loader.loadImager('appendImage');
+
+        var loader = $('#tabsContentsSection').loadImager();
+        $('#tabsContentsSection').loadImager('appendImage');
 
         if ($('#userGeneralInfoForm').val() === '1') {
 
@@ -1180,6 +1179,7 @@ function completeUserSubmissionProcess() {
                                 label: 'OK',
                                 cssClass: 'btn-success',
                                 action: function () {
+                                    $('#tabsContentsSection').loadImager('removeLoadImage');
                                     window.location.href =
                                             "/ostim/sanalfabrika";
                                 }
@@ -1197,6 +1197,7 @@ function completeUserSubmissionProcess() {
                                 label: 'OK',
                                 cssClass: 'btn-success',
                                 action: function () {
+                                    $('#tabsContentsSection').loadImager('removeLoadImage');
                                     $("html, body").animate({scrollTop: 0}, "slow");
                                     event.preventDefault();
                                 }
@@ -1214,6 +1215,7 @@ function completeUserSubmissionProcess() {
                             label: 'OK',
                             cssClass: 'btn-success',
                             action: function () {
+                                $('#tabsContentsSection').loadImager('removeLoadImage');
                                 window.location.href =
                                         "/ostim/sanalfabrika/registration#userAddressInfoForm";
                                 event.preventDefault();
@@ -1232,6 +1234,7 @@ function completeUserSubmissionProcess() {
                         label: 'OK',
                         cssClass: 'btn-success',
                         action: function () {
+                            $('#tabsContentsSection').loadImager('removeLoadImage');
                             window.location.href =
                                     "/ostim/sanalfabrika/registration#userGeneralInfoForm";
                             event.preventDefault();
@@ -1239,7 +1242,6 @@ function completeUserSubmissionProcess() {
                     }]
             });
         }
-        loader.loadImager('removeLoadImage');
     }
 }
 
@@ -1247,8 +1249,9 @@ function companyInfoSubmission() {
 
     if ($('#companyInfoForm').validationEngine('validate')) {
 
-        var loader = $('#companyInfoForm').loadImager();
-        loader.loadImager('appendImage');
+
+        var loader = $('#tabsContentsSection').loadImager();
+        $('#tabsContentsSection').loadImager('appendImage');
 
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -1288,8 +1291,15 @@ function companyInfoSubmission() {
             Please click on provided confirmation link to activate your account and login to the system.\n\
             System consultant will call you soon to proceed registration confirmation procedure.\n\
             '),
-                        type: BootstrapDialog.TYPE_SUCCESS
-//                        closable: false
+                        type: BootstrapDialog.TYPE_SUCCESS,
+//                            closable: false
+                        buttons: [{
+                                label: 'Ok',
+                                cssClass: 'btn-success',
+                                action: function () {
+                                    $('#tabsContentsSection').loadImager('removeLoadImage');
+                                }
+                            }]
                     });
                     taskProgressPerTabs();
                     window.location.href =
@@ -1305,14 +1315,19 @@ function companyInfoSubmission() {
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Company information submission failed'),
-                    type: BootstrapDialog.TYPE_DANGER
-//                    closable: false
+                    type: BootstrapDialog.TYPE_DANGER,
+//                            closable: false
+                    buttons: [{
+                            label: 'Ok',
+                                cssClass: 'btn-danger',
+                            action: function () {
+                                $('#tabsContentsSection').loadImager('removeLoadImage');
+                            }
+                        }]
                 });
             }
         });
     }
-
-    loader.loadImager('removeLoadImage');
     $('#contactsListSection').html();
     $("html, body").animate({scrollTop: 0}, "slow");
     event.preventDefault();
@@ -1357,9 +1372,9 @@ function checkUGI() {
 //                    .css("background",
 //                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
 
+            var loader = $('#tabsContentsSection').loadImager();
+            $('#tabsContentsSection').loadImager('appendImage');
 
-            var loader = $('#userAddressInfo').loadImager();
-            $('#userAddressInfo').loadImager('appendImage');
             //alert('test');
             BootstrapDialog.show({
                 title: window.lang.translate('Warning'),
@@ -1369,7 +1384,7 @@ function checkUGI() {
                 buttons: [{
                         label: 'Close',
                         action: function (dialogItself) {
-                            $('#userAddressInfo').loadImager('removeLoadImage');
+                            $('#tabsContentsSection').loadImager('removeLoadImage');
                             dialogItself.close();
                             onclick:{
                                 preventTab();
@@ -1403,8 +1418,9 @@ function checkUAI() {
 //                    .css("background",
 //                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
 
+
             var loader = $('#tabsContentsSection').loadImager();
-            loader.loadImager('appendImage');
+            $('#tabsContentsSection').loadImager('appendImage');
 
             BootstrapDialog.show({
                 title: window.lang.translate('Warning'),
@@ -1417,11 +1433,11 @@ function checkUAI() {
                             dialogItself.close();
                             onclick:{
                                 preventTab();
+                                $('#tabsContentsSection').loadImager('removeLoadImage');
                             }
                         }
                     }]
             });
-            loader.loadImager('removeLoadImage');
         }
     }
 }
@@ -1437,7 +1453,6 @@ function checkCI() {
 
     if ($("#checkCommunicationForm").val() === "1") {
 
-
     } else if ($("#checkCommunicationForm").val() === "0") {
 
         if ($('#companyInfoTab').hasClass('disabled')) {
@@ -1446,10 +1461,11 @@ function checkCI() {
 //            $('div.growlUI')
 //                    .css("background",
 //                            "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-            
+
+
             var loader = $('#tabsContentsSection').loadImager();
-            loader.loadImager('appendImage');
-            
+            $('#tabsContentsSection').loadImager('appendImage');
+
             BootstrapDialog.show({
                 title: window.lang.translate('Warning'),
                 message: window.lang.translate('Please fill user information forms first'),
@@ -1461,11 +1477,11 @@ function checkCI() {
                             dialogItself.close();
                             onclick:{
                                 preventTab();
+                                $('#tabsContentsSection').loadImager('removeLoadImage');
                             }
                         }
                     }]
             });
-            loader.loadImager('removeLoadImage');
         }
     }
 }
