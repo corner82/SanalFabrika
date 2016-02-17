@@ -107,7 +107,7 @@ return array(
                                      'login' => array('index','logout'),
                                      'sanalfabrika' => array ('index',
                                                               'registration',
-                                         'login')),
+                                                              'login')),
                    ),
         'supervisor' => array(
                          'parent' => 'consultant',
@@ -120,7 +120,8 @@ return array(
                    ),
         'guest' => array(
                          'action' => array('sanalfabrika' => array ('index',
-                                                                    'registration','login'),
+                                                                    'registration',
+                                                                    'login'),
                                      'login' => array('index'),)
                    ),
         'new user' => array(
