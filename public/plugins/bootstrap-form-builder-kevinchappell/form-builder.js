@@ -82,7 +82,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       showWarning: false,
       serializePrefix: 'frmb',
       messages: {
-        add: 'Add Item',
+        /*add: 'Add Item',
         allowSelect: 'Allow Select',
         autocomplete: 'Autocomplete',
         cannotBeEmpty: 'This field cannot be empty',
@@ -99,7 +99,8 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         devMode: 'Developer Mode',
         disableFields: 'These fields cannot be moved.',
         editNames: 'Edit Names',
-        editorTitle: 'Form Elements',
+        //editorTitle: 'Form Elements',
+        editorTitle: 'Makina Özelliği Ekle',
         editXML: 'Edit XML',
         fieldVars: 'Field Variables',
         fieldRemoveWarning: 'Are you sure you want to remove this field?',
@@ -134,6 +135,65 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         select: 'Select',
         selectionsMessage: 'Allow Multiple Selections',
         text: 'Text Field',
+        textArea: 'Text Area',
+        toggle: 'Toggle',
+        warning: 'Warning!',
+        viewXML: 'View XML',
+        yes: 'Yes'*/
+              
+        add: 'Öge Ekle',
+        allowSelect: 'Allow Select',
+        autocomplete: 'Autocomplete',
+        cannotBeEmpty: 'This field cannot be empty',
+        checkboxGroup: 'Checkbox Group',
+        checkbox: 'Checkbox',
+        checkboxes: 'Checkboxes',
+        clearAllMessage: 'Are you sure you want to remove all items?',
+        clearAll: 'Clear All',
+        close: 'Kapat',
+        copy: 'Copy To Clipboard',
+        dateField: 'Date Field',
+        description: 'Birim',
+        descriptionField: 'Tanımlama',
+        devMode: 'Developer Mode',
+        disableFields: 'These fields cannot be moved.',
+        editNames: 'Edit Names',
+        //editorTitle: 'Form Elements',
+        editorTitle: 'Makina Özelliği Ekle',
+        editXML: ' XML Düzenle',
+        fieldVars: 'Field Variables',
+        fieldRemoveWarning: 'Are you sure you want to remove this field?',
+        getStarted: 'Bu alana makina özelliği sürükleyip bırakınız...',
+        hide: 'Düzenleme',
+        hidden: 'Hidden Input',
+        label: 'Özellik',
+        labelEmpty: 'Etiketleme alanı boş olamaz',
+        limitRole: 'Sadece Tanımlı Roller İçin:',
+        mandatory: 'Zorunlu',
+        maxLength: 'Maks. Uzunluk',
+        minOptionMessage: 'This field requires a minimum of 2 options',
+        name: 'Name',
+        no: 'No',
+        off: 'Off',
+        on: 'On',
+        optional: 'opsiyonel',
+        optionLabelPlaceholder: 'Label',
+        optionValuePlaceholder: 'Value',
+        optionEmpty: 'Option value required',
+        paragraph: 'Paragraph',
+        preview: 'Preview',
+        radioGroup: 'Radio Group',
+        radio: 'Radio',
+        removeMessage: 'Remove Element',
+        remove: '&#215;',
+        required: 'Zorunlu Alan',
+        richText: 'Rich Text Editor',
+        roles: 'Erişim',
+        save: 'Özellikleri Kaydet',
+        selectOptions: 'Çoktan Seçmeli Alanlar',
+        select: 'Kullanılabilir Alan',
+        selectionsMessage: 'Allow Multiple Selections',
+        text: 'Makina Özelliği',
         textArea: 'Text Area',
         toggle: 'Toggle',
         warning: 'Warning!',
@@ -369,7 +429,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         className: 'select',
         name: 'select'
       }
-    }, {
+    },/* {
       label: opts.messages.textArea,
       attrs: {
         type: 'rich-text',
@@ -418,7 +478,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         className: 'autocomplete',
         name: 'autocomplete'
       }
-    }];
+    }*/];
 
     // Create draggable fields for formBuilder
     var cbUL = $('<ul/>', {
@@ -446,7 +506,12 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       }
       $field.html(frmbFields[i].label).appendTo(cbUL);
     }
-
+    
+    /**
+     * right column header is being prepared
+     * @type @call;form-builder_L53.$@call;html
+     * @author Mustafa Zeynel Dağlı
+     */
     // Build our headers and action links
     var cbHeader = $('<h4/>').html(opts.messages.editorTitle),
         viewXML = $('<a/>', {
@@ -455,7 +520,8 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       href: '#',
       'class': 'view-xml'
     }),
-        allowSelect = $('<a/>', {
+            
+    allowSelect = $('<a/>', {
       id: frmbID + '-allow-select',
       text: opts.messages.allowSelect,
       href: '#',
@@ -569,12 +635,22 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         }
       }
     });
-
+    
+    /**
+     * stage-wrap class form div element prepared for drag-drop canvas
+     * @type @call;$
+     * @author Mustafa Zeynel Dağlı
+     */
     var $stageWrap = $('<div/>', {
       id: frmbID + '-stage-wrap',
       'class': 'stage-wrap'
     });
-
+    
+    /**
+     * form-wrap class form div element prepared for drag-drop canvas
+     * @type @call;$
+     * @author Mustafa Zeynel Dağlı
+     */
     var $formWrap = $('<div/>', {
       id: frmbID + '-form-wrap',
       'class': 'form-wrap'
@@ -589,7 +665,11 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       id: frmbID + '-cb-wrap',
       'class': 'cb-wrap'
     }).append(cbHeader, cbUL);
-
+    
+    /**
+     * drag drop area added here
+     * @author Mustafa Zeynel Dağlı
+     */
     $stageWrap.append($sortableFields, cbWrap, actionLinks, viewXML, saveAll);
     $stageWrap.before($formWrap);
     $formWrap.append($stageWrap, cbWrap);
@@ -639,7 +719,14 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         $sortableFields.append(li.replace('__POSITION__', 'after').replace('__CONTENT__', opts.disableFields.after));
       }
     };
-
+    
+    /**
+     * drag dropped form elements name (id) attribute
+     * form up here
+     * @param {type} field
+     * @returns {String}
+     * @author Mustafa Zeynel Dağlı
+     */
     var nameAttr = function nameAttr(field) {
       var epoch = new Date().getTime();
       return field.data('attrs').name + '-' + epoch;
@@ -679,29 +766,51 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       $stageWrap.removeClass('empty');
       disabledBeforeAfter();
     };
-
+    
+    /**
+     * text area fields are being dropped to left editor here
+     * @param {type} values
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     */
     // multi-line textarea
     var appendTextarea = function appendTextarea(values) {
       appendFieldLi(opts.messages.textArea, advFields(values), values);
     };
 
+    /**
+     * text fields are being dropped to left editor area here
+     * @param {type} values
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     */
     var appendInput = function appendInput(values) {
       var type = values.type || 'text';
       appendFieldLi(opts.messages[type], advFields(values), values);
     };
-
+    
+    /**
+     * select fields are being dropped to left area here
+     * @param {type} values
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     */
     // add select dropdown
     var appendSelectList = function appendSelectList(values) {
 
       if (!values.values || !values.values.length) {
         values.values = [{
           selected: 'false',
-          label: 'Option 1',
-          value: 'option-1'
+          /*label: 'Option 1',
+          value: 'option-1'*/
+          label: 'Opsiyon 1',
+          value: 'opsiyon-1'
         }, {
           selected: 'false',
-          label: 'Option 2',
-          value: 'option-2'
+          /*label: 'Option 2',
+          value: 'option-2'*/
+          label: 'Opsiyon 2',
+          value: 'opsiyon-2'
         }];
       }
 
@@ -771,11 +880,17 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       var advFields = '',
           key,
           roles = values.role !== undefined ? values.role.split(',') : [];
+      /**
+       * label field is prepared
+       * @type @call;$
+       * @author Mustafa Zeynel Dağlı
+       */
       var fieldLabel = $('<div>', {
         'class': 'frm-fld label-wrap'
       });
       $('<label/>').html(opts.messages.label + ' *').appendTo(fieldLabel);
       $('<input>', {
+        id : 'label'+lastID,
         type: 'text',
         name: 'label',
         value: values.label,
@@ -787,36 +902,57 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         'class': 'frm-fld description-wrap'
       });
       $('<label/>').html(opts.messages.description + ' *').appendTo(fieldDesc);
+      
+      /**
+       * test for adding new form element to edit dragged element
+       * @author Mustafa Zeynel Dağlı
+       */
+      advFields += '<form>';
+      advFields += '<div ><label>Özellik Bul<span class="required">*</span></label>';
+      advFields += '<button data-last-id="' + lastID + '" id="zeyn' + lastID + '" onclick="event.preventDefault();testClick(event);" class="pull-left btn btn-default" id="sendEmail">Özellik Bul <i class="fa fa-arrow-circle-right"></i></button>';
+      advFields += '</form>';
 
       advFields += '<div class="frm-fld description-wrap"><label>' + opts.messages.description + '</label>';
       advFields += '<input type="text" name="description" value="' + values.description + '" class="fld-description" id="description-' + lastID + '" /></div>';
 
       advFields += '<div class="frm-fld name-wrap"><label>' + opts.messages.name + ' <span class="required">*</span></label>';
       advFields += '<input type="text" name="name" value="' + values.name + '" class="fld-name" id="title-' + lastID + '" /></div>';
-
+      
+      /**
+       * roles checkbox prepared
+       * @author Mustafa Zeynel Dağlı
+       */
       advFields += '<div class="frm-fld access-wrap"><label>' + opts.messages.roles + '</label>';
 
       advFields += '<input type="checkbox" name="enable_roles" value="" ' + (values.role !== undefined ? 'checked' : '') + ' id="enable_roles-' + lastID + '"/> <label for="enable_roles-' + lastID + '" class="roles_label">' + opts.messages.limitRole + '</label>';
       advFields += '<div class="frm-fld available-roles" ' + (values.role !== undefined ? 'style="display:block"' : '') + '>';
-
+        
       for (key in opts.roles) {
         if ($.inArray(key, ['date', '4']) === -1) {
           advFields += '<input type="checkbox" name="roles[]" value="' + key + '" id="fld-' + lastID + '-roles-' + key + '" ' + ($.inArray(key, roles) !== -1 ? 'checked' : '') + ' class="roles-field" /><label for="fld-' + lastID + '-roles-' + key + '">' + opts.roles[key] + '</label><br/>';
         }
       }
       advFields += '</div></div>';
-
+      
+      /**
+       * 'max length' text area is being prepared here
+       * @author Mustafa Zeynel Dağlı
+       */
       // if field type is not checkbox, checkbox/radio group or select list, add max length
       if ($.inArray(values.type, ['checkbox', 'select', 'checkbox-group', 'date', 'autocomplete', 'radio-group', 'hidden']) < 0) {
         advFields += '<div class="frm-fld"><label class="max-length-label">' + opts.messages.maxLength + '</label>';
         advFields += '<input type="text" name="max-length" max-length="4" value="' + (values.maxLength !== undefined ? values.maxLength : '') + '" class="fld-max-length" id="max-length-' + lastID + '" /></div>';
+        //advFields += '<div ><label >' + opts.messages.maxLength + ' test</label>';
+        //advFields += '<select id="test" onchange="alert(\'test\');"><option value="volvo">Volvo hhhhhhhhhh</option><option value="saab">Saab</option></select></div>';
+        /*advFields += '<div ><label >' + opts.messages.maxLength + ' test</label>';
+        advFields += '<ul onclick="alert(\'on focus\');"><li >test</li><li>test2</li></ul></div>';*/
       }
 
       return advFields;
     };
     
     /**
-     * form element added to form editor
+     * form element added to form editor for text , textarea vs
      * @param {type} title
      * @param {type} field
      * @param {type} values
@@ -829,7 +965,18 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
 
       var li = '',
           delBtn = '<a id="del_' + lastID + '" class="del-button btn delete-confirm" href="#" title="' + opts.messages.removeMessage + '">' + opts.messages.remove + '</a>',
-          toggleBtn = '<a id="frm-' + lastID + '" class="toggle-form btn icon-pencil" href="#" title="' + opts.messages.hide + '"></a> ',
+          //toggleBtn = '<a id="frm-' + lastID + '" class="toggle-form btn icon-pencil" href="#" title="' + opts.messages.hide + '"></a> ',
+          /**
+           * toogle buton icon change
+           * @author Mustafa Zeynel Dağlı
+           */
+          toggleBtn = '<a id="frm-' + lastID + '" style="margin-left:23px;" class="toggle-form" href="#" title="' + opts.messages.hide + '"><i class="fa fa-fw fa-folder"></i></a> ',
+          /**
+           * save toogle button for xml update when changes are made
+           * @type String|String
+           * @author Mustafa Zeynel Dağlı
+           */
+          toggleBtnSave = '<a id="frm-' + lastID + '" style="margin-left:5px;" class="toggle-form-save" href="#" title="' + opts.messages.hide + '"><i class="fa fa-fw fa-save"></i></a> ',
           required = values.required,
           toggle = values.toggle || undefined,
           tooltip = values.description !== '' ? '<span class="tooltip-element" tooltip="' + values.description + '">?</span>' : '';
@@ -837,7 +984,11 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       li += '<li id="frm-' + lastID + '-item" class="' + values.type + ' form-field">';
       li += '<div class="legend">';
       li += delBtn;
-      li += '<span id="txt-title-' + lastID + '" class="field-label">' + label + '</span>' + tooltip + '<span class="required-asterisk" ' + (required === 'true' ? 'style="display:inline"' : '') + '> *</span>' + toggleBtn;
+      /**
+       * save toogle button has been added to appended list item
+       * @author Mustafa Zeynel Dağlı
+       */
+      li += '<span id="txt-title-' + lastID + '" class="field-label">' + label + '</span>' + tooltip + '<span class="required-asterisk" ' + (required === 'true' ? 'style="display:inline"' : '') + '> *</span>' + toggleBtn + toggleBtnSave;
       li += '</div>';
       li += '<div class="prev-holder">' + fieldPreview(values) + '</div>';
       li += '<div id="frm-' + lastID + '-fld" class="frm-holder">';
@@ -979,9 +1130,15 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
      */
     // toggle fields
     $sortableFields.on('click', '.toggle-form', function (e) {
-        //alert('toogle form');
+      //alert('toogle form');
       e.preventDefault();
       var targetID = $(this).attr('id');
+      if($(this).find('i').hasClass('fa-folder-open-o')) {
+          $(this).find('i').first().removeClass('fa-folder-open-o').addClass('fa-folder');
+      } else if($(this).find('i').hasClass('fa-folder')) {
+          $(this).find('i').first().removeClass('fa-folder').addClass('fa-folder-open-o');
+      }
+      
       $(this).toggleClass('open').parent().next('.prev-holder').slideToggle(250);
       $(document.getElementById(targetID + '-fld')).slideToggle(250, function () {
         _helpers.save();

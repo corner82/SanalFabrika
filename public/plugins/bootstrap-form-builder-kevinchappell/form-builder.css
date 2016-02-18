@@ -259,14 +259,17 @@ textarea.form-control {
   position: relative;
   margin-left: 0;
   margin-bottom: 5px;
-  background-color: #fff;
+  //background-color: #fff;
   border-radius: 5px;
-  border: 1px solid #fff;
+  //border: 1px solid #fff;
+  border:2px solid #ddd;
   -webkit-transition: border 250ms ease-in-out;
           transition: border 250ms ease-in-out;
   padding: 6px; }
   .frmb li:hover {
-    border: 1px solid #b3b3b3; }
+    //border: 1px solid #b3b3b3; 
+    border: 2px solid #00c0ef ; 
+  }
     .frmb li:hover li:hover {
       background: #fefefe; }
   .frmb li.no-fields label {
@@ -528,8 +531,9 @@ textarea.idea-template {
   color: #000; }
 
 .form-elements {
-  background: #f7f7f7;
-  box-shadow: inset 0 0 2px 0 #999;
+  //background: #f7f7f7;
+  background: #E0EDDF;
+  //box-shadow: inset 0 0 2px 0 #999;
   border-radius: 3px;
   margin: 5px 0 0;
   padding: 10px 5px; }
@@ -577,7 +581,10 @@ ol.sortable-options li {
           transition: background 250ms ease-in-out;
   padding: 5px;
   border: 1px solid #AFAFAB;
-  background-color: #fff; }
+  background-color: #fff;
+  /*zeynel dağlı*/
+  border-radius: 6px;
+}
 
 .form-elements input[type=text].error {
   border-radius: 0;
@@ -697,7 +704,9 @@ ol.sortable-options li {
   -webkit-transition: box-shadow 250ms ease-in-out;
           transition: box-shadow 250ms ease-in-out;
   box-shadow: 2px 2px 6px 0 #666;
-  border: 1px solid #fff; }
+  border: 1px solid #fff; 
+  
+}
 
 .frmb li:hover .del-button, .frmb li:hover .toggle-form {
   opacity: 1; }
@@ -715,7 +724,9 @@ ol.sortable-options li {
   margin: 0 0 5px;
   padding: 10px;
   text-align: left;
-  background: #fff;
+  /* zeynel dağlı */
+  /*background: #fff;*/
+  background : #E0EDDF;
   border: 1px solid #fff; }
   .frmb-control li:before {
     margin-right: 10px; }
@@ -756,7 +767,10 @@ ul.frmb {
   min-height: 200px;
   border: 1px solid #efefef;
   margin: 0 0 5px;
-  padding: 5px 5px 0; }
+  padding: 5px 5px 0; 
+  /*zeynel dağlı*/
+  background: #F0F4F5;
+}
 
 .formb-field-vars .copy-var {
   display: inline-block;

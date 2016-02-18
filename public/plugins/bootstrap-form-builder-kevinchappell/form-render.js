@@ -71,6 +71,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
      * @return {string}
      */
     _helpers.markup = function (type) {
+      //alert('helpers');
       var attrs = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
       var content = arguments.length <= 2 || arguments[2] === undefined ? '' : arguments[2];
 
@@ -88,6 +89,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
      * @todo
      */
     _helpers.fieldRender = function (field) {
+      //alert('_helpers.fieldRender');
       var fieldMarkup = '',
           fieldLabel = '',
           optionsMarkup = '';
@@ -215,6 +217,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
 
     // Begin the core plugin
     this.each(function () {
+      alert('core plugin render js');
       var rendered = [];
 
       var formData = $.parseXML($template.val()),
