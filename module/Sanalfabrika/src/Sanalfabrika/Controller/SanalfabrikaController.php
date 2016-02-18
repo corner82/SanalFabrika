@@ -63,7 +63,26 @@
             'langCode' => $langCode,
         ));
         return $view;
-     }   
+     }  
+         
+     public function companymtAction(){
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+        
+        // Do this inside your Controller before you return your ViewModel
+        $this->layout()->setVariable('test', $langCode);
+        
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+     }
      
      
      public function addAction()

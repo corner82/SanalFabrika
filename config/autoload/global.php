@@ -30,8 +30,7 @@ return array(
             'acldefinition' => 'layout/acldefinitionLayout.phtml',
             'profile' => 'layout/profile.phtml',
             'confirm' => 'layout/confirm.phtml',
-            'machinetest' => 'layout/machinetest.phtml',
-            'companymt' => 'layout/companymtLayout.phtml'
+            'machinetest' => 'layout/machinetest.phtml'
                         ),
         'Companies' => array(
             'companyregistration' => 'layout/companyregistrationLayout.phtml',
@@ -51,6 +50,7 @@ return array(
         'Sanalfabrika' => array(
             'registration' => 'layout/registrationLayout.phtml',
             'login' => 'layout/loginLayout.phtml',
+            'companymt' => 'layout/companymtLayout.phtml'
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -103,13 +103,13 @@ return array(
                          'action' => array('sfdm' => array ('index',
                                                             'profile',
                                                             'confirm',
-                                                            'machinetest',
-                                                            'companymt'),
+                                                            'machinetest'),
                                      'admin' => array('index'),
                                      'login' => array('index','logout'),
                                      'sanalfabrika' => array ('index',
                                                               'registration',
-                                                              'login')),
+                                                              'login',
+                                                              'companymt')),
                    ),
         'supervisor' => array(
                          'parent' => 'consultant',
@@ -123,7 +123,8 @@ return array(
         'guest' => array(
                          'action' => array('sanalfabrika' => array ('index',
                                                                     'registration',
-                                                                    'login'),
+                                                                    'login',
+                                                                    'companymt'),
                                      'login' => array('index'),)
                    ),
         'new user' => array(
