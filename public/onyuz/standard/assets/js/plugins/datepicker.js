@@ -14,7 +14,10 @@ var Datepicker = function () {
                 $('#companyFoundationDate').datepicker({
 	            dateFormat: 'dd.mm.yy',
 	            prevText: '<i class="fa fa-angle-left"></i>',
-	            nextText: '<i class="fa fa-angle-right"></i>'
+	            nextText: '<i class="fa fa-angle-right"></i>',
+                    maxDate: new Date,
+                    changeYear: true,
+                    changeMonth: true
 	        });
 	        
 	        // Date range

@@ -31,6 +31,7 @@ return array(
             'profile' => 'layout/profile.phtml',
             'confirm' => 'layout/confirm.phtml',
             'machinetest' => 'layout/machinetest.phtml',
+            'companymt' => 'layout/companymtLayout.phtml'
                         ),
         'Companies' => array(
             'companyregistration' => 'layout/companyregistrationLayout.phtml',
@@ -102,7 +103,8 @@ return array(
                          'action' => array('sfdm' => array ('index',
                                                             'profile',
                                                             'confirm',
-                                                            'machinetest'),
+                                                            'machinetest',
+                                                            'companymt'),
                                      'admin' => array('index'),
                                      'login' => array('index','logout'),
                                      'sanalfabrika' => array ('index',

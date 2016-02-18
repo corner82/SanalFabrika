@@ -1110,8 +1110,8 @@ function submitUserInfoForm() {
 
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
-        var loader = $('#tabsContentsSection').loadImager();
-        $('#tabsContentsSection').loadImager('appendImage');
+//        var loader = $('#tabsContentsSection').loadImager();
+//        $('#tabsContentsSection').loadImager('appendImage');
         BootstrapDialog.show({
             title: window.lang.translate('Submission Process'),
             message: window.lang.translate('Congratulations! User information submitted sucessfully. \n\
@@ -1122,13 +1122,13 @@ function submitUserInfoForm() {
             '),
             type: BootstrapDialog.TYPE_SUCCESS,
 //                            closable: false
-            buttons: [{
-                    label: 'OK',
-                    cssClass: 'btn-success',
-                    action: function () {
-                        $('#tabsContentsSection').loadImager('removeLoadImage');
-                    }
-                }]
+//            buttons: [{
+//                    label: 'OK',
+//                    cssClass: 'btn-success',
+//                    action: function () {
+//                        $('#tabsContentsSection').loadImager('removeLoadImage');
+//                    }
+//                }]
         });
 
         $('#userCommunicationInfoForm').val('1');
@@ -1157,8 +1157,8 @@ function completeUserSubmissionProcess() {
     if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
 
-        var loader = $('#tabsContentsSection').loadImager();
-        $('#tabsContentsSection').loadImager('appendImage');
+//        var loader = $('#tabsContentsSection').loadImager();
+//        $('#tabsContentsSection').loadImager('appendImage');
 
         if ($('#userGeneralInfoForm').val() === '1') {
 
@@ -1179,7 +1179,7 @@ function completeUserSubmissionProcess() {
                                 label: 'OK',
                                 cssClass: 'btn-success',
                                 action: function () {
-                                    $('#tabsContentsSection').loadImager('removeLoadImage');
+//                                    $('#tabsContentsSection').loadImager('removeLoadImage');
                                     window.location.href =
                                             "/ostim/sanalfabrika";
                                 }
@@ -1190,14 +1190,14 @@ function completeUserSubmissionProcess() {
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
                         message: window.lang.translate('Please fill user communication information first'),
-                        type: BootstrapDialog.TYPE_SUCCESS,
+                        type: BootstrapDialog.TYPE_WARNING,
                         closable: false,
                         buttons: [{
                                 icon: 'glyphicon glyphicon-check',
                                 label: 'OK',
-                                cssClass: 'btn-success',
+                                cssClass: 'btn-warning',
                                 action: function () {
-                                    $('#tabsContentsSection').loadImager('removeLoadImage');
+//                                    $('#tabsContentsSection').loadImager('removeLoadImage');
                                     $("html, body").animate({scrollTop: 0}, "slow");
                                     event.preventDefault();
                                 }
@@ -1208,14 +1208,14 @@ function completeUserSubmissionProcess() {
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Please fill user address information form first'),
-                    type: BootstrapDialog.TYPE_SUCCESS,
+                    type: BootstrapDialog.TYPE_WARNING,
                     closable: false,
                     buttons: [{
                             icon: 'glyphicon glyphicon-check',
                             label: 'OK',
-                            cssClass: 'btn-success',
+                            cssClass: 'btn-warning',
                             action: function () {
-                                $('#tabsContentsSection').loadImager('removeLoadImage');
+//                                $('#tabsContentsSection').loadImager('removeLoadImage');
                                 window.location.href =
                                         "/ostim/sanalfabrika/registration#userAddressInfoForm";
                                 event.preventDefault();
@@ -1227,14 +1227,14 @@ function completeUserSubmissionProcess() {
             BootstrapDialog.show({
                 title: window.lang.translate('Submission Process'),
                 message: window.lang.translate('Please fill user general information form first'),
-                type: BootstrapDialog.TYPE_SUCCESS,
+                type: BootstrapDialog.TYPE_WARNING,
                 closable: false,
                 buttons: [{
                         icon: 'glyphicon glyphicon-check',
                         label: 'OK',
-                        cssClass: 'btn-success',
+                        cssClass: 'btn-warning',
                         action: function () {
-                            $('#tabsContentsSection').loadImager('removeLoadImage');
+//                            $('#tabsContentsSection').loadImager('removeLoadImage');
                             window.location.href =
                                     "/ostim/sanalfabrika/registration#userGeneralInfoForm";
                             event.preventDefault();
@@ -1250,8 +1250,8 @@ function companyInfoSubmission() {
     if ($('#companyInfoForm').validationEngine('validate')) {
 
 
-        var loader = $('#tabsContentsSection').loadImager();
-        $('#tabsContentsSection').loadImager('appendImage');
+//        var loader = $('#tabsContentsSection').loadImager();
+//        $('#tabsContentsSection').loadImager('appendImage');
 
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -1293,13 +1293,13 @@ function companyInfoSubmission() {
             '),
                         type: BootstrapDialog.TYPE_SUCCESS,
 //                            closable: false
-                        buttons: [{
-                                label: 'Ok',
-                                cssClass: 'btn-success',
-                                action: function () {
-                                    $('#tabsContentsSection').loadImager('removeLoadImage');
-                                }
-                            }]
+//                        buttons: [{
+//                                label: 'Ok',
+//                                cssClass: 'btn-success',
+//                                action: function () {
+//                                    $('#tabsContentsSection').loadImager('removeLoadImage');
+//                                }
+//                            }]
                     });
                     taskProgressPerTabs();
                     window.location.href =
