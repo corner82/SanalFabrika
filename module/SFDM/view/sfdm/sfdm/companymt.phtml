@@ -10,7 +10,9 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b><?php echo $this->translate('OSTIM') ?></b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b><?php echo $this->translate('OSTIM') ?></b><?php echo $this->translate('V.E.') ?></span>
+            <span class="logo-lg"><b><?php echo $this->translate('OSTIM') ?></b>
+                <?php echo $this->translate('V.E.') ?>
+            </span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -253,60 +255,13 @@
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
-                    <li class="dropdown language-selector" id='languages'>                          
+                    <li class="dropdown language-selector" >                          
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-                            <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
-                            <span class="logo-mini">EN</span>
+                            <!--<img src="<?php echo $this->basePath('onyuz/standard/assets/img/flags/24/United Kingdom(Great Britain).png') ?>"-->
+                            <span class="logo-mini"><?php echo $this->translate('Language') ?></span>
                         </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li class="active">
-                                <a href="#">
-                                    <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
-                                    <span class="logo-mini">EN</span>
-                                    <span>English</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="<?php echo $this->basePath('img/flag-tr.png') ?>"-->
-                                    <span class="logo-mini">TR</span>
-                                    <span>Türkçe</span>
-                                </a>
-                            </li>
-                            <li >
-                                <a href="#">
-                                    <!--<img src="<?php echo $this->basePath('img/flag-ru.png') ?>"-->
-                                    <span class="logo-mini">RU</span>
-                                    <span>Pу́сский</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="<?php echo $this->basePath('img/flag-de.png') ?>"-->
-                                    <span class="logo-mini">DE</span>
-                                    <span>Deutsch</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="<?php echo $this->basePath('img/flag-fr.png') ?>"-->
-                                    <span class="logo-mini">FR</span>
-                                    <span>Français</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="<?php echo $this->basePath('img/flag-ar.png') ?>"-->
-                                    <span class="logo-mini">AR</span>
-                                    <span>العربية</span>
-                                </a>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="<?php echo $this->basePath('img/flag-fa.png') ?>"-->
-                                    <span class="logo-mini">FA</span>
-                                    <span>فارسی</span>
-                                </a>
-                            </li>
+                        <ul class="dropdown-menu pull-right" id='languages'>
+
                         </ul>
                     </li>
                     <li>
@@ -324,21 +279,25 @@
             <div class="user-panel">
                 <div class="pull-left image">
                   <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
-                    <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
-
+                    <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" 
+                         class="user-image" alt="User Image"/> 
                 </div>
                 <div class="pull-left info">
                     <p><?php /* echo $_SESSION['userName']; */ ?></p>
-
-                    <a href="#"><i class="fa fa-circle text-success"></i><?php echo $this->translate('Active') ?></a>
+                    <a href="#"><i class="fa fa-circle text-success"></i>
+                        <?php echo $this->translate('Active') ?>
+                    </a>
                 </div>
             </div>
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="<?php echo $this->translate('Search') ?>"/>
+                    <input type="text" name="q" class="form-control" 
+                           placeholder="<?php echo $this->translate('Search') ?>"/>
                     <span class="input-group-btn">
-                        <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        <button type='submit' name='search' id='search-btn' 
+                                class="btn btn-flat"><i class="fa fa-search"></i>
+                        </button>
                     </span>
                 </div>
             </form>
@@ -346,8 +305,12 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
 
             <ul class="sidebar-menu" id="leftside-menu">
-                <li class="header"><?php echo $this->translate('Main Navigation') ?></li>
-                <li class="active treeview"></li>                        
+                <li class="header">
+                    <?php echo $this->translate('Main Navigation') ?>
+                </li>
+                <li class="active treeview">
+
+                </li>                        
             </ul>
 
         </section>
@@ -359,11 +322,15 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
+                <?php echo $this->translate('Company Machine Tool Panel') ?>
                 <small></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i><?php echo $this->translate('Home') ?></a></li>
+                <li><a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <?php echo $this->translate('Home') ?>
+                    </a>
+                </li>
                 <!--<li class="active">Firma İşlemleri</li>-->
             </ol>
         </section>
@@ -388,7 +355,10 @@
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="#" class="small-box-footer"><?php echo $this->translate('Details') ?> <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">
+                            <?php echo $this->translate('Details') ?> 
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                     </div>
                 </div><!-- ./col -->
                 <div class="col-lg-3 col-xs-6 ">
@@ -404,7 +374,10 @@
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer"><?php echo $this->translate('Details') ?> <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">
+                            <?php echo $this->translate('Details') ?> 
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                     </div>
                 </div><!-- ./col -->
                 <div class="col-lg-3 col-xs-6 ">
@@ -420,7 +393,10 @@
                         <div class="icon">
                             <i class="ion ion-briefcase"></i>
                         </div>
-                        <a href="#" class="small-box-footer"><?php echo $this->translate('Details') ?> <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">
+                            <?php echo $this->translate('Details') ?> 
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                     </div>
                 </div><!-- ./col -->
                 <div class="col-lg-3 col-xs-6 ">
@@ -437,7 +413,10 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer"><?php echo $this->translate('Details') ?> <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">
+                            <?php echo $this->translate('Details') ?> 
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                     </div>
 
                 </div><!-- ./col -->
@@ -447,9 +426,11 @@
             <div class='row'> 
                 <section class="col-lg-12 ">
                     <div class="callout callout-info" >												
-                        <h4><i class="fa fa-random"></i>
-                            <?php echo $this->translate('Consultant assessment and confirmation activities:') ?>  Danışman denetim ve doğrulama işlemleri:</h4>
-                            <?php echo $this->translate('Consultant may approve or reject assigned users requests:') ?> Danışman kendine atanmış kullanıcıların doğrulama işlemlerini yapabilecektir
+                        <h4>
+                            <i class="fa fa-random"></i>
+                            <?php echo $this->translate('Some Activities:') ?>  
+                        </h4>
+                        <?php echo $this->translate('List of activities') ?> 
                     </div>
                 </section> 
             </div>
@@ -463,19 +444,37 @@
                     <!-- Custom Tabs -->
                     <div class="nav-tabs-custom" >
                         <ul id="tab_confirm_container" class="nav nav-tabs">
-                            <li class="active"><a id='tab_confirm_company_clicker' href="#tab_confirm_company" data-toggle="tab">Kayıt onayı bekleyen kullanıcılar</a></li>
-                            <li class='disabled'><a  id='tab_confirm_clicker' href="#tab_confirm" data-toggle="tab" >Kullanıcı onayı detayları</a></li>
-                            <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
+                            <li class="active">
+                                <a id='allMachineToolsTab' 
+                                   href="#tab_allMachineTools" data-toggle="tab">
+                                       <?php echo $this->translate("List of Machine Tools") ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a id='machineToolsPropertiesTab' 
+                                   href="#tab_mt_properties" data-toggle="tab" >
+                                       <?php echo $this->translate("Machine Tool Properties") ?>
+                                </a>
+                            </li>                            
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <?php echo $this->translate("Dropdown")?>  <span class="caret"></span>
+                                    <?php echo $this->translate("Actions") ?>  
+                                    <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><?php echo $this->translate("Action")?></a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><?php echo $this->translate("Another action")?></a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><?php echo $this->translate("Something else here")?></a></li>
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="#">
+                                            <?php echo $this->translate("Edit Machine Tool Information") ?></a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="#">
+                                            <?php echo $this->translate("Change Machine Avalability") ?></a>
+                                    </li>
                                     <li role="presentation" class="divider"></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><?php echo $this->translate("Separated link")?></a></li>
+                                    <li role="presentation">
+                                        <a role="menuitem" tabindex="-1" href="#">
+                                            <?php echo $this->translate("Add New Machine Tool") ?></a>
+                                    </li>
                                 </ul>
                             </li>
                             <!--<div class="box-tools pull-right">
@@ -485,124 +484,31 @@
                         </ul>
 
                         <div  class="tab-content">
-                            <div class="tab-pane active" id="tab_confirm_company">
-
-
-                                <div id="tt_grid_dynamic_Main">
-                                    <table  id="grid_confirm_registration" title="<?php echo $this->translate('Accounts waiting for confirmation')?>" ></table>
+                            <div class="tab-pane active" id="tab_allMachineTools">
+                                <div id="tt_grid_machine_tools">
+                                    <table id="grid_machine_tools" 
+                                           title="<?php echo $this->translate('List of Machine Tools') ?>" >
+                                    </table>
                                 </div>
                             </div><!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_confirm">
+                            <div class="tab-pane" id="tab_mt_properties">
                                 <!-- Input addon -->
-                                <div id='tab_confirm_image_loader' class="box box-info">
+                                <div id='tab_mt_properties_image_loader' class="box box-info">
                                     <div class="box-header">
-                                        <h3 class="box-title">Onay / Kullanıcı Bilgileri</h3>
+                                        <h3 class="box-title">
+                                            <?php echo $this->translate('Machine Tool Properties') ?>
+                                        </h3>
                                     </div>
                                     <div class="box-body">
-
-                                        <div class="form-group">
-                                            <label>Kullanıcı</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                <input id="username" name="username" type="text"  class="form-control validate[required]" placeholder="Süreç">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Tercih edilen dil</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-language"></i></span>
-                                                <input id="languagecode" name="languagecode" type="text"  class="form-control" placeholder="Süreç">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Firma</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
-                                                <input id="firmname" name="firmname" type="text"  class="form-control" placeholder="Kullanıcı adı...">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>SGK no</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
-                                                <input id="sgkno" name="sgkno" type="text"  class="form-control " placeholder="Kullanıcı adı...">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>İrtibat Tel</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                                <textarea id='irtibattel' name='irtibattel' class="form-control" rows="3" placeholder="Sabit tel..."></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>İrtibat Cep</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>
-                                                <textarea id='irtibatcep' name='irtibatcep' class="form-control" rows="3" placeholder="Cep..."></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>İletişim Adresi</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-random"></i></span>
-                                                <textarea id='iletisimadresi' name='iletisimadresi' class="form-control" rows="3" placeholder="Adres..."></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Fatura Adresi</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-calculator"></i></span>
-                                                <textarea id='faturaadresi' name='faturaadresi' class="form-control" rows="3" placeholder="Fatura adresi..."></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Kayıt Tarihi</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                                <input id="sdate" name="sdate" type="text"  class="form-control validate[required]" placeholder="Kayıt tarihi">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Operasyon Tipi</label>
-                                            <div class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                                <div id="dropdownOperations"></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Onay Aracı</label>
-                                            <div id="dropdownOperationsToolsContainer"  class="input-group"> 
-                                                <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                                <div id="dropdownOperationsTools"></div>
-                                            </div>
-                                        </div>
-
-
-
+                                        <!-- ------------------------------- --> 
+                                        <!-- ------------------------------- --> 
+                                        <!-- Dynamically created alpaca form -->
+                                        <!-- ------------------------------- --> 
+                                        <!-- ------------------------------- --> 
                                         <button onclick="setWorkflowProcess();" class="btn btn-warning btn-block btn-lg">Kullanıcı Süreç ve Proses Kaydet</button>
 
-                                    </div><!-- /.box-body -->
+                                    </div>
                                 </div><!-- /.box -->
-                            </div><!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_3">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                It has survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                                like Aldus PageMaker including versions of Lorem Ipsum.
                             </div><!-- /.tab-pane -->
                         </div><!-- /.tab-content -->
                     </div><!-- nav-tabs-custom -->

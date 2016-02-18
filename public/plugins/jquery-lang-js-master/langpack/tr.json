@@ -61,7 +61,19 @@
                 "Update and Continue to Company Information":"Güncelle ve Firma Bilgilerine Geç", 
                 "Address information submitted sucessfully":"Adres Bilgileri Başarıyla kaydedildi",
                 "Please select company ownership situation from list...":"Lütfen firmanın mülkiyet durumuna uygun seçeneği seçiniz...",
-                "Contact information submitted successfully":""
+                "Contact information submitted successfully":"",
+                "Manufacturer":"Üretici",
+                "Machine Model":"Makine Modeli",
+                "Machine Name":"Makine Adı",
+                "Machine Type":"Makine Tipi",
+                "Category":"Sınıfı",
+                "Note! Machine tool properties are missing":"Dikkat! Makine özellikleri bilgisi eksiktir.",
+                "Note! Machine tool properties are missing. Please fill required property information from edit section":"Dikkat! Makine özellikleri bilgisi eksiktir. Lütfen eksik bilgileri düzenleme kısmından tamamlayınız.",
+                "Select a machine tool":"Lütfen bir makine seçiniz",
+                "Please select a machine tool from machine tools list":"Makine listesinden bir makine seçiniz",
+                "Select machine and continue":"Makineyi seçip, devam ediniz",
+                "":"",
+                "":""
 	},
 	"regex": [
 		["Budget", "Bütçe"],
