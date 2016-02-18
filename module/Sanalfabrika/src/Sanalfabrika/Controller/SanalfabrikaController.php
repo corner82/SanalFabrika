@@ -65,7 +65,7 @@
         return $view;
      }  
          
-     public function companymtAction(){
+     public function cmtAction(){
          $langCode = $this->getServiceLocator()
                             ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()

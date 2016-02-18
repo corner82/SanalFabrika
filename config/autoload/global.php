@@ -50,7 +50,7 @@ return array(
         'Sanalfabrika' => array(
             'registration' => 'layout/registrationLayout.phtml',
             'login' => 'layout/loginLayout.phtml',
-            'companymt' => 'layout/companymtLayout.phtml'
+            'cmt' => 'layout/cmtLayout.phtml'
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -109,7 +109,7 @@ return array(
                                      'sanalfabrika' => array ('index',
                                                               'registration',
                                                               'login',
-                                                              'companymt')),
+                                                              'cmt')),
                    ),
         'supervisor' => array(
                          'parent' => 'consultant',
@@ -124,7 +124,7 @@ return array(
                          'action' => array('sanalfabrika' => array ('index',
                                                                     'registration',
                                                                     'login',
-                                                                    'companymt'),
+                                                                    'cmt'),
                                      'login' => array('index'),)
                    ),
         'new user' => array(
