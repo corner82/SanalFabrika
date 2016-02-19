@@ -79,7 +79,11 @@ $(document).ready(function () {
         
     }
     
-    
+    /**
+     * machine property dialog test function
+     * @author Mustafa Zeynel Dağlı
+     * @todo this functionality will be implemented inside plugin after tests completed
+     */
     window.testClick = function(e) {
         //alert('testclick');
         var invoker = e.target;
@@ -192,6 +196,8 @@ $(document).ready(function () {
     var tree = $('.tree2').machineTree();  
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
     tree.machineTree('option', 'pk', $("#pk").val());
+    tree.machineTree('option', 'baseNodeCollapsedIcon','fa-hand-o-right');
+    tree.machineTree('option', 'baseNodeExpandedIcon','fa-hand-o-down');
     tree.machineTree('setMainRoot');
     
     

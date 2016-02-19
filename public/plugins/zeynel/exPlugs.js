@@ -210,6 +210,11 @@
            domFinderChildrenParent : 'li.parent_li',
            animationStyle : 'fast',
            language_code : 'tr',
+           baseNodeCollapsedIcon: 'fa-calendar',
+           baseNodeExpandedIcon: 'fa-calendar',
+           //leafNodeCollapsedIcon: 'fa-spin',
+           leafNodeExpandedIcon: 'fa-gear',
+           leafNodeCollapsedIcon :'fa-refresh fa-spin',
            
        },
        
@@ -236,7 +241,7 @@
                                 console.log($(this).attr('data-test'));
                                 console.log(value);
                             });*/
-                            appendText+='<li class="parent_li" ><img src="/plugins/zeynel/img/node.png"><span id="'+data[key].id+'" data-action="false" ><i class="fa fa-calendar"></i>   '+data[key].text+'  </span></li>'; 
+                            appendText+='<li class="parent_li" data-state="'+data[key].state+'" data-lastNode="'+data[key].attributes.last_node+'" data-machine="'+data[key].attributes.machine+'" data-root="'+data[key].attributes.root+'" ><img src="/plugins/zeynel/img/node.png"><span id="'+data[key].id+'" data-action="false" ><i class="fa '+self.options.baseNodeCollapsedIcon+'"></i>   '+data[key].text+'  </span></li>'; 
                         });
                         appendText+= "</ul>";
                         self.element.append(appendText);
@@ -275,7 +280,11 @@
        
        _loadSubNodes: function (id, node) {
            self = this;
-           //console.log(node.parent().find('>ul').length);
+           var listItem = node.parent('li.parent_li');
+           if(listItem.attr('data-lastnode')=='true') {
+               //alert('test true');
+           }
+
            /**
             * determine if loaded before,
             * if loaded alreadt , do not make service call anymore
@@ -286,7 +295,10 @@
                     data: { url: this.options.url ,
                             parent_id : id,
                             pk : this.options.pk,
-                            language_code : this.options.language_code,           
+                            language_code : this.options.language_code,
+                            last_node : listItem.attr('data-lastnode'),
+                            machine : listItem.attr('data-machine'),
+                            state : listItem.attr('data-state'),
                     }, 
                     type: 'GET',
                     dataType: 'json',
@@ -295,8 +307,9 @@
                             var datas = data;
                             var appendText = "<ul>";
                             $.each( data,function (key, value) {
-                                appendText+='<li  class="parent_li">'; 
-                                appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge"><i class="fa fa-refresh fa-spin"></i>   '+data[key].text+'  </span>';
+                                appendText+='<li data-state="'+data[key].state+'" data-lastNode="'+data[key].attributes.last_node+'" data-machine="'+data[key].attributes.machine+'"  class="parent_li" data-root="'+data[key].attributes.root+'">'; 
+                                var leafNodeIcons = self.setLeafNodeIcons(data, key);
+                                appendText+= leafNodeIcons;
                                 appendText+='</li>';
                             });
                             appendText+= "</ul>";
@@ -304,8 +317,9 @@
                             node.parent().hide();
                             node.parent().append(appendText);
                             node.parent().show('slow');
-                            node.attr('title', 'Expand this node').find(' > i').addClass('fa-gears').removeClass('fa-spin');
                             
+                            self.expandNodeIcons(node, listItem);
+
                             /**
                              * add action to newly appended dom elements
                              */
@@ -330,45 +344,121 @@
                     }
                 });
            } else {
+               var nodesUl = node.children().find('>ul');
+               nodesUl.html('');
+               //node.html('');
+               var listItem = node.parent('li.parent_li');
                var children = node.parent('li.parent_li').find(' > ul > li');
                 if (children.is(":visible")) {
                     children.hide('slow');
-                    //alert('hide');
-                    //$(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-                    node.attr('title', 'Expand this branch').find(' > i').addClass('fa-spin').removeClass('fa-gears');
+                    self.collapseNodeIcons(node, listItem);
                 } else {
-                    children.show('fast');
-                    //$(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-                    node.attr('title', 'Expand this branch').find(' > i').addClass('fa-gears').removeClass('fa-spin');
+                    children.show('slow');
+                    self.expandNodeIcons(node, listItem);
                 }
            }
           
        },
+       
        /**
-        * send error message to service
-        * @returns {null}
+        * return leaf node <i> ans <span>
+        * @param {type} data
+        * @param {type} key
+        * @returns {String}
+        * @author Mustafa Zeynel Dağlı
+        * @since 19/02/2016
         */
-       send : function () {
-           $.ajax({
-                url: this.options.proxy,
-                data: { url: this.options.url ,
-                        error_code : this.options.errorCode,
-                        pk : this.options.pk,
-                        page_name : this.options.page,
-                        service_name : this.options.service,
-                        error_info : this.options.errorInfo,
-                        url_full : this.options.errorUrl
-}, 
-                type: 'GET',
-                dataType: 'json',
-                success: function (data, textStatus, jqXHR) {
-                    
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    
-                }
-            });
+       setLeafNodeIcons: function(data, key) {
+           self = this;
+           var appendText = '';
+           if(data[key].attributes.last_node=='true' && data[key].state=='open' && data[key].attributes.machine=='false') {
+                appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge"><i class="fa fa-gears"></i>   '+data[key].text+'  </span>';
+            } else if(data[key].attributes.last_node=='true' && data[key].state=='closed' && data[key].attributes.machine=='false') {
+                appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge"><i class="fa '+self.options.leafNodeCollapsedIcon +'"></i>   '+data[key].text+'  </span>';
+            } else if(data[key].attributes.last_node=='true' && data[key].state=='open' && data[key].attributes.machine=='true') {
+                appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge"><i class="fa fa-gear"></i>   '+data[key].text+'  </span>';
+            }
+            else {
+                appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge"><i class="fa '+self.options.leafNodeCollapsedIcon +'"></i>   '+data[key].text+'  </span>';
+            }
+            return appendText;
        },
+       
+       /**
+        * change node icons due to  collapse
+        * @author Mustafa Zeynel Dağlı
+        */
+       collapseNodeIcons : function(node, listItem) {
+           self = this;
+           if(listItem.attr('data-root')=='true') {
+                //alert('test');
+                node.attr('title', 'Expand this branch').find(' > i').addClass(self.options.baseNodeCollapsedIcon).removeClass(self.options.baseNodeExpandedIcon);
+            } else {
+                node.attr('title', 'Expand this branch').find(' > i').addClass('fa-spin').addClass('fa-refresh').removeClass('fa-gears');
+            }
+            
+            if(listItem.attr('data-lastnode')=='true' && 
+                        listItem.attr('data-machine')=='false' &&
+                        listItem.attr('data-state')=='closed') {
+                //alert('test deneme');
+                if(node.parent('li').find('>div button').length>0) {
+                    node.parent('li').find('>div').remove();
+                    //node.parent('li').find('>div button').remove();
+                    //alert('ddeneme');
+                    //node.parent('li').prepend('<button style="padding:0px;" onclick="event.preventDefault();" class="pull-left btn btn-default">Makina Ara <i class="fa fa-arrow-circle-right"></i></button>'); 
+                }
+            }
+            
+       },
+       
+       /**
+        * change node icons due to  expand
+        * @author Mustafa Zeynel Dağlı
+        * @since 19/02/2016
+        */
+       expandNodeIcons : function(node, listItem) {
+           self = this;
+           var node = node;
+           if(listItem.attr('data-root')=='true') {
+                node.attr('title', 'Expand this branch').find(' > i').addClass(self.options.baseNodeExpandedIcon).removeClass(self.options.baseNodeCollapsedIcon);
+            } else {
+                node.attr('title', 'Expand this branch').find(' > i').addClass('fa-gears').removeClass('fa-refresh').removeClass('fa-spin');
+            }
+            
+            if(listItem.attr('data-lastnode')=='true' && 
+                        listItem.attr('data-machine')=='false' &&
+                        listItem.attr('data-state')=='closed') {
+                //alert('test deneme');
+                if(node.parent('li').find('>div button').length==0) {
+                    node.parent('li').prepend('<div><button style="padding:0px;border:2px solid #ddd;" onclick="event.preventDefault();" class="pull-left btn btn-default">Makina Ara <i class="fa fa-arrow-circle-right"></i></button></div>'); 
+                    node.parent('li').find('>div button').on('click', function(e) {
+                       //alert('test click deneme');
+                       if($(this).parent().find('>.machine-search').length==0) {
+                           //$(this).parent('div').append('<button style="padding:0px;margin-left:10px;" onclick="event.preventDefault();" class="pull-left btn btn-default tree-search">Makina Ara <i class="fa fa-arrow-circle-right"></i></button>');
+                           $(this).parent('div').append('<input class="machine-search" style="margin-left:10px;-webkit-border-radius: 5px;\n\
+                                                                        -moz-border-radius: 5px;\n\
+                                                                        border-radius: 5px;\n\
+                                                                        border:2px solid #ddd" type="text" value="test" />\n\
+                                                                        <button style="padding: 0px 3px 1px 4px;border:2px solid #ddd;margin-left:2px;" onclick="event.preventDefault();" class=" btn btn-default machine-search-btn">\n\
+                                                                        <i class="fa fa-search"></i>\n\
+                                                                        </button>');
+                            $(this).parent().find('>.machine-search-btn').on('click', function(){
+                                alert('search click');
+                            });
+                            
+                            
+                       } else {
+                           $(this).parent().find('>.machine-search').remove();
+                           $(this).parent().find('>.machine-search-btn').remove();
+                       }
+                       
+                   });
+                }
+                
+                
+            }
+       },
+       
        test : function() {
            alert('test');
            this._trigger('tested');
