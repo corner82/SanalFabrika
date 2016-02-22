@@ -192,3 +192,21 @@
     border:1px solid #94a0b4;
     color:#000
 }
+
+.tree2 .machine-search {
+    margin-left:10px;-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border:2px solid #ddd;
+}
+
+.tree2 .machine-tree-search-button{
+    padding: 0px 3px 1px 4px;
+    border:2px solid #ddd;
+    margin-left:2px;
+}
+
+.tree2 .machine-tree-search-displayer{
+    padding:0px;
+    border:2px solid #ddd;
+}

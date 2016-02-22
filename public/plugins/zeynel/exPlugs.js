@@ -278,6 +278,13 @@
            
        },
        
+       /**
+        * set leaf nodes
+        * @param {type} id
+        * @param {type} node
+        * @returns {undefined}
+        * @author Mustafa Zeynel Dağlı
+        */
        _loadSubNodes: function (id, node) {
            self = this;
            var listItem = node.parent('li.parent_li');
@@ -419,34 +426,37 @@
        expandNodeIcons : function(node, listItem) {
            self = this;
            var node = node;
+           /**
+            * base node icon changing due to collapse / expanse
+            */
            if(listItem.attr('data-root')=='true') {
                 node.attr('title', 'Expand this branch').find(' > i').addClass(self.options.baseNodeExpandedIcon).removeClass(self.options.baseNodeCollapsedIcon);
             } else {
                 node.attr('title', 'Expand this branch').find(' > i').addClass('fa-gears').removeClass('fa-refresh').removeClass('fa-spin');
             }
             
+            /**
+             * if node is last node and not a machine and data state closed
+             * then serach dom elements are appended
+             */
             if(listItem.attr('data-lastnode')=='true' && 
                         listItem.attr('data-machine')=='false' &&
                         listItem.attr('data-state')=='closed') {
                 //alert('test deneme');
                 if(node.parent('li').find('>div button').length==0) {
-                    node.parent('li').prepend('<div><button style="padding:0px;border:2px solid #ddd;" onclick="event.preventDefault();" class="pull-left btn btn-default">Makina Ara <i class="fa fa-arrow-circle-right"></i></button></div>'); 
+                    node.parent('li').prepend('<div><button  onclick="event.preventDefault();" class="pull-left btn btn-default machine-tree-search-displayer">Makina Ara <i class="fa fa-arrow-circle-right"></i></button></div>'); 
                     node.parent('li').find('>div button').on('click', function(e) {
                        //alert('test click deneme');
                        if($(this).parent().find('>.machine-search').length==0) {
                            //$(this).parent('div').append('<button style="padding:0px;margin-left:10px;" onclick="event.preventDefault();" class="pull-left btn btn-default tree-search">Makina Ara <i class="fa fa-arrow-circle-right"></i></button>');
-                           $(this).parent('div').append('<input class="machine-search" style="margin-left:10px;-webkit-border-radius: 5px;\n\
-                                                                        -moz-border-radius: 5px;\n\
-                                                                        border-radius: 5px;\n\
-                                                                        border:2px solid #ddd" type="text" value="test" />\n\
-                                                                        <button style="padding: 0px 3px 1px 4px;border:2px solid #ddd;margin-left:2px;" onclick="event.preventDefault();" class=" btn btn-default machine-search-btn">\n\
+                           $(this).parent('div').append('<input class="machine-search"  type="text" value="Ara" />\n\
+                                                                        <button  onclick="event.preventDefault();" class=" btn btn-default machine-search-btn machine-tree-search-button">\n\
                                                                         <i class="fa fa-search"></i>\n\
                                                                         </button>');
                             $(this).parent().find('>.machine-search-btn').on('click', function(){
                                 alert('search click');
+                                self.searchAndDeployMachines(node, listItem);
                             });
-                            
-                            
                        } else {
                            $(this).parent().find('>.machine-search').remove();
                            $(this).parent().find('>.machine-search-btn').remove();
@@ -454,10 +464,116 @@
                        
                    });
                 }
+            }
+       },
+       
+       /**
+        * search and display serached machines
+        * @author Mustafa Zeynel Dağlı
+        * @since 22/02/2016
+        */
+       searchAndDeployMachines: function (node, listItem) {
+           self = this;
+           var searchText = node.parent('li').find('>div .machine-search').val();
+           //alert(node.parent('li').find('>div .machine-search').val());
+           node.parent('li').find('>ul').remove();
+           $.ajax({
+                    url: self.options.proxy,
+                    data: { url: this.options.url ,
+                            parent_id : node.attr('id'),
+                            pk : self.options.pk,
+                            language_code : self.options.language_code,
+                            last_node : listItem.attr('data-lastnode'),
+                            machine : listItem.attr('data-machine'),
+                            state : listItem.attr('data-state'),
+                            search : searchText,
+                    }, 
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data, textStatus, jqXHR) {
+                        if(data.length !==0) {
+                            var datas = data;
+                            var appendText = "<ul>";
+                            $.each( data,function (key, value) {
+                                appendText+='<li data-state="'+data[key].state+'" data-lastNode="'+data[key].attributes.last_node+'" data-machine="'+data[key].attributes.machine+'"  class="parent_li" data-root="'+data[key].attributes.root+'">'; 
+                                var leafNodeIcons = self.setLeafNodeIcons(data, key);
+                                appendText+= leafNodeIcons;
+                                appendText+='</li>';
+                            });
+                            appendText+= "</ul>";
+
+                            node.parent().hide();
+                            node.parent().append(appendText);
+                            node.parent().show('slow');
+                            
+                            //self.expandNodeIcons(node, listItem);
+
+                            /**
+                             * add action to newly appended dom elements
+                             */
+                            $('.tree2 li.parent_li > span[data-action="false"]').each(function (e) {
+                                    $(this).on('click', function(e) {
+                                        //alert($(this).attr('id'));
+                                        self._loadSubNodes($(this).attr('id'), $(this));
+                                    });
+                                    /**
+                                    * remove ['data-action'] not to add additional events to 
+                                    * appended dom elements
+                                    */
+                                    $(this).removeAttr('data-action');
+                                    $(this).removeData('data-action');
+                            });
+
+                            //jQuery._data( $('.tree li.parent_li > span'), "events" );
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+
+                    }
+                });
+       },
+       
+       
+       /**
+        * set machine serach dom elements
+        * @param {type} node
+        * @param {type} listItem
+        * @returns {undefined}
+        * @author Mustafa Zeynel Dağlı
+        * @since 22/02/2016
+        * @todo to implemented in 'expandNodeIcons' function
+        */
+       setSearchElements : function(node, listItem, clickedSpan) {
+           self = this;
+           if(listItem.attr('data-lastnode')=='true' && 
+                        listItem.attr('data-machine')=='false' &&
+                        listItem.attr('data-state')=='closed') {
+                //alert('test deneme');
+                if(node.parent('li').find('>div button').length==0) {
+                    node.parent('li').prepend('<div><button  onclick="event.preventDefault();" class="pull-left btn btn-default machine-tree-search-displayer">Makina Ara <i class="fa fa-arrow-circle-right"></i></button></div>'); 
+                    node.parent('li').find('>div button').on('click', function(e) {
+                       alert('test click deneme');
+                       if(clickedSpan.parent().find('>.machine-search').length==0) {
+                           alert('ddddd');
+                           //$(this).parent('div').append('<button style="padding:0px;margin-left:10px;" onclick="event.preventDefault();" class="pull-left btn btn-default tree-search">Makina Ara <i class="fa fa-arrow-circle-right"></i></button>');
+                           clickedSpan.parent('div').append('<input class="machine-search"  type="text" value="Ara" />\n\
+                                                                        <button  onclick="event.preventDefault();" class=" btn btn-default machine-search-btn machine-tree-search-button">\n\
+                                                                        <i class="fa fa-search"></i>\n\
+                                                                        </button>');
+                            clickedSpan.parent().find('>.machine-search-btn').on('click', function(){
+                                alert('search click');
+                            });
+                       } else {
+                           clickedSpan.parent().find('>.machine-search').remove();
+                           clickedSpan.parent().find('>.machine-search-btn').remove();
+                       }
+                   });
+                }
                 
                 
             }
        },
+       
        
        test : function() {
            alert('test');
