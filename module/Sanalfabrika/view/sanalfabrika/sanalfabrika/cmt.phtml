@@ -485,10 +485,12 @@
 
                         <div  class="tab-content">
                             <div class="tab-pane active" id="tab_allMachineTools">
-                                <div id="tt_grid_machine_tools">
-                                    <table id="grid_machine_tools" 
-                                           title="<?php echo $this->translate('List of Machine Tools') ?>" >
-                                    </table>
+                                <div class="box-body chat" id="chat-box">
+                                    <div class="tree2" id="tt_tree_machine_tools">
+    <!--                                    <table id="grid_machine_tools" 
+                                               title="<?php echo $this->translate('List of Machine Tools') ?>" >
+                                        </table>-->
+                                    </div>
                                 </div>
                             </div><!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_mt_properties">
@@ -496,16 +498,31 @@
                                 <div id='tab_mt_properties_image_loader' class="box box-info">
                                     <div class="box-header">
                                         <h3 class="box-title">
+                                            <!-- ------------------------------- --> 
+                                            <!-- ------------------------------- --> 
+                                            <!-- selected machine tool name from tree -->
+                                            <!-- ------------------------------- --> 
+                                            <!-- ------------------------------- --> 
                                             <?php echo $this->translate('Machine Tool Properties') ?>
                                         </h3>
                                     </div>
                                     <div class="box-body">
-                                        <!-- ------------------------------- --> 
-                                        <!-- ------------------------------- --> 
-                                        <!-- Dynamically created alpaca form -->
-                                        <!-- ------------------------------- --> 
-                                        <!-- ------------------------------- --> 
-                                        <button onclick="setWorkflowProcess();" class="btn btn-warning btn-block btn-lg">Kullanıcı Süreç ve Proses Kaydet</button>
+                                        <div id="mtPropsDynamicForm" style="font-size: 12px">
+                                            <!-- ------------------------------- --> 
+                                            <!-- ------------------------------- --> 
+                                            <!-- Dynamically created alpaca form -->
+                                            <!-- ------------------------------- --> 
+                                            <!-- ------------------------------- --> 
+                                        </div>
+
+                                        <button onclick="" 
+                                                class="btn btn-success btn-block btn-sm">
+                                                    <?php echo $this->translate('Save') ?>
+                                        </button>
+                                        <button onclick="" 
+                                                class="btn btn-default btn-block btn-sm">
+                                                    <?php echo $this->translate('Cancel') ?>
+                                        </button>
 
                                     </div>
                                 </div><!-- /.box -->
