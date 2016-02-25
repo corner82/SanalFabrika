@@ -72,8 +72,11 @@
                 "Select a machine tool":"Lütfen bir makine seçiniz",
                 "Please select a machine tool from machine tools list":"Makine listesinden bir makine seçiniz",
                 "Select machine and continue":"Makineyi seçip, devam ediniz",
-                "":"",
-                "":""
+                "Please first select a machine tool from machine tools list":"Lütfen daha önce makine tablosundan bir makine seçiniz...",
+                "Select a machine tool to view machine information details":"Makine detaylı bilgisini görüntülemek için bir makine seçmeniz gerekmektedir.",
+                "Machine Manufacturer":"Makine Üreticisi",
+                "General Machine Information":"Genel Makine Bilgileri"
+                
 	},
 	"regex": [
 		["Budget", "Bütçe"],

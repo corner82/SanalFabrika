@@ -443,39 +443,30 @@
                     <!--<div class="">-->
                     <!-- Custom Tabs -->
                     <div class="nav-tabs-custom" >
-                        <ul id="tab_confirm_container" class="nav nav-tabs">
+                        <ul id="tab_company_machines" class="nav nav-tabs">
                             <li class="active">
                                 <a id='allMachineToolsTab' 
-                                   href="#tab_allMachineTools" data-toggle="tab">
-                                       <?php echo $this->translate("List of Machine Tools") ?>
+                                   href="#tab_companyMachineTools" data-toggle="tab">
+                                       <?php echo $this->translate("List of Company Machine Tools") ?>
                                 </a>
                             </li>
                             <li>
-                                <a id='machineToolsPropertiesTab' 
+                                <a id='machineToolsPropertiesTab' class="disabled"
                                    href="#tab_mt_properties" data-toggle="tab" >
                                        <?php echo $this->translate("Machine Tool Properties") ?>
                                 </a>
-                            </li>                            
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <?php echo $this->translate("Actions") ?>  
-                                    <span class="caret"></span>
+                            </li>   
+                            <li>
+                                <a id='addNewMachineToolTab' 
+                                   href="#tab_add_new_mt" data-toggle="tab" >
+                                       <?php echo $this->translate("Add New Machine Tool") ?>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li role="presentation">
-                                        <a role="menuitem" tabindex="-1" href="#">
-                                            <?php echo $this->translate("Edit Machine Tool Information") ?></a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a role="menuitem" tabindex="-1" href="#">
-                                            <?php echo $this->translate("Change Machine Avalability") ?></a>
-                                    </li>
-                                    <li role="presentation" class="divider"></li>
-                                    <li role="presentation">
-                                        <a role="menuitem" tabindex="-1" href="#">
-                                            <?php echo $this->translate("Add New Machine Tool") ?></a>
-                                    </li>
-                                </ul>
+                            </li>  
+                            <li>
+                                <a id='newMTProposalTab' 
+                                   href="#tab_new_mt_proposal" data-toggle="tab" >
+                                       <?php echo $this->translate("Propose a New Machine Tool") ?>
+                                </a>
                             </li>
                             <!--<div class="box-tools pull-right">
                               <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -484,13 +475,17 @@
                         </ul>
 
                         <div  class="tab-content">
-                            <div class="tab-pane active" id="tab_allMachineTools">
+                            <div class="tab-pane active" id="tab_companyMachineTools">
                                 <div class="box-body chat" id="chat-box">
-                                    <div class="tree2" id="tt_tree_machine_tools">
-    <!--                                    <table id="grid_machine_tools" 
-                                               title="<?php echo $this->translate('List of Machine Tools') ?>" >
-                                        </table>-->
+
+                                    <!-- **** ************************** **** -->
+                                    <!-- **** company machine tools tree **** -->
+                                    <!-- **** ************************** **** -->
+
+                                    <div id="tt_grid_cmt">
+                                        <table id="grid_company_machines" title="<?php echo $this->translate("Company machine tools") ?>"></table>
                                     </div>
+
                                 </div>
                             </div><!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_mt_properties">
@@ -507,26 +502,61 @@
                                         </h3>
                                     </div>
                                     <div class="box-body">
-                                        <div id="mtPropsDynamicForm" style="font-size: 12px">
-                                            <!-- ------------------------------- --> 
-                                            <!-- ------------------------------- --> 
-                                            <!-- Dynamically created alpaca form -->
-                                            <!-- ------------------------------- --> 
-                                            <!-- ------------------------------- --> 
+                                        <div id="mtGenPropsDynamicForm" style="font-size: 12px">
                                         </div>
-
-                                        <button onclick="" 
-                                                class="btn btn-success btn-block btn-sm">
-                                                    <?php echo $this->translate('Save') ?>
-                                        </button>
-                                        <button onclick="" 
-                                                class="btn btn-default btn-block btn-sm">
-                                                    <?php echo $this->translate('Cancel') ?>
-                                        </button>
-
+                                        <div class="alpaca-field alpaca-field-object alpaca-optional" id="mtSpecPropsDynamicForm" style="font-size: 12px">
+                                        </div>
                                     </div>
                                 </div><!-- /.box -->
                             </div><!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_add_new_mt">
+                                <div id='tab_add_new_mt_image_loader' class="box box-info">
+                                    <div class="box-header">
+                                        <h3 class="box-title">
+                                            <?php echo $this->translate('Available Machine Tools List') ?>
+                                        </h3>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="addNewMachineTool" style="font-size: 12px">                                            
+                                            <section>
+                                                <div class="tree2" id="tt_tree_machine_tools">
+                <!--                                    <table id="grid_machine_tools" 
+                                                           title="<?php echo $this->translate('List of Machine Tools') ?>" >
+                                                    </table>-->
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <div id='tab_add_new_mt_image_loader' class="box box-warning">
+                                                    <div class="box-header">
+                                                        <h3 class="box-title">
+                                                            <?php echo $this->translate("Couldn't find machine tool from list") ?>
+                                                        </h3>
+                                                    </div>
+                                                    <button class="btn btn-block btn-warning btn-sm" id="proposeNewMachine" onclick="activateNewProposal()">
+                                                        <?php echo $this->translate('Propose A New Machine Tool') ?>
+                                                    </button>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div><!-- /.box -->
+                            </div><!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_new_mt_proposal">
+                                <div id='tab_new_mt_proposal_image_loader' class="box box-info">
+                                    <div class="box-header">
+                                        <h3 class="box-title">
+                                            <?php echo $this->translate('Propose a New Machine Tools') ?>
+                                        </h3>
+                                        <div class="box-body">
+                                            <div id="newMTProposal" style="font-size: 12px">                                            
+                                                <section>
+
+                                                </section>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div><!-- /.tab-content -->
                     </div><!-- nav-tabs-custom -->
                     <!--</div>--><!-- /.col -->
