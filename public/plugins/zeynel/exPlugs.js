@@ -232,35 +232,12 @@
                 success: function (data, textStatus, jqXHR) {
                     if(data.length !==0) {
                         var datas = data;
-                        var appendText = "<ul>";
+                        var appendText = "<ul class='machine-main-ul'>";
                         $.each( data,function (key, value) {
-                            /*self.element.append(function() {
-                            return $('<li class="parent_li" data-test="attribute test"><span data-test="attribute test span"><i class="fa fa-calendar"></i>   '+data[key].text+'  </span></li>').click(function(value){ 
-                                alert('week 5 alert');
-                                //alert(datas[0].text);
-                                console.log($(this).attr('data-test'));
-                                console.log(value);
-                            });*/
-                            appendText+='<li class="parent_li" data-state="'+data[key].state+'" data-lastNode="'+data[key].attributes.last_node+'" data-machine="'+data[key].attributes.machine+'" data-root="'+data[key].attributes.root+'" ><img src="/plugins/zeynel/img/node.png"><span id="'+data[key].id+'" data-action="false" ><i class="fa '+self.options.baseNodeCollapsedIcon+'"></i>   '+data[key].text+'  </span></li>'; 
+                            appendText+='<li class="parent_li" data-state="'+data[key].state+'" data-lastNode="'+data[key].attributes.last_node+'" data-machine="'+data[key].attributes.machine+'" data-root="'+data[key].attributes.root+'" ><img src="/plugins/zeynel/img/node.png"><span id="'+data[key].id+'" data-action="root" ><i class="fa '+self.options.baseNodeCollapsedIcon+'"></i>   '+data[key].text+'  </span></li>'; 
                         });
                         appendText+= "</ul>";
                         self.element.append(appendText);
-                        
-                        /**
-                        * add action to newly appended dom elements
-                        */
-                        $('.tree2 li.parent_li > span[data-action="false"]').each(function (e) {
-                                //self = this;
-                                $(this).on('click', function(e) {
-                                    self._loadSubNodes($(this).attr('id'), $(this));
-                                });
-                                /**
-                                 * remove ['data-action'] not to add additional events to 
-                                 * appended dom elements
-                                 */
-                                $(this).removeAttr('data-action');
-                                $(this).removeData('data-action');
-                        });
 
                         //jQuery._data( $('.tree li.parent_li > span'), "events" );
                     }
@@ -276,6 +253,24 @@
         */
        _create: function () {
            
+           /**
+            * root node span click handler
+            * @since 24/02/2016
+            */
+           $( ".tree2" ).on( "click", "li.parent_li > span[data-action='root']", function( event ) {
+               //alert('root action');
+               self._loadSubNodes($(this).attr('id'), $(this));
+            });
+            
+           /**
+            * leaf (machine group ans machine) node span click event handler
+            * @since 24/02/2016
+            */
+           $( ".tree2" ).on( "click", "li.parent_li > span.badge", function( event ) {
+               //alert('leaf action');
+               self._loadSubNodes($(this).attr('id'), $(this));
+            });
+
        },
        
        /**
@@ -326,23 +321,6 @@
                             node.parent().show('slow');
                             
                             self.expandNodeIcons(node, listItem);
-
-                            /**
-                             * add action to newly appended dom elements
-                             */
-                            $('.tree2 li.parent_li > span[data-action="false"]').each(function (e) {
-                                    $(this).on('click', function(e) {
-                                        //alert($(this).attr('id'));
-                                        self._loadSubNodes($(this).attr('id'), $(this));
-                                    });
-                                    /**
-                                    * remove ['data-action'] not to add additional events to 
-                                    * appended dom elements
-                                    */
-                                    $(this).removeAttr('data-action');
-                                    $(this).removeData('data-action');
-                            });
-
                             //jQuery._data( $('.tree li.parent_li > span'), "events" );
                         }
                     },
@@ -368,7 +346,7 @@
        },
        
        /**
-        * return leaf node <i> ans <span>
+        * return leaf node <i> and <span>
         * @param {type} data
         * @param {type} key
         * @returns {String}
@@ -383,7 +361,7 @@
             } else if(data[key].attributes.last_node=='true' && data[key].state=='closed' && data[key].attributes.machine=='false') {
                 appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge"><i class="fa '+self.options.leafNodeCollapsedIcon +'"></i>   '+data[key].text+'  </span>';
             } else if(data[key].attributes.last_node=='true' && data[key].state=='open' && data[key].attributes.machine=='true') {
-                appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge"><i class="fa fa-gear"></i>   '+data[key].text+'  </span>';
+                appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge machine"><i class="fa fa-gear"></i>   '+data[key].text+'  </span>';
             }
             else {
                 appendText+='<img src="/plugins/zeynel/img/node.png"></img><span id="'+data[key].id+'" data-action="false" class="badge"><i class="fa '+self.options.leafNodeCollapsedIcon +'"></i>   '+data[key].text+'  </span>';
@@ -398,24 +376,21 @@
        collapseNodeIcons : function(node, listItem) {
            self = this;
            if(listItem.attr('data-root')=='true') {
-                //alert('test');
                 node.attr('title', 'Expand this branch').find(' > i').addClass(self.options.baseNodeCollapsedIcon).removeClass(self.options.baseNodeExpandedIcon);
             } else {
                 node.attr('title', 'Expand this branch').find(' > i').addClass('fa-spin').addClass('fa-refresh').removeClass('fa-gears');
             }
             
+            /**
+             * remove search button and text container
+             */
             if(listItem.attr('data-lastnode')=='true' && 
                         listItem.attr('data-machine')=='false' &&
                         listItem.attr('data-state')=='closed') {
-                //alert('test deneme');
                 if(node.parent('li').find('>div button').length>0) {
                     node.parent('li').find('>div').remove();
-                    //node.parent('li').find('>div button').remove();
-                    //alert('ddeneme');
-                    //node.parent('li').prepend('<button style="padding:0px;" onclick="event.preventDefault();" class="pull-left btn btn-default">Makina Ara <i class="fa fa-arrow-circle-right"></i></button>'); 
                 }
             }
-            
        },
        
        /**
@@ -439,22 +414,33 @@
              * if node is last node and not a machine and data state closed
              * then serach dom elements are appended
              */
-            if(listItem.attr('data-lastnode')=='true' && 
+            self.setSearchContainer(node, listItem);
+       },
+       
+       /**
+        * 
+        * @param {type} node
+        * @param {type} listItem
+        * @returns {undefined}
+        * @author Mustafa Zeynel Dağlı
+        * @since 25/02/2016
+        */
+       setSearchContainer : function(node, listItem) {
+           self = this;
+           if(listItem.attr('data-lastnode')=='true' && 
                         listItem.attr('data-machine')=='false' &&
                         listItem.attr('data-state')=='closed') {
                 //alert('test deneme');
                 if(node.parent('li').find('>div button').length==0) {
-                    node.parent('li').prepend('<div><button  onclick="event.preventDefault();" class="pull-left btn btn-default machine-tree-search-displayer">Makina Ara <i class="fa fa-arrow-circle-right"></i></button></div>'); 
+                    node.parent('li').prepend('<div class="col-lg-12 col-xs-10"><button  onclick="event.preventDefault();" class="pull-left btn btn-default machine-tree-search-displayer">Makina Ara <i class="fa fa-arrow-circle-right"></i></button></div>'); 
                     node.parent('li').find('>div button').on('click', function(e) {
-                       //alert('test click deneme');
-                       if($(this).parent().find('>.machine-search').length==0) {
+                       if($(this).parent().find('>.machine-search-btn').length==0) {
                            //$(this).parent('div').append('<button style="padding:0px;margin-left:10px;" onclick="event.preventDefault();" class="pull-left btn btn-default tree-search">Makina Ara <i class="fa fa-arrow-circle-right"></i></button>');
                            $(this).parent('div').append('<input class="machine-search"  type="text" value="Ara" />\n\
                                                                         <button  onclick="event.preventDefault();" class=" btn btn-default machine-search-btn machine-tree-search-button">\n\
                                                                         <i class="fa fa-search"></i>\n\
                                                                         </button>');
                             $(this).parent().find('>.machine-search-btn').on('click', function(){
-                                alert('search click');
                                 self.searchAndDeployMachines(node, listItem);
                             });
                        } else {
@@ -505,26 +491,6 @@
                             node.parent().hide();
                             node.parent().append(appendText);
                             node.parent().show('slow');
-                            
-                            //self.expandNodeIcons(node, listItem);
-
-                            /**
-                             * add action to newly appended dom elements
-                             */
-                            $('.tree2 li.parent_li > span[data-action="false"]').each(function (e) {
-                                    $(this).on('click', function(e) {
-                                        //alert($(this).attr('id'));
-                                        self._loadSubNodes($(this).attr('id'), $(this));
-                                    });
-                                    /**
-                                    * remove ['data-action'] not to add additional events to 
-                                    * appended dom elements
-                                    */
-                                    $(this).removeAttr('data-action');
-                                    $(this).removeData('data-action');
-                            });
-
-                            //jQuery._data( $('.tree li.parent_li > span'), "events" );
                         }
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
