@@ -400,7 +400,121 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         });
       }
     };
+    
+    /**
+     * machine property dilog opener method
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     */
+    _helpers.machinePropertyOpener = function(event, invoker) {
+        var invoker = invoker;
+        var lastID = $(invoker).attr('data-last-id')
+        console.log($(invoker).attr('data-last-id'));
+        BootstrapDialog.show({
+            data : { 
+                'last-id' : lastID },
+            title: 'Makina Özelliği Belirle',
+            message: function(dialogRef){
+               /* var $message = $('<div class="form-group">\n\
+                                    <label>Operasyon Tipi</label>\n\
+                                        <div class="input-group"> \n\
+                                            <span class="input-group-addon"><i class="fa fa-tag"></i></span>\n\
+                                            <div id="dropdownOperations"></div>\n\
+                                        </div>\n\
+                                 </div>\n\
+                                <div class="form-group">\n\
+                                    <label>Onay Aracı</label>\n\
+                                        <div id="dropdownOperationsToolsContainer"  class="input-group">\n\
+                                            <span class="input-group-addon"><i class="fa fa-tag"></i></span>\n\
+                                            <div id="dropdownOperationsTools"></div>\n\
+                                        </div>\n\
+                                </div>');*/
+                var $message = $('<div class="box box-success">\n\
+                                        <div class="box-header">\n\
+                                            <i class="fa fa-cart-arrow-down"></i>\n\
+                                            <h3 class="box-title">Makina Özelliği Seçiniz</h3>\n\
+                                        </div>\n\
+                                        <div class="box-body chat" id="chat-box">\n\
+                                                <div class="box-body">\n\
+                                                    <div class="form-group">\n\
+                                                        <label>Özellikler</label>\n\
+                                                        <span class="input-group-addon">\n\
+                                                            <i class="fa fa-code-fork"></i>\n\
+                                                        </span>\n\
+                                                        <ul id="tt_tree_machine prop" class="easyui-tree" ></ul> \n\
+                                                    </div>\n\
+                                                </div>\n\
+                                        </div>\n\
+                                 </div>');
+                return $message;
+            },
+            onshown: function(dialogRef){
+                 /**
+                * machine property easyui tree
+                * @author Mustafa Zeynel Dağlı
+                * @since 26/02/2016
+                */
+               $('#tt_tree_machine prop').tree({
+                    //url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    queryParams : { url:'pkFillConsultantOperationsToolsDropDown_sysOperationTypesTools' },
+                    method:'get',
+                    animate:true,  
+                    checkbox:true,
+                    cascadeCheck : true,
+                    onLoadSuccess : function(node, data) {
 
+                    },
+                    formatter:function(node){
+                            var s = node.text;
+                            s+='&nbsp;<a href="#"><i class="fa fa-fw fa-trash-o"></i></a>&nbsp;<a href="#" ><i class="fa fa-fw fa-check-square-o"></i></a><a href="#" ><i class="fa fa-fw fa-ban"></i></a>';
+                        //buda loşullu kullanım için örnek satır    
+                        if (node.children){
+                                    s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
+                            }
+                            return s;
+                    },
+                    onCheck : function(node, checked) {
+
+                    },
+                    onDblClick: function(node){
+                        //console.log($(this).tree('getChildren',node.target));
+                        $(this).tree('expand', node.target);
+
+                    },
+                    onExpand : function(node){
+
+                    },
+                    onSelect : function(node, data){
+                        //console.log($(this).tree('getRoot',node.target));
+                        //console.log($(this).tree('getData',node.target));
+                    }
+                });
+           
+            },
+            description: 'Makina Özelliği Belirleyiniz...',
+            type: BootstrapDialog.TYPE_SUCCESS, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: true, // <-- Default value is false
+            size : BootstrapDialog.SIZE_WIDE,
+            buttons: [ {
+                icon: 'glyphicon glyphicon-ok',
+                label: 'Tamam',
+                cssClass: 'btn-success',
+                action: function(dialogItself){
+                    var id=dialogItself.getData('last-id');
+                    /*var ddData = $('#dropdownOperations').data('ddslick');
+                    $('#label'+id).val(ddData.selectedData.text);*/
+                    $('#label1').focus();
+                    if($('#save-'+id).hasClass('fa-clipboard')) {
+                        $('#save-'+id).removeClass('fa-clipboard').addClass('fa-save');
+                    }
+
+                    dialogItself.close();
+                }
+            }]
+        });
+    };
+    
     var opts = $.extend(true, defaults, options),
         elem = $(element),
         frmbID = 'frmb-' + $('ul[id^=frmb-]').length++;
@@ -410,7 +524,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
         boxID = frmbID + '-control-box';
      
     /**
-     * form element palce holders are placed here(right elements column items)
+     * form element place holders are placed here(right elements column items)
      * @type Array
      * @author Mustafa Zeynel Dağlı
      */
@@ -907,10 +1021,10 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
        * test for adding new form element to edit dragged element
        * @author Mustafa Zeynel Dağlı
        */
-      advFields += '<form>';
-      advFields += '<div ><label>Özellik Bul<span class="required">*</span></label>';
-      advFields += '<button data-last-id="' + lastID + '" id="zeyn' + lastID + '" onclick="event.preventDefault();testClick(event);" class="pull-left btn btn-default" id="sendEmail">Özellik Bul <i class="fa fa-arrow-circle-right"></i></button>';
-      advFields += '</form>';
+      //advFields += '<form>';
+      advFields += '<div ><label>Makina Özelliği Seç<span class="required">*</span></label>';
+      advFields += '<button data-last-id="' + lastID + '" id="zeyn' + lastID + '"  class="pull-left btn btn-default machine-property-opener" id="sendEmail">Özellik Bul <i class="fa fa-arrow-circle-right"></i></button>';
+      //advFields += '</form>';
 
       advFields += '<div class="frm-fld description-wrap"><label>' + opts.messages.description + '</label>';
       advFields += '<input type="text" name="description" value="' + values.description + '" class="fld-description" id="description-' + lastID + '" /></div>';
@@ -976,7 +1090,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
            * @type String|String
            * @author Mustafa Zeynel Dağlı
            */
-          toggleBtnSave = '<a id="frm-' + lastID + '" style="margin-left:5px;" class="toggle-form-save" href="#" title="' + opts.messages.hide + '"><i class="fa fa-fw fa-save"></i></a> ',
+          toggleBtnSave = '<a   style="margin-left:5px;" class="toggle-form-save" href="#" title="' + opts.messages.hide + '"><i id="save-'+lastID+'" class="fa fa-fw fa-clipboard"></i></a> ',
           required = values.required,
           toggle = values.toggle || undefined,
           tooltip = values.description !== '' ? '<span class="tooltip-element" tooltip="' + values.description + '">?</span>' : '';
@@ -1125,6 +1239,20 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
     });
     
     /**
+     * delegate machine property opener dialog event
+     * @param {type} button
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     * @since 23/02/2016
+     */
+    $sortableFields.on('click', '.machine-property-opener', function (e) {
+      e.preventDefault();
+      //alert('on click machine property');
+      var invoker = $(this);
+      _helpers.machinePropertyOpener(e, invoker);
+    });
+
+    /**
      * form editor, dragged form element edit action binding
      * @author Mustafa Zeynel Dağlı
      */
@@ -1142,8 +1270,24 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       $(this).toggleClass('open').parent().next('.prev-holder').slideToggle(250);
       $(document.getElementById(targetID + '-fld')).slideToggle(250, function () {
         _helpers.save();
-      });
+      });   
     });
+    
+    /**
+     * draggable form header save button event delegation
+     * @author Mustafa Zeynel Dağlı
+     * @since 25/02/2016
+     */
+    $sortableFields.on('click', '.toggle-form-save', function(e) {
+        e.preventDefault();
+        alert('toogle form save clicked');
+        _helpers.save();
+        var invoker = e.target
+        if($(this).find('i').hasClass('fa-save')) {
+          $(this).find('i').first().removeClass('fa-save').addClass('fa-clipboard');
+        } 
+    })
+    
     
     /**
      * form editor, dragged form element edit 'label' preview action binding
