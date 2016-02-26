@@ -11,16 +11,29 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
+
     // Left menuyu oluşturmak için çağırılan fonksiyon...
+
     $.fn.leftMenuFunction();
+
+    /*
+     * Variables
+     */
+
     window.selectedRow;
     window.rowIndex;
+
     var tree = $('.tree2').machineTree();
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
     tree.machineTree('option', 'pk', $("#pk").val());
     tree.machineTree('option', 'language_code', $("#langCode").val());
 //    tree.machineTree('option', 'profile_id', 97);
     tree.machineTree('setMainRoot');
+
+
+
+
+
     /**
      * machine tool tree
      * @author Mustafa Zeynel Dağlı
@@ -29,7 +42,10 @@ $(document).ready(function () {
 
     $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
     $('.tree li.parent_li > span').on('click', function (e) {
-// alert('test');
+
+
+//        alert('test');
+
         var children = $(this).parent('li.parent_li').find(' > ul > li');
         if (children.is(":visible")) {
             children.hide('fast');
@@ -42,6 +58,9 @@ $(document).ready(function () {
         }
         e.stopPropagation();
     });
+
+
+
     /**
      * grid_confirm_registration easyui datagrid
      * user confirmation datagrid listing for confirmation
@@ -293,8 +312,9 @@ $(document).ready(function () {
 
 
 
-
 });
+
+
 
 function editMachineToolProps() {
 
@@ -303,3 +323,13 @@ function editMachineToolProps() {
      */
 
 }
+
+$(".tree2").on("click", "li.parent_li > span.badge.machine", function (event) {
+    //alert('root action');
+    console.log($(this));
+    console.log($(this).attr('id'));
+    console.log($(this)[0].id);
+    console.log($(this)[0].innerText);
+    
+    console.log($(this)[0].machine);
+});
