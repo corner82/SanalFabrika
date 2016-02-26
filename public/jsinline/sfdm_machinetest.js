@@ -1,7 +1,6 @@
 $(document).ready(function () {
     
-    
-    
+
     /**
      * return operation type tools
      * @returns {boolean}
@@ -78,118 +77,7 @@ $(document).ready(function () {
         }
         
     }
-    
-    /**
-     * machine property dialog test function
-     * @author Mustafa Zeynel Dağlı
-     * @todo this functionality will be implemented inside plugin after tests completed
-     */
-    window.testClick = function(e) {
-        //alert('testclick');
-        var invoker = e.target;
-        var lastID = $(invoker).attr('data-last-id')
-        console.log($(invoker).attr('data-last-id'));
-        BootstrapDialog.show({
-            data : { 
-                'last-id' : lastID },
-            title: 'Makina Özelliği Belirle',
-            message: function(dialogRef){
-                var $message = $('<div class="form-group">\n\
-                                    <label>Operasyon Tipi</label>\n\
-                                        <div class="input-group"> \n\
-                                            <span class="input-group-addon"><i class="fa fa-tag"></i></span>\n\
-                                            <div id="dropdownOperations"></div>\n\
-                                        </div>\n\
-                                 </div>\n\
-                                <div class="form-group">\n\
-                                    <label>Onay Aracı</label>\n\
-                                        <div id="dropdownOperationsToolsContainer"  class="input-group">\n\
-                                            <span class="input-group-addon"><i class="fa fa-tag"></i></span>\n\
-                                            <div id="dropdownOperationsTools"></div>\n\
-                                        </div>\n\
-                                </div>');
-                /*var $button = $('<button class="btn btn-primary btn-lg btn-block">Close the dialog</button>');
-                $button.on('click', {dialogRef: dialogRef}, function(event){
-                    event.data.dialogRef.close();
-                });
-                $message.append($button);*/
-
-                return $message;
-            },
-            onshown: function(dialogRef){
-                //var $invoker = $(e.relatedTarget);
-                //dialogRef.data('trigger');
-                //console.log(dialogRef.event.relatedTarget);
-                window.getOperationTypeToolsPleaseSelect();
-                 $.ajax({
-                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillConsultantOperationsDropDown_sysOperationTypes' ,
-                            language_code : 'tr',
-                            main_group : 2,
-                            pk : $("#pk").val()}, 
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data, textStatus, jqXHR) {
-                        if(data.length!==0) {
-                            $('#dropdownOperations').ddslick({
-                                data : data, 
-                                width:'100%',
-                                //selectText: "Select your preferred social network",
-                                imagePosition:"right",
-                                onSelected: function(selectedData){
-                                    //console.log(selectedData.selectedData.value);
-                                    if(selectedData.selectedData.value==6) {
-                                        $('#dropdownOperationsToolsContainer').loadImager();
-                                        $('#dropdownOperationsToolsContainer').loadImager('appendImage');
-                                        window.getOperationTypeTools();
-                                    } else {
-                                        $('#dropdownOperationsToolsContainer').loadImager();
-                                        $('#dropdownOperationsToolsContainer').loadImager('appendImage');
-                                        $('#dropdownOperationsTools').ddslick('destroy');
-                                        window.getOperationTypeToolsPleaseSelect();
-                                    }
-                                }   
-                            });
-                        } else {
-                            console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis datası boştur!!');
-                        }
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {           
-                        console.error('"pkFillConsultantOperationsDropDown_sysOperationTypes" servis hatası->'+textStatus);
-                    }
-                });
-           
-            },
-            description: 'Makina Özelliği Belirleyiniz...',
-            type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
-            closable: true, // <-- Default value is false
-            draggable: true, // <-- Default value is false
-            buttons: [ {
-                icon: 'glyphicon glyphicon-ban-circle',
-                label: 'Tamam',
-                cssClass: 'btn-warning',
-                action: function(dialogItself){
-                    var id=dialogItself.getData('last-id');
-                    //console.log(dialogItself.getModalBody());
-                    var ddData = $('#dropdownOperations').data('ddslick');
-                    console.log(ddData.selectedData.text);
-                    console.log($('#label'+id).val(ddData.selectedData.text));
-                    $('#label1').focus();
-                    dialogItself.close();
-                }
-            }]
-        });
-       
-    };
-    
-   /* var testTool = $(this).machineTree();
-    testTool.machineTree({
-        tested : function(event) {
-            alert('tested worked');
-        }
-        
-    });*/
-    
+  
     $('#form-builder-template').formBuilder();
     
     
