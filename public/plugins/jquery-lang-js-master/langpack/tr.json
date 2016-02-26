@@ -75,8 +75,10 @@
                 "Please first select a machine tool from machine tools list":"Lütfen daha önce makine tablosundan bir makine seçiniz...",
                 "Select a machine tool to view machine information details":"Makine detaylı bilgisini görüntülemek için bir makine seçmeniz gerekmektedir.",
                 "Machine Manufacturer":"Makine Üreticisi",
-                "General Machine Information":"Genel Makine Bilgileri"
-                
+                "General Machine Information":"Genel Makine Bilgileri",
+                "This machine properties are missing":"Bu makineye ait özellikler girilmemiştir",
+                "If you are interested to compelete machine information click edit button below":"Bu makine bilgilerini güncellemek istiyorsanız lütfen düzenle tuşuna tıklayınız",
+                "Edit":"Düzenle"
 	},
 	"regex": [
 		["Budget", "Bütçe"],

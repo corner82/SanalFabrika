@@ -113,6 +113,12 @@ $(document).ready(function () {
 
     window.gridMachineProperties = function (target) {
         console.log(selectedRow.machine_id);
+
+        $("#mtGenPropsDynamicForm").alpaca("destroy");
+        $("#mtGenPropsDynamicForm").empty();
+        $("#mtSpecPropsDynamicForm").alpaca("destroy");
+        $("#mtSpecPropsDynamicForm").empty();
+
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: {
@@ -126,7 +132,6 @@ $(document).ready(function () {
 //                console.log(data);
 //                console.log(data.rows.length);  
 
-                $("#mtGenPropsDynamicForm").alpaca("destroy");
 
                 $("#mtGenPropsDynamicForm").alpaca({
                     "schema": {
@@ -185,8 +190,6 @@ $(document).ready(function () {
                     }
                 });
 
-                $("#mtSpecPropsDynamicForm").alpaca("destroy");
-                
                 if (data.rows.length !== 0) {
 
                     for (var i = 0; i < data.rows.length; i++) {
@@ -225,6 +228,19 @@ $(document).ready(function () {
                                     property_name: property_value + '  ' + property_unit
                                 }
                             });
+                        } else {
+                            $("#mtSpecPropsDynamicForm")
+                                    .append("<div class='box-header'><h5>"
+                                            + window.lang.translate('This machine properties are missing')
+                                            + "</h5></div>");
+                            $("#mtSpecPropsDynamicForm")
+                                    .append("<div class='box-header'><h5>"
+                                            + window.lang.translate('If you are interested to compelete machine information click edit button below')
+                                            + "</h5></div>");
+                            $("#mtSpecPropsDynamicForm")
+                                    .append("<button class='btn btn-block btn-dark btn-sm' onclick='editMachineToolProps()'>"
+                                            + window.lang.translate('Edit')
+                                            + "</button>");
                         }
                     }
 
@@ -273,4 +289,17 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
+
+
+
+
+
 });
+
+function editMachineToolProps() {
+
+    /*
+     * machine tools property edit function comes here
+     */
+
+}
