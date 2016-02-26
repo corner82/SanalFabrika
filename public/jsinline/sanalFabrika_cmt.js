@@ -117,82 +117,72 @@ $(document).ready(function () {
      */
 
     window.gridMachineProperties = function (target) {
-//        console.log(selectedRow.machine_id);
+        console.log(selectedRow.machine_id);
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: {url: 'pkFillUsersFirmMachineProperties_infoFirmMachineTool',
+            data: {
+                url: 'pkFillUsersFirmMachineProperties_infoFirmMachineTool',
                 pk: $("#pk").val(),
-                machine_id: selectedRow.machine_id},
+                machine_id: selectedRow.machine_id
+            },
             type: 'GET',
             dataType: 'json',
             success: function (data, textStatus, jqXHR) {
 //                console.log(data);
+//                console.log(data.rows.length);  
 
-//                console.log(data.rows.length);
+                $("#mtGenPropsDynamicForm").alpaca({
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "manufacturer": {
+                                "type": "text"
+                            },
+                            "name": {
+                                "type": "text"
+                            },
+                            "model": {
+                                "type": "text"
+                            },
+                            "type": {
+                                "type": "text"
+                            }
+                        }
+                    },
+                    "options": {
+                        "fields": {
+                            "manufacturer": {
+                                "label": window.lang.translate("Machine Manufacturer"),
+                                "type": "text",
+                                "readonly": true
+                            },
+                            "name": {
+                                "label": window.lang.translate("Machine Name"),
+                                "type": "text",
+                                "disabled": true,
+                            },
+                            "model": {
+                                "label": window.lang.translate("Machine Model"),
+                                "type": "text",
+                                "disabled": true
+                            },
+                            "type": {
+                                "label": window.lang.translate("Machine Type"),
+                                "type": "text",
+                                "disabled": true
+                            }
+                        }
+                    },
+                    "data": {
+                        "manufacturer": selectedRow.manufacturer_name,
+                        "name": selectedRow.machine_tool_names,
+                        "model": selectedRow.model_year,
+                        "type": selectedRow.machine_tool_grup_names
+                    }
+                });
 
                 if (data.rows.length !== 0) {
-
-                    $("#mtGenPropsDynamicForm").alpaca({
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "generalMachineInformation": {
-                                    "type": "object",
-                                    "properties": {
-                                        "manufacturer": {
-                                            "type": "string"
-                                        },
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "model": {
-                                            "type": "string"
-                                        },
-                                        "type": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "options": {
-                            "fields": {
-                                "generalMachineInformation": {
-                                    "label": window.lang.translate("General Machine Information"),
-                                    "fields": {
-                                        "manufacturer": {
-                                            "label": window.lang.translate("Machine Manufacturer"),
-                                            "type": "text",
-                                            "disabled": true
-                                        },
-                                        "name": {
-                                            "label": window.lang.translate("Machine Name"),
-                                            "type": "text",
-                                            "disabled": true
-                                        },
-                                        "model": {
-                                            "label": window.lang.translate("Machine Model"),
-                                            "type": "text",
-                                            "disabled": true
-                                        },
-                                        "type": {
-                                            "label": window.lang.translate("Machine Type"),
-                                            "type": "text",
-                                            "disabled": true
-                                        }
-                                    }
-                                }
-//                            }
-                        },
-                        "data": {
-                            "manufacturer": selectedRow.manufacturer_name,
-                            "name": selectedRow.machine_tool_names,
-                            "model": selectedRow.model_year,
-                            "type": selectedRow.machine_tool_grup_names
-                        }
-                    }
-                    });
-
+                    
                     for (var i = 0; i < data.rows.length; i++) {
 
                         var property_name = data.rows[i].property_names;
@@ -201,7 +191,7 @@ $(document).ready(function () {
                         var property_name_english = data.rows[i].property_name_eng;
 
                         /*
-                         * Machine tools list tree
+                         * Machine tools properties alpaca dynamic form
                          * @author:Bahram Lotfi Sadigh
                          * @Since: 2016.2.18
                          */
@@ -222,7 +212,7 @@ $(document).ready(function () {
                                             "label": property_name,
                                             "type": "text",
                                             "helper": property_name_english,
-                                            "disabled": true                                           
+                                            "disabled": true
                                         }
                                     }
                                 },
@@ -232,7 +222,7 @@ $(document).ready(function () {
                             });
                         }
                     }
-                    
+
                     if ($('#tab_confirm_image_loader').loadImager() !== 'undefined') {
                         $('#tab_confirm_image_loader').loadImager('removeLoadImage');
                         $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
