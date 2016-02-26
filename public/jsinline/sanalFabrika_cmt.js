@@ -13,13 +13,8 @@ $(document).ready(function () {
     lang.change($('#langCode').val());
     // Left menuyu oluşturmak için çağırılan fonksiyon...
     $.fn.leftMenuFunction();
-
     window.selectedRow;
     window.rowIndex;
-
-
-
-
     var tree = $('.tree2').machineTree();
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
     tree.machineTree('option', 'pk', $("#pk").val());
@@ -131,6 +126,8 @@ $(document).ready(function () {
 //                console.log(data);
 //                console.log(data.rows.length);  
 
+                $("#mtGenPropsDynamicForm").alpaca("destroy");
+
                 $("#mtGenPropsDynamicForm").alpaca({
                     "schema": {
                         "type": "object",
@@ -178,18 +175,26 @@ $(document).ready(function () {
                         "name": selectedRow.machine_tool_names,
                         "model": selectedRow.model_year,
                         "type": selectedRow.machine_tool_grup_names
+                    },
+                    "postRender": function () {
+                        // at some point in the future, refresh this bad boy
+                        var control = $("#mtGenPropsDynamicForm").alpaca("get");
+                        control.refresh(function () {
+                            // behold, i am the callback that is fired once the refresh completes
+                        });
                     }
                 });
 
+                $("#mtSpecPropsDynamicForm").alpaca("destroy");
+                
                 if (data.rows.length !== 0) {
-                    
+
                     for (var i = 0; i < data.rows.length; i++) {
 
                         var property_name = data.rows[i].property_names;
                         var property_value = data.rows[i].property_value;
                         var property_unit = data.rows[i].unitcodes;
                         var property_name_english = data.rows[i].property_name_eng;
-
                         /*
                          * Machine tools properties alpaca dynamic form
                          * @author:Bahram Lotfi Sadigh
@@ -226,7 +231,6 @@ $(document).ready(function () {
                     if ($('#tab_confirm_image_loader').loadImager() !== 'undefined') {
                         $('#tab_confirm_image_loader').loadImager('removeLoadImage');
                         $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
-
                     }
                 } else {
                     console.log('error');
@@ -247,8 +251,6 @@ $(document).ready(function () {
             }
         });
     };
-
-
     /**
      * Machine properties tab blocker
      * @author Bahram Lotfi
@@ -271,5 +273,4 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
-
 });
