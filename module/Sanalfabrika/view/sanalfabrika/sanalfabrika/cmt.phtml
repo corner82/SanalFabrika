@@ -493,18 +493,23 @@
                                 <div id='tab_mt_properties_image_loader' class="box box-info">
                                     <div class="box-header">
                                         <h3 class="box-title">
-                                            <!-- ------------------------------- --> 
-                                            <!-- ------------------------------- --> 
-                                            <!-- selected machine tool name from tree -->
-                                            <!-- ------------------------------- --> 
-                                            <!-- ------------------------------- --> 
                                             <?php echo $this->translate('Machine Tool Properties') ?>
                                         </h3>
                                     </div>
                                     <div class="box-body">
-                                        <div id="mtGenPropsDynamicForm" style="font-size: 12px">
+                                        <div class="box-header">
+                                            <h3 class="box-title">
+                                                <?php echo $this->translate('Machine Tool General Information') ?>
+                                            </h3>                                        
+                                            <div class="box" id="mtGenPropsDynamicForm" style="font-size: 12px">
+                                            </div>
                                         </div>
-                                        <div class="alpaca-field alpaca-field-object alpaca-optional" id="mtSpecPropsDynamicForm" style="font-size: 12px">
+                                        <div class="box-header">
+                                            <h3 class="box-title">
+                                                <?php echo $this->translate('Machine Tool Properties Information') ?>
+                                            </h3>  
+                                            <div class="box" id="mtSpecPropsDynamicForm" style="font-size: 12px">
+                                            </div>
                                         </div>
                                     </div>
                                 </div><!-- /.box -->
