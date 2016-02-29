@@ -538,27 +538,22 @@
                                                     </section>
                                                 </div>
                                             </section>
-                                            <section class="">
-                                                <div class='row'> 
-                                                    <section class="col-lg-12 ">
-                                                        <div class="box box-primary">
-                                                            <div class="box-header">
-                                                                <i class="fa fa-cart-arrow-down"></i>
-                                                                <h3 class="box-title" id="selectedMTHeader"></h3>
-                                                            </div>  
-                                                            <div class="box" id="selectedMTInformation" style="font-size: 12px">
+                                            <section>
+                                                <div class="box-header hidden">
+                                                    <h3 class="box-title" id="selectedMTHeader" >
+                                                    </h3>  
+                                                    <div class="box" id="selectedMTInformation" style="font-size: 12px">
 
-                                                            </div>
-                                                            <div class="footer">
-                                                                <button class="btn btn-block btn-primary btn-sm" id="addSelectedMTfromList" 
-                                                                        onclick="addMTtoCompany()">
-                                                                            <?php echo $this->translate('Add selected Machine') ?>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </section>
+                                                    </div>
                                                 </div>
                                             </section>
+                                            <hr/>
+                                            <section>
+                                                    <button class="btn btn-block btn-primary btn-sm" id="addSelectedMTfromList" 
+                                                            onclick="addMTtoCompany()">
+                                                                <?php echo $this->translate('Add selected Machine') ?>
+                                                    </button>
+                                            </section> 
                                             <hr/>
                                             <section>
                                                 <div id='tab_add_new_mt_image_loader' class="box box-warning">
