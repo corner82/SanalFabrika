@@ -11,11 +11,9 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-
     // Left menuyu oluşturmak için çağırılan fonksiyon...
 
     $.fn.leftMenuFunction();
-
     /*
      * Variables
      */
@@ -24,15 +22,12 @@ $(document).ready(function () {
     window.rowIndex;
 
     var tree = $('.tree2').machineTree();
+
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
     tree.machineTree('option', 'pk', $("#pk").val());
     tree.machineTree('option', 'language_code', $("#langCode").val());
 //    tree.machineTree('option', 'profile_id', 97);
     tree.machineTree('setMainRoot');
-
-
-
-
 
     /**
      * machine tool tree
@@ -40,9 +35,8 @@ $(document).ready(function () {
      * @since 12/02/2016
      */
 
-    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-    $('.tree li.parent_li > span').on('click', function (e) {
-
+    $('.tree2 li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+    $('.tree2 li.parent_li > span').on('click', function (e) {
 
 //        alert('test');
 
@@ -58,8 +52,6 @@ $(document).ready(function () {
         }
         e.stopPropagation();
     });
-
-
 
     /**
      * grid_confirm_registration easyui datagrid
@@ -131,13 +123,11 @@ $(document).ready(function () {
      */
 
     window.gridMachineProperties = function (target) {
-        console.log(selectedRow.machine_id);
-
+//        console.log(selectedRow.machine_id);
         $("#mtGenPropsDynamicForm").alpaca("destroy");
         $("#mtGenPropsDynamicForm").empty();
         $("#mtSpecPropsDynamicForm").alpaca("destroy");
         $("#mtSpecPropsDynamicForm").empty();
-
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: {
@@ -208,7 +198,6 @@ $(document).ready(function () {
                         });
                     }
                 });
-
                 if (data.rows.length !== 0) {
 
                     for (var i = 0; i < data.rows.length; i++) {
@@ -308,14 +297,7 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
-
-
-
-
 });
-
-
-
 function editMachineToolProps() {
 
     /*
@@ -324,12 +306,99 @@ function editMachineToolProps() {
 
 }
 
-$(".tree2").on("click", "li.parent_li > span.badge.machine", function (event) {
-    //alert('root action');
-    console.log($(this));
-    console.log($(this).attr('id'));
-    console.log($(this)[0].id);
-    console.log($(this)[0].innerText);
+//$(".tree2").on("click", "li.parent_li > span.badge.machine", function (event) {
+//
+////alert('root action');
+//    console.log($(this));
+//    console.log($(this).attr('id'));
+//    console.log($(this)[0].id);
+//    console.log($(this)[0].innerText);
+////
+//    console.log($(this).hasClass('machine'));
+//
+//});
+
+
+function addMTtoCompany() {
+    alert($('#selectedMTName').val() + ' added to company MT list');
     
-    console.log($(this)[0].machine);
-});
+    /*
+     * add machine tool to company service comes here
+     */
+}
+
+function getSelectedMTInformation() {
+
+    $("#selectedMTInformation").alpaca("destroy");
+    $("#selectedMTInformation").empty();
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            /*
+             * Get selected machine tool information from system service name comes here
+             */
+            url: 'pkFillUsersFirmMachineProperties_infoFirmMachineTool',
+            pk: $("#pk").val(),
+            machine_id: $(this)[0].id
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            if (data.rows.length !== 0) {
+
+                for (var i = 0; i < data.rows.length; i++) {
+
+                    var property_name = data.rows[i].property_names;
+
+                    var property_value = data.rows[i].property_value;
+                    var property_unit = data.rows[i].unitcodes;
+                    var property_name_english = data.rows[i].property_name_eng;
+
+                    if (property_name !== null) {
+
+                        $("#selectedMTInformation").alpaca({
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    property_name: {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "options": {
+                                "fields": {
+                                    property_name: {
+                                        "label": property_name,
+                                        "type": "text",
+                                        "helper": property_name_english,
+                                        "disabled": true
+                                    }
+                                }
+                            },
+                            "data": {
+                                property_name: property_value + '  ' + property_unit
+                            }
+                        });
+                    } else {
+
+                    }
+                }
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('error');
+            console.error(textStatus);            
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
