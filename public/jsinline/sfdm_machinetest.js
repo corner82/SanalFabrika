@@ -85,7 +85,15 @@ $(document).ready(function () {
     tree.machineTree('option', 'baseNodeCollapsedIcon', 'fa-hand-o-right');
     tree.machineTree('option', 'baseNodeExpandedIcon', 'fa-hand-o-down');
     tree.machineTree('setMainRoot');
-
+    
+    tree.machineTree({
+        getMachineProp : function(event, tree) { 
+            console.log(tree.options.url);
+            tree.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
+            tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', $(this).attr('id'));
+            tree.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');
+        }
+    });
 
     //testTool.machineTree('test');  
 
