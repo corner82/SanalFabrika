@@ -135,6 +135,7 @@ return array(
                                      'login' => array('index'),)
                    ),
         'new user' => array(
+                         'parent' => 'guest',
                          'action' => array('sanalfabrika' => array ('index'))
                    ),
         
