@@ -539,19 +539,8 @@
                                                 </div>
                                             </section>
                                             <section>
-                                                <!--                                                <div class="row">
-                                                                                                    <div class="input-group col-lg-12"> 
-                                                                                                        <div class="input-group-addon">
-                                                                                                            <i class="fa fa-key"></i>
-                                                                                                        </div>
-                                                                                                        <input type="text" name="selectedMTName" 
-                                                                                                               id="selectedMTName" class=" form-control col-xs-12" disabled="disabled"/>
-                                                                                                    </div>
-                                                                                                </div>-->
-
-                                                <div class="box-header">
+                                                <div class="box-header hidden">
                                                     <h3 class="box-title" id="selectedMTHeader" >
-                                                        <?php echo $this->translate(' Information') ?>
                                                     </h3>  
                                                     <div class="box" id="selectedMTInformation" style="font-size: 12px">
 
@@ -560,13 +549,12 @@
                                             </section>
                                             <hr/>
                                             <section>
-                                                <div class="row">
                                                     <button class="btn btn-block btn-primary btn-sm" id="addSelectedMTfromList" 
                                                             onclick="addMTtoCompany()">
                                                                 <?php echo $this->translate('Add selected Machine') ?>
                                                     </button>
-                                                </div>
                                             </section> 
+                                            <hr/>
                                             <section>
                                                 <div id='tab_add_new_mt_image_loader' class="box box-warning">
                                                     <div class="box-header">
