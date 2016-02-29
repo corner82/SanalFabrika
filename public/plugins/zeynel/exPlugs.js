@@ -214,6 +214,7 @@
             //leafNodeCollapsedIcon: 'fa-spin',
             leafNodeExpandedIcon: 'fa-gear',
             leafNodeCollapsedIcon: 'fa-refresh fa-spin',
+            alpacaFormCreator : null,
         },
         setMainRoot: function () {
             self = this;
@@ -266,8 +267,11 @@
                 //alert('leaf action');
                 if ($(this).hasClass('machine')) {
 //                    console.log('this is machine');
-                    $('#selectedMTHeader').prepend($(this)[0].innerText);
-                    getSelectedMTInformation();
+                    //$('#selectedMTHeader').prepend($(this)[0].innerText);
+                    //getSelectedMTInformation();
+                    self.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
+                    self.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', $(this).attr('id'));
+                    self.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');
                 } else {
                     self._loadSubNodes($(this).attr('id'), $(this));
                 }
@@ -537,6 +541,123 @@
             alert('test');
             this._trigger('tested');
         }
+    });
+    
+    
+    
+    
+    /**
+     * set alpaca form due to machine tree selected machine item
+     * @author Mustafa Zeynel Dağlı
+     * @since 29/02/2016
+     */
+    $.widget("sanalfabrika.machinePropertyFormCreater", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            url: 'pkFillUsersFirmMachineProperties_infoFirmMachineTool',
+            pk: $("#pk").val(),
+            ajaxParams: null,
+            machineID : null,
+            //treeClass: ' .tree ',
+            //treeID: ' #tree ',
+            alpacaFormContainer : 'selectedMTInformation',
+        },
+        
+        /**
+         * private method to call sub nodes
+         * @returns {null}
+         */
+        _create: function () {
+
+        },
+        
+        /**
+         * set alpaca plugin form
+         * @returns {undefined}
+         * @author Mustafa Zeynel Dağlı
+         * @since 29/02/2016
+         */
+        setMachinePropertyForm : function() {
+             $(this.options.alpacaFormContainer).alpaca("destroy");
+             $(this.options.alpacaFormContainer).empty();
+             
+             this._getServiceForAlpacaForm();
+        },
+        
+        /**
+         * 
+         * @returns {undefined}
+         * @author Mustafa Zeynel Dağlı
+         * @since 29/02/2016
+         */
+        _getServiceForAlpacaForm : function() {
+            self = this;
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data: {
+                    /*
+                     * Get selected machine tool information from system service name comes here
+                     */
+                    url: self.options.url,
+                    pk: self.options.pk,
+                    machine_id: self.options.machineID,
+                },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+
+                    if (data.rows.length !== 0) {
+
+                        for (var i = 0; i < data.rows.length; i++) {
+
+                            var property_name = data.rows[i].property_names;
+
+                            var property_value = data.rows[i].property_value;
+                            var property_unit = data.rows[i].unitcodes;
+                            var property_name_english = data.rows[i].property_name_eng;
+
+                            if (property_name !== null) {
+
+                                $(self.options.alpacaFormContainer).alpaca({
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            property_name: {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "options": {
+                                        "fields": {
+                                            property_name: {
+                                                "label": property_name,
+                                                "type": "text",
+                                                "helper": property_name_english,
+                                                "disabled": true
+                                            }
+                                        }
+                                    },
+                                    "data": {
+                                        property_name: property_value + '  ' + property_unit
+                                    }
+                                });
+                            } else {
+
+                            }
+                        }
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('error');
+                    console.error(textStatus);            
+                }
+            });
+        },
+
     });
 
 
