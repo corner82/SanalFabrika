@@ -95,7 +95,14 @@ return array(
         'Admin',
         'SFDM',
         'Supervisor',
-        'Companies'
+        'Companies',
+        'Sanalfabrika'
+
+    ),
+    'ActionsTobeAuthenticated' => array(
+        'Sanalfabrika' => array(
+            'cmt'
+        ),
 
     ),
     'ACL_pages' => array(
