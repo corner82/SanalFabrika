@@ -249,7 +249,7 @@
          * @returns {null}
          */
         _create: function () {
-
+            self = this;
             /**
              * root node span click handler
              * @since 24/02/2016
@@ -265,13 +265,17 @@
              */
             $(".tree2").on("click", "li.parent_li > span.badge", function (event) {
                 //alert('leaf action');
+                
                 if ($(this).hasClass('machine')) {
 //                    console.log('this is machine');
                     //$('#selectedMTHeader').prepend($(this)[0].innerText);
                     //getSelectedMTInformation();
-                    self.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
+                    /*self.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
                     self.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', $(this).attr('id'));
-                    self.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');
+                    self.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');*/
+                    var formCreator = $('#selectedMTInformation').machinePropertyFormCreater();
+                    formCreator.machinePropertyFormCreater('option', 'machineID', $(this).attr('id'));
+                    formCreator.machinePropertyFormCreater('setMachinePropertyForm');
                 } else {
                     self._loadSubNodes($(this).attr('id'), $(this));
                 }
@@ -564,7 +568,7 @@
             machineID : null,
             //treeClass: ' .tree ',
             //treeID: ' #tree ',
-            alpacaFormContainer : 'selectedMTInformation',
+            alpacaFormContainer : '#selectedMTInformation',
         },
         
         /**
@@ -611,7 +615,6 @@
                 success: function (data, textStatus, jqXHR) {
 
                     if (data.rows.length !== 0) {
-
                         for (var i = 0; i < data.rows.length; i++) {
 
                             var property_name = data.rows[i].property_names;
