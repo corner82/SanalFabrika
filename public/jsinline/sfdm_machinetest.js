@@ -87,10 +87,11 @@ $(document).ready(function () {
     tree.machineTree('setMainRoot');
     
     tree.machineTree({
-        getMachineProp : function(event, tree) { 
+        getMachineProp : function(event, tree, node) { 
             console.log(tree.options.url);
+            console.log(node.attr('id'));
             tree.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
-            tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', $(this).attr('id'));
+            tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
             tree.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');
         }
     });
