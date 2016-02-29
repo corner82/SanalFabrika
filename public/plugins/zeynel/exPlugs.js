@@ -615,7 +615,6 @@
                         for (var i = 0; i < data.rows.length; i++) {
 
                             var property_name = data.rows[i].property_names;
-
                             var property_value = data.rows[i].property_value;
                             var property_unit = data.rows[i].unitcodes;
                             var property_name_english = data.rows[i].property_name_eng;
