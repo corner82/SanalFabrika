@@ -435,6 +435,50 @@
                 </section> 
             </div>
 
+            <div class='row'>      
+                <section class="col-lg-7 connectedSortable">
+                    <!-- Chat box -->
+                    <div class="box box-success" id="companyMachinesGridBox">
+                        <div class="box-header">
+                            <i class="fa fa-cart-arrow-down"></i>
+                            <h3 class="box-title"><?php echo $this->translate('Company machine tools list') ?></h3>
+                        </div>  
+                        <div class="box-body chat" id="chat-box">
+                            <div id="tt_grid_cmt">
+                                <table id="grid_company_machines" title="<?php echo $this->translate("Company machine tools") ?>"></table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class='row hidden' id="selectedMTInformationRow">      
+                <section class="col-lg-7 connectedSortable">
+                    <!-- Chat box -->
+                    <div class="box box-success" id="selectedMTInformationBox">
+                        <div class="box-header">
+                            <i class="fa fa-cart-arrow-down"></i>
+                            <h3 class="box-title" id="selectedMTInformationHeader" ></h3>
+                        </div>  
+                        <div class="box-body">
+                            <div class="box-header">
+                                <h3 class="box-title" >
+                                    <?php echo $this->translate('Machine Tool General Information') ?>
+                                </h3>                                        
+                                <div class="box" id="mtGenPropsDynamicForm" style="font-size: 12px">
+                                </div>
+                            </div>
+                            <div class="box-header">
+                                <h3 class="box-title">
+                                    <?php echo $this->translate('Machine Tool Properties Information') ?>
+                                </h3>  
+                                <div class="box" id="mtSpecPropsDynamicForm" style="font-size: 12px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <!-- grid tab -->
             <div class='row'>      
                 <section class="col-lg-12 ">
@@ -444,18 +488,6 @@
                     <!-- Custom Tabs -->
                     <div class="nav-tabs-custom" >
                         <ul id="tab_company_machines" class="nav nav-tabs">
-                            <li class="active">
-                                <a id='allMachineToolsTab' 
-                                   href="#tab_companyMachineTools" data-toggle="tab">
-                                       <?php echo $this->translate("List of Company Machine Tools") ?>
-                                </a>
-                            </li>
-                            <li>
-                                <a id='machineToolsPropertiesTab' class="disabled"
-                                   href="#tab_mt_properties" data-toggle="tab" >
-                                       <?php echo $this->translate("Machine Tool Properties") ?>
-                                </a>
-                            </li>   
                             <li>
                                 <a id='addNewMachineToolTab' 
                                    href="#tab_add_new_mt" data-toggle="tab" >
@@ -474,46 +506,7 @@
                             <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                         </ul>
 
-                        <div  class="tab-content">
-                            <div class="tab-pane active" id="tab_companyMachineTools">
-                                <div class="box-body chat" id="chat-box">
-
-                                    <!-- **** ************************** **** -->
-                                    <!-- **** company machine tools tree **** -->
-                                    <!-- **** ************************** **** -->
-
-                                    <div id="tt_grid_cmt">
-                                        <table id="grid_company_machines" title="<?php echo $this->translate("Company machine tools") ?>"></table>
-                                    </div>
-
-                                </div>
-                            </div><!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_mt_properties">
-                                <!-- Input addon -->
-                                <div id='tab_mt_properties_image_loader' class="box box-info">
-                                    <div class="box-header">
-                                        <h3 class="box-title">
-                                            <?php echo $this->translate('Machine Tool Properties') ?>
-                                        </h3>
-                                    </div>
-                                    <div class="box-body">
-                                        <div class="box-header">
-                                            <h3 class="box-title">
-                                                <?php echo $this->translate('Machine Tool General Information') ?>
-                                            </h3>                                        
-                                            <div class="box" id="mtGenPropsDynamicForm" style="font-size: 12px">
-                                            </div>
-                                        </div>
-                                        <div class="box-header">
-                                            <h3 class="box-title">
-                                                <?php echo $this->translate('Machine Tool Properties Information') ?>
-                                            </h3>  
-                                            <div class="box" id="mtSpecPropsDynamicForm" style="font-size: 12px">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- /.box -->
-                            </div><!-- /.tab-pane -->
+                        <div  class="tab-content">                            
                             <div class="tab-pane" id="tab_add_new_mt">
                                 <div id='tab_add_new_mt_image_loader' class="box box-info">
                                     <div class="box-header">
@@ -538,7 +531,7 @@
                                                     </section>
                                                 </div>
                                             </section>
-                                            <section id="addMTtoCompany" class="hidden" >
+                                            <section id="addMTtoCompany" class="box hidden" >
                                                 <div class="box box-primary">
                                                     <div class="box-header">
                                                         <i class="fa fa-wrench"></i>

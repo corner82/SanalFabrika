@@ -78,7 +78,11 @@
                 "General Machine Information":"Genel Makine Bilgileri",
                 "This machine properties are missing":"Bu makineye ait özellikler girilmemiştir",
                 "If you are interested to compelete machine information click edit button below":"Bu makine bilgilerini güncellemek istiyorsanız lütfen düzenle tuşuna tıklayınız",
-                "Edit":"Düzenle"
+                "Edit":"Düzenle",
+                "No data is available for this machine tool":"Bu makinenin bilgileri sistemde kayıtlı değildir",
+                "Required information for this machine are missing":"Sistem bu makine hakkında gerekli bilgilere ulaşamadı",
+                "This machine is already registered in your company inventory. There is no need to add it again.":"Bu makine firma envanterine kayıtlıdır. Tekrar kaydedilmesine gerek yoktur."
+                
 	},
 	"regex": [
 		["Budget", "Bütçe"],
