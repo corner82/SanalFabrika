@@ -438,11 +438,16 @@
             <div class='row'>      
                 <section class="col-lg-7 connectedSortable">
                     <!-- Chat box -->
-                    <div class="box box-success" id="companyMachinesGridBox">
+                    <div class="box box-primary box-solid" id="companyMachinesGridBox">
                         <div class="box-header">
                             <i class="fa fa-cart-arrow-down"></i>
                             <h3 class="box-title"><?php echo $this->translate('Company machine tools list') ?></h3>
-                        </div>  
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+
                         <div class="box-body chat" id="chat-box">
                             <div id="tt_grid_cmt">
                                 <table id="grid_company_machines" title="<?php echo $this->translate("Company machine tools") ?>"></table>
@@ -455,11 +460,17 @@
             <div class='row hidden' id="selectedMTInformationRow">      
                 <section class="col-lg-7 connectedSortable">
                     <!-- Chat box -->
-                    <div class="box box-success" id="selectedMTInformationBox">
+                    <div class="box box-success box-solid" id="selectedMTInformationBox">
+
                         <div class="box-header">
                             <i class="fa fa-cart-arrow-down"></i>
                             <h3 class="box-title" id="selectedMTInformationHeader" ></h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                            </div>
                         </div>  
+
                         <div class="box-body">
                             <div class="box-header">
                                 <h3 class="box-title" >
@@ -479,6 +490,49 @@
                     </div>
                 </section>
             </div>
+
+            <div id='tab_add_new_mt_image_loader' class="box box-info box-solid">
+                <div class="box-header">
+                    <h3 class="box-title">
+                        <?php echo $this->translate('Available Machine Tools List') ?>
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div id="addNewMachineTool" style="font-size: 12px">  
+                        <section class="col-lg-12 ">
+                            <div class="box box-success">
+                                <div class="box-header">
+                                    <i class="fa fa-cart-arrow-down"></i>
+                                    <h3 class="box-title"><?php echo $this->translate('List of Machine Tools') ?></h3>
+                                </div>  
+                                <div class="box-body chat" id="chat-box">
+                                    <div class="tree2" id="tt_tree_machine_tools"></div>
+                                </div><!-- /.chat --> 
+                            </div>
+                        </section>
+                        <section id="addMTtoCompany" class="box hidden" >
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <i class="fa fa-wrench"></i>
+                                    <h3 class="box-title" id="selectedMTHeader"></h3>
+                                </div>  
+                                <div class="box" style="font-size: 12px">
+                                    <div id="selectedMTGenInformation"></div>                                                
+                                    <div id="selectedMTInformation"></div>                                                            
+                                </div>
+                            </div>
+                            <footer>
+                                <button class="btn btn-block btn-primary btn-sm" 
+                                        id="addSelectedMTfromList" 
+                                        onclick="addMTtoCompany()">
+                                            <?php echo $this->translate('Add selected Machine') ?>
+                                </button>
+                            </footer>
+                        </section>
+                    </div>
+                </div>
+            </div><!-- /.box -->
+
             <!-- grid tab -->
             <div class='row'>      
                 <section class="col-lg-12 ">
@@ -488,12 +542,7 @@
                     <!-- Custom Tabs -->
                     <div class="nav-tabs-custom" >
                         <ul id="tab_company_machines" class="nav nav-tabs">
-                            <li>
-                                <a id='addNewMachineToolTab' 
-                                   href="#tab_add_new_mt" data-toggle="tab" >
-                                       <?php echo $this->translate("Add New Machine Tool") ?>
-                                </a>
-                            </li>  
+
                             <li>
                                 <a id='newMTProposalTab' 
                                    href="#tab_new_mt_proposal" data-toggle="tab" >
@@ -507,53 +556,7 @@
                         </ul>
 
                         <div  class="tab-content">                            
-                            <div class="tab-pane" id="tab_add_new_mt">
-                                <div id='tab_add_new_mt_image_loader' class="box box-info">
-                                    <div class="box-header">
-                                        <h3 class="box-title">
-                                            <?php echo $this->translate('Available Machine Tools List') ?>
-                                        </h3>
-                                    </div>
-                                    <div class="box-body">
-                                        <div id="addNewMachineTool" style="font-size: 12px">                                            
-                                            <section>
-                                                <div class='row'> 
-                                                    <section class="col-lg-12 ">
-                                                        <div class="box box-success">
-                                                            <div class="box-header">
-                                                                <i class="fa fa-cart-arrow-down"></i>
-                                                                <h3 class="box-title"><?php echo $this->translate('List of Machine Tools') ?></h3>
-                                                            </div>  
-                                                            <div class="box-body chat" id="chat-box">
-                                                                <div class="tree2" id="tt_tree_machine_tools"></div>
-                                                            </div><!-- /.chat --> 
-                                                        </div>
-                                                    </section>
-                                                </div>
-                                            </section>
-                                            <section id="addMTtoCompany" class="box hidden" >
-                                                <div class="box box-primary">
-                                                    <div class="box-header">
-                                                        <i class="fa fa-wrench"></i>
-                                                        <h3 class="box-title" id="selectedMTHeader"></h3>
-                                                    </div>  
-                                                    <div class="box" style="font-size: 12px">
-                                                        <div id="selectedMTGenInformation"></div>                                                
-                                                        <div id="selectedMTInformation"></div>                                                            
-                                                    </div>
-                                                </div>
-                                                <footer>
-                                                    <button class="btn btn-block btn-primary btn-sm" 
-                                                            id="addSelectedMTfromList" 
-                                                            onclick="addMTtoCompany()">
-                                                                <?php echo $this->translate('Add selected Machine') ?>
-                                                    </button>
-                                                </footer>
-                                            </section>
-                                        </div>
-                                    </div>
-                                </div><!-- /.box -->
-                            </div>
+
                             <div class="tab-pane" id="tab_new_mt_proposal">
                                 <div id='tab_new_mt_proposal_image_loader' class="box box-info">
                                     <div class="box-header">
