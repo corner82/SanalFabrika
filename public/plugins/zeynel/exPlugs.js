@@ -266,11 +266,7 @@
              */
             $(".tree2").on("click", "li.parent_li > span.badge", function (event) {
                 //alert('leaf action');
-                //self._trigger('tested');
                 if ($(this).hasClass('machine')) {
-                    /*self.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
-                    self.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', $(this).attr('id'));
-                    self.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');*/
                     self._trigger('getMachineProp', event, [self, $(this)]);
                     self._trigger('getMachineGenProp', event, [self, $(this)]);
                 } else {
