@@ -67,7 +67,7 @@
     <div class="container">
         <!--Reg Block-->
         <div class="reg-block">
-            <form method="post">
+            <form method="post" id="userLoginForm">
                 <div class="reg-block-header">
                     <h2>Sisteme Giriş Yapınız</h2>
                     <!--<ul class="social-icons text-center">
@@ -82,11 +82,11 @@
 
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="text" id="eposta" name="eposta" class="form-control" placeholder="E-Posta">
+                    <input type="text" id="eposta" name="eposta" class="form-control validate[required,custom[email]]" placeholder="E-Posta">
                 </div>
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" id="sifre" name="sifre" class="form-control" placeholder="Şifre">
+                    <input type="password" id="sifre" name="sifre" class="form-control validate[required,minSize[8],maxSize[20]]" data-prompt-position="bottomLeft" placeholder="Şifre">
                 </div>
                 <hr>
 
