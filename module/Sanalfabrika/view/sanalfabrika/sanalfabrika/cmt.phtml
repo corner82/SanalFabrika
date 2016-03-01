@@ -363,7 +363,7 @@
                 </div><!-- ./col -->
                 <div class="col-lg-3 col-xs-6 ">
                     <!-- small box -->
-                    <div id="toplam_header_2_container" class="small-box bg-green">
+                    <div id="toplam_header_2_container" class="small-box bg-yellow">
                         <div class="inner">
                             <h3><div class="overlay" >
                                     <i class="fa fa-refresh fa-spin" ></i>
@@ -382,7 +382,7 @@
                 </div><!-- ./col -->
                 <div class="col-lg-3 col-xs-6 ">
                     <!-- small box -->
-                    <div id="toplam_header_3_container" class="small-box bg-yellow">
+                    <div id="toplam_header_3_container" class="small-box bg-green">
                         <div class="inner">
                             <h3><div class="overlay" >
                                     <i class="fa fa-refresh fa-spin" ></i>
@@ -425,7 +425,7 @@
             <!-- info bar -->
             <div class='row'> 
                 <section class="col-lg-12 ">
-                    <div class="callout callout-info" >												
+                    <div class="callout callout-warning" >												
                         <h4>
                             <i class="fa fa-random"></i>
                             <?php echo $this->translate('Some Activities:') ?>  
@@ -436,9 +436,9 @@
             </div>
 
             <div class='row'>      
-                <section class="col-lg-7 connectedSortable">
+                <section class="col-lg-12 connectedSortable">
                     <!-- Chat box -->
-                    <div class="box box-primary box-solid" id="companyMachinesGridBox">
+                    <div class="box box-info box-solid" id="companyMachinesGridBox">
                         <div class="box-header">
                             <i class="fa fa-cart-arrow-down"></i>
                             <h3 class="box-title"><?php echo $this->translate('Company machine tools list') ?></h3>
@@ -448,7 +448,7 @@
                             </div>
                         </div>
 
-                        <div class="box-body chat" id="chat-box">
+                        <div class="box-body box-solid bg-aqua" id="chat-box">
                             <div id="tt_grid_cmt">
                                 <table id="grid_company_machines" title="<?php echo $this->translate("Company machine tools") ?>"></table>
                             </div>
@@ -458,9 +458,9 @@
             </div>
 
             <div class='row hidden' id="selectedMTInformationRow">      
-                <section class="col-lg-7 connectedSortable">
+                <section class="col-lg-12 connectedSortable">
                     <!-- Chat box -->
-                    <div class="box box-success box-solid" id="selectedMTInformationBox">
+                    <div class="box box-success" id="selectedMTInformationBox">
 
                         <div class="box-header">
                             <i class="fa fa-cart-arrow-down"></i>
@@ -491,7 +491,7 @@
                 </section>
             </div>
 
-            <div id='tab_add_new_mt_image_loader' class="box box-info box-solid">
+            <div id='tab_add_new_mt_image_loader' class="box box-warning box-solid">
                 <div class="box-header">
                     <h3 class="box-title">
                         <?php echo $this->translate('Available Machine Tools List') ?>
@@ -499,19 +499,13 @@
                 </div>
                 <div class="box-body">
                     <div id="addNewMachineTool" style="font-size: 12px">  
-                        <section class="col-lg-12 ">
-                            <div class="box box-success">
-                                <div class="box-header">
-                                    <i class="fa fa-cart-arrow-down"></i>
-                                    <h3 class="box-title"><?php echo $this->translate('List of Machine Tools') ?></h3>
-                                </div>  
-                                <div class="box-body chat" id="chat-box">
+                        <section class="col-lg-12 ">                                
+                                <div class="box-body" id="chat-box">
                                     <div class="tree2" id="tt_tree_machine_tools"></div>
                                 </div><!-- /.chat --> 
-                            </div>
                         </section>
-                        <section id="addMTtoCompany" class="box hidden" >
-                            <div class="box box-primary">
+                        <section>
+                            <div class="box box-primary hidden" id="addMTtoCompany">
                                 <div class="box-header">
                                     <i class="fa fa-wrench"></i>
                                     <h3 class="box-title" id="selectedMTHeader"></h3>

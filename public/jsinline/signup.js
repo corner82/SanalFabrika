@@ -73,10 +73,10 @@ $(document).ready(function () {
      * 
      */
 
-    $("#userGeneralInfoForm").validationEngine({promptPosition : "topLeft"});
-    $("#userAddressInfoForm").validationEngine({promptPosition : "topLeft"});
-    $("#userCommunicationInfoForm").validationEngine({promptPosition : "topLeft"});
-    $("#companyInfoForm").validationEngine({promptPosition : "topLeft"});
+    $("#userGeneralInfoForm").validationEngine({promptPosition : "topLeft:100%,0"});
+    $("#userAddressInfoForm").validationEngine({promptPosition : "topLeft:100%,0"});
+    $("#userCommunicationInfoForm").validationEngine({promptPosition : "topLeft:100%,0"});
+    $("#companyInfoForm").validationEngine({promptPosition : "topLeft:100%,0"});
 
     /*
      * Buttons function binder
