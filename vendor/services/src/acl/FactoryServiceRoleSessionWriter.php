@@ -37,7 +37,7 @@ class FactoryServiceRoleSessionWriter  implements FactoryInterface{
              * user role due to user name
              */
             $roleResult = $serviceLocator->get('serviceAclRoleFinder');
-            if(isset($roleResult['found'])) {
+            if($roleResult['found']) {
                 //print_r($roleResult['resultSet']);
                 $sessionManager->getStorage()->setMetadata('__ZY',array('role'=>  strtolower(trim($roleResult['resultSet'][0]['name'])), 
                                                           'roleID'=>$roleResult['resultSet'][0]['id']));

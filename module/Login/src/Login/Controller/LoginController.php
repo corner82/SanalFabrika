@@ -114,7 +114,8 @@
          * @since 04/01/2016
          */
         $this->getServiceLocator()->get('servicePublicKeySaver');
-        return $this->redirect()->toRoute('login');
+        //return $this->redirect()->toRoute('login');
+        $this->getServiceLocator()->get('serviceLogoutRedirect');
     }
      
 

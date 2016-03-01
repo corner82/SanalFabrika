@@ -131,21 +131,21 @@ return array(
                          'action' => array('sanalfabrika' => array ('index',
                                                                     'registration',
                                                                     'login',
-                                                                    'cmt'),
+                                                                    ),
                                      'login' => array('index'),)
                    ),
         'new user' => array(
                          'parent' => 'guest',
-                         'action' => array('sanalfabrika' => array ('index'))
+                         'action' => array('sanalfabrika' => array ('cmt'))
                    ),
         
         'firm user' => array(
                          'parent' => 'new user',
-                         'action' => array('sanalfabrika' => array ('index'))
+                         //'action' => array('sanalfabrika' => array ('index'))
                    ),
         'firm owner' => array(
                          'parent' => 'firm user',
-                         'action' => array('sanalfabrika' => array ('index'))
+                         //'action' => array('sanalfabrika' => array ('index'))
                    ),
         
         

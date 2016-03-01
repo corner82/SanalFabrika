@@ -32,7 +32,8 @@ class FactoryServiceAuthenticationControlerLocator  implements FactoryInterface{
                     return true;
                 }
                 return true;
-            } 
+            }
+            //print_r('test');
         } 
         return false;
         

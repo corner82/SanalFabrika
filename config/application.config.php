@@ -95,6 +95,8 @@ return array(
             'authenticationControlerLocator' => 'Custom\Services\Authentication\FactoryServiceAuthenticationControlerLocator',
             'serviceAuthenticate' => 'Custom\Services\Authentication\FactoryServiceAuthenticate',
             'serviceAuthenticatedRedirect' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirect',
+            'serviceAuthenticatedRedirectUser' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirectUser',
+            'serviceAuthenticatedRedirectManager' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirectManager',
             'serviceTranslator' => 'Custom\Services\MultiLanguage\FactoryServiceTranslator', 
             'textBaseFilter' => 'Custom\Services\Services\Filter\TextBaseFilter',
             'textBaseFilterNotToLowerCase' => 'Custom\Services\Filter\TextBaseFilterNotToLowerCase',
@@ -110,7 +112,8 @@ return array(
             'servicePublicKeyReader' => 'Custom\Services\Authentication\FactoryServicePublicKeyReader',
             'serviceRoleSessionWriter' => 'Custom\Services\Acl\FactoryServiceRoleSessionWriter',
             'serviceAclRolePagesCreator' => 'Custom\Services\Acl\FactoryServiceACLRolePagesCreator',
-            'serviceAclRoleFinder' => 'Custom\Services\Acl\FactoryServiceACLRoleFinder',
+            'serviceAclRoleFinder' => 'Custom\Services\Acl\FactoryServiceACLRoleFinder',  
+            'serviceLogoutRedirect' => 'Custom\Services\Authentication\FactoryServiceLogoutRedirect',
         ],  
         
     ),
