@@ -11,7 +11,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-    // Left menuyu oluşturmak için çağırılan fonksiyon...
+    // Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
 
     $.fn.leftMenuFunction();
     /*
@@ -21,24 +21,124 @@ $(document).ready(function () {
     window.selectedRow;
     window.rowIndex;
 
-    var tree = $('.tree2').machineTree();
 
+    var tree = $('.tree2').machineTree();
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
     tree.machineTree('option', 'pk', $("#pk").val());
     tree.machineTree('option', 'language_code', $("#langCode").val());
 //    tree.machineTree('option', 'profile_id', 97);
     tree.machineTree('setMainRoot');
 
+    tree.machineTree({
+        getMachineProp: function (event, tree, node) {
+//            console.log(tree.options.url);
+//            console.log(node.attr('id'));
+
+            tree.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
+            tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
+            tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'url', 'pkFillMachineToolGroupsMachineProperties_sysMachineToolGroups');
+            tree.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');
+        }
+    });
+
+    tree.machineTree({
+        getMachineGenProp: function (event, tree, node) {
+//            console.log(tree.options.url);
+//            console.log(node.attr('id'));
+
+            $('#selectedMTGenInformation').alpaca("destroy");
+            $('#selectedMTGenInformation').empty();
+
+//            tree.options.alpacaFormCreator = $('#selectedMTGenInformation').machinePropertyFormCreater();
+//            var machineID = tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
+//            var url = tree.options.alpacaFormCreator.machineGeneralInfoFormCreater('option', 'url', 'pkFillUsersFirmMachines_infoFirmMachineTool');
+//            tree.options.alpacaFormCreator.machineGeneralInfoFormCreater('setMachineGeneralInfoForm');
+
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data: {
+                    url: 'pkFillUsersFirmMachines_infoFirmMachineTool',
+                    pk: $("#pk").val(),
+                    machine_id: node.attr('id')
+                },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+
+                    if (data.rows.length !== 0) {
+                        $('#selectedMTGenInformation').alpaca({
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "manufacturer": {
+                                        "type": "text"
+                                    },
+                                    "name": {
+                                        "type": "text"
+                                    },
+                                    "model": {
+                                        "type": "text"
+                                    },
+                                    "type": {
+                                        "type": "text"
+                                    }
+                                }
+                            },
+                            "options": {
+                                "fields": {
+                                    "manufacturer": {
+                                        "label": window.lang.translate("Machine Manufacturer"),
+                                        "type": "text",
+                                        "readonly": true
+                                    },
+                                    "name": {
+                                        "label": window.lang.translate("Machine Name"),
+                                        "type": "text",
+                                        "disabled": true,
+                                    },
+                                    "model": {
+                                        "label": window.lang.translate("Machine Model"),
+                                        "type": "text",
+                                        "disabled": true
+                                    },
+                                    "type": {
+                                        "label": window.lang.translate("Machine Type"),
+                                        "type": "text",
+                                        "disabled": true
+                                    }
+                                }
+                            },
+                            "data": {
+                                "manufacturer": data.rows[0].manufacturer_name,
+                                "name": data.rows[0].machine_tool_names,
+                                "model": data.rows[0].model_year,
+                                "type": data.rows[0].machine_tool_grup_names
+                            }
+                        });
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('error');
+                    console.error(textStatus);
+                }
+            });
+            $('#addMTtoCompany').removeClass('hidden');
+        }
+    });
+
     /**
      * machine tool tree
-     * @author Mustafa Zeynel Dağlı
+     * @author Mustafa Zeynel DaÄŸlÄ±
      * @since 12/02/2016
      */
 
     $('.tree2 li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+
     $('.tree2 li.parent_li > span').on('click', function (e) {
 
 //        alert('test');
+
+
 
         var children = $(this).parent('li.parent_li').find(' > ul > li');
         if (children.is(":visible")) {
@@ -52,11 +152,10 @@ $(document).ready(function () {
         }
         e.stopPropagation();
     });
-
     /**
      * grid_confirm_registration easyui datagrid
      * user confirmation datagrid listing for confirmation
-     * @author Mustafa Zeynel Dağlı
+     * @author Mustafa Zeynel DaÄŸlÄ±
      * @since 10/02/2016
      */
 
@@ -106,7 +205,7 @@ $(document).ready(function () {
      * trying to get row index from easyui grid
      * @param {type} target
      * @returns integer
-     * @author Mustafa Zeynel Dağlı
+     * @author Mustafa Zeynel DaÄŸlÄ±
      * @since 09/02/2016
      */
 
@@ -118,7 +217,7 @@ $(document).ready(function () {
      * 'grid_confirm_registration' easyui grid detail click function
      * @param {type} target
      * @returns {undefined}
-     * @author Mustafa Zeynel Dağlı
+     * @author Mustafa Zeynel DaÄŸlÄ±
      * @since 09/02/2016
      */
 
@@ -259,8 +358,8 @@ $(document).ready(function () {
                 } else {
                     console.log('error');
                     BootstrapDialog.alert({
-                        title: 'DİKKAT!! Kullanıcı detayları belirlenememiştir',
-                        message: 'Kullanıcı dateyları belirlenememiştir, lütfen başka kullanıcı seçiniz!!',
+                        title: 'DÄ°KKAT!! KullanÄ±cÄ± detaylarÄ± belirlenememiÅŸtir',
+                        message: 'KullanÄ±cÄ± dateylarÄ± belirlenememiÅŸtir, lÃ¼tfen baÅŸka kullanÄ±cÄ± seÃ§iniz!!',
                         type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
                         closable: true, // <-- Default value is false
                         draggable: true, // <-- Default value is false
@@ -306,25 +405,36 @@ function editMachineToolProps() {
 
 }
 
-//$(".tree2").on("click", "li.parent_li > span.badge.machine", function (event) {
-//
-////alert('root action');
-//    console.log($(this));
-//    console.log($(this).attr('id'));
-//    console.log($(this)[0].id);
-//    console.log($(this)[0].innerText);
-////
-//    console.log($(this).hasClass('machine'));
-//
-//});
-
-
 function addMTtoCompany() {
+
     alert($('#selectedMTName').val() + ' added to company MT list');
-    
-    /*
-     * add machine tool to company service comes here
-     */
+    $("#selectedMTGenInformation").empty();
+    $("#selectedMTInformation").empty();
+    $("#addMTtoCompany").addClass('hidden');
+    alert($("#addMTtoCompany") + ' cleared and hided');
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkInsert_infoFirmMachineTool',
+            pk: $("#pk").val(),
+            language_code: $('#langCode').val(),
+            profile_public: 0,
+            availability_id: 0,
+            machine_id: $(this)[0].id
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+            console.log(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+
+            console.log('error');
+            console.error(textStatus);
+        }
+    });
+
 }
 
 function getSelectedMTInformation() {
@@ -351,11 +461,9 @@ function getSelectedMTInformation() {
                 for (var i = 0; i < data.rows.length; i++) {
 
                     var property_name = data.rows[i].property_names;
-
                     var property_value = data.rows[i].property_value;
                     var property_unit = data.rows[i].unitcodes;
                     var property_name_english = data.rows[i].property_name_eng;
-
                     if (property_name !== null) {
 
                         $("#selectedMTInformation").alpaca({
@@ -389,11 +497,10 @@ function getSelectedMTInformation() {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log('error');
-            console.error(textStatus);            
+            console.error(textStatus);
         }
     });
 }
-
 
 
 

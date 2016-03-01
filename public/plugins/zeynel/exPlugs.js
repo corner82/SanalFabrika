@@ -272,6 +272,7 @@
                     self.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', $(this).attr('id'));
                     self.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');*/
                     self._trigger('getMachineProp', event, [self, $(this)]);
+                    self._trigger('getMachineGenProp', event, [self, $(this)]);
                 } else {
                     self._loadSubNodes($(this).attr('id'), $(this));
                 }
