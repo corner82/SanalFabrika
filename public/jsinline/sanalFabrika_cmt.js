@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
     /**
      * multilanguage plugin 
      * @type Lang
@@ -46,12 +47,14 @@ $(document).ready(function () {
 //            console.log(tree.options.url);
 //            console.log(node.attr('id'));
 
-
             $('#addMTtoCompany').loadImager();
             $('#addMTtoCompany').loadImager('appendImage');
 
             $('#selectedMTGenInformation').alpaca("destroy");
             $('#selectedMTGenInformation').empty();
+
+            $('#selectedMTHeader').empty();
+            $('#selectedMTHeader').append(node.attr('text'));
 
 //            tree.options.alpacaFormCreator = $('#selectedMTGenInformation').machinePropertyFormCreater();
 //            var machineID = tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
@@ -128,6 +131,10 @@ $(document).ready(function () {
                                 "type": data.rows[0].machine_tool_grup_names
                             }
                         });
+
+                        $('#selectedMTHeader').empty();
+                        $('#selectedMTHeader').append(data.rows[0].machine_tool_names);
+
                     } else {
                         BootstrapDialog.show({
                             title: window.lang.translate('No data is available for this machine tool'),
@@ -135,6 +142,10 @@ $(document).ready(function () {
                             type: BootstrapDialog.TYPE_WARNING,
 //                        closable: false
                         });
+
+                        $("#selectedMTGenInformation").empty();
+                        $("#selectedMTInformation").empty();
+                        $("#addMTtoCompany").addClass('hidden');
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -190,9 +201,19 @@ $(document).ready(function () {
         onDblClickRow: function (index, row) {
             selectedRow = $("#grid_company_machines").datagrid("getSelected");
             rowIndex = $("#grid_company_machines").datagrid("getRowIndex", selectedRow);
+            $('#selectedMTInformationHeader').empty();
+            $('#selectedMTInformationHeader').prepend(selectedRow.machine_tool_names + ' properties');
             gridMachineProperties(this);
-            $('.nav-tabs a[href="#tab_mt_properties"]').tab('show');
+
+//            $('.nav-tabs a[href="#tab_mt_properties"]').tab('show');
 //            alert('test');
+        },
+        onBeforeLoad: function () {
+            $('#companyMachinesGridBox').loadImager();
+            $('#companyMachinesGridBox').loadImager('appendImage');
+        },
+        onLoadSuccess: function () {
+            $('#companyMachinesGridBox').loadImager('removeLoadImage');
         },
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         queryParams: {url: 'pkFillUsersFirmMachines_infoFirmMachineTool',
@@ -251,8 +272,19 @@ $(document).ready(function () {
 //        console.log(selectedRow.machine_id);
         $("#mtGenPropsDynamicForm").alpaca("destroy");
         $("#mtGenPropsDynamicForm").empty();
+        
         $("#mtSpecPropsDynamicForm").alpaca("destroy");
         $("#mtSpecPropsDynamicForm").empty();
+
+        $('#selectedMTInformationRow').removeClass('hidden');
+
+        $('html, body').animate({
+            scrollTop: $("#selectedMTInformationBox").offset().top
+        }, 1000);
+
+        $('#selectedMTInformationBox').loadImager();
+        $('#selectedMTInformationBox').loadImager('appendImage');
+
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: {
@@ -263,10 +295,8 @@ $(document).ready(function () {
             type: 'GET',
             dataType: 'json',
             success: function (data, textStatus, jqXHR) {
-//                console.log(data);
-//                console.log(data.rows.length);  
-
-
+                $('#selectedMTInformationBox').loadImager('removeLoadImage');
+                ;
                 $("#mtGenPropsDynamicForm").alpaca({
                     "schema": {
                         "type": "object",
@@ -314,13 +344,6 @@ $(document).ready(function () {
                         "name": selectedRow.machine_tool_names,
                         "model": selectedRow.model_year,
                         "type": selectedRow.machine_tool_grup_names
-                    },
-                    "postRender": function () {
-                        // at some point in the future, refresh this bad boy
-                        var control = $("#mtGenPropsDynamicForm").alpaca("get");
-                        control.refresh(function () {
-                            // behold, i am the callback that is fired once the refresh completes
-                        });
                     }
                 });
                 if (data.rows.length !== 0) {
@@ -362,6 +385,7 @@ $(document).ready(function () {
                                 }
                             });
                         } else {
+
                             $("#mtSpecPropsDynamicForm")
                                     .append("<div class='box-header'><h5>"
                                             + window.lang.translate('This machine properties are missing')
@@ -377,20 +401,20 @@ $(document).ready(function () {
                         }
                     }
 
-                    if ($('#tab_confirm_image_loader').loadImager() !== 'undefined') {
-                        $('#tab_confirm_image_loader').loadImager('removeLoadImage');
-                        $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
-                    }
-                } else {
-                    console.log('error');
-                    BootstrapDialog.alert({
-                        title: 'DÄ°KKAT!! KullanÄ±cÄ± detaylarÄ± belirlenememiÅŸtir',
-                        message: 'KullanÄ±cÄ± dateylarÄ± belirlenememiÅŸtir, lÃ¼tfen baÅŸka kullanÄ±cÄ± seÃ§iniz!!',
-                        type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
-                        closable: true, // <-- Default value is false
-                        draggable: true, // <-- Default value is false
-                        buttonLabel: 'Tamam' // <-- Default value is 'OK',
-                    });
+//                    if ($('#tab_confirm_image_loader').loadImager() !== 'undefined') {
+//                        $('#tab_confirm_image_loader').loadImager('removeLoadImage');
+//                        $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
+//                    }
+//                } else {
+//                    console.log('error');
+//                    BootstrapDialog.alert({
+//                        title: 'DÄ°KKAT!! KullanÄ±cÄ± detaylarÄ± belirlenememiÅŸtir',
+//                        message: 'KullanÄ±cÄ± dateylarÄ± belirlenememiÅŸtir, lÃ¼tfen baÅŸka kullanÄ±cÄ± seÃ§iniz!!',
+//                        type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+//                        closable: true, // <-- Default value is false
+//                        draggable: true, // <-- Default value is false
+//                        buttonLabel: 'Tamam' // <-- Default value is 'OK',
+//                    });
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -471,8 +495,7 @@ Please note that new machine registration is not finished yet. \n\
             } else if (data['errorInfo'] === '23502') {
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
-                    message: window.lang.translate('This machine is already registered in your company inventory. \n\
-                    There is no need to add it again.'),
+                    message: window.lang.translate('This machine is already registered in your company inventory. There is no need to add it again.'),
                     type: BootstrapDialog.TYPE_WARNING,
 //                            closable: false
                     buttons: [{
