@@ -46,6 +46,10 @@ $(document).ready(function () {
 //            console.log(tree.options.url);
 //            console.log(node.attr('id'));
 
+
+            $('#addMTtoCompany').loadImager();
+            $('#addMTtoCompany').loadImager('appendImage');
+
             $('#selectedMTGenInformation').alpaca("destroy");
             $('#selectedMTGenInformation').empty();
 
@@ -65,7 +69,16 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (data, textStatus, jqXHR) {
 
+
+                    $('#addMTtoCompany').loadImager('removeLoadImage');
+                    $('#addMTtoCompany').removeClass('hidden');
+
                     if (data.rows.length !== 0) {
+
+                        $('html, body').animate({
+                            scrollTop: $("#addMTtoCompany").offset().top
+                        }, 1000);
+
                         $('#selectedMTGenInformation').alpaca({
                             "schema": {
                                 "type": "object",
@@ -115,14 +128,27 @@ $(document).ready(function () {
                                 "type": data.rows[0].machine_tool_grup_names
                             }
                         });
+                    } else {
+                        BootstrapDialog.show({
+                            title: window.lang.translate('No data is available for this machine tool'),
+                            message: window.lang.translate('Required information for this machine are missing'),
+                            type: BootstrapDialog.TYPE_WARNING,
+//                        closable: false
+                        });
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log('error');
                     console.error(textStatus);
+
+                    BootstrapDialog.show({
+                        title: window.lang.translate('No data is available for this machine tool'),
+                        message: window.lang.translate('An error occured during processing machine information'),
+                        type: BootstrapDialog.TYPE_WARNING,
+//                        closable: false
+                    });
                 }
             });
-            $('#addMTtoCompany').removeClass('hidden');
         }
     });
 
@@ -407,11 +433,9 @@ function editMachineToolProps() {
 
 function addMTtoCompany() {
 
-    alert($('#selectedMTName').val() + ' added to company MT list');
     $("#selectedMTGenInformation").empty();
     $("#selectedMTInformation").empty();
     $("#addMTtoCompany").addClass('hidden');
-    alert($("#addMTtoCompany") + ' cleared and hided');
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -427,6 +451,40 @@ function addMTtoCompany() {
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             console.log(data);
+            if (data['errorInfo'][0] === '00000') {
+                BootstrapDialog.show({
+                    title: window.lang.translate('Submission Process'),
+                    message: window.lang.translate('Congratulations! New machine tool added successfuly to your company inventory. \n\
+Please note that new machine registration is not finished yet. \n\
+            Assigned system consultant will immediately analyze inventory chnages. \n\
+            You will be informed about assessment results as soon as possible.\n\ '),
+                    type: BootstrapDialog.TYPE_SUCCESS,
+//                            closable: false
+                    buttons: [{
+                            label: 'OK',
+                            cssClass: 'btn-success btn-sm',
+                            action: function (dialogItself) {
+                                dialogItself.close();
+                            }
+                        }]
+                });
+            } else if (data['errorInfo'] === '23502') {
+                BootstrapDialog.show({
+                    title: window.lang.translate('Submission Process'),
+                    message: window.lang.translate('This machine is already registered in your company inventory. \n\
+                    There is no need to add it again.'),
+                    type: BootstrapDialog.TYPE_WARNING,
+//                            closable: false
+                    buttons: [{
+                            label: 'OK',
+                            cssClass: 'btn-warning btn-sm',
+                            action: function (dialogItself) {
+                                dialogItself.close();
+                            }
+                        }]
+                });
+            }
+
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
