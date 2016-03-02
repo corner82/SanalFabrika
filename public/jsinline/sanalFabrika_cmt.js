@@ -29,6 +29,7 @@ $(document).ready(function () {
      */
 
     $("#proposedMTForm").validationEngine({promptPosition: "topLeft:100%,0"});
+    
 
     var tree = $('.tree2').machineTree();
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
