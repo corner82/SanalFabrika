@@ -783,7 +783,7 @@ function _init() {
             //alert('collapse');
             var _this = this;
             //Find the box parent
-            console.log(element.parents(".box"));
+//            console.log(element.parents(".box"));
             var box = element.parents(".box").first();
             //Find the body and the footer
             var box_content = box.find("> .box-body, > .box-footer");
