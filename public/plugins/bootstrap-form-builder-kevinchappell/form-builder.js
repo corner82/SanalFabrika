@@ -1806,12 +1806,15 @@
 
             if ($(this).children().length >= 1) {
                 serialStr += '<form-template>\n\t<fields>';
-
+                
+                var demoArray = [];
                 // build new xml
                 $(this).children().each(function () {
                     var $field = $(this);
                     if (!($field.hasClass('moving') || $field.hasClass('disabled'))) {
                         for (var att = 0; att < opts.attributes.length; att++) {
+                            var test = [$('input.fld-label', $field).val(),$('input.fld-description', $field).val()];
+                            demoArray.push(test);
                             var required = $('input.required', $field).is(':checked') ? 'required="true" ' : 'required="false" ',
                                     multipleChecked = $('input[name="multiple"]', $field).is(':checked'),
                                     multiple = multipleChecked ? 'style="multiple" ' : '',
@@ -1846,6 +1849,13 @@
                                 serialStr += '\n\t\t</field>';
                             }
                         }
+                        //console.log(demoArray);
+                        var objTest = $.extend({}, demoArray);
+                        //console.log(objTest);
+                        var json=JSON.stringify(objTest);
+                        console.log(json);
+                        //console.log(JSON.stringify(demoArray));
+                        console.log(JSON.parse(json)); 
                     }
                     liCount++;
                 });
