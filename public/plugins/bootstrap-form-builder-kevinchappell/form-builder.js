@@ -141,7 +141,7 @@
                  viewXML: 'View XML',
                  yes: 'Yes'*/
 
-                add: window.lang.translate('Add element'),
+                add: window.lang.translate("Add element"),
                 allowSelect: 'Allow Select',
                 autocomplete: 'Autocomplete',
                 cannotBeEmpty: 'This field cannot be empty',
@@ -150,33 +150,33 @@
                 checkboxes: 'Checkboxes',
                 clearAllMessage: 'Are you sure you want to remove all items?',
                 clearAll: 'Clear All',
-                close: window.lang.translate('Close'),
+                close: window.lang.translate("Close"),
                 copy: 'Copy To Clipboard',
                 dateField: 'Date Field',
-                description: window.lang.translate('Unit'),
-                descriptionField: window.lang.translate('Define'),
+                description: window.lang.translate("Unit"),
+                descriptionField: window.lang.translate("Define"),
                 devMode: 'Developer Mode',
                 disableFields: 'These fields cannot be moved.',
                 editNames: 'Edit Names',
                 //editorTitle: 'Form Elements',
-                editorTitle: window.lang.translate('Add a machine property'),
-                editXML: window.lang.translate('Edit XML'),
+                editorTitle: window.lang.translate("Add a machine property"),
+                editXML: window.lang.translate("Edit XML"),
                 fieldVars: 'Field Variables',
                 fieldRemoveWarning: 'Are you sure you want to remove this field?',
-                getStarted: window.lang.translate('Drag and dropped a machine property to this section...'),
-                hide: window.lang.translate('Edit'),
+                getStarted: window.lang.translate("Drag and dropped a machine property to this section..."),
+                hide: window.lang.translate("Edit"),
                 hidden: 'Hidden Input',
-                label: window.lang.translate('Property'),
-                labelEmpty: window.lang.translate('Tagging field can not be empty'),
-                limitRole: window.lang.translate('Only for allowed roles'),
-                mandatory: window.lang.translate('required'),
-                maxLength: window.lang.translate('Max length'),
+                label: window.lang.translate("Property"),
+                labelEmpty: window.lang.translate("Tagging field can not be empty"),
+                limitRole: window.lang.translate("Only for allowed roles"),
+                mandatory: window.lang.translate("required"),
+                maxLength: window.lang.translate("Max length"),
                 minOptionMessage: 'This field requires a minimum of 2 options',
                 name: 'Name',
                 no: 'No',
                 off: 'Off',
                 on: 'On',
-                optional: window.lang.translate('Optional'),
+                optional: window.lang.translate("Optional"),
                 optionLabelPlaceholder: 'Label',
                 optionValuePlaceholder: 'Value',
                 optionEmpty: 'Option value required',
@@ -186,18 +186,18 @@
                 radio: 'Radio',
                 removeMessage: 'Remove Element',
                 remove: '&#215;',
-                required: window.lang.translate('Mandatory field'),
+                required: window.lang.translate("Mandatory field"),
                 richText: 'Rich Text Editor',
-                roles: window.lang.translate('Access'),
-                save: window.lang.translate('Save Properties'),
-                selectOptions: window.lang.translate('Radio buttons'),
-                select: window.lang.translate('Field'),
+                roles: window.lang.translate("Access"),
+                save: window.lang.translate("Save Properties"),
+                selectOptions: window.lang.translate("Radio buttons"),
+                select: window.lang.translate("Field"),
                 selectionsMessage: 'Allow Multiple Selections',
-                text: window.lang.translate('Machine property'),
+                text: window.lang.translate("Machine property"),
                 textArea: 'Text Area',
                 toggle: 'Toggle',
                 warning: 'Warning!',
-                viewXML: 'View XML',
+                viewXML: window.lang.translate("View XML"),
                 yes: 'Yes'
             }
         };
@@ -413,7 +413,7 @@
             BootstrapDialog.show({
                 data: {
                     'last-id': lastID},
-                title: window.lang.translate('Define a machine property'),
+                title: window.lang.translate("Define a machine property"),
                 message: function (dialogRef) {
                     var $message = $('<div class="box box-success">\n\
                                         <div class="box-header">\n\
@@ -481,22 +481,22 @@
                     });
                     //alert('tree test');
                 },
-                description: window.lang.translate('Define a machine property'),
+                description: window.lang.translate("Define a machine property"),
                 type: BootstrapDialog.TYPE_SUCCESS, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
                 closable: true, // <-- Default value is false
                 draggable: true, // <-- Default value is false
                 size: BootstrapDialog.SIZE_WIDE,
                 buttons: [{
                         icon: 'glyphicon glyphicon-ok',
-                        label: window.lang.translate('OK'),
+                        label: window.lang.translate("OK"),
                         cssClass: 'btn-success',
                         action: function (dialogItself) {
                             var id = dialogItself.getData('last-id');
                             var data = $('#tt_tree_machine_prop').tree('getSelected');
                             if (typeof data === 'undefined' || data === null) {
                                 BootstrapDialog.show({
-                                    message: window.lang.translate('Please select a property'),
-                                    title: window.lang.translate('Select a machine property'),
+                                    message: window.lang.translate("Please select a property"),
+                                    title: window.lang.translate("Select a machine property"),
                                 });
                             } else {
                                 $('#label' + id).val(data.text);
@@ -522,7 +522,7 @@
             BootstrapDialog.show({
                 data: {
                     'last-id': lastID},
-                title: window.lang.translate('Select property unit'),
+                title: window.lang.translate("Select property unit"),
                 message: function (dialogRef) {
                     var $message = $('<div class="box box-success">\n\
                                         <div class="box-header">\n\
@@ -606,22 +606,22 @@
                     });
                     //alert('tree test');
                 },
-                description: window.lang.translate('Select property unit'),
+                description: window.lang.translate("Select property unit"),
                 type: BootstrapDialog.TYPE_SUCCESS, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
                 closable: true, // <-- Default value is false
                 draggable: true, // <-- Default value is false
                 size: BootstrapDialog.SIZE_WIDE,
                 buttons: [{
                         icon: 'glyphicon glyphicon-ok',
-                        label: window.lang.translate('Ok'),
+                        label: window.lang.translate("Ok"),
                         cssClass: 'btn-success',
                         action: function (dialogItself) {
                             var id = dialogItself.getData('last-id');
                             var data = $('#tt_tree_machine_unit_prop').tree('getSelected');
                             if (typeof data === 'undefined' || data === null) {
                                 BootstrapDialog.show({
-                                    message: window.lang.translate('Select a unit'),
-                                    title: window.lang.translate('Select a unit'),
+                                    message: window.lang.translate("Select a unit"),
+                                    title: window.lang.translate("Select a unit"),
                                 });
                             } else {
                                 $('#description-' + id).val(data.text);
@@ -1855,3 +1855,19 @@
         return serialStr;
     };
 })(jQuery);
+
+$(document).ready(function () {
+
+
+    /**
+     * multilanguage plugin 
+     * @type Lang
+     */
+
+    window.lang = new Lang();
+    lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
+    lang.init({
+        defaultLang: 'en'
+    });
+    lang.change($('#langCode').val());
+    });

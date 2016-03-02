@@ -61,45 +61,47 @@
                 "Update and Continue to Company Information":"Güncelle ve Firma Bilgilerine Geç", 
                 "Address information submitted sucessfully":"Adres Bilgileri Başarıyla kaydedildi",
                 "Please select company ownership situation from list...":"Lütfen firmanın mülkiyet durumuna uygun seçeneği seçiniz...",
-                "Contact information submitted successfully":"",
+                "Contact information submitted successfully":"İletişim bilgileri başarıyla kaydedildi",
                 "Manufacturer":"Üretici",
                 "Machine Model":"Makine Modeli",
                 "Machine Name":"Makine Adı",
                 "Machine Type":"Makine Tipi",
-                "Category":"Sınıfı",
-                "Note! Machine tool properties are missing":"Dikkat! Makine özellikleri bilgisi eksiktir.",
-                "Note! Machine tool properties are missing. Please fill required property information from edit section":"Dikkat! Makine özellikleri bilgisi eksiktir. Lütfen eksik bilgileri düzenleme kısmından tamamlayınız.",
-                "Select a machine tool":"Lütfen bir makine seçiniz",
-                "Please select a machine tool from machine tools list":"Makine listesinden bir makine seçiniz",
-                "Select machine and continue":"Makineyi seçip, devam ediniz",
-                "Please first select a machine tool from machine tools list":"Lütfen daha önce makine tablosundan bir makine seçiniz...",
-                "Select a machine tool to view machine information details":"Makine detaylı bilgisini görüntülemek için bir makine seçmeniz gerekmektedir.",
-                "Machine Manufacturer":"Makine Üreticisi",
-                "General Machine Information":"Genel Makine Bilgileri",
-                "This machine properties are missing":"Bu makineye ait özellikler girilmemiştir",
-                "If you are interested to compelete machine information click edit button below":"Bu makine bilgilerini güncellemek istiyorsanız lütfen düzenle tuşuna tıklayınız",
-                "Edit":"Düzenle",
-                "No data is available for this machine tool":"Bu makinenin bilgileri sistemde kayıtlı değildir",
-                "Required information for this machine are missing":"Sistem bu makine hakkında gerekli bilgilere ulaşamadı",
-                "This machine is already registered in your company inventory. There is no need to add it again.":"Bu makine firma envanterine kayıtlıdır. Tekrar kaydedilmesine gerek yoktur.",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":"",
-                "":""
+                "Category":
+                        "Sınıfı",
+                "Note! Machine tool properties are missing":
+                        "Dikkat! Makine özellikleri bilgisi eksiktir.",
+                "Note! Machine tool properties are missing. Please fill required property information from edit section":
+                        "Dikkat! Makine özellikleri bilgisi eksiktir. Lütfen eksik bilgileri düzenleme kısmından tamamlayınız.",
+                "Select a machine tool":
+                        "Lütfen bir makine seçiniz",
+                "Please select a machine tool from machine tools list":
+                        "Makine listesinden bir makine seçiniz",
+                "Select machine and continue":
+                        "Makineyi seçip, devam ediniz",
+                "Please first select a machine tool from machine tools list":
+                        "Lütfen daha önce makine tablosundan bir makine seçiniz...",
+                "Select a machine tool to view machine information details":
+                        "Makine detaylı bilgisini görüntülemek için bir makine seçmeniz gerekmektedir.",
+                "Machine Manufacturer":
+                        "Makine Üreticisi",
+                "General Machine Information":
+                        "Genel Makine Bilgileri",
+                "This machine properties are missing":
+                        "Bu makineye ait özellikler girilmemiştir",
+                "If you are interested to compelete machine information click edit button below":
+                        "Bu makine bilgilerini güncellemek istiyorsanız lütfen düzenle tuşuna tıklayınız",
+                "Edit":
+                        "Düzenle",
+                "No data is available for this machine tool":
+                        "Bu makinenin bilgileri sistemde kayıtlı değildir",
+                "Required information for this machine are missing":
+                        "Sistem bu makine hakkında gerekli bilgilere ulaşamadı",
+                "This machine is already registered in your company inventory. There is no need to add it again.":
+                        "Bu makine firma envanterine kayıtlıdır. Tekrar kaydedilmesine gerek yoktur.",                
+                "Field":
+                        "Alan"
+                
+                
 	},
 	"regex": [
 		["Budget", "Bütçe"],
