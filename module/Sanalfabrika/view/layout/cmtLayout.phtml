@@ -48,9 +48,16 @@
         <!-- Alpaca-->
         <!--<link type="text/css" href="//code.cloudcms.com/alpaca/1.5.14/bootstrap/alpaca.min.css" rel="stylesheet"/>-->
         <link type="text/css" href="../../plugins/alpaca/css/alpaca.min.css" rel="stylesheet"/>
-                        
+                    
+        <!-- kevinchappell form builder plugin ekleniyor-->
+        <link href="<?php echo $this->basePath('plugins/bootstrap-form-builder-kevinchappell/form-builder.css') ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $this->basePath('plugins/bootstrap-form-builder-kevinchappell/form-render.css') ?>" rel="stylesheet" type="text/css" />
+                    
         <!-- machine-tree css-->
         <link href="<?php echo $this->basePath('plugins/zeynel/machine-tree/tree.css') ?>" rel="stylesheet" type="text/css" />
+
+        <!-- validation engine css -->
+        <link href="<?php echo $this->basePath('onyuz/standard/assets/plugins/validationEngine/validationEngine.jquery.css') ?>" rel="stylesheet" type="text/css" />
 
 
         <!-- Le styles -->
@@ -193,6 +200,11 @@
         <!-- ddslick select plugin ekleniyor-->
         <script src="<?php echo $this->basePath('plugins/bootstrap-select-ddslick/js/ddslick.min.js') ?>" type="text/javascript"></script>
 
+        <!-- Form validation js -->
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/validationEngine/jquery.validationEngine-' . $this->layout()->test . '.js'); ?>" type="text/javascript"></script>
+        <!--<script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/validationEngine/jquery.validationEngine-en.js'); ?>" type="text/javascript"></script>-->
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/validationEngine/jquery.validationEngine.js') ?>" type="text/javascript"></script>
+       
         <!-- multulanguage js -->
         <script src="<?php echo $this->basePath('plugins/jquery-lang-js-master/js.cookie.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $this->basePath('plugins/jquery-lang-js-master/jquery-lang.js') ?>" type="text/javascript"></script>
@@ -204,7 +216,14 @@
         <script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.14/bootstrap/alpaca.min.js"></script>
         <!--<script type="text/javascript" src="../../plugins/alpaca/js/Alpaca.min.js"></script>-->
         <!--<script type="text/javascript" src="../../plugins/alpaca/js/Alpaca-downloaded.js"></script>-->
-
+ 
+        <!-- kevinchappell form builder plugin ekleniyor-->
+        <script src="<?php echo $this->basePath('plugins/bootstrap-form-builder-kevinchappell/form-builder.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $this->basePath('plugins/bootstrap-form-builder-kevinchappell/form-render.js') ?>" type="text/javascript"></script>
+        
+        <!-- jquuery-ui touch punch ekleniyor-->
+        <script src="<?php echo $this->basePath('plugins/jquery-ui-touch/jquery.ui.touch-punch.js') ?>" type="text/javascript"></script>
+        
         <!-- sayfa içine yazılan js'ler ekleniyor-->
         <script src="<?php echo $this->basePath('jsinline/sanalFabrika_cmt.js') ?>" type="text/javascript"></script>
 

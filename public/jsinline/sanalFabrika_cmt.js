@@ -23,6 +23,13 @@ $(document).ready(function () {
     window.rowIndex;
 
 
+    /* 
+     * Validation binder
+     * 
+     */
+
+    $("#proposedMTForm").validationEngine({promptPosition: "topLeft:100%,0"});
+
     var tree = $('.tree2').machineTree();
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
     tree.machineTree('option', 'pk', $("#pk").val());
@@ -272,7 +279,7 @@ $(document).ready(function () {
 //        console.log(selectedRow.machine_id);
         $("#mtGenPropsDynamicForm").alpaca("destroy");
         $("#mtGenPropsDynamicForm").empty();
-        
+
         $("#mtSpecPropsDynamicForm").alpaca("destroy");
         $("#mtSpecPropsDynamicForm").empty();
 
@@ -400,21 +407,6 @@ $(document).ready(function () {
                                             + "</button>");
                         }
                     }
-
-//                    if ($('#tab_confirm_image_loader').loadImager() !== 'undefined') {
-//                        $('#tab_confirm_image_loader').loadImager('removeLoadImage');
-//                        $('#tab_confirm_container a[href="#tab_confirm"]').tab('show');
-//                    }
-//                } else {
-//                    console.log('error');
-//                    BootstrapDialog.alert({
-//                        title: 'DÄ°KKAT!! KullanÄ±cÄ± detaylarÄ± belirlenememiÅŸtir',
-//                        message: 'KullanÄ±cÄ± dateylarÄ± belirlenememiÅŸtir, lÃ¼tfen baÅŸka kullanÄ±cÄ± seÃ§iniz!!',
-//                        type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
-//                        closable: true, // <-- Default value is false
-//                        draggable: true, // <-- Default value is false
-//                        buttonLabel: 'Tamam' // <-- Default value is 'OK',
-//                    });
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -446,7 +438,13 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
+
+    $('#proposedMTPropertiesFormBilder').formBuilder();
+
 });
+//End of ready function....
+
+
 function editMachineToolProps() {
 
     /*
@@ -516,71 +514,6 @@ Please note that new machine registration is not finished yet. \n\
         }
     });
 
-}
-
-function getSelectedMTInformation() {
-
-    $("#selectedMTInformation").alpaca("destroy");
-    $("#selectedMTInformation").empty();
-
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            /*
-             * Get selected machine tool information from system service name comes here
-             */
-            url: 'pkFillUsersFirmMachineProperties_infoFirmMachineTool',
-            pk: $("#pk").val(),
-            machine_id: $(this)[0].id
-        },
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-
-            if (data.rows.length !== 0) {
-
-                for (var i = 0; i < data.rows.length; i++) {
-
-                    var property_name = data.rows[i].property_names;
-                    var property_value = data.rows[i].property_value;
-                    var property_unit = data.rows[i].unitcodes;
-                    var property_name_english = data.rows[i].property_name_eng;
-                    if (property_name !== null) {
-
-                        $("#selectedMTInformation").alpaca({
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    property_name: {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "options": {
-                                "fields": {
-                                    property_name: {
-                                        "label": property_name,
-                                        "type": "text",
-                                        "helper": property_name_english,
-                                        "disabled": true
-                                    }
-                                }
-                            },
-                            "data": {
-                                property_name: property_value + '  ' + property_unit
-                            }
-                        });
-                    } else {
-
-                    }
-                }
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log('error');
-            console.error(textStatus);
-        }
-    });
 }
 
 

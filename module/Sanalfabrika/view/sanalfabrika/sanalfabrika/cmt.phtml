@@ -539,7 +539,7 @@
                     <div class="box box-primary">
                         <div class="box-header">
                             <i class="fa fa-cogs"></i>
-                            <h3 class="box-title"><?php echo $this->translate('Propose a new machine tool') ?></h3>
+                            <h3 class="box-title"><?php echo $this->translate('Propose a New Machine Tool') ?></h3>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
@@ -559,19 +559,76 @@
                                     </div>-->
                                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                                 </ul>
-
-                                <div  class="tab-content">                            
-
+                                <div  class="tab-content"> 
                                     <div class="tab-pane" id="tab_new_mt_proposal">
                                         <div id='tab_new_mt_proposal_image_loader' class="box box-info">
                                             <div class="box-header">
                                                 <h3 class="box-title">
-                                                    <?php echo $this->translate('Propose a New Machine Tools') ?>
+                                                    <?php echo $this->translate('Proposition Form') ?>
                                                 </h3>
                                                 <div class="box-body">
                                                     <div id="newMTProposal" style="font-size: 12px">                                            
                                                         <section>
-
+                                                            <div id="proposedMTFormDIV">
+                                                                <form id="proposedMTForm" class="sky-form">
+                                                                    <fieldset>
+                                                                        <section>
+                                                                            <label class="label"><?php echo $this->translate('Machine Manufacturer') ?></label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-apple"></i>
+                                                                                </div>
+                                                                                <input type="text" name="proposedMachineManufacturer" 
+                                                                                       id="proposedMachineManufacturer" required="true"
+                                                                                       class="form-control validate[required,custom[onlyLetterSp]]">
+                                                                            </div>
+                                                                        </section>
+                                                                        <section>
+                                                                            <label class="label"><?php echo $this->translate('Machine Name') ?></label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-pagelines"></i>
+                                                                                </div>
+                                                                                <input type="text" name="proposedMachineName" 
+                                                                                       id="proposedMachineName" required="true"
+                                                                                       class="form-control validate[required,custom[onlyLetterNumber]]">
+                                                                            </div>
+                                                                        </section>
+                                                                        <section>
+                                                                            <label class="label"><?php echo $this->translate('Machine Model') ?></label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-diamond"></i>
+                                                                                </div>
+                                                                                <input type="text" name="proposedMachineModel" 
+                                                                                       id="proposedMachineModel" required="true"
+                                                                                       class="form-control validate[required,custom[onlyLetterNumber]]">
+                                                                            </div>
+                                                                        </section>
+                                                                        <section>
+                                                                            <label class="label"><?php echo $this->translate('Machine Type') ?></label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-tag"></i>
+                                                                                </div>
+                                                                                <input type="text" name="proposedMachineType" 
+                                                                                       id="proposedMachineType" required="true"
+                                                                                       class="form-control validate[required,custom[onlyLetterSp]]">
+                                                                            </div>
+                                                                        </section>
+                                                                        <hr>
+                                                                        <h3 class="box-title">
+                                                                            <?php echo $this->translate('Machine Properties') ?>
+                                                                        </h3>
+                                                                        <hr>
+                                                                        <section>
+                                                                            <textarea name="proposedMTPropertiesFormBilder" 
+                                                                                      id="proposedMTPropertiesFormBilder" cols="30" rows="10">                                                                                      
+                                                                            </textarea>
+                                                                        </section>
+                                                                    </fieldset>
+                                                                </form>
+                                                            </div>
                                                         </section>                                                
                                                     </div>
                                                 </div>
