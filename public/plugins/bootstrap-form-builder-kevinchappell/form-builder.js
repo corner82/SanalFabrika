@@ -415,21 +415,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
                 'last-id' : lastID },
             title: 'Makina Özelliği Belirle',
             message: function(dialogRef){
-               /* var $message = $('<div class="form-group">\n\
-                                    <label>Operasyon Tipi</label>\n\
-                                        <div class="input-group"> \n\
-                                            <span class="input-group-addon"><i class="fa fa-tag"></i></span>\n\
-                                            <div id="dropdownOperations"></div>\n\
-                                        </div>\n\
-                                 </div>\n\
-                                <div class="form-group">\n\
-                                    <label>Onay Aracı</label>\n\
-                                        <div id="dropdownOperationsToolsContainer"  class="input-group">\n\
-                                            <span class="input-group-addon"><i class="fa fa-tag"></i></span>\n\
-                                            <div id="dropdownOperationsTools"></div>\n\
-                                        </div>\n\
-                                </div>');*/
-                var $message = $('<div class="box box-success">\n\
+               var $message = $('<div class="box box-success">\n\
                                         <div class="box-header">\n\
                                             <i class="fa fa-cart-arrow-down"></i>\n\
                                             <h3 class="box-title">Makina Özelliği Seçiniz</h3>\n\
@@ -441,7 +427,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
                                                         <span class="input-group-addon">\n\
                                                             <i class="fa fa-code-fork"></i>\n\
                                                         </span>\n\
-                                                        <ul id="tt_tree_machine prop" class="easyui-tree" ></ul> \n\
+                                                        <ul id="tt_tree_machine_prop" class="easyui-tree" ></ul> \n\
                                                     </div>\n\
                                                 </div>\n\
                                         </div>\n\
@@ -454,13 +440,15 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
                 * @author Mustafa Zeynel Dağlı
                 * @since 26/02/2016
                 */
-               $('#tt_tree_machine prop').tree({
-                    //url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    queryParams : { url:'pkFillConsultantOperationsToolsDropDown_sysOperationTypesTools' },
+               $('#tt_tree_machine_prop').tree({
+                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillMachineToolFullProperties_sysMachineToolProperties&pk='+$('#pk').val()+'',
+                    queryParams : { url:'pkFillMachineToolFullProperties_sysMachineToolProperties',
+                    pk : $('#pk').val(),
+                    },
                     method:'get',
                     animate:true,  
-                    checkbox:true,
-                    cascadeCheck : true,
+                    checkbox:false,
+                    cascadeCheck : false,
                     onLoadSuccess : function(node, data) {
 
                     },
@@ -489,7 +477,7 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
                         //console.log($(this).tree('getData',node.target));
                     }
                 });
-           
+               //alert('tree test');
             },
             description: 'Makina Özelliği Belirleyiniz...',
             type: BootstrapDialog.TYPE_SUCCESS, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
@@ -502,14 +490,146 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
                 cssClass: 'btn-success',
                 action: function(dialogItself){
                     var id=dialogItself.getData('last-id');
-                    /*var ddData = $('#dropdownOperations').data('ddslick');
-                    $('#label'+id).val(ddData.selectedData.text);*/
-                    $('#label1').focus();
-                    if($('#save-'+id).hasClass('fa-clipboard')) {
-                        $('#save-'+id).removeClass('fa-clipboard').addClass('fa-save');
+                    var data = $('#tt_tree_machine_prop').tree('getSelected');
+                    if(typeof data === 'undefined' || data === null) {
+                        BootstrapDialog.show({
+                        message: 'Lütfen özellik seçiniz...!',
+                        title : 'Makina ÖZelliği Seçiniz!',
+                        });
+                    } else {
+                        $('#label'+id).val(data.text);
+                        if($('#save-'+id).hasClass('fa-clipboard')) {
+                            $('#save-'+id).removeClass('fa-clipboard').addClass('fa-save');
+                        }
+                        dialogItself.close();
                     }
+                    
+                    
+                    
+                }
+            }]
+        });
+    };
+      
+     /**
+     * machine property units easyui tree
+     * @author Mustafa Zeynel Dağlı
+     * @since 29/02/2016
+     */
+     _helpers.machinePropertyUnitOpener = function(event, invoker) {
+        var invoker = invoker;
+        var lastID = $(invoker).attr('data-last-id')
+        console.log($(invoker).attr('data-last-id'));
+        BootstrapDialog.show({
+            data : { 
+                'last-id' : lastID },
+            title: 'Özellik Birimi Belirle',
+            message: function(dialogRef){
+               var $message = $('<div class="box box-success">\n\
+                                        <div class="box-header">\n\
+                                            <i class="fa fa-cart-arrow-down"></i>\n\
+                                            <h3 class="box-title">Makina Özelliği Seçiniz</h3>\n\
+                                        </div>\n\
+                                        <div class="box-body chat" id="chat-box">\n\
+                                                <div class="box-body">\n\
+                                                    <div class="form-group">\n\
+                                                        <label>Özellikler</label>\n\
+                                                        <span class="input-group-addon">\n\
+                                                            <i class="fa fa-code-fork"></i>\n\
+                                                        </span>\n\
+                                                        <ul id="tt_tree_machine_unit_prop" class="easyui-tree" ></ul> \n\
+                                                    </div>\n\
+                                                </div>\n\
+                                        </div>\n\
+                                 </div>');
+                return $message;
+            },
+            onshown: function(dialogRef){
+                 /**
+                * machine property easyui tree
+                * @author Mustafa Zeynel Dağlı
+                * @since 29/02/2016
+                */
+               $('#tt_tree_machine_unit_prop').tree({
+                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk='+$('#pk').val()+'',
+                    queryParams : { url:'pkFillMachineToolFullProperties_sysMachineToolProperties',
+                    pk : $('#pk').val(),
+                    },
+                    method:'get',
+                    animate:true,  
+                    checkbox:false,
+                    cascadeCheck : false,
+                    onlyLeafCheck : true,
+                    onLoadSuccess : function(node, data) {
 
-                    dialogItself.close();
+                    },
+                    formatter:function(node){
+                            var s = node.text;
+                            s+='&nbsp;<a href="#"><i class="fa fa-fw fa-trash-o"></i></a>&nbsp;<a href="#" ><i class="fa fa-fw fa-check-square-o"></i></a><a href="#" ><i class="fa fa-fw fa-ban"></i></a>';
+                        //buda loşullu kullanım için örnek satır    
+                        if (node.children){
+                                    s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
+                            }
+                            return s;
+                    },
+                    onCheck : function(node, checked) {
+                        //alert('test check');
+                        console.log($(this).tree("getChecked"));
+                        self = $(this);
+                        $.each($(this).tree("getChecked"), function (key, value) {
+                            if(node.text == value.text) {
+                                //alert('eşleşme bulundu');
+                                console.log(value.text);
+                                //self.tree("check", value.target);
+                            } else{
+                                self.tree("uncheck", value.target);
+                            }
+                        });
+                    },
+                    onDblClick: function(node){
+                        //console.log($(this).tree('getChildren',node.target));
+                        $(this).tree('expand', node.target);
+
+                    },
+                    onExpand : function(node){
+
+                    },
+                    onSelect : function(node, data){
+                        //console.log($(this).tree('getRoot',node.target));
+                        var data = $(this).tree('getData',node.target);
+                        console.log(data);
+                        console.log(data.text);
+                    }
+                });
+               //alert('tree test');
+            },
+            description: 'Özellik Birimi Belirleyiniz...',
+            type: BootstrapDialog.TYPE_SUCCESS, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: true, // <-- Default value is false
+            size : BootstrapDialog.SIZE_WIDE,
+            buttons: [ {
+                icon: 'glyphicon glyphicon-ok',
+                label: 'Tamam',
+                cssClass: 'btn-success',
+                action: function(dialogItself){
+                    var id=dialogItself.getData('last-id');
+                    var data = $('#tt_tree_machine_unit_prop').tree('getSelected');
+                    if(typeof data === 'undefined' || data === null) {
+                        BootstrapDialog.show({
+                        message: 'Lütfen birim seçiniz...!',
+                        title : 'Birim Seçiniz!',
+                        });
+                    } else {
+                        $('#description-'+id).val(data.text);
+                        if($('#save-'+id).hasClass('fa-clipboard')) {
+                            $('#save-'+id).removeClass('fa-clipboard').addClass('fa-save');
+                        }
+
+                        dialogItself.close();
+                    }
+                    
+                    
                 }
             }]
         });
@@ -757,7 +877,9 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
      */
     var $stageWrap = $('<div/>', {
       id: frmbID + '-stage-wrap',
-      'class': 'stage-wrap'
+      // changed for mobile compliant
+      //'class': 'stage-wrap'
+      'class': 'col-lg-6 col-xs-12'
     });
     
     /**
@@ -767,7 +889,9 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
      */
     var $formWrap = $('<div/>', {
       id: frmbID + '-form-wrap',
-      'class': 'form-wrap'
+      // changed for mobile compliant
+      //'class': 'form-wrap'
+      'class': 'form-wrap row'
     });
 
     elem.before($stageWrap).appendTo($stageWrap);
@@ -777,7 +901,9 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
 
     var cbWrap = $('<div/>', {
       id: frmbID + '-cb-wrap',
-      'class': 'cb-wrap'
+      // changed for mobile compliant
+      //'class': 'cb-wrap'
+      'class': 'col-lg-6 col-xs-12'
     }).append(cbHeader, cbUL);
     
     /**
@@ -1018,35 +1144,48 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       $('<label/>').html(opts.messages.description + ' *').appendTo(fieldDesc);
       
       /**
-       * test for adding new form element to edit dragged element
+       * dialog opener to get machine property
        * @author Mustafa Zeynel Dağlı
        */
       //advFields += '<form>';
-      advFields += '<div ><label>Makina Özelliği Seç<span class="required">*</span></label>';
-      advFields += '<button data-last-id="' + lastID + '" id="zeyn' + lastID + '"  class="pull-left btn btn-default machine-property-opener" id="sendEmail">Özellik Bul <i class="fa fa-arrow-circle-right"></i></button>';
+      advFields += '<div><label>Seç<span class="required">*</span></label>';
+      advFields += '<button data-last-id="' + lastID + '" id="zeyn' + lastID + '"  class="pull-left btn btn-default machine-property-opener" >Özellik Bul <i class="fa fa-arrow-circle-right"></i></button>';
+      advFields += '</div>';
       //advFields += '</form>';
 
       advFields += '<div class="frm-fld description-wrap"><label>' + opts.messages.description + '</label>';
       advFields += '<input type="text" name="description" value="' + values.description + '" class="fld-description" id="description-' + lastID + '" /></div>';
+      
+      /**
+       * dialog opener to get machine property units
+       * @author Mustafa Zeynel Dağlı
+       * @since 29/02/2016
+       */
+      advFields += '<div><label>Birim<span class="required">*</span></label>';
+      advFields += '<button data-last-id="' + lastID + '" id="unit-dialog-opener-' + lastID + '"  class="pull-left btn btn-default machine-property-unit-opener" >Birim Bul <i class="fa fa-arrow-circle-right"></i></button>';
+      advFields += '</div>';
 
-      advFields += '<div class="frm-fld name-wrap"><label>' + opts.messages.name + ' <span class="required">*</span></label>';
-      advFields += '<input type="text" name="name" value="' + values.name + '" class="fld-name" id="title-' + lastID + '" /></div>';
+      /**
+       * tex id name area prepared
+       */
+      /*advFields += '<div class="frm-fld name-wrap"><label>' + opts.messages.name + ' <span class="required">*</span></label>';
+      advFields += '<input type="text" name="name" value="' + values.name + '" class="fld-name" id="title-' + lastID + '" /></div>';*/
       
       /**
        * roles checkbox prepared
        * @author Mustafa Zeynel Dağlı
        */
-      advFields += '<div class="frm-fld access-wrap"><label>' + opts.messages.roles + '</label>';
+      /*advFields += '<div class="frm-fld access-wrap"><label>' + opts.messages.roles + '</label>';
 
-      advFields += '<input type="checkbox" name="enable_roles" value="" ' + (values.role !== undefined ? 'checked' : '') + ' id="enable_roles-' + lastID + '"/> <label for="enable_roles-' + lastID + '" class="roles_label">' + opts.messages.limitRole + '</label>';
-      advFields += '<div class="frm-fld available-roles" ' + (values.role !== undefined ? 'style="display:block"' : '') + '>';
+      //advFields += '<input type="checkbox" name="enable_roles" value="" ' + (values.role !== undefined ? 'checked' : '') + ' id="enable_roles-' + lastID + '"/> <label for="enable_roles-' + lastID + '" class="roles_label">' + opts.messages.limitRole + '</label>';
+      //advFields += '<div class="frm-fld available-roles" ' + (values.role !== undefined ? 'style="display:block"' : '') + '>';
         
       for (key in opts.roles) {
         if ($.inArray(key, ['date', '4']) === -1) {
           advFields += '<input type="checkbox" name="roles[]" value="' + key + '" id="fld-' + lastID + '-roles-' + key + '" ' + ($.inArray(key, roles) !== -1 ? 'checked' : '') + ' class="roles-field" /><label for="fld-' + lastID + '-roles-' + key + '">' + opts.roles[key] + '</label><br/>';
         }
       }
-      advFields += '</div></div>';
+      //advFields += '</div></div>';*/
       
       /**
        * 'max length' text area is being prepared here
@@ -1054,8 +1193,8 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
        */
       // if field type is not checkbox, checkbox/radio group or select list, add max length
       if ($.inArray(values.type, ['checkbox', 'select', 'checkbox-group', 'date', 'autocomplete', 'radio-group', 'hidden']) < 0) {
-        advFields += '<div class="frm-fld"><label class="max-length-label">' + opts.messages.maxLength + '</label>';
-        advFields += '<input type="text" name="max-length" max-length="4" value="' + (values.maxLength !== undefined ? values.maxLength : '') + '" class="fld-max-length" id="max-length-' + lastID + '" /></div>';
+        /*advFields += '<div class="frm-fld"><label class="max-length-label">' + opts.messages.maxLength + '</label>';
+        advFields += '<input type="text" name="max-length" max-length="4" value="' + (values.maxLength !== undefined ? values.maxLength : '') + '" class="fld-max-length" id="max-length-' + lastID + '" /></div>';*/
         //advFields += '<div ><label >' + opts.messages.maxLength + ' test</label>';
         //advFields += '<select id="test" onchange="alert(\'test\');"><option value="volvo">Volvo hhhhhhhhhh</option><option value="saab">Saab</option></select></div>';
         /*advFields += '<div ><label >' + opts.messages.maxLength + ' test</label>';
@@ -1250,6 +1389,18 @@ Author: Kevin Chappell <kevin.b.chappell@gmail.com>
       //alert('on click machine property');
       var invoker = $(this);
       _helpers.machinePropertyOpener(e, invoker);
+    });
+    
+    /**
+     * delegate machine property unit opener dialog event
+     * @author Mustafa Zeynel Dağlı
+     * @since 29/02/2016
+     */
+    $sortableFields.on('click', '.machine-property-unit-opener', function (e) {
+      e.preventDefault();
+      //alert('on click machine property');
+      var invoker = $(this);
+      _helpers.machinePropertyUnitOpener(e, invoker);
     });
 
     /**
