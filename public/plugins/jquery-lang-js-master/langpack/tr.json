@@ -238,7 +238,9 @@
                 "Save":
                         "Kaydet",
                 "Please select related manufacturing category from list...":
-                        "Lütfen listeden makinenin ait olduğu imalat sürecini seçiniz..."
+                        "Lütfen listeden makinenin ait olduğu imalat sürecini seçiniz...",
+                " properties":
+                        " özellikleri"
                 
 	},
 	"regex": [

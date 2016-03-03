@@ -879,3 +879,12 @@ msgstr "Yeni makine ekle"
 
 msgid "Language"
 msgstr "Dil"
+
+msgid "Machine Tool General Information"
+msgstr "Makine Genel Bilgileri"
+
+msgid "Machine Tool Properties Information"
+msgstr "Makine Özelliği Bilgileri"
+
+msgid "Add selected Machine"
+msgstr "Seçilen makineyi ekle"

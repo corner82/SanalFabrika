@@ -247,7 +247,7 @@ $.ajax({
             selectedRow = $("#grid_company_machines").datagrid("getSelected");
             rowIndex = $("#grid_company_machines").datagrid("getRowIndex", selectedRow);
             $('#selectedMTInformationHeader').empty();
-            $('#selectedMTInformationHeader').prepend(selectedRow.machine_tool_names + ' properties');
+            $('#selectedMTInformationHeader').prepend(selectedRow.machine_tool_names + window.lang.translate(' properties'));
             gridMachineProperties(this);
 
 //            $('.nav-tabs a[href="#tab_mt_properties"]').tab('show');

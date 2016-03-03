@@ -752,3 +752,12 @@ msgstr ""
 
 msgid "Language"
 msgstr ""
+
+msgid "Machine Tool General Information"
+msgstr ""
+
+msgid "Machine Tool Properties Information"
+msgstr ""
+
+msgid "Add selected Machine"
+msgstr ""
