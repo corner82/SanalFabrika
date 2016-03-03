@@ -236,7 +236,9 @@
                 "Remove Element":
                         "Öğeyi Sil",
                 "Save":
-                        "Kaydet"
+                        "Kaydet",
+                "Please select related manufacturing category from list...":
+                        "Lütfen listeden makinenin ait olduğu imalat sürecini seçiniz..."
                 
 	},
 	"regex": [

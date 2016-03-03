@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SanalFabrika\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 22:17-0700\n"
-"PO-Revision-Date: 2015-12-23 13:08+0200\n"
+"PO-Revision-Date: 2016-03-03 13:39+0200\n"
 "Last-Translator: Bahram Lotfi Sadigh <bahram.lotfi@ostim.com.tr>\n"
 "Language-Team: OSTIM Teknoloji A.Ş. <info@ostim.com.tr>\n"
 "Language: tr_TR\n"
@@ -31,13 +31,11 @@ msgstr "OSTİM"
 msgid "OSTIM Technology A.Ş."
 msgstr "OSTİM Teknoloji A.Ş."
 
-#: ../view/layout/sfdm.phtml:4
-#: ../view/layout/sfdm.phtml:11
+#: ../view/layout/sfdm.phtml:4 ../view/layout/sfdm.phtml:11
 msgid "Virtual Enterprise"
 msgstr "Sanal Fabrika"
 
-#: ../view/layout/sfdm.phtml:4
-#: ../view/layout/sfdm.phtml:11
+#: ../view/layout/sfdm.phtml:4 ../view/layout/sfdm.phtml:11
 msgid "V.E."
 msgstr "S.F."
 
@@ -49,8 +47,7 @@ msgstr "Aktif"
 msgid "Main Navigation"
 msgstr "Ana Menü"
 
-#: ../view/layout/sfdm.phtml:7
-#: ../view/layout/sfdm.phtml:17
+#: ../view/layout/sfdm.phtml:7 ../view/layout/sfdm.phtml:17
 msgid "Home"
 msgstr "Anasayfa"
 
@@ -306,14 +303,6 @@ msgstr "Telif Hakkı"
 msgid "Version"
 msgstr "Sürüm"
 
-#: ../view/layout/layout.phtml:
-msgid ""
-msgstr ""
-
-#: ../view/layout/layout.phtml:
-msgid ""
-msgstr ""
-
 #: ../view/application/index/index.phtml:2
 #, php-format
 msgid "Welcome to OSTIM Virtual Enterprise System"
@@ -376,7 +365,6 @@ msgstr "Buraya çözümlenir: %s"
 #: ../view/error/404.phtml:51
 msgid "Exception"
 msgstr "İstisna"
-
 
 #: ../view/layout/sfdm.phtml:25
 msgid "Help"
@@ -679,7 +667,6 @@ msgstr "İletişim Bilgileri"
 msgid "Company Information"
 msgstr "Firma Bilgileri"
 
-
 msgid "Please select a country from list..."
 msgstr "Lütfen listeden bir ülke seçiniz..."
 
@@ -697,7 +684,6 @@ msgstr "Kaydet ve adres bilgilerine geç"
 
 msgid "Continue to Communication Information"
 msgstr "Kaydet ve iletişim bilgilerine geç"
-
 
 msgid "Reset"
 msgstr "Temizle"
@@ -819,7 +805,6 @@ msgstr "İletişim bilgilerimi her kes görebilir"
 msgid "Show all my registered contact Information"
 msgstr "Bütün kayıtlı iletişim bilgilerimi göster"
 
-
 msgid "DUNS Number"
 msgstr "DUNS Numarası"
 
@@ -850,5 +835,47 @@ msgstr "Ana başlık"
 msgid "Ownership Status"
 msgstr "Mülkiyet Durumu"
 
+msgid "Company Machine Tool Panel"
+msgstr "Firma Makine Denetim Masası"
 
+msgid "Some Activities"
+msgstr "Bazı faaliyetler"
 
+msgid "List of activities"
+msgstr "Faaliyetler listesi"
+
+msgid "Company machine tools list"
+msgstr "Firma makine teçhizat listesi"
+
+msgid "Company machine tools"
+msgstr "Firma makine teçhizatı"
+
+msgid "Available Machine Tools in System"
+msgstr "Sistemde Mevcut Makine Listesi"
+
+msgid "Propose a New Machine Tool"
+msgstr "Yeni Makine Öner"
+
+msgid "Proposition Form"
+msgstr "Öneri Formu"
+
+msgid "Machine Manufacturer"
+msgstr "Makine Üreticisi"
+
+msgid "Machine Name"
+msgstr "Makine Adı"
+
+msgid "Machine Model"
+msgstr "Makine Modeli"
+
+msgid "Machine Type"
+msgstr "Makine Tipi"
+
+msgid "Machine Properties"
+msgstr "Makine Özellikleri"
+
+msgid "Submit new machine tool"
+msgstr "Yeni makine ekle"
+
+msgid "Language"
+msgstr "Dil"

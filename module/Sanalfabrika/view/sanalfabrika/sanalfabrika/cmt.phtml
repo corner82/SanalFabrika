@@ -433,7 +433,7 @@
                     <div class="callout callout-info" >												
                         <h4>
                             <i class="fa fa-random"></i>
-                            <?php echo $this->translate('Some Activities:') ?>  
+                            <?php echo $this->translate('Some Activities') ?> : 
                         </h4>
                         <?php echo $this->translate('List of activities') ?> 
                     </div>
@@ -498,7 +498,7 @@
                 <div class="box-header">
                     <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>
                     <h3 class="box-title">
-                        <?php echo $this->translate('Available Machine Tools List') ?>
+                        <?php echo $this->translate('Available Machine Tools in System') ?>
                     </h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -574,63 +574,62 @@
                                                     <div id="newMTProposal">                                            
                                                         <section>
                                                             <div id="proposedMTFormDIV">
-                                                                <form id="proposedMTForm" class="sky-form">
-                                                                    <fieldset>
-                                                                        <section>
-                                                                            <label style="color:#000; font-size: 13px" class="label"><?php echo $this->translate('Machine Manufacturer') ?></label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="glyphicon glyphicon-qrcode"></i>
-                                                                                </div>
-                                                                                <input type="text" name="proposedMachineManufacturer" 
-                                                                                       id="proposedMachineManufacturer" required="true"
-                                                                                       class="form-control validate[required,custom[onlyLetterSp]]">
-                                                                            </div>
-                                                                        </section>
-                                                                        <section>
-                                                                            <label style="color:#000; font-size: 13px"  class="label"><?php echo $this->translate('Machine Name') ?></label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="glyphicon glyphicon-font"></i>
-                                                                                </div>
-                                                                                <input type="text" name="proposedMachineName" 
-                                                                                       id="proposedMachineName" required="true"
-                                                                                       class="form-control validate[required,custom[onlyLetterNumber]]">
-                                                                            </div>
-                                                                        </section>
-                                                                        <section>
-                                                                            <label style="color:#000; font-size: 13px"  class="label"><?php echo $this->translate('Machine Model') ?></label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="glyphicon glyphicon-list-alt"></i>
-                                                                                </div>
-                                                                                <input type="text" name="proposedMachineModel" 
-                                                                                       id="proposedMachineModel" required="true"
-                                                                                       class="form-control validate[required,custom[onlyLetterNumber]]">
-                                                                            </div>
-                                                                        </section>
-                                                                        <section>
-                                                                            <label style="color:#000; font-size: 13px"  class="label"><?php echo $this->translate('Machine Type') ?></label>
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="fa fa-tag"></i>
-                                                                                </div>
-                                                                                <input type="text" name="proposedMachineType" 
-                                                                                       id="proposedMachineType" required="true"
-                                                                                       class="form-control validate[required,custom[onlyLetterSp]]">
-                                                                            </div>
-                                                                        </section>
+                                                                <form id="proposedMTForm" role="form">
+                                                                    <div class="box-body">
+                                                                        <label>
+                                                                            <?php echo $this->translate("Machine Manufacturer") ?>
+                                                                        </label>                                                                        
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="fa fa-trademark"></i>
+                                                                            </span>
+                                                                            <input type="text" class="form-control validation[required,custom[onlyLetterSp]]" 
+                                                                                   placeholder='<?php echo $this->translate("Please Enter Machine Manufacturer Name (Brand)") ?>'>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <label>
+                                                                            <?php echo $this->translate("Machine Name") ?>
+                                                                        </label>                                                                        
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="fa fa-tags"></i>
+                                                                            </span>
+                                                                            <input type="text" class="form-control validation[required]"  
+                                                                                   placeholder='<?php echo $this->translate("Please Enter Machine Name (Series)") ?>'>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <label>
+                                                                            <?php echo $this->translate("Machine Model") ?>
+                                                                        </label>                                                                        
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="fa  fa-calendar"></i>
+                                                                            </span>
+                                                                            <input type="date" class="form-control validation[onlyNumberSp]" 
+                                                                                   placeholder='<?php echo $this->translate("Please Enter Machine Model (Production Year)") ?>'>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <label>
+                                                                            <?php echo $this->translate("Machine Type") ?>
+                                                                        </label>                                                                        
+                                                                        <div id="machineTypeDropDown"></div>                                                                        
                                                                         <hr>
                                                                         <h3 class="box-title">
                                                                             <?php echo $this->translate('Machine Properties') ?>
                                                                         </h3>
                                                                         <hr>
-                                                                        <section>
-                                                                            <textarea name="proposedMTPropertiesFormBilder" 
-                                                                                      id="proposedMTPropertiesFormBilder" cols="30" rows="10">                                                                                      
-                                                                            </textarea>
+                                                                        <textarea name="proposedMTPropertiesFormBilder" 
+                                                                                  id="proposedMTPropertiesFormBilder" cols="30" rows="10">                                                                                      
+                                                                        </textarea>
+                                                                        <hr>
+                                                                        <section
+                                                                            <button type="submit" id="submitMTProposal_btn" 
+                                                                                class="btn-primary btn-sm col-lg-12" 
+                                                                                onclick="submitMTProposal()">
+                                                                                    <?php echo $this->translate('Submit new machine tool') ?>
+                                                                            </button>
                                                                         </section>
-                                                                    </fieldset>
+                                                                    </div>
                                                                 </form>
                                                             </div>
                                                         </section>                                                
