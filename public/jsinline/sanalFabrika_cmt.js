@@ -24,8 +24,7 @@ $(document).ready(function () {
 
 
     /* 
-     * Validation binder
-     * 
+     * Validation binder 
      */
 
     $("#proposedMTForm").validationEngine({promptPosition: "topLeft:100%,0"});
@@ -562,6 +561,11 @@ function scrollDown(url) {
 }
 
 
+function submitMTProposal() {
+    if ($('#proposedMTForm').validationEngine('validate')) {
+        console.log('waiting for submission service to be implemented...');
+    }
+}
 
 
 

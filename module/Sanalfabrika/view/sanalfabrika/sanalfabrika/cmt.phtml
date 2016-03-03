@@ -431,34 +431,39 @@
             <!-- info bar -->
             <div class='row'> 
                 <section class="col-lg-12 ">
-                    <div class="callout callout-info" >												
-                        <h4>
-                            <i class="fa fa-random"></i>
-                            <?php echo $this->translate('Some Activities') ?> : 
-                        </h4>
-                        <hr>
-                        <div id="displayFirmMachinesGuide" a href='#' 
-                             onclick='scrollDown($("#companyMachinesGridBox"))'> 
-                            <h4>
-                                <?php echo $this->translate("Display firm machine park") ?>
-                            </h4>
-                            <?php echo $this->translate("Double click on table row to display machine properties in details") ?>
-                        </div>
-                        <hr>
-                        <div id="addFirmMachineGuide" a href='#' 
-                             onclick='scrollDown($("#add_new_mt_tree_box"))'>     
-                            <h4>
-                                <?php echo $this->translate("Add new machine from available machine tools list in system to your company inventory") ?>
-                            </h4>
-                            <?php echo $this->translate("Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button.") ?>
-                        </div> 
-                        <hr>
-                        <div id="proposeNewMachineGuide" a href='#' 
-                             onclick='scrollDown($("#proposeMT_box_div"))'>    
-                            <h4>
-                                <?php echo $this->translate("Propose a new machine to the system") ?>
-                            </h4>
-                            <?php echo $this->translate("If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval.") ?>
+                    <div class="callout callout-info" >	
+                        <a data-toggle="collapse" href="#collapseInfoGuide">
+                            <div id='infoGuideHeader'>
+                                <h4>
+                                    <i class="fa fa-random"></i>
+                                    <?php echo $this->translate('Some Activities') ?> : 
+                                </h4>
+                            </div>
+                        </a>
+                        <div id='collapseInfoGuide'>
+                            <div id="displayFirmMachinesGuide" a href='#' 
+                                 onclick='scrollDown($("#companyMachinesGridBox"))'> 
+                                <h4>
+                                    <?php echo $this->translate("Display firm machine park") ?>
+                                </h4>
+                                <?php echo $this->translate("Double click on table row to display machine properties in details") ?>
+                            </div>
+                            <hr>
+                            <div id="addFirmMachineGuide" a href='#' 
+                                 onclick='scrollDown($("#add_new_mt_tree_box"))'>     
+                                <h4>
+                                    <?php echo $this->translate("Add new machine from available machine tools list in system to your company inventory") ?>
+                                </h4>
+                                <?php echo $this->translate("Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button.") ?>
+                            </div> 
+                            <hr>
+                            <div id="proposeNewMachineGuide" a href='#' 
+                                 onclick='scrollDown($("#proposeMT_box_div"))'>    
+                                <h4>
+                                    <?php echo $this->translate("Propose a new machine to the system") ?>
+                                </h4>
+                                <?php echo $this->translate("If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval.") ?>
+                            </div>
                         </div>
                     </div>
 
@@ -608,7 +613,7 @@
                                                                             <span class="input-group-addon">
                                                                                 <i class="fa fa-trademark"></i>
                                                                             </span>
-                                                                            <input type="text" class="form-control validation[required,custom[onlyLetterSp]]" 
+                                                                            <input type="text" class="form-control validate[required, custom[onlyLetterSp]]" 
                                                                                    placeholder='<?php echo $this->translate("Please Enter Machine Manufacturer Name (Brand)") ?>'>
                                                                         </div>
                                                                         <hr>
@@ -619,7 +624,7 @@
                                                                             <span class="input-group-addon">
                                                                                 <i class="fa fa-tags"></i>
                                                                             </span>
-                                                                            <input type="text" class="form-control validation[required]"  
+                                                                            <input type="text" class="form-control validate[required]"  
                                                                                    placeholder='<?php echo $this->translate("Please Enter Machine Name (Series)") ?>'>
                                                                         </div>
                                                                         <hr>
@@ -630,7 +635,7 @@
                                                                             <span class="input-group-addon">
                                                                                 <i class="fa  fa-calendar"></i>
                                                                             </span>
-                                                                            <input type="date" class="form-control validation[onlyNumberSp]" 
+                                                                            <input type="date" class="form-control validation[required]" 
                                                                                    placeholder='<?php echo $this->translate("Please Enter Machine Model (Production Year)") ?>'>
                                                                         </div>
                                                                         <hr>
@@ -649,7 +654,7 @@
                                                                         <hr>
                                                                         <section
                                                                             <button type="submit" id="submitMTProposal_btn" 
-                                                                                class="btn-primary btn-sm col-lg-12" 
+                                                                                class="btn btn-block btn-primary col-lg-12" 
                                                                                 onclick="submitMTProposal()">
                                                                                     <?php echo $this->translate('Submit new machine tool') ?>
                                                                             </button>

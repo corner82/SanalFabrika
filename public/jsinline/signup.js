@@ -73,10 +73,10 @@ $(document).ready(function () {
      * 
      */
 
-    $("#userGeneralInfoForm").validationEngine({promptPosition : "topLeft:100%,0"});
-    $("#userAddressInfoForm").validationEngine({promptPosition : "topLeft:100%,0"});
-    $("#userCommunicationInfoForm").validationEngine({promptPosition : "topLeft:100%,0"});
-    $("#companyInfoForm").validationEngine({promptPosition : "topLeft:100%,0"});
+    $("#userGeneralInfoForm").validationEngine({promptPosition: "topLeft:100%,0"});
+    $("#userAddressInfoForm").validationEngine({promptPosition: "topLeft:100%,0"});
+    $("#userCommunicationInfoForm").validationEngine({promptPosition: "topLeft:100%,0"});
+    $("#companyInfoForm").validationEngine({promptPosition: "topLeft:100%,0"});
 
     /*
      * Buttons function binder
@@ -1319,7 +1319,7 @@ function companyInfoSubmission() {
 //                            closable: false
                     buttons: [{
                             label: 'Ok',
-                                cssClass: 'btn-danger',
+                            cssClass: 'btn-danger',
                             action: function () {
                                 $('#tabsContentsSection').loadImager('removeLoadImage');
                             }
@@ -1568,14 +1568,20 @@ function taskProgressPerTabs() {
 
         userGeneralInformationProgressNumber = 0;
         overallRegistrationProgressNumber = 0;
-        if ($('#userFirstName').val()) {
 
+        if ($('#userFirstName').val()) {
             userGeneralInformationProgressNumber += 20;
             overallRegistrationProgressNumber += 6;
+            console.log($('#userFirstName').val());
+            console.log(userGeneralInformationProgressNumber);
+            console.log(overallRegistrationProgressNumber);
         }
         if ($('#userLastName').val()) {
             userGeneralInformationProgressNumber += 20;
             overallRegistrationProgressNumber += 6;
+            console.log($('#userLastName').val());
+            console.log(userGeneralInformationProgressNumber);
+            console.log(overallRegistrationProgressNumber);
         }
         if ($('#preferedUsername').val()) {
             userGeneralInformationProgressNumber += 20;
@@ -1592,16 +1598,17 @@ function taskProgressPerTabs() {
                 userGeneralInformationProgressNumber += 20;
                 overallRegistrationProgressNumber += 6;
             }
-            userGeneralInformationProgress = userGeneralInformationProgressNumber.toString();
-            $("#userGeneralInfoRegistrationProgress").
-                    html(userGeneralInformationProgress + '%');
-            $("#userGeneralInfoRegistrationProgressStyle").
-                    css({"width": userGeneralInformationProgress +
-                                '%', "aria-valuenow": userGeneralInformationProgress});
-            /*
-             * popup a prompt on task progress and hide after 3 secs.
-             */
         }
+        userGeneralInformationProgress = userGeneralInformationProgressNumber.toString();
+        $("#userGeneralInfoRegistrationProgress").
+                html(userGeneralInformationProgress + '%');
+        $("#userGeneralInfoRegistrationProgressStyle").
+                css({"width": userGeneralInformationProgress +
+                            '%', "aria-valuenow": userGeneralInformationProgress});
+        /*
+         * popup a prompt on task progress and hide after 3 secs.
+         */
+
         if (userGeneralInformationProgressNumber === 100) {
 
             $("#userGeneralInfoRegistrationProgress").validationEngine(
