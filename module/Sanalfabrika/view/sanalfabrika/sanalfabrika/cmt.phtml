@@ -427,6 +427,7 @@
                 </div><!-- ./col -->
             </div>
 
+
             <!-- info bar -->
             <div class='row'> 
                 <section class="col-lg-12 ">
@@ -435,8 +436,46 @@
                             <i class="fa fa-random"></i>
                             <?php echo $this->translate('Some Activities') ?> : 
                         </h4>
-                        <?php echo $this->translate('List of activities') ?> 
+                        <ul style="font-weight: bold" class="sidebar-menu"><?php echo $this->translate('List of activities') ?> :
+                        </ul>
+                        <div id="pageGuaidance">
+
+                            <li style="font-weight: bold" class="sidebar-menu" 
+                                onclick='scrollDown($("#companyMachinesGridBox"))'>
+                                <a href='#'>
+                                    <?php echo $this->translate("Display company machine tool list") ?>
+                                </a>
+                                <ul class="treeview">
+                                    <div style="white-space: pre-wrap"> 
+                                        <?php echo $this->translate("Double click on table row to display machine properties in details") ?>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li style="font-weight: bold" class="sidebar-menu" 
+                                onclick='scrollDown($("#add_new_mt_tree_box"))'> 
+                                <a href="#">
+                                    <?php echo $this->translate("Add new machine from available machine tools list in system to your company inventory") ?>
+                                </a>
+                                <ul class="treeview">
+                                    <div style="white-space: pre-wrap"> 
+                                        <?php echo $this->translate("Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button.") ?>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li style="font-weight: bold" class="sidebar-menu"                                 
+                                onclick='scrollDown($("#proposeMT_box_div"))'>
+                                <a href="#"> 
+                                    <?php echo $this->translate("Propose a new machine to the system") ?>
+                                </a>
+                                <ul class="treeview">
+                                    <div style="white-space: pre-wrap"> 
+                                        <?php echo $this->translate("If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval.") ?>
+                                    </div>
+                                </ul>
+                            </li>
+                        </div>
                     </div>
+
                 </section> 
             </div>
 
@@ -494,6 +533,7 @@
                     </div>
                 </section>
             </div>
+
             <div id='add_new_mt_tree_box' class="box box-warning box-solid">
                 <div class="box-header">
                     <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>
@@ -536,8 +576,7 @@
 
             <div class='row'>      
                 <section class="col-lg-12">
-                    <!-- Chat box -->
-                    <div class="box box-primary">
+                    <div class="box box-primary" id="proposeMT_box_div">
                         <div class="box-header">
                             <i class="glyphicon glyphicon-import"></i>
                             <h3 class="box-title"><?php echo $this->translate('Propose a New Machine Tool') ?></h3>

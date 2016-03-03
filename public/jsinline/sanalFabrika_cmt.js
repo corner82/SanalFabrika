@@ -29,43 +29,43 @@ $(document).ready(function () {
      */
 
     $("#proposedMTForm").validationEngine({promptPosition: "topLeft:100%,0"});
-    
-/*
- * List of countries combobox ajax
- */
 
-$.ajax({
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-    data: {
-        url: 'fillComboBox_syscountrys',
-        language_code: $("#langCode").val(),
-        component_type: 'ddslick'
-    },
-    type: 'GET',
-    dataType: 'json',
-    //data: 'rowIndex='+rowData.id,
-    success: function (data, textStatus, jqXHR) {
-        if (data.length !== 0) {
-            $('#machineTypeDropDown').ddslick({
-                data: data,
-                width: '100%',
-                height: '500%',
-                background: false,
-                selectText: window.lang.translate("Please select related manufacturing category from list..."),
-                imagePosition: 'right',
-                onSelected: function (selectedData) {
+    /*
+     * List of countries combobox ajax
+     */
 
-                    selectedCategoryId = selectedData.selectedData.value;
-                }
-            });
-        } else {
-            console.error('servis datasÄ± boÅŸtur!!');
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillComboBox_syscountrys',
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+                $('#machineTypeDropDown').ddslick({
+                    data: data,
+                    width: '100%',
+                    height: '500%',
+                    background: false,
+                    selectText: window.lang.translate("Please select related manufacturing category from list..."),
+                    imagePosition: 'right',
+                    onSelected: function (selectedData) {
+
+                        selectedCategoryId = selectedData.selectedData.value;
+                    }
+                });
+            } else {
+                console.error('servis datasÄ± boÅŸtur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error(' servis hatasÄ±->' + textStatus);
         }
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-        console.error(' servis hatasÄ±->' + textStatus);
-    }
-});
+    });
 
 
     var tree = $('.tree2').machineTree();
@@ -555,6 +555,11 @@ Please note that new machine registration is not finished yet. \n\
 }
 
 
+function scrollDown(url) {
+    $('html, body').animate({
+        scrollTop: url.offset().top
+    }, 1000);
+}
 
 
 
