@@ -177,14 +177,14 @@
                 off: window.lang.translate("Off"),
                 on: window.lang.translate("On"),
                 optional: window.lang.translate("Optional"),
-                optionLabelPlaceholder: 'Label',
-                optionValuePlaceholder: 'Value',
+                optionLabelPlaceholder: window.lang.translate('Label'),
+                optionValuePlaceholder: window.lang.translate('Value'),
                 optionEmpty: 'Option value required',
                 paragraph: 'Paragraph',
                 preview: 'Preview',
                 radioGroup: 'Radio Group',
                 radio: 'Radio',
-                removeMessage: 'Remove Element',
+                removeMessage: window.lang.translate('Remove Element'),
                 remove: '&#215;',
                 required: window.lang.translate("Mandatory field"),
                 richText: 'Rich Text Editor',
@@ -793,9 +793,9 @@
                     id: frmbID + '-save',
                     href: '#',
                     'class': 'save-btn-wrap',
-                    title: window.lang.translate("Save Properties")
 //                    title: opts.messages.save
-                }).html('<a class="save fb-button primary"><span>' + window.lang.translate("Save Properties") + '</span></a>'),
+                    title: window.lang.translate('Save Properties')
+                }).html('<a class="save fb-button primary"><span>' + window.lang.translate('Save Properties') + '</span></a>'),
 //                }).html('<a class="save fb-button primary"><span>' + opts.messages.save + '</span></a>'),
                 actionLinksInner = $('<div/>', {
                     id: frmbID + '-action-links-inner',
@@ -1242,7 +1242,8 @@
             var label = $(field).find('input[name="label"]').val() !== '' ? $(field).find('input[name="label"]').val() : title;
 
             var li = '',
-                    delBtn = '<a id="del_' + lastID + '" class="del-button btn delete-confirm" href="#" title="' + opts.messages.removeMessage + '">' + opts.messages.remove + '</a>',
+//                    delBtn = '<a id="del_' + lastID + '" class="del-button btn delete-confirm" href="#" title="' + opts.messages.removeMessage + '">' + opts.messages.remove + '</a>',
+                    delBtn = '<a id="del_' + lastID + '" class="del-button btn delete-confirm" href="#" title="' + window.lang.translate('Remove Element') + '">' + opts.messages.remove + '</a>',
                     //toggleBtn = '<a id="frm-' + lastID + '" class="toggle-form btn icon-pencil" href="#" title="' + opts.messages.hide + '"></a> ',
                     /**
                      * toogle buton icon change
@@ -1376,9 +1377,11 @@
 
             field = '<li>';
             field += '<input type="' + selectedType + '" ' + selected + ' class="select-option" name="' + name + '" />';
-            field += '<input type="text" class="option-label" placeholder="' + opts.messages.optionLabelPlaceholder + '" value="' + values.label + '" />';
-            field += '<input type="text" class="option-value" placeholder="' + opts.messages.optionValuePlaceholder + '" value="' + values.value + '" />';
-            field += '<a href="#" class="remove btn" title="' + opts.messages.removeMessage + '">' + opts.messages.remove + '</a>';
+//            field += '<input type="text" class="option-label" placeholder="' + opts.messages.optionLabelPlaceholder + '" value="' + values.label + '" />';
+//            field += '<input type="text" class="option-value" placeholder="' + opts.messages.optionValuePlaceholder + '" value="' + values.value + '" />';
+            field += '<input type="text" class="option-label" placeholder="' + window.lang.translate('Label') + '" value="' + values.label + '" />';
+            field += '<input type="text" class="option-value" placeholder="' + window.lang.translate('Value') + '" value="' + values.value + '" />';
+            field += '<a href="#" class="remove btn" title="' + window.lang.translate('Remove Element') + '">' + opts.messages.remove + '</a>';
             field += '</li>';
 
             return field;
