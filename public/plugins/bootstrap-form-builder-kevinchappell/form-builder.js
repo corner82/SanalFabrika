@@ -142,22 +142,22 @@
                  yes: 'Yes'*/
 
                 add: window.lang.translate("Add element"),
-                allowSelect: 'Allow Select',
+                allowSelect: window.lang.translate('Allow Select'),
                 autocomplete: 'Autocomplete',
                 cannotBeEmpty: 'This field cannot be empty',
                 checkboxGroup: 'Checkbox Group',
                 checkbox: 'Checkbox',
                 checkboxes: 'Checkboxes',
                 clearAllMessage: 'Are you sure you want to remove all items?',
-                clearAll: 'Clear All',
+                clearAll: window.lang.translate('Clear All'),
                 close: window.lang.translate("Close"),
                 copy: 'Copy To Clipboard',
                 dateField: 'Date Field',
                 description: window.lang.translate("Unit"),
                 descriptionField: window.lang.translate("Define"),
-                devMode: 'Developer Mode',
+                devMode: window.lang.translate("Developer Mode"),
                 disableFields: 'These fields cannot be moved.',
-                editNames: 'Edit Names',
+                editNames: window.lang.translate('Edit Names'),
                 //editorTitle: 'Form Elements',
                 editorTitle: window.lang.translate("Add a machine property"),
                 editXML: window.lang.translate("Edit XML"),
@@ -172,10 +172,10 @@
                 mandatory: window.lang.translate("required"),
                 maxLength: window.lang.translate("Max length"),
                 minOptionMessage: 'This field requires a minimum of 2 options',
-                name: 'Name',
-                no: 'No',
-                off: 'Off',
-                on: 'On',
+                name: window.lang.translate("Name"),
+                no: window.lang.translate("No"),
+                off: window.lang.translate("Off"),
+                on: window.lang.translate("On"),
                 optional: window.lang.translate("Optional"),
                 optionLabelPlaceholder: 'Label',
                 optionValuePlaceholder: 'Value',
@@ -190,7 +190,7 @@
                 richText: 'Rich Text Editor',
                 roles: window.lang.translate("Access"),
                 save: window.lang.translate("Save Properties"),
-                selectOptions: window.lang.translate("Radio buttons"),
+                selectOptions: window.lang.translate("Select Options"),
                 select: window.lang.translate("Field"),
                 selectionsMessage: 'Allow Multiple Selections',
                 text: window.lang.translate("Machine property"),
@@ -295,6 +295,7 @@
             var preview,
                     previewData = {
                         type: fieldClass,
+//                        label: $('.fld-label', field).val()
                         label: $('.fld-label', field).val()
                     };
 
@@ -653,14 +654,16 @@
          */
         // create array of field objects to cycle through
         var frmbFields = [{
-                label: opts.messages.text,
+//                label: opts.messages.text,
+                label: window.lang.translate('Machine property'),
                 attrs: {
                     type: 'text',
                     className: 'text-input',
                     name: 'text-input'
                 }
             }, {
-                label: opts.messages.select,
+//                label: opts.messages.select,
+                label: window.lang.translate('Field'),
                 attrs: {
                     type: 'select',
                     className: 'select',
@@ -753,31 +756,36 @@
         var cbHeader = $('<h4/>').html(opts.messages.editorTitle),
                 viewXML = $('<a/>', {
                     id: frmbID + '-export-xml',
-                    text: opts.messages.viewXML,
+//                    text: opts.messages.viewXML,
+                    text: window.lang.translate("View XML"),
                     href: '#',
                     'class': 'view-xml'
                 }),
                 allowSelect = $('<a/>', {
                     id: frmbID + '-allow-select',
-                    text: opts.messages.allowSelect,
+//                    text: opts.messages.allowSelect,
+                    text: window.lang.translate("Allow Select"),                    
                     href: '#',
                     'class': 'allow-select'
                 }).prop('checked', 'checked'),
                 editXML = $('<a/>', {
                     id: frmbID + '-edit-xml',
-                    text: opts.messages.editXML,
+//                    text: opts.messages.editXML,
+                    text: window.lang.translate("Edit XML"),
                     href: '#',
                     'class': 'edit-xml'
                 }),
                 editNames = $('<a/>', {
                     id: frmbID + '-edit-names',
-                    text: opts.messages.editNames,
+//                    text: opts.messages.editNames,
+                    text: window.lang.translate("Edit Names"),
                     href: '#',
                     'class': 'edit-names'
                 }),
                 clearAll = $('<a/>', {
                     id: frmbID + '-clear-all',
-                    text: opts.messages.clearAll,
+//                    text: opts.messages.clearAll,
+                    text: window.lang.translate("Clear All"),
                     href: '#',
                     'class': 'clear-all'
                 }),
@@ -785,15 +793,18 @@
                     id: frmbID + '-save',
                     href: '#',
                     'class': 'save-btn-wrap',
-                    title: opts.messages.save
-                }).html('<a class="save fb-button primary"><span>' + opts.messages.save + '</span></a>'),
+                    title: window.lang.translate("Save Properties")
+//                    title: opts.messages.save
+                }).html('<a class="save fb-button primary"><span>' + window.lang.translate("Save Properties") + '</span></a>'),
+//                }).html('<a class="save fb-button primary"><span>' + opts.messages.save + '</span></a>'),
                 actionLinksInner = $('<div/>', {
                     id: frmbID + '-action-links-inner',
                     'class': 'action-links-inner'
                 }).append(editXML, ' | ', editNames, ' | ', allowSelect, ' | ', clearAll, ' |&nbsp;'),
                 devMode = $('<span/>', {
                     'class': 'dev-mode-link'
-                }).html(opts.messages.devMode + ' ' + opts.messages.off),
+//                }).html(opts.messages.devMode + ' ' + opts.messages.off),
+                }).html(window.lang.translate("Developer Mode") + ' ' + window.lang.translate("Off")),
                 actionLinks = $('<div/>', {
                     id: frmbID + '-action-links',
                     'class': 'action-links'
@@ -1061,7 +1072,8 @@
                     multiDisplay = values.type === 'checkbox-group' ? 'none' : 'none';
 
             field += advFields(values);
-            field += '<div class="false-label">' + opts.messages.selectOptions + '</div>';
+//            field += '<div class="false-label">' + opts.messages.selectOptions + '</div>';
+            field += '<div class="false-label">' + window.lang.translate("Select Options") + '</div>';
             field += '<div class="fields">';
 
             field += '<div class="allow-multi" style="display:' + multiDisplay + '">';
@@ -1073,9 +1085,11 @@
                 field += selectFieldOptions(values.values[i], name, values.values[i].selected, values.multiple);
             }
             field += '</ol>';
-            field += '<div class="field_actions"><a href="#" class="add add_opt"><strong>' + opts.messages.add + '</strong></a> | <a href="#" class="close_field">' + opts.messages.close + '</a></div>';
+            
+            field += '<div class="field_actions"><a href="#" class="add add_opt"><strong>' + window.lang.translate("Add element") + '</strong></a> | <a href="#" class="close_field">' + window.lang.translate("Close") + '</a></div>';            
+//            field += '<div class="field_actions"><a href="#" class="add add_opt"><strong>' + opts.messages.add + '</strong></a> | <a href="#" class="close_field">' + opts.messages.close + '</a></div>';
             field += '</div>';
-            appendFieldLi(opts.messages.select, field, values);
+            appendFieldLi(window.lang.translate("Field"), field, values);
 
             $('.sortable-options').sortable(); // making the dynamically added option fields sortable.
         };
@@ -1130,7 +1144,8 @@
             var fieldLabel = $('<div>', {
                 'class': 'frm-fld label-wrap'
             });
-            $('<label/>').html(opts.messages.label + ' *').appendTo(fieldLabel);
+//            $('<label/>').html(opts.messages.label + ' *').appendTo(fieldLabel);
+            $('<label/>').html(window.lang.translate("Property") + ' *').appendTo(fieldLabel);
             $('<input>', {
                 id: 'label' + lastID,
                 type: 'text',
@@ -1143,7 +1158,8 @@
             var fieldDesc = $('<div>', {
                 'class': 'frm-fld description-wrap'
             });
-            $('<label/>').html(opts.messages.description + ' *').appendTo(fieldDesc);
+//            $('<label/>').html(opts.messages.description + ' *').appendTo(fieldDesc);
+            $('<label/>').html(window.lang.translate("Unit") + ' *').appendTo(fieldDesc);
 
             /**
              * dialog opener to get machine property
@@ -1158,7 +1174,8 @@
             advFields += '</div>';
             //advFields += '</form>';
 
-            advFields += '<div class="frm-fld description-wrap"><label>' + opts.messages.description + '</label>';
+//            advFields += '<div class="frm-fld description-wrap"><label>' + opts.messages.description + '</label>';
+            advFields += '<div class="frm-fld description-wrap"><label>' + window.lang.translate("Unit") + '</label>';            
             advFields += '<input type="text" name="description" value="' + values.description + '" class="fld-description" id="description-' + lastID + '" /></div>';
 
             /**
@@ -1256,7 +1273,8 @@
             li += '<div class="form-elements">';
             li += '<div class="frm-fld">';
             li += '<label>&nbsp;</label>';
-            li += '<input class="required" type="checkbox" value="1" name="required-' + lastID + '" id="required-' + lastID + '"' + (required === 'true' ? ' checked="checked"' : '') + ' /><label class="required_label" for="required-' + lastID + '">' + opts.messages.required + '</label>';
+//            li += '<input class="required" type="checkbox" value="1" name="required-' + lastID + '" id="required-' + lastID + '"' + (required === 'true' ? ' checked="checked"' : '') + ' /><label class="required_label" for="required-' + lastID + '">' + opts.messages.required + '</label>';
+            li += '<input class="required" type="checkbox" value="1" name="required-' + lastID + '" id="required-' + lastID + '"' + (required === 'true' ? ' checked="checked"' : '') + ' /><label class="required_label" for="required-' + lastID + '">' + window.lang.translate('Mandatory field') + '</label>';
             if (values.type === 'checkbox') {
                 li += '<div class="frm-fld">';
                 li += '<label>&nbsp;</label>';
@@ -1732,10 +1750,12 @@
             dml.parent().css('opacity', 1);
             if ($stageWrap.hasClass('dev-mode')) {
                 dml.siblings('.action-links-inner').css('width', '100%');
-                dml.html(opts.messages.devMode + ' ' + opts.messages.on).css('color', '#8CC63F');
+//                dml.html(opts.messages.devMode + ' ' + opts.messages.on).css('color', '#8CC63F');
+                dml.html(window.lang.translate("Developer Mode") + ' ' + window.lang.translate("On")).css('color', '#8CC63F');
             } else {
                 dml.siblings('.action-links-inner').css('width', 0);
-                dml.html(opts.messages.devMode + ' ' + opts.messages.off).css('color', '#666666');
+//                dml.html(opts.messages.devMode + ' ' + opts.messages.off).css('color', '#666666');
+                dml.html(window.lang.translate("Developer Mode") + ' ' + window.lang.translate("Off")).css('color', '#666666');
                 triggerDevMode = false;
                 $('.action-links').toggle();
                 $('.view-xml').toggle();

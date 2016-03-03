@@ -1,71 +1,136 @@
 {
 	"token": {                
                 "#":"#",
-                "Successful Submission" : "İşleminiz başarıyla gerçekleştirilmiştir",
-                "Sure" : "Eminmisiniz?",
-                "Progressing" : "İşleminiz yapılıyor...",
-                "test" : "test edildi onaylandı",
-                "Property Search":"Kayıt Başarılı zeynel",
-                "Have a nice day!":"İyi günler!",
-                "Do you confirm new role submission?":"Yeni Rol Kayıdını Onaylıyormusunuz?",
-                "Go":"Devam",
-                "Cancel":"İptal",
-                "Passive sub-role submission is prohibited!":"Pasif bir rol altına yeni rol eklenemez!",
-                "Ok":"Tamam",
-                "Unsuccessful Submission":"Kayıt başarısız",
-                "Error log registered":"Sistem ilgili hata kaydını yapmıştır!",
-                "This name is already registered in System.":"Bu isim sistemde kayıtlıdır",
-                "Try another name please!":"Farklı bir isim kullanınız!",
-                "Are you sure to delete the role?":"Rol silme işlemini Onaylıyormusunuz?",
-                "Removed...":"Silme işlemi başarılı",
-                "Please check the role you want to delete!":"Lütfen silmek istediğiniz rolu seçiniz",
-                "Unsuccessful remove operation!":"Silme işlemi başarısız olmuştur!",
-                "Successful name change":"İsim Değişikliği Başarılı",
-                "Unsuccessful name change":"İsim Değişikliği Başarısız",
-                "Are you sure to change the name?":"İsim Değişikliğini Onaylıyormusunuz?",
-                "New name can't be empty":"Yeni isim alanı boş olamaz",
-                "Please enter a valid name":"Lütfen geçerli bir isim yazınız",
-                "Activation changed successfully":"Aktivasiyon Değişikliği Başarılı",
-                "Are you sure to change the activation?":"Aktivasiyon Değişikliğini Onaylıyormusunuz?",
-                "Activation change failed!":"Aktivasiyon değişikliği başarısız olmuştur",
-                "This name is already registered in System.":"Aynı isimde rol daha önce sisteme eklenmiştir.",
-                "Please fill user information forms first":"Lütfen daha önce kullanıcı bilgilerini giriniz",
-                "General information submission failed":"Genel bilgilerin kaydı yapılamadı",
-                "This username has already been registered in the system":"Bu kullanıcı adı sistemde kayıtlıdır",
-                "This email address has already been registered in the system":"Bu eposta adresi sisteme kayıtlıdır",
-                "General information submitted successfully":"Genel bilgiler kaydı başarılı olmuştur",
-                "Please fill user general and address information forms first":"Lütfen önce kullanıcı genel ve adres bilgilerini giriniz",
-                "Please fill user general information form first":"Lütfen önce kullanıcı genel bilgilerini giriniz",
-                "Reset":"Temizle",
-                "Cancel":"İptal",
-                "Are you sure to erase all form fields?":"Bütün alanlara girdiğiniz bilgiler silinecek. Devam etmek istiyormusunuz?",
-                "Reset operation failed...":"Temizleme işlemi başarısız...",
-                "Form fields cleared":"Form alanları temizlendi",
-                "OK":"Tamam",
-                "System is unable to find required information":"Sistem gerekli bilgileri bulamamıştır.",
-                "Please select a communication type from list...":"Listeden iletişim tipini seçiniz...",
-                "Please select an address type from list...":"Listeden adres tipini seçiniz...",
-                "Please select a country from list...":"Lütfen listeden bir ülke seçiniz...",
-                "Please select a city from list...":"Lütfen listeden bir il seçiniz...",
-                "Form Reset":"Form Temizleme",
-                "Select a Communication Type":"İletişim tipi seçiniz",
-                "Please select your prefered language from list...":"Tercih ettiğiniz dili seçiniz...",
-                "Submission Process":"Kayıt İşlemi",
-                "Warning":"Uyarı",
-                "Please select a district from list...":"Lütfen ilçe seçiniz...",
-                "Register and Continue to Address Information":"Kaydet ve Adres Bilgilerine Geç",
-                "Register and Continue to Communication Information":"Kaydet ve İletişim Bilgilerine Geç",
-                "Register and Continue to Company Information":"Kaydet ve Firma Bilgilerine Geç",
-                "Update and Continue to Address Information":"Güncelle ve Adres Bilgilerine Geç",
-                "Update and Continue to Communication Information":"Güncelle ve İletişim Bilgilerine Geç",
-                "Update and Continue to Company Information":"Güncelle ve Firma Bilgilerine Geç", 
-                "Address information submitted sucessfully":"Adres Bilgileri Başarıyla kaydedildi",
-                "Please select company ownership situation from list...":"Lütfen firmanın mülkiyet durumuna uygun seçeneği seçiniz...",
-                "Contact information submitted successfully":"İletişim bilgileri başarıyla kaydedildi",
-                "Manufacturer":"Üretici",
-                "Machine Model":"Makine Modeli",
-                "Machine Name":"Makine Adı",
-                "Machine Type":"Makine Tipi",
+                "Successful Submission":
+                        "İşleminiz başarıyla gerçekleştirilmiştir",
+                "Sure":
+                        "Eminmisiniz?",
+                "Progressing":
+                        "İşleminiz yapılıyor...",
+                "test":
+                        "test edildi onaylandı",
+                "Property Search":
+                        "Kayıt Başarılı zeynel",
+                "Have a nice day!":
+                        "İyi günler!",
+                "Do you confirm new role submission?":
+                        "Yeni Rol Kayıdını Onaylıyormusunuz?",
+                "Go":
+                        "Devam",
+                "Cancel":
+                        "İptal",
+                "Passive sub-role submission is prohibited!":
+                        "Pasif bir rol altına yeni rol eklenemez!",
+                "Unsuccessful Submission":
+                        "Kayıt başarısız",
+                "Error log registered":
+                        "Sistem ilgili hata kaydını yapmıştır!",
+                "This name is already registered in System.":
+                        "Bu isim sistemde kayıtlıdır",
+                "Try another name please!":
+                        "Farklı bir isim kullanınız!",
+                "Are you sure to delete the role?":
+                        "Rol silme işlemini Onaylıyormusunuz?",
+                "Removed...":
+                        "Silme işlemi başarılı",
+                "Please check the role you want to delete!":
+                        "Lütfen silmek istediğiniz rolu seçiniz",
+                "Unsuccessful remove operation!":
+                        "Silme işlemi başarısız olmuştur!",
+                "Successful name change":
+                        "İsim Değişikliği Başarılı",
+                "Unsuccessful name change":
+                        "İsim Değişikliği Başarısız",
+                "Are you sure to change the name?":
+                        "İsim Değişikliğini Onaylıyormusunuz?",
+                "New name can't be empty":
+                        "Yeni isim alanı boş olamaz",
+                "Please enter a valid name":
+                        "Lütfen geçerli bir isim yazınız",
+                "Activation changed successfully":
+                        "Aktivasiyon Değişikliği Başarılı",
+                "Are you sure to change the activation?":
+                        "Aktivasiyon Değişikliğini Onaylıyormusunuz?",
+                "Activation change failed!":
+                        "Aktivasiyon değişikliği başarısız olmuştur",
+                "This name is already registered in System.":
+                        "Aynı isimde rol daha önce sisteme eklenmiştir.",
+                "Please fill user information forms first":
+                        "Lütfen daha önce kullanıcı bilgilerini giriniz",
+                "General information submission failed":
+                        "Genel bilgilerin kaydı yapılamadı",
+                "This username has already been registered in the system":
+                        "Bu kullanıcı adı sistemde kayıtlıdır",
+                "This email address has already been registered in the system":
+                        "Bu eposta adresi sisteme kayıtlıdır",
+                "General information submitted successfully":
+                        "Genel bilgiler kaydı başarılı olmuştur",
+                "Please fill user general and address information forms first":
+                        "Lütfen önce kullanıcı genel ve adres bilgilerini giriniz",
+                "Please fill user general information form first":
+                        "Lütfen önce kullanıcı genel bilgilerini giriniz",
+                "Reset":
+                        "Temizle",
+                "Cancel":
+                        "İptal",
+                "Are you sure to erase all form fields?":
+                        "Bütün alanlara girdiğiniz bilgiler silinecek. Devam etmek istiyormusunuz?",
+                "Reset operation failed...":
+                        "Temizleme işlemi başarısız...",
+                "Form fields cleared":
+                        "Form alanları temizlendi",
+                "OK":
+                        "Tamam",
+                "Ok":
+                        "Tamam",
+                "System is unable to find required information":
+                        "Sistem gerekli bilgileri bulamamıştır.",
+                "Please select a communication type from list...":
+                        "Listeden iletişim tipini seçiniz...",
+                "Please select an address type from list...":
+                        "Listeden adres tipini seçiniz...",
+                "Please select a country from list...":
+                        "Lütfen listeden bir ülke seçiniz...",
+                "Please select a city from list...":
+                        "Lütfen listeden bir il seçiniz...",
+                "Form Reset":
+                        "Form Temizleme",
+                "Select a Communication Type":
+                        "İletişim tipi seçiniz",
+                "Please select your prefered language from list...":
+                        "Tercih ettiğiniz dili seçiniz...",
+                "Submission Process":
+                        "Kayıt İşlemi",
+                "Warning":
+                        "Uyarı",
+                "Please select a district from list...":
+                        "Lütfen ilçe seçiniz...",
+                "Register and Continue to Address Information":
+                        "Kaydet ve Adres Bilgilerine Geç",
+                "Register and Continue to Communication Information":
+                        "Kaydet ve İletişim Bilgilerine Geç",
+                "Register and Continue to Company Information":
+                        "Kaydet ve Firma Bilgilerine Geç",
+                "Update and Continue to Address Information":
+                        "Güncelle ve Adres Bilgilerine Geç",
+                "Update and Continue to Communication Information":
+                        "Güncelle ve İletişim Bilgilerine Geç",
+                "Update and Continue to Company Information":
+                        "Güncelle ve Firma Bilgilerine Geç", 
+                "Address information submitted sucessfully":
+                        "Adres Bilgileri Başarıyla kaydedildi",
+                "Please select company ownership situation from list...":
+                        "Lütfen firmanın mülkiyet durumuna uygun seçeneği seçiniz...",
+                "Contact information submitted successfully":
+                        "İletişim bilgileri başarıyla kaydedildi",
+                "Manufacturer":
+                        "Üretici",
+                "Machine Model":
+                        "Makine Modeli",
+                "Machine Name":
+                        "Makine Adı",
+                "Machine Type":
+                        "Makine Tipi",
                 "Category":
                         "Sınıfı",
                 "Note! Machine tool properties are missing":
@@ -99,8 +164,71 @@
                 "This machine is already registered in your company inventory. There is no need to add it again.":
                         "Bu makine firma envanterine kayıtlıdır. Tekrar kaydedilmesine gerek yoktur.",                
                 "Field":
-                        "Alan"
-                
+                        "Alan",
+                "Machine Name":
+                        "Makine Adı",
+                "Machine Model":
+                        "Makine Modeli",
+                "Machine Type":
+                        "Makine Tipi",
+                "Mandatory field":
+                        "Zorunlu alan",
+                "Property":
+                        "Özellik",
+                "select":
+                        "seç",
+                "Unit":
+                        "Birim",
+                "unit":
+                        "birim",
+                "Select Options":
+                        "Çoktan seçmeli seçenekler",
+                "Add element":
+                        "Öğe ekle",
+                "Close":
+                        "Kapat",
+                "option 1":
+                        "opsiyon 1",
+                "option 2":
+                        "opsiyon 2",
+                "Machine property":
+                        "Makine özelliği",
+                "Save Properties":
+                        "Özellikleri kaydet",
+                "View XML":
+                        "XML Görüntüle",
+                "Find a property":
+                        "Özellik belirle",
+                "Find a unit":
+                        "Birim belirle",
+                "Select property unit":
+                        "Özellik birimini seçiniz",
+                "Define a machine property":
+                        "Makine özelliğini belirtiniz",
+                "Select machine property":
+                        "Makine özelliği seçiniz",
+                "Select a machine property":
+                        "Bir makine özelliği seçiniz",
+                "Properties":
+                        "Özellikler",
+                "Select a unit":
+                        "Birim seçiniz",
+                "Please select a property":
+                        "Özellik seçiniz",
+                "On":
+                        "Açık",
+                "Off":
+                        "Kapalı",
+                "Edit Names":
+                        "Adları Düzenle",
+                "Edit XML":
+                        "XML Düzenle",
+                "Allow Select":
+                        "Seçmeye İzin Ver",
+                "Clear All":
+                        "Hepsini Temizle",
+                "Developer Mode":
+                        "Geliştirici Modu"
                 
 	},
 	"regex": [
