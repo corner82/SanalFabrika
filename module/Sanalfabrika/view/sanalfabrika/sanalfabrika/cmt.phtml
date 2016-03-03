@@ -436,43 +436,29 @@
                             <i class="fa fa-random"></i>
                             <?php echo $this->translate('Some Activities') ?> : 
                         </h4>
-                        <ul style="font-weight: bold" class="sidebar-menu"><?php echo $this->translate('List of activities') ?> :
-                        </ul>
-                        <div id="pageGuaidance">
-
-                            <li style="font-weight: bold" class="sidebar-menu" 
-                                onclick='scrollDown($("#companyMachinesGridBox"))'>
-                                <a href='#'>
-                                    <?php echo $this->translate("Display company machine tool list") ?>
-                                </a>
-                                <ul class="treeview">
-                                    <div style="white-space: pre-wrap"> 
-                                        <?php echo $this->translate("Double click on table row to display machine properties in details") ?>
-                                    </div>
-                                </ul>
-                            </li>
-                            <li style="font-weight: bold" class="sidebar-menu" 
-                                onclick='scrollDown($("#add_new_mt_tree_box"))'> 
-                                <a href="#">
-                                    <?php echo $this->translate("Add new machine from available machine tools list in system to your company inventory") ?>
-                                </a>
-                                <ul class="treeview">
-                                    <div style="white-space: pre-wrap"> 
-                                        <?php echo $this->translate("Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button.") ?>
-                                    </div>
-                                </ul>
-                            </li>
-                            <li style="font-weight: bold" class="sidebar-menu"                                 
-                                onclick='scrollDown($("#proposeMT_box_div"))'>
-                                <a href="#"> 
-                                    <?php echo $this->translate("Propose a new machine to the system") ?>
-                                </a>
-                                <ul class="treeview">
-                                    <div style="white-space: pre-wrap"> 
-                                        <?php echo $this->translate("If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval.") ?>
-                                    </div>
-                                </ul>
-                            </li>
+                        <hr>
+                        <div id="displayFirmMachinesGuide" a href='#' 
+                             onclick='scrollDown($("#companyMachinesGridBox"))'> 
+                            <h4>
+                                <?php echo $this->translate("Display firm machine park") ?>
+                            </h4>
+                            <?php echo $this->translate("Double click on table row to display machine properties in details") ?>
+                        </div>
+                        <hr>
+                        <div id="addFirmMachineGuide" a href='#' 
+                             onclick='scrollDown($("#add_new_mt_tree_box"))'>     
+                            <h4>
+                                <?php echo $this->translate("Add new machine from available machine tools list in system to your company inventory") ?>
+                            </h4>
+                            <?php echo $this->translate("Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button.") ?>
+                        </div> 
+                        <hr>
+                        <div id="proposeNewMachineGuide" a href='#' 
+                             onclick='scrollDown($("#proposeMT_box_div"))'>    
+                            <h4>
+                                <?php echo $this->translate("Propose a new machine to the system") ?>
+                            </h4>
+                            <?php echo $this->translate("If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval.") ?>
                         </div>
                     </div>
 
