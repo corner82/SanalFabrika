@@ -761,3 +761,6 @@ msgstr ""
 
 msgid "Add selected Machine"
 msgstr ""
+
+msgid "Details"
+msgstr ""

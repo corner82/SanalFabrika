@@ -888,3 +888,6 @@ msgstr "Makine Özelliği Bilgileri"
 
 msgid "Add selected Machine"
 msgstr "Seçilen makineyi ekle"
+
+msgid "Details"
+msgstr "Detaylar"
