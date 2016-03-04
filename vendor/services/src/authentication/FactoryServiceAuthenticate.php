@@ -13,11 +13,11 @@ class FactoryServiceAuthenticate  implements FactoryInterface{
             $event = $serviceLocator->get('Application')
                                     ->getMvcEvent();
             $route = $event ->getRouteMatch()
-                            ->getMatchedRouteName();
-           if($route !== 'login') {
+                            ->getMatchedRouteName();  
+           if($route !== 'sanalfabrika') {
                 $url = $event->getRouter()
-                             ->assemble(array('action' => 'index'), 
-                                                 array('name' => 'login'));
+                             ->assemble(array('action' => 'login'), 
+                                                 array('name' => 'sanalfabrika'));
                 $response = $event->getResponse();  
                 $response->setHeaders( $response->getHeaders ()
                                                 ->addHeaderLine ('Location', $url));
