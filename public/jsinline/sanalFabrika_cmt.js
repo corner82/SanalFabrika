@@ -289,9 +289,24 @@ $(document).ready(function () {
                         {field: 'machine_tool_names', title: window.lang.translate('Machine Name'), sortable: true},
                         {field: 'machine_tool_grup_names', title: window.lang.translate('Machine Category'), sortable: true},
                         {field: 'model', title: window.lang.translate('Machine Model'), sortable: true},
-                        {field: 'model_year', title: window.lang.translate('Machine Production Year'), sortable: true}
+                        {field: 'model_year', title: window.lang.translate('Machine Production Year'), sortable: true},
+                        {field: 'action', title: 'Action', width: 80, align: 'center',
+                            formatter: function (value, row, index) {
+//                                if (row.editing) {
+//                                    var s = '<a href="javascript:void(0)" onclick="saverow(this)">Save</a> ';
+//                                    var c = '<a href="javascript:void(0)" onclick="cancelrow(this)">Cancel</a>';
+//                                    return s + c;
+//                                } else {
+//                                    var e = '<a href="javascript:void(0)" onclick="editrow(this)">Edit</a> ';
+                                var d = '<a href="javascript:void(0)" onclick="deleterow(this)">Delete</a>';
+//                                    return e + d;
+                                return d;
+//                                }
+                            }
+                        }
                     ]]
     });
+
     /**
      * trying to get row index from easyui grid
      * @param {type} target
@@ -568,5 +583,13 @@ function submitMTProposal() {
 }
 
 
+function deleterow() {
+//        $.messager.confirm('Confirm', 'Are you sure?', function (r) {
+//            if (r) {
+//                $('#grid_company_machines').datagrid('deleteRow', getRowIndex());
+//            }
+//        });
+    console.log($("#grid_company_machines").datagrid("getSelected").machine_id);
+}
 
 
