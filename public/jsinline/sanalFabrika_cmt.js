@@ -21,8 +21,6 @@ $(document).ready(function () {
 
     window.selectedRow;
     window.rowIndex;
-
-
     /* 
      * Validation binder 
      */
@@ -65,15 +63,12 @@ $(document).ready(function () {
             console.error(' servis hatasÄ±->' + textStatus);
         }
     });
-
-
     var tree = $('.tree2').machineTree();
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
     tree.machineTree('option', 'pk', $("#pk").val());
     tree.machineTree('option', 'language_code', $("#langCode").val());
 //    tree.machineTree('option', 'profile_id', 97);
     tree.machineTree('setMainRoot');
-
     tree.machineTree({
         getMachineProp: function (event, tree, node) {
 //            console.log(tree.options.url);
@@ -86,6 +81,7 @@ $(document).ready(function () {
         }
     });
 
+
     tree.machineTree({
         getMachineGenProp: function (event, tree, node) {
 //            console.log(tree.options.url);
@@ -93,13 +89,10 @@ $(document).ready(function () {
 
             $('#addMTtoCompany').loadImager();
             $('#addMTtoCompany').loadImager('appendImage');
-
             $('#selectedMTGenInformation').alpaca("destroy");
             $('#selectedMTGenInformation').empty();
-
             $('#selectedMTHeader').empty();
             $('#selectedMTHeader').append(node.attr('text'));
-
 //            tree.options.alpacaFormCreator = $('#selectedMTGenInformation').machinePropertyFormCreater();
 //            var machineID = tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
 //            var url = tree.options.alpacaFormCreator.machineGeneralInfoFormCreater('option', 'url', 'pkFillUsersFirmMachines_infoFirmMachineTool');
@@ -119,13 +112,11 @@ $(document).ready(function () {
 
                     $('#addMTtoCompany').loadImager('removeLoadImage');
                     $('#addMTtoCompany').removeClass('hidden');
-
                     if (data.rows.length !== 0) {
 
                         $('html, body').animate({
                             scrollTop: $("#addMTtoCompany").offset().top
                         }, 1000);
-
                         $('#selectedMTGenInformation').alpaca({
                             "schema": {
                                 "type": "object",
@@ -175,27 +166,23 @@ $(document).ready(function () {
                                 "type": data.rows[0].machine_tool_grup_names
                             }
                         });
-
                         $('#selectedMTHeader').empty();
                         $('#selectedMTHeader').append(data.rows[0].machine_tool_names);
-
                     } else {
                         BootstrapDialog.show({
                             title: window.lang.translate('No data is available for this machine tool'),
                             message: window.lang.translate('Required information for this machine are missing'),
                             type: BootstrapDialog.TYPE_WARNING,
 //                        closable: false
-                        });
-
-                        $("#selectedMTGenInformation").empty();
-                        $("#selectedMTInformation").empty();
-                        $("#addMTtoCompany").addClass('hidden');
+                        });                        
+                        if ($('#selectedMTGenInformation').is(':empty') && $("#selectedMTInformation").is(':empty')) {
+                            $("#addMTtoCompany").addClass('hidden');
+                        }
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log('error');
                     console.error(textStatus);
-
                     BootstrapDialog.show({
                         title: window.lang.translate('No data is available for this machine tool'),
                         message: window.lang.translate('An error occured during processing machine information'),
@@ -206,7 +193,6 @@ $(document).ready(function () {
             });
         }
     });
-
     /**
      * machine tool tree
      * @author Mustafa Zeynel DaÄŸlÄ±
@@ -214,7 +200,6 @@ $(document).ready(function () {
      */
 
     $('.tree2 li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-
     $('.tree2 li.parent_li > span').on('click', function (e) {
 
 //        alert('test');
@@ -248,7 +233,6 @@ $(document).ready(function () {
             $('#selectedMTInformationHeader').empty();
             $('#selectedMTInformationHeader').prepend(selectedRow.machine_tool_names + window.lang.translate(' properties'));
             gridMachineProperties(this);
-
 //            $('.nav-tabs a[href="#tab_mt_properties"]').tab('show');
 //            alert('test');
         },
@@ -281,10 +265,10 @@ $(document).ready(function () {
         frozenColumns:
                 [[
                         {field: 'machine_id', title: window.lang.translate('Machine ID'), sortable: true}
-
                     ]],
         columns:
                 [[
+                        {field: 'id', hidden: true, title: window.lang.translate('Id')},
                         {field: 'manufacturer_name', title: window.lang.translate('Machine Manufacturer'), sortable: true},
                         {field: 'machine_tool_names', title: window.lang.translate('Machine Name'), sortable: true},
                         {field: 'machine_tool_grup_names', title: window.lang.translate('Machine Category'), sortable: true},
@@ -298,7 +282,11 @@ $(document).ready(function () {
 //                                    return s + c;
 //                                } else {
 //                                    var e = '<a href="javascript:void(0)" onclick="editrow(this)">Edit</a> ';
-                                var d = '<a href="javascript:void(0)" onclick="deleterow(this)">Delete</a>';
+                                var d = '<a href="javascript:void(0)" style="color:#FF0000" selectedId=' + row.id + ' machineId=' + row.machine_id + ' machineName=' + row.machine_tool_names + ' onclick="deleterow('
+                                        + 'this'
+                                        + ')"><i class="fa fa-times"></i>'
+                                        + window.lang.translate("Delete")
+                                        + '</a>';
 //                                    return e + d;
                                 return d;
 //                                }
@@ -306,7 +294,6 @@ $(document).ready(function () {
                         }
                     ]]
     });
-
     /**
      * trying to get row index from easyui grid
      * @param {type} target
@@ -331,19 +318,14 @@ $(document).ready(function () {
 //        console.log(selectedRow.machine_id);
         $("#mtGenPropsDynamicForm").alpaca("destroy");
         $("#mtGenPropsDynamicForm").empty();
-
         $("#mtSpecPropsDynamicForm").alpaca("destroy");
         $("#mtSpecPropsDynamicForm").empty();
-
         $('#selectedMTInformationRow').removeClass('hidden');
-
         $('html, body').animate({
             scrollTop: $("#selectedMTInformationBox").offset().top
         }, 1000);
-
         $('#selectedMTInformationBox').loadImager();
         $('#selectedMTInformationBox').loadImager('appendImage');
-
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: {
@@ -491,7 +473,9 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+
     $('#proposedMTPropertiesFormBilder').formBuilder();
+
 
 });
 //End of ready function....
@@ -510,7 +494,6 @@ function addMTtoCompany() {
     $("#selectedMTGenInformation").empty();
     $("#selectedMTInformation").empty();
     $("#addMTtoCompany").addClass('hidden');
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
@@ -529,7 +512,7 @@ function addMTtoCompany() {
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
                     message: window.lang.translate('Congratulations! New machine tool added successfuly to your company inventory. \n\
-Please note that new machine registration is not finished yet. \n\
+            Please note that new machine registration is not finished yet. \n\
             Assigned system consultant will immediately analyze inventory chnages. \n\
             You will be informed about assessment results as soon as possible.\n\ '),
                     type: BootstrapDialog.TYPE_SUCCESS,
@@ -557,7 +540,6 @@ Please note that new machine registration is not finished yet. \n\
                         }]
                 });
             }
-
         },
         error: function (jqXHR, textStatus, errorThrown) {
 
@@ -565,7 +547,6 @@ Please note that new machine registration is not finished yet. \n\
             console.error(textStatus);
         }
     });
-
 }
 
 
@@ -583,13 +564,75 @@ function submitMTProposal() {
 }
 
 
-function deleterow() {
-//        $.messager.confirm('Confirm', 'Are you sure?', function (r) {
-//            if (r) {
-//                $('#grid_company_machines').datagrid('deleteRow', getRowIndex());
-//            }
-//        });
-    console.log($("#grid_company_machines").datagrid("getSelected").machine_id);
+function deleterow(target) {
+
+    var selectedMTId = $(target).attr('machineid');
+    var selectedMTName = $(target).attr('machinename');
+    var selectedId = $(target).attr('selectedid');
+
+    BootstrapDialog.show({
+        title: window.lang.translate('Delete'),
+        message: window.lang.translate('You are going to delete ')
+                + selectedMTName
+                + window.lang.translate(' from your inventory list. ')
+                + window.lang.translate('Are you sure?'),
+        type: BootstrapDialog.TYPE_WARNING,
+//                            closable: false
+        buttons: [{
+                label: 'OK',
+                cssClass: 'btn-warning btn-sm',
+                action: function (dialogItself) {
+                    $.ajax({
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: {
+                            url: 'pkDeletedAct_infoFirmMachineTool',
+                            language_code: $("#langCode").val(),
+                            id: selectedId,
+                            pk: $("#pk").val()
+                        },
+                        type: 'GET',
+                        dataType: 'json',
+                        //data: 'rowIndex='+rowData.id,
+                        success: function (data, textStatus, jqXHR) {
+                            if (data['errorInfo'][0] === '00000') {
+
+                                BootstrapDialog.show({
+                                    title: window.lang.translate('Submission Process'),
+                                    message: selectedMTName + window.lang.translate(' removed from your inventory list.'),
+                                    type: BootstrapDialog.TYPE_WARNING,
+//                            closable: false
+                                    buttons: [{
+                                            label: 'OK',
+                                            cssClass: 'btn-warning btn-sm',
+                                            action: function (dialogItself) {
+                                                dialogItself.close();
+                                            }
+                                        }]
+                                });
+                                $('#grid_company_machines').datagrid('reload');
+
+                            } else {
+                                console.error('servis datasÄ± boÅŸtur!!');
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.error(' servis hatasÄ±->' + textStatus);
+                        }
+                    });
+
+                    dialogItself.close();
+                }
+            },
+            {
+                label: 'Cancel',
+                cssClass: 'btn-warning btn-sm',
+                action: function (dialogItself) {
+                    dialogItself.close();
+                    return false;
+                }
+            }]
+    });
+
 }
 
 

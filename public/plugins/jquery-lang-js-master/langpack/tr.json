@@ -240,7 +240,15 @@
                 "Please select related manufacturing category from list...":
                         "Lütfen listeden makinenin ait olduğu imalat sürecini seçiniz...",
                 " properties":
-                        " özellikleri"
+                        " özellikleri",
+                "You are going to delete ":
+                        "Silmek için ",
+                " from your inventory list. ":
+                        " seçilmiştir.",
+                "Are you sure?":
+                        "Silme işlemine devam etmekten eminmisiniz?",
+                "Delete":
+                        "Sil"
                 
 	},
 	"regex": [
