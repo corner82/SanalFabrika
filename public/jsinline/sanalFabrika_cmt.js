@@ -51,15 +51,12 @@ $(document).ready(function () {
         cascadeCheck: false,
         lines: true,
         onCheck: function (node) {
-            console.log('node ' + node.text);
             selectedMTCategory = $('#mTCTree').tree('getChecked');
             if (selectedMTCategory.length > 0) {
                 for (var i = 0; i < selectedMTCategory.length; i++) {
                     if (selectedMTCategory[i].text === node.text) {
-                        console.log(selectedMTCategory[i].text + ' is the same as ' + node.text);
 //                        $('#mTCTree').tree('check', selectedMTCategory[i].target);
                     } else {
-                        console.log(' but ' + selectedMTCategory[i].text + ' is not the same as ' + node.text);
                         $('#mTCTree').tree('uncheck', selectedMTCategory[i].target);
                     }
                 }
@@ -67,7 +64,6 @@ $(document).ready(function () {
 //            $('#mTCTree').tree('check', node.target);
             if (typeof (selectedMTCategory[0]) !== 'undefined') {
                 $('#selectedMTCategory').val(selectedMTCategory[0].text);
-//                    console.log(selectedMTCategory[0].text);
             } else {
                 $('#selectedMTCategory').val(window.lang.translate('Not selected'));
             };
