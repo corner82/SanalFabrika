@@ -642,7 +642,20 @@
                                                                         <label>
                                                                             <?php echo $this->translate("Machine Type") ?>
                                                                         </label>                                                                        
-                                                                        <div id="machineTypeDropDown"></div>                                                                        
+                                                                        <div id="machineTypeCategoriesType">
+                                                                        <ul id="mTCTree"></ul>
+                                                                        </div>                                                                        
+                                                                        <hr>
+                                                                        <label>
+                                                                            <?php echo $this->translate("Selected Machine Type") ?>
+                                                                        </label> 
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="fa  fa-search"></i>
+                                                                            </span>
+                                                                            <input type="text" class="form-control validation[required]" 
+                                                                                   id='selectedMTCategory'>
+                                                                        </div>
                                                                         <hr>
                                                                         <h3 class="box-title">
                                                                             <?php echo $this->translate('Machine Properties') ?>

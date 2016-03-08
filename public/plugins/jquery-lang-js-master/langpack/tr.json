@@ -248,7 +248,11 @@
                 "Are you sure?":
                         "Silme işlemine devam etmekten eminmisiniz?",
                 "Delete":
-                        "Sil"
+                        "Sil",
+                "Not selected":
+                        "Seçilmemiştir",
+                "Selected Machine Type":
+                        "Seçilen Makine Tipi"
                 
 	},
 	"regex": [

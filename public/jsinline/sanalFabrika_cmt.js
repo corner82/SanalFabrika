@@ -28,41 +28,58 @@ $(document).ready(function () {
     $("#proposedMTForm").validationEngine({promptPosition: "topLeft:100%,0"});
 
     /*
-     * List of countries combobox ajax
+     * Machine tools category tree
+     * rewrite after getting strange page load error
+     * user Registration Failed eror
+     * @author: Bahram
+     * @Since: 2016.02.07
      */
+    window.selectedMTCategory;
+    window.checkedNodes;
 
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'fillComboBox_syscountrys',
-            language_code: $("#langCode").val(),
-            component_type: 'ddslick'
-        },
-        type: 'GET',
-        dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            if (data.length !== 0) {
-                $('#machineTypeDropDown').ddslick({
-                    data: data,
-                    width: '100%',
-                    height: '500%',
-                    background: false,
-                    selectText: window.lang.translate("Please select related manufacturing category from list..."),
-                    imagePosition: 'right',
-                    onSelected: function (selectedData) {
-
-                        selectedCategoryId = selectedData.selectedData.value;
+    $('#mTCTree').tree({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?'
+                + 'url='
+                + 'pkFillJustMachineToolGroups_sysMachineToolGroups'
+                + '&pk='
+                + $("#pk").val()
+                + '&language_code='
+                + $("#langCode").val(),
+        method: 'get',
+        animate: true,
+        checkbox: true,
+        cascadeCheck: false,
+        lines: true,
+        onCheck: function (node) {
+            console.log('node ' + node.text);
+            selectedMTCategory = $('#mTCTree').tree('getChecked');
+            if (selectedMTCategory.length > 0) {
+                for (var i = 0; i < selectedMTCategory.length; i++) {
+                    if (selectedMTCategory[i].text === node.text) {
+                        console.log(selectedMTCategory[i].text + ' is the same as ' + node.text);
+//                        $('#mTCTree').tree('check', selectedMTCategory[i].target);
+                    } else {
+                        console.log(' but ' + selectedMTCategory[i].text + ' is not the same as ' + node.text);
+                        $('#mTCTree').tree('uncheck', selectedMTCategory[i].target);
                     }
-                });
-            } else {
-                console.error('servis datasÄ± boÅŸtur!!');
+                }
             }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error(' servis hatasÄ±->' + textStatus);
+//            $('#mTCTree').tree('check', node.target);
+            if (typeof (selectedMTCategory[0]) !== 'undefined') {
+                $('#selectedMTCategory').val(selectedMTCategory[0].text);
+//                    console.log(selectedMTCategory[0].text);
+            } else {
+                $('#selectedMTCategory').val(window.lang.translate('Not selected'));
+            };
+            
         }
+
     });
+
+
+
+
+
     var tree = $('.tree2').machineTree();
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
     tree.machineTree('option', 'pk', $("#pk").val());
@@ -174,7 +191,7 @@ $(document).ready(function () {
                             message: window.lang.translate('Required information for this machine are missing'),
                             type: BootstrapDialog.TYPE_WARNING,
 //                        closable: false
-                        });                        
+                        });
                         if ($('#selectedMTGenInformation').is(':empty') && $("#selectedMTInformation").is(':empty')) {
                             $("#addMTtoCompany").addClass('hidden');
                         }
@@ -634,5 +651,6 @@ function deleterow(target) {
     });
 
 }
+
 
 
