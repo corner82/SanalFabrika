@@ -37,6 +37,9 @@ $(document).ready(function () {
     window.selectedMTCategory;
     window.checkedNodes;
 
+    $('#machineTypeCategoriesType').loadImager();
+    $('#machineTypeCategoriesType').loadImager('appendImage');
+
     $('#mTCTree').tree({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?'
                 + 'url='
@@ -66,8 +69,12 @@ $(document).ready(function () {
                 $('#selectedMTCategory').val(selectedMTCategory[0].text);
             } else {
                 $('#selectedMTCategory').val(window.lang.translate('Not selected'));
-            };
-            
+            }
+            ;
+
+        },
+        onLoad: function () {
+            $('#machineTypeCategoriesType').loadImager('removeLoadImage');
         }
 
     });
