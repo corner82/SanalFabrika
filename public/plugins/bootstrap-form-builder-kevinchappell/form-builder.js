@@ -942,7 +942,14 @@
 
         // Parse saved XML template data
         elem.getTemplate = function () {
-            var xml = elem.val() !== '' ? $.parseXML(elem.val()) : false,
+            /**
+             * in the first opening page , some how 'elem.val()' filled with 
+             * space characters, so even though xml is not fiiled , function was trying
+             * to read xml data , so we trimmed data to check
+             * @author Mustafa Zeynel Dağlı
+             * @since 08/03/2016
+             */
+            var xml = $.trim(elem.val()) !== '' ? $.parseXML(elem.val()) : false,
                     fields = $(xml).find('field');
 
             if (fields.length > 0) {
