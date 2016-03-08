@@ -47,7 +47,8 @@
 
         <!-- Alpaca-->
         <!--<link type="text/css" href="//code.cloudcms.com/alpaca/1.5.14/bootstrap/alpaca.min.css" rel="stylesheet"/>-->
-        <link type="text/css" href="../../plugins/alpaca/css/alpaca.min.css" rel="stylesheet"/>
+        <!--<link type="text/css" href="../../plugins/alpaca/css/alpaca.min.css" rel="stylesheet"/>-->
+        <link type="text/css" href="<?php echo $this->basePath('plugins/alpaca/css/alpaca.min.css') ?>" rel="stylesheet"/>
                     
         <!-- kevinchappell form builder plugin ekleniyor-->
         <link href="<?php echo $this->basePath('plugins/bootstrap-form-builder-kevinchappell/form-builder.css') ?>" rel="stylesheet" type="text/css" />
@@ -211,9 +212,10 @@
         <!--<script src="js/langpack/nonDynamic.js" charset="utf-8" type="text/javascript"></script>-->
 
         <!-- alpaca -->
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>     
+        <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>-->     
+        <script type="text/javascript" src="<?php echo $this->basePath('plugins/alpaca/js/handlebars.min.js') ?>"></script>
         <!--<script type="text/javascript" src="../../plugins/alpaca/js/Handlebars.min.js"></script>-->
-        <script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.14/bootstrap/alpaca.min.js"></script>
+        <script type="text/javascript" src="<?php echo $this->basePath('plugins/alpaca/js/alpaca.min.js') ?>"></script>
         <!--<script type="text/javascript" src="../../plugins/alpaca/js/Alpaca.min.js"></script>-->
         <!--<script type="text/javascript" src="../../plugins/alpaca/js/Alpaca-downloaded.js"></script>-->
  
