@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     /**
      * multilanguage plugin 
      * @type Lang
@@ -11,16 +10,23 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
+    
     lang.change($('#langCode').val());
-    // Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
+    
+    /*
+     * Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
+     */ 
 
     $.fn.leftMenuFunction();
+    
     /*
      * Variables
      */
 
     window.selectedRow;
     window.rowIndex;
+    window.selectedMTCategory;
+    
     /* 
      * Validation binder 
      */
@@ -34,8 +40,6 @@ $(document).ready(function () {
      * @author: Bahram
      * @Since: 2016.02.07
      */
-    window.selectedMTCategory;
-    window.checkedNodes;
 
     $('#machineTypeCategoriesType').loadImager();
     $('#machineTypeCategoriesType').loadImager('appendImage');
@@ -71,12 +75,7 @@ $(document).ready(function () {
         onLoad: function () {
             $('#machineTypeCategoriesType').loadImager('removeLoadImage');
         }
-
     });
-
-
-
-
 
     var tree = $('.tree2').machineTree();
     tree.machineTree('option', 'url', 'pkFillMachineToolGroups_sysMachineToolGroups');
@@ -86,9 +85,7 @@ $(document).ready(function () {
     tree.machineTree('setMainRoot');
     tree.machineTree({
         getMachineProp: function (event, tree, node) {
-//            console.log(tree.options.url);
-//            console.log(node.attr('id'));
-
+            
             tree.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
             tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
             tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'url', 'pkFillMachineToolGroupsMachineProperties_sysMachineToolGroups');
@@ -99,8 +96,6 @@ $(document).ready(function () {
 
     tree.machineTree({
         getMachineGenProp: function (event, tree, node) {
-//            console.log(tree.options.url);
-//            console.log(node.attr('id'));
 
             $('#addMTtoCompany').loadImager();
             $('#addMTtoCompany').loadImager('appendImage');
@@ -108,10 +103,6 @@ $(document).ready(function () {
             $('#selectedMTGenInformation').empty();
             $('#selectedMTHeader').empty();
             $('#selectedMTHeader').append(node.attr('text'));
-//            tree.options.alpacaFormCreator = $('#selectedMTGenInformation').machinePropertyFormCreater();
-//            var machineID = tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
-//            var url = tree.options.alpacaFormCreator.machineGeneralInfoFormCreater('option', 'url', 'pkFillUsersFirmMachines_infoFirmMachineTool');
-//            tree.options.alpacaFormCreator.machineGeneralInfoFormCreater('setMachineGeneralInfoForm');
 
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -208,6 +199,7 @@ $(document).ready(function () {
             });
         }
     });
+    
     /**
      * machine tool tree
      * @author Mustafa Zeynel DaÄŸlÄ±
@@ -216,10 +208,6 @@ $(document).ready(function () {
 
     $('.tree2 li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
     $('.tree2 li.parent_li > span').on('click', function (e) {
-
-//        alert('test');
-
-
 
         var children = $(this).parent('li.parent_li').find(' > ul > li');
         if (children.is(":visible")) {
@@ -233,13 +221,13 @@ $(document).ready(function () {
         }
         e.stopPropagation();
     });
+    
     /**
      * grid_confirm_registration easyui datagrid
      * user confirmation datagrid listing for confirmation
      * @author Mustafa Zeynel DaÄŸlÄ±
      * @since 10/02/2016
      */
-
 
     $('#grid_company_machines').datagrid({
         onDblClickRow: function (index, row) {
@@ -291,24 +279,20 @@ $(document).ready(function () {
                         {field: 'model_year', title: window.lang.translate('Machine Production Year'), sortable: true},
                         {field: 'action', title: 'Action', width: 80, align: 'center',
                             formatter: function (value, row, index) {
-//                                if (row.editing) {
-//                                    var s = '<a href="javascript:void(0)" onclick="saverow(this)">Save</a> ';
-//                                    var c = '<a href="javascript:void(0)" onclick="cancelrow(this)">Cancel</a>';
-//                                    return s + c;
-//                                } else {
-//                                    var e = '<a href="javascript:void(0)" onclick="editrow(this)">Edit</a> ';
+                                
                                 var d = '<a href="javascript:void(0)" style="color:#FF0000" selectedId=' + row.id + ' machineId=' + row.machine_id + ' machineName=' + row.machine_tool_names + ' onclick="deleterow('
                                         + 'this'
                                         + ')"><i class="fa fa-times"></i>'
                                         + window.lang.translate("Delete")
                                         + '</a>';
-//                                    return e + d;
+                                
                                 return d;
 //                                }
                             }
                         }
                     ]]
     });
+    
     /**
      * trying to get row index from easyui grid
      * @param {type} target
