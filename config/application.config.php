@@ -95,6 +95,7 @@ return array(
             'authenticationControlerLocator' => 'Custom\Services\Authentication\FactoryServiceAuthenticationControlerLocator',
             'serviceAuthenticate' => 'Custom\Services\Authentication\FactoryServiceAuthenticate',
             'serviceAuthenticatedRedirect' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirect',
+            'serviceAuthenticatedRedirectAdmin' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirectAdmin',
             'serviceAuthenticatedRedirectUser' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirectUser',
             'serviceAuthenticatedRedirectManager' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirectManager',
             'serviceTranslator' => 'Custom\Services\MultiLanguage\FactoryServiceTranslator', 

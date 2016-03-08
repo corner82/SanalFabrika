@@ -16,7 +16,7 @@ class FactoryServiceAuthenticatedRedirectManager  implements FactoryInterface{
             $role = preg_replace('/\s+/', '', $role);
             switch ($role) {
                 case 'admin':
-                    $serviceLocator->get('serviceAuthenticatedRedirect');
+                    $serviceLocator->get('serviceAuthenticatedRedirectAdmin');
                     break;
                 case 'supervisor':
                     $serviceLocator->get('serviceAuthenticatedRedirect');
