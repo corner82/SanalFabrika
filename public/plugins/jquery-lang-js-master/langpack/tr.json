@@ -157,8 +157,8 @@
                         "Bu makine bilgilerini güncellemek istiyorsanız lütfen düzenle tuşuna tıklayınız",
                 "Edit":
                         "Düzenle",
-                "No data is available for this machine tool":
-                        "Bu makinenin bilgileri sistemde kayıtlı değildir",
+                "Required data is not available for this machine tool":
+                        "Bu makinenin bilgileri sistemde eksiktir veya kayıtlı değildir",
                 "Required information for this machine are missing":
                         "Sistem bu makine hakkında gerekli bilgilere ulaşamadı",
                 "This machine is already registered in your company inventory. There is no need to add it again.":
