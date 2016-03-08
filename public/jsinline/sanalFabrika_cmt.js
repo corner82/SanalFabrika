@@ -57,21 +57,16 @@ $(document).ready(function () {
             selectedMTCategory = $('#mTCTree').tree('getChecked');
             if (selectedMTCategory.length > 0) {
                 for (var i = 0; i < selectedMTCategory.length; i++) {
-                    if (selectedMTCategory[i].text === node.text) {
-//                        $('#mTCTree').tree('check', selectedMTCategory[i].target);
-                    } else {
+                    if (selectedMTCategory[i].text !== node.text) {                        
                         $('#mTCTree').tree('uncheck', selectedMTCategory[i].target);
                     }
                 }
             }
-//            $('#mTCTree').tree('check', node.target);
             if (typeof (selectedMTCategory[0]) !== 'undefined') {
                 $('#selectedMTCategory').val(selectedMTCategory[0].text);
             } else {
                 $('#selectedMTCategory').val(window.lang.translate('Not selected'));
             }
-            ;
-
         },
         onLoad: function () {
             $('#machineTypeCategoriesType').loadImager('removeLoadImage');
