@@ -86,6 +86,20 @@
         return $view;
      }
      
+     public function user_profileAction()  
+     {
+        $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
+     }
+     
       /** this function called by indexAction to reduce complexity of function */
     protected function authenticate($form = null, $viewModel = null)
     {

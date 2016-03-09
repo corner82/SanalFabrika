@@ -1758,122 +1758,120 @@ function taskProgressPerTabs() {
  * @author:Bahram
  * @Since:2016.1.2
  */
-
-$('#table_address_modal').bootstrapTable({
-    url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersAddresses",
-    method: 'GET',
-    locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
-    toggle: "table",
-    width: "500",
-    pagination: "true",
-    search: "true",
-    toolbar: "#toolbar", showColumns: true,
-    showRefresh: true,
-    showToggle: true,
-    queryParams: function (p) {
-        if (pktemp === null) {
-            return false;
-        } else {
-            return {
-                language_code: $('#langCode').val(),
-                pktemp: pktemp,
-                component_type: 'bootstrap'
-            };
+if ($('#pktemp').val().length) {
+    console.log($('#pktemp').val());
+    $('#table_address_modal').bootstrapTable({
+        url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersAddresses",
+        method: 'GET',
+        locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
+        toggle: "table",
+        width: "500",
+        pagination: "true",
+        search: "true",
+        toolbar: "#toolbar", showColumns: true,
+        showRefresh: true,
+        showToggle: true,
+        queryParams: function (p) {
+            if (pktemp === null) {
+                return false;
+            } else {
+                return {
+                    language_code: $('#langCode').val(),
+                    pktemp: pktemp,
+                    component_type: 'bootstrap'
+                };
+            }
         }
-    }
-    , columns:
-            [
-                {checkbox: true},
-                {field: 'address_type', sortable: true, width: 100},
-                /*        
-                 editable: {
-                 type: 'select',
-                 source: [
-                 {value: 1, text: 'Active'},
-                 {value: 2, text: 'Blocked'},
-                 {value: 3, text: 'Deleted'}
-                 ],
-                 //'title': 'Herd Tag',
-                 'prepend': {none: "--------------"}
-                 }
-                 },
-                 
-                 update action will be done eactely like as sfdm-confirm page 
-                 In this place a new tab will be opened based on selected row information 
-                 with a filled form (like user addres form) and data could be changed and 
-                 updated accordingly. 
-                 
-                 Second option is using bootstrap-table editable format which is given
-                 as a sample here. reference for this option is on the link below:
-                 
-                 http://bootstrap-table.wenzhixin.net.cn/examples/
-                 and 
-                 https://github.com/wenzhixin/bootstrap-table/issues/986
-                 and
-                 http://jsfiddle.net/wenyi/e3nk137y/28/light/
-                 
-                 */
-                {field: 'tr_country_name', sortable: true, width: 100},
-                {field: 'tr_city_name', sortable: true, width: 100},
-                {field: 'tr_borough_name', sortable: true, width: 100},
-                {field: 'city_name', sortable: true, width: 100},
-                {field: 'address1', sortable: true, width: 200},
-                {field: 'address2', sortable: true, width: 200},
-                {field: 'postal_code', sortable: true, width: 50},
-                {field: 'description', width: 300}
-            ]
-});
-
+        , columns:
+                [
+                    {checkbox: true},
+                    {field: 'address_type', sortable: true, width: 100},
+                    /*        
+                     editable: {
+                     type: 'select',
+                     source: [
+                     {value: 1, text: 'Active'},
+                     {value: 2, text: 'Blocked'},
+                     {value: 3, text: 'Deleted'}
+                     ],
+                     //'title': 'Herd Tag',
+                     'prepend': {none: "--------------"}
+                     }
+                     },
+                     
+                     update action will be done exactely like as sfdm-confirm page 
+                     In this place a new tab will be opened based on selected row information 
+                     with a filled form (like user addres form) and data could be changed and 
+                     updated accordingly. 
+                     
+                     Second option is using bootstrap-table editable format which is given
+                     as a sample here. reference for this option is on the link below:
+                     
+                     http://bootstrap-table.wenzhixin.net.cn/examples/
+                     and 
+                     https://github.com/wenzhixin/bootstrap-table/issues/986
+                     and
+                     http://jsfiddle.net/wenyi/e3nk137y/28/light/
+                     
+                     */
+                    {field: 'tr_country_name', sortable: true, width: 100},
+                    {field: 'tr_city_name', sortable: true, width: 100},
+                    {field: 'tr_borough_name', sortable: true, width: 100},
+                    {field: 'city_name', sortable: true, width: 100},
+                    {field: 'address1', sortable: true, width: 200},
+                    {field: 'address2', sortable: true, width: 200},
+                    {field: 'postal_code', sortable: true, width: 50},
+                    {field: 'description', width: 300}
+                ]
+    });
+};
 
 /*
  * List of contacts Modal
  * @author: Bahram Lotfi
  * @Since: 2016.2.11
  */
-
-$('#table_contacts_modal').bootstrapTable({
-    onClickRow: function (row, $element) {
-        //        row: the record corresponding to the clicked row, 
+if ($('#pktemp').val().length) {
+    $('#table_contacts_modal').bootstrapTable({
+        onClickRow: function (row, $element) {
+            //        row: the record corresponding to the clicked row, 
 //                $element: the tr element.
-        //        console.log($("#pktemp").val());
-        //        console.log(pktemp);
-    },
-    onCheck: function (row, $element) {
-        //        row: the record corresponding to the clicked row,          //        $element: the tr element.
-        //        console.log(row.id);
-    },
-    url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersCommunications",
-    method: 'GET',
-    locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
-    toggle: "table",
-    width: "500",
-    pagination: "true",
-    search: "true",
-    toolbar: "#toolbar",
-    showColumns: true,
-    showRefresh: true,
-    showToggle: true,
-    queryParams: function (p) {
-        if (pktemp === null) {
-            return false;
-        } else {
-            return {
-                language_code: $('#langCode').val(),
-                pktemp: pktemp,
-                component_type: 'bootstrap'
-            };
-        }
-    },
-    columns:
-            [
-                {field: 'state', checkbox: true},
-                {field: 'comminication_type', sortable: true, width: 100},
-                {field: 'communications_no', sortable: true, width: 100},
-                {field: 'profile_public', sortable: true, width: 100}
-            ]
-});
-
-
-function ok() {
-
-}
+            //        console.log($("#pktemp").val());
+            //        console.log(pktemp);
+        },
+        onCheck: function (row, $element) {
+            //        row: the record corresponding to the clicked row,          
+            //        $element: the tr element.
+            //        console.log(row.id);
+        },
+        url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersCommunications",
+        method: 'GET',
+        locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
+        toggle: "table",
+        width: "500",
+        pagination: "true",
+        search: "true",
+        toolbar: "#toolbar",
+        showColumns: true,
+        showRefresh: true,
+        showToggle: true,
+        queryParams: function (p) {
+            if (pktemp === null) {
+                return false;
+            } else {
+                return {
+                    language_code: $('#langCode').val(),
+                    pktemp: pktemp,
+                    component_type: 'bootstrap'
+                };
+            }
+        },
+        columns:
+                [
+                    {field: 'state', checkbox: true},
+                    {field: 'comminication_type', sortable: true, width: 100},
+                    {field: 'communications_no', sortable: true, width: 100},
+                    {field: 'profile_public', sortable: true, width: 100}
+                ]
+    });
+};
