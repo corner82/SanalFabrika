@@ -64,195 +64,195 @@
                 "This email address has already been registered in the system":
                         "این آدرس ایمیل در حال حاضر در سیستم ثبت شده است",
                 "General information submitted successfully":
-                        "",
+                        "ارسال موفقیت آمیز اطلاعات عمومی",
                 "Please fill user general and address information forms first":
-                        "",
+                        "لطفا ابتدا اطلاعات کاربر و آدرس را وارد کنید",
                 "Please fill user general information form first":
-                        "",
+                        "لطفا ابتدا اطلاعات کاربر را وارد کنید",
                 "Reset":
-                        "",
+                        "شروع مجدد",
                 "Cancel":
-                        "",
+                        "انصراف",
                 "Are you sure to erase all form fields?":
-                        "",
+                        "آیا مایلید کلیه اطلاعات درج شده در فرم را پاک کنید؟",
                 "Reset operation failed...":
                         "",
                 "Form fields cleared":
-                        "",
+                        "عملیات شروع مجدد ناموفق",
                 "OK":
-                        "",
+                        "تایید",
                 "Ok":
-                        "",
+                        "تایید",
                 "System is unable to find required information":
-                        "",
+                        "سیستم قادر به پیدا کردن اطلاعات مورد نظر نیست",
                 "Please select a communication type from list...":
-                        "",
+                        "لطفا نوع ارتباطات از لیست انتخاب کنید",
                 "Please select an address type from list...":
-                        "",
+                        "لطفا نوع آدرس از لیست انتخاب کنید",
                 "Please select a country from list...":
-                        "",
+                        "لطفا یک کشور را از لیست انتخاب کنید",
                 "Please select a city from list...":
-                        "",
+                        "لطفا یک شهرستان از لیست انتخاب کنید",
                 "Form Reset":
-                        "",
+                        "پاک کردن فرم",
                 "Select a Communication Type":
-                        "",
+                        "انتخاب نوع تماس",
                 "Please select your prefered language from list...":
-                        "",
+                        "لطفا زبان مورد نظر خود را از لیست انتخاب کنید",
                 "Submission Process":
-                        "",
+                        "پروسه ثبت",
                 "Warning":
-                        "",
+                        "هشدار",
                 "Please select a district from list...":
-                        "",
+                        "لطفا یک منطقه از لیست انتخاب کنید",
                 "Register and Continue to Address Information":
-                        "",
+                        "ثبت و ادامه",
                 "Register and Continue to Communication Information":
-                        "",
+                        "ثبت و ادامه",
                 "Register and Continue to Company Information":
-                        "",
+                        "ثبت و ادامه",
                 "Update and Continue to Address Information":
-                        "",
+                        "به روز رسانی و ادامه",
                 "Update and Continue to Communication Information":
-                        "",
+                        "به روز رسانی و ادامه",
                 "Update and Continue to Company Information":
-                        "", 
+                        "به روز رسانی و ادامه", 
                 "Address information submitted sucessfully":
-                        "",
+                        "اطلاعات آدرس با موفقیت ثبت شد",
                 "Please select company ownership situation from list...":
-                        "",
+                        "لطفا  وضعیت مالکیت شرکت را از لیست انتخاب کنید",
                 "Contact information submitted successfully":
-                        "",
+                        "اطلاعات ارتباطی  با موفقیت ثبت شد",
                 "Manufacturer":
-                        "",
+                        "تولید کننده",
                 "Machine Model":
-                        "",
+                        "مدل ماشین ابزار",
                 "Machine Name":
-                        "",
+                        "نام ماشین ابزار",
                 "Machine Type":
-                        "",
+                        "نوع فعالیت ماشین ابزار",
                 "Category":
-                        "",
+                        "گروه و کلاس",
                 "Note! Machine tool properties are missing":
-                        "",
+                        "اطلاعات مربوط به ویژگیهای ماشین ابزار ناقص میباشد! توجه",
                 "Note! Machine tool properties are missing. Please fill required property information from edit section":
-                        "",
+                        "ویژگیهای ماشین ابزار ناقص میباشد  ! توجه",
                 "Select a machine tool":
-                        "",
+                        "لطفا ماشین ابزار مورد نظر را انتخاب کنید",
                 "Please select a machine tool from machine tools list":
-                        "",
+                        "لطفا ماشین ابزار مورد نظر را از لیست انتخاب کنید",
                 "Select machine and continue":
-                        "",
+                        "ماشین ابزار را انتخاب کرده و ادامه دهید",
                 "Please first select a machine tool from machine tools list":
-                        "",
+                        "لطفا ماشین ابزار مورد نظر را از لیست انتخاب کنید",
                 "Select a machine tool to view machine information details":
-                        "",
+                        "لطفاجهت مشاهده اطلاعات و خصوصیات  ماشین ابزار از  لیست ماشین ابزار مورد نطر را انتخاب کنید",
                 "Machine Manufacturer":
-                        "",
+                        "تولید کننده ماشین ابزار",
                 "General Machine Information":
-                        "",
+                        "اطلاعات عمومی ماسین ابزار",
                 "This machine properties are missing":
-                        "",
+                        "اطلاعات این ماشین ناقص میباشد",
                 "If you are interested to compelete machine information click edit button below":
-                        "",
+                        "اگر مایل به تکمیل اطلاعات این ماشین ابزار میباشید لطفا دگمه به روز رسانی را کلیک کنید",
                 "Edit":
-                        "",
+                        "ویرایش",
                 "No data is available for this machine tool":
-                        "",
+                        "اطلاعات نافص",
                 "Required information for this machine are missing":
-                        "",
+                        "اطلاعات مورد نظر در مورد این ماشین ابزار در سیستم موجود نمیباشد",
                 "This machine is already registered in your company inventory. There is no need to add it again.":
-                        "",                
+                        "این ماشین در حال حاضر در لیست ماشین ابزارهای شرکت شما موجود میباشد",                
                 "Field":
-                        "",
+                        "محل",
                 "Machine Name":
-                        "",
+                        "نام ماشین ابزار",
                 "Machine Model":
-                        "",
+                        "مدل ماشین ابزار",
                 "Machine Type":
-                        "",
+                        "نوع فعالیت ماشین ابزار",
                 "Mandatory field":
-                        "",
+                        "اجباری",
                 "Property":
-                        "",
+                        "ویژگی",
                 "select":
-                        "",
+                        "انتخاب",
                 "Unit":
-                        "",
+                        "واحد",
                 "unit":
-                        "",
+                        "واحد",
                 "Select Options":
-                        "",
+                        "انتخاب گزینه ها",
                 "Add element":
-                        "",
+                        "اضافه کردن ویژگی",
                 "Close":
-                        "",
+                        "بستن",
                 "option 1":
-                        "",
+                        "گزینه اول",
                 "option 2":
-                        "",
+                        "گزینه دوم",
                 "Machine property":
-                        "",
+                        "ویژگی ماشین ابزار",
                 "Save Properties":
-                        "",
+                        "ذخیره ویژگیها",
                 "View XML":
-                        "",
+                        "XML مشاهده",
                 "Find a property":
-                        "",
+                        "جستجوی ویژگی",
                 "Find a unit":
-                        "",
+                        "جستجوی واحد",
                 "Select property unit":
-                        "",
+                        "انتخاب واحد ویژگی",
                 "Define a machine property":
-                        "",
+                        "تعریف ویژگی ماشین ابزار",
                 "Select machine property":
-                        "",
+                        " ویژگی ماشین ابزار را انتخاب کنید",
                 "Select a machine property":
-                        "",
+                        "ویژگی ماشین ابزار را انتخاب کنید",
                 "Properties":
-                        "",
+                        "ویژگیها",
                 "Select a unit":
-                        "",
+                        "واحد انتخاب کنید",
                 "Please select a property":
-                        "",
+                        "ویژگی انتخاب کنید",
                 "On":
-                        "",
+                        "روشن",
                 "Off":
-                        "",
+                        "خاموش",
                 "Edit Names":
-                        "",
+                        "ویرایش نام",
                 "Edit XML":
-                        "",
+                        "XML ویرایش",
                 "Allow Select":
-                        "",
+                        "مجاز به انتخاب",
                 "Clear All":
-                        "",
+                        "همه را پاک کنید",
                 "Developer Mode":
-                        "",
+                        "حالت توسعه",
                 "Label":
-                        "",
+                        "برچسب",
                 "Value":
-                        "",
+                        "مقدار",
                 "Remove Element":
-                        "",
+                        "حذف ویژگی",
                 "Save":
-                        "",
+                        "ذخیره",
                 "Please select related manufacturing category from list...":
-                        "",
+                        "لطفا دسته تولید مرتبط را از لیست انتخاب کنید",
                 " properties":
-                        "",
+                        " ویژگیها",
                 "You are going to delete ":
-                        "",
+                        "شما در حال پاک کردن ",
                 " from your inventory list. ":
-                        " ",
+                        "از لیست ماشین ابزار شرکتتان هستید",
                 "Are you sure?":
-                        "",
+                        "آیا مطمئنید؟",
                 "Delete":
-                        "",
+                        "حذف",
                 "Not selected":
-                        "",
+                        "انتخاب نشده",
                 "Selected Machine Type":
-                        ""
+                        "نوع ماشین ابزار انتخابی"
 	},
 	"regex": [
 		["Budget", "Bütçe"],
