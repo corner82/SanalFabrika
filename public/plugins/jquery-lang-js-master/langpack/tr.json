@@ -157,7 +157,7 @@
                         "Bu makine bilgilerini güncellemek istiyorsanız lütfen düzenle tuşuna tıklayınız",
                 "Edit":
                         "Düzenle",
-                "Required data is not available for this machine tool":
+                "No data is available for this machine tool":
                         "Bu makinenin bilgileri sistemde eksiktir veya kayıtlı değildir",
                 "Required information for this machine are missing":
                         "Sistem bu makine hakkında gerekli bilgilere ulaşamadı",
@@ -253,7 +253,6 @@
                         "Seçilmemiştir",
                 "Selected Machine Type":
                         "Seçilen Makine Tipi"
-                
 	},
 	"regex": [
 		["Budget", "Bütçe"],
