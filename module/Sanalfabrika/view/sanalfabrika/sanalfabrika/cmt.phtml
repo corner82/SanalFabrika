@@ -428,535 +428,585 @@
             </div>
 
 
-            <!-- info bar -->
-            <div class='row'> 
-                <section class="col-lg-12 ">
-                    <div class="callout callout-info" >	
-                        <a data-toggle="collapse" href="#collapseInfoGuide">
-                            <div id='infoGuideHeader'>
-                                <h4>
-                                    <i class="fa fa-random"></i>
-                                    <?php echo $this->translate('Some Activities') ?> : 
-                                </h4>
-                            </div>
-                        </a>
-                        <div id='collapseInfoGuide'>
-                            <div id="displayFirmMachinesGuide" a href='#' 
-                                 onclick='scrollDown($("#companyMachinesGridBox"))'> 
-                                <h4>
-                                    <?php echo $this->translate("Display firm machine park") ?>
-                                </h4>
-                                <?php echo $this->translate("Double click on table row to display machine properties in details") ?>
-                            </div>
-                            <hr>
-                            <div id="addFirmMachineGuide" a href='#' 
-                                 onclick='scrollDown($("#add_new_mt_tree_box"))'>     
-                                <h4>
-                                    <?php echo $this->translate("Add new machine from available machine tools list in system to your company inventory") ?>
-                                </h4>
-                                <?php echo $this->translate("Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button.") ?>
-                            </div> 
-                            <hr>
-                            <div id="proposeNewMachineGuide" a href='#' 
-                                 onclick='scrollDown($("#proposeMT_box_div"))'>    
-                                <h4>
-                                    <?php echo $this->translate("Propose a new machine to the system") ?>
-                                </h4>
-                                <?php echo $this->translate("If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval.") ?>
-                            </div>
-                        </div>
+            <!-- Information guide panel -->
+            <div class="panel-group" id="accordion" style="margin:25px 0">
+                <div class="callout callout-info" style="padding: 0px">
+                    <div class="panel-heading">
+                        <h4 class='panel-heading' style="font-size: 15px">
+                            <i class="fa fa-random" style="padding-right: 10px"></i>
+                            <a data-toggle="collapse" 
+                               data-parent="#accordion" 
+                               href="#infoPanel" 
+                               aria-expanded="false" 
+                               class="collapsed">
+                                <?php echo $this->translate('Some Activities') ?> :</a>
+                        </h4>
                     </div>
-
-                </section> 
-            </div>
-
-            <div class='row'>      
-                <section class="col-lg-12">
-                    <!-- Chat box -->
-                    <div class="box box-solid bg-light-blue-gradient" id="companyMachinesGridBox">
-                        <div class="box-header">
-                            <i class="glyphicon glyphicon-folder-open"></i>
-                            <h3 class="box-title"><?php echo $this->translate('Company machine tools list') ?></h3>
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="box-body box-solid bg-light-blue-gradient">
-                            <div id="tt_grid_cmt">
-                                <table id="grid_company_machines" title="<?php echo $this->translate("Company machine tools") ?>"></table>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div class='row hidden' id="selectedMTInformationRow">      
-                <section class="col-lg-12">
-                    <!-- Chat box -->
-                    <div class="box box-success" id="selectedMTInformationBox">
-
-                        <div class="box-header">
-                            <i class="ion ion-clipboard"></i>
-                            <h3 class="box-title" id="selectedMTInformationHeader" ></h3>
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>  
-
-                        <div class="box-body">
-                            <div class="box-header">
-                                <h3 class="box-title" >
-                                    <?php echo $this->translate('Machine Tool General Information') ?>
-                                </h3>                                        
-                                <div class="box" id="mtGenPropsDynamicForm" style="font-size: 12px">
+                    <div id="infoPanel" class="panel-collapse collapse" aria-expanded="false">
+                        <div class="panel-body">
+                            <div class="callout bg-light-blue" 
+                                 style="margin-bottom: 0px; margin-top: 0px; padding: 0px">
+                                <div class="panel-heading">
+                                    <h4 class='panel-heading' style="font-size: 15px">
+                                        <a data-toggle="collapse" 
+                                           data-parent="#accordion" 
+                                           href="#displayFirmMachinesGuide" 
+                                           class="collapsed" 
+                                           aria-expanded="false">
+                                               <?php echo $this->translate("Display firm machine park") ?>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="displayFirmMachinesGuide" 
+                                     class="panel-collapse collapse" 
+                                     aria-expanded="false" style="height: 0px;">
+                                    <div class="callout callout-info"  
+                                         style="margin-bottom: 0px; margin-top: 0px;"
+                                         onclick='scrollDown($("#companyMachinesGridBox"))'>
+                                        <?php echo $this->translate("Double click on table row to display machine properties in details") ?>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="box-header">
-                                <h3 class="box-title">
-                                    <?php echo $this->translate('Machine Tool Properties Information') ?>
-                                </h3>  
-                                <div class="box" id="mtSpecPropsDynamicForm" style="font-size: 12px">
+                            <div class="callout bg-light-blue" 
+                                 style="margin-bottom: 0px; margin-top: 0px; padding: 0px">
+                                <div class="panel-heading">
+                                    <h4 class='panel-heading' style="font-size: 15px">
+                                        <a data-toggle="collapse" 
+                                           data-parent="#accordion" 
+                                           href="#addFirmMachineGuide" 
+                                           class="collapsed" 
+                                           aria-expanded="false">
+                                               <?php echo $this->translate("Add new machine from available machine tools list in system to your company inventory") ?>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="addFirmMachineGuide" 
+                                     class="panel-collapse collapse" 
+                                     aria-expanded="false" style="height: 0px;">
+                                    <div class="callout callout-info" 
+                                         style="margin-bottom: 0px; margin-top: 0px;"
+                                         onclick='scrollDown($("#add_new_mt_tree_box"))'>
+                                        <?php echo $this->translate("Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button.") ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="callout bg-light-blue" 
+                                 style="margin-bottom: 0px; margin-top: 0px; padding: 0px">
+                                <div class="panel-heading">
+                                    <h4 class='panel-heading' style="font-size: 15px">
+                                        <a data-toggle="collapse" 
+                                           data-parent="#accordion" 
+                                           href="#proposeNewMachineGuide" 
+                                           class="collapsed" 
+                                           aria-expanded="false">
+                                               <?php echo $this->translate("Propose a new machine to the system") ?>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="proposeNewMachineGuide" 
+                                     class="panel-collapse collapse" 
+                                     aria-expanded="false" style="height: 0px;">
+                                    <div class="callout callout-info" 
+                                         style="margin-bottom: 0px; margin-top: 0px;"
+                                         onclick='scrollDown($("#proposeMT_box_div"))'>
+                                        <?php echo $this->translate("If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval.") ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-
-            <div id='add_new_mt_tree_box' class="box box-warning box-solid">
-                <div class="box-header">
-                    <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>
-                    <h3 class="box-title">
-                        <?php echo $this->translate('Available Machine Tools in System') ?>
-                    </h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                        </button>
                     </div>
                 </div>
-                <div class="box-body">
-                    <div id="addNewMachineTool" style="font-size: 12px">  
-                        <section class="col-lg-12 ">                                
-                            <div class="box-body">
-                                <div class="tree2" id="tt_tree_machine_tools"></div>
-                            </div><!-- /.chat --> 
-                            <div class="box box-primary hidden" id="addMTtoCompany">
-                                <div class="box-header">
-                                    <i class="fa fa-wrench"></i>
-                                    <h3 class="box-title" id="selectedMTHeader"></h3>
-                                </div>  
-                                <div class="box" style="font-size: 12px">
-                                    <div id="selectedMTGenInformation"></div>                                                
-                                    <div id="selectedMTInformation"></div>                                                            
-                                </div>
-                                <footer>
-                                    <button class="btn btn-block btn-primary btn-sm" 
-                                            id="addSelectedMTfromList" 
-                                            onclick="addMTtoCompany()">
-                                                <?php echo $this->translate('Add selected Machine') ?>
+                <!--// Information guide panel -->
+
+                
+                <!-- main grids section -->
+                <div class='row'>      
+                    <section class="col-lg-12">
+                        <!-- Chat box -->
+                        <div class="box box-solid bg-light-blue-gradient" id="companyMachinesGridBox">
+                            <div class="box-header">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                                <h3 class="box-title"><?php echo $this->translate('Company machine tools list') ?></h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                     </button>
-                                </footer>
+                                </div>
                             </div>
-                        </section>
-                    </div>
-                </div>
-            </div><!-- /.box -->
-
-
-            <div class='row'>      
-                <section class="col-lg-12">
-                    <div class="box box-primary" id="proposeMT_box_div">
-                        <div class="box-header">
-                            <i class="glyphicon glyphicon-import"></i>
-                            <h3 class="box-title"><?php echo $this->translate('Propose a New Machine Tool') ?></h3>
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                </button>
+                            <div class="box-body box-solid bg-light-blue-gradient">
+                                <div id="tt_grid_cmt">
+                                    <table id="grid_company_machines" title="<?php echo $this->translate("Company machine tools") ?>"></table>
+                                </div>
                             </div>
                         </div>
-                        <div class="box-body">
-                            <div class="nav-tabs-custom" >
-                                <ul id="tab_company_machines" class="nav nav-tabs">
-                                    <li>
-                                        <a id='newMTProposalTab' 
-                                           href="#tab_new_mt_proposal" data-toggle="tab" >
-                                               <?php echo $this->translate("Propose a New Machine Tool") ?>
-                                        </a>
-                                    </li>
-                                    <!--<div class="box-tools pull-right">
-                                      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                    </div>-->
-                                    <li class="pull-right">
-                                        <a href="#" class="text-muted">
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div  class="tab-content"> 
-                                    <div class="tab-pane" id="tab_new_mt_proposal">
-                                        <div class="box box-info">
-                                            <div class="box-header">
-                                                <h3 class="box-title">
-                                                    <?php echo $this->translate('Proposition Form') ?>
-                                                </h3>
-                                                <div class="box-body">
-                                                    <div id="newMTProposal">                                            
-                                                        <section>
-                                                            <div id="proposedMTFormDIV">
-                                                                <form id="proposedMTForm" role="form">
-                                                                    <div class="box-body">
-                                                                        <label>
-                                                                            <?php echo $this->translate("Machine Manufacturer") ?>
-                                                                        </label>                                                                        
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon">
-                                                                                <i class="fa fa-trademark"></i>
-                                                                            </span>
-                                                                            <input type="text" class="form-control validate[required, custom[onlyLetterSp]]" 
-                                                                                   placeholder='<?php echo $this->translate("Please Enter Machine Manufacturer Name (Brand)") ?>'>
+                    </section>
+                </div>
+
+                <div class='row hidden' id="selectedMTInformationRow">      
+                    <section class="col-lg-12">
+                        <!-- Chat box -->
+                        <div class="box box-success" id="selectedMTInformationBox">
+
+                            <div class="box-header">
+                                <i class="ion ion-clipboard"></i>
+                                <h3 class="box-title" id="selectedMTInformationHeader" ></h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>  
+
+                            <div class="box-body">
+                                <div class="box-header">
+                                    <h3 class="box-title" >
+                                        <?php echo $this->translate('Machine Tool General Information') ?>
+                                    </h3>                                        
+                                    <div class="box" id="mtGenPropsDynamicForm" style="font-size: 12px">
+                                    </div>
+                                </div>
+                                <div class="box-header">
+                                    <h3 class="box-title">
+                                        <?php echo $this->translate('Machine Tool Properties Information') ?>
+                                    </h3>  
+                                    <div class="box" id="mtSpecPropsDynamicForm" style="font-size: 12px">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div id='add_new_mt_tree_box' class="box box-warning box-solid">
+                    <div class="box-header">
+                        <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>
+                        <h3 class="box-title">
+                            <?php echo $this->translate('Available Machine Tools in System') ?>
+                        </h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div id="addNewMachineTool" style="font-size: 12px">  
+                            <section class="col-lg-12 ">                                
+                                <div class="box-body">
+                                    <div class="tree2" id="tt_tree_machine_tools"></div>
+                                </div><!-- /.chat --> 
+                                <div class="box box-primary hidden" id="addMTtoCompany">
+                                    <div class="box-header">
+                                        <i class="fa fa-wrench"></i>
+                                        <h3 class="box-title" id="selectedMTHeader"></h3>
+                                    </div>  
+                                    <div class="box" style="font-size: 12px">
+                                        <div id="selectedMTGenInformation"></div>                                                
+                                        <div id="selectedMTInformation"></div>                                                            
+                                    </div>
+                                    <footer>
+                                        <button class="btn btn-block btn-primary btn-sm" 
+                                                id="addSelectedMTfromList" 
+                                                onclick="addMTtoCompany()">
+                                                    <?php echo $this->translate('Add selected Machine') ?>
+                                        </button>
+                                    </footer>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div><!-- /.box -->
+
+
+                <div class='row'>      
+                    <section class="col-lg-12">
+                        <div class="box box-primary" id="proposeMT_box_div">
+                            <div class="box-header">
+                                <i class="glyphicon glyphicon-import"></i>
+                                <h3 class="box-title"><?php echo $this->translate('Propose a New Machine Tool') ?></h3>
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="nav-tabs-custom" >
+                                    <ul id="tab_company_machines" class="nav nav-tabs">
+                                        <li>
+                                            <a id='newMTProposalTab' 
+                                               href="#tab_new_mt_proposal" data-toggle="tab" >
+                                                   <?php echo $this->translate("Propose a New Machine Tool") ?>
+                                            </a>
+                                        </li>
+                                        <!--<div class="box-tools pull-right">
+                                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        </div>-->
+                                        <li class="pull-right">
+                                            <a href="#" class="text-muted">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div  class="tab-content"> 
+                                        <div class="tab-pane" id="tab_new_mt_proposal">
+                                            <div class="box box-info">
+                                                <div class="box-header">
+                                                    <h3 class="box-title">
+                                                        <?php echo $this->translate('Proposition Form') ?>
+                                                    </h3>
+                                                    <div class="box-body">
+                                                        <div id="newMTProposal">                                            
+                                                            <section>
+                                                                <div id="proposedMTFormDIV">
+                                                                    <form id="proposedMTForm" role="form">
+                                                                        <div class="box-body">
+                                                                            <label>
+                                                                                <?php echo $this->translate("Machine Manufacturer") ?>
+                                                                            </label>                                                                        
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">
+                                                                                    <i class="fa fa-trademark"></i>
+                                                                                </span>
+                                                                                <input type="text" class="form-control validate[required, custom[onlyLetterSp]]" 
+                                                                                       placeholder='<?php echo $this->translate("Please Enter Machine Manufacturer Name (Brand)") ?>'>
+                                                                            </div>
+                                                                            <hr>
+                                                                            <label>
+                                                                                <?php echo $this->translate("Machine Name") ?>
+                                                                            </label>                                                                        
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">
+                                                                                    <i class="fa fa-tags"></i>
+                                                                                </span>
+                                                                                <input type="text" class="form-control validate[required]"  
+                                                                                       placeholder='<?php echo $this->translate("Please Enter Machine Name (Series)") ?>'>
+                                                                            </div>
+                                                                            <hr>
+                                                                            <label>
+                                                                                <?php echo $this->translate("Machine Model") ?>
+                                                                            </label>                                                                        
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">
+                                                                                    <i class="fa  fa-calendar"></i>
+                                                                                </span>
+                                                                                <input type="date" class="form-control validation[required]" 
+                                                                                       placeholder='<?php echo $this->translate("Please Enter Machine Model (Production Year)") ?>'>
+                                                                            </div>
+                                                                            <hr>
+                                                                            <label>
+                                                                                <?php echo $this->translate("Machine Type") ?>
+                                                                            </label>                                                                        
+                                                                            <div id="machineTypeCategoriesType" class='box'>
+                                                                                <ul id="mTCTree"></ul>
+                                                                            </div>                                                                        
+                                                                            <hr>
+                                                                            <label>
+                                                                                <?php echo $this->translate("Selected Machine Type") ?>
+                                                                            </label> 
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">
+                                                                                    <i class="fa  fa-search"></i>
+                                                                                </span>
+                                                                                <input type="text" class="form-control validation[required]" 
+                                                                                       disabled='disabled' id='selectedMTCategory'>
+                                                                            </div>
+                                                                            <hr>
+                                                                            <h3 class="box-title">
+                                                                                <?php echo $this->translate('Machine Properties') ?>
+                                                                            </h3>
+                                                                            <hr>
+                                                                            <textarea name="proposedMTPropertiesFormBilder" 
+                                                                                      id="proposedMTPropertiesFormBilder" cols="30" rows="10">                                                                                      
+                                                                            </textarea>
+                                                                            <hr>
+                                                                            <section>
+                                                                                <button type="submit" id="submitMTProposal_btn" 
+                                                                                        class="btn btn-block btn-primary col-lg-12" 
+                                                                                        onclick="submitMTProposal()">
+                                                                                            <?php echo $this->translate('Submit new machine tool') ?>
+                                                                                </button>
+                                                                            </section>
                                                                         </div>
-                                                                        <hr>
-                                                                        <label>
-                                                                            <?php echo $this->translate("Machine Name") ?>
-                                                                        </label>                                                                        
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon">
-                                                                                <i class="fa fa-tags"></i>
-                                                                            </span>
-                                                                            <input type="text" class="form-control validate[required]"  
-                                                                                   placeholder='<?php echo $this->translate("Please Enter Machine Name (Series)") ?>'>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <label>
-                                                                            <?php echo $this->translate("Machine Model") ?>
-                                                                        </label>                                                                        
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon">
-                                                                                <i class="fa  fa-calendar"></i>
-                                                                            </span>
-                                                                            <input type="date" class="form-control validation[required]" 
-                                                                                   placeholder='<?php echo $this->translate("Please Enter Machine Model (Production Year)") ?>'>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <label>
-                                                                            <?php echo $this->translate("Machine Type") ?>
-                                                                        </label>                                                                        
-                                                                        <div id="machineTypeCategoriesType" class='box'>
-                                                                        <ul id="mTCTree"></ul>
-                                                                        </div>                                                                        
-                                                                        <hr>
-                                                                        <label>
-                                                                            <?php echo $this->translate("Selected Machine Type") ?>
-                                                                        </label> 
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon">
-                                                                                <i class="fa  fa-search"></i>
-                                                                            </span>
-                                                                            <input type="text" class="form-control validation[required]" 
-                                                                                   disabled='disabled' id='selectedMTCategory'>
-                                                                        </div>
-                                                                        <hr>
-                                                                        <h3 class="box-title">
-                                                                            <?php echo $this->translate('Machine Properties') ?>
-                                                                        </h3>
-                                                                        <hr>
-                                                                        <textarea name="proposedMTPropertiesFormBilder" 
-                                                                                  id="proposedMTPropertiesFormBilder" cols="30" rows="10">                                                                                      
-                                                                        </textarea>
-                                                                        <hr>
-                                                                        <section>
-                                                                            <button type="submit" id="submitMTProposal_btn" 
-                                                                                class="btn btn-block btn-primary col-lg-12" 
-                                                                                onclick="submitMTProposal()">
-                                                                                    <?php echo $this->translate('Submit new machine tool') ?>
-                                                                            </button>
-                                                                        </section>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </section>                                                
+                                                                    </form>
+                                                                </div>
+                                                            </section>                                                
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </div><!-- /.tab-content -->
-                            </div><!-- nav-tabs-custom -->
+                                    </div><!-- /.tab-content -->
+                                </div><!-- nav-tabs-custom -->
 
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div class='row' >    
-                <section class="col-lg-7 connectedSortable">
-                    <!-- Chat box -->
-                    <div class="box box-success">
-                        <div class="box-header">
-                            <i class="fa fa-cart-arrow-down"></i>
-                            <h3 class="box-title">Sanal Fabrika işlemlerinizin karşılaştırmalı gösterimi</h3>
-
-                        </div>  
-                        <div class="box-body chat" id="chat-box">
-
-                            <div id="container_machinerByResource" style="width: 100%; 
-                                 height: 300px; 
-                                 margin: 0 auto;
-                                 ">  
-                                <div class="overlay" >
-                                    <i class="fa fa-refresh fa-spin"  ></i>
-                                </div>
-                            </div>   
-                        </div><!-- /.chat -->
-
-                    </div><!-- /.box (chat box) -->
-
-                    <!-- quick email widget -->
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <i class="fa fa-envelope"></i>
-                            <h3 class="box-title">E-posta</h3>
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                                <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-                            </div><!-- /. tools -->
-                        </div>
-                        <div class="box-body">
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="Kime" placeholder="Kime:"/>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="Konu" placeholder="Konu"/>
-                                </div>
-                                <div>
-                                    <textarea class="textarea" placeholder="Mesaj" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="box-footer clearfix">
-                            <button class="pull-right btn btn-default" id="sendEmail">Gönder <i class="fa fa-arrow-circle-right"></i></button>
-                        </div>
-                    </div>
-
-                </section><!-- /.Left col -->
-
-                <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                <section class="col-lg-5 connectedSortable">
-
-                    <!-- TO DO List -->
-                    <div id='todolistbox' class="box box-primary">
-                        <div class="box-header">
-                            <i class="ion ion-clipboard"></i>
-                            <h3 class="box-title">Onay Bekleyen Firmalar</h3>
-                            <div class="box-tools pull-right">
-                                <ul class="pagination pagination-sm inline">
-                                    <li><a href="#">&laquo;</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">&raquo;</a></li>
-                                </ul>
                             </div>
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                            <ul class="todo-list">
-                                <li>
-                                    <!-- drag handle -->
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <!-- checkbox -->
-                                    <input type="checkbox" value="" name=""/>
-                                    <!-- todo text -->
-                                    <span data-fill="true" class="text">100 firmada saha çalışması</span>
-                                    <!-- Emphasis label -->
-                                    <small data-fill-number="true" class="label label-danger"><i class="fa fa-clock-o"></i> 4 ay</small>
-                                    <!-- General tools such as edit or delete-->
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span data-fill="true" class="text">100 firma içerisinde detaylı ekipman listesinin oluşturulması</span>
-                                    <small data-fill-number="true" class="label label-info"><i class="fa fa-clock-o"></i> 4 ay</small>
-                                    <div class="tools">   
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span data-fill="true" class="text">İş ve İş Makinaları Kümesi için veri toplama formlarının hazırlanması</span>
-                                    <small data-fill-number="true" class="label label-warning"><i class="fa fa-clock-o"></i> 1 ay</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span  data-fill="true" class="text">Enerji verimliliği raporlama modülünün hazırlanması</span>
-                                    <small data-fill-number="true" class="label label-success"><i class="fa fa-clock-o"></i> 3 ay</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span  data-fill="true" class="text">Anket verilerinin veri merkezine filtrelenerek aktarılması</span>
-                                    <small data-fill-number="true" class="label label-primary"><i class="fa fa-clock-o"></i> 3 gün</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span data-fill="true" class="text">Kauçuk kümesi veri toplama yazılımı ile veri entegrasyonu</span>
-                                    <small data-fill-number="true" class="label label-default"><i class="fa fa-clock-o"></i> 4 ay</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div><!-- /.box-body -->
-                        <div class="box-footer clearfix no-border">
-                            <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Ekle</button>
                         </div>
-                    </div><!-- /.box -->
+                    </section>
+                </div>
 
-                    <!-- Map box -->
-                    <div class="box box-solid bg-light-blue-gradient">
-                        <div class="box-header">
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
-                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
-                            </div><!-- /. tools -->
+                <div class='row' >    
+                    <section class="col-lg-7 connectedSortable">
+                        <!-- Chat box -->
+                        <div class="box box-success">
+                            <div class="box-header">
+                                <i class="fa fa-cart-arrow-down"></i>
+                                <h3 class="box-title">Sanal Fabrika işlemlerinizin karşılaştırmalı gösterimi</h3>
 
-                            <i class="fa fa-map-marker"></i>
-                            <h3 class="box-title">
-                                İhracat yapılan ülkeler
-                            </h3>
+                            </div>  
+                            <div class="box-body chat" id="chat-box">
+
+                                <div id="container_machinerByResource" style="width: 100%; 
+                                     height: 300px; 
+                                     margin: 0 auto;
+                                     ">  
+                                    <div class="overlay" >
+                                        <i class="fa fa-refresh fa-spin"  ></i>
+                                    </div>
+                                </div>   
+                            </div><!-- /.chat -->
+
+                        </div><!-- /.box (chat box) -->
+
+                        <!-- quick email widget -->
+                        <div class="box box-info">
+                            <div class="box-header">
+                                <i class="fa fa-envelope"></i>
+                                <h3 class="box-title">E-posta</h3>
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                    <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                                </div><!-- /. tools -->
+                            </div>
+                            <div class="box-body">
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="Kime" placeholder="Kime:"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="Konu" placeholder="Konu"/>
+                                    </div>
+                                    <div>
+                                        <textarea class="textarea" placeholder="Mesaj" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="box-footer clearfix">
+                                <button class="pull-right btn btn-default" id="sendEmail">Gönder <i class="fa fa-arrow-circle-right"></i></button>
+                            </div>
                         </div>
-                        <div class="box-body">
-                            <div id="world-map" style="height: 250px; width: 100%;"></div>
-                        </div><!-- /.box-body-->
-                        <div class="box-footer no-border">
-                            <div class="row">
-                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                    <div id="sparkline-1"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
-                                </div><!-- ./col -->
-                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                    <div id="sparkline-2"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
-                                </div><!-- ./col -->
-                                <div class="col-xs-4 text-center">
-                                    <div id="sparkline-3"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
-                                </div><!-- ./col -->
-                            </div><!-- /.row -->
-                        </div>
-                    </div>
-                    <!-- /.box -->
 
-                    <!-- Calendar -->
-                    <div class="box box-solid bg-green-gradient">
-                        <div class="box-header">
-                            <i class="fa fa-calendar"></i>
-                            <h3 class="box-title">Takvim</h3>
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                                <!-- button with a dropdown -->
-                                <div class="btn-group">
-                                    <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Yeni iş ekle</a></li>
-                                        <li><a href="#">İş takvimini sil</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="calendar.php">İş takvimimi gör</a></li>
+                    </section><!-- /.Left col -->
+
+                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                    <section class="col-lg-5 connectedSortable">
+
+                        <!-- TO DO List -->
+                        <div id='todolistbox' class="box box-primary">
+                            <div class="box-header">
+                                <i class="ion ion-clipboard"></i>
+                                <h3 class="box-title">Onay Bekleyen Firmalar</h3>
+                                <div class="box-tools pull-right">
+                                    <ul class="pagination pagination-sm inline">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">&raquo;</a></li>
                                     </ul>
                                 </div>
-                                <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div><!-- /. tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body no-padding">
-                            <!--The calendar -->
-                            <div id="calendar" style="width: 100%"></div>
-                        </div><!-- /.box-body -->
-                        <div class="box-footer text-black">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- Progress bars -->
-                                    <div class="clearfix">
-                                        <span class="pull-left">İş #1</span>
-                                        <small class="pull-right">1%</small>
-                                    </div>
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 1%;"></div>
-                                    </div>
+                            </div><!-- /.box-header -->
+                            <div class="box-body">
+                                <ul class="todo-list">
+                                    <li>
+                                        <!-- drag handle -->
+                                        <span class="handle">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </span>
+                                        <!-- checkbox -->
+                                        <input type="checkbox" value="" name=""/>
+                                        <!-- todo text -->
+                                        <span data-fill="true" class="text">100 firmada saha çalışması</span>
+                                        <!-- Emphasis label -->
+                                        <small data-fill-number="true" class="label label-danger"><i class="fa fa-clock-o"></i> 4 ay</small>
+                                        <!-- General tools such as edit or delete-->
+                                        <div class="tools">
+                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="handle">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </span>
+                                        <input type="checkbox" value="" name=""/>
+                                        <span data-fill="true" class="text">100 firma içerisinde detaylı ekipman listesinin oluşturulması</span>
+                                        <small data-fill-number="true" class="label label-info"><i class="fa fa-clock-o"></i> 4 ay</small>
+                                        <div class="tools">   
+                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="handle">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </span>
+                                        <input type="checkbox" value="" name=""/>
+                                        <span data-fill="true" class="text">İş ve İş Makinaları Kümesi için veri toplama formlarının hazırlanması</span>
+                                        <small data-fill-number="true" class="label label-warning"><i class="fa fa-clock-o"></i> 1 ay</small>
+                                        <div class="tools">
+                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="handle">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </span>
+                                        <input type="checkbox" value="" name=""/>
+                                        <span  data-fill="true" class="text">Enerji verimliliği raporlama modülünün hazırlanması</span>
+                                        <small data-fill-number="true" class="label label-success"><i class="fa fa-clock-o"></i> 3 ay</small>
+                                        <div class="tools">
+                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="handle">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </span>
+                                        <input type="checkbox" value="" name=""/>
+                                        <span  data-fill="true" class="text">Anket verilerinin veri merkezine filtrelenerek aktarılması</span>
+                                        <small data-fill-number="true" class="label label-primary"><i class="fa fa-clock-o"></i> 3 gün</small>
+                                        <div class="tools">
+                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="handle">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </span>
+                                        <input type="checkbox" value="" name=""/>
+                                        <span data-fill="true" class="text">Kauçuk kümesi veri toplama yazılımı ile veri entegrasyonu</span>
+                                        <small data-fill-number="true" class="label label-default"><i class="fa fa-clock-o"></i> 4 ay</small>
+                                        <div class="tools">
+                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-trash-o"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /.box-body -->
+                            <div class="box-footer clearfix no-border">
+                                <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Ekle</button>
+                            </div>
+                        </div><!-- /.box -->
 
-                                    <div class="clearfix">
-                                        <span class="pull-left">İş #2</span>
-                                        <small class="pull-right">1%</small>
-                                    </div>
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 1%;"></div>
-                                    </div>
-                                </div><!-- /.col -->
-                                <div class="col-sm-6">
-                                    <div class="clearfix">
-                                        <span class="pull-left">İş #3</span>
-                                        <small class="pull-right">2%</small>
-                                    </div>       
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 2%;"></div>
-                                    </div>
+                        <!-- Map box -->
+                        <div class="box box-solid bg-light-blue-gradient">
+                            <div class="box-header">
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                  <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                    <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                                </div><!-- /. tools -->
 
-                                    <div class="clearfix">
-                                        <span class="pull-left">iş #4</span>
-                                        <small class="pull-right">10%</small>
-                                    </div>
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 10%;"></div>
-                                    </div>
-                                </div><!-- /.col -->
-                            </div><!-- /.row -->
+                                <i class="fa fa-map-marker"></i>
+                                <h3 class="box-title">
+                                    İhracat yapılan ülkeler
+                                </h3>
+                            </div>
+                            <div class="box-body">
+                                <div id="world-map" style="height: 250px; width: 100%;"></div>
+                            </div><!-- /.box-body-->
+                            <div class="box-footer no-border">
+                                <div class="row">
+                                    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                        <div id="sparkline-1"></div>
+                                        <div class="knob-label">Ostim verileri...</div>
+                                    </div><!-- ./col -->
+                                    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                        <div id="sparkline-2"></div>
+                                        <div class="knob-label">Ostim verileri...</div>
+                                    </div><!-- ./col -->
+                                    <div class="col-xs-4 text-center">
+                                        <div id="sparkline-3"></div>
+                                        <div class="knob-label">Ostim verileri...</div>
+                                    </div><!-- ./col -->
+                                </div><!-- /.row -->
+                            </div>
                         </div>
-                    </div><!-- /.box -->
+                        <!-- /.box -->
 
-                </section><!-- right col -->
-            </div><!-- /.row (main row) -->
+                        <!-- Calendar -->
+                        <div class="box box-solid bg-green-gradient">
+                            <div class="box-header">
+                                <i class="fa fa-calendar"></i>
+                                <h3 class="box-title">Takvim</h3>
+                                <!-- tools box -->
+                                <div class="pull-right box-tools">
+                                    <!-- button with a dropdown -->
+                                    <div class="btn-group">
+                                        <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li><a href="#">Yeni iş ekle</a></li>
+                                            <li><a href="#">İş takvimini sil</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="calendar.php">İş takvimimi gör</a></li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div><!-- /. tools -->
+                            </div><!-- /.box-header -->
+                            <div class="box-body no-padding">
+                                <!--The calendar -->
+                                <div id="calendar" style="width: 100%"></div>
+                            </div><!-- /.box-body -->
+                            <div class="box-footer text-black">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- Progress bars -->
+                                        <div class="clearfix">
+                                            <span class="pull-left">İş #1</span>
+                                            <small class="pull-right">1%</small>
+                                        </div>
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-green" style="width: 1%;"></div>
+                                        </div>
+
+                                        <div class="clearfix">
+                                            <span class="pull-left">İş #2</span>
+                                            <small class="pull-right">1%</small>
+                                        </div>
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-green" style="width: 1%;"></div>
+                                        </div>
+                                    </div><!-- /.col -->
+                                    <div class="col-sm-6">
+                                        <div class="clearfix">
+                                            <span class="pull-left">İş #3</span>
+                                            <small class="pull-right">2%</small>
+                                        </div>       
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-green" style="width: 2%;"></div>
+                                        </div>
+
+                                        <div class="clearfix">
+                                            <span class="pull-left">iş #4</span>
+                                            <small class="pull-right">10%</small>
+                                        </div>
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-green" style="width: 10%;"></div>
+                                        </div>
+                                    </div><!-- /.col -->
+                                </div><!-- /.row -->
+                            </div>
+                        </div><!-- /.box -->
+
+                    </section><!-- right col -->
+                </div><!-- /.row (main row) -->
 
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
