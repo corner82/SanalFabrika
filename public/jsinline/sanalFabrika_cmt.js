@@ -10,15 +10,47 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-    
+
     lang.change($('#langCode').val());
-    
+
+
+    /*
+     * Language bar on top of page...
+     * @author:Bahram
+     * @Since: 2016.2.12
+     */
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillComboBox_syslanguage',
+            language_code: $("#langCode").val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+                $.fn.multiLanguageBarSetter.defaults.requestUriTranslated = $("#requestUriRegulated").val();
+                $.fn.multiLanguageBarSetter.defaults.langCode = $("#langCode").val();
+                $.fn.multiLanguageBarSetter.defaults.basePath = 'ostim/sanalfabrika';
+                $.fn.multiLanguageBarSetter.defaults.baseLanguage = 'tr';
+                $("#languages").multiLanguageBarSetter(data);
+
+            } else {
+                console.error('"fillComboBox_syslanguage" servis datasÄ± boÅŸtur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillComboBox_syslanguage" servis hatasÄ±->' + textStatus);
+        }
+    });
     /*
      * Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
-     */ 
+     */
 
     $.fn.leftMenuFunction();
-    
+
     /*
      * Variables
      */
@@ -26,7 +58,7 @@ $(document).ready(function () {
     window.selectedRow;
     window.rowIndex;
     window.selectedMTCategory;
-    
+
     /* 
      * Validation binder 
      */
@@ -61,7 +93,7 @@ $(document).ready(function () {
             selectedMTCategory = $('#mTCTree').tree('getChecked');
             if (selectedMTCategory.length > 0) {
                 for (var i = 0; i < selectedMTCategory.length; i++) {
-                    if (selectedMTCategory[i].text !== node.text) {                        
+                    if (selectedMTCategory[i].text !== node.text) {
                         $('#mTCTree').tree('uncheck', selectedMTCategory[i].target);
                     }
                 }
@@ -85,7 +117,7 @@ $(document).ready(function () {
     tree.machineTree('setMainRoot');
     tree.machineTree({
         getMachineProp: function (event, tree, node) {
-            
+
             tree.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
             tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
             tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'url', 'pkFillMachineToolGroupsMachineProperties_sysMachineToolGroups');
@@ -199,7 +231,7 @@ $(document).ready(function () {
             });
         }
     });
-    
+
     /**
      * machine tool tree
      * @author Mustafa Zeynel DaÄŸlÄ±
@@ -221,7 +253,7 @@ $(document).ready(function () {
         }
         e.stopPropagation();
     });
-    
+
     /**
      * grid_confirm_registration easyui datagrid
      * user confirmation datagrid listing for confirmation
@@ -279,20 +311,20 @@ $(document).ready(function () {
                         {field: 'model_year', title: window.lang.translate('Machine Production Year'), sortable: true},
                         {field: 'action', title: 'Action', width: 80, align: 'center',
                             formatter: function (value, row, index) {
-                                
+
                                 var d = '<a href="javascript:void(0)" style="color:#FF0000" selectedId=' + row.id + ' machineId=' + row.machine_id + ' machineName=' + row.machine_tool_names + ' onclick="deleterow('
                                         + 'this'
                                         + ')"><i class="fa fa-times"></i>'
                                         + window.lang.translate("Delete")
                                         + '</a>';
-                                
+
                                 return d;
 //                                }
                             }
                         }
                     ]]
     });
-    
+
     /**
      * trying to get row index from easyui grid
      * @param {type} target

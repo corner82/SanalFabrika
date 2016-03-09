@@ -2,67 +2,67 @@
 	"token": {                
                 "#":"#",
                 "Successful Submission":
-                        "",
+                        "ثبت موفقیت آمیز",
                 "Sure":
-                        "",
+                        "آیا مطمئنید؟",
                 "Progressing":
-                        "",
+                        "در حال انجام عملیات",
                 "test":
-                        "",
+                        "تست",
                 "Property Search":
-                        "",
+                        "جستجوی خصوصیات",
                 "Have a nice day!":
-                        "",
+                        "روز خوش",
                 "Do you confirm new role submission?":
-                        "",
+                        "آیا ثبت نقش جدید را تایید میکنید؟",
                 "Go":
-                        "",
+                        "ادامه",
                 "Cancel":
-                        "",
+                        "انصراف",
                 "Passive sub-role submission is prohibited!":
-                        "",
+                        "ثبت نقش جدید به زیر مجموعه نقش غیرفعال میسر نمیباشد",
                 "Unsuccessful Submission":
-                        "",
+                        "ثبت ناموفق",
                 "Error log registered":
-                        "",
+                        "خطا ثبت شد",
                 "This name is already registered in System.":
-                        "",
+                        "این اسم قبلا در سیستم ثبت شده است",
                 "Try another name please!":
-                        "",
+                        "لطفا نام دیگری را امتحان کنید",
                 "Are you sure to delete the role?":
-                        "",
+                        "آیااز حذف این نقش مطمئنید؟ ",
                 "Removed...":
-                        "",
+                        "حذف شد...",
                 "Please check the role you want to delete!":
-                        "",
+                        "لطفا نقش مورد نظر را برای حذف کردن انتخاب کنید",
                 "Unsuccessful remove operation!":
-                        "",
+                        "عملیات حذف ناموفق",
                 "Successful name change":
-                        "",
+                        "اسم مورد نظر با موفقیت تغییر یافت",
                 "Unsuccessful name change":
-                        "",
+                        "اسم مورد نظر تغییر نیافت",
                 "Are you sure to change the name?":
-                        "",
+                        "آیااز تغییر اسم مورد نظر مطمئنید؟",
                 "New name can't be empty":
-                        "",
+                        "نام جدید نمی تواند خالی باشد",
                 "Please enter a valid name":
-                        "",
+                        "لطفا یک نام قابل قبول وارد کنید",
                 "Activation changed successfully":
-                        "",
+                        "تغییر موفقیت آمیز فعال سازی",
                 "Are you sure to change the activation?":
-                        "",
+                        "آیااز تغییر فعال سازی مطمئن هستید ؟",
                 "Activation change failed!":
-                        "",
+                        "تغییر فعالسازی انجام نشد ",
                 "This name is already registered in System.":
-                        "",
+                        "این نام قبلا در سیستم ثبت شده است",
                 "Please fill user information forms first":
-                        "",
+                        "لطفا ابتدا فرم اطلاعات کاربر را پر کنید",
                 "General information submission failed":
-                        "",
+                        "ارسال اطلاعات عمومی نا موفق",
                 "This username has already been registered in the system":
-                        "",
+                        "این نام کاربری قبلا در سیستم ثبت شده است",
                 "This email address has already been registered in the system":
-                        "",
+                        "این آدرس ایمیل در حال حاضر در سیستم ثبت شده است",
                 "General information submitted successfully":
                         "",
                 "Please fill user general and address information forms first":
