@@ -739,7 +739,7 @@ msgstr "Eklenmiş Numaralar"
 msgid "I agree with the Terms and Conditions"
 msgstr "Şartlar ve koşulları kabul ediyorum"
 
-msgid "Complete User Submittion Process"
+msgid "Complete User Submission Process"
 msgstr "Kullanici Kayıt işlemini tamamla"
 
 msgid "Continue to Company Information"
@@ -839,7 +839,7 @@ msgid "Company Machine Tool Panel"
 msgstr "Firma Makine Denetim Masası"
 
 msgid "Some Activities"
-msgstr "Bazı faaliyetler"
+msgstr "Bu Sayfadaki Faaliyetler"
 
 msgid "List of activities"
 msgstr "Faaliyetler listesi"
@@ -891,3 +891,12 @@ msgstr "Seçilen makineyi ekle"
 
 msgid "Details"
 msgstr "Detaylar"
+
+msgid "Please Enter Machine Manufacturer Name (Brand)"
+msgstr "Makine üreticisi firmanın adını giriniz (Makine Markası)"
+
+msgid "Please Enter Machine Name (Series)"
+msgstr "Makine adını giriniz (Makine serisi)"
+
+msgid "Please Enter Machine Model (Production Year)"
+msgstr "Makine modeli (üretim yılını) giriniz"

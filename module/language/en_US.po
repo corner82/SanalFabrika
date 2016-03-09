@@ -612,7 +612,7 @@ msgstr ""
 msgid "I agree with the Terms and Conditions"
 msgstr ""
 
-msgid "Complete User Submittion Process"
+msgid "Complete User Submission Process"
 msgstr ""
 
 msgid "Continue to Company Information"
@@ -764,3 +764,13 @@ msgstr ""
 
 msgid "Details"
 msgstr ""
+
+msgid "Please Enter Machine Manufacturer Name (Brand)"
+msgstr ""
+
+msgid "Please Enter Machine Name (Series)"
+msgstr ""
+
+msgid "Please Enter Machine Model (Production Year)"
+msgstr ""
+

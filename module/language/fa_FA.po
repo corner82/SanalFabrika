@@ -231,12 +231,6 @@ msgstr "حق تالیف"
 msgid "Version"
 msgstr "نسخه"
 
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
 msgid "Welcome to OSTIM Virtual Enterprise System"
 msgstr "به سیستم شرکت مجازی OSTIM خوش آمدید "
 
@@ -411,9 +405,6 @@ msgstr "شرکت"
 msgid "Virtual Enterprise Company Registration"
 msgstr "ثبت نام شرکت "
 
-msgid "General Information"
-msgstr "اطلاعات عمومی"
-
 msgid "Communication"
 msgstr "ارتباطات"
 
@@ -570,3 +561,254 @@ msgstr " ... منطقه و یا بخش انتخاب کنید"
 
 msgid "Search..."
 msgstr "...جستجو"
+
+
+msgid "General Information"
+msgstr "اطلاعات عمومی"
+
+msgid "Address Information"
+msgstr "نشانی و آدرس"
+
+msgid "Communication Information"
+msgstr "تماس و آدرس ارتباطی"
+
+msgid "Company Information"
+msgstr "اطلاعات شرکت"
+
+msgid "Please select a country from list..."
+msgstr " لطفا یک کشور را از لیست انتخاب کنید"
+
+msgid "Please select a city from list..."
+msgstr "لطفا یک شهرستان از لیست انتخاب کنید"
+
+msgid "Please select a district from list..."
+msgstr "لطفا یک منطقه از لیست انتخاب کنید"
+
+msgid "Please select a village from list..."
+msgstr "لطفا یک روستا از لیست انتخاب کنید"
+
+msgid "Continue to Address Information"
+msgstr "ادامه"
+
+msgid "Continue to Communication Information"
+msgstr "ادامه"
+
+msgid "Reset"
+msgstr "تمییز کردن فرم"
+
+msgid "Registration"
+msgstr "ثبت"
+
+msgid "First Name"
+msgstr "نام"
+
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+msgid "Prefered Username"
+msgstr "نام کاربری"
+
+msgid "Prefered Password"
+msgstr "رمز عبور"
+
+msgid "Repeat Password"
+msgstr "تکرار رمز عبور"
+
+msgid "ID Number (TC Kimlik No for Turkish Citizens)"
+msgstr " شماره ملی (مخصوص اتباع ترک( "
+
+msgid "Prefered Language"
+msgstr "زبان ترجیحی"
+
+msgid "Make my profile public"
+msgstr "صفحه پروفایل قابل رویت برای عموم"
+
+msgid "Communication Type"
+msgstr "انتخاب نوع تماس"
+
+msgid "Please select a communication type from list..."
+msgstr "لطفا نوع ارتباطات از لیست انتخاب کنید"
+
+msgid "Set this number as your default contact number"
+msgstr "شماره تماس پیش فرض"
+
+msgid "Contact Number"
+msgstr "شماره تماس"
+
+msgid "Submit Number"
+msgstr "ثبت شماره"
+
+msgid "Description"
+msgstr "توضیحات"
+
+msgid "Added Contacts"
+msgstr "تماسهای ثبت شده"
+
+msgid "I agree with the Terms and Conditions"
+msgstr "با تمام شرایط و ضوابط موافقت خود را اعلام مینمایم"
+
+msgid "Complete User Submission Process"
+msgstr "نکمیل فرایند ثبت کاربر"
+
+msgid "Continue to Company Information"
+msgstr "ادامه"
+
+msgid "Company Name"
+msgstr "نام شرکت"
+
+msgid "Please select your prefered language from list..."
+msgstr "لطفا زبان مورد نظر خود را از لیست انتخاب کنید"
+
+msgid "Show all my registered addresses"
+msgstr "نمایش همه آدرسهای ثبت شده من"
+
+msgid "My Registered Addresses"
+msgstr "آدرسهای من""
+
+msgid "List of Contacts"
+msgstr "لیست ارتباطات"
+
+msgid "Edit selected address"
+msgstr "ویرایش آدرس انتخابی"
+
+msgid "Close"
+msgstr "بستن"
+
+msgid "Address type"
+msgstr "نوع آدرس"
+
+msgid "Billing Address"
+msgstr " آدرس ارسال صورت حساب"
+
+msgid "Mailing Address"
+msgstr "آدرس پستی"
+
+msgid "Task Progress"
+msgstr "پیشرفت کار"
+
+msgid "User registration"
+msgstr "ثبت کاربر"
+
+msgid "Company registration"
+msgstr "ثبت شرکت"
+
+msgid "Registration process"
+msgstr "پروسه ثبت"
+
+msgid "Address 1"
+msgstr "آدرس 1"
+
+msgid "Address 2"
+msgstr "آدرس 2"
+
+msgid "Show my password"
+msgstr "نمایش رمز"
+
+msgid "Make my address information public"
+msgstr "اطلاعات آدرس فابل رویت عموم"
+
+msgid "Make my contact information public"
+msgstr "اطلاعات تماس قابل رویت عموم"
+
+msgid "Show all my registered contact Information"
+msgstr "نمایش تمام تماسهای ثبت شده"
+
+msgid "DUNS Number"
+msgstr "شماره DUNS"
+
+msgid "Company Short Name"
+msgstr "نام اختصاری شرکت"
+
+msgid "Back"
+msgstr "صفحه قبل"
+
+msgid "About Us"
+msgstr "در مورد ما"
+
+msgid "Services"
+msgstr "خدمات"
+
+msgid "News"
+msgstr "اخبار"
+
+msgid "Contacts"
+msgstr "ارتباطات"
+
+msgid "Submenus"
+msgstr "زیر منوها"
+
+msgid "Main"
+msgstr "اصلی"
+
+msgid "Ownership Status"
+msgstr "وضعیت مالکیت"
+
+msgid "Company Machine Tool Panel"
+msgstr "صفحه کنترل ماشین ابزار شرکت"
+
+msgid "Some Activities"
+msgstr "فعالیتهای این صفحه"
+
+msgid "List of activities"
+msgstr "لیست فعالیتها"
+
+msgid "Company machine tools list"
+msgstr "لیست ماشین ابزار شرکت"
+
+msgid "Company machine tools"
+msgstr "ماشین ابزار شرکت"
+
+msgid "Available Machine Tools in System"
+msgstr "ماشین ابزار موجود در سیستم"
+
+msgid "Propose a New Machine Tool"
+msgstr "پیشنهاد ماشین ابزار جدید"
+
+msgid "Proposition Form"
+msgstr "فرم پیشنهاد ماشین ابزار"
+
+msgid "Machine Manufacturer"
+msgstr "نام تولید کننده"
+
+msgid "Machine Name"
+msgstr "نام ماشین ابزار"
+
+msgid "Machine Model"
+msgstr "مدل"
+
+msgid "Machine Type"
+msgstr "نوع فعالیت ماشین ابزار"
+
+msgid "Machine Properties"
+msgstr "ویژگیهای ماشین ابزار"
+
+msgid "Submit new machine tool"
+msgstr "ثبت ماشین ابزار جدید"
+
+msgid "Language"
+msgstr "زبان"
+
+msgid "Machine Tool General Information"
+msgstr "اطلاعات عمومی ماشین ابزار"
+
+msgid "Machine Tool Properties Information"
+msgstr "اطلاعات ویژگیهای ماشین ابزار"
+
+msgid "Add selected Machine"
+msgstr "اضافه کردن ماشین ابزار انتخاب شده"
+
+msgid "Details"
+msgstr "جزییات"
+
+msgid "Please Enter Machine Manufacturer Name (Brand)"
+msgstr "لطفا نام شرکت و یا موسسه تولید کننده ماشین ابزار را وارد کنید"
+
+msgid "Please Enter Machine Name (Series)"
+msgstr "لطفا نام ماشین ابزار (سری ساخت) ماشین را وارد کنید"
+
+msgid "Please Enter Machine Model (Production Year)"
+msgstr "لطفا مدل (سال تولید) ماشین ابزار را وارد کنید"
+
+
+
+
