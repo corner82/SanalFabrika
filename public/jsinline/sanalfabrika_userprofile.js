@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     /**
      * multilanguage plugin 
      * @type Lang
