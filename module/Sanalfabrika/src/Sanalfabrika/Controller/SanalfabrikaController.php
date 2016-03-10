@@ -86,7 +86,7 @@
         return $view;
      }
      
-     public function user_profileAction()  
+     public function userprofileAction()  
      {
         $langCode = $this->getServiceLocator()
                             ->get('serviceTranslator');

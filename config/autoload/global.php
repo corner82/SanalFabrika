@@ -50,7 +50,8 @@ return array(
         'Sanalfabrika' => array(
             'registration' => 'layout/registrationLayout.phtml',
             'login' => 'layout/loginLayout.phtml',
-            'cmt' => 'layout/cmtLayout.phtml'
+            'cmt' => 'layout/cmtLayout.phtml',
+            'userprofile' => 'layout/userprofileLayout.phtml'
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -101,7 +102,8 @@ return array(
     ),
     'ActionsTobeAuthenticated' => array(
         'Sanalfabrika' => array(
-            'cmt'
+            'cmt',
+            'userprofile'
         ),
 
     ),
@@ -116,7 +118,9 @@ return array(
                                      'sanalfabrika' => array ('index',
                                                               'registration',
                                                               'login',
-                                                              'cmt')),
+                                                              'cmt',
+                                                              'userprofile'
+                                                              )),
                    ),
         'supervisor' => array(
                          'parent' => 'consultant',
@@ -136,7 +140,7 @@ return array(
                    ),
         'new user' => array(
                          'parent' => 'guest',
-                         'action' => array('sanalfabrika' => array ('cmt'))
+                         'action' => array('sanalfabrika' => array ('cmt','userprofile'))
                    ),
         
         'firm user' => array(
