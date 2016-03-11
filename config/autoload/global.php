@@ -51,7 +51,9 @@ return array(
             'registration' => 'layout/registrationLayout.phtml',
             'login' => 'layout/loginLayout.phtml',
             'cmt' => 'layout/cmtLayout.phtml',
-            'userprofile' => 'layout/userprofileLayout.phtml'
+            'userprofile' => 'layout/userprofileLayout.phtml',
+            'userprofilepersonal' => 'layout/userprofilepersonalLayout.phtml',
+            'userprofileusers' => 'layout/userprofileusersLayout.phtml',
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -103,7 +105,9 @@ return array(
     'ActionsTobeAuthenticated' => array(
         'Sanalfabrika' => array(
             'cmt',
-            'userprofile'
+            'userprofile',
+            'userprofilepersonal',
+            'userprofileusers'
         ),
 
     ),
@@ -119,7 +123,9 @@ return array(
                                                               'registration',
                                                               'login',
                                                               'cmt',
-                                                              'userprofile'
+                                                              'userprofile',
+                                                              'userprofilepersonal',
+                                                              'userprofileusers'
                                                               )),
                    ),
         'supervisor' => array(
@@ -140,7 +146,10 @@ return array(
                    ),
         'new user' => array(
                          'parent' => 'guest',
-                         'action' => array('sanalfabrika' => array ('cmt','userprofile'))
+                         'action' => array('sanalfabrika' => array ('cmt',
+                                                                    'userprofile',
+                                                                    'userprofilepersonal',
+                                                                    'userprofileusers'))
                    ),
         
         'firm user' => array(
