@@ -218,6 +218,40 @@
                      */
                     $publicKey = $this->getServiceLocator()->get('servicePublicKeyGenerator');
                     //print_r($publicKey);
+                    
+                                        
+                    /**
+                     * sends login info to message queue
+                     * @author Mustafa Zeynel Dağlı
+                     * @todo after tests ,  thif feature will be added as a service manager entity
+                     */
+                    $exceptionMQ = new \Utill\MQ\restEntryMQ();
+                    $exceptionMQ->setChannelProperties(array('queue.name' => 'userLogin_queue'));
+                    $message = new \Utill\MQ\MessageMQ\MQMessage();
+                    ;
+                    //$message->setMessageBody(array('testmessage body' => 'test cevap'));
+                    //$message->setMessageBody($e);
+
+                    $message->setMessageBody(array('message' => 'Kullanıcı login işlemi', 
+                                                   //'s_date'  => date('l jS \of F Y h:i:s A'),
+                                                   's_date'  => date('Y-m-d G:i:s '),
+                                                   'pk' => $publicKey,
+                                                   'url' => '',
+                                                   'path' =>'',
+                                                   'method' => '',
+                                                   'params' => $_POST,
+                                                   'type_id' => 99,
+                                                   'logFormat' => 'database'));
+                    $message->setMessageProperties(array('delivery_mode' => 2,
+                                                         'content_type' => 'application/json'));
+                    $exceptionMQ->setMessage($message->setMessage());
+                    $exceptionMQ->basicPublish();
+                    
+                   
+                    
+                    
+                    
+                    
                     /**
                      * when public key not created service returns true,
                      * if public key true we should logout
