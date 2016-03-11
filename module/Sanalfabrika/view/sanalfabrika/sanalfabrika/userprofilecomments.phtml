@@ -165,10 +165,10 @@
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
         <div style='background: #E0EDDF;' class="container">
-            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Users') ?></h1>
+            <h1 class="pull-left"><i class="fa fa-comments"></i><?php echo $this->translate('Comments') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
-                <li class="active"><?php echo $this->translate('Users') ?></li>
+                <li class="active"><?php echo $this->translate('Comments') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -177,6 +177,7 @@
 
     <!--=== Profile ===-->
     <div class="container content profile">
+        
         <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
@@ -189,10 +190,10 @@
                     <li class="list-group-item">
                         <a href="userprofilepersonal"><i class="fa fa-user"></i> <?php echo $this->translate('Profile')?></a>
                     </li>
-                    <li class="list-group-item active">
+                    <li class="list-group-item">
                         <a href="userprofileusers"><i class="fa fa-group"></i> <?php echo $this->translate('Users')?></a>
                     </li>                                        
-                    <li class="list-group-item">
+                    <li class="list-group-item active">
                         <a href="userprofileprojects"><i class="fa fa-cubes"></i> <?php echo $this->translate('My Projects')?></a>
                     </li>
                     <li class="list-group-item">
@@ -204,10 +205,10 @@
                     <li class="list-group-item">
                         <a href="userprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings')?></a>
                     </li> 
-                </ul>     
+                </ul>   
 
                 <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Task Progress')?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
                 <h3 class="heading-xs">Web Design <span class="pull-right">92%</span></h3>
@@ -230,35 +231,35 @@
 
                 <!--Notification-->
                 <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> Notification</h2>
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notification')?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
                 <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
                     <li class="notification">
                         <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
                         <div class="overflow-h">
-                            <span><strong>Albert Heller</strong> has sent you email.</span>
-                            <small>Two minutes ago</small>
+                            <span><strong>Albert Heller</strong> <?php echo $this->translate('has sent you email.')?></span>
+                            <small>Two <?php echo $this->translate('minutes')?> <?php echo $this->translate('ago')?></small>
                         </div>    
                     </li>
                     <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img5.jpg')?>" alt="">
+                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
                         <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> started following you.</span>
+                            <span><strong>Taylor Lee</strong> <?php echo $this->translate('started following you.')?></span>
                             <small>Today 18:25 pm</small>
                         </div>    
                     </li>
                     <li class="notification">
                         <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
                         <div class="overflow-h">
-                            <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
+                            <span><strong>Natasha Kolnikova</strong> <?php echo $this->translate('accepted your invitation.')?></span>
                             <small>Yesterday 1:07 pm</small>
                         </div>    
                     </li>
                     <li class="notification">
                         <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg')?>" alt="">
                         <div class="overflow-h">
-                            <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
+                            <span><strong>Mikel Andrews</strong> <?php echo $this->translate('commented on your Timeline.')?></span>
                             <small>23/12 11:01 am</small>
                         </div>    
                     </li>
@@ -272,222 +273,181 @@
                     <li class="notification">
                         <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
                         <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> changed profile picture.</span>
+                            <span><strong>Taylor Lee</strong> <?php echo $this->translate('changed profile picture.')?></span>
                             <small>23/12 15:15 pm</small>
                         </div>    
                     </li>
-                </ul> 
-                
+                </ul>  
             </div>
             <!--End Left Sidebar-->
 
-            <!-- Profile Content -->            
+            <!-- Profile Content -->                
             <div class="col-md-9">
-                <div class="profile-body margin-bottom-20">
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Mikel Andrews</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">12 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">54 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div>
-                        </div>        
-
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/user.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Natasha Kolnikova</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">37 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">46 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
-                        </div>    
-                    </div><!--/end row-->   
-                    <!--End Profile Blog-->
-
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img2.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Sasha Elli</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">3 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">25 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div>
-                        </div>        
-
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Frank Heller</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">7 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">77 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
-                        </div>    
-                    </div><!--/end row-->   
-                    <!--End Profile Blog-->
-
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/user.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>John W.A</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">0 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">9 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div>
-                        </div>        
-
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img5.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Natalia J.</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">56 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">125 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
-                        </div>    
-                    </div><!--/end row-->
-
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">        
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img4.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Pavel Kolnikov</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">37 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">46 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
-                        </div>        
-
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Taylor Lee</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">0 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">9 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div>
-                        </div>    
-                    </div><!--/end row-->   
-                    <!--End Profile Blog-->
-
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Frank Heller</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">7 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">77 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
+                <div class="profile-body">
+                    <div class="panel panel-profile">
+                        <div class="panel-heading overflow-h">
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-comments"></i><?php echo $this->translate('Users Comments')?></h2>
+                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
                         </div>
-                        
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img2.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Sasha Elli</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
+                        <div class="panel-body margin-bottom-50">
+                            <div class="media media-v2">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img2.jpg')?>" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        <strong><a href="#">Eva Nelson</a></strong> @EvaNelson
+                                        <small><?php echo $this->translate('About')?> <?php echo $this->translate('an hour ago')?> </small>
+                                    </h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada rhoncus tellus blandit facilisis. Morbi faucibus eros facilisis vulputate mollis. Mauris sodales ante lorem, sed fringilla orci rhoncus ac. Donec sit amet eros at libero egestas interdum non quis libero.</p>
+                                    <ul class="list-inline results-list pull-left">
+                                        <li><a href="#">25 <?php echo $this->translate('Links')?></a></li>
+                                        <li><a href="#">10 <?php echo $this->translate('Share')?></a></li>
+                                    </ul>    
+                                    <ul class="list-inline pull-right">
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-reply"></i></a></li>
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-retweet"></i></a></li>
+                                    </ul>
                                 </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">3 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">25 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div>
-                        </div>    
-                    </div><!--/end row-->
+                            </div><!--/end media media v2--> 
+                            <div class="media media-v2 margin-bottom-20">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg')?>" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        <strong><a href="#">Frank Lennon</a></strong> @FLennon 
+                                        <small>4 <?php echo $this->translate('hours')?> <?php echo $this->translate('hours')?> <?php echo $this->translate('ago')?></small>
+                                    </h4>
+                                    <p>I'm incredibly excited to announce that I am joining the amazing <a href="#">@Unify</a> team. To be in touch with the latest update, Sign up and get your own Account page fee free :) Like mine: <a href="#">http://www.unify.com/flennon</a></p>
+                                    <ul class="list-inline results-list pull-left">
+                                        <li><a href="#">5 <?php echo $this->translate('Likes')?></a></li>
+                                        <li><a href="#">1 <?php echo $this->translate('Share')?></a></li>
+                                    </ul>
+                                    <ul class="list-inline pull-right">
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-reply"></i></a></li>
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-retweet"></i></a></li>
+                                    </ul>
 
-                    <button type="button" class="btn-u btn-u-default btn-block text-center">Load More</button>   
-                    <!--End Profile Blog-->
+                                    <div class="clearfix"></div>
+                                    
+                                    <div class="media media-v2">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img7.jpg')?>" alt="">
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                <strong><a href="#">Edward Rooster</a></strong> @EdwardRooster 
+                                                <small>5 <?php echo $this->translate('hours')?> <?php echo $this->translate('ago')?></small>
+                                            </h4>
+                                            <p>Welcome to Board! :) Your journey starts here. Wish you all the best!</p>
+                                            <ul class="list-inline results-list pull-left">
+                                                <li><a href="#">0 <?php echo $this->translate('Likes')?></a></li>
+                                                <li><a href="#">0 <?php echo $this->translate('Share')?></a></li>
+                                            </ul>
+                                            <ul class="list-inline pull-right">
+                                                <li><a href="#"><i class="expand-list rounded-x fa fa-reply"></i></a></li>
+                                                <li><a href="#"><i class="expand-list rounded-x fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="expand-list rounded-x fa fa-retweet"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div><!--/end media media v2-->
+                            <button type="button" class="btn-u btn-u-default btn-block"><?php echo $this->translate('Load More')?></button>
+                        </div>
+                    </div>    
+                    
+                    <div class="panel panel-profile">
+                        <div class="panel-heading overflow-h">
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-comments"></i><?php echo $this->translate('Projects Comments')?></h2>
+                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="media media-v2 margin-bottom-20">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        <strong><a href="#">Lee Parker</a></strong> @LeePark 
+                                        <small>12 <?php echo $this->translate('hours')?> <?php echo $this->translate('ago')?></small>
+                                    </h4>
+                                    <p>Pellentesque scelerisque vitae mi quis sollicitudin. Sed pellentesque nulla eleifend hendrerit rhoncus. Aenean rhoncus imperdiet pretium. Nunc vitae egestas eros, vel fringilla arcu. Duis vel libero sit amet metus faucibus venenatis in sit amet nisl. Fusce imperdiet enim risus. Cras orci velit, tempor dignissim ante eget, rhoncus hendrerit nisi. </p>
+                                    <ul class="list-inline img-uploaded">
+                                        <li><img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img12.jpg')?>" alt=""></li>
+                                        <li><img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img3.jpg')?>" alt=""></li>
+                                        <li><img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img16.jpg')?>" alt=""></li>
+                                    </ul>
+                                    <ul class="list-inline results-list pull-left">
+                                        <li><a href="#">7 <?php echo $this->translate('Likes')?></a></li>
+                                        <li><a href="#">2 <?php echo $this->translate('Share')?></a></li>
+                                    </ul>
+                                    <ul class="list-inline pull-right">
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-reply"></i></a></li>
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="expand-list rounded-x fa fa-retweet"></i></a></li>
+                                    </ul>
+
+                                    <div class="clearfix"></div>
+                                    
+                                    <div class="media media-v2">
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img7.jpg')?>" alt="">
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                <strong><a href="#">Edward Rooster</a></strong> @EdwardRooster 
+                                                <small>7 <?php echo $this->translate('hours')?> <?php echo $this->translate('ago')?></small>
+                                            </h4>
+                                            <p>How was trip?</p>
+                                            <ul class="list-inline results-list pull-left">
+                                                <li><a href="#">0 <?php echo $this->translate('Likes')?></a></li>
+                                                <li><a href="#">0 <?php echo $this->translate('Share')?></a></li>
+                                            </ul>
+                                            <ul class="list-inline pull-right">
+                                                <li><a href="#"><i class="expand-list rounded-x fa fa-reply"></i></a></li>
+                                                <li><a href="#"><i class="expand-list rounded-x fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="expand-list rounded-x fa fa-retweet"></i></a></li>
+                                            </ul>
+
+                                            <div class="clearfix"></div>
+                                            
+                                            <div class="media media-v2">
+                                                <a class="pull-left" href="#">
+                                                    <img class="media-object rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">
+                                                        <strong><a href="#">Lee Parker</a></strong> @LeePark 
+                                                        <small>9 <?php echo $this->translate('hours')?> <?php echo $this->translate('ago')?></small>
+                                                    </h4>
+                                                    <p>Amazing!</p>
+                                                    <ul class="list-inline results-list pull-left">
+                                                        <li><a href="#">0 <?php echo $this->translate('Likes')?></a></li>
+                                                        <li><a href="#">0 <?php echo $this->translate('Share')?></a></li>
+                                                    </ul>
+                                                    <ul class="list-inline pull-right">
+                                                        <li><a href="#"><i class="expand-list rounded-x fa fa-reply"></i></a></li>
+                                                        <li><a href="#"><i class="expand-list rounded-x fa fa-heart"></i></a></li>
+                                                        <li><a href="#"><i class="expand-list rounded-x fa fa-retweet"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div><!--/end media media v2-->
+                            <button type="button" class="btn-u btn-u-default btn-block"><?php echo $this->translate('Load More')?></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- End Profile Content -->            
-        </div><!--/end row-->
+            <!-- End Profile Content -->                
+        </div>
+        
     </div><!--/container-->    
     <!--=== End Profile ===-->
 

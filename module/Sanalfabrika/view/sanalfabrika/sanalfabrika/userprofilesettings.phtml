@@ -165,10 +165,10 @@
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
         <div style='background: #E0EDDF;' class="container">
-            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Users') ?></h1>
+            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Profile Owner Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
-                <li class="active"><?php echo $this->translate('Users') ?></li>
+                <li class="active"><?php echo $this->translate('User Profile') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -177,6 +177,7 @@
 
     <!--=== Profile ===-->
     <div class="container content profile">
+          
         <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
@@ -189,7 +190,7 @@
                     <li class="list-group-item">
                         <a href="userprofilepersonal"><i class="fa fa-user"></i> <?php echo $this->translate('Profile')?></a>
                     </li>
-                    <li class="list-group-item active">
+                    <li class="list-group-item">
                         <a href="userprofileusers"><i class="fa fa-group"></i> <?php echo $this->translate('Users')?></a>
                     </li>                                        
                     <li class="list-group-item">
@@ -201,10 +202,10 @@
                     <li class="list-group-item">
                         <a href="userprofilehistory"><i class="fa fa-history"></i> <?php echo $this->translate('History')?></a>
                     </li>                                       
-                    <li class="list-group-item">
+                    <li class="list-group-item active">
                         <a href="userprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings')?></a>
                     </li> 
-                </ul>     
+                </ul>    
 
                 <div class="panel-heading-v2 overflow-h">
                     <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
@@ -242,7 +243,7 @@
                         </div>    
                     </li>
                     <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img5.jpg')?>" alt="">
+                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
                         <div class="overflow-h">
                             <span><strong>Taylor Lee</strong> started following you.</span>
                             <small>Today 18:25 pm</small>
@@ -267,7 +268,7 @@
                         <div class="overflow-h">
                             <span><strong>Bruno Js.</strong> added you to group chating.</span>
                             <small>Yesterday 1:07 pm</small>
-                        </div>    
+                        </div>
                     </li>
                     <li class="notification">
                         <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
@@ -276,7 +277,7 @@
                             <small>23/12 15:15 pm</small>
                         </div>    
                     </li>
-                </ul> 
+                </ul>    
                 
             </div>
             <!--End Left Sidebar-->
@@ -284,206 +285,239 @@
             <!-- Profile Content -->            
             <div class="col-md-9">
                 <div class="profile-body margin-bottom-20">
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Mikel Andrews</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">12 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">54 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
+                    <div class="tab-v1">
+                        <ul class="nav nav-justified nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#profile">Edit Profile</a></li>
+                            <li><a data-toggle="tab" href="#passwordTab">Change Password</a></li>
+                            <li><a data-toggle="tab" href="#payment">Payment Options</a></li>
+                            <li><a data-toggle="tab" href="#settings">Notification Settings</a></li>
+                        </ul>          
+                        <div class="tab-content">
+                            <div id="profile" class="profile-edit tab-pane fade in active">
+                                <h2 class="heading-md">Manage your Name, ID and Email Addresses.</h2>
+                                <p>Below are the name and email addresses on file for your account.</p>
+                                <br>
+                                <dl class="dl-horizontal">
+                                    <dt><strong>Your name </strong></dt>
+                                    <dd>
+                                        Edward Rooster 
+                                        <span>
+                                            <a class="pull-right" href="#">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
+                                    </dd>
+                                    <hr>
+                                    <dt><strong>Your ID </strong></dt>
+                                    <dd>
+                                        FKJ-032440 
+                                        <span>
+                                            <a class="pull-right" href="#">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
+                                    </dd>
+                                    <hr>
+                                    <dt><strong>Company name </strong></dt>
+                                    <dd>
+                                        Htmlstream 
+                                        <span>
+                                            <a class="pull-right" href="#">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
+                                    </dd>
+                                    <hr>
+                                    <dt><strong>Primary Email Address </strong></dt>
+                                    <dd>
+                                        edward-rooster@gmail.com 
+                                        <span>
+                                            <a class="pull-right" href="#">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
+                                    </dd>
+                                    <hr>
+                                    <dt><strong>Phone Number </strong></dt>
+                                    <dd>
+                                        (304) 33-2867-499 
+                                        <span>
+                                            <a class="pull-right" href="#">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
+                                    </dd>
+                                    <hr>
+                                    <dt><strong>Office Number </strong></dt>
+                                    <dd>
+                                        (304) 44-9810-296 
+                                        <span>
+                                            <a class="pull-right" href="#">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
+                                    </dd>
+                                    <hr>
+                                    <dt><strong>Address </strong></dt>
+                                    <dd>
+                                        California, US 
+                                        <span>
+                                            <a class="pull-right" href="#">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
+                                    </dd>
+                                    <hr>
+                                </dl>
+                                <button type="button" class="btn-u btn-u-default">Cancel</button>
+                                <button type="button" class="btn-u">Save Changes</button>
                             </div>
-                        </div>        
 
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/user.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Natasha Kolnikova</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">37 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">46 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
-                        </div>    
-                    </div><!--/end row-->   
-                    <!--End Profile Blog-->
-
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img2.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Sasha Elli</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">3 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">25 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
+                            <div id="passwordTab" class="profile-edit tab-pane fade">
+                                <h2 class="heading-md">Manage your Security Settings</h2>
+                                <p>Change your password.</p>
+                                <br>
+                                <form class="sky-form" id="sky-form4" action="#">
+                                    <dl class="dl-horizontal">
+                                        <dt>Username</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-user"></i>
+                                                    <input type="text" placeholder="Username" name="username">
+                                                    <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
+                                                </label>
+                                            </section>
+                                        </dd>
+                                        <dt>Email address</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-envelope"></i>
+                                                    <input type="email" placeholder="Email address" name="email">
+                                                    <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+                                                </label>
+                                            </section>
+                                        </dd>
+                                        <dt>Enter your password</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-lock"></i>
+                                                    <input type="password" id="password" name="password" placeholder="Password">
+                                                    <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                                                </label>
+                                            </section>
+                                        </dd>
+                                        <dt>Confirm Password</dt>
+                                        <dd>
+                                            <section>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-lock"></i>
+                                                    <input type="password" name="passwordConfirm" placeholder="Confirm password">
+                                                    <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                                                </label>
+                                            </section>
+                                        </dd>    
+                                    </dl>
+                                    <label class="toggle toggle-change"><input type="checkbox" checked="" name="checkbox-toggle-1"><i class="no-rounded"></i>Remember password</label>
+                                    <br>
+                                    <section>
+                                        <label class="checkbox"><input type="checkbox" id="terms" name="terms"><i></i><a href="#">I agree with the Terms and Conditions</a></label>
+                                    </section>
+                                    <button type="button" class="btn-u btn-u-default">Cancel</button>
+                                    <button class="btn-u" type="submit">Save Changes</button>
+                                </form>    
                             </div>
-                        </div>        
 
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Frank Heller</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">7 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">77 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
-                        </div>    
-                    </div><!--/end row-->   
-                    <!--End Profile Blog-->
+                            <div id="payment" class="profile-edit tab-pane fade">
+                                <h2 class="heading-md">Manage your Payment Settings</h2>
+                                <p>Below are the payment options for your account.</p>
+                                <br>
+                                <form class="sky-form" id="sky-form" action="#">
+                                    <!--Checkout-Form-->
+                                    <section>
+                                        <div class="inline-group">
+                                            <label class="radio"><input type="radio" checked="" name="radio-inline"><i class="rounded-x"></i>Visa</label>
+                                            <label class="radio"><input type="radio" name="radio-inline"><i class="rounded-x"></i>MasterCard</label>
+                                            <label class="radio"><input type="radio" name="radio-inline"><i class="rounded-x"></i>PayPal</label>
+                                        </div>
+                                    </section>                  
 
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/user.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>John W.A</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">0 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">9 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
+                                    <section>
+                                        <label class="input">
+                                            <input type="text" name="name" placeholder="Name on card">
+                                        </label>
+                                    </section>
+                                    
+                                    <div class="row">
+                                        <section class="col col-10">
+                                            <label class="input">
+                                                <input type="text" name="card" id="card" placeholder="Card number">
+                                            </label>
+                                        </section>
+                                        <section class="col col-2">
+                                            <label class="input">
+                                                <input type="text" name="cvv" id="cvv" placeholder="CVV2">
+                                            </label>
+                                        </section>
+                                    </div>                                        
+                                    
+                                    <div class="row">
+                                        <label class="label col col-4">Expiration date</label>
+                                        <section class="col col-5">
+                                            <label class="select">
+                                                <select name="month">
+                                                    <option disabled="" selected="" value="0">Month</option>
+                                                    <option value="1">January</option>
+                                                    <option value="1">February</option>
+                                                    <option value="3">March</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">May</option>
+                                                    <option value="6">June</option>
+                                                    <option value="7">July</option>
+                                                    <option value="8">August</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
+                                                <i></i>
+                                            </label>
+                                        </section>
+                                        <section class="col col-3">
+                                            <label class="input">
+                                                <input type="text" placeholder="Year" id="year" name="year">
+                                            </label>
+                                        </section>
+                                    </div>
+                                    <button type="button" class="btn-u btn-u-default">Cancel</button>
+                                    <button class="btn-u" type="submit">Save Changes</button>
+                                    <!--End Checkout-Form-->
+                                </form>    
                             </div>
-                        </div>        
 
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img5.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Natalia J.</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">56 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">125 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
-                        </div>    
-                    </div><!--/end row-->
-
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">        
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img4.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Pavel Kolnikov</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">37 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">46 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
-                        </div>        
-
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Taylor Lee</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">0 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">9 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
+                            <div id="settings" class="profile-edit tab-pane fade">
+                                <h2 class="heading-md">Manage your Notifications.</h2>
+                                <p>Below are the notifications you may manage.</p>
+                                <br>
+                                <form class="sky-form" id="sky-form3" action="#">
+                                    <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"><i class="no-rounded"></i>Email notification</label>
+                                    <hr>
+                                    <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"><i class="no-rounded"></i>Send me email notification when a user comments on my blog</label>
+                                    <hr>
+                                    <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"><i class="no-rounded"></i>Send me email notification for the latest update</label>
+                                    <hr>
+                                    <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"><i class="no-rounded"></i>Send me email notification when a user sends me message</label>
+                                    <hr>
+                                    <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle-1"><i class="no-rounded"></i>Receive our monthly newsletter</label>
+                                    <hr>    
+                                    <button type="button" class="btn-u btn-u-default">Reset</button>
+                                    <button class="btn-u" type="submit">Save Changes</button>
+                                </form>    
                             </div>
-                        </div>    
-                    </div><!--/end row-->   
-                    <!--End Profile Blog-->
-
-                    <!--Profile Blog-->
-                    <div class="row margin-bottom-20">
-                        <div class="col-sm-6 sm-margin-bottom-20">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Frank Heller</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">7 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">77 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div> 
                         </div>
-                        
-                        <div class="col-sm-6">
-                            <div class="profile-blog">
-                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img2.jpg')?>" alt="">
-                                <div class="name-location">
-                                    <strong>Sasha Elli</strong>
-                                    <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                </div>
-                                <div class="clearfix margin-bottom-20"></div>    
-                                <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                <hr>
-                                <ul class="list-inline share-list">
-                                    <li><i class="fa fa-bell"></i><a href="#">3 Notifications</a></li>
-                                    <li><i class="fa fa-group"></i><a href="#">25 Followers</a></li>
-                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
-                                </ul>
-                            </div>
-                        </div>    
-                    </div><!--/end row-->
-
-                    <button type="button" class="btn-u btn-u-default btn-block text-center">Load More</button>   
-                    <!--End Profile Blog-->
+                    </div>    
                 </div>
             </div>
             <!-- End Profile Content -->            

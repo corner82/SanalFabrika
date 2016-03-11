@@ -54,6 +54,10 @@ return array(
             'userprofile' => 'layout/userprofileLayout.phtml',
             'userprofilepersonal' => 'layout/userprofilepersonalLayout.phtml',
             'userprofileusers' => 'layout/userprofileusersLayout.phtml',
+            'userprofileprojects' => 'layout/userprofileprojectsLayout.phtml',
+            'userprofilecomments' => 'layout/userprofilecommentsLayout.phtml',
+            'userprofilehistory' => 'layout/userprofilehistoryLayout.phtml',
+            'userprofilesettings' => 'layout/userprofilesettingsLayout.phtml'
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -107,7 +111,11 @@ return array(
             'cmt',
             'userprofile',
             'userprofilepersonal',
-            'userprofileusers'
+            'userprofileusers',
+            'userprofileprojects',
+            'userprofilecomments',
+            'userprofilehistory',
+            'userprofilesettings'
         ),
 
     ),
@@ -125,7 +133,11 @@ return array(
                                                               'cmt',
                                                               'userprofile',
                                                               'userprofilepersonal',
-                                                              'userprofileusers'
+                                                              'userprofileusers',
+                                                              'userprofileprojects',
+                                                              'userprofilecomments',
+                                                              'userprofilehistory',
+                                                              'userprofilesettings'
                                                               )),
                    ),
         'supervisor' => array(
@@ -149,7 +161,12 @@ return array(
                          'action' => array('sanalfabrika' => array ('cmt',
                                                                     'userprofile',
                                                                     'userprofilepersonal',
-                                                                    'userprofileusers'))
+                                                                    'userprofileusers',
+                                                                    'userprofileprojects',
+                                                                    'userprofilecomments',
+                                                                    'userprofilehistory',
+                                                                    'userprofilesettings'      
+                                                                    ))
                    ),
         
         'firm user' => array(
