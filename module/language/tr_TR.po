@@ -71,6 +71,9 @@ msgstr "Kurumlar"
 msgid "ECO-OSTIM"
 msgstr "EKO-OSTİM"
 
+msgid "OSTIM Services"
+msgstr "OSTİM Hizmetleri"
+
 #: ../view/layout/sfdm.phtml:13
 msgid "Definitions"
 msgstr "Tanımlamalar"

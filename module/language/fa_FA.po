@@ -57,6 +57,9 @@ msgstr "سازمانها"
 msgid "ECO-OSTIM"
 msgstr "EKO-OSTİM"
 
+msgid "OSTIM Services"
+msgstr "خدمات اوستیم"
+
 msgid "Definitions"
 msgstr "تعاریف"
 
