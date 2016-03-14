@@ -227,7 +227,7 @@
                      */
                     $exceptionMQ = new \Utill\MQ\restEntryMQ();
                     $exceptionMQ->setChannelProperties(array('queue.name' => 'userLogin_queue'));
-                    $message = new \Utill\MQ\MessageMQ\MQMessage();
+                    $message = new \Utill\MQ\MessageMQ\MQMessageLoginLogout();
                     ;
                     //$message->setMessageBody(array('testmessage body' => 'test cevap'));
                     //$message->setMessageBody($e);
@@ -240,7 +240,7 @@
                                                    'path' =>'',
                                                    'method' => '',
                                                    'params' => $_POST,
-                                                   'type_id' => 99,
+                                                   'type_id' => \Utill\MQ\MessageMQ\MQMessageLoginLogout::LOGIN_OPERATAION,
                                                    'logFormat' => 'database'));
                     $message->setMessageProperties(array('delivery_mode' => 2,
                                                          'content_type' => 'application/json'));
