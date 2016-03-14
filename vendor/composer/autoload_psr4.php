@@ -67,4 +67,5 @@ return array(
     'Custom\\Services\\MultiLanguage\\' => array($vendorDir . '/services/src/multiLanguage'),
     'Custom\\Services\\Filter\\' => array($vendorDir . '/services/src/filter'),
     'Custom\\Services\\Acl\\' => array($vendorDir . '/services/src/acl'),
+    'Utill\\MQ\\' => array($vendorDir . '/utill/mq'),
 );
