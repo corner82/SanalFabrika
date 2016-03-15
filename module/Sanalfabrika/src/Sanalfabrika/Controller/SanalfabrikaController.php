@@ -225,8 +225,8 @@
                      * @author Mustafa Zeynel Dağlı
                      * @todo after tests ,  thif feature will be added as a service manager entity
                      */
-                    $exceptionMQ = new \Utill\MQ\restEntryMQ();
-                    $exceptionMQ->setChannelProperties(array('queue.name' => 'userLogin_queue'));
+                    $loginLogoutMQ = new \Utill\MQ\LoginLogoutMQ();
+                    $loginLogoutMQ->setChannelProperties(array('queue.name' => \Utill\MQ\LoginLogoutMQ::QUEUE_NAME));
                     $message = new \Utill\MQ\MessageMQ\MQMessageLoginLogout();
                     ;
                     //$message->setMessageBody(array('testmessage body' => 'test cevap'));
@@ -244,8 +244,8 @@
                                                    'logFormat' => 'database'));
                     $message->setMessageProperties(array('delivery_mode' => 2,
                                                          'content_type' => 'application/json'));
-                    $exceptionMQ->setMessage($message->setMessage());
-                    $exceptionMQ->basicPublish();
+                    $loginLogoutMQ->setMessage($message->setMessage());
+                    $loginLogoutMQ->basicPublish();
                     
                    
                     
