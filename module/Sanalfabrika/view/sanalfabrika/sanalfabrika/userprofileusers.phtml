@@ -101,8 +101,8 @@
                     </li>
                     <li class="topbar-devider"></li>   
                     <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
-                    <li class="topbar-devider"></li>   
-                    <li><a href="sflogin.phtml"><?php echo $this->translate('Login') ?></a></li>   
+                    <li class="topbar-devider"></li>    
+                    <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><?php echo $this->translate('Log out') ?></a></li>     
                 </ul>
             </div>
             <!-- End Topbar -->
