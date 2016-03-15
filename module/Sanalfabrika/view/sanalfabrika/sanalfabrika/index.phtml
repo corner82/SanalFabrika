@@ -79,7 +79,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 <ul class="loginbar pull-right">
                     <li class="hoverSelector">
                         <i class="fa fa-globe"></i>
-                        <a>Languages</a>
+                        <a><?php echo $this->translate('Languages') ?>  </a>
                         <ul class="languages hoverSelectorBlock">
                             <!--<li class="active">
                                 <a href="#">English <i class="fa fa-check"></i></a> 
@@ -90,9 +90,9 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="page_faq.html">Help</a></li>  
+                    <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
                     <li class="topbar-devider"></li>   
-                    <li><a href="page_login.html">Login</a></li>   
+                    <li><a href="page_login.html"><?php echo $this->translate('Log in') ?> </a></li>   
                 </ul>
             </div>
             <!-- End Topbar -->
@@ -204,8 +204,8 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             data-endeasing="Power1.easeIn"
                             data-captionhidden="off"
                             style="z-index: 6">
-                            <span class="page-scroll"><a href="#about" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a></span>
-                            <span class="page-scroll"><a href="#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a></span>
+                            <span class="page-scroll"><a href="#about" class="btn-u btn-brd btn-brd-hover btn-u-light"><?php echo $this->translate('Learn more') ?></a></span>
+                            <span class="page-scroll"><a href="#portfolio" class="btn-u btn-brd btn-brd-hover btn-u-light"><?php echo $this->translate('Our Job') ?>  </a></span>
                         </div>
                     </li>
                 </ul>
@@ -516,7 +516,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
         <div class="team-v1 bg-grey content-lg">
             <div class="container">
                 <div class="title-v1">
-                    <h2>Meet Our Team</h2>
+                    <h2><?php echo $this->translate('VE Team') ?>     </h2>
                     <p>We <strong>meet</strong> and get to know you. You tell us and we listen. <br>
                     We build your website to realise your vision and we <strong>deliver</strong> the ready product.</p>
                 </div>
@@ -584,26 +584,26 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 <div class="row">
                     <div class="col-sm-3 col-xs-6">
                         <div class="counters">
-                            <span class="counter">10629</span>
-                            <h4>Users</h4>
+                            <span class="counter">500000</span>
+                            <h4><?php echo $this->translate('Overall Manufacturing Area') ?> </h4>
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-6">
                         <div class="counters">
-                            <span class="counter">277</span>
-                            <h4>Projects</h4>
+                            <span class="counter">5200</span>
+                            <h4><?php echo $this->translate('Overall Enterprise Number') ?>  </h4>
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-6">
                         <div class="counters">
-                            <span class="counter">78</span>
-                            <h4>Team Members</h4>
+                            <span class="counter">50000</span>
+                            <h4><?php echo $this->translate('Employees') ?>      </h4>
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-6">
                         <div class="counters">
-                            <span class="counter">109</span>
-                            <h4>Awards</h4>
+                            <span class="counter">2100</span>
+                            <h4><?php echo $this->translate('Machine Park Size') ?>    </h4>
                         </div>
                     </div>
                 </div>
@@ -1058,17 +1058,19 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
         </div>
 
         <div class="copyright-section">
-            <p>2015 &copy; All Rights Reserved. Unify Theme by <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a></p>
+            <p><?php echo $this->translate('Copyright') ?> &copy; OSTİM Teknoloji 2016<!--2015 &copy; All Rights Reserved. Unify Theme by--> <a target="_blank" href="https://twitter.com/ostimosb"><?php echo $this->translate('OSTIM') ?></a></p>
             <ul class="social-icons">
-                <li><a href="#" data-original-title="Facebook" class="social_facebook rounded-x"></a></li>
-                <li><a href="#" data-original-title="Twitter" class="social_twitter rounded-x"></a></li>
-                <li><a href="#" data-original-title="Goole Plus" class="social_googleplus rounded-x"></a></li>
-                <li><a href="#" data-original-title="Pinterest" class="social_pintrest rounded-x"></a></li>
-                <li><a href="#" data-original-title="Linkedin" class="social_linkedin rounded-x"></a></li>
+                <li><a href="https://www.facebook.com/OstimOSB/" data-original-title="Facebook" class="social_facebook rounded-x js-sociaLinks js-sociaLinks"></a></li>
+                <li><a href="https://twitter.com/ostimosb" data-original-title="Twitter" class="social_twitter rounded-x js-sociaLinks"></a></li>
+                <li><a href="https://plus.google.com/+OST%C4%B0MOSB1967" data-original-title="Goole Plus" class="social_googleplus rounded-x js-sociaLinks"></a></li>
+                <li><a href="https://www.instagram.com/ostimosb/" data-original-title="Instagram" class="social_instagram rounded-x js-sociaLinks"></a></li>
+                <li><a href="https://www.linkedin.com/in/ostim-osb-2b94b847" data-original-title="Linkedin" class="social_linkedin rounded-x js-sociaLinks"></a></li>
+                <!--<li><a href="https://www.instagram.com/ostimosb/" data-original-title="Instagram" class="social_instagram rounded-x"></a></li>-->
+                
             </ul>
             <span class="page-scroll"><a href="#intro"><i class="fa fa-angle-double-up back-to-top"></i></a></span>
         </div>
-    </section>
+    </section>    
     <!-- End Contact Section -->
     
     

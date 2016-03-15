@@ -358,7 +358,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1> Danışman Yönetim Paneli
+            <h1> Yönetici  Paneli
                 <?php //echo $this->translate('Virtual Enterprise Control Panel') ?>
                 <small></small>
             </h1>
@@ -370,6 +370,53 @@
 
         <!-- Main content -->
         <section class="content">
+            
+            <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">CPU Traffic</span>
+                  <span class="info-box-number">90<small>%</small></span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="ion ion-ios-information"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Likes</span>
+                  <span class="info-box-number">41,410</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <!--<div class="clearfix visible-sm-block"></div>-->
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-gears "></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Sales</span>
+                  <span class="info-box-number">760</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion ion-android-time"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">New Members</span>
+                  <span class="info-box-number">2,000</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+          </div>
+            
+            
+            
+            
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-lg-3 col-xs-6">
@@ -443,9 +490,6 @@
             <!-- Main row -->
             <div class="row">
 
-
-
-
                 <!-- Left col -->
                 <section class="col-lg-12 connectedSortable">
 
@@ -460,60 +504,31 @@
                             <li class="pull-left header"><i class="fa fa-bar-chart-o"></i> Tezgah Genel Bilgileri</li>
                         </ul>
                         <div class="tab-content no-padding">
+                            <div id="timeSeries" style="min-width: 310px;width: 100%; height: 400px; margin: 0 auto"></div>
                             <!-- Morris chart - Sales -->
-                            <div id="container_employees" style="/*min-width: auto; */
+                            <!--<div id="container_employees" style="/*min-width: auto; */
                                  height: 300px; 
                                  //max-width: 500px; 
                                  width: 100%;
                                  margin: 0 auto;">
-                                <!--<div class="overlay" style="position: fixed;
-                                  top: 40%;
-                                  left: 50%;
-                                  height: 500px;
-                                  width: 100px;">
-                                  <i class="fa fa-refresh fa-spin"  ></i>
-                                </div>  --> 
+                                
                                 <div class="overlay" >
                                     <i class="fa fa-refresh fa-spin"  ></i>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
 
                     </div><!-- /.nav-tabs-custom -->
                 </section>    
 
                 <section class="col-lg-7 connectedSortable">
-                    <!-- Chat box -->
-                    <div class="box box-success">     
-                        <div class="box-header">
-                            <i class="fa fa-cart-arrow-down"></i>
-                            <h3 class="box-title">Sanal Fabrika işlemlerinizin karşılaştırmalı gösterimi</h3>
-                            <!--<div class="box-tools pull-right" data-toggle="tooltip" title="Status">
-                              <div class="btn-group" data-toggle="btn-toggle" >
-                                <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
-                              </div>
-                            </div>-->
-                        </div>
-                        <div class="box-body chat" id="chat-box">
-
-                            <div id="container_machinerByResource" style="width: 100%; 
-                                 height: 300px; 
-                                 margin: 0 auto;
-                                 ">  
-                                <div class="overlay" >
-                                    <i class="fa fa-refresh fa-spin"  ></i>
-                                </div>
-                            </div>   
-                        </div><!-- /.chat -->
-
-                    </div><!-- /.box (chat box) -->
+                    
 
                     <!-- TO DO List -->
                     <div id='todolistbox' class="box box-primary">
                         <div class="box-header">
                             <i class="ion ion-clipboard"></i>
-                            <h3 class="box-title">Onay Bekleyen Firmalar</h3>
+                            <h3 class="box-title">Online İşlemler</h3>
                             <div class="box-tools pull-right">
                                 <ul class="pagination pagination-sm inline">
                                     <li><a href="#">&laquo;</a></li>
@@ -647,6 +662,115 @@
                 </section><!-- /.Left col -->
                 <!-- right col (We are only adding the ID to make the widgets sortable)-->
                 <section class="col-lg-5 connectedSortable">
+                    
+                    
+                    <!-- TO DO List -->
+                    <div id='todolistbox' class="box box-primary">
+                        <div class="box-header">
+                            <i class="ion ion-clipboard"></i>
+                            <h3 class="box-title">Diğer Online İşlemler</h3>
+                            <div class="box-tools pull-right">
+                                <ul class="pagination pagination-sm inline">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <ul class="todo-list">
+                                <li>
+                                    <!-- drag handle -->
+                                    <span class="handle">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </span>
+                                    <!-- checkbox -->
+                                    <input type="checkbox" value="" name=""/>
+                                    <!-- todo text -->
+                                    <span data-fill="true" class="text"></span>
+                                    <!-- Emphasis label -->
+                                    <small data-fill-number="true" class="label label-danger"><i class="fa fa-clock-o"></i> </small>
+                                    <!-- General tools such as edit or delete-->
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </span>
+                                    <input type="checkbox" value="" name=""/>
+                                    <span  data-fill="true" class="text"></span>
+                                    <small data-fill-number="true" class="label label-info"><i class="fa fa-clock-o"></i> </small>
+                                    <div class="tools">   
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </span>
+                                    <input type="checkbox" value="" name=""/>
+                                    <span data-fill="true" class="text"></span>
+                                    <small data-fill-number="true" class="label label-warning"><i class="fa fa-clock-o"></i> </small>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </span>
+                                    <input type="checkbox" value="" name=""/>
+                                    <span data-fill="true" class="text"></span>
+                                    <small data-fill-number="true" class="label label-success"><i class="fa fa-clock-o"></i> </small>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </span>
+                                    <input type="checkbox" value="" name=""/>
+                                    <span data-fill="true" class="text"></span>
+                                    <small data-fill-number="true" class="label label-primary"><i class="fa fa-clock-o"></i> </small>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="handle">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </span>
+                                    <input type="checkbox" value="" name=""/>
+                                    <span data-fill="true" class="text"></span>
+                                    <small data-fill-number="true" class="label label-default"><i class="fa fa-clock-o"></i> </small>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer clearfix no-border">
+                            <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Ekle</button>
+                        </div>
+                    </div>
+                    
 
                     <!-- Map box -->
                     <div class="box box-solid bg-light-blue-gradient">
