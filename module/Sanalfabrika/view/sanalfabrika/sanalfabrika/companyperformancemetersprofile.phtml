@@ -101,7 +101,7 @@
                     </li>
                     <li class="topbar-devider"></li>   
                     <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
-                    <li class="topbar-devider"></li>      
+                    <li class="topbar-devider"></li>   
                     <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><?php echo $this->translate('Log out') ?></a></li>   
                 </ul>
             </div>
@@ -165,10 +165,11 @@
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
         <div style='background: #E0EDDF;' class="container">
-            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Profile History') ?></h1>
+            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
-                <li class="active"><?php echo $this->translate('Profile History') ?></li>
+                <li><?php echo $this->translate('Company Profile') ?></li>
+                <li class="active"><?php echo $this->translate('Performance Meters') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -180,31 +181,35 @@
         <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
-                <img class="img-responsive profile-img margin-bottom-20" src="<?php echo $this->basePath('onyuz/standard/assets/img/team/img32-md.jpg')?>" alt="">
+                <img class="img-responsive profile-img margin-bottom-20" 
+                     src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emge-logo-without-background.png') ?>" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
                     <li class="list-group-item">
-                        <a href="userprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Overall')?></a>
+                        <a href="companyprofile"><i class="fa fa-info"></i> <?php echo $this->translate('Company Profile') ?></a>
+                    </li>
+                    <li class="list-group-item active" >
+                        <a href="companyperformancemetersprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Performance Meters') ?></a>
                     </li>
                     <li class="list-group-item">
-                        <a href="userprofilepersonal"><i class="fa fa-user"></i> <?php echo $this->translate('Profile')?></a>
+                        <a href="companyproductsprofile"><i class="fa fa-automobile"></i> <?php echo $this->translate('Products') ?></a>
                     </li>
                     <li class="list-group-item">
-                        <a href="userprofileusers"><i class="fa fa-group"></i> <?php echo $this->translate('Users')?></a>
+                        <a href="companymembersprofile"><i class="fa fa-group"></i> <?php echo $this->translate('Members') ?></a>
                     </li>                                        
                     <li class="list-group-item">
-                        <a href="userprofileprojects"><i class="fa fa-cubes"></i> <?php echo $this->translate('My Projects')?></a>
+                        <a href="companyprojectsprofile"><i class="fa fa-cubes"></i> <?php echo $this->translate('Projects') ?></a>
                     </li>
                     <li class="list-group-item">
-                        <a href="userprofilecomments"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments')?></a>
+                        <a href="companycommentsprofile"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments') ?></a>
                     </li>                                        
-                    <li class="list-group-item active">
-                        <a href="userprofilehistory"><i class="fa fa-history"></i> <?php echo $this->translate('History')?></a>
+                    <li class="list-group-item">
+                        <a href="companyhistoryprofile"><i class="fa fa-history"></i> <?php echo $this->translate('History') ?></a>
                     </li>                                       
                     <li class="list-group-item">
-                        <a href="userprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings')?></a>
+                        <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
                     </li> 
-                </ul>  
+                </ul>     
 
                 <div class="panel-heading-v2 overflow-h">
                     <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
@@ -230,7 +235,7 @@
 
                 <!--Notification-->
                 <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> Notification</h2>
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notification') ?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
                 <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
@@ -242,7 +247,7 @@
                         </div>    
                     </li>
                     <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
+                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
                         <div class="overflow-h">
                             <span><strong>Taylor Lee</strong> started following you.</span>
                             <small>Today 18:25 pm</small>
@@ -256,7 +261,7 @@
                         </div>    
                     </li>
                     <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg')?>" alt="">
+                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
                         <div class="overflow-h">
                             <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
                             <small>23/12 11:01 am</small>
@@ -270,168 +275,259 @@
                         </div>    
                     </li>
                     <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
+                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
                         <div class="overflow-h">
                             <span><strong>Taylor Lee</strong> changed profile picture.</span>
                             <small>23/12 15:15 pm</small>
                         </div>    
                     </li>
                 </ul>    
+
             </div>
             <!--End Left Sidebar-->
 
+            <!-- Counter header start -->
+            <div class="col-md-9" style="padding-bottom: 20px">
+                <!--<div class="parallax-counter-v4 parallaxBg">-->
+                <!--Service Block v3-->
+                <div class="row margin-bottom-10">
+
+
+                    <div class="col-sm-6 sm-margin-bottom-20">
+                        <div class="service-block-v3 service-block-aviation">
+                            <i class="icon-plane"></i>
+                            <span class="service-heading"><?php echo $this->translate('Submitted Aviation Projects') ?></span>
+                            <span class="counter">358</span>
+
+                            <div class="clearfix margin-bottom-10"></div>
+
+                            <div class="row margin-bottom-20">
+                                <div class="col-xs-6 service-in">
+                                    <small><?php echo $this->translate('Last Week') ?></small>
+                                    <h4 class="counter">25</h4>
+                                </div>
+                                <div class="col-xs-6 text-right service-in">
+                                    <small><?php echo $this->translate('Last Month') ?></small>
+                                    <h4 class="counter">114</h4>
+                                </div>
+                            </div>
+                            <div class="statistics">
+                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar') ?><span class="pull-right">67%</span></h3>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
+                                    </div>
+                                </div>
+                                <small>11% less <strong><?php echo $this->translate('than last month') ?></strong></small>
+                            </div>            
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6">
+                        <div class="service-block-v3 service-block-renewable">
+                            <i class="icon-energy"></i>
+                            <span class="service-heading"><?php echo $this->translate('Submitted Renewable Energy Projects') ?></span>
+                            <span class="counter">324,056</span>
+
+                            <div class="clearfix margin-bottom-10"></div>
+
+                            <div class="row margin-bottom-20">
+                                <div class="col-xs-6 service-in">
+                                    <small><?php echo $this->translate('Last Week') ?></small>
+                                    <h4 class="counter">26,904</h4>
+                                </div>
+                                <div class="col-xs-6 text-right service-in">
+                                    <small><?php echo $this->translate('Last Month') ?></small>
+                                    <h4 class="counter">124,766</h4>
+                                </div>
+                            </div>
+                            <div class="statistics">
+                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar') ?><span class="pull-right">89%</span></h3>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 89%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="89" role="progressbar" class="progress-bar progress-bar-light">
+                                    </div>
+                                </div>
+                                <small>15% <?php echo $this->translate('higher') ?> <strong><?php echo $this->translate('than last month') ?></strong></small>
+                            </div>            
+                        </div>
+                    </div>
+                </div><!--/end row-->
+                <!--End Service Block v3-->                    
+                <!--</div>-->
+            </div>
+
+            <!-- Counter header ends -->
+
             <!-- Profile Content -->            
             <div class="col-md-9">
+                
+
                 <div class="profile-body">
-                    <!--Timeline-->
-                    <ul class="timeline-v2">
-                        <li>
-                            <time class="cbp_tmtime" datetime=""><span>4/1/08</span> <span><?php echo $this->translate('January')?></span></time>
-                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                            <div class="cbp_tmlabel">
-                                <h2>Our first step</h2>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img18.jpg')?>" alt=""> 
-                                        <div class="md-margin-bottom-20"></div>
-                                    </div>
-                                    <div class="col-md-8">    
-                                        <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape.</p> 
-                                        <p>Cabbage lentil cucumber chickpea sorrel gram garbanzo plantain lotus root bok choy squash cress potato.</p>
-                                    </div>
-                                </div>        
-                            </div>
-                        </li>
-                        <li>
-                            <time class="cbp_tmtime" datetime=""><span>7/2/09</span> <span><?php echo $this->translate('February')?></span></time>
-                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                            <div class="cbp_tmlabel">
-                                <h2>First achievements</h2>
-                                <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.</p>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <ul class="list-unstyled">
-                                            <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida</li>
-                                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                                            <li><i class="fa fa-check color-green"></i> Responsive Bootstrap Template</li>
-                                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="list-unstyled">
-                                            <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida</li>
-                                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                                            <li><i class="fa fa-check color-green"></i> Responsive Bootstrap Template</li>
-                                            <li><i class="fa fa-check color-green"></i> Corporate and Creative</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <time class="cbp_tmtime" datetime=""><span>28/6/12</span> <span><?php echo $this->translate('May')?></span></time>
-                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                            <div class="cbp_tmlabel">
-                                <h2>Difficulties</h2>
-                                <p>Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <time class="cbp_tmtime" datetime=""><span>11/3/10</span> <span><?php echo $this->translate('March')?></span></time>
-                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                            <div class="cbp_tmlabel">
-                                <h2>Our Popularity</h2>
-                                <p>Parsnip lotus root celery yarrow seakale tomato collard greens tigernut epazote ricebean melon tomatillo soybean chicory broccoli beet greens peanut salad. Lotus root burdock bell pepper chickweed shallot groundnut pea sprouts welsh onion wattle seed pea salsify turnip scallion peanut arugula bamboo shoot onion swiss chard.</p>
+                    <div class="block-description">
+                        <div class="container">
+                            <i class="center-icon rounded-x fa fa-edit"></i>
+                            <div class="title-box-v2 col-md-8">
+                                <h2>Company Performance Meters</h2>
+                                <p>Pellentesque et erat ac massa cursus porttitor eget sed magna.</p>
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-8"> 
+                                    <div class="left-inner">
+                                        <h3>Posted by</h3>     
+                                        <img src="assets/img/testimonials/img1.jpg" alt="">
+                                        <div class="overflow-h">
+                                            <span class="font-s">Steve Andersson</span>
+                                            <p class="color-green">Position: <span class="hex">Manager, Accounter</span></p>
+                                            <ul class="social-icons">
+                                                <li><a class="social_facebook" data-original-title="Facebook" href="#"></a></li>
+                                                <li><a class="social_googleplus" data-original-title="Google Plus" href="#"></a></li>
+                                                <li><a class="social_tumblr" data-original-title="Tumblr" href="#"></a></li>
+                                                <li><a class="social_twitter" data-original-title="Twitter" href="#"></a></li>
+                                            </ul>
+                                        </div>    
 
-                                <div class="margin-bottom-20"></div>
+                                        <hr>
 
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <!-- Progress Bar Text -->
-                                        <div class="progress-bar-text">
-                                            <p class="text-left">HTML &amp; CSS</p>
-                                            <p class="text-right">91%</p>
-                                            <div class="progress progress-u progress-xs">
-                                                <div class="progress-bar progress-bar-u progress-bar-u-success" role="progressbar" aria-valuenow="91" aria-valuemin="0" aria-valuemax="100" style="width: 91%">
+                                        <ul class="list-unstyled save-job">
+                                            <li><i class="fa fa-download"></i> <a href="#">Save job</a></li>
+                                            <li><i class="fa fa-eye"></i> <a href="#">View saved jobs</a></li>
+                                            <li><i class="fa fa-plus"></i> <a href="#">Follow us</a></li>
+                                        </ul>    
+
+                                        <hr>
+
+                                        <h3>Overview</h3>
+                                        <div class="row">
+                                            <!-- Overview -->
+                                            <div class="col-sm-6">
+                                                <div class="overview">
+                                                    <i class="fa fa-user"></i>
+                                                    <div class="overflow-h">
+                                                        <small>Followers</small>
+                                                        <small>2,1k</small>
+                                                        <div class="progress progress-u progress-xxs">
+                                                            <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                                                            </div>
+                                                        </div>
+                                                    </div>    
                                                 </div>
                                             </div>
-                                        </div>    
-                                        <!-- End Progress Bar Text -->
-                                    
-                                        <!-- Progress Bar Text -->
-                                        <div class="progress-bar-text">
-                                            <p class="text-left">Web Animation</p>
-                                            <p class="text-right">55%</p>
-                                            <div class="progress progress-u progress-xs">
-                                                <div class="progress-bar progress-bar-u progress-bar-u-info" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
-                                                </div>
-                                            </div>
-                                        </div>    
-                                        <!-- End Progress Bar Text -->
-                                    </div>    
+                                            <!-- End Overview -->
 
-                                    <div class="col-sm-6">
-                                        <!-- Progress Bar Text -->
-                                        <div class="progress-bar-text">
-                                            <p class="text-left">Web Design</p>
-                                            <p class="text-right">67%</p>
-                                            <div class="progress progress-u progress-xs">
-                                                <div class="progress-bar progress-bar-u progress-bar-u-danger" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width: 67%">
+                                            <!-- Overview -->
+                                            <div class="col-sm-6">
+                                                <div class="overview">
+                                                    <i class="fa fa-share"></i>
+                                                    <div class="overflow-h">
+                                                        <small>VieSharews</small>
+                                                        <small>749k</small>
+                                                        <div class="progress progress-u progress-xxs">
+                                                            <div style="width: 77%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="77" role="progressbar" class="progress-bar progress-bar-u">
+                                                            </div>
+                                                        </div>
+                                                    </div>    
                                                 </div>
                                             </div>
-                                        </div>    
-                                        <!-- End Progress Bar Text -->
+                                            <!-- End Overview -->
+                                        </div>
 
-                                        <!-- Progress Bar Text -->
-                                        <div class="progress-bar-text">
-                                            <p class="text-left">PHP &amp; Javascript</p>
-                                            <p class="text-right">73%</p>
-                                            <div class="progress progress-u progress-xs">
-                                                <div class="progress-bar progress-bar-u progress-bar-u-warning" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%">
+                                        <div class="row margin-bottom-20">
+                                            <!-- Overview -->
+                                            <div class="col-sm-6">
+                                                <div class="overview">
+                                                    <i class="fa fa-eye"></i>
+                                                    <div class="overflow-h">
+                                                        <small>Views</small>
+                                                        <small>15,7k</small>
+                                                        <div class="progress progress-u progress-xxs">
+                                                            <div style="width: 88%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="88" role="progressbar" class="progress-bar progress-bar-u">
+                                                            </div>
+                                                        </div>
+                                                    </div>    
                                                 </div>
                                             </div>
+                                            <!-- End Overview -->
+
+                                            <!-- Overview -->
+                                            <div class="col-sm-6">
+                                                <div class="overview">
+                                                    <i class="fa fa-group"></i>
+                                                    <div class="overflow-h">
+                                                        <small>Opportunity Views</small>
+                                                        <small>202,8k</small>
+                                                        <div class="progress progress-u progress-xxs">
+                                                            <div style="width: 76%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="76" role="progressbar" class="progress-bar progress-bar-u">
+                                                            </div>
+                                                        </div>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Pie Chart Progress Bar -->    
+                                        <div class="row margin-bottom-20">
+                                            <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
+                                                <h3>Engagement Score</h3>
+                                                <div class="circle" id="circle-4"></div>
+                                                <ul class="list-unstyled overflow-h">
+                                                    <li><i> - </i><a href="#">Tips to Improve</a></li>
+                                                    <li><i> - </i><a href="#">Compare to Others</a></li>
+                                                    <li><i> - </i><a href="#">More Information</a></li>
+                                                </ul>
+                                            </div> 
+                                            <div class="p-chart col-sm-6 col-xs-6">
+                                                <h3>Progfile Completness</h3>
+                                                <div class="circle" id="circle-5"></div>
+                                                <ul class="list-unstyled overflow-h">
+                                                    <li><i> - </i><a href="#">Steps to Completion</a></li>
+                                                    <li><i> - </i><a href="#">Compare to Others</a></li>
+                                                    <li><i> - </i><a href="#">More Information</a></li>
+                                                </ul>    
+                                            </div>       
                                         </div>    
-                                        <!-- End Progress Bar Text -->
+                                        <!-- End Pie Chart Progress Bar -->
+
+                                        <hr>
+
+                                        <h3>Latest Recommendations</h3>
+                                        <div class="people-say margin-bottom-20">
+                                            <img src="assets/img/testimonials/img2.jpg" alt="">
+                                            <div class="overflow-h">
+                                                <span>Eva Maria Kl.</span>
+                                                <small class="hex pull-right">5 - hours ago</small>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis varius hendrerit nisl id condimentum.</p>
+                                            </div>    
+                                        </div>
+
+                                        <div class="people-say margin-bottom-20">
+                                            <img src="assets/img/testimonials/user.jpg" alt="">
+                                            <div class="overflow-h">
+                                                <span>Christian Draxler</span>
+                                                <small class="hex pull-right">2 - days ago</small>
+                                                <p>Vestibulum justo est, pharetra fermentum justo in, tincidunt mollis turpis. Duis imperdiet non justo euismod semper.</p>
+                                            </div>    
+                                        </div>
+
+                                        <div class="people-say">
+                                            <img src="assets/img/testimonials/img3.jpg" alt="">
+                                            <div class="overflow-h">
+                                                <span>Alex Taylor</span>
+                                                <small class="hex pull-right">3 - days ago</small>
+                                                <p>A Wal-Mart cashier is responsible for effectively executing and adhering to the “Basic Beliefs” of the founder.</p>
+                                            </div>    
+                                        </div>
+
+                                        <hr> 
+
                                     </div>   
-                                </div>    
-                            </div>
-                        </li>
-                        <li>
-                            <time class="cbp_tmtime" datetime=""><span>2/4/11</span> <span><?php echo $this->translate('April')?></span></time>
-                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                            <div class="cbp_tmlabel">
-                                <h2>Back to the past</h2>
-                                <p>Peanut gourd nori welsh onion rock melon mustard jícama. Desert raisin amaranth kombu aubergine kale seakale brussels sprout pea. Black-eyed pea celtuce bamboo shoot salad kohlrabi leek squash prairie turnip catsear rock melon chard taro broccoli turnip greens. Fennel quandong potato watercress ricebean swiss chard garbanzo. Endive daikon brussels sprout lotus root silver beet epazote melon shallot.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <time class="cbp_tmtime" datetime=""><span>18/7/13</span> <span>June</span></time>
-                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                            <div class="cbp_tmlabel">
-                                <h2>Unify in recent years</h2>
-                                <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.</p>
-                                <p>Bitterleaf celery coriander epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout.</p>
-
-                                <div class="margin-bottom-20"></div>
-
-                                <div class="row">
-                                    <div class="col-md-4 col-xs-6">
-                                        <img class="img-responsive md-margin-bottom-10" src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img3.jpg')?>" alt="">
-                                    </div>
-                                    <div class="col-md-4 col-xs-6">
-                                        <img class="img-responsive md-margin-bottom-10" src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img9.jpg')?>" alt="">
-                                    </div>
-                                    <div class="col-md-4 col-xs-6">
-                                        <img class="img-responsive md-margin-bottom-10" src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img4.jpg')?>" alt="">
-                                    </div>
                                 </div>
+
                             </div>
-                        </li>
-                    </ul>
-                    <!--End Timeline-->
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- End Profile Content -->
+            <!-- End Profile Content -->            
         </div>
     </div><!--/container-->    
     <!--=== End Profile ===-->
@@ -564,4 +660,3 @@
     </div>        
     <!--=== End Footer Version 1 ===-->
 </div><!--/wrapper-->
-

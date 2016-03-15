@@ -591,7 +591,13 @@ function scrollDown(url) {
 function submitMTProposal() {
     if ($('#proposedMTForm').validationEngine('validate')) {
         console.log('waiting for submission service to be implemented...');
+        console.log($("#mManufacturerN").val());
+        console.log($("#mMachineN").val());
+        console.log($("#mModel").val());
+        console.log($("#selectedMTCategory").val());
+        console.log($("#proposedMTPropertiesFormBilder"));
     }
+    event.preventDefault();
 }
 
 

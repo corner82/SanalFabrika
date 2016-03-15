@@ -57,7 +57,9 @@ return array(
             'userprofileprojects' => 'layout/userprofileprojectsLayout.phtml',
             'userprofilecomments' => 'layout/userprofilecommentsLayout.phtml',
             'userprofilehistory' => 'layout/userprofilehistoryLayout.phtml',
-            'userprofilesettings' => 'layout/userprofilesettingsLayout.phtml'
+            'userprofilesettings' => 'layout/userprofilesettingsLayout.phtml',
+            'companyprofile' => 'layout/companyprofileLayout.phtml',
+            'companyperformancemetersprofile' => 'layout/companyperformancemetersprofileLayout.phtml'
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -115,7 +117,9 @@ return array(
             'userprofileprojects',
             'userprofilecomments',
             'userprofilehistory',
-            'userprofilesettings'
+            'userprofilesettings',
+            'companyprofile',
+            'companyperformancemetersprofile'            
         ),
 
     ),
@@ -137,7 +141,9 @@ return array(
                                                               'userprofileprojects',
                                                               'userprofilecomments',
                                                               'userprofilehistory',
-                                                              'userprofilesettings'
+                                                              'userprofilesettings',
+                                                              'companyprofile',
+                                                              'companyperformancemetersprofile'  
                                                               )),
                    ),
         'supervisor' => array(
@@ -165,7 +171,9 @@ return array(
                                                                     'userprofileprojects',
                                                                     'userprofilecomments',
                                                                     'userprofilehistory',
-                                                                    'userprofilesettings'      
+                                                                    'userprofilesettings',
+                                                                    'companyprofile',
+                                                                    'companyperformancemetersprofile'   
                                                                     ))
                    ),
         
