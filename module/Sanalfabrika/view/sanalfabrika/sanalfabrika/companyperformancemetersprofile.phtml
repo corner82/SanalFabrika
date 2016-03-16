@@ -360,7 +360,7 @@
 
             <!-- Profile Content -->            
             <div class="col-md-9">
-                
+
 
                 <div class="profile-body">
                     <div class="block-description">
@@ -374,7 +374,7 @@
                                 <div class="col-md-8"> 
                                     <div class="left-inner">
                                         <h3>Posted by</h3>     
-                                        <img src="assets/img/testimonials/img1.jpg" alt="">
+                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                         <div class="overflow-h">
                                             <span class="font-s">Steve Andersson</span>
                                             <p class="color-green">Position: <span class="hex">Manager, Accounter</span></p>
@@ -383,16 +383,9 @@
                                                 <li><a class="social_googleplus" data-original-title="Google Plus" href="#"></a></li>
                                                 <li><a class="social_tumblr" data-original-title="Tumblr" href="#"></a></li>
                                                 <li><a class="social_twitter" data-original-title="Twitter" href="#"></a></li>
+                                                <li><a class="social_instagram" data-original-title="Instagram" href="#"></a></li>
                                             </ul>
-                                        </div>    
-
-                                        <hr>
-
-                                        <ul class="list-unstyled save-job">
-                                            <li><i class="fa fa-download"></i> <a href="#">Save job</a></li>
-                                            <li><i class="fa fa-eye"></i> <a href="#">View saved jobs</a></li>
-                                            <li><i class="fa fa-plus"></i> <a href="#">Follow us</a></li>
-                                        </ul>    
+                                        </div>   
 
                                         <hr>
 
@@ -467,31 +460,104 @@
                                         <!-- Pie Chart Progress Bar -->    
                                         <div class="row margin-bottom-20">
                                             <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
-                                                <h3>Engagement Score</h3>
+                                                <h3><?php echo $this->translate('Company Quality Performance') ?></h3>
                                                 <div class="circle" id="circle-4"></div>
-                                                <ul class="list-unstyled overflow-h">
-                                                    <li><i> - </i><a href="#">Tips to Improve</a></li>
-                                                    <li><i> - </i><a href="#">Compare to Others</a></li>
-                                                    <li><i> - </i><a href="#">More Information</a></li>
-                                                </ul>
+                                            </div>
+                                            <div class="p-chart col-sm-6 col-xs-6">                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="qualityHistory()" type="button">
+                                                            <?php echo $this->translate('Last Year Increase Ratio') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="qualityPerformances()" type="button">
+                                                            <?php echo $this->translate('Overall Performance') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="listOfCertificates()" type="button">
+                                                            <?php echo $this->translate('Available Quality Certificates and Standards') ?>
+                                                </button>                                                    
                                             </div> 
-                                            <div class="p-chart col-sm-6 col-xs-6">
-                                                <h3>Progfile Completness</h3>
+                                        </div>
+                                        <div id="qualityDetaildDIV" 
+                                             class="row margin-bottom-20 left-inner" style="display:none" >
+                                            <hr>
+                                            <div id="qualityDetailsInsideDIV" class="left-inner" >
+                                                
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <div class="row margin-bottom-20">
+                                            <div class="p-chart col-sm-6 col-xs-4">
+                                                <h3><?php echo $this->translate('Project Completion Performance') ?></h3>
                                                 <div class="circle" id="circle-5"></div>
-                                                <ul class="list-unstyled overflow-h">
-                                                    <li><i> - </i><a href="#">Steps to Completion</a></li>
-                                                    <li><i> - </i><a href="#">Compare to Others</a></li>
-                                                    <li><i> - </i><a href="#">More Information</a></li>
-                                                </ul>    
+                                            </div>
+                                            <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="performanceDetails()" type="button">
+                                                            <?php echo $this->translate('Contributed Projects') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="performanceDetails()" type="button">
+                                                            <?php echo $this->translate('Accomplished Successfully') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="performanceDetails()" type="button">
+                                                            <?php echo $this->translate('Unfinished Porjects') ?>
+                                                </button>                                                     
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="performanceDetails()" type="button">
+                                                            <?php echo $this->translate('Projects in Progress') ?>
+                                                </button>                                                   
                                             </div>       
-                                        </div>    
+                                        </div>
+                                        <div id="pastPerformanceDetailsDIV" 
+                                             class="row margin-bottom-20 left-inner" style="display:none" >
+                                            <hr>
+                                            <div id="pastPerformanceDetailsInsideDIV" class="left-inner" >
+                                                
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <div class="row margin-bottom-20">
+                                            <div class="p-chart col-sm-6 col-xs-6">
+                                                <h3><?php echo $this->translate('Customer Satisfaction Rate') ?></h3>
+                                                <div class="circle" id="circle-10"></div>
+                                            </div>
+                                            <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
+                                               <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="customerDetails()" type="button">
+                                                            <?php echo $this->translate('Consent Customers') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="customerDetails()" type="button">
+                                                            <?php echo $this->translate('Complained Customers') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="customerDetails()" type="button">
+                                                            <?php echo $this->translate('Unfinished Porjects') ?>
+                                                </button>                                                     
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="customerDetails()" type="button">
+                                                            <?php echo $this->translate('Projects in Progress') ?>
+                                                </button>                                                  
+                                            </div>       
+                                        </div>
+                                        <div id="customerDetailsDIV" 
+                                             class="row margin-bottom-20 left-inner" style="display:none" >
+                                            <hr>
+                                            <div id="customerDetailsInsideDIV" class="left-inner" >
+                                                
+                                            </div>
+                                            <hr>
+                                        </div>
+
                                         <!-- End Pie Chart Progress Bar -->
 
                                         <hr>
 
                                         <h3>Latest Recommendations</h3>
                                         <div class="people-say margin-bottom-20">
-                                            <img src="assets/img/testimonials/img2.jpg" alt="">
+                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img2.jpg') ?>" alt="">
                                             <div class="overflow-h">
                                                 <span>Eva Maria Kl.</span>
                                                 <small class="hex pull-right">5 - hours ago</small>
@@ -500,7 +566,7 @@
                                         </div>
 
                                         <div class="people-say margin-bottom-20">
-                                            <img src="assets/img/testimonials/user.jpg" alt="">
+                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/user.jpg') ?>" alt="">
                                             <div class="overflow-h">
                                                 <span>Christian Draxler</span>
                                                 <small class="hex pull-right">2 - days ago</small>
@@ -509,7 +575,7 @@
                                         </div>
 
                                         <div class="people-say">
-                                            <img src="assets/img/testimonials/img3.jpg" alt="">
+                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg') ?>" alt="">
                                             <div class="overflow-h">
                                                 <span>Alex Taylor</span>
                                                 <small class="hex pull-right">3 - days ago</small>

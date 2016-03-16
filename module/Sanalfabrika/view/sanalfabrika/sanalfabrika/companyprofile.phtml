@@ -237,51 +237,52 @@
                     <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notification') ?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
-                <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
-                        <div class="overflow-h">
-                            <span><strong>Albert Heller</strong> has sent you email.</span>
-                            <small>Two minutes ago</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> started following you.</span>
-                            <small>Today 18:25 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
-                        <div class="overflow-h">
-                            <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
-                            <small>Yesterday 1:07 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
-                            <small>23/12 11:01 am</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                        <div class="overflow-h">
-                            <span><strong>Bruno Js.</strong> added you to group chating.</span>
-                            <small>Yesterday 1:07 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> changed profile picture.</span>
-                            <small>23/12 15:15 pm</small>
-                        </div>    
-                    </li>
-                </ul>    
-
+                <div class="margin-bottom-20">
+                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
+                            <div class="overflow-h">
+                                <span><strong>Albert Heller</strong> has sent you email.</span>
+                                <small>Two minutes ago</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
+                            <div class="overflow-h">
+                                <span><strong>Taylor Lee</strong> started following you.</span>
+                                <small>Today 18:25 pm</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
+                            <div class="overflow-h">
+                                <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
+                                <small>Yesterday 1:07 pm</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
+                            <div class="overflow-h">
+                                <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
+                                <small>23/12 11:01 am</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                            <div class="overflow-h">
+                                <span><strong>Bruno Js.</strong> added you to group chating.</span>
+                                <small>Yesterday 1:07 pm</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
+                            <div class="overflow-h">
+                                <span><strong>Taylor Lee</strong> changed profile picture.</span>
+                                <small>23/12 15:15 pm</small>
+                            </div>    
+                        </li>
+                    </ul>    
+                </div>
             </div>
             <!--End Left Sidebar-->
 
@@ -290,8 +291,6 @@
                 <!--<div class="parallax-counter-v4 parallaxBg">-->
                 <!--Service Block v3-->
                 <div class="row margin-bottom-10">
-
-
                     <div class="col-sm-6 sm-margin-bottom-20">
                         <div class="service-block-v3 service-block-aviation">
                             <i class="icon-plane"></i>
@@ -355,6 +354,7 @@
                 <!--</div>-->
             </div>
 
+
             <!-- Counter header ends -->
 
             <!-- Profile Content -->            
@@ -365,7 +365,13 @@
                             <i class="center-icon rounded-x fa fa-edit"></i>
                             <div class="title-box-v2 col-md-8">
                                 <h2>Company Information</h2>
+                                <p style="text-align: center">
+                                    <a href="#"><h5>web Site Address</h5></a>
+                                <h5>Company Address</h5>
+                                </p>
+
                             </div> 
+
                             <div class="row">
                                 <!-- Left Inner -->
                                 <div class="col-md-8">
@@ -446,7 +452,7 @@
                                                         <div class="panel-body">
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <?php echo $this->translate('Product one description') ?>
@@ -455,7 +461,7 @@
                                                             <hr>
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <?php echo $this->translate('Product two description') ?>
@@ -480,7 +486,7 @@
                                                         <div class="panel-body">
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <?php echo $this->translate('Product one description') ?>
@@ -489,7 +495,7 @@
                                                             <hr>
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <?php echo $this->translate('Product two description') ?>
@@ -513,7 +519,7 @@
                                                         <div class="panel-body">
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <?php echo $this->translate('Product one description') ?>
@@ -522,7 +528,7 @@
                                                             <hr>
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <?php echo $this->translate('Product two description') ?>
@@ -546,7 +552,7 @@
                                                         <div class="panel-body">
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <?php echo $this->translate('Product one description') ?>
@@ -555,7 +561,7 @@
                                                             <hr>
                                                             <div class="row">
                                                                 <div class="col-md-4">
-                                                                    <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <?php echo $this->translate('Product two description') ?>
@@ -566,27 +572,121 @@
                                                 </div>
                                             </div>
                                             <!-- End Accordion v1 -->  
-
                                         </div>
-                                        <hr>
-
-                                        <h2>Responsibility</h2>
-                                        <p>A Wal-Mart cashier is responsible for effectively executing and adhering to the “Basic Beliefs” of the founder, Sam Walton.</p>
-                                        <ul class="list-unstyled">
-                                            <li><i class="fa fa-check color-green"></i> Nullam laoreet est sit amet felis tristique laoreet</li>
-                                            <li><i class="fa fa-check color-green"></i> The biggest problem was unreasonable expectations from management</li>
-                                            <li><i class="fa fa-check color-green"></i> Dealing with the customers was the other issue</li>
-                                        </ul>
 
                                         <hr>
 
-                                        <h2>What We Offer</h2>
-                                        <p>Vestibulum justo est, pharetra fermentum justo in, tincidunt mollis turpis. Duis imperdiet non justo euismod semper. Nullam laoreet est sit amet felis tristique laoreet. Duis interdum laoreet enim, at adipiscing velit viverra id.</p>
-                                        <ul class="list-unstyled">
-                                            <li><i class="fa fa-check color-green"></i> Nullam laoreet est sit amet felis tristique laoreet</li>
-                                            <li><i class="fa fa-check color-green"></i> The biggest problem was unreasonable expectations from management</li>
-                                            <li><i class="fa fa-check color-green"></i> Dealing with the customers was the other issue</li>
-                                        </ul>
+                                        <div class="progression">
+                                            <h2><?php echo $this->translate('Sample product videos') ?></h2>
+                                            <p><?php
+                                                echo $this->translate('In order to give a better description about '
+                                                        . 'products and their amnufacturing processes companies may inclued product '
+                                                        . 'videos in this section.')
+                                                ?></p>
+
+                                            <div class="row margin-bottom-60">
+                                                <!-- Vimeo Video -->                
+                                                <div class="col-md-6">
+                                                    <div class="responsive-video md-margin-bottom-40">
+                                                        <iframe width="100%" src="https://www.youtube.com/embed/4dmt7tQG1-w" frameborder="0" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                                <!-- End Vimeo Video -->
+
+                                                <!-- Youtube Video -->
+                                                <div class="col-md-6">
+                                                    <div class="responsive-video">
+                                                        <iframe width="100%" src="https://www.youtube.com/embed/Squv4KI751w" frameborder="0" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                                <!-- End Youtube Video -->
+                                            </div>
+                                            <!-- End Video Blocks -->  
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="progression">
+                                            <h2><?php echo $this->translate('References') ?></h2>
+                                            <p><?php echo $this->translate('Brief description about customer companies') ?></p>
+                                            <ul class="list-unstyled">
+                                                <li><i class="fa fa-check color-green"></i> Customer One</li>
+                                                <li><i class="fa fa-check color-green"></i> Customer Two</li>
+                                                <li><i class="fa fa-check color-green"></i> Customer Three</li>
+                                            </ul>
+
+                                            <hr>
+
+                                            <h2><?php echo $this->translate('Completed Projects') ?></h2>
+                                            <p><?php
+                                                echo $this->translate('Company has contributions on several projects in ostim virtual enterprise framework. '
+                                                        . 'In this section some of these projects and company performance are listed.')
+                                                ?>
+                                            </p>
+                                            <!-- Accordion v1 -->                
+                                            <div class="panel-group acc-v1" id="accordion_products">
+                                                <div class="panel panel-aqua">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a class="accordion-toggle" 
+                                                               data-toggle="collapse" 
+                                                               data-parent="#accordion_completed_projects" 
+                                                               href="#contributed_projects">
+                                                                   <?php echo $this->translate('Contributed Projects') ?>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="contributed_projects" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="row">
+
+                                                                <!--Table Striped-->
+                                                                <table class="table table-striped" style="font-size: 10px">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <!--<th>#</th>-->
+                                                                            <th><?php echo $this->translate('Project Name') ?></th>
+                                                                            <th><?php echo $this->translate('Project Completion Date') ?></th>
+                                                                            <th><?php echo $this->translate('Position in Project') ?></th>
+                                                                            <th><?php echo $this->translate('Contributions to the Project') ?></th>
+                                                                            <th><?php echo $this->translate('Customer satisfaction rate') ?></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <!--<td>1</td>-->
+                                                                            <td>Project One</td>
+                                                                            <td>01/05/2014</td>
+                                                                            <td>Role One</td>
+                                                                            <td>Contributed as Contributer One</td>
+                                                                            <td><span class="label label-Success">Successfully Completed</span></td>                          
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <!--<td>2</td>-->
+                                                                            <td>Project Two</td>
+                                                                            <td>21/12/2015</td>
+                                                                            <td>Role Two</td>
+                                                                            <td>Contributed as Contributer Two</td>
+                                                                            <td><span class="label label-Danger">Uncompleted Mission</span></td>                           
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <!--<td>3</td>-->
+                                                                            <td>Project Three</td>
+                                                                            <td>21/12/2015</td>
+                                                                            <td>Role Three</td>
+                                                                            <td>Contributed as Contributer Three</td>
+                                                                            <td><span class="label label-Warning">Completed with Delay</span></td>                         
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <!--End Table Striped-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Accordion v1 -->                                              
+                                        </div>
                                     </div>
                                     <!-- End Left Inner -->
                                 </div>    

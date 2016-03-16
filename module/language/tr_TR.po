@@ -407,7 +407,7 @@ msgstr "Toplam Firma Sayısı"
 
 #: ../view/layout/sfdm.phtml:25
 msgid "Employees"
-msgstr "Toplma Çalışan Sayısı"
+msgstr "Toplam Çalışan Sayısı"
 
 #: ../view/layout/sfdm.phtml:25
 msgid "Marketing and Consulting"

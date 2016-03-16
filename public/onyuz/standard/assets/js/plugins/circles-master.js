@@ -104,13 +104,44 @@ var CirclesMaster = function () {
 		    Circles.create({
 		        id:         'circle-9',
 		        percentage: 91,
-		        radius:     80,
+		        radius:     35,
 		        width:      3,
 		        number:     91,
 		        text:       '%',
 		        colors:     ['#eee', '#72c02c'],
 		        duration:   2000
-		    })
+		    });
+                    /*
+                     * Optional Circles are added here...
+                     * @author: Bahram
+                     * @Since: 16.03.2016
+                     * 
+                     */
+                    
+                    //Circles 10
+		    Circles.create({
+		        id:         'circle-10',
+		        percentage: 42,
+		        radius:     35,
+		        width:      2,
+		        number:     42,
+		        text:       '%',
+		        colors:     ['#eee', '#FF0000'],
+		        duration:   2000
+		    });
+                    
+                    
+                    //Circles 11
+		    Circles.create({
+		        id:         'circle-11',
+		        percentage: 91,
+		        radius:     35,
+		        width:      2,
+		        number:     91,
+		        text:       '%',
+		        colors:     ['#eee', '#0000FF'],
+		        duration:   2000
+		    });
         },
         
         //Circles Master v2
