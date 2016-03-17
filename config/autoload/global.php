@@ -59,7 +59,8 @@ return array(
             'userprofilehistory' => 'layout/userprofilehistoryLayout.phtml',
             'userprofilesettings' => 'layout/userprofilesettingsLayout.phtml',
             'companyprofile' => 'layout/companyprofileLayout.phtml',
-            'companyperformancemetersprofile' => 'layout/companyperformancemetersprofileLayout.phtml'
+            'companyperformancemetersprofile' => 'layout/companyperformancemetersprofileLayout.phtml',
+            'companyproductsprofile' => 'layout/companyproductsprofileLayout.phtml'
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -119,7 +120,8 @@ return array(
             'userprofilehistory',
             'userprofilesettings',
             'companyprofile',
-            'companyperformancemetersprofile'            
+            'companyperformancemetersprofile',
+            'companyproductsprofile'       
         ),
 
     ),
@@ -143,7 +145,8 @@ return array(
                                                               'userprofilehistory',
                                                               'userprofilesettings',
                                                               'companyprofile',
-                                                              'companyperformancemetersprofile'  
+                                                              'companyperformancemetersprofile',
+                                                              'companyproductsprofile'   
                                                               )),
                    ),
         'supervisor' => array(
@@ -173,7 +176,8 @@ return array(
                                                                     'userprofilehistory',
                                                                     'userprofilesettings',
                                                                     'companyprofile',
-                                                                    'companyperformancemetersprofile'   
+                                                                    'companyperformancemetersprofile',
+                                                                    'companyproductsprofile' 
                                                                     ))
                    ),
         

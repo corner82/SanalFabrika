@@ -50,7 +50,6 @@ function qualityPerformances() {
 }
 
 
-
 function performanceDetails() {
         
     if ($("#pastPerformanceDetailsDIV").hasClass('active')) {
