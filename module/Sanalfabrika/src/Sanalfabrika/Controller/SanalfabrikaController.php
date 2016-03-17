@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * OSTİM TEKNOLOJİ Framework 
+ *
+ * @link      https://github.com/corner82/sanalfabrika for the canonical source repository
+ * @copyright Copyright (c) 2016 OSTİM TEKNOLOJİ (http://www.ostim.com.tr)
+ * @license   
+ */
  namespace Sanalfabrika\Controller;
 
  use Zend\Mvc\Controller\AbstractActionController;
@@ -247,7 +253,7 @@
                             ->setIdentity($_POST['eposta'])
                             ->setCredential($_POST['sifre']);
                 $result = $authManager->authenticate();
-                print_r($result);
+                //print_r($result);
                 
                 if($result->getCode() == 1) {
                     /**
@@ -285,12 +291,7 @@
                                                          'content_type' => 'application/json'));
                     $loginLogoutMQ->setMessage($message->setMessage());
                     $loginLogoutMQ->basicPublish();
-                    
-                   
-                    
-                    
-                    
-                    
+
                     /**
                      * when public key not created service returns true,
                      * if public key true we should logout
@@ -330,7 +331,7 @@
                      * @since 28/01/2016
                      */
                     $this->getServiceLocator()->get('serviceRoleSessionWriter');
-                    print_r('---serviceRoleSessionWriter çağırıldı');
+                    //print_r('---serviceRoleSessionWriter çağırıldı');
                     
                     
                     /**
@@ -339,7 +340,7 @@
                      * @since 04/01/2016
                      */
                     $this->getServiceLocator()->get('servicePublicKeySaver');
-                    print_r('---servicePublicKeySaver çağırıldı');
+                    //print_r('---servicePublicKeySaver çağırıldı');
                     //exit();
                     $this->getServiceLocator()->get('serviceAuthenticatedRedirectManager'); 
                 }

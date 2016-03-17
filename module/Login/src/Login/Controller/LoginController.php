@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * OSTİM TEKNOLOJİ Framework 
+ *
+ * @link      https://github.com/corner82/sanalfabrika for the canonical source repository
+ * @copyright Copyright (c) 2016 OSTİM TEKNOLOJİ (http://www.ostim.com.tr)
+ * @license   
+ */
  namespace Login\Controller;
 
  use Zend\Mvc\Controller\AbstractActionController;
@@ -106,22 +112,25 @@
      
     public function logoutAction()
     {
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+        
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $authManager->getStorage()->clear();
         
         /**
-        * sends logout info to message queue
+        * sends login info to message queue
         * @author Mustafa Zeynel Dağlı
         * @todo after tests ,  thif feature will be added as a service manager entity
         */
-       $exceptionMQ = new \Utill\MQ\restEntryMQ();
-       $exceptionMQ->setChannelProperties(array('queue.name' => 'userLogout_queue'));
-       $message = new \Utill\MQ\MessageMQ\MQMessage();
+       $loginLogoutMQ = new \Utill\MQ\LoginLogoutMQ();
+       $loginLogoutMQ->setChannelProperties(array('queue.name' => \Utill\MQ\LoginLogoutMQ::QUEUE_NAME));
+       $message = new \Utill\MQ\MessageMQ\MQMessageLoginLogout();
        ;
        //$message->setMessageBody(array('testmessage body' => 'test cevap'));
        //$message->setMessageBody($e);
 
-       $message->setMessageBody(array('message' => 'Kullanıcı login işlemi', 
+       $message->setMessageBody(array('message' => 'Kullanıcı logout işlemi', 
                                       //'s_date'  => date('l jS \of F Y h:i:s A'),
                                       's_date'  => date('Y-m-d G:i:s '),
                                       'pk' => $publicKey,
@@ -129,12 +138,12 @@
                                       'path' =>'',
                                       'method' => '',
                                       'params' => $_POST,
-                                      'type_id' => 11,
+                                      'type_id' => \Utill\MQ\MessageMQ\MQMessageLoginLogout::LOGOUT_OPERATION,
                                       'logFormat' => 'database'));
        $message->setMessageProperties(array('delivery_mode' => 2,
                                             'content_type' => 'application/json'));
-       $exceptionMQ->setMessage($message->setMessage());
-       $exceptionMQ->basicPublish();
+       $loginLogoutMQ->setMessage($message->setMessage());
+       $loginLogoutMQ->basicPublish();
         
         
         /**
