@@ -10,8 +10,7 @@ namespace Utill\MQ;
 
 class LoginLogoutMQ extends \Utill\MQ\abstractMQ {
 
-    const QUEUE_NAME = 'userLogin_queue';
-
+    
 
     public function __construct() {
         

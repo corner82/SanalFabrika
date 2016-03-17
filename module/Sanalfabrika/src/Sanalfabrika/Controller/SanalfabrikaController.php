@@ -264,34 +264,6 @@
                     $publicKey = $this->getServiceLocator()->get('servicePublicKeyGenerator');
                     //print_r($publicKey);
                     
-                                        
-                    /**
-                     * sends login info to message queue
-                     * @author Mustafa Zeynel Dağlı
-                     * @todo after tests ,  thif feature will be added as a service manager entity
-                     */
-                    $loginLogoutMQ = new \Utill\MQ\LoginLogoutMQ();
-                    $loginLogoutMQ->setChannelProperties(array('queue.name' => \Utill\MQ\LoginLogoutMQ::QUEUE_NAME));
-                    $message = new \Utill\MQ\MessageMQ\MQMessageLoginLogout();
-                    ;
-                    //$message->setMessageBody(array('testmessage body' => 'test cevap'));
-                    //$message->setMessageBody($e);
-
-                    $message->setMessageBody(array('message' => 'Kullanıcı login işlemi', 
-                                                   //'s_date'  => date('l jS \of F Y h:i:s A'),
-                                                   's_date'  => date('Y-m-d G:i:s '),
-                                                   'pk' => $publicKey,
-                                                   'url' => '',
-                                                   'path' =>'',
-                                                   'method' => '',
-                                                   'params' => $_POST,
-                                                   'type_id' => \Utill\MQ\MessageMQ\MQMessageLoginLogout::LOGIN_OPERATAION,
-                                                   'logFormat' => 'database'));
-                    $message->setMessageProperties(array('delivery_mode' => 2,
-                                                         'content_type' => 'application/json'));
-                    $loginLogoutMQ->setMessage($message->setMessage());
-                    $loginLogoutMQ->basicPublish();
-
                     /**
                      * when public key not created service returns true,
                      * if public key true we should logout
@@ -342,6 +314,17 @@
                     $this->getServiceLocator()->get('servicePublicKeySaver');
                     //print_r('---servicePublicKeySaver çağırıldı');
                     //exit();
+                    
+                     /**
+                     * user login logged by rabbitMQ messaging
+                     * @author Mustafa Zeynel Dağlı
+                     * @since 17/03/2016
+                     */
+                    $this->getServiceLocator()->get('serviceLoginLogRabbitMQ');  
+                    
+                    /**
+                     * redirecting after success
+                     */
                     $this->getServiceLocator()->get('serviceAuthenticatedRedirectManager'); 
                 }
             } else {

@@ -46,7 +46,12 @@ namespace SFDM;
         // acl for page restrictiones attaching to dispatch
         $eventManager->attach('dispatch', array($this, 'aclCreater'));
         
-        
+        /**
+         * page entry log 
+         * @author Mustafa Zeynel Dağlı
+         * @since 17/03/2016  
+         */
+        $eventManager->attach('dispatch', array($this, 'pageLogControl'));
         
         
         
@@ -138,6 +143,18 @@ namespace SFDM;
         
     }
     
+    /**
+     * page entry log
+     * @param MvcEvent $e
+     * @author Mustafa Zeynel Dağlı
+     * @since 17/03/2016
+     */
+    public function pageLogControl(MvcEvent $e) {
+        $e->getApplication()
+            ->getServiceManager()
+            ->get('servicePageLogRabbitMQ');
+    }
+
     public function aclCreater(MvcEvent $e) {
         //print_r('--dispatch event acl creater--');
         $roleResult = $e->getApplication()

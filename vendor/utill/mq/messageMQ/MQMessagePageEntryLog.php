@@ -9,12 +9,10 @@
 
 namespace Utill\MQ\MessageMQ;
 
-class MQMessageLoginLogout extends \Utill\MQ\MessageMQ\MQMessage {
+class MQMessagePageEntryLog extends \Utill\MQ\MessageMQ\MQMessage {
     
     
-    const LOGIN_OPERATAION                 = 42;
-    const LOGOUT_OPERATION                 = 43;
-
+    const PAGE_ENTRY_OPERATIN                = 44;
 
     public function __construct() {
 

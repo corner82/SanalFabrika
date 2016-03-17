@@ -119,31 +119,11 @@
         $authManager->getStorage()->clear();
         
         /**
-        * sends login info to message queue
+        * user log out action logged by rabbitMQ messaging
         * @author Mustafa Zeynel Dağlı
-        * @todo after tests ,  thif feature will be added as a service manager entity
+        * @since 17/03/2016
         */
-       $loginLogoutMQ = new \Utill\MQ\LoginLogoutMQ();
-       $loginLogoutMQ->setChannelProperties(array('queue.name' => \Utill\MQ\LoginLogoutMQ::QUEUE_NAME));
-       $message = new \Utill\MQ\MessageMQ\MQMessageLoginLogout();
-       ;
-       //$message->setMessageBody(array('testmessage body' => 'test cevap'));
-       //$message->setMessageBody($e);
-
-       $message->setMessageBody(array('message' => 'Kullanıcı logout işlemi', 
-                                      //'s_date'  => date('l jS \of F Y h:i:s A'),
-                                      's_date'  => date('Y-m-d G:i:s '),
-                                      'pk' => $publicKey,
-                                      'url' => '',
-                                      'path' =>'',
-                                      'method' => '',
-                                      'params' => $_POST,
-                                      'type_id' => \Utill\MQ\MessageMQ\MQMessageLoginLogout::LOGOUT_OPERATION,
-                                      'logFormat' => 'database'));
-       $message->setMessageProperties(array('delivery_mode' => 2,
-                                            'content_type' => 'application/json'));
-       $loginLogoutMQ->setMessage($message->setMessage());
-       $loginLogoutMQ->basicPublish();
+       $this->getServiceLocator()->get('serviceLogoutLogRabbitMQ'); 
         
         
         /**

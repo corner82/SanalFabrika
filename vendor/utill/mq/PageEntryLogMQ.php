@@ -6,18 +6,15 @@
  * @copyright Copyright (c) 2016 OSTİM TEKNOLOJİ (http://www.ostim.com.tr)
  * @license   
  */
+namespace Utill\MQ;
 
-namespace Utill\MQ\MessageMQ;
-
-class MQMessageLoginLogout extends \Utill\MQ\MessageMQ\MQMessage {
-    
-    
-    const LOGIN_OPERATAION                 = 42;
-    const LOGOUT_OPERATION                 = 43;
-
+class PageEntryLogMQ extends \Utill\MQ\abstractMQ {
 
     public function __construct() {
-
+        
     }
+    
+    
+
 }
 
