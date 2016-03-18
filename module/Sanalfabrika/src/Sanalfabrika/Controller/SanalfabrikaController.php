@@ -231,6 +231,71 @@
         return $view;
      }
      
+     public function companymembersprofileAction(){
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
+     }
+     
+     public function companycommentsprofileAction(){
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
+     }
+     
+     public function companyhistoryprofileAction(){
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
+     }
+     
+     public function companyprofilesettingsAction(){
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
+     }
+     
+     public function companyprojectsprofileAction(){
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');  
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+        return $view;
+     }
+     
       /** this function called by indexAction to reduce complexity of function */
     protected function authenticate($form = null, $viewModel = null)
     {
