@@ -18,6 +18,10 @@ class FactoryServicePageLog  implements FactoryInterface{
         
         $publicKey = $serviceLocator->get('servicePublicKeyReader'); 
         
+        $routeMatch = $serviceLocator->get('Application')->getMvcEvent()->getRouteMatch();
+        $controller = $routeMatch->getParam('controller');
+        $action = $routeMatch->getParam('action');
+        
         $request = $serviceLocator->get('Request');
         $uri = $request->getUri();
         $scheme = $uri->getScheme();
@@ -43,7 +47,7 @@ class FactoryServicePageLog  implements FactoryInterface{
                                       'log_datetime'  => date('Y-m-d G:i:s '),
                                       'pk' => $publicKey,
                                       'url' => $base,
-                                      'path' =>$host,
+                                      'path' => $controller.'/'.$action,
                                       'method' => $method,
                                       'ip' => $remoteAddr,
                                       'params' => $params,
