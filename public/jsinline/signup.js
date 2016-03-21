@@ -880,7 +880,7 @@ function submitUserGeneralInfoForm() {
 function submitUserAddressInfoForm() {
 
     console.log(selectedAddTypeId);
-    
+
     if (selectedAddTypeId != '-1') {
         if (selectedCountryId != '-1') {
             if ($('#userAddressInfoForm').validationEngine('validate')) {
@@ -935,7 +935,7 @@ function submitUserAddressInfoForm() {
                             console.error(textStatus);
                             console.error(errorThrown);
                             $("#checkAddressForm").val("0");
-                            
+
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('Address information submission failed'),
@@ -1058,59 +1058,70 @@ function submitUserContactNumber() {
     event.stopImmediatePropagation();
     defContactNumber();
 
-    if ($('#userCommunicationInfoForm').validationEngine('validate')) {
+    if (selectedCommunicationTypeId != '-1') {
+        if ($('#userCommunicationInfoForm').validationEngine('validate')) {
 
-
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 ////                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-            data: {
-                url: 'pktempInsert_infoUsersCommunications',
-                pktemp: pktemp,
-                profile_public: makeCommunicationPublic,
-                language_code: $("#langCode").val(),
-                communications_type_id: selectedCommunicationTypeId,
-                communications_no: $('#contactNumber').val(),
-                description: $('#contactDescription').val(),
-                description_eng: '',
-                default_communication_id: defaultContactNumber
-            },
-            method: "GET",
-            dataType: "json",
-            success: function (data) {
-                if (data['errorInfo'][0] === '00000') {
+                data: {
+                    url: 'pktempInsert_infoUsersCommunications',
+                    pktemp: pktemp,
+                    profile_public: makeCommunicationPublic,
+                    language_code: $("#langCode").val(),
+                    communications_type_id: selectedCommunicationTypeId,
+                    communications_no: $('#contactNumber').val(),
+                    description: $('#contactDescription').val(),
+                    description_eng: '',
+                    default_communication_id: defaultContactNumber
+                },
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    if (data['errorInfo'][0] === '00000') {
 //                    $('div.growlUI')
 //                            .css("background",
 //                                    "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+                        BootstrapDialog.show({
+                            title: window.lang.translate('Submission Process'),
+                            message: window.lang.translate('Contact information submitted successfully'),
+                            type: BootstrapDialog.TYPE_SUCCESS,
+//                            closable: false
+                        });
+                        $('#userGeneralInfoForm').val('1');
+                        $('#userAddressInfoForm').val('1');
+                        $('#userCommunicationInfoForm').val('1');
+                        $("#userCommunicationInfoForm").trigger('reset');
+                        taskProgressPerTabs();
+                    }
+                }
+                , error: function (jqXHR, textStatus, errorThrown) {
+//
+                    console.error(jqXHR);
+                    console.error(textStatus);
+                    console.error(errorThrown);
                     BootstrapDialog.show({
                         title: window.lang.translate('Submission Process'),
-                        message: window.lang.translate('Contact information submitted successfully'),
-                        type: BootstrapDialog.TYPE_SUCCESS,
+                        message: window.lang.translate('Contact information submission failed'),
+                        type: BootstrapDialog.TYPE_DANGER,
 //                            closable: false
                     });
-                    $('#userGeneralInfoForm').val('1');
-                    $('#userAddressInfoForm').val('1');
-                    $('#userCommunicationInfoForm').val('1');
-                    $("#userCommunicationInfoForm").trigger('reset');
-                    taskProgressPerTabs();
                 }
-            }
-            , error: function (jqXHR, textStatus, errorThrown) {
-//
-                console.error(jqXHR);
-                console.error(textStatus);
-                console.error(errorThrown);
-                BootstrapDialog.show({
-                    title: window.lang.translate('Submission Process'),
-                    message: window.lang.translate('Contact information submission failed'),
-                    type: BootstrapDialog.TYPE_DANGER,
+            });
+
+            $("html, body").animate({scrollTop: 0}, "slow");
+            event.preventDefault();
+        }
+    } else {
+        BootstrapDialog.show({
+            title: window.lang.translate('Submission Process'),
+            message: window.lang.translate('Please select contact type'),
+            type: BootstrapDialog.TYPE_WARNING,
 //                            closable: false
-                });
-            }
         });
+        $("html, body").animate({scrollTop: $("#communicationTypes").offset().top}, "slow");
+        event.preventDefault();
     }
-    $("html, body").animate({scrollTop: 0}, "slow");
-    event.preventDefault();
 }
 
 /*
@@ -1317,6 +1328,13 @@ function companyInfoSubmission() {
                     taskProgressPerTabs();
                     window.location.href =
                             "/ostim/sanalfabrika";
+                } else if (data['errorInfo'] === '23505') {
+                    BootstrapDialog.show({
+                        title: window.lang.translate('Submission Process'),
+                        message: window.lang.translate('Company information submission failed. There is already a registered company with the same name in the system. '),
+                        type: BootstrapDialog.TYPE_WARNING,
+//                  closable: false
+                    });
                 }
             }
             , error: function (jqXHR, textStatus, errorThrown) {
@@ -1327,17 +1345,11 @@ function companyInfoSubmission() {
                 $("#checkAddressForm").val("0");
                 BootstrapDialog.show({
                     title: window.lang.translate('Submission Process'),
-                    message: window.lang.translate('Company information submission failed'),
-                    type: BootstrapDialog.TYPE_DANGER,
-//                            closable: false
-                    buttons: [{
-                            label: 'Ok',
-                            cssClass: 'btn-danger',
-                            action: function () {
-                                $('#tabsContentsSection').loadImager('removeLoadImage');
-                            }
-                        }]
+                    message: window.lang.translate('Company information submission failed.'),
+                    type: BootstrapDialog.TYPE_WARNING,
+//                  closable: false
                 });
+
             }
         });
     }
