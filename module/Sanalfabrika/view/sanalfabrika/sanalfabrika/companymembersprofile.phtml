@@ -168,7 +168,8 @@
             <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
-                <li class="active"><?php echo $this->translate('Company Profile') ?></li>
+                <li><?php echo $this->translate('Company Profile') ?></li>
+                <li class="active"><?php echo $this->translate('Company Members') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -184,7 +185,7 @@
                      src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emge-logo-without-background.png') ?>" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    <li class="list-group-item active">
+                    <li class="list-group-item">
                         <a href="companyprofile"><i class="fa fa-info"></i> <?php echo $this->translate('Company Profile') ?></a>
                     </li>
                     <li class="list-group-item">
@@ -193,7 +194,7 @@
                     <li class="list-group-item">
                         <a href="companyproductsprofile"><i class="fa fa-automobile"></i> <?php echo $this->translate('Products') ?></a>
                     </li>
-                    <li class="list-group-item">
+                    <li class="list-group-item ">
                         <a href="companymembersprofile"><i class="fa fa-group"></i> <?php echo $this->translate('Members') ?></a>
                     </li>                                        
                     <li class="list-group-item">
@@ -230,59 +231,6 @@
                     </div>
                 </div>
 
-                <hr>
-
-                <!--Notification-->
-                <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notification') ?></h2>
-                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                </div>
-                <div class="margin-bottom-20">
-                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
-                        <li class="notification">
-                            <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
-                            <div class="overflow-h">
-                                <span><strong>Albert Heller</strong> has sent you email.</span>
-                                <small>Two minutes ago</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                            <div class="overflow-h">
-                                <span><strong>Taylor Lee</strong> started following you.</span>
-                                <small>Today 18:25 pm</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
-                            <div class="overflow-h">
-                                <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
-                                <small>Yesterday 1:07 pm</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
-                            <div class="overflow-h">
-                                <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
-                                <small>23/12 11:01 am</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                            <div class="overflow-h">
-                                <span><strong>Bruno Js.</strong> added you to group chating.</span>
-                                <small>Yesterday 1:07 pm</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                            <div class="overflow-h">
-                                <span><strong>Taylor Lee</strong> changed profile picture.</span>
-                                <small>23/12 15:15 pm</small>
-                            </div>    
-                        </li>
-                    </ul>    
-                </div>
             </div>
             <!--End Left Sidebar-->
 
@@ -353,20 +301,210 @@
                 <!--End Service Block v3-->                    
                 <!--</div>-->
             </div>
-
-
             <!-- Counter header ends -->
 
             <!-- Profile Content -->            
+
             <div class="col-md-9">
-                <div class="profile-body">
-                    
+                <div class="profile-body margin-bottom-20">
+                    <!--Profile Blog-->
+                    <div class="row margin-bottom-20">
+                        <div class="col-sm-6 sm-margin-bottom-20">
+                            <div class="profile-blog">
+                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg') ?>" alt="">
+                                <div class="name-location">
+                                    <strong>Mikel Andrews</strong>
+                                    <table style="font-size: 12px">
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-map-marker"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><?php echo $this->translate('California') ?>, <?php echo $this->translate('US') ?></span>                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-info"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><?php echo $this->translate('Sales Manager') ?></span>                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-user"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><a href="#"><?php echo $this->translate('Personal Profile Page') ?></a></span>                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="clearfix margin-bottom-20"></div>    
+                                <p><?php echo $this->translate('Defintion and descriptions ....') ?></p>
+                                <hr>
+                                <ul class="list-inline share-list">
+                                    <li><i class="fa fa-bell"></i><a href="#">12 Notifications</a></li>
+                                    <li><i class="fa fa-group"></i><a href="#">54 Followers</a></li>
+                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
+                                </ul>
+                            </div>
+                        </div>        
+
+                        <div class="col-sm-6">
+                            <div class="profile-blog">
+                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/user.jpg') ?>" alt="">
+                                <div class="name-location">
+                                    <strong>Natasha Kolnikova</strong>
+                                    <table style="font-size: 12px">
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-map-marker"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><?php echo $this->translate('Moscow') ?>, <?php echo $this->translate('Russia') ?></span>                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-info"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><?php echo $this->translate('Production Line Manager') ?></span>                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-user"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><a href="#"><?php echo $this->translate('Personal Profile Page') ?></a></span>                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="clearfix margin-bottom-20"></div>    
+                                <p><?php echo $this->translate('Descriptions .... ') ?></p>
+                                <hr>
+                                <ul class="list-inline share-list">
+                                    <li><i class="fa fa-bell"></i><a href="#">37 Notifications</a></li>
+                                    <li><i class="fa fa-group"></i><a href="#">46 Followers</a></li>
+                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
+                                </ul>
+                            </div> 
+                        </div>    
+                    </div><!--/end row-->   
+                    <!--End Profile Blog-->
+
+                    <!--Profile Blog-->
+                    <div class="row margin-bottom-20">
+                        <div class="col-sm-6 sm-margin-bottom-20">
+                            <div class="profile-blog">
+                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img2.jpg') ?>" alt="">
+                                <div class="name-location">
+                                    <strong>Sasha Elli</strong>
+                                    <table style="font-size: 12px">
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-map-marker"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><?php echo $this->translate('Istanbul') ?>, <?php echo $this->translate('Turkey') ?></span>                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-info"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><?php echo $this->translate('Branch Office Manager') ?></span>                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-user"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><a href="#"><?php echo $this->translate('Personal Profile Page') ?></a></span>                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="clearfix margin-bottom-20"></div>    
+                                <p><?php echo $this->translate('Descriptions .... ') ?></p>
+                                <hr>
+                                <ul class="list-inline share-list">
+                                    <li><i class="fa fa-bell"></i><a href="#">3 Notifications</a></li>
+                                    <li><i class="fa fa-group"></i><a href="#">25 Followers</a></li>
+                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
+                                </ul>
+                            </div>
+                        </div>        
+
+                        <div class="col-sm-6">
+                            <div class="profile-blog">
+                                <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg') ?>" alt="">
+                                <div class="name-location">
+                                    <strong>Frank Heller</strong>
+                                    <table style="font-size: 12px">
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-map-marker"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><?php echo $this->translate('Washington') ?>, <?php echo $this->translate('US') ?></span>                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-info"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><?php echo $this->translate('Human Resources') ?></span>                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center">
+                                                    <span><i class="fa fa-user"></i></span>
+                                                </td>
+                                                <td>
+                                                    <span><a href="#"><?php echo $this->translate('Personal Profile Page') ?></a></span>                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                    
+                                </div>
+                                <div class="clearfix margin-bottom-20"></div>    
+                                <p><?php echo $this->translate('Descriptions .... ') ?></p>
+                                <hr>
+                                <ul class="list-inline share-list">
+                                    <li><i class="fa fa-bell"></i><a href="#">7 Notifications</a></li>
+                                    <li><i class="fa fa-group"></i><a href="#">77 Followers</a></li>
+                                    <li><i class="fa fa-share"></i><a href="#">Share</a></li>
+                                </ul>
+                            </div> 
+                        </div>    
+                    </div><!--/end row-->   
+                    <!--End Profile Blog-->
+
+                    <button type="button" class="btn-u btn-u-default btn-block text-center">Load More</button>   
+                    <!--End Profile Blog-->
                 </div>
             </div>
+            <div class="margin-bottom-50"></div>
             <!-- End Profile Content -->            
         </div>
-    </div><!--/container-->    
+    </div><!--/container-->       
     <!--=== End Profile ===-->
+
 
     <!--=== Footer Version 1 ===-->
     <div class="footer-v1">

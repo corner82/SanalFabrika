@@ -681,7 +681,7 @@
                                                         <i class="fa fa-home"></i>
                                                     </div>
                                                     <input type="text" name="userPostalCode" id="userPostalCode"
-                                                           class="form-control validate[required, custom[onlyLetterNumber] ,minSize[5],maxSize[10]]"
+                                                           class="form-control validate[custom[onlyLetterNumber] ,minSize[5],maxSize[10]]"
                                                            onchange="taskProgressPerTabs()">
                                                 </div>
                                             </section>                                                                                                
@@ -879,11 +879,14 @@
                                                 <label class="label"><?php echo $this->translate('Web Address') ?></label> 
                                                 <label class="input">
                                                     <i class="icon-prepend fa fa-globe"></i>
-                                                    <input class="form-control validate[required,custom[url]]"
-                                                           type="url" name="companyWebAddress" id="companyWebAddress">
+                                                    <input class="form-control validate[custom[url]]"
+                                                           style="padding-left: 50px"
+                                                           type="url" name="companyWebAddress" id="companyWebAddress"
+                                                           placeholder="http:// or https://">
                                                 </label>
+                                                <div class="note">Please Note: URL begin with http:// or https://</div>
+                        
                                             </section>
-
                                             <section>
                                                 <label class="label"><?php echo $this->translate('Description') ?></label>
                                                 <label class="textarea">
