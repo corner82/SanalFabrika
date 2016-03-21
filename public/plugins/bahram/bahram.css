@@ -339,3 +339,11 @@ inherited from app.css document
 .service-block-v3 .statistics .progress-bar-light {
   background: #fff;
 }
+
+
+.cube-portfolio .cbp-l-filters-text .cbp-filter-item.cbp-filter-item-active,
+.cube-portfolio .cbp-l-filters-text .cbp-filter-item:hover {
+	color: #72c02c !important;
+        background: #fff !important;
+        
+}

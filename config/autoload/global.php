@@ -60,7 +60,12 @@ return array(
             'userprofilesettings' => 'layout/userprofilesettingsLayout.phtml',
             'companyprofile' => 'layout/companyprofileLayout.phtml',
             'companyperformancemetersprofile' => 'layout/companyperformancemetersprofileLayout.phtml',
-            'companyproductsprofile' => 'layout/companyproductsprofileLayout.phtml'
+            'companyproductsprofile' => 'layout/companyproductsprofileLayout.phtml',
+            'companycommentsprofile' => 'layout/companycommentsprofileLayout.phtml',
+            'companymembersprofile' => 'layout/companymembersprofileLayout.phtml',
+            'companyhistoryprofile' => 'layout/companyhistoryprofileLayout.phtml',
+            'companyprojectsprofile' => 'layout/companyprojectsprofileLayout.phtml',
+            'companyprofilesettings' => 'layout/companyprofilesettingsLayout.phtml'
         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -121,7 +126,12 @@ return array(
             'userprofilesettings',
             'companyprofile',
             'companyperformancemetersprofile',
-            'companyproductsprofile'       
+            'companyproductsprofile',
+            'companycommentsprofile',
+            'companymembersprofile',
+            'companyhistoryprofile',
+            'companyprojectsprofile', 
+            'companyprofilesettings'
         ),
 
     ),
@@ -146,7 +156,12 @@ return array(
                                                               'userprofilesettings',
                                                               'companyprofile',
                                                               'companyperformancemetersprofile',
-                                                              'companyproductsprofile'   
+                                                              'companyproductsprofile',
+                                                              'companycommentsprofile',
+                                                              'companymembersprofile',
+                                                              'companyhistoryprofile',
+                                                              'companyprojectsprofile', 
+                                                              'companyprofilesettings'   
                                                               )),
                    ),
         'supervisor' => array(
@@ -177,7 +192,12 @@ return array(
                                                                     'userprofilesettings',
                                                                     'companyprofile',
                                                                     'companyperformancemetersprofile',
-                                                                    'companyproductsprofile' 
+                                                                    'companyproductsprofile',
+                                                                    'companycommentsprofile',
+                                                                    'companymembersprofile',
+                                                                    'companyhistoryprofile',
+                                                                    'companyprojectsprofile', 
+                                                                    'companyprofilesettings'  
                                                                     ))
                    ),
         

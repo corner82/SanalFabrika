@@ -94,8 +94,8 @@
                 <ul style="background: #ddd;
                     padding: 10px;" class="loginbar pull-right">
                     <li class="hoverSelector">
-                        <i class="fa fa-globe"></i>
                         <a><?php echo $this->translate('Languages') ?> </a>
+                        <i class="fa fa-globe"></i>
                         <ul id='topLanguageBar' class="languages hoverSelectorBlock">                                    
                         </ul>
                     </li>
@@ -362,7 +362,6 @@
                 <div class="profile-body">
                     <div class="block-description">
                         <div class="container">
-                            <i class="center-icon rounded-x fa fa-edit"></i>
                             <div class="title-box-v2 col-md-8">
                                 <h2>Company Information</h2>
                                 <p style="text-align: center">
@@ -438,182 +437,7 @@
                                             </p>
 
                                         </div>
-
-
-                                        <hr>
-                                        <div class="progression">
-
-                                            <h2><?php echo $this->translate("Company Products' Categories") ?></h2>
-
-                                            <!-- Accordion v1 -->                
-                                            <div class="panel-group acc-v1" id="accordion_products">
-                                                <div class="panel panel-aqua">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a class="accordion-toggle" 
-                                                               data-toggle="collapse" 
-                                                               data-parent="#accordion_products" 
-                                                               href="#category_one_products">
-                                                                   <?php echo $this->translate('Product Category One') ?>
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="category_one_products" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <?php echo $this->translate('Product one description') ?>
-                                                                </div>
-                                                            </div>
-                                                            <hr>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <?php echo $this->translate('Product two description') ?>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="panel panel-dark-blue">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a class="accordion-toggle" 
-                                                               data-toggle="collapse" 
-                                                               data-parent="#accordion_products" 
-                                                               href="#category_two_products">
-                                                                   <?php echo $this->translate('Product Category Two') ?>
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="category_two_products" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <?php echo $this->translate('Product one description') ?>
-                                                                </div>
-                                                            </div>
-                                                            <hr>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <?php echo $this->translate('Product two description') ?>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-danger">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a class="accordion-toggle" 
-                                                               data-toggle="collapse" 
-                                                               data-parent="#accordion_products" 
-                                                               href="#category_three_products">
-                                                                   <?php echo $this->translate('Product Category Three') ?>
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="category_three_products" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <?php echo $this->translate('Product one description') ?>
-                                                                </div>
-                                                            </div>
-                                                            <hr>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <?php echo $this->translate('Product two description') ?>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-brown">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a class="accordion-toggle" 
-                                                               data-toggle="collapse" 
-                                                               data-parent="#accordion_products" 
-                                                               href="#category_four_products">
-                                                                   <?php echo $this->translate('Product Category Four') ?>
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="category_four_products" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <?php echo $this->translate('Product one description') ?>
-                                                                </div>
-                                                            </div>
-                                                            <hr>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" alt="">
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <?php echo $this->translate('Product two description') ?>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End Accordion v1 -->  
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="progression">
-                                            <h2><?php echo $this->translate('Sample product videos') ?></h2>
-                                            <p><?php
-                                                echo $this->translate('In order to give a better description about '
-                                                        . 'products and their amnufacturing processes companies may inclued product '
-                                                        . 'videos in this section.')
-                                                ?></p>
-
-                                            <div class="row margin-bottom-60">
-                                                <!-- Vimeo Video -->                
-                                                <div class="col-md-6">
-                                                    <div class="responsive-video md-margin-bottom-40">
-                                                        <iframe width="100%" src="https://www.youtube.com/embed/4dmt7tQG1-w" frameborder="0" allowfullscreen></iframe>
-                                                    </div>
-                                                </div>
-                                                <!-- End Vimeo Video -->
-
-                                                <!-- Youtube Video -->
-                                                <div class="col-md-6">
-                                                    <div class="responsive-video">
-                                                        <iframe width="100%" src="https://www.youtube.com/embed/Squv4KI751w" frameborder="0" allowfullscreen></iframe>
-                                                    </div>
-                                                </div>
-                                                <!-- End Youtube Video -->
-                                            </div>
-                                            <!-- End Video Blocks -->  
-                                        </div>
-
+                                        
                                         <hr>
 
                                         <div class="progression">

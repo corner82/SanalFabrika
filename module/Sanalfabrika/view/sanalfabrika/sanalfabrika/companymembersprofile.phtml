@@ -3,6 +3,7 @@
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
 
+
 <!--=== Style Switcher ===-->    
 <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
 <div class="style-switcher animated fadeInRight">
@@ -92,7 +93,7 @@
             <div class="topbar">
                 <ul style="background: #ddd;
                     padding: 10px;" class="loginbar pull-right">
-                    <li class="hoverSelector">
+                    <li class="hoverSelector">                        
                         <a><?php echo $this->translate('Languages') ?> </a>
                         <i class="fa fa-globe"></i>
                         <ul id='topLanguageBar' class="languages hoverSelectorBlock">                                    
@@ -101,7 +102,7 @@
                     <li class="topbar-devider"></li>   
                     <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><?php echo $this->translate('Log out') ?></a></li>    
+                    <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><?php echo $this->translate('Log out') ?></a></li>   
                 </ul>
             </div>
             <!-- End Topbar -->
@@ -159,51 +160,55 @@
     </div>
     <!--=== End Header ===-->
 
-    
 
     <!--=== Breadcrumbs ===-->
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
         <div style='background: #E0EDDF;' class="container">
-            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Profile') ?></h1>
+            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
-                <li class="active"><?php echo $this->translate('Profile') ?></li>
+                <li class="active"><?php echo $this->translate('Company Profile') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
     <!--=== End Breadcrumbs ===-->
-    
+
+
     <!--=== Profile ===-->
-    <div class="container content profile">	
-    	<div class="row">
+    <div class="container content profile">
+        <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
-                <img class="img-responsive profile-img margin-bottom-20" src="<?php echo $this->basePath('onyuz/standard/assets/img/team/img32-md.jpg')?>" alt="">
+                <img class="img-responsive profile-img margin-bottom-20" 
+                     src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emge-logo-without-background.png') ?>" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    <li class="list-group-item">
-                        <a href="userprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Overall')?></a>
-                    </li>
                     <li class="list-group-item active">
-                        <a href="userprofilepersonal"><i class="fa fa-user"></i> <?php echo $this->translate('Profile')?></a>
+                        <a href="companyprofile"><i class="fa fa-info"></i> <?php echo $this->translate('Company Profile') ?></a>
                     </li>
                     <li class="list-group-item">
-                        <a href="userprofileusers"><i class="fa fa-group"></i> <?php echo $this->translate('Users')?></a>
-                    </li>                                        
-                    <li class="list-group-item">
-                        <a href="userprofileprojects"><i class="fa fa-cubes"></i> <?php echo $this->translate('My Projects')?></a>
+                        <a href="companyperformancemetersprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Performance Meters') ?></a>
                     </li>
                     <li class="list-group-item">
-                        <a href="userprofilecomments"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments')?></a>
+                        <a href="companyproductsprofile"><i class="fa fa-automobile"></i> <?php echo $this->translate('Products') ?></a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="companymembersprofile"><i class="fa fa-group"></i> <?php echo $this->translate('Members') ?></a>
                     </li>                                        
                     <li class="list-group-item">
-                        <a href="userprofilehistory"><i class="fa fa-history"></i> <?php echo $this->translate('History')?></a>
+                        <a href="companyprojectsprofile"><i class="fa fa-cubes"></i> <?php echo $this->translate('Projects') ?></a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="companycommentsprofile"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments') ?></a>
+                    </li>                                        
+                    <li class="list-group-item">
+                        <a href="companyhistoryprofile"><i class="fa fa-history"></i> <?php echo $this->translate('History') ?></a>
                     </li>                                       
                     <li class="list-group-item">
-                        <a href="userprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings')?></a>
+                        <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
                     </li> 
-                </ul>   
+                </ul>     
 
                 <div class="panel-heading-v2 overflow-h">
                     <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
@@ -229,270 +234,138 @@
 
                 <!--Notification-->
                 <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> Notification</h2>
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notification') ?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
-                <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
-                        <div class="overflow-h">
-                            <span><strong>Albert Heller</strong> has sent you email.</span>
-                            <small>Two minutes ago</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> started following you.</span>
-                            <small>Today 18:25 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
-                        <div class="overflow-h">
-                            <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
-                            <small>Yesterday 1:07 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img1.jpg')?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
-                            <small>23/12 11:01 am</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                        <div class="overflow-h">
-                            <span><strong>Bruno Js.</strong> added you to group chating.</span>
-                            <small>Yesterday 1:07 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img6.jpg')?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> changed profile picture.</span>
-                            <small>23/12 15:15 pm</small>
-                        </div>    
-                    </li>
-                </ul>    
-                
-            </div>
-            <!--End Left Sidebar-->
-            
-            <!-- Profile Content -->
-            <div class="col-md-9">
-                <div class="profile-body">
-                    <div class="profile-bio">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <img class="img-responsive md-margin-bottom-10" src="<?php echo $this->basePath('onyuz/standard/assets/img/team/img32-md.jpg')?>" alt="">
-                                <a class="btn-u btn-u-sm" href="#">Change Picture</a>
-                            </div>
-                            <div class="col-md-7">
-                                <h2><?php echo $this->translate('Profile Owner Name')?></h2>
-                                <span><strong><?php echo $this->translate('Job')?>:</strong> Web Developer</span>
-                                <span><strong><?php echo $this->translate('Position')?>:</strong> Web Designer</span>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget massa nec turpis congue bibendum. Integer nulla felis, porta suscipit nulla et, dignissim commodo nunc. Morbi a semper nulla.</p>
-                                <p>Proin mauris odio, pharetra quis ligula non, vulputate vehicula quam. Nunc in libero vitae nunc ultricies tincidunt ut sed leo. Sed luctus dui ut congue consequat. Cras consequat nisl ante, nec malesuada velit pellentesque ac. Pellentesque nec arcu in ipsum iaculis convallis.</p>
-                            </div>
-                        </div>    
-                    </div><!--/end row-->
-                            
-                    <hr>
-
-                    <div class="row">
-                        <!--Social Icons v3-->
-                        <div class="col-sm-6 sm-margin-bottom-30">
-                            <div class="panel panel-profile">
-                                <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> <?php echo $this->translate('Social Contacts')?> <small>(option 1)</small></h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                                </div>
-                                <div class="panel-body">
-                                     <ul class="list-unstyled social-contacts-v2">
-                                        <li><i class="rounded-x tw fa fa-twitter"></i> <a href="#">edward.rooster</a></li>
-                                        <li><i class="rounded-x fb fa fa-facebook"></i> <a href="#">Edward Rooster</a></li>
-                                        <li><i class="rounded-x sk fa fa-skype"></i> <a href="#">edwardRooster77</a></li>
-                                        <li><i class="rounded-x gp fa fa-google-plus"></i> <a href="#">rooster77edward</a></li>
-                                        <li><i class="rounded-x gm fa fa-envelope"></i> <a href="#">edward77@gmail.com</a></li>
-                                    </ul>
-                                </div>       
-                            </div>
-                        </div>
-                        <!--End Social Icons v3-->
-
-                        <!--Skills-->
-                        <div class="col-sm-6 sm-margin-bottom-30">
-                            <div class="panel panel-profile">
-                                <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> <?php echo $this->translate('Skills')?></h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                                </div>
-                                <div class="panel-body">
-                                    <small>HTML/CSS</small>
-                                    <small>92%</small>
-                                    <div class="progress progress-u progress-xxs">
-                                        <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
-                                        </div>
-                                    </div>
-
-                                    <small>Photoshop</small>
-                                    <small>77%</small>
-                                    <div class="progress progress-u progress-xxs">
-                                        <div style="width: 77%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="77" role="progressbar" class="progress-bar progress-bar-u">
-                                        </div>
-                                    </div>
-
-                                    <small>PHP</small>
-                                    <small>85%</small>
-                                    <div class="progress progress-u progress-xxs">
-                                        <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-u">
-                                        </div>
-                                    </div>
-
-                                    <small>Javascript</small>
-                                    <small>81%</small>
-                                    <div class="progress progress-u progress-xxs">
-                                        <div style="width: 81%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="81" role="progressbar" class="progress-bar progress-bar-u">
-                                        </div>
-                                    </div>  
-                                </div>
-                            </div>
-                        </div>    
-                        <!--End Skills-->            
-                    </div><!--/end row-->    
-
-                    <hr>                                
-
-                    <!--Timeline-->
-                    <div class="panel panel-profile">
-                        <div class="panel-heading overflow-h">
-                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> <?php echo $this->translate('Experience')?></h2>
-                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                        </div>
-                        <div class="panel-body margin-bottom-40">
-                            <ul class="timeline-v2 timeline-me">
-                                <li>
-                                    <time datetime="" class="cbp_tmtime"><span>Mobile Design</span> <span>2012 - Current</span></time>
-                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                                    <div class="cbp_tmlabel">
-                                        <h2>BFC NYC Partners</h2>
-                                        <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Peasprouts wattle seed rutabaga okra yarrow cress avocado grape.</p> 
-                                    </div>
-                                </li>
-                                <li>
-                                    <time datetime="" class="cbp_tmtime"><span>Web Designer</span> <span>2007 - 2012</span></time>
-                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                                    <div class="cbp_tmlabel">
-                                    <h2>Freelance</h2>
-                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce.</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <time datetime="" class="cbp_tmtime"><span>Photodesigner</span> <span>2003 - 2007</span></time>
-                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                                    <div class="cbp_tmlabel">
-                                    <h2>Toren Condo</h2>
-                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>    
-                    </div>
-                    <!--End Timeline-->
-
-                    <!--Timeline-->
-                    <div class="panel panel-profile">
-                        <div class="panel-heading overflow-h">
-                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-mortar-board"></i> <?php echo $this->translate('Education')?></h2>
-                            <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="timeline-v2 timeline-me">
-                                <li>
-                                    <time datetime="" class="cbp_tmtime"><span>Bachelor of IT</span> <span>2003 - 2000</span></time>
-                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                                    <div class="cbp_tmlabel">
-                                        <h2>Harvard University</h2>
-                                        <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Peasprouts wattle seed rutabaga okra yarrow cress avocado grape.</p> 
-                                    </div>
-                                </li>
-                                <li>
-                                    <time datetime="" class="cbp_tmtime"><span>Web Design</span> <span>1997 - 2000</span></time>
-                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                                    <div class="cbp_tmlabel">
-                                    <h2>Imperial College London</h2>
-                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce.</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <time datetime="" class="cbp_tmtime"><span>High School</span> <span>1988 - 1997</span></time>
-                                    <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                                    <div class="cbp_tmlabel">
-                                    <h2>Chicago High School</h2>
-                                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>    
-                    </div>
-                    <!--End Timeline--> 
-
-                    <hr>
-
-                    <div class="row">
-                        <!--Social Contacts v2-->
-                        <div class="col-sm-6">
-                            <div class="panel panel-profile">
-                                <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> Social Contacts <small>(option 2)</small></h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-unstyled social-contacts-v3">
-                                        <li><i class="rounded-x tw fa fa-twitter"></i> <a href="#">edward.rooster</a></li>
-                                        <li><i class="rounded-x fb fa fa-facebook"></i> <a href="#">Edward Rooster</a></li>
-                                        <li><i class="rounded-x sk fa fa-skype"></i> <a href="#">edwardRooster77</a></li>
-                                        <li><i class="rounded-x gp fa fa-google-plus"></i> <a href="#">rooster77edward</a></li>
-                                        <li><i class="rounded-x gm icon-envelope"></i> <a href="#">edward77@gmail.com</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>    
-                        <!--End Social Contacts v2-->
-
-                        <!--Design Skills-->
-                        <div class="col-sm-6">
-                            <div class="panel panel-profile">
-                                <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> <?php echo $this->translate('Language Skills')?></h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                         <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
-                                            <div class="circle margin-bottom-20" id="circle-4"></div>
-                                            <h3 class="heading-xs">Engagement Score</h3>
-                                            <p>Celery coriander bitterleaf epazote radicchio shallot.</p>
-                                        </div> 
-                                        <div class="p-chart col-sm-6 col-xs-6">
-                                            <div class="circle margin-bottom-20" id="circle-5"></div>
-                                            <h3 class="heading-xs">Progfile Completness</h3>
-                                            <p>Celery coriander bitterleaf epazote radicchio shallot.</p>
-                                        </div>
-                                    </div>
-                                </div>       
-                            </div>
-                        </div>
-                        <!--End Design Skills-->            
-                    </div><!--/end row-->
+                <div class="margin-bottom-20">
+                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
+                            <div class="overflow-h">
+                                <span><strong>Albert Heller</strong> has sent you email.</span>
+                                <small>Two minutes ago</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
+                            <div class="overflow-h">
+                                <span><strong>Taylor Lee</strong> started following you.</span>
+                                <small>Today 18:25 pm</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
+                            <div class="overflow-h">
+                                <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
+                                <small>Yesterday 1:07 pm</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
+                            <div class="overflow-h">
+                                <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
+                                <small>23/12 11:01 am</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                            <div class="overflow-h">
+                                <span><strong>Bruno Js.</strong> added you to group chating.</span>
+                                <small>Yesterday 1:07 pm</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
+                            <div class="overflow-h">
+                                <span><strong>Taylor Lee</strong> changed profile picture.</span>
+                                <small>23/12 15:15 pm</small>
+                            </div>    
+                        </li>
+                    </ul>    
                 </div>
             </div>
-            <!-- End Profile Content -->
+            <!--End Left Sidebar-->
+
+            <!-- Counter header start -->
+            <div class="col-md-9" style="padding-bottom: 20px">
+                <!--<div class="parallax-counter-v4 parallaxBg">-->
+                <!--Service Block v3-->
+                <div class="row margin-bottom-10">
+                    <div class="col-sm-6 sm-margin-bottom-20">
+                        <div class="service-block-v3 service-block-aviation">
+                            <i class="icon-plane"></i>
+                            <span class="service-heading"><?php echo $this->translate('Submitted Aviation Projects') ?></span>
+                            <span class="counter">358</span>
+
+                            <div class="clearfix margin-bottom-10"></div>
+
+                            <div class="row margin-bottom-20">
+                                <div class="col-xs-6 service-in">
+                                    <small><?php echo $this->translate('Last Week') ?></small>
+                                    <h4 class="counter">25</h4>
+                                </div>
+                                <div class="col-xs-6 text-right service-in">
+                                    <small><?php echo $this->translate('Last Month') ?></small>
+                                    <h4 class="counter">114</h4>
+                                </div>
+                            </div>
+                            <div class="statistics">
+                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar') ?><span class="pull-right">67%</span></h3>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
+                                    </div>
+                                </div>
+                                <small>11% less <strong><?php echo $this->translate('than last month') ?></strong></small>
+                            </div>            
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6">
+                        <div class="service-block-v3 service-block-renewable">
+                            <i class="icon-energy"></i>
+                            <span class="service-heading"><?php echo $this->translate('Submitted Renewable Energy Projects') ?></span>
+                            <span class="counter">324,056</span>
+
+                            <div class="clearfix margin-bottom-10"></div>
+
+                            <div class="row margin-bottom-20">
+                                <div class="col-xs-6 service-in">
+                                    <small><?php echo $this->translate('Last Week') ?></small>
+                                    <h4 class="counter">26,904</h4>
+                                </div>
+                                <div class="col-xs-6 text-right service-in">
+                                    <small><?php echo $this->translate('Last Month') ?></small>
+                                    <h4 class="counter">124,766</h4>
+                                </div>
+                            </div>
+                            <div class="statistics">
+                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar') ?><span class="pull-right">89%</span></h3>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 89%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="89" role="progressbar" class="progress-bar progress-bar-light">
+                                    </div>
+                                </div>
+                                <small>15% <?php echo $this->translate('higher') ?> <strong><?php echo $this->translate('than last month') ?></strong></small>
+                            </div>            
+                        </div>
+                    </div>
+                </div><!--/end row-->
+                <!--End Service Block v3-->                    
+                <!--</div>-->
+            </div>
+
+
+            <!-- Counter header ends -->
+
+            <!-- Profile Content -->            
+            <div class="col-md-9">
+                <div class="profile-body">
+                    
+                </div>
+            </div>
+            <!-- End Profile Content -->            
         </div>
-    </div>		
+    </div><!--/container-->    
     <!--=== End Profile ===-->
 
     <!--=== Footer Version 1 ===-->
