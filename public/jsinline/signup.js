@@ -879,11 +879,11 @@ function submitUserGeneralInfoForm() {
  */
 function submitUserAddressInfoForm() {
 
-console.log(selectedAddTypeId);
-    if (!selectedAddTypeId === '-1') {
-        if (!selectedCountryId === '-1') {
+    console.log(selectedAddTypeId);
+    
+    if (selectedAddTypeId != '-1') {
+        if (selectedCountryId != '-1') {
             if ($('#userAddressInfoForm').validationEngine('validate')) {
-
                 if (selectedCountryId === "91") {
                     $.ajax({
                         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -913,9 +913,7 @@ console.log(selectedAddTypeId);
                                 $('#lastInsertId').val(data.lastInsertId);
                                 $("#checkGeneralForm").val("1");
 //                        console.log('insert success: ' + data['errorInfo'][0]);
-//                        $('div.growlUI')
-//                                .css("background",
-//                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
+//                        
                                 BootstrapDialog.show({
                                     title: window.lang.translate('Submission Process'),
                                     message: window.lang.translate('Address information submitted successfully'),
@@ -937,12 +935,7 @@ console.log(selectedAddTypeId);
                             console.error(textStatus);
                             console.error(errorThrown);
                             $("#checkAddressForm").val("0");
-//                    $('div.growlUI')
-//                            .css("background",
-//                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
-//                    $('div.growlUI')
-//                            .css("background",
-//                                    "url(../../plugins/jquery-BlockUI/newCross-1.png) no-repeat 10px 10px");
+                            
                             BootstrapDialog.show({
                                 title: window.lang.translate('Submission Process'),
                                 message: window.lang.translate('Address information submission failed'),
@@ -983,9 +976,6 @@ console.log(selectedAddTypeId);
                                 $('#lastInsertId').val(data.lastInsertId);
                                 $("#checkGeneralForm").val("1");
 //                        console.log('insert success: ' + data['errorInfo'][0]);
-//                        $('div.growlUI')
-//                                .css("background",
-//                                        "url(../../plugins/jquery-BlockUI/newCheck-1.png) no-repeat 10px 10px");
                                 BootstrapDialog.show({
                                     title: window.lang.translate('Submission Process'),
                                     message: window.lang.translate('Address information submitted sucessfully'),
@@ -1027,8 +1017,7 @@ console.log(selectedAddTypeId);
                 type: BootstrapDialog.TYPE_WARNING,
 //                            closable: false
             });
-
-            $("html, body").animate({scrollTop: $("#userCountry").offset().top}, "slow");
+            $("html, body").animate({scrollTop: $("#usercountry").offset().top}, "slow");
             event.preventDefault();
         }
     } else {
@@ -1038,7 +1027,6 @@ console.log(selectedAddTypeId);
             type: BootstrapDialog.TYPE_WARNING,
 //                            closable: false
         });
-
         $("html, body").animate({scrollTop: $("#addressTypesCombo").offset().top}, "slow");
         event.preventDefault();
     }
