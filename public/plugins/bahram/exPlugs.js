@@ -287,7 +287,7 @@
 //                        console.log(data);
                         for (i = 0; i < 10; i++) {
 
-                            var image_source = "<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/emge.png')?>";
+                            var image_source = "/onyuz/standard/assets/img/sfClients/emge.png";
                             //                        console.log(image_source);
                             var appending_html =
                                     "<!-- Clients Block-->"

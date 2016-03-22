@@ -28,7 +28,7 @@ $(document).ready(function () {
             }
             for (i = 0; i < window.companyperpage; i++) {
                 var companyProfileLink = window.location.href.replace(/clientspage/g, "companyprofile");
-                var image_source = "<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/emge.png')?>";
+                var image_source = "/onyuz/standard/assets/img/sfClients/emge.png";
                 //                        console.log(image_source);
                 var appending_html =
                         "<!-- Clients Block-->"
