@@ -13,7 +13,7 @@ namespace Utill\MQ;
  * RabbitMQ message queue wrapper abstract class
  * @author Mustafa Zeynel Dağlı
  */
-abstract class abstractMQ  {
+abstract class AbstractMQ  {
     
   const QUEUE_NAME = 'userLogin2_queue'; 
   const PAGE_ENTRY_LOG_QUEUE_NAME = 'userPageEntryLog2_queue'; 
