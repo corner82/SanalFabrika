@@ -214,8 +214,135 @@
         }
     });
 
+    /*
+     * paginator widget 
+     * 
+     */
 
+    $.widget("sanalfabrika.paginator", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
 
+        options: {
+            total: 50,
+            page: 1,
+            maxVisible: 5,
+            leaps: true,
+            firstLastUse: true,
+            first: '<span aria-hidden="true">&larr;</span>',
+            last: '<span aria-hidden="true">&rarr;</span>',
+            wrapClass: 'pagination',
+            activeClass: 'active',
+            disabledClass: 'disabled',
+            nextClass: 'next',
+            prevClass: 'prev',
+            lastClass: 'last',
+            firstClass: 'first'
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        paginate: function () {
+            $('#paginationBar').bootpag({
+                total: this.options.total,
+                page: this.options.page,
+                maxVisible: this.options.maxVisible,
+                leaps: this.options.leaps,
+                firstLastUse: this.options.firstLastUse,
+                first: this.options.first,
+                last: this.options.last,
+                wrapClass: this.options.wrapClass,
+                activeClass: this.options.activeClass,
+                disabledClass: this.options.disabledClass,
+                nextClass: this.options.nextClass,
+                prevClass: this.options.prevClass,
+                lastClass: this.options.lastClass,
+                firstClass: this.options.firstClass
+            }).on("page", function (event, num) {
 
+                $("#pagination_content").empty();
+
+                $.ajax({
+                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+                    data: {url: 'fillCompanyListsGuest_infoFirmProfile',
+                        language_code: $("#langCode").val(),
+                        page: num,
+                        rows: window.companyperpage,
+                        sort: null,
+                        order: null
+                    },
+                    method: "GET",
+                    dataType: "json",
+                    success: function (data) {
+//                        console.log(data);
+                        for (i = 0; i < 10; i++) {
+
+                            var image_source = "<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/emge.png')?>";
+                            //                        console.log(image_source);
+                            var appending_html =
+                                    "<!-- Clients Block-->"
+                                    + "<a href='#'>"
+                                    + "<div class='row clients-page'> "
+                                    + "<div class = 'col-md-2'>"
+                                    + '<img src="'
+                                    + image_source
+                                    + '" '
+                                    + "class = 'img-responsive hover-effect' alt = '' / >"
+                                    + "</div>"
+                                    + "<div class = 'col-md-10' id='"
+                                    + data.rows[i].pk
+                                    + "'>"
+                                    + "<h3>"
+                                    + data.rows[i].firm_names
+                                    + "</h3>"
+                                    + "<ul class = 'list-inline'>"
+                                    + "<li>"
+                                    + "<i class = 'fa fa-map-marker color-green'></i>"
+                                    + data.rows[i].country_names
+                                    + "</li>"
+                                    + "<li><i class = 'fa fa-globe color-green'></i>"
+                                    + "<a class='linked' href='"
+                                    + data.rows[i].web_address
+                                    + "'>"
+                                    + data.rows[i].web_address
+                                    + "</a>"
+                                    + "</li>"
+                                    + "<li>"
+                                    + "<i class = 'fa fa-briefcase color-green'> </i>"
+                                    //                            + data[i].sectors
+                                    + "</li>"
+                                    + "</ul>"
+                                    + "<p>"
+                                    + data.rows[i].descriptions
+                                    + "</p>"
+                                    + "</div>"
+                                    + "</div>"
+                                    + "</a>"
+                                    + "<!-- End Clinets Block --> ";
+                            //                        console.log(appending_html);
+                            var newappend = $(appending_html);
+                            $(newappend).appendTo($("#pagination_content"));
+                            $(newappend).on('click', function (event) {
+                                window.selectedCompanyPK = $(event.target).closest('div').attr('id');
+                                console.log(window.selectedCompanyPK);
+                            });
+                        }
+                        $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");
+                        event.preventDefault();
+                    }
+                });
+            });
+        }
+    });
 }(jQuery));
 

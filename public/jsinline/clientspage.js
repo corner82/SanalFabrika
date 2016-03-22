@@ -1,21 +1,96 @@
+$(document).ready(function () {
 
-$('#paginationBar').bootpag({
-    total: 50,
-    page: 2,
-    maxVisible: 5,
-    leaps: true,
-    firstLastUse: true,
-    first: '<span aria-hidden="true">&larr;</span>',
-    last: '<span aria-hidden="true">&rarr;</span>',
-    wrapClass: 'pagination',
-    activeClass: 'active',
-    disabledClass: 'disabled',
-    nextClass: 'next',
-    prevClass: 'prev',
-    lastClass: 'last',
-    firstClass: 'first'
-}).on("page", function (event, num) {
-    $("#pagination_content").html("Page " + num); // or some ajax content loading...
-}).find('.pagination');
+    $("#pagination_content").empty();
+    //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {url: 'fillCompanyListsGuest_infoFirmProfile',
+            language_code: $("#langCode").val(),
+            page: 1,
+            rows: 10,
+            sort: null,
+            order: null
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            var i;
+            // @companyperpage = 10 company will be shown per page
+            window.companyperpage = 10;
+            var numberofpages = ~~(data.total / window.companyperpage);
+            var remainingcompanynumber = data.total % window.companyperpage;
+            window.totalnumberofpages;
+            if (remainingcompanynumber > 0) {
+                window.totalnumberofpages = numberofpages + 1;
+            } else {
+                window.totalnumberofpages = numberofpages;
+            }
+            for (i = 0; i < window.companyperpage; i++) {
+                var companyProfileLink = window.location.href.replace(/clientspage/g, "companyprofile");
+                var image_source = "<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/emge.png')?>";
+                //                        console.log(image_source);
+                var appending_html =
+                        "<!-- Clients Block-->"
+                        + "<a href='#'>"
+                        + "<div class='row clients-page'>"
+                        + "<div class = 'col-md-2'>"
+                        + '<img src="'
+                        + image_source
+                        + '" '
+                        + "class = 'img-responsive hover-effect' alt = '' / >"
+                        + "</div>"
+                        + "<div class = 'col-md-10' id='"
+                        + data.rows[i].pk
+                        + "'>"
+                        + "<a href='"
+                        + companyProfileLink
+                        + "'>"
+                        + "<h3>"
+                        + data.rows[i].firm_names
+                        + "</h3>"
+                        + "</a>"
+                        + "<ul class = 'list-inline'>"
+                        + "<li>"
+                        + "<i class = 'fa fa-map-marker color-green'></i>"
+                        + data.rows[i].country_names
+                        + "</li>"
+                        + "<li><i class = 'fa fa-globe color-green'></i>"
+                        + "<a class='linked' href='"
+                        + data.rows[i].web_address
+                        + "'>"
+                        + data.rows[i].web_address
+                        + "</a>"
+                        + "</li>"
+                        + "<li>"
+                        + "<i class = 'fa fa-briefcase color-green'> </i>"
+                        //                            + data[i].sectors
+                        + "</li>"
+                        + "</ul>"
+                        + "<p>"
+                        + data.rows[i].descriptions
+                        + "</p>"
+                        + "</div>"
+                        + "</div>"
+                        + "</a>"
+                        + "<!-- End Clinets Block --> ";
+//              console.log(appending_html);
+                var newappend = $(appending_html);
+                $(newappend).appendTo($("#pagination_content"));
+                $(newappend).on('click', function (event) {
+                    window.selectedCompanyPK = $(event.target).closest('div').attr('id');                    
+                    console.log(window.selectedCompanyPK);
+                });
+            }
+            $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");
+            event.preventDefault();
 
+            $('#paginationBar').paginator();
+            $('#paginationBar').paginator('option', 'total', window.totalnumberofpages);
+            $('#paginationBar').paginator('option', 'maxVisible', 5);
+            $('#paginationBar').paginator('paginate');
+        }
+    });
+
+});
 
