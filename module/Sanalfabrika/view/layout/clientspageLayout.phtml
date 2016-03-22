@@ -4,78 +4,92 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 
-    <!-- Mirrored from htmlstream.com/preview/unify-v1.8/page_clients.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Dec 2015 13:33:28 GMT -->
-    <head>
-        <title>Clients | Unify - Responsive Website Template</title>
+    <title><?php echo $this->translate('Virtual Enterprise') ?> | <?php echo $this->translate('Clients Page') ?></title>
 
-        <!-- Meta -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="favicon.ico">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="<?php echo $this->basePath('onyuz/standard/assets/favicon.ico') ?>">
 
-        <!-- Web Fonts -->
-        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+    <!-- Web Fonts -->
+    <link rel="stylesheet" href="<?php echo $this->basePath('fonts.googleapis.com/css0bd2.css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin') ?>">
 
-        <!-- CSS Global Compulsory -->
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/bootstrap/css/bootstrap.min.css')?>">
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/style.css')?>">
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/bootstrap/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/style.css') ?>">
 
-        <!-- CSS Header and Footer -->
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/headers/header-default.css')?>">
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/footers/footer-v1.css')?>">
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/headers/header-default.css') ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/footers/footer-v1.css') ?>">
 
-        <!-- CSS Implementing Plugins -->
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/animate.css')?>">
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/line-icons/line-icons.css')?>">
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/font-awesome/css/font-awesome.min.css')?>">
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/animate.css') ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/line-icons/line-icons.css') ?>">
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/plugins/font-awesome/css/font-awesome.min.css') ?>">
 
-        <!-- CSS Page Style -->    
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/pages/page_clients.css')?>">
+    <!-- CSS Page Style -->    
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/pages/page_clients.css') ?>">
 
-        <!-- CSS Theme -->    
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/theme-colors/default.css')?>" id="style_color">
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/theme-skins/dark.css')?>">
+    <!-- CSS Theme -->    
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/theme-colors/default.css') ?>" id="style_color">
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/theme-skins/dark.css') ?>">
 
-        <!-- CSS Customization -->
-        <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/custom.css')?>">
-    </head> 
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="<?php echo $this->basePath('onyuz/standard/assets/css/custom.css') ?>">
+</head> 
 
-    <body>
+<body>
 
-        <?php echo $this->content; ?>
+    <?php echo $this->content; ?>
 
-        <?php echo $this->inlineScript() ?>
+    <?php echo $this->inlineScript() ?>
 
 
-        <!-- JS Global Compulsory -->           
-        <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/jquery/jquery.min.js')?>"></script>
-        <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/jquery/jquery-migrate.min.js')?>"></script>
-        <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/bootstrap/js/bootstrap.min.js')?>"></script> 
-        <!-- JS Implementing Plugins -->           
-        <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/back-to-top.js')?>"></script>
-        <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/smoothScroll.js')?>"></script>
-        <!-- JS Customization -->
-        <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/custom.js')?>"></script>
-        <!-- JS Page Level -->           
-        <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/app.js')?>"></script>
-        <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js')?>"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function () {
-                App.init();
-                StyleSwitcher.initStyleSwitcher();
-            });
-        </script>
-        <!--[if lt IE 9]>
-            <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/respond.js')?>"></script>
-            <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/html5shiv.js')?>"></script>
-            <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/placeholder-IE-fixes.js')?>"></script>
-        <![endif]-->
+    <!-- JS Global Compulsory -->           
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/jquery/jquery.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/jquery/jquery-migrate.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/bootstrap/js/bootstrap.min.js') ?>"></script> 
+    
+    <!-- JS Implementing Plugins -->           
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/back-to-top.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/smoothScroll.js') ?>"></script>
+    
+    <!-- JS Customization -->
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/custom.js') ?>"></script>
+    
+    <!-- JS Page Level -->           
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/app.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
+    
+    <!-- multulanguage js -->
+    <script src="<?php echo $this->basePath('plugins/jquery-lang-js-master/js.cookie.js') ?>" type="text/javascript"></script>
+    <script src="<?php echo $this->basePath('plugins/jquery-lang-js-master/jquery-lang.js') ?>" type="text/javascript"></script>
+    <!--<script src="js/langpack/nonDynamic.js" charset="utf-8" type="text/javascript"></script>-->
+        
+    <!-- pagination js -->        
+    <script src="<?php echo $this->basePath('plugins/jquery-bootpag/master/lib/jquery.bootpag.js') ?>"></script>
 
-    </body>
+    <!-- inline js -->        
+    <script src="<?php echo $this->basePath('jsinline/languageBar.js') ?>"></script>
+    <script src="<?php echo $this->basePath('jsinline/clientspage.js') ?>"></script>
 
-    <!-- Mirrored from htmlstream.com/preview/unify-v1.8/page_clients.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Dec 2015 13:33:28 GMT -->
+    <script type="text/javascript">        
+        jQuery(document).ready(function () {
+            App.init();
+            StyleSwitcher.initStyleSwitcher();
+        });
+    </script>
+    <!--[if lt IE 9]>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/respond.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/html5shiv.js') ?>"></script>
+        <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/placeholder-IE-fixes.js') ?>"></script>
+    <![endif]-->
+
+</body>
+
+<!-- Mirrored from htmlstream.com/preview/unify-v1.8/page_clients.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Dec 2015 13:33:28 GMT -->
 </html> 
