@@ -70,4 +70,7 @@ return array(
     'Custom\\Services\\Log\\' => array($vendorDir . '/services/src/log'),
     'Custom\\Services\\Log\\RabbitMQ\\' => array($vendorDir . '/services/src/acl/rabbitMQ'),
     'Utill\\MQ\\' => array($vendorDir . '/utill/mq'),
+    'Utill\\MQ\\Factory\\' => array($vendorDir . '/utill/mq/factory'),
+    'Utill\\MQ\\MessageMQ\\' => array($vendorDir . '/utill/mq/messageMQ'),
+    'Utill\\MQ\\Manager\\' => array($vendorDir . '/utill/mq/manager'),
 );

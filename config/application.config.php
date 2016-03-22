@@ -115,9 +115,9 @@ return array(
             'serviceAclRolePagesCreator' => 'Custom\Services\Acl\FactoryServiceACLRolePagesCreator',
             'serviceAclRoleFinder' => 'Custom\Services\Acl\FactoryServiceACLRoleFinder',  
             'serviceLogoutRedirect' => 'Custom\Services\Authentication\FactoryServiceLogoutRedirect',
-            'servicePageLogRabbitMQ' => 'Custom\Services\Log\RabbitMQ\FactoryServicePageLog',
-            'serviceLoginLogRabbitMQ' => 'Custom\Services\Log\RabbitMQ\FactoryServiceLoginLog',
-            'serviceLogoutLogRabbitMQ' => 'Custom\Services\Log\RabbitMQ\FactoryServiceLogoutLog',
+            'servicePageLogRabbitMQ' => 'Utill\MQ\Factory\FactoryServicePageLog',
+            'serviceLoginLogRabbitMQ' => 'Utill\MQ\Factory\FactoryServiceLoginLog',
+            'serviceLogoutLogRabbitMQ' => 'Utill\MQ\Factory\FactoryServiceLogoutLog',
         ],  
         
     ),

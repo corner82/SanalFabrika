@@ -7,7 +7,7 @@
  * @license   
  */
 
-namespace Custom\Services\Log\RabbitMQ;
+namespace Utill\MQ\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

@@ -7,7 +7,7 @@
  * @license   
  */
 
-namespace Utill\MQ;
+namespace Utill\MQ\Manager;
 
 /**
  * class called for MQ manager config 

@@ -50,7 +50,7 @@ class FactoryServicePageLog  implements FactoryInterface{
                                       'path' => $controller.'/'.$action,
                                       'method' => $method,
                                       'ip' => $remoteAddr,
-                                      'params' => $params,
+                                      'params' => serialize($params),
                                       'type_id' => \Utill\MQ\MessageMQ\MQMessagePageEntryLog::PAGE_ENTRY_OPERATIN,
                                       'logFormat' => 'database'));
        $message->setMessageProperties(array('delivery_mode' => 2,

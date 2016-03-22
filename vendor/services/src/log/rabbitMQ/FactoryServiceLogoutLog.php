@@ -46,7 +46,7 @@ class FactoryServiceLogoutLog  implements FactoryInterface{
                                       'path' =>$host,
                                       'method' => $method,
                                       'ip' => $remoteAddr,
-                                      'params' => json_encode($params, $options),
+                                      'params' => serialize($params),
                                       'type_id' => \Utill\MQ\MessageMQ\MQMessageLoginLogout::LOGOUT_OPERATION,
                                       'logFormat' => 'database'));
        $message->setMessageProperties(array('delivery_mode' => 2,

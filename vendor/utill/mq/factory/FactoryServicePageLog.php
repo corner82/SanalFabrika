@@ -7,16 +7,20 @@
  * @license   
  */
 
-namespace Custom\Services\Log\RabbitMQ;
+namespace Utill\MQ\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class FactoryServiceLoginLog  implements FactoryInterface{
+class FactoryServicePageLog  implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
         
         $publicKey = $serviceLocator->get('servicePublicKeyReader'); 
+        
+        $routeMatch = $serviceLocator->get('Application')->getMvcEvent()->getRouteMatch();
+        $controller = $routeMatch->getParam('controller');
+        $action = $routeMatch->getParam('action');
         
         $request = $serviceLocator->get('Request');
         $uri = $request->getUri();
@@ -33,21 +37,21 @@ class FactoryServiceLoginLog  implements FactoryInterface{
         * @author Mustafa Zeynel Dağlı
         * @todo after tests ,  thif feature will be added as a service manager entity
         */
-        $PageEntryLogMQ = new \Utill\MQ\LoginLogoutMQ();
-        $PageEntryLogMQ->setChannelProperties(array('queue.name' => \Utill\MQ\LoginLogoutMQ::QUEUE_NAME));
-        $message = new \Utill\MQ\MessageMQ\MQMessageLoginLogout();
+       $PageEntryLogMQ = new \Utill\MQ\PageEntryLogMQ();
+       $PageEntryLogMQ->setChannelProperties(array('queue.name' => \Utill\MQ\AbstractMQ::PAGE_ENTRY_LOG_QUEUE_NAME));
+       $message = new \Utill\MQ\MessageMQ\MQMessagePageEntryLog();
        ;
 
-       $message->setMessageBody(array('message' => 'Kullanıcı authentication log servis!', 
+       $message->setMessageBody(array('message' => 'Kullanıcı sayfa giris log servis!', 
                                       //'s_date'  => date('l jS \of F Y h:i:s A'),
                                       'log_datetime'  => date('Y-m-d G:i:s '),
                                       'pk' => $publicKey,
                                       'url' => $base,
-                                      'path' =>$host,
+                                      'path' => $controller.'/'.$action,
                                       'method' => $method,
                                       'ip' => $remoteAddr,
                                       'params' => serialize($params),
-                                      'type_id' => \Utill\MQ\MessageMQ\MQMessageLoginLogout::LOGIN_OPERATAION,
+                                      'type_id' => \Utill\MQ\MessageMQ\MQMessagePageEntryLog::PAGE_ENTRY_OPERATIN,
                                       'logFormat' => 'database'));
        $message->setMessageProperties(array('delivery_mode' => 2,
                                             'content_type' => 'application/json'));

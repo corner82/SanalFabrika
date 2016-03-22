@@ -8,7 +8,7 @@
  */
 namespace Utill\MQ;
 
-class PageEntryLogMQ extends \Utill\MQ\abstractMQ {
+class PageEntryLogMQ extends \Utill\MQ\AbstractMQ {
 
     public function __construct() {
         

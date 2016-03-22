@@ -7,12 +7,12 @@
  * @license   
  */
 
-namespace Custom\Services\Log\RabbitMQ;
+namespace Utill\MQ\Factory;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class FactoryServiceLoginLog  implements FactoryInterface{
+class FactoryServiceLogoutLog  implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
         
@@ -38,7 +38,7 @@ class FactoryServiceLoginLog  implements FactoryInterface{
         $message = new \Utill\MQ\MessageMQ\MQMessageLoginLogout();
        ;
 
-       $message->setMessageBody(array('message' => 'Kullanıcı authentication log servis!', 
+       $message->setMessageBody(array('message' => 'Kullanıcı authentication log out servis!', 
                                       //'s_date'  => date('l jS \of F Y h:i:s A'),
                                       'log_datetime'  => date('Y-m-d G:i:s '),
                                       'pk' => $publicKey,
@@ -47,7 +47,7 @@ class FactoryServiceLoginLog  implements FactoryInterface{
                                       'method' => $method,
                                       'ip' => $remoteAddr,
                                       'params' => serialize($params),
-                                      'type_id' => \Utill\MQ\MessageMQ\MQMessageLoginLogout::LOGIN_OPERATAION,
+                                      'type_id' => \Utill\MQ\MessageMQ\MQMessageLoginLogout::LOGOUT_OPERATION,
                                       'logFormat' => 'database'));
        $message->setMessageProperties(array('delivery_mode' => 2,
                                             'content_type' => 'application/json'));
