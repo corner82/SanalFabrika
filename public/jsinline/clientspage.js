@@ -28,16 +28,15 @@ $(document).ready(function () {
             }
             for (i = 0; i < window.companyperpage; i++) {
                 var companyProfileLink = window.location.href.replace(/clientspage/g, "companyprofile");
-                var image_source = "/onyuz/standard/assets/img/sfClients/emge.png";
-                //                        console.log(image_source);
                 var appending_html =
                         "<!-- Clients Block-->"
                         + "<a href='#'>"
                         + "<div class='row clients-page'>"
                         + "<div class = 'col-md-2'>"
-                        + '<img src="'
-                        + image_source
-                        + '" '
+                        + "<img src='/onyuz/standard/assets/img/sfClients/'"
+                        + "emge"
+                        + ".png"
+                        + "'"
                         + "class = 'img-responsive hover-effect' alt = '' / >"
                         + "</div>"
                         + "<div class = 'col-md-10' id='"
