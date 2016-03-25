@@ -48,13 +48,15 @@ return array(
             'sanalfabrika' => array(
                 'type' => 'segment',
                 'options' => array(
-                    'route' => '[/:lang]/ostim/sanalfabrika[/:action][/:id]',
+                    'route' => '[/:lang]/ostim/sanalfabrika[/:action][/:id][/:selectedCompanyNpk]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id' => '[0-9]+',
+//                        'id' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         //'lang' => '[a-zA-Z]{2}+',
                         //'lang' => '(([en])|(tr)|(fa)|[ru]|[ar]|[de]|[zh]){2}+',
                         'lang' => '((en)|(tr)|(ru)|(zh)|(de)|(ar)|(fa))',
+                        'selectedCompanyNpk' => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ),
                     'defaults' => array(
                         'controller' => 'Sanalfabrika\Controller\Sanalfabrika',

@@ -15,6 +15,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
+//            console.log(data);
             var i;
             // @companyperpage = 10 company will be shown per page
             window.companyperpage = 10;
@@ -27,16 +28,16 @@ $(document).ready(function () {
                 window.totalnumberofpages = numberofpages;
             }
             for (i = 0; i < window.companyperpage; i++) {
-                var companyProfileLink = window.location.href.replace(/clientspage/g, "companyprofile");
+                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + data.rows[i].pk);
+
                 var appending_html =
                         "<!-- Clients Block-->"
-                        + "<a href='#'>"
+//                                    + "<a href='#'>"
                         + "<div class='row clients-page'>"
                         + "<div class = 'col-md-2'>"
-                        + "<img src='/onyuz/standard/assets/img/sfClients/'"
-                        + "emge"
-                        + ".png"
-                        + "'"
+                        + "<img src='/onyuz/standard/assets/img/sfClients/"
+                        + data.rows[i].logo
+                        + "' "
                         + "class = 'img-responsive hover-effect' alt = '' / >"
                         + "</div>"
                         + "<div class = 'col-md-10' id='"
@@ -70,18 +71,15 @@ $(document).ready(function () {
                         + data.rows[i].descriptions
                         + "</p>"
                         + "</div>"
-                        + "</div>"
-                        + "</a>"
+//                                    + "</div>"
+//                                    + "</a>"
                         + "<!-- End Clinets Block --> ";
-//              console.log(appending_html);
+//                            console.log(appending_html);
                 var newappend = $(appending_html);
                 $(newappend).appendTo($("#pagination_content"));
-                $(newappend).on('click', function (event) {
-                    window.selectedCompanyPK = $(event.target).closest('div').attr('id');                    
-                    console.log(window.selectedCompanyPK);
-                });
+
             }
-            $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");
+            $("html, body").animate({scrollTop: $(".header").offset().top}, "slow");
             event.preventDefault();
 
             $('#paginationBar').paginator();
