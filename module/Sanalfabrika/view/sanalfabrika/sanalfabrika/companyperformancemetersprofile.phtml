@@ -167,7 +167,8 @@
         <div style='background: #E0EDDF;' class="container">
             <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
-                <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
+                <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>                        
+                <li><a href="/ostim/sanalfabrika/clientspage"><?php echo $this->translate('Client Pages') ?></a></li>
                 <li><?php echo $this->translate('Company Profile') ?></li>
                 <li class="active"><?php echo $this->translate('Performance Meters') ?></li>
             </ul>
@@ -181,35 +182,28 @@
         <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
-                <img class="img-responsive profile-img margin-bottom-20" 
-                     src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emge-logo-without-background.png') ?>" alt="">
+                <img class="img-responsive profile-img margin-bottom-20" id="profileLogosrc"
+                     src="" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                    <li id="companyprofilelink" class="list-group-item ">
+                        </li>
+                    <li id="companyperformancemetersprofilelink" class="list-group-item active">
+                        </li>
+                    <li id="companyproductsprofilelink" class="list-group-item">
+                        </li>
+                    <li id="companymembersprofilelink" class="list-group-item">
+                        </li>                                        
+                    <li id="companyprojectsprofilelink" class="list-group-item">
+                        </li>
+                    <li id="companycommentsprofilelink" class="list-group-item">
+                        </li>                                        
                     <li class="list-group-item">
-                        <a href="companyprofile"><i class="fa fa-info"></i> <?php echo $this->translate('Company Profile') ?></a>
-                    </li>
-                    <li class="list-group-item active" >
-                        <a href="companyperformancemetersprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Performance Meters') ?></a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="companyproductsprofile"><i class="fa fa-automobile"></i> <?php echo $this->translate('Products') ?></a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="companymembersprofile"><i class="fa fa-group"></i> <?php echo $this->translate('Members') ?></a>
-                    </li>                                        
-                    <li class="list-group-item">
-                        <a href="companyprojectsprofile"><i class="fa fa-cubes"></i> <?php echo $this->translate('Projects') ?></a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="companycommentsprofile"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments') ?></a>
-                    </li>                                        
-                    <li class="list-group-item">
-                        <a href="companyhistoryprofile"><i class="fa fa-history"></i> <?php echo $this->translate('History') ?></a>
-                    </li>                                       
+                        </li>                                       
 <!--                    <li class="list-group-item">
                         <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
                     </li> -->
-                </ul>     
+                </ul>       
 
                 <div class="panel-heading-v2 overflow-h">
                     <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
@@ -367,7 +361,7 @@
                         <div class="container">
                             <i class="center-icon rounded-x fa fa-edit"></i>
                             <div class="title-box-v2 col-md-8">
-                                <h2>Company Performance Meters</h2>
+                                <h2><?php echo $this->translate('Company Performance Meters')?></h2>
                                 <p>Pellentesque et erat ac massa cursus porttitor eget sed magna.</p>
                             </div> 
                             <div class="row">

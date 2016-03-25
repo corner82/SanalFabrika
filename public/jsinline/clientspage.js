@@ -28,7 +28,8 @@ $(document).ready(function () {
                 window.totalnumberofpages = numberofpages;
             }
             for (i = 0; i < window.companyperpage; i++) {
-                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + data.rows[i].pk);
+                $('#selectedCompanyNpk').val(data.rows[i].pk);
+                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyNpk').val());
 
                 var appending_html =
                         "<!-- Clients Block-->"

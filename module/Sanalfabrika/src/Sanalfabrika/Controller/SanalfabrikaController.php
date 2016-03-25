@@ -188,15 +188,13 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyNpk = $this->getEvent()->getRouteMatch()->getParam('selectedCompanyNpk');
-        
-//        print_r($selectedCompanyNpk);
-        
+
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
-            'selectedCompanyNpk'=> $selectedCompanyNpk
+            'selectedCompanyNpk' => $selectedCompanyNpk
         ));
-        
+
         return $view;
     }
 
@@ -205,10 +203,12 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $selectedCompanyNpk = $this->getEvent()->getRouteMatch()->getParam('selectedCompanyNpk');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'selectedCompanyNpk' => $selectedCompanyNpk
         ));
         return $view;
     }
@@ -218,10 +218,12 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $selectedCompanyNpk = $this->getEvent()->getRouteMatch()->getParam('selectedCompanyNpk');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'selectedCompanyNpk' => $selectedCompanyNpk,
         ));
         return $view;
     }
@@ -231,10 +233,12 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $selectedCompanyNpk = $this->getEvent()->getRouteMatch()->getParam('selectedCompanyNpk');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'selectedCompanyNpk' => $selectedCompanyNpk
         ));
         return $view;
     }
@@ -244,10 +248,12 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $selectedCompanyNpk = $this->getEvent()->getRouteMatch()->getParam('selectedCompanyNpk');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'selectedCompanyNpk' => $selectedCompanyNpk
         ));
         return $view;
     }
@@ -257,10 +263,12 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $selectedCompanyNpk = $this->getEvent()->getRouteMatch()->getParam('selectedCompanyNpk');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'selectedCompanyNpk' => $selectedCompanyNpk
         ));
         return $view;
     }
@@ -296,11 +304,10 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
-       
+
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
-            'langCode' => $langCode,                
-                
+            'langCode' => $langCode,
         ));
         return $view;
     }

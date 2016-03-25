@@ -168,6 +168,7 @@
             <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
+                <li><?php echo $this->translate('Clients Page') ?></li>
                 <li><?php echo $this->translate('Company Profile') ?></li>
                 <li class="active"><?php echo $this->translate('Company Products') ?></li>
             </ul>
@@ -181,34 +182,27 @@
         <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
-                <img class="img-responsive profile-img margin-bottom-20" 
-                     src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emge-logo-without-background.png') ?>" alt="">
+                <img class="img-responsive profile-img margin-bottom-20" id="profileLogosrc"
+                     src="" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    <li class="list-group-item">
-                        <a href="companyprofile"><i class="fa fa-info"></i> <?php echo $this->translate('Company Profile') ?></a>
+                    <li id="companyprofilelink" class="list-group-item ">
                     </li>
-                    <li class="list-group-item">
-                        <a href="companyperformancemetersprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Performance Meters') ?></a>
+                    <li id="companyperformancemetersprofilelink" class="list-group-item">
                     </li>
-                    <li class="list-group-item active">
-                        <a href="companyproductsprofile"><i class="fa fa-automobile"></i> <?php echo $this->translate('Products') ?></a>
+                    <li id="companyproductsprofilelink" class="list-group-item active">
                     </li>
-                    <li class="list-group-item">
-                        <a href="companymembersprofile"><i class="fa fa-group"></i> <?php echo $this->translate('Members') ?></a>
+                    <li id="companymembersprofilelink" class="list-group-item">
+                    </li>                                        
+                    <li id="companyprojectsprofilelink" class="list-group-item">
+                    </li>
+                    <li id="companycommentsprofilelink" class="list-group-item">
                     </li>                                        
                     <li class="list-group-item">
-                        <a href="companyprojectsprofile"><i class="fa fa-cubes"></i> <?php echo $this->translate('Projects') ?></a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="companycommentsprofile"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments') ?></a>
-                    </li>                                        
-                    <li class="list-group-item">
-                        <a href="companyhistoryprofile"><i class="fa fa-history"></i> <?php echo $this->translate('History') ?></a>
                     </li>                                       
-<!--                    <li class="list-group-item">
-                        <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
-                    </li> -->
+                    <!--                    <li class="list-group-item">
+                                            <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
+                                        </li> -->
                 </ul>     
 
                 <div class="panel-heading-v2 overflow-h">
@@ -348,120 +342,120 @@
                                                     <div class="tab-pane fade in active" id="category_one_products">
                                                         <div class="left-inner" id="product_one_one">
                                                             <div class="row">
-                                                            <h4>product_one_one</h4>                                                        
-                                                            <div>
-                                                                <img class="img-responsive" 
-                                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
-                                                                     alt="">    
-                                                            </div>
-                                                            
-                                                            <div class="overflow-h">
-                                                                <p>Product Description Here</p>
-                                                            </div>
+                                                                <h4>product_one_one</h4>                                                        
+                                                                <div>
+                                                                    <img class="img-responsive" 
+                                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
+                                                                         alt="">    
+                                                                </div>
+
+                                                                <div class="overflow-h">
+                                                                    <p>Product Description Here</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <hr>
                                                         <div class="left-inner"  id="product_two_one">
                                                             <div class="row">
-                                                            <h4>product_two_one</h4>                                                        
-                                                            <div>
-                                                                <img class="img-responsive" 
-                                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
-                                                                     alt="">    
-                                                            </div>
-                                                            <div class="overflow-h">
-                                                                <p>Product Description Here</p>
-                                                            </div>
+                                                                <h4>product_two_one</h4>                                                        
+                                                                <div>
+                                                                    <img class="img-responsive" 
+                                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
+                                                                         alt="">    
+                                                                </div>
+                                                                <div class="overflow-h">
+                                                                    <p>Product Description Here</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="tab-pane fade in" id="category_two_products">
                                                         <div class="left-inner" id="product_one_two">
                                                             <div class="row">
-                                                            <h4>product_one_two</h4>                                                        
-                                                            <div>
-                                                                <img class="img-responsive" 
-                                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
-                                                                     alt="">    
-                                                            </div>
-                                                            
-                                                            <div class="overflow-h">
-                                                                <p>Product Description Here</p>
-                                                            </div>
+                                                                <h4>product_one_two</h4>                                                        
+                                                                <div>
+                                                                    <img class="img-responsive" 
+                                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
+                                                                         alt="">    
+                                                                </div>
+
+                                                                <div class="overflow-h">
+                                                                    <p>Product Description Here</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <hr>
                                                         <div class="left-inner"  id="product_two_two">
                                                             <div class="row">
-                                                            <h4>product_two_two</h4>                                                        
-                                                            <div>
-                                                                <img class="img-responsive" 
-                                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
-                                                                     alt="">    
-                                                            </div>
-                                                            <div class="overflow-h">
-                                                                <p>Product Description Here</p>
-                                                            </div>
+                                                                <h4>product_two_two</h4>                                                        
+                                                                <div>
+                                                                    <img class="img-responsive" 
+                                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
+                                                                         alt="">    
+                                                                </div>
+                                                                <div class="overflow-h">
+                                                                    <p>Product Description Here</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="tab-pane fade in" id="category_three_products">
                                                         <div class="left-inner" id="product_one_three">
                                                             <div class="row">
-                                                            <h4>product_one_three</h4>                                                        
-                                                            <div>
-                                                                <img class="img-responsive" 
-                                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
-                                                                     alt="">    
-                                                            </div>
-                                                            
-                                                            <div class="overflow-h">
-                                                                <p>Product Description Here</p>
-                                                            </div>
+                                                                <h4>product_one_three</h4>                                                        
+                                                                <div>
+                                                                    <img class="img-responsive" 
+                                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
+                                                                         alt="">    
+                                                                </div>
+
+                                                                <div class="overflow-h">
+                                                                    <p>Product Description Here</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <hr>
                                                         <div class="left-inner"  id="product_two_three">
                                                             <div class="row">
-                                                            <h4>product_two_three</h4>                                                        
-                                                            <div>
-                                                                <img class="img-responsive" 
-                                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
-                                                                     alt="">    
-                                                            </div>
-                                                            <div class="overflow-h">
-                                                                <p>Product Description Here</p>
-                                                            </div>
+                                                                <h4>product_two_three</h4>                                                        
+                                                                <div>
+                                                                    <img class="img-responsive" 
+                                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
+                                                                         alt="">    
+                                                                </div>
+                                                                <div class="overflow-h">
+                                                                    <p>Product Description Here</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="tab-pane fade in" id="category_four_products">
                                                         <div class="left-inner" id="product_one_four">
                                                             <div class="row">
-                                                            <h4>product_one_four</h4>                                                        
-                                                            <div>
-                                                                <img class="img-responsive" 
-                                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
-                                                                     alt="">    
-                                                            </div>
-                                                            
-                                                            <div class="overflow-h">
-                                                                <p>Product Description Here</p>
-                                                            </div>
+                                                                <h4>product_one_four</h4>                                                        
+                                                                <div>
+                                                                    <img class="img-responsive" 
+                                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
+                                                                         alt="">    
+                                                                </div>
+
+                                                                <div class="overflow-h">
+                                                                    <p>Product Description Here</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <hr>
                                                         <div class="left-inner"  id="product_two_four">
                                                             <div class="row">
-                                                            <h4>product_two_four</h4>                                                        
-                                                            <div>
-                                                                <img class="img-responsive" 
-                                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
-                                                                     alt="">    
-                                                            </div>
-                                                            <div class="overflow-h">
-                                                                <p>Product Description Here</p>
-                                                            </div>
+                                                                <h4>product_two_four</h4>                                                        
+                                                                <div>
+                                                                    <img class="img-responsive" 
+                                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/demo.jpg') ?>" 
+                                                                         alt="">    
+                                                                </div>
+                                                                <div class="overflow-h">
+                                                                    <p>Product Description Here</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

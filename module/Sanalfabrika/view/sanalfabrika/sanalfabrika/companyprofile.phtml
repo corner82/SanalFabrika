@@ -186,30 +186,23 @@
                      src="" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    <li class="list-group-item active">
-                        <a href="companyprofile"><i class="fa fa-info"></i> <?php echo $this->translate('Company Profile') ?></a>
+                    <li id="companyprofilelink" class="list-group-item active">
                     </li>
-                    <li class="list-group-item">
-                        <a href="companyperformancemetersprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Performance Meters') ?></a>
+                    <li id="companyperformancemetersprofilelink" class="list-group-item">
                     </li>
-                    <li class="list-group-item">
-                        <a href="companyproductsprofile"><i class="fa fa-automobile"></i> <?php echo $this->translate('Products') ?></a>
+                    <li id="companyproductsprofilelink" class="list-group-item">
                     </li>
-                    <li class="list-group-item">
-                        <a href="companymembersprofile"><i class="fa fa-group"></i> <?php echo $this->translate('Members') ?></a>
+                    <li id="companymembersprofilelink" class="list-group-item">
+                    </li>                                        
+                    <li id="companyprojectsprofilelink" class="list-group-item">
+                    </li>
+                    <li id="companycommentsprofilelink" class="list-group-item">
                     </li>                                        
                     <li class="list-group-item">
-                        <a href="companyprojectsprofile"><i class="fa fa-cubes"></i> <?php echo $this->translate('Projects') ?></a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="companycommentsprofile"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments') ?></a>
-                    </li>                                        
-                    <li class="list-group-item">
-                        <a href="companyhistoryprofile"><i class="fa fa-history"></i> <?php echo $this->translate('History') ?></a>
                     </li>                                       
-<!--                    <li class="list-group-item">
-                        <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
-                    </li> -->
+                    <!--                    <li class="list-group-item">
+                                            <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
+                                        </li> -->
                 </ul>     
 
                 <div class="panel-heading-v2 overflow-h">
@@ -365,7 +358,7 @@
                     <div class="block-description">
                         <div class="container">
                             <div class="title-box-v2 col-md-8" id="companyAddressPH">
-                                
+
 
                             </div> 
 
@@ -373,11 +366,11 @@
                                 <!-- Left Inner -->
                                 <div class="col-md-8">
                                     <div class="left-inner">
-                                        
-                                    <img id="logosrc" src="" alt="">
+
+                                        <img id="logosrc" src="" alt="">
                                         <h3 id="logoName"></h3>
                                         <a href="#"><i class="position-top fa fa-print"></i></a>
-                                        
+
                                         <div class="overflow-h">
                                             <p class="hex" id="companyInfoPH"><?php echo $this->translate('Turkey') ?>, 200 <?php echo $this->translate('Employees') ?></p>
                                             <ul class="list-inline star-vote">
@@ -424,7 +417,7 @@
                                             <p id="briefDescPH">                                                
                                             </p>
                                         </div>
-                                        
+
                                         <hr>
 
                                         <div class="progression">
@@ -434,13 +427,13 @@
                                             </ul>
 
                                             <hr>
-                                            
+
                                             <h2><?php echo $this->translate('Customers') ?></h2>
                                             <!--<p><?php echo $this->translate('Brief description about customer companies') ?></p>-->
                                             <ul class="list-unstyled" id="customersPH">
                                             </ul>
 
-                                                                                        
+
                                         </div>
                                     </div>
                                     <!-- End Left Inner -->
