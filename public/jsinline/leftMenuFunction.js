@@ -41,8 +41,8 @@
                     var appending_html = "<li id='menu_" +
                             data[i].id + "'><a href='" +
                             data[i].url + "'><i class='fa " +
-                            data[i].icon_class + "'></i>" +
-                            data[i].menu_name + "</a></li>";
+                            data[i].icon_class + "'></i><span>" +
+                            data[i].menu_name + "</span></a></li>";
 
                     var newappend = $(appending_html);
 
