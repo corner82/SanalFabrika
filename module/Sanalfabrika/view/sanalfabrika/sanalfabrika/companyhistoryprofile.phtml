@@ -2,6 +2,7 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
+<input id="selectedCompanyNpk" type="hidden"  value="<?php echo $this->selectedCompanyNpk; ?>"></input>
 
 
 <!--=== Style Switcher ===-->    
@@ -185,31 +186,26 @@
                      src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emge-logo-without-background.png') ?>" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    <li class="list-group-item">
-                        <a href="companyprofile"><i class="fa fa-info"></i> <?php echo $this->translate('Company Profile') ?></a>
+                    <li id="companyprofilelink" class="list-group-item">
                     </li>
-                    <li class="list-group-item">
-                        <a href="companyperformancemetersprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Performance Meters') ?></a>
+                    <li id="companyperformancemetersprofilelink" class="list-group-item">
                     </li>
-                    <li class="list-group-item">
-                        <a href="companyproductsprofile"><i class="fa fa-automobile"></i> <?php echo $this->translate('Products') ?></a>
+                    <li id="companyproductsprofilelink" class="list-group-item">
                     </li>
-                    <li class="list-group-item">
-                        <a href="companymembersprofile"><i class="fa fa-group"></i> <?php echo $this->translate('Members') ?></a>
+                    <li id="companymembersprofilelink" class="list-group-item">
+                    </li>                                        
+                    <li id="companyprojectsprofilelink" class="list-group-item">
+                    </li>
+                    <li id="companycommentsprofilelink" class="list-group-item">
+                    </li>   
+                    <li id="companyhistoryprofilelink" class="list-group-item active">
                     </li>                                        
                     <li class="list-group-item">
-                        <a href="companyprojectsprofile"><i class="fa fa-cubes"></i> <?php echo $this->translate('Projects') ?></a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="companycommentsprofile"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments') ?></a>
-                    </li>                                        
-                    <li class="list-group-item active">
-                        <a href="companyhistoryprofile"><i class="fa fa-history"></i> <?php echo $this->translate('History') ?></a>
                     </li>                                       
-<!--                    <li class="list-group-item">
-                        <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
-                    </li> -->
-                </ul>     
+                    <!--                    <li class="list-group-item">
+                                            <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
+                                        </li> -->
+                </ul>    
 
                 <div class="panel-heading-v2 overflow-h">
                     <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>

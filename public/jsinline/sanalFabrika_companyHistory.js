@@ -16,7 +16,7 @@ $(document).ready(function () {
      * Company profile Link
      */
 
-    var companyProfileLink = window.location.href.replace('companyproductsprofile', 'companyprofile');
+    var companyProfileLink = window.location.href.replace('companyhistoryprofile', 'companyprofile');
     var profilelink = "<a href='"
             + companyProfileLink
             + "'>"
@@ -31,7 +31,7 @@ $(document).ready(function () {
      * Company performance meters Link
      */
 
-    var companyPerformanceMetersProfileLink = window.location.href.replace('companyproductsprofile', 'companyperformancemetersprofile');
+    var companyPerformanceMetersProfileLink = window.location.href.replace('companyhistoryprofile', 'companyperformancemetersprofile');
     var perfromancelink = "<a href='"
             + companyPerformanceMetersProfileLink
             + "'>"
@@ -45,7 +45,7 @@ $(document).ready(function () {
     /*
      * Company products meters Link
      */
-    var companyProductsProfileLink = window.location.href;
+    var companyProductsProfileLink = window.location.href.replace('companyhistoryprofile', 'companyproductsprofile'); 
     var productslink = "<a href='"
             + companyProductsProfileLink
             + "'>"
@@ -59,7 +59,7 @@ $(document).ready(function () {
     /*
      * Company members meters Link
      */
-    var companyMembersProfileLink = window.location.href.replace('companyproductsprofile', 'companymembersprofile');
+    var companyMembersProfileLink = window.location.href.replace('companyhistoryprofile', 'companymembersprofile');
     var memberslink = "<a href='"
             + companyMembersProfileLink
             + "'>"
@@ -73,7 +73,7 @@ $(document).ready(function () {
     /*
      * Company projects meters Link
      */
-    var companyProjectsProfileLink = window.location.href.replace('companyproductsprofile', 'companyprojectsprofile');
+    var companyProjectsProfileLink = window.location.href.replace('companyhistoryprofile', 'companyprojectsprofile');
     var projectslink = "<a href='"
             + companyProjectsProfileLink
             + "'>"
@@ -87,7 +87,7 @@ $(document).ready(function () {
     /*
      * Company comments meters Link
      */
-    var companyCommentsProfileLink = window.location.href.replace('companyproductsprofile', 'companycommentsprofile');
+    var companyCommentsProfileLink = window.location.href.replace('companyhistoryprofile', 'companycommentsprofile');
     var commentslink = "<a href='"
             + companyCommentsProfileLink
             + "'>"
@@ -101,7 +101,7 @@ $(document).ready(function () {
     /*
      * Company history meters Link
      */
-    var companyHistoryProfileLink = window.location.href.replace('companyproductsprofile', 'companyhistoryprofile');
+    var companyHistoryProfileLink = window.location.href;  
     var historylink = "<a href='"
             + companyHistoryProfileLink
             + "'>"
@@ -136,81 +136,3 @@ $(document).ready(function () {
         }
     });
 });
-
-function listOfCertificates() {
-
-    console.log('Available Certificates');
-    if ($("#qualityDetaildDIV").hasClass('active')) {
-        $("#qualityDetaildDIV").removeClass('active');
-        $("#qualityDetaildDIV").slideUp('Slow');
-        $("#qualityDetailsInsideDIV").empty();
-    } else {
-        window.i++;
-        $("#qualityDetailsInsideDIV").append('Certificates ' + i + ' , ');
-        $("#qualityDetaildDIV").addClass("active");
-        $("#qualityDetaildDIV").slideDown("slow");
-    }
-
-}
-
-function qualityHistory() {
-
-    console.log('Qulaity History');
-    if ($("#qualityDetaildDIV").hasClass('active')) {
-        $("#qualityDetaildDIV").removeClass('active');
-        $("#qualityDetaildDIV").slideUp('Slow');
-        $("#qualityDetailsInsideDIV").empty();
-    } else {
-        window.i++;
-        $("#qualityDetailsInsideDIV").append('history ' + i + ' , ');
-        $("#qualityDetaildDIV").addClass("active");
-        $("#qualityDetaildDIV").slideDown("slow");
-    }
-}
-
-
-
-function qualityPerformances() {
-
-    if ($("#qualityDetaildDIV").hasClass('active')) {
-        $("#qualityDetaildDIV").removeClass('active');
-        $("#qualityDetaildDIV").slideUp('Slow');
-        $("#qualityDetailsInsideDIV").empty();
-    } else {
-
-        $("#qualityDetaildDIV").addClass("active");
-        $("#qualityDetaildDIV").slideDown("slow");
-    }
-
-}
-
-
-function performanceDetails() {
-
-    if ($("#pastPerformanceDetailsDIV").hasClass('active')) {
-        $("#pastPerformanceDetailsDIV").removeClass('active');
-        $("#pastPerformanceDetailsDIV").slideUp('Slow');
-        $("#pastPerformanceDetailsInsideDIV").empty();
-    } else {
-
-        $("#pastPerformanceDetailsDIV").addClass("active");
-        $("#pastPerformanceDetailsDIV").slideDown("slow");
-    }
-
-}
-
-function customerDetails() {
-
-    if ($("#customerDetailsDIV").hasClass('active')) {
-        $("#customerDetailsDIV").removeClass('active');
-        $("#customerDetailsDIV").slideUp('Slow');
-        $("#customerDetailsInsideDIV").empty();
-
-    } else {
-
-        $("#customerDetailsInsideDIV").append();
-        $("#customerDetailsDIV").addClass("active");
-        $("#customerDetailsDIV").slideDown("slow");
-    }
-
-}

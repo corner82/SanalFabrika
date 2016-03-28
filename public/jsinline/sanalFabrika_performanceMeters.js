@@ -7,7 +7,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
-    
+    console.log($('#selectedCompanyNpk').val());
 
     /*
      * Start of left menu links
@@ -84,7 +84,7 @@ $(document).ready(function () {
     $('#companyprojectsprofilelink').append(projectslink);
 
     /*
-     * Company projects meters Link
+     * Company comments meters Link
      */
     var companyCommentsProfileLink = window.location.href.replace('companyperformancemetersprofile', 'companycommentsprofile');
     var commentslink = "<a href='"
@@ -98,7 +98,7 @@ $(document).ready(function () {
     $('#companycommentsprofilelink').append(commentslink);
 
     /*
-     * Company projects meters Link
+     * Company history meters Link
      */
     var companyHistoryProfileLink = window.location.href.replace('companyperformancemetersprofile', 'companyhistoryprofile');
     var historylink = "<a href='"
@@ -126,11 +126,26 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data);
+            console.log(data);
             var logosrc = "../../../onyuz/standard/assets/img/sfClients/" + data[0].logo;
             $('#profileLogosrc').attr('src', logosrc);
-
-
+            var total_employees = data[0].number_of_employees;
+            $('#number_of_employees').append(total_employees);
+            
+            var number_of_engineers = data[0].number_of_engineer;
+            $('#number_of_engineers').append(number_of_engineers);
+            var engineer_percentage = (number_of_engineers/total_employees)*100; 
+            $('#eng_per_bar').attr('aria-valuenow',engineer_percentage);
+                        
+            var number_of_technicians = data[0].number_of_technician;
+            $('#number_of_technicians').append(number_of_technicians);
+            var technician_percentage = (number_of_technicians/total_employees)*100; 
+            $('#tech_per_bar').attr('aria-valuenow',technician_percentage);
+            
+            var number_of_technicians = data[0].number_of_technician;
+            $('#number_of_for_trd_staff').append(number_of_technicians);
+            var technician_percentage = (number_of_technicians/total_employees)*100; 
+            $('#tech_per_bar').attr('aria-valuenow',technician_percentage);
 
         }
     });
