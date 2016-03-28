@@ -1,6 +1,6 @@
 $(document).ready(function () {
     window.i = 0;
-    
+
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
@@ -131,22 +131,25 @@ $(document).ready(function () {
             $('#profileLogosrc').attr('src', logosrc);
             var total_employees = data[0].number_of_employees;
             $('#number_of_employees').append(total_employees);
-            
+            document.getElementById('employee_per_bar').style.width = '100%';
+
             var number_of_engineers = data[0].number_of_engineer;
             $('#number_of_engineers').append(number_of_engineers);
-            var engineer_percentage = (number_of_engineers/total_employees)*100; 
-            $('#eng_per_bar').attr('aria-valuenow',engineer_percentage);
-                        
+            var engineer_percentage = (number_of_engineers / total_employees) * 100;
+            $('#eng_per_bar').attr('aria-valuenow', engineer_percentage);
+            document.getElementById('eng_per_bar').style.width = engineer_percentage + '%';
+
             var number_of_technicians = data[0].number_of_technician;
             $('#number_of_technicians').append(number_of_technicians);
-            var technician_percentage = (number_of_technicians/total_employees)*100; 
-            $('#tech_per_bar').attr('aria-valuenow',technician_percentage);
-            
-            var number_of_technicians = data[0].number_of_technician;
-            $('#number_of_for_trd_staff').append(number_of_technicians);
-            var technician_percentage = (number_of_technicians/total_employees)*100; 
-            $('#tech_per_bar').attr('aria-valuenow',technician_percentage);
+            var technician_percentage = (number_of_technicians / total_employees) * 100;
+            $('#tech_per_bar').attr('aria-valuenow', technician_percentage);
+            document.getElementById('tech_per_bar').style.width = technician_percentage + '%';
 
+            var number_of_for_trd_staff = data[0].number_of_foreign_trade_staff;
+            $('#number_of_for_trd_staff').append(number_of_for_trd_staff);
+            var for_trd_staff_percentage = (number_of_for_trd_staff / total_employees) * 100;
+            $('#for_per_bar').attr('aria-valuenow', for_trd_staff_percentage);
+            document.getElementById('for_per_bar').style.width = for_trd_staff_percentage + '%';
         }
     });
 });
