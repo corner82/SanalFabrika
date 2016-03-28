@@ -68,6 +68,9 @@ return array(
             'companyprofilesettings' => 'layout/companyprofilesettingsLayout.phtml',
             'clientspage' => 'layout/clientspageLayout.phtml'
         ),
+        'Admin' => array(
+            'menu' => 'layout/menu.phtml',
+                        ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
                         ),
@@ -128,7 +131,7 @@ return array(
                                                             'confirm',
                                                             'machinetest',
                                                             'acldefinition'),
-                                     'admin' => array('index'),
+                                     //'admin' => array('index'),
                                      'login' => array('index','logout'),
                                      'sanalfabrika' => array ('index',
                                                               'registration',
@@ -142,7 +145,8 @@ return array(
                    ),
         'admin' => array(
                          'parent' => 'supervisor',
-                         'action' => array('admin' => array ('index'),
+                         'action' => array('admin' => array ('index',
+                                                            'menu'),
                                            )
                    ),
         'guest' => array(
