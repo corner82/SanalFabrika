@@ -68,6 +68,9 @@ return array(
             'companyprofilesettings' => 'layout/companyprofilesettingsLayout.phtml',
             'clientspage' => 'layout/clientspageLayout.phtml'
         ),
+        'Admin' => array( 'index' => 'layout/index.phtml',
+                          'menu' => 'layout/menu.phtml',
+                        ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
                         ),
@@ -142,7 +145,8 @@ return array(
                    ),
         'admin' => array(
                          'parent' => 'supervisor',
-                         'action' => array('admin' => array ('index'),
+                         'action' => array('admin' => array ('index',
+                                                            'menu'),
                                            )
                    ),
         'guest' => array(
