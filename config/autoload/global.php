@@ -68,7 +68,7 @@ return array(
             'companyprofilesettings' => 'layout/companyprofilesettingsLayout.phtml',
             'clientspage' => 'layout/clientspageLayout.phtml'
         ),
-        'Admin' => array( 'index' => 'layout/index.phtml',
+        'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
                         ),
         'Error' => array(
