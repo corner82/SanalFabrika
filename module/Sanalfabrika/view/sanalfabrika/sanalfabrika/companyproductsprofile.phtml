@@ -2,6 +2,7 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
+<input id="selectedCompanyNpk" type="hidden"  value="<?php echo $this->selectedCompanyNpk; ?>"></input>
 
 
 <!--=== Style Switcher ===-->    
@@ -197,7 +198,9 @@
                     <li id="companyprojectsprofilelink" class="list-group-item">
                     </li>
                     <li id="companycommentsprofilelink" class="list-group-item">
-                    </li>                                        
+                    </li>
+                    <li id="companyhistoryprofilelink" class="list-group-item">
+                    </li>                                           
                     <li class="list-group-item">
                     </li>                                       
                     <!--                    <li class="list-group-item">
@@ -333,7 +336,7 @@
                                             <!-- Product tabs-->                
                                             <div class="tab-v2">
                                                 <ul class="nav nav-tabs">
-                                                    <li class="active"><a href="#category_one_products" data-toggle="tab"><?php echo $this->translate('Onew') ?></a></li>
+                                                    <li class="active"><a href="#category_one_products" data-toggle="tab"><?php echo $this->translate('One') ?></a></li>
                                                     <li><a href="#category_two_products" data-toggle="tab"><?php echo $this->translate('Two') ?></a></li>
                                                     <li><a href="#category_three_products" data-toggle="tab"><?php echo $this->translate('Three') ?></a></li>
                                                     <li><a href="#category_four_products" data-toggle="tab"><?php echo $this->translate('Four') ?></a></li>

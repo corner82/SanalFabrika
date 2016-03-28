@@ -5,16 +5,14 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
+    
+    console.log($('#selectedCompanyNpk').val());
 
     /*
      * Profile left menu links arrangement
      * @author: Bahram Lotfi
-     * @Since: 2016.03.25
-     */
-
-
-  
-    /*
+     * @Since: 2016.03.25     
+     *
      * Start of left menu links
      */
     
@@ -92,7 +90,7 @@ $(document).ready(function () {
     $('#companyprojectsprofilelink').append(projectslink);
 
     /*
-     * Company projects meters Link
+     * Company comments meters Link
      */
     var companyCommentsProfileLink = window.location.href.replace('companyprofile', 'companycommentsprofile');
     var commentslink = "<a href='"
@@ -106,7 +104,7 @@ $(document).ready(function () {
     $('#companycommentsprofilelink').append(commentslink);
 
     /*
-     * Company projects meters Link
+     * Company history meters Link
      */
     var companyHistoryProfileLink = window.location.href.replace('companyprofile', 'companyhistoryprofile');
     var historylink = "<a href='"
