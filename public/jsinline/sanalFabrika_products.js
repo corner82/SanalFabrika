@@ -250,7 +250,6 @@ $(document).ready(function () {
 
         } else {
             if ($('#product_details_DIV').attr('lastIndex').toString() === selectedRowIndex.toString()) {
-                console.log('clicked on the same row...');
                 $('#product_details_DIV').attr('lastIndex', selectedRowIndex);
                 $('#product_details_DIV').slideUp('Slow');
                 $('#product_details_DIV').css('visibility', 'hidden');
@@ -325,7 +324,6 @@ function listOfCertificates() {
 
 function qualityHistory() {
 
-    console.log('Qulaity History');
     if ($("#qualityDetaildDIV").hasClass('active')) {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
