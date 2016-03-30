@@ -70,6 +70,7 @@ return array(
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
+                          'machctg' => 'layout/machctg.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
