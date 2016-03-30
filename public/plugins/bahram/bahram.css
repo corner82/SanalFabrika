@@ -347,3 +347,30 @@ inherited from app.css document
         background: #fff !important;
         
 }
+
+
+/*
+scrolling table with fixed first column
+*/
+#scroller {
+    width: 300px;
+    overflow-x: scroll;
+}
+#scroller table {
+    /* just a quick hack to make the table overflow the containing div
+       your method may differ */
+    width: 600px;
+}
+
+#scroller .table.fixedCol {
+    width: auto;
+    position: absolute;
+    /* below styles are specific for borderd Bootstrap tables
+       to remove rounded corners on cloned table */
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+       -moz-border-radius-topright: 0px;
+       -moz-border-radius-bottomright: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+}
