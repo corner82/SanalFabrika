@@ -147,7 +147,8 @@ return array(
         'admin' => array(
                          'parent' => 'supervisor',
                          'action' => array('admin' => array ('index',
-                                                            'menu'),
+                                                            'menu',
+                                                            'machctg'),
                                            )
                    ),
         'guest' => array(
