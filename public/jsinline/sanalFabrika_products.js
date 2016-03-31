@@ -123,8 +123,6 @@ $(document).ready(function () {
             $('#profileLogosrc').attr('src', logosrc);
         }
     });
-
-
     /*
      * Products categories and category products service
      *
@@ -194,7 +192,6 @@ $(document).ready(function () {
         ["Product O", "Category B", "Customer E", "Yes", "Contact Company", "Order Now"],
         ["Product P", "Category C", "Customer G", "No", "$ 1543.00", "Order Now"]
     ];
-
     $('#product_table').DataTable({
         data: dataSet,
         fixedColumns: true,
@@ -211,11 +208,7 @@ $(document).ready(function () {
             {title: "Order"}
         ]
     });
-
-
     window.table = $('#product_table').DataTable();
-
-
     $('#product_table tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
@@ -227,7 +220,6 @@ $(document).ready(function () {
 
         var selectedRowIndex = $(this)[0]._DT_RowIndex;
         this.style.color = '#72c02c';
-
         var d = window.table.row(this).data();
         /*
          * 
@@ -241,18 +233,26 @@ $(document).ready(function () {
             {key: 'prop 1', value: 'product_prop1'},
             {key: 'prop 2', value: 'product_prop2'}
         ];
-
         if ($('#product_details_DIV').css('visibility') === 'hidden') {
 
             $('#product_details_DIV').empty();
+
             var appending = "<div class='left-inner'>"
                     + "<div class='progression'>"
                     + "<h3>"
                     + window.lang.translate('Product Details')
                     + "</h3>"
-                    + "<div>selected product has row index of "
-                    + selectedRowIndex
+                    + "<div class='row'>"
+                    + "<a href="
+                    + "https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img12.jpg"
+                    + ">"
+                    + "<img class='prod_sample' src="
+                    + "../../../onyuz/standard/assets/img/main/img12.jpg"
+                    + " alt=''>"
+                    + "</a>"
+                    + "</div>"
 
+                    + "<div class='row'>"
                     + "<table id=productPropertiesTable "
                     + "class='table table-hover table-striped table-condensed' "
                     + "cellspacing='0' style='font-size: 12px'>"
@@ -267,42 +267,37 @@ $(document).ready(function () {
                     + "</tr>"
 
                     + "</table>"
-
+                    + "</div>"
                     + "</div>"
                     + "</div>"
                     + "</div>"
                     + "<hr>";
 
             $('#product_details_DIV').append(appending);
-
             var appending2;
             $.each(properties, function (key, vlaue) {
-                
+
                 appending2 = "<tr>"
                         + "<td>"
                         + properties[key].key
-                        +"</td>"
+                        + "</td>"
                         + "<td>"
                         + properties[key].value
                         + "</td>"
                         + "</tr>";
-
                 $('#productPropertiesTable').append(appending2);
-
             });
-
-
-
             $('#product_details_DIV').css('visibility', 'visible');
             $('#product_details_DIV').slideDown('slow');
             $('#product_details_DIV').attr('lastIndex', selectedRowIndex);
-
         } else {
             if ($('#product_details_DIV').attr('lastIndex').toString() === selectedRowIndex.toString()) {
+
                 $('#product_details_DIV').attr('lastIndex', selectedRowIndex);
                 $('#product_details_DIV').slideUp('Slow');
                 $('#product_details_DIV').css('visibility', 'hidden');
             } else {
+
                 $('#product_details_DIV').attr('lastIndex', selectedRowIndex);
                 $('#product_details_DIV').slideUp('Slow');
                 $('#product_details_DIV').css('visibility', 'hidden');
@@ -312,8 +307,15 @@ $(document).ready(function () {
                         + "<h3>"
                         + window.lang.translate('Product Details')
                         + "</h3>"
-                        + "<div>selected product has row index of "
-                        + selectedRowIndex
+                        + "<div class='row'>"
+                        + "<a href="
+                        + "https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img12.jpg"
+                        + ">"
+                        + "<img class='prod_sample' src="
+                        + "../../../onyuz/standard/assets/img/main/img12.jpg"
+                        + " alt=''>"
+                        + "</a>"
+                        + "</div>"
 
                         + "<table id=productPropertiesTable "
                         + "class='table table-hover table-striped table-condensed' "
@@ -334,51 +336,33 @@ $(document).ready(function () {
                         + "</div>"
                         + "</div>"
                         + "<hr>";
-
                 $('#product_details_DIV').append(appending);
-
                 var appending2;
                 $.each(properties, function (key, vlaue) {
-                
-                appending2 = "<tr>"
-                        + "<td>"
-                        + properties[key].key
-                        +"</td>"
-                        + "<td>"
-                        + properties[key].value
-                        + "</td>"
-                        + "</tr>";
 
+                    appending2 = "<tr>"
+                            + "<td>"
+                            + properties[key].key
+                            + "</td>"
+                            + "<td>"
+                            + properties[key].value
+                            + "</td>"
+                            + "</tr>";
                     $('#productPropertiesTable').append(appending2);
-
                 });
                 $('#product_details_DIV').css('visibility', 'visible');
-                $('#product_details_DIV').append(appending);
                 $('#product_details_DIV').slideDown('slow');
             }
         }
-    });
 
-    $('#product_table tbody').on('click', 'tr', function () {
-        if ($(this).hasClass('selected')) {
-            $(this).removeClass('selected');
+        if ($('#product_details_DIV').css('visibility') === 'visible') {
+            $('html, body').animate({
+                scrollTop: $("#product_details_DIV").offset().top
+            }, 1000);
         }
-        else {
-            window.table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
+
     });
-
-
-
-
-
-
-
-
-
 });
-
 /*
  * fixed first column js call
  * 

@@ -374,3 +374,8 @@ scrolling table with fixed first column
             border-top-right-radius: 0px;
             border-bottom-right-radius: 0px;
 }
+
+
+.prod_sample{
+    width: 50% !important; 
+}
