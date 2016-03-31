@@ -72,6 +72,7 @@ return array(
                           'menu' => 'layout/menu.phtml',
                           'machctg' => 'layout/machctg.phtml',
                           'machprop' => 'layout/machprop.phtml',
+                          'mach' => 'layout/mach.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -150,7 +151,8 @@ return array(
                          'action' => array('admin' => array ('index',
                                                             'menu',
                                                             'machctg',
-                                                            'machprop'),
+                                                            'machprop',
+                                                            'mach'),
                                            )
                    ),
         'guest' => array(

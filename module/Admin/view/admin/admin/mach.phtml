@@ -186,7 +186,7 @@
                         <div class="box box-primary">
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Makina Özellikleri İşlemleri </h3>                                                    
+                                <h3 class="box-title"> Kullanıcı tiplerine göre menüler </h3>                                                    
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
                                     <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
@@ -196,7 +196,7 @@
                             <div class="box-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form id='machinePropForm' method="get" class="form-horizontal">  
+                                        <form id='menuForm' method="get" class="form-horizontal">  
 
                                             <!-- Search roles box -->
                                             <!--                                            <div class="form-group">
@@ -219,7 +219,7 @@
                                             <!--Easyui tree  div start-->
                                             <div id="roleFormBlock" class="box box-primary" style="padding-top: 20px;">                                             
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Makina Özelliği</label>
+                                                    <label class="col-sm-2 control-label">Menü</label>
                                                     <div class="col-sm-10">
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
@@ -247,24 +247,24 @@
                                             
                                             
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Özellikler</label>
+                                                <label class="col-sm-2 control-label">Menü</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="property_name" id="property_name" />
+                                                        <input class="form-control validate[required]" type="text" name="menu_name" id="menu_name" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">İngilizce Özellik</label>
+                                                <label class="col-sm-2 control-label">İngilizce Menü</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="property_name_eng" id="property_name_eng" />
+                                                        <input class="form-control validate[required]" type="text" name="menu_name_eng" id="menu_name_eng" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -298,8 +298,8 @@
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group">
                                                 <div class="col-sm-10 col-sm-offset-2">
-                                                    <button id="insertMenu" class="btn btn-primary" type="submit" onclick="return insertMachinePropRootWrapper(event);"><i class="fa fa-save"></i>  Ana Kategoriye Menü Kaydet </button>
-                                                    <button id="updateMenu" class="btn btn-flat" type="submit" onclick="return updateMachinePropWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
+                                                    <button id="insertMenu" class="btn btn-primary" type="submit" onclick="return insertMenuRootWrapper(event);"><i class="fa fa-save"></i>  Ana Kategoriye Menü Kaydet </button>
+                                                    <button id="updateMenu" class="btn btn-flat" type="submit" onclick="return updateMenuWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
                                                     <button id="resetForm" class="btn btn-flat" type="reset" onclick="regulateButtons();" ><i class="fa fa-remove"></i> Reset </button>
                                                 </div>
                                             </div>
