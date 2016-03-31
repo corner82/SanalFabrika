@@ -167,12 +167,12 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Kullanıcı Menüsü İşlemleri
+                    Makina Kategorisi İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li class="active">Menü İşlemleri</li>
+                    <li><a href="<?php echo $this->serverUrl('/ostim/admin') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
+                    <li class="active">Makina Kategorisi İşlemleri</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -180,17 +180,13 @@
                 <!-- Small boxes (Stat box) -->
                 <!--first collapsible panel row -->
                 <div class="row">
-                    
-                    
-                    
                     <!--first collapsible panel width, single column-->
                     <div class="col-md-12">
                         <!--arrange first panel color to blue by assigning primary class-->
                         <div class="box box-primary">
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Kullanıcı tiplerine göre menüler </h3>
-                                
+                                <h3 class="box-title"> Makina Kategorileri </h3>                                                    
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
                                     <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
@@ -200,7 +196,7 @@
                             <div class="box-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form id='menuForm' method="get" class="form-horizontal">  
+                                        <form id='machineCategoryForm' method="get" class="form-horizontal">  
 
                                             <!-- Search roles box -->
                                             <!--                                            <div class="form-group">
@@ -220,18 +216,18 @@
 
                                             <div class="hr-line-dashed"></div>
                                             
-                                            <div class="alert alert-danger alert-dismissable">
+                                            <div class="alert alert-info alert-dismissable">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                                <h4><i class="icon fa fa-info"></i> Menü İşlemlerine başlamak için 'Kullanıcı Rolü' seçiniz!</h4>
-                                                Menü işlemleri kullanıcı rolü bazlı olarak yapılmaktadır.
-                                                    Öncelikle 'Kullanıcı Rolü' belirleyiniz, Menü öğelerini gösteren
-                                                    yapı aktif olacaktır.
+                                                <h4><i class="icon fa fa-info"></i> Makina kategorisi işlemleri için formu kullanınız!</h4>
+                                                Makina kategorisini hiyerarşik olarak sisteme ekleyebilir, mevcut kategoriyi silebilir veya aktif/pasif
+                                                 yapabilirsiniz.Makina kaydı yapılmış kategorileri sitemden kaldıramazsınız, öncelikle kategorideki makinaların
+                                                 kaldırılması gerekir.
                                             </div>
 
                                             <!--Easyui tree  div start-->
                                             <div id="roleFormBlock" class="box box-primary" style="padding-top: 20px;">                                             
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Menü</label>
+                                                    <label class="col-sm-2 control-label">Kategori</label>
                                                     <div class="col-sm-10">
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
@@ -246,53 +242,32 @@
                                                     </div>
                                                 </div>
                                             </div>  
-                                            
+    
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Kullanıcı Rolleri</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group"> 
-                                                      <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                                      <div id="dropdownRoles" ></div>
-                                                    </div>
-                                                </div>
-                                              </div>
-                                            
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Menü</label>
+                                                <label class="col-sm-2 control-label">Kategori</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="menu_name" id="menu_name" />
+                                                        <input class="form-control validate[required]" type="text" name="group_name" id="group_name" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">İngilizce Menü</label>
+                                                <label class="col-sm-2 control-label">İngilizce Kategori</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="menu_name_eng" id="menu_name_eng" />
+                                                        <input class="form-control validate[required]" type="text" name="group_name_eng" id="group_name_eng" />
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Url</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input class="form-control validate[required]" type="text" name="url" id="url" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Menü İkon</label>
+                                                <label class="col-sm-2 control-label">Kategori İkon</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group">
                                                         <div class="input-group-addon">
@@ -310,8 +285,8 @@
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group">
                                                 <div class="col-sm-10 col-sm-offset-2">
-                                                    <button id="insertMenu" class="btn btn-primary" type="submit" onclick="return insertMenuRootWrapper(event);"><i class="fa fa-save"></i>  Ana Kategoriye Menü Kaydet </button>
-                                                    <button id="updateMenu" class="btn btn-flat" type="submit" onclick="return updateMenuWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
+                                                    <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertMachineCategoryRootWrapper(event);"><i class="fa fa-save"></i>  Ana Kategoriye  Kaydet </button>
+                                                    <button id="updateMachineCategory" class="btn btn-flat" type="submit" onclick="return updateMachineCategoryWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
                                                     <button id="resetForm" class="btn btn-flat" type="reset" onclick="regulateButtons();" ><i class="fa fa-remove"></i> Reset </button>
                                                 </div>
                                             </div>
