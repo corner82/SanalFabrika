@@ -217,7 +217,12 @@
             <div style='background: #E0EDDF;' class="container">
                 <h1 class="pull-left"><i class="fa fa-quote-left"></i><?php echo $this->translate('Registration') ?></h1>
                 <ul class="pull-right breadcrumb">                        
-                    <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
+                    <li>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                                        ?>">
+                               <?php echo $this->translate('Home') ?>
+                        </a>
+                    </li>
                     <li class="active"><?php echo $this->translate('Registration') ?></li>
                 </ul>
             </div>
@@ -885,7 +890,7 @@
                                                            placeholder="http:// or https://">
                                                 </label>
                                                 <div class="note">Please Note: URL begin with http:// or https://</div>
-                        
+
                                             </section>
                                             <section>
                                                 <label class="label"><?php echo $this->translate('Description') ?></label>

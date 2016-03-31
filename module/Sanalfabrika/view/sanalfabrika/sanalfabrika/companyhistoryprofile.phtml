@@ -168,8 +168,25 @@
         <div style='background: #E0EDDF;' class="container">
             <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
-                <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
-                <li><?php echo $this->translate('Company Profile') ?></li>
+                <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
+                <li>
+                    <a href="<?php echo $this->url('sanalfabrika', 
+                            array('action' => 'index')); ?>">
+                        <?php echo $this->translate('Home') ?>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo $this->url('sanalfabrika', 
+                            array('action' => 'clientspage')); ?>">
+                        <?php echo $this->translate('Clients Page') ?>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo $this->url('sanalfabrika', 
+                            array('action' => 'companyprofile', 'id' => $selectedCompanyNpk)); ?>">
+                        <?php echo $this->translate('Company Profile') ?>
+                    </a>
+                </li>
                 <li class="active"><?php echo $this->translate('Company History') ?></li>
             </ul>
         </div>

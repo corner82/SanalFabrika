@@ -167,8 +167,19 @@
         <div style='background: #E0EDDF;' class="container">
             <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Projects') ?></h1>
             <ul class="pull-right breadcrumb">                        
-                <li><a href="/ostim/sanalfabrika"><?php echo $this->translate('Home') ?></a></li>
-                <li class="active"><?php echo $this->translate('Projects') ?></li>
+                <li>
+                    <a href="<?php echo $this->url('sanalfabrika', 
+                            array('action' => 'index')); ?>">
+                        <?php echo $this->translate('Home') ?>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo $this->url('sanalfabrika', 
+                            array('action' => 'userprofile')); ?>">
+                        <?php echo $this->translate('User Profile') ?>
+                    </a>
+                </li>
+                <li class="active"><?php echo $this->translate('Projects') ?></li> 
             </ul>
         </div>
     </div><!--/breadcrumbs-->

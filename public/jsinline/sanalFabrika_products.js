@@ -228,6 +228,20 @@ $(document).ready(function () {
         var selectedRowIndex = $(this)[0]._DT_RowIndex;
         this.style.color = '#72c02c';
 
+        var d = window.table.row(this).data();
+        /*
+         * 
+         * @type type
+         * ajxa request to get product properties should be added here...
+         * for now a properties array is created...
+         */
+        var properties = [
+            {key: 'name', value: 'product_name'},
+            {key: 'code', value: 'product_code'},
+            {key: 'prop 1', value: 'product_prop1'},
+            {key: 'prop 2', value: 'product_prop2'}
+        ];
+
         if ($('#product_details_DIV').css('visibility') === 'hidden') {
 
             $('#product_details_DIV').empty();
@@ -238,12 +252,47 @@ $(document).ready(function () {
                     + "</h3>"
                     + "<div>selected product has row index of "
                     + selectedRowIndex
+
+                    + "<table id=productPropertiesTable "
+                    + "class='table table-hover table-striped table-condensed' "
+                    + "cellspacing='0' style='font-size: 12px'>"
+
+                    + "<tr>"
+                    + "<td>"
+                    + d[0]
+                    + "</td>"
+                    + "<td>"
+                    + d[1]
+                    + "</td>"
+                    + "</tr>"
+
+                    + "</table>"
+
                     + "</div>"
                     + "</div>"
                     + "</div>"
                     + "<hr>";
 
             $('#product_details_DIV').append(appending);
+
+            var appending2;
+            $.each(properties, function (key, vlaue) {
+                
+                appending2 = "<tr>"
+                        + "<td>"
+                        + properties[key].key
+                        +"</td>"
+                        + "<td>"
+                        + properties[key].value
+                        + "</td>"
+                        + "</tr>";
+
+                $('#productPropertiesTable').append(appending2);
+
+            });
+
+
+
             $('#product_details_DIV').css('visibility', 'visible');
             $('#product_details_DIV').slideDown('slow');
             $('#product_details_DIV').attr('lastIndex', selectedRowIndex);
@@ -265,18 +314,50 @@ $(document).ready(function () {
                         + "</h3>"
                         + "<div>selected product has row index of "
                         + selectedRowIndex
+
+                        + "<table id=productPropertiesTable "
+                        + "class='table table-hover table-striped table-condensed' "
+                        + "cellspacing='0' style='font-size: 12px'>"
+
+                        + "<tr>"
+                        + "<td>"
+                        + d[0]
+                        + "</td>"
+                        + "<td>"
+                        + d[1]
+                        + "</td>"
+                        + "</tr>"
+
+                        + "</table>"
+
                         + "</div>"
                         + "</div>"
                         + "</div>"
                         + "<hr>";
 
+                $('#product_details_DIV').append(appending);
+
+                var appending2;
+                $.each(properties, function (key, vlaue) {
+                
+                appending2 = "<tr>"
+                        + "<td>"
+                        + properties[key].key
+                        +"</td>"
+                        + "<td>"
+                        + properties[key].value
+                        + "</td>"
+                        + "</tr>";
+
+                    $('#productPropertiesTable').append(appending2);
+
+                });
                 $('#product_details_DIV').css('visibility', 'visible');
                 $('#product_details_DIV').append(appending);
                 $('#product_details_DIV').slideDown('slow');
             }
         }
     });
-
 
     $('#product_table tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
