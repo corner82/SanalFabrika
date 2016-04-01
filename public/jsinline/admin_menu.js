@@ -339,6 +339,7 @@ $(document).ready(function () {
     */
    window.passiveMenu = function(nodeID) {
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       $('#tt_tree_menu').tree('expand', selectedTreeItem.target);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkUpdateMakeActiveOrPassive_leftnavigation' ,
@@ -362,6 +363,7 @@ $(document).ready(function () {
                             }
                         }]
                     });
+                    var childNodes = $('#tt_tree_menu').tree('getChildren', selectedTreeItem.target);
                     var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
                     var node = selectedTreeItem;
                     $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
@@ -379,6 +381,24 @@ $(document).ready(function () {
                                 state : node.state,
                             },]
                     });
+                    newSelectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+                    $.each( childNodes, function (index, childNode) {
+                        $('#tt_tree_menu').tree('append', {
+                        parent: newSelectedTreeItem.target,
+                        data: [{
+                                attributes:{notroot: childNode.attributes.notroot, 
+                                            text_eng: childNode.attributes.text_eng, 
+                                            active: 1, 
+                                            url: childNode.attributes.url, 
+                                            icon_class: childNode.attributes.icon_class},
+                                id: childNode.id,
+                                text: childNode.text,
+                                checked: false,
+                                state : childNode.state,
+                            },]
+                        });
+                    })
+                    
                 } else {
                     BootstrapDialog.show({
                         type: BootstrapDialog.TYPE_DANGER,
@@ -458,6 +478,7 @@ $(document).ready(function () {
     */
    window.activeMenu = function(nodeID) {
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       $('#tt_tree_menu').tree('expand', selectedTreeItem.target);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkUpdateMakeActiveOrPassive_leftnavigation' ,
@@ -481,6 +502,7 @@ $(document).ready(function () {
                         }
                     }]
                 });
+                var childNodes = $('#tt_tree_menu').tree('getChildren', selectedTreeItem.target);
                 var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
                 var node = selectedTreeItem;
                 $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
@@ -498,6 +520,25 @@ $(document).ready(function () {
                             state : node.state,
                         },]
                 });
+                
+                newSelectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+                $.each( childNodes, function (index, childNode) {
+                    $('#tt_tree_menu').tree('append', {
+                    parent: newSelectedTreeItem.target,
+                    data: [{
+                            attributes:{notroot: childNode.attributes.notroot, 
+                                        text_eng: childNode.attributes.text_eng, 
+                                        active: 0, 
+                                        url: childNode.attributes.url, 
+                                        icon_class: childNode.attributes.icon_class},
+                            id: childNode.id,
+                            text: childNode.text,
+                            checked: false,
+                            state : childNode.state,
+                        },]
+                    });
+                })
+                
                 } 
                 else {
                    BootstrapDialog.show({
