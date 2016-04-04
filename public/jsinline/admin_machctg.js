@@ -83,7 +83,7 @@ $(document).ready(function () {
             //console.log(selectedItem);
             $('#group_name').val(selectedItem.text);
             $('#group_name_eng').val(selectedItem.attributes.group_name_eng);
-            $('#url').val(selectedItem.attributes.url);
+            //$('#url').val(selectedItem.attributes.url);
             $('#icon_class').val(selectedItem.attributes.icon_class);
             $('#updateMachineCategory').attr('disabled', false);
             $('#insertMachineCategory').attr('disabled', true);
@@ -295,22 +295,49 @@ $(document).ready(function () {
                             }
                         }]
                     });
+                    var childNodes;
+                    var nodeState;
+                    if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
+                        nodeState = 'open';
+                    } else {
+                        childNodes = $('#tt_tree_menu').tree('getChildren', selectedTreeItem.target);
+                        nodeState = 'closed';
+                    }
+                    
+                    
                     var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
+                    console.warn(jQuery.type(parentNode));
                     var node = selectedTreeItem;
                     $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
-                    $('#tt_tree_menu').tree('append', {
-                        parent: parentNode.target,
-                        data: [{
-                                attributes:{notroot: node.attributes.notroot, 
-                                            group_name_eng: node.attributes.group_name_eng, 
-                                            active: 0, 
-                                            icon_class: node.attributes.icon_class},
-                                id: node.id,
-                                text: node.text,
-                                checked: false,
-                                state : node.state,
-                            },]
-                    });
+                    if(jQuery.type(parentNode) === "null") {
+                       $('#tt_tree_menu').tree('append', {
+                            data: [{
+                                    attributes:{notroot: node.attributes.notroot, 
+                                                group_name_eng: node.attributes.group_name_eng, 
+                                                active: 1, 
+                                                icon_class: node.attributes.icon_class},
+                                    id: node.id,
+                                    text: node.text,
+                                    checked: false,
+                                    state : nodeState,
+                                },]
+                        }); 
+                    } else {
+                        $('#tt_tree_menu').tree('append', {
+                            parent: parentNode.target,
+                            data: [{
+                                    attributes:{notroot: node.attributes.notroot, 
+                                                group_name_eng: node.attributes.group_name_eng, 
+                                                active: 1, 
+                                                icon_class: node.attributes.icon_class},
+                                    id: node.id,
+                                    text: node.text,
+                                    checked: false,
+                                    state : nodeState,
+                                },]
+                        });
+                    }
+                    
                 } else {
                     BootstrapDialog.show({
                         type: BootstrapDialog.TYPE_DANGER,
@@ -413,23 +440,49 @@ $(document).ready(function () {
                         }
                     }]
                 });
+                var childNodes;
+                var nodeState;
+                if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
+                    nodeState = 'open';
+                } else {
+                    childNodes = $('#tt_tree_menu').tree('getChildren', selectedTreeItem.target);
+                    nodeState = 'closed';
+                }
+                
+                
                 var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
                 var node = selectedTreeItem;
                 $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
-                $('#tt_tree_menu').tree('append', {
-                    parent: parentNode.target,
-                    data: [{
-                            attributes:{notroot: node.attributes.notroot, 
-                                        group_name_eng: node.attributes.group_name_eng, 
-                                        active: 0, 
-                                        url: node.attributes.url, 
-                                        icon_class: node.attributes.icon_class},
-                            id: node.id,
-                            text: node.text,
-                            checked: false,
-                            state : node.state,
-                        },]
-                });
+                if(jQuery.type(parentNode) === "null") { 
+                    $('#tt_tree_menu').tree('append', {
+                        data: [{
+                                attributes:{notroot: node.attributes.notroot, 
+                                            group_name_eng: node.attributes.group_name_eng, 
+                                            active: 0, 
+                                            icon_class: node.attributes.icon_class},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
+                    });
+                } else {
+                    $('#tt_tree_menu').tree('append', {
+                        parent: parentNode.target,
+                        data: [{
+                                attributes:{notroot: node.attributes.notroot, 
+                                            group_name_eng: node.attributes.group_name_eng, 
+                                            active: 0, 
+                                            icon_class: node.attributes.icon_class},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
+                    });
+                }
+                
+                
                 } 
                 else {
                    BootstrapDialog.show({
@@ -644,7 +697,6 @@ $(document).ready(function () {
                                 attributes:{notroot: true, 
                                             group_eng: group_name_eng, 
                                             active: 0, 
-                                            url: url, 
                                             icon_class: icon_class},
                                 id: data.lastInsertId,
                                 text: group_name,
@@ -741,7 +793,6 @@ $(document).ready(function () {
                                 attributes:{notroot: false, 
                                             group_eng: group_name_eng, 
                                             active: 0, 
-                                            url: url, 
                                             icon_class: icon_class},
                                 id: data.lastInsertId,
                                 text: group_name,
