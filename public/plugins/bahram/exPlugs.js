@@ -295,7 +295,7 @@
 //                                    + "<a href='#'>"
                                     + "<div class='row clients-page'>"
                                     + "<div class = 'col-md-2'>"
-                                    + "<img src='/onyuz/standard/assets/img/sfClients/"
+                                    + "<img src='/onyuz/standard/assets/img/sfClients/logos/"
                                     + data.rows[i].logo
                                     + "' "
                                     + "class = 'img-responsive hover-effect' alt = '' / >"

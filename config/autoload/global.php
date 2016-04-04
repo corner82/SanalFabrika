@@ -66,6 +66,7 @@ return array(
             'companyhistoryprofile' => 'layout/companyhistoryprofileLayout.phtml',
             'companyprojectsprofile' => 'layout/companyprojectsprofileLayout.phtml',
             'companyprofilesettings' => 'layout/companyprofilesettingsLayout.phtml',
+            'companyprofilemt' => 'layout/companyprofilemtLayout.phtml',
             'clientspage' => 'layout/clientspageLayout.phtml'
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
@@ -174,6 +175,7 @@ return array(
                                                                     'companyhistoryprofile',
                                                                     'companyprojectsprofile', 
                                                                     'companyprofilesettings',
+                                                                    'companyprofilemt',
                                                                     'clientspage'
                                                                     ),
                                      'login' => array('index'),)

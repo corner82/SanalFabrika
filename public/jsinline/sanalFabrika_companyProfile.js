@@ -5,8 +5,10 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-    
-    console.log($('#selectedCompanyNpk').val());
+
+//    console.log($('#selectedCompanyNpk').val());
+
+
 
     /*
      * Profile left menu links arrangement
@@ -15,7 +17,7 @@ $(document).ready(function () {
      *
      * Start of left menu links
      */
-    
+
 
     /*
      * Company profile Link
@@ -116,7 +118,7 @@ $(document).ready(function () {
             + "</a>";
     $('#companyhistoryprofilelink').empty();
     $('#companyhistoryprofilelink').append(historylink);
-    
+
     /*
      * End of left menu links
      */
@@ -134,9 +136,9 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data);
-            var logosrc = "../../../onyuz/standard/assets/img/sfClients/" + data[0].logo;
-            $('#profileLogosrc').attr('src', logosrc);
+            console.log(data);
+            window.logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
+            $('#profileLogosrc').attr('src', window.logosrc);
             $('#header_company_name').empty();
             $('#header_company_name').append(data[0].firm_name_short);
             var companyAddressPHAppending =
@@ -154,28 +156,35 @@ $(document).ready(function () {
             $('#companyAddressPH').empty();
             $('#companyAddressPH').prepend(companyAddressPHAppending);
 
-            var logosrc = "../../../onyuz/standard/assets/img/sfClients/" + data[0].logo;
-
-            $('#logosrc').attr('src', logosrc);
+            $('#logosrc').attr('src', window.logosrc);
             $('#logoName').empty();
             $('#logoName').append(data[0].firm_names);
+
+
+            $('#company_name_PH').empty();
+            $('#company_name_PH').append(data[0].firm_names);
 
             $('#companyInfoPH').empty();
             $('#companyInfoPH').append(data[0].country_names + "<br/>");
             $('#companyInfoPH').append(window.lang.translate("Total number of employees") + ": ");
             $('#companyInfoPH').append(data[0].number_of_employees + "<br/>");
-            $('#companyInfoPH').append(window.lang.translate('Engineers') + ": ");
-            $('#companyInfoPH').append(data[0].number_of_engineer + "<br/>");
-            $('#companyInfoPH').append(window.lang.translate('Adiminstrative staff') + ": ");
-            $('#companyInfoPH').append(data[0].number_of_administrative_staff + "<br/>");
-            $('#companyInfoPH').append(window.lang.translate('Foreign trade staff') + ": ");
-            $('#companyInfoPH').append(data[0].number_of_foreign_trade_staff + "<br/>");
-            $('#companyInfoPH').append(window.lang.translate('Sales staff') + ": ");
-            $('#companyInfoPH').append(data[0].number_of_sales_staff + "<br/>");
-            $('#companyInfoPH').append(window.lang.translate('Technicians') + ": ");
-            $('#companyInfoPH').append(data[0].number_of_technician + "<br/>");
-            $('#companyInfoPH').append(window.lang.translate('Workers') + ": ");
-            $('#companyInfoPH').append(data[0].number_of_worker);
+            $('#companyInfoPH').append(window.lang.translate('Foundation_Date') + ": ");
+            $('#companyInfoPH').append(data[0].foundation_date + "<br/>");
+
+            /*
+             $('#companyInfoPH').append(window.lang.translate('Engineers') + ": ");
+             $('#companyInfoPH').append(data[0].number_of_engineer + "<br/>");
+             $('#companyInfoPH').append(window.lang.translate('Adiminstrative staff') + ": ");
+             $('#companyInfoPH').append(data[0].number_of_administrative_staff + "<br/>");
+             $('#companyInfoPH').append(window.lang.translate('Foreign trade staff') + ": ");
+             $('#companyInfoPH').append(data[0].number_of_foreign_trade_staff + "<br/>");
+             $('#companyInfoPH').append(window.lang.translate('Sales staff') + ": ");
+             $('#companyInfoPH').append(data[0].number_of_sales_staff + "<br/>");
+             $('#companyInfoPH').append(window.lang.translate('Technicians') + ": ");
+             $('#companyInfoPH').append(data[0].number_of_technician + "<br/>");
+             $('#companyInfoPH').append(window.lang.translate('Workers') + ": ");
+             $('#companyInfoPH').append(data[0].number_of_worker);
+             */
 
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -210,6 +219,7 @@ $(document).ready(function () {
 
             $('#briefDescPH').empty();
             $('#briefDescPH').append(data[0].descriptions);
+
 
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -255,7 +265,16 @@ $(document).ready(function () {
                     if (data4.length !== null) {
                         for (i = 0; i < data4.length; i++) {
                             var referencesPHAppending =
-                                    "<li><i class='fa fa-check color-green'></i>"
+                                    "<div class='owl-item' style='width: 134px;'>"
+                                    + "<div class='item'>"
+                                    + "<img src='../../../onyuz/standard/assets/img/customers/"
+                                    + customer_logo
+                                    + "')?>"
+                                    + "alt=''"
+                                    + "</div>"
+                                    + "</div>";
+                            
+                            "<li><i class='fa fa-check color-green'></i>"
                                     + data4[i].customer_names
                                     + "</li>";
 

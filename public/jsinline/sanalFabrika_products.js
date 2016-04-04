@@ -6,7 +6,7 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-    console.log($('#selectedCompanyNpk').val());
+//    console.log($('#selectedCompanyNpk').val());
     /*
      * Start of left menu links
      ****************************
@@ -119,7 +119,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 //            console.log(data);
-            var logosrc = "../../../onyuz/standard/assets/img/sfClients/" + data[0].logo;
+            var logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
             $('#profileLogosrc').attr('src', logosrc);
         }
     });

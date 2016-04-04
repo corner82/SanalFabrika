@@ -127,7 +127,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
             console.log(data);
-            var logosrc = "../../../onyuz/standard/assets/img/sfClients/" + data[0].logo;
+            var logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
             $('#profileLogosrc').attr('src', logosrc);
             var total_employees = data[0].number_of_employees;
             $('#number_of_employees').append(total_employees);

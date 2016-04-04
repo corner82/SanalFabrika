@@ -377,5 +377,19 @@ scrolling table with fixed first column
 
 
 .prod_sample{
-    width: 50% !important; 
+    max-width: 100% !important; 
+    max-height: 100% !important;
+}
+
+/*
+References logos section in company profile page Css override
+*/
+
+.block-description .left-inner img {
+	float: none !important;
+	width: auto !important; 
+	height: auto;
+	padding: 0 !important;
+	margin: 0 0 0 0 !important;
+	border: 1px solid #eee;
 }
