@@ -193,19 +193,38 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             if(data.length!==0) {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_SUCCESS,
-                    title: 'Makina Kategori Silme İşlemi Başarılı...',
-                    message: 'Makina kategorisi silme işlemini gerçekleştirdiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ok-sign',
-                        label: 'Kapat',
-                        cssClass: 'btn-success',
-                        action: function(dialogItself){
-                            dialogItself.close();
-                        }
-                    }]
-                });
+                if(data.found) {
+                    BootstrapDialog.show({
+                        type: BootstrapDialog.TYPE_SUCCESS,
+                        title: 'Makina Kategori Silme İşlemi Başarılı...',
+                        message: 'Makina kategorisi silme işlemini gerçekleştirdiniz... ',
+                        buttons: [ {
+                            icon: 'glyphicon glyphicon-ok-sign',
+                            label: 'Kapat',
+                            cssClass: 'btn-success',
+                            action: function(dialogItself){
+                                dialogItself.close();
+                            }
+                        }]
+                    });
+                } else {
+                    if(data.errorInfo == 23503) {
+                        BootstrapDialog.show({
+                            type: BootstrapDialog.TYPE_DANGER,
+                            title: 'Makina Kategori Silme İşlemi Başarısız...',
+                            message: 'Makina kategorisi altında kayıtlı makina olduğu için işlemi gerçekleştiremezsiniz, önce makina kaydının silinmasi gerekmektedir... ',
+                            buttons: [ {
+                                icon: 'glyphicon glyphicon-ban-circle',
+                                label: 'Kapat',
+                                cssClass: 'btn-danger',
+                                action: function(dialogItself){
+                                    dialogItself.close();
+                                }
+                            }]
+                        });
+                    }
+                }
+                
                 selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
                             
             } else {

@@ -29,6 +29,125 @@ $(document).ready(function () {
     lang.change($('#ln').val());
     
     var selectedNode;
+    
+    
+     /*
+    * 
+    * @type @call;$@call;tree
+    * Menu tree
+    * Mustafa Zeynel Dağlı
+    * 04/04/2016
+    */
+
+   $('#tt_tree_menu').tree({
+       url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+       method: 'get',
+       animate: true,
+       checkbox: true,
+       cascadeCheck: false,
+       lines: true,
+       onBeforeCheck : function (node) {        
+       },
+       onDblClick: function (node) {
+
+        /*var checked = $('#tt_tree_menu').tree('getChecked');
+            console.log(node);
+            $.each(checked , function(index, element) {
+                console.log(element);
+                if(node.id!=element.id) {
+
+                    $('#tt_tree_menu').tree('uncheck', element.target); 
+                }
+
+        })*/
+
+        /*editNode = $(this).tree('getData', node.target);
+        beforeEditTextValue = $(this).tree('getData', node.target).text;
+        parent = $(this).tree('getParent', node.target);
+
+        if (parent == null) {
+            parentId = 0;
+        } else {
+            parentId = parent.id;
+        }
+
+        $(this).tree('beginEdit', node.target);*/
+       },
+       onAfterEdit: function (node) {
+
+           id = editNode.id;
+           root = $(this).tree('getRoot', node.target);
+           if (editNode.text === '') {
+
+               testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
+               testBlockuiRoleNameChangeNull.blockuiWrapper('show');
+
+               editNode.text = beforeEditTextValue;
+
+               $('#tt_tree_menu').tree('update', {
+                   target: node.target,
+                   text: beforeEditTextValue
+               });
+
+           } else {
+
+               testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
+                   showOverlay: true
+               });
+               testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
+               active = editNode.attributes.active;
+           }
+           },
+        onLoadSuccess: function (node, data) {
+            loader.loadImager('removeLoadImage');
+        },
+        onClick: function (node) {
+            selectedNode = node;
+            selectedRoot = $(this).tree('getRoot', node.target);
+            selectedItem = $(this).tree('getData', node.target);
+            //console.log(selectedItem);
+            $('#menu_name').val(selectedItem.text);
+            $('#menu_name_eng').val(selectedItem.attributes.text_eng);
+            $('#url').val(selectedItem.attributes.url);
+            $('#icon_class').val(selectedItem.attributes.icon_class);
+            $('#updateMenu').attr('disabled', false);
+            $('#insertMenu').attr('disabled', true);
+
+        },
+        onCheck: function (node) {
+
+        },
+        formatter: function (node) {
+            var s = node.text;
+            var id = node.id;
+            if (node.attributes.active == 0) {
+                s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
+                     <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveMenuDialog('+id+');"></i>&nbsp;&nbsp;\n\
+                    <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMenuDialog('+id+', \''+node.text+'\')"></i>';
+                return s;
+
+            } else if (node.attributes.active == 1) {
+                s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
+                <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeMenuDialog('+id+');"></i>';
+                s = "<font color = '#B6B6B4'>" + s + "</font>"
+                //buda koşullu kullanım için örnek satır    
+                /*if (node.children) {
+                    s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
+                }*/
+                return s;
+            }
+        }
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * user roles  select box filling
      * @author Mustafa Zeynel Dağlı
@@ -55,115 +174,7 @@ $(document).ready(function () {
                             /*$('#tt_tree_menu').tree({
                                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
                             });*/
-                            
-                            
-                             /*
-                            * 
-                            * @type @call;$@call;tree
-                            * Menu tree
-                            * Mustafa Zeynel Dağlı
-                            * 29/03/2016
-                            */
 
-                           $('#tt_tree_menu').tree({
-                               url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                               method: 'get',
-                               animate: true,
-                               checkbox: true,
-                               cascadeCheck: false,
-                               lines: true,
-                               onBeforeCheck : function (node) {        
-                               },
-                               onDblClick: function (node) {
-                                   
-                                /*var checked = $('#tt_tree_menu').tree('getChecked');
-                                    console.log(node);
-                                    $.each(checked , function(index, element) {
-                                        console.log(element);
-                                        if(node.id!=element.id) {
-
-                                            $('#tt_tree_menu').tree('uncheck', element.target); 
-                                        }
-
-                                })*/
-                                      
-                                /*editNode = $(this).tree('getData', node.target);
-                                beforeEditTextValue = $(this).tree('getData', node.target).text;
-                                parent = $(this).tree('getParent', node.target);
-
-                                if (parent == null) {
-                                    parentId = 0;
-                                } else {
-                                    parentId = parent.id;
-                                }
-
-                                $(this).tree('beginEdit', node.target);*/
-                               },
-                               onAfterEdit: function (node) {
-
-                                   id = editNode.id;
-                                   root = $(this).tree('getRoot', node.target);
-                                   if (editNode.text === '') {
-
-                                       testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
-                                       testBlockuiRoleNameChangeNull.blockuiWrapper('show');
-
-                                       editNode.text = beforeEditTextValue;
-
-                                       $('#tt_tree_menu').tree('update', {
-                                           target: node.target,
-                                           text: beforeEditTextValue
-                                       });
-
-                                   } else {
-
-                                       testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
-                                           showOverlay: true
-                                       });
-                                       testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
-                                       active = editNode.attributes.active;
-                                   }
-                                   },
-                                onLoadSuccess: function (node, data) {
-                                    loader.loadImager('removeLoadImage');
-                                },
-                                onClick: function (node) {
-                                    selectedNode = node;
-                                    selectedRoot = $(this).tree('getRoot', node.target);
-                                    selectedItem = $(this).tree('getData', node.target);
-                                    //console.log(selectedItem);
-                                    $('#menu_name').val(selectedItem.text);
-                                    $('#menu_name_eng').val(selectedItem.attributes.text_eng);
-                                    $('#url').val(selectedItem.attributes.url);
-                                    $('#icon_class').val(selectedItem.attributes.icon_class);
-                                    $('#updateMenu').attr('disabled', false);
-                                    $('#insertMenu').attr('disabled', true);
-
-                                },
-                                onCheck: function (node) {
-                              
-                                },
-                                formatter: function (node) {
-                                    var s = node.text;
-                                    var id = node.id;
-                                    if (node.attributes.active == 0) {
-                                        s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                                             <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveMenuDialog('+id+');"></i>&nbsp;&nbsp;\n\
-                                            <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMenuDialog('+id+', \''+node.text+'\')"></i>';
-                                        return s;
-
-                                    } else if (node.attributes.active == 1) {
-                                        s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                                        <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeMenuDialog('+id+');"></i>';
-                                        s = "<font color = '#B6B6B4'>" + s + "</font>"
-                                        //buda koşullu kullanım için örnek satır    
-                                        /*if (node.children) {
-                                            s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
-                                        }*/
-                                        return s;
-                                    }
-                                }
-                            });
                         }
                         //console.log(selectedData.selectedData.value);
                        /* if(selectedData.selectedData.value==6) {

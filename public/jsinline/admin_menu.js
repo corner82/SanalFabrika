@@ -260,20 +260,38 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             if(data.length!==0) {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_SUCCESS,
-                    title: 'Menü Silme İşlemi Başarılı...',
-                    message: 'Menü Silme işlemini gerçekleştirdiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ok-sign',
-                        label: 'Kapat',
-                        cssClass: 'btn-success',
-                        action: function(dialogItself){
-                            dialogItself.close();
-                        }
-                    }]
-                });
-                selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                if(data.found) {
+                    BootstrapDialog.show({
+                        type: BootstrapDialog.TYPE_SUCCESS,
+                        title: 'Menü Silme İşlemi Başarılı...',
+                        message: 'Menü Silme işlemini gerçekleştirdiniz... ',
+                        buttons: [ {
+                            icon: 'glyphicon glyphicon-ok-sign',
+                            label: 'Kapat',
+                            cssClass: 'btn-success',
+                            action: function(dialogItself){
+                                dialogItself.close();
+                            }
+                        }]
+                    });
+                    selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                } else {
+                    BootstrapDialog.show({
+                        type: BootstrapDialog.TYPE_DANGER,
+                        title: 'Menü Silme İşlemi Başarısız...',
+                        message: 'Menü Silme işlemini gerçekleştiremediniz,Sistem Yneticisi ile temasa geçiniz... ',
+                        buttons: [ {
+                            icon: 'glyphicon glyphicon-ban-circle',
+                            label: 'Kapat',
+                            cssClass: 'btn-danger',
+                            action: function(dialogItself){
+                                dialogItself.close();
+                            }
+                        }]
+                    });
+                    console.error('"pkDelete_leftnavigation" unknown error!!');
+                }
+                
                             
             } else {
                 BootstrapDialog.show({
