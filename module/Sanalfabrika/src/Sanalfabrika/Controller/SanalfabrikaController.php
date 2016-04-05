@@ -336,11 +336,14 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslatorUrlRegulator');
         $publicKey = $this->getServiceLocator()
                             ->get('servicePublicKeyReader'); 
+        $selectedCompanyNpk = $this->getEvent()
+                ->getRouteMatch()->getParam('selectedCompanyNpk');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
-            'publicKey' => $publicKey
+            'publicKey' => $publicKey,
+            'selectedCompanyNpk' => $selectedCompanyNpk,
         ));
         return $view;
     }
