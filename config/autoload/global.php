@@ -74,6 +74,7 @@ return array(
                           'machctg' => 'layout/machctg.phtml',
                           'machprop' => 'layout/machprop.phtml',
                           'mach' => 'layout/mach.phtml',
+                          'unt'  => 'layout/unt.phtml'
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -153,7 +154,8 @@ return array(
                                                             'menu',
                                                             'machctg',
                                                             'machprop',
-                                                            'mach'),
+                                                            'mach',
+                                                            'unt'),
                                            )
                    ),
         'guest' => array(
