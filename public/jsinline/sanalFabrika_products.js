@@ -50,8 +50,24 @@ $(document).ready(function () {
             + "</a>";
     $('#companyproductsprofilelink').empty();
     $('#companyproductsprofilelink').append(productslink);
+
     /*
-     * Company members meters Link
+     * Company machine tools Link
+     */
+    var companyProfileMTLink = window.location.href.replace('companyproductsprofile', 'companyprofilemt');
+    var mtslink = "<a href='"
+            + companyProfileMTLink
+            + "'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company Machine Tools')
+            + "</a>";
+    $('#companyprofilemtlink').empty();
+    $('#companyprofilemtlink').append(mtslink);
+
+
+    /*
+     * Company members Link
      */
     var companyMembersProfileLink = window.location.href.replace('companyproductsprofile', 'companymembersprofile');
     var memberslink = "<a href='"
@@ -64,7 +80,7 @@ $(document).ready(function () {
     $('#companymembersprofilelink').empty();
     $('#companymembersprofilelink').append(memberslink);
     /*
-     * Company projects meters Link
+     * Company projects Link
      */
     var companyProjectsProfileLink = window.location.href.replace('companyproductsprofile', 'companyprojectsprofile');
     var projectslink = "<a href='"
@@ -77,7 +93,7 @@ $(document).ready(function () {
     $('#companyprojectsprofilelink').empty();
     $('#companyprojectsprofilelink').append(projectslink);
     /*
-     * Company comments meters Link
+     * Company comments Link
      */
     var companyCommentsProfileLink = window.location.href.replace('companyproductsprofile', 'companycommentsprofile');
     var commentslink = "<a href='"
@@ -90,7 +106,7 @@ $(document).ready(function () {
     $('#companycommentsprofilelink').empty();
     $('#companycommentsprofilelink').append(commentslink);
     /*
-     * Company history meters Link
+     * Company history Link
      */
     var companyHistoryProfileLink = window.location.href.replace('companyproductsprofile', 'companyhistoryprofile');
     var historylink = "<a href='"

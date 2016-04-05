@@ -56,8 +56,22 @@ $(document).ready(function () {
     $('#companyproductsprofilelink').empty();
     $('#companyproductsprofilelink').append(productslink);
 
+/*
+     * Company machine tools Link
+     */
+    var companyProfileMTLink = window.location.href.replace('companymembersprofile', 'companyprofilemt');
+    var mtslink = "<a href='"
+            + companyProfileMTLink
+            + "'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company Machine Tools')
+            + "</a>";
+    $('#companyprofilemtlink').empty();
+    $('#companyprofilemtlink').append(mtslink);
+
     /*
-     * Company members meters Link
+     * Company members Link
      */
     var companyMembersProfileLink = window.location.href;
     var memberslink = "<a href='"
@@ -71,7 +85,7 @@ $(document).ready(function () {
     $('#companymembersprofilelink').append(memberslink);
 
     /*
-     * Company projects meters Link
+     * Company projects Link
      */
     var companyProjectsProfileLink = window.location.href.replace('companymembersprofile', 'companyprojectsprofile');
     var projectslink = "<a href='"
@@ -85,7 +99,7 @@ $(document).ready(function () {
     $('#companyprojectsprofilelink').append(projectslink);
 
     /*
-     * Company comments meters Link
+     * Company comments Link
      */
     var companyCommentsProfileLink = window.location.href.replace('companymembersprofile', 'companycommentsprofile');
     var commentslink = "<a href='"
@@ -99,7 +113,7 @@ $(document).ready(function () {
     $('#companycommentsprofilelink').append(commentslink);
 
     /*
-     * Company history meters Link
+     * Company history Link
      */
     var companyHistoryProfileLink = window.location.href.replace('companymembersprofile', 'companyhistoryprofile');
     var historylink = "<a href='"

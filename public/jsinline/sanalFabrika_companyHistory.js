@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    
+
     window.i = 0;
-    
+
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
@@ -45,7 +45,7 @@ $(document).ready(function () {
     /*
      * Company products meters Link
      */
-    var companyProductsProfileLink = window.location.href.replace('companyhistoryprofile', 'companyproductsprofile'); 
+    var companyProductsProfileLink = window.location.href.replace('companyhistoryprofile', 'companyproductsprofile');
     var productslink = "<a href='"
             + companyProductsProfileLink
             + "'>"
@@ -57,7 +57,21 @@ $(document).ready(function () {
     $('#companyproductsprofilelink').append(productslink);
 
     /*
-     * Company members meters Link
+     * Company machine tools Link
+     */
+    var companyProfileMTLink = window.location.href.replace('companyhistoryprofile', 'companyprofilemt');
+    var mtslink = "<a href='"
+            + companyProfileMTLink
+            + "'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company Machine Tools')
+            + "</a>";
+    $('#companyprofilemtlink').empty();
+    $('#companyprofilemtlink').append(mtslink);
+
+    /*
+     * Company members Link
      */
     var companyMembersProfileLink = window.location.href.replace('companyhistoryprofile', 'companymembersprofile');
     var memberslink = "<a href='"
@@ -71,7 +85,7 @@ $(document).ready(function () {
     $('#companymembersprofilelink').append(memberslink);
 
     /*
-     * Company projects meters Link
+     * Company projects Link
      */
     var companyProjectsProfileLink = window.location.href.replace('companyhistoryprofile', 'companyprojectsprofile');
     var projectslink = "<a href='"
@@ -85,7 +99,7 @@ $(document).ready(function () {
     $('#companyprojectsprofilelink').append(projectslink);
 
     /*
-     * Company comments meters Link
+     * Company comments Link
      */
     var companyCommentsProfileLink = window.location.href.replace('companyhistoryprofile', 'companycommentsprofile');
     var commentslink = "<a href='"
@@ -99,9 +113,9 @@ $(document).ready(function () {
     $('#companycommentsprofilelink').append(commentslink);
 
     /*
-     * Company history meters Link
+     * Company history Link
      */
-    var companyHistoryProfileLink = window.location.href;  
+    var companyHistoryProfileLink = window.location.href;
     var historylink = "<a href='"
             + companyHistoryProfileLink
             + "'>"
@@ -131,7 +145,7 @@ $(document).ready(function () {
 //            console.log(data);
             var logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
             $('#profileLogosrc').attr('src', logosrc);
-            
+
 
         }
     });

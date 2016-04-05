@@ -42,7 +42,7 @@ $(document).ready(function () {
     $('#companyperformancemetersprofilelink').append(perfromancelink);
 
     /*
-     * Company products meters Link
+     * Company products Link
      */
     var companyProductsProfileLink = window.location.href.replace('companyperformancemetersprofile', 'companyproductsprofile');
     var productslink = "<a href='"
@@ -55,8 +55,22 @@ $(document).ready(function () {
     $('#companyproductsprofilelink').empty();
     $('#companyproductsprofilelink').append(productslink);
 
+     /*
+     * Company machine tools Link
+     */
+    var companyProfileMTLink = window.location.href.replace('companyperformancemetersprofile', 'companyprofilemt');
+    var mtslink = "<a href='"
+            + companyProfileMTLink
+            + "'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company Machine Tools')
+            + "</a>";
+    $('#companyprofilemtlink').empty();
+    $('#companyprofilemtlink').append(mtslink);
+    
     /*
-     * Company members meters Link
+     * Company members Link
      */
     var companyMembersProfileLink = window.location.href.replace('companyperformancemetersprofile', 'companymembersprofile');
     var memberslink = "<a href='"
@@ -70,7 +84,7 @@ $(document).ready(function () {
     $('#companymembersprofilelink').append(memberslink);
 
     /*
-     * Company projects meters Link
+     * Company projects Link
      */
     var companyProjectsProfileLink = window.location.href.replace('companyperformancemetersprofile', 'companyprojectsprofile');
     var projectslink = "<a href='"
@@ -84,7 +98,7 @@ $(document).ready(function () {
     $('#companyprojectsprofilelink').append(projectslink);
 
     /*
-     * Company comments meters Link
+     * Company comments Link
      */
     var companyCommentsProfileLink = window.location.href.replace('companyperformancemetersprofile', 'companycommentsprofile');
     var commentslink = "<a href='"
@@ -98,7 +112,7 @@ $(document).ready(function () {
     $('#companycommentsprofilelink').append(commentslink);
 
     /*
-     * Company history meters Link
+     * Company history Link
      */
     var companyHistoryProfileLink = window.location.href.replace('companyperformancemetersprofile', 'companyhistoryprofile');
     var historylink = "<a href='"
