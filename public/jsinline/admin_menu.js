@@ -384,12 +384,10 @@ $(document).ready(function () {
                             }
                         }]
                     });
-                    var childNodes;
                     var nodeState;
                     if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
                         nodeState = 'open';
                     } else {
-                        childNodes = $('#tt_tree_menu').tree('getChildren', selectedTreeItem.target);
                         nodeState = 'closed';
                     }
                     
@@ -533,12 +531,10 @@ $(document).ready(function () {
                         }
                     }]
                 });
-                var childNodes;
                 var nodeState;
                 if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
                     nodeState = 'open';
                 } else {
-                    childNodes = $('#tt_tree_menu').tree('getChildren', selectedTreeItem.target);
                     nodeState = 'closed';
                 }
                 
