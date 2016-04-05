@@ -183,6 +183,8 @@ $(document).ready(function () {
     * @since 30/03/2016
     */
    window.deleteMachineCategory = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -204,6 +206,7 @@ $(document).ready(function () {
                             cssClass: 'btn-success',
                             action: function(dialogItself){
                                 dialogItself.close();
+                                loader.loadImager('removeLoadImage');
                             }
                         }]
                     });
@@ -290,6 +293,8 @@ $(document).ready(function () {
     * @since 30/03/2016
     */
    window.passiveMachineCategory = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -311,6 +316,7 @@ $(document).ready(function () {
                             cssClass: 'btn-success',
                             action: function(dialogItself){
                                 dialogItself.close();
+                                loader.loadImager('removeLoadImage');
                             }
                         }]
                     });
@@ -435,6 +441,8 @@ $(document).ready(function () {
     * @since 30/03/2016
     */
    window.activeMachineCategory = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -456,6 +464,7 @@ $(document).ready(function () {
                         cssClass: 'btn-success',
                         action: function(dialogItself){
                             dialogItself.close();
+                            loader.loadImager('removeLoadImage');
                         }
                     }]
                 });
@@ -589,51 +598,57 @@ $(document).ready(function () {
         title: '"'+ nodeName + '" Makina kategorisi katmanına  item eklemektesiniz...',
         message: function (dialogRef) {
                     var dialogRef = dialogRef;
-                    var $message = $(' <form id="machineCategoryFormInsert" method="get" class="form-horizontal">\n\
-                                        <div class="hr-line-dashed"></div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Kategori</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                    var $message = $(' <div class="row">\n\
+                                            <div class="col-md-12">\n\
+                                                <div id="loading-image-crud-popup" class="box box-primary">\n\
+                                                    <form id="machineCategoryFormInsert" method="get" class="form-horizontal">\n\
+                                                    <div class="hr-line-dashed"></div>\n\
+                                                        <div class="form-group" style="margin-top: 20px;">\n\
+                                                            <label class="col-sm-2 control-label">Kategori</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="group_name_popup" id="group_name_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="group_name_popup" id="group_name_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">İngilizce Kategori</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İngilizce Kategori</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="group_name_eng_popup" id="group_name_eng_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="group_name_eng_popup" id="group_name_eng_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Kategori İkon</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Kategori İkon</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class_popup" id="icon_class_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class_popup" id="icon_class_popup" />\n\
+                                                        <div class="hr-line-dashed"></div>\n\
+                                                        <div class="form-group">\n\
+                                                            <div class="col-sm-10 col-sm-offset-2">\n\
+                                                            <button id="insertMachineCategoryPopUp" class="btn btn-primary" type="submit" onclick="return insertMachineCategoryWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
+                                                                <i class="fa fa-save"></i> Kaydet </button>\n\
+                                                            <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
+                                                                <i class="fa fa-remove"></i> Reset </button>\n\
+                                                        </div>\n\
                                                     </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="hr-line-dashed"></div>\n\
-                                            <div class="form-group">\n\
-                                                <div class="col-sm-10 col-sm-offset-2">\n\
-                                                <button id="insertMachineCategoryPopUp" class="btn btn-primary" type="submit" onclick="return insertMachineCategoryWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
-                                                    <i class="fa fa-save"></i> Kaydet </button>\n\
-                                                <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
-                                                    <i class="fa fa-remove"></i> Reset </button>\n\
+                                                </form>\n\
                                             </div>\n\
                                         </div>\n\
-                                    </form>');
+                                    </div>');
                     return $message;
                 },
         type: BootstrapDialog.TYPE_PRIMARY,
@@ -658,6 +673,8 @@ $(document).ready(function () {
     * @since 31/03/2016
     */
    window.insertMachineCategory = function (nodeID, nodeName) {
+        var loader = $("#loading-image-crud-popup").loadImager();
+        loader.loadImager('appendImage');
         group_name = $('#group_name_popup').val();
         group_name_eng = $('#group_name_eng_popup').val();
         icon_class = $('#icon_class_popup').val();
@@ -691,6 +708,7 @@ $(document).ready(function () {
                                     dialogItself.close();
                                     $('#machineCategoryFormInsert')[0].reset();
                                     $('#machineCategoryForm')[0].reset();
+                                    loader.loadImager('removeLoadImage');
                                     regulateButtons();
                                 }
                             }]
@@ -706,6 +724,7 @@ $(document).ready(function () {
                                 cssClass: 'btn-danger',
                                 action: function(dialogItself){
                                     dialogItself.close();
+                                    $('#machineCategoryForm')[0].reset();
                                 }
                             }]
                         });
@@ -757,6 +776,8 @@ $(document).ready(function () {
     * @since 31/03/2016
     */
    window.insertMachineCategoryRoot = function () {
+        var loader = $("#loading-image-crud").loadImager();
+        loader.loadImager('appendImage');
         group_name = $('#group_name').val();
         group_name_eng = $('#group_name_eng').val();
         icon_class = $('#icon_class').val();
@@ -788,6 +809,7 @@ $(document).ready(function () {
                                 action: function(dialogItself){
                                     dialogItself.close();
                                     $('#machineCategoryForm')[0].reset();
+                                    loader.loadImager('removeLoadImage');
                                 }
                             }]
                         });
@@ -860,6 +882,8 @@ $(document).ready(function () {
     * @since 31/03/2016
     */
    window.updateMachineCategory = function () {
+        var loader = $("#loading-image-crud").loadImager();
+        loader.loadImager('appendImage');
         group_name = $('#group_name').val();
         group_name_eng = $('#group_name_eng').val();
         icon_class = $('#icon_class').val();
@@ -892,6 +916,8 @@ $(document).ready(function () {
                                 cssClass: 'btn-success',
                                 action: function(dialogItself){
                                     dialogItself.close();
+                                    $('#menuForm')[0].reset();
+                                    loader.loadImager('removeLoadImage');
                                 }
                             }]
                         });

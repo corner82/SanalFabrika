@@ -206,8 +206,6 @@ $(document).ready(function () {
      */
     var loader = $("#loading-image").loadImager();
 
-   
-   
     //$('#menuForm').submit(newRoleSubmission);
     
    /**
@@ -250,6 +248,8 @@ $(document).ready(function () {
     * @since 28/03/2016
     */
    window.deleteMenu = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -271,6 +271,7 @@ $(document).ready(function () {
                             cssClass: 'btn-success',
                             action: function(dialogItself){
                                 dialogItself.close();
+                                loader.loadImager('removeLoadImage');
                             }
                         }]
                     });
@@ -356,6 +357,8 @@ $(document).ready(function () {
     * @since 28/03/2016
     */
    window.passiveMenu = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -377,6 +380,7 @@ $(document).ready(function () {
                             cssClass: 'btn-success',
                             action: function(dialogItself){
                                 dialogItself.close();
+                                loader.loadImager('removeLoadImage');
                             }
                         }]
                     });
@@ -502,6 +506,8 @@ $(document).ready(function () {
     * @since 28/03/2016
     */
    window.activeMenu = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -523,6 +529,7 @@ $(document).ready(function () {
                         cssClass: 'btn-success',
                         action: function(dialogItself){
                             dialogItself.close();
+                            loader.loadImager('removeLoadImage');
                         }
                     }]
                 });
@@ -658,62 +665,68 @@ $(document).ready(function () {
         title: '"'+ nodeName + '" Menü katmanına menü item eklemektesiniz...',
         message: function (dialogRef) {
                     var dialogRef = dialogRef;
-                    var $message = $(' <form id="menuFormInsert" method="get" class="form-horizontal">\n\
-                                        <div class="hr-line-dashed"></div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Menü</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                    var $message = $(' <div class="row">\n\
+                                            <div class="col-md-12">\n\
+                                                <div id="loading-image-crud-popup" class="box box-primary">\n\
+                                                    <form id="menuFormInsert" method="get" class="form-horizontal">\n\
+                                                    <div class="hr-line-dashed"></div>\n\
+                                                        <div class="form-group" style="margin-top: 20px;">\n\
+                                                            <label class="col-sm-2 control-label">Menü</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="menu_name_popup" id="menu_name_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="menu_name_popup" id="menu_name_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">İngilizce Menü</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İngilizce Menü</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="menu_name_eng_popup" id="menu_name_eng_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="menu_name_eng_popup" id="menu_name_eng_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Url</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Url</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="url_popup" id="url_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="url_popup" id="url_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Menü İkon</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Menü İkon</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class_popup" id="icon_class_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class_popup" id="icon_class_popup" />\n\
+                                                        <div class="hr-line-dashed"></div>\n\
+                                                        <div class="form-group">\n\
+                                                            <div class="col-sm-10 col-sm-offset-2">\n\
+                                                            <button id="insertMenuPopUp" class="btn btn-primary" type="submit" onclick="return insertMenuWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
+                                                                <i class="fa fa-save"></i> Kaydet </button>\n\
+                                                            <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
+                                                                <i class="fa fa-remove"></i> Reset </button>\n\
+                                                        </div>\n\
                                                     </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="hr-line-dashed"></div>\n\
-                                            <div class="form-group">\n\
-                                                <div class="col-sm-10 col-sm-offset-2">\n\
-                                                <button id="insertMenuPopUp" class="btn btn-primary" type="submit" onclick="return insertMenuWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
-                                                    <i class="fa fa-save"></i> Kaydet </button>\n\
-                                                <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
-                                                    <i class="fa fa-remove"></i> Reset </button>\n\
+                                                </form>\n\
                                             </div>\n\
                                         </div>\n\
-                                    </form>');
+                                </div>');
                     return $message;
                 },
         type: BootstrapDialog.TYPE_PRIMARY,
@@ -730,7 +743,9 @@ $(document).ready(function () {
    }
    
    
-   window.insertMenu = function (nodeID, nodeName) {
+   window.insertMenu = function (nodeID, nodeName) {  
+        var loader = $("#loading-image-crud-popup").loadImager();
+        loader.loadImager('appendImage');
         menu_name = $('#menu_name_popup').val();
         menu_name_eng = $('#menu_name_eng_popup').val();
         icon_class = $('#icon_class_popup').val();
@@ -757,6 +772,7 @@ $(document).ready(function () {
            success: function (data, textStatus, jqXHR) {
                if(data.length!==0) {
                    if(data.found) {
+                       
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_SUCCESS,
                             title: 'Menü Kayıt İşlemi Başarılı...',
@@ -769,6 +785,7 @@ $(document).ready(function () {
                                     dialogItself.close();
                                     $('#menuFormInsert')[0].reset();
                                     $('#menuForm')[0].reset();
+                                    loader.loadImager('removeLoadImage');
                                     regulateButtons();
                                 }
                             }]
@@ -784,6 +801,7 @@ $(document).ready(function () {
                                 cssClass: 'btn-danger',
                                 action: function(dialogItself){
                                     dialogItself.close();
+                                    $('#menuForm')[0].reset();
                                 }
                             }]
                         });
@@ -841,6 +859,8 @@ $(document).ready(function () {
    }
    
    window.insertMenuRoot = function () {
+        var loader = $("#loading-image-crud").loadImager();
+        loader.loadImager('appendImage');
         menu_name = $('#menu_name').val();
         menu_name_eng = $('#menu_name_eng').val();
         icon_class = $('#icon_class').val();
@@ -877,6 +897,7 @@ $(document).ready(function () {
                                 action: function(dialogItself){
                                     dialogItself.close();
                                     $('#menuForm')[0].reset();
+                                    loader.loadImager('removeLoadImage');
                                 }
                             }]
                         });
@@ -955,6 +976,8 @@ $(document).ready(function () {
    }
    
    window.updateMenu = function () {
+        var loader = $("#loading-image-crud").loadImager();
+        loader.loadImager('appendImage');
         menu_name = $('#menu_name').val();
         menu_name_eng = $('#menu_name_eng').val();
         icon_class = $('#icon_class').val();
@@ -984,6 +1007,7 @@ $(document).ready(function () {
                if(data.length!==0) {
                    if(data.found) {
                        BootstrapDialog.show({
+                            closable : false,
                             type: BootstrapDialog.TYPE_SUCCESS,
                             title: 'Menü Güncelleme İşlemi Başarılı...',
                             message: 'Menü güncelleme işlemini gerçekleştirdiniz... ',
@@ -993,6 +1017,8 @@ $(document).ready(function () {
                                 cssClass: 'btn-success',
                                 action: function(dialogItself){
                                     dialogItself.close();
+                                    $('#menuForm')[0].reset();
+                                    loader.loadImager('removeLoadImage');
                                     
                                 }
                             }]

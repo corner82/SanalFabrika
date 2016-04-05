@@ -186,7 +186,8 @@
                     <!--first collapsible panel width, single column-->
                     <div class="col-md-12">
                         <!--arrange first panel color to blue by assigning primary class-->
-                        <div class="box box-primary">
+                        <div id="loading-image-crud" class="box box-primary">
+                            
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
                                 <h3 class="box-title"> Kullanıcı tiplerine göre menüler </h3>
@@ -197,26 +198,27 @@
                                 </div><!--/. button div-->
                             </div><!--/. panel 1 header div-->
                             <!--Panel 1 contents-->
-                            <div class="box-body">
+                            <div  class="box-body">
                                 <div class="row">
                                     <div class="col-lg-12">
+                                        
                                         <form id='menuForm' method="get" class="form-horizontal">  
 
                                             <!-- Search roles box -->
-                                            <!--                                            <div class="form-group">
-                                                                                            <label class="col-sm-2 control-label"><?php echo $this->translate('Search Roles') ?></label>
-                                                                                            <div class="col-sm-10">
-                                                                                                <div class="input-group margin">
-                                                                                                    <div class="input-group-addon">
-                                                                                                        <i class="fa fa-hand-o-right"></i>
-                                                                                                    </div>
-                                                                                                    <input class="form-control validate[not-required,custom[onlyLetterNumber]]" type="text" name="searchRole" id="searchRole">                                                        
-                                                                                                    <span class="input-group-btn">
-                                                                                                        <button class="btn btn-info btn-flat" type="button" onclick="searchForRoles()"><?php echo $this->translate('Go') ?></button>
-                                                                                                    </span>
-                                                                                                </div> /input-group 
-                                                                                            </div>
-                                                                                        </div>//form group-->
+<!--                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label"><?php echo $this->translate('Search Roles') ?></label>
+                                                <div class="col-sm-10">
+                                                    <div class="input-group margin">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-hand-o-right"></i>
+                                                        </div>
+                                                        <input class="form-control validate[not-required,custom[onlyLetterNumber]]" type="text" name="searchRole" id="searchRole">                                                        
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-info btn-flat" type="button" onclick="searchForRoles()"><?php echo $this->translate('Go') ?></button>
+                                                        </span>
+                                                    </div> /input-group 
+                                                </div>
+                                            </div>//form group-->
 
                                             <div class="hr-line-dashed"></div>
                                             
@@ -246,7 +248,6 @@
                                                     </div>
                                                 </div>
                                             </div>  
-                                            
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Kullanıcı Rolleri</label>
                                                 <div class="col-sm-10">
@@ -256,8 +257,6 @@
                                                     </div>
                                                 </div>
                                               </div>
-                                            
-                                            
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">Menü</label>
                                                 <div class="col-sm-10">
@@ -302,11 +301,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            
-                                            
-                                            
-                                            
+
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group">
                                                 <div class="col-sm-10 col-sm-offset-2">
@@ -316,8 +311,8 @@
                                                 </div>
                                             </div>
                                         </form>
-                                    </div>
-                                </div>  
+                                        </div>
+                                    </div> 
                             </div><!-- /.box-body -->
                         </div><!--/. primary box div-->
                     </div><!--/. first panel single column div -->
