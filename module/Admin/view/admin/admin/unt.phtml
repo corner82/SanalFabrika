@@ -167,12 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Kullanıcı Menüsü İşlemleri
+                    Sistem Birim Grupları İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li class="active">Menü İşlemleri</li>
+                    <li><a href="#"><i class="fa fa-certificate"></i> Tanımlamalar</a></li>
+                    <li class="active">Birim Tanımlamaları</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -189,7 +190,7 @@
                         <div class="box box-primary">
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Kullanıcı tiplerine göre menüler </h3>
+                                <h3 class="box-title"> Metrik sistemlere göre birim grupları </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -199,8 +200,10 @@
                             <!--Panel 1 contents-->
                             <div class="box-body">
                                 <div class="row">
-                                    <div class="col-lg-12">
-                                        <form id='menuForm' method="get" class="form-horizontal">  
+                                    <div class="box col-lg-12">
+                                        <form id='unitForm' method="get" class="form-horizontal"> 
+                                            <!-- loading image for crud operations -->
+                                            <div id="loading-image-crud"></div>
 
                                             <!-- Search roles box -->
                                             <!--                                            <div class="form-group">
@@ -220,12 +223,10 @@
 
                                             <div class="hr-line-dashed"></div>
                                             
-                                            <div class="alert alert-danger alert-dismissable">
+                                            <div class="alert alert-info alert-dismissable">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                                <h4><i class="icon fa fa-info"></i> Menü İşlemlerine başlamak için 'Kullanıcı Rolü' seçiniz!</h4>
-                                                Menü işlemleri kullanıcı rolü bazlı olarak yapılmaktadır.
-                                                    Öncelikle 'Kullanıcı Rolü' belirleyiniz, Menü öğelerini gösteren
-                                                    yapı aktif olacaktır.
+                                                <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm birimlerin tanımlamaları bu sayfada yapılabilir!</h4>
+                                                Birim grubu ekleyebilir , silebilir, güncelleyebilir ve birim gruplarını metric sistemlere göre düzenleyebilirsiniz....
                                             </div>
 
                                             <!--Easyui tree  div start-->
@@ -248,11 +249,11 @@
                                             </div>  
                                             
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">Kullanıcı Rolleri</label>
+                                                <label class="col-sm-2 control-label">Birim Sistemi</label>
                                                 <div class="col-sm-10">
                                                     <div class="input-group"> 
                                                       <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                                      <div id="dropdownRoles" ></div>
+                                                      <div id="dropdownUnitSystems" ></div>
                                                     </div>
                                                 </div>
                                               </div>
@@ -265,7 +266,7 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="unit" id="unit" />
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit" id="unit" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -276,7 +277,7 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="unit_eng" id="unit_eng" />
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_eng" id="unit_eng" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -287,7 +288,7 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="unitcode" id="unitcode" />
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode" id="unitcode" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -298,7 +299,18 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="unitcode_eng" id="unitcode_eng" />
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_eng" id="unitcode_eng" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Birim Kısaltması</label>
+                                                <div class="col-sm-10">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-hand-o-right"></i>
+                                                        </div>
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation" id="abbreviation" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -309,55 +321,15 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-hand-o-right"></i>
                                                         </div>
-                                                        <input class="form-control validate[required]" type="text" name="unitcode_eng" id="unitcode_eng" />
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng" id="abbreviation_eng" />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">İngilizce Birim Kısaltması</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input class="form-control validate[required]" type="text" name="unitcode_eng" id="unitcode_eng" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Url</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input class="form-control validate[required]" type="text" name="url" id="url" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Menü İkon</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class" id="icon_class" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                            
-                                            
-                                            
                                             <div class="hr-line-dashed"></div>
                                             <div class="form-group">
                                                 <div class="col-sm-10 col-sm-offset-2">
-                                                    <button id="insertMenu" class="btn btn-primary" type="submit" onclick="return insertMenuRootWrapper(event);"><i class="fa fa-save"></i>  Ana Kategoriye Menü Kaydet </button>
-                                                    <button id="updateMenu" class="btn btn-flat" type="submit" onclick="return updateMenuWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
+                                                    <button id="insertUnit" class="btn btn-primary" type="submit" onclick="return insertUnitRootWrapper(event);"><i class="fa fa-save"></i>  Birim Grubu Kaydet </button>
+                                                    <button id="updateUnit" class="btn btn-flat" type="submit" onclick="return updateUnitWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
                                                     <button id="resetForm" class="btn btn-flat" type="reset" onclick="regulateButtons();" ><i class="fa fa-remove"></i> Reset </button>
                                                 </div>
                                             </div>
@@ -377,7 +349,7 @@
             <div class="pull-right hidden-xs">
                 <b><?php echo $this->translate('Version') ?></b> 1.0
             </div>
-            <strong><?php echo $this->translate('Copyright') ?> &copy; 2015 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a>.</strong> <?php echo $this->translate('All rights reserved.') ?>
+            <strong><?php echo $this->translate('Copyright') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a></strong> <?php echo $this->translate('All rights reserved.') ?>
         </footer>
 
         <!-- Control Sidebar -->      

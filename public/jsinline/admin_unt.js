@@ -3,7 +3,7 @@ $(document).ready(function () {
     /**
      * easyui tree extend for 'unselect' event
      * @author Mustafa Zeynel Dağlı
-     * @since 30/03/2016
+     * @since 04/04/2016
      */
     $.extend($.fn.tree.methods,{
             unselect:function(jq,target){
@@ -49,70 +49,57 @@ $(document).ready(function () {
        onBeforeCheck : function (node) {        
        },
        onDblClick: function (node) {
-
-        /*var checked = $('#tt_tree_menu').tree('getChecked');
-            console.log(node);
-            $.each(checked , function(index, element) {
-                console.log(element);
-                if(node.id!=element.id) {
-
-                    $('#tt_tree_menu').tree('uncheck', element.target); 
-                }
-
-        })*/
-
-        /*editNode = $(this).tree('getData', node.target);
-        beforeEditTextValue = $(this).tree('getData', node.target).text;
-        parent = $(this).tree('getParent', node.target);
-
-        if (parent == null) {
-            parentId = 0;
-        } else {
-            parentId = parent.id;
-        }
-
-        $(this).tree('beginEdit', node.target);*/
        },
-       onAfterEdit: function (node) {
-
-           id = editNode.id;
-           root = $(this).tree('getRoot', node.target);
-           if (editNode.text === '') {
-
-               testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
-               testBlockuiRoleNameChangeNull.blockuiWrapper('show');
-
-               editNode.text = beforeEditTextValue;
-
-               $('#tt_tree_menu').tree('update', {
-                   target: node.target,
-                   text: beforeEditTextValue
-               });
-
-           } else {
-
-               testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
-                   showOverlay: true
-               });
-               testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
-               active = editNode.attributes.active;
-           }
-           },
-        onLoadSuccess: function (node, data) {
+       onAfterEdit: function (node) { 
+        },
+       onLoadSuccess: function (node, data) {
             loader.loadImager('removeLoadImage');
         },
-        onClick: function (node) {
+       onClick: function (node) {
             selectedNode = node;
             selectedRoot = $(this).tree('getRoot', node.target);
             selectedItem = $(this).tree('getData', node.target);
             //console.log(selectedItem);
-            $('#menu_name').val(selectedItem.text);
-            $('#menu_name_eng').val(selectedItem.attributes.text_eng);
-            $('#url').val(selectedItem.attributes.url);
-            $('#icon_class').val(selectedItem.attributes.icon_class);
-            $('#updateMenu').attr('disabled', false);
-            $('#insertMenu').attr('disabled', true);
-
+            $('#updateUnit').attr('disabled', false);
+            $('#insertUnit').attr('disabled', true);
+            if(selectedItem.attributes.notroot == 'true' ) {
+                alert(selectedItem.attributes.system_id);
+                $('#unit').attr('disabled',false);
+                $('#unit_eng').attr('disabled',false);
+                $('#abbreviation').attr('disabled',false);
+                $('#abbreviation_eng').attr('disabled',false);
+                
+                $('#unitcode').val(selectedItem.text);
+                $('#unitcode_eng').val(selectedItem.attributes.unitcode_eng);
+                $('#abbreviation').val(selectedItem.attributes.abbreviation);
+                $('#abbreviation_eng').val(selectedItem.attributes.abbreviation_eng);
+                $('#unit').val(selectedItem.attributes.unit);
+                $('#unit_eng').val(selectedItem.attributes.unit_eng);
+                /*$('#dropdownUnitSystems').ddslick('select', 
+                                            {index: selectedItem.attributes.system_id }
+                                                );*/
+                $('#dropdownUnitSystems').ddslick('selectByValue', 
+                                            {index: selectedItem.attributes.system_id,
+                                            text : selectedItem.text}
+                                                );
+                
+            } else {
+                $('#dropdownUnitSystems').ddslick('selectByValue', 
+                                            {index: 999999,
+                                            text : selectedItem.text}
+                                                );
+                //alert('root');
+                $('#unitcode').val(selectedItem.text);
+                $('#unitcode_eng').val(selectedItem.attributes.unitcode_eng);
+                $('#unit').attr('disabled',true);
+                $('#unit_eng').attr('disabled',true);
+                $('#abbreviation').attr('disabled',true);
+                $('#abbreviation_eng').attr('disabled',true);
+                /*$('#dropdownUnitSystems').ddslick('select', 
+                                            {index: -1 }
+                                                );*/
+               
+            }
         },
         onCheck: function (node) {
 
@@ -121,14 +108,14 @@ $(document).ready(function () {
             var s = node.text;
             var id = node.id;
             if (node.attributes.active == 0) {
-                s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                     <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveMenuDialog('+id+');"></i>&nbsp;&nbsp;\n\
-                    <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMenuDialog('+id+', \''+node.text+'\')"></i>';
+                s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="birim sil" onclick="deleteUnitDialog('+id+')"></i>&nbsp;\n\
+                     <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveUnitDialog('+id+');"></i>&nbsp;&nbsp;\n\
+                    <i class="fa fa-level-down" title="alt kırılıma birim ekle" onclick="insertUnitDialog('+id+', \''+node.text+'\')"></i>';
                 return s;
 
             } else if (node.attributes.active == 1) {
-                s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeMenuDialog('+id+');"></i>';
+                s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="birim sil" onclick="deleteUnitDialog('+id+')"></i>&nbsp;\n\
+                <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeUnitDialog('+id+');"></i>';
                 s = "<font color = '#B6B6B4'>" + s + "</font>"
                 //buda koşullu kullanım için örnek satır    
                 /*if (node.children) {
@@ -139,23 +126,14 @@ $(document).ready(function () {
         }
     });
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /**
      * user roles  select box filling
      * @author Mustafa Zeynel Dağlı
-     * @since 28/03/2016
+     * @since 04/04/2016
      */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkFillComboBoxRoles_sysAclRoles' ,
+        data: { url:'pkGetUnitSystems_sysUnitSystems' ,
                 language_code : 'tr',
                 main_group : 2,
                 pk : $("#pk").val()}, 
@@ -163,38 +141,28 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             if(data.length!==0) {
-                $('#dropdownRoles').ddslick({
+                $('#dropdownUnitSystems').ddslick({
                     height : 200,
                     data : data, 
                     width:'100%',
-                    //selectText: "Select your preferred social network",
-                    imagePosition:"right",
+                    selectText: "Select your preferred social network",
+                    //showSelectedHTML : false,
+                    defaultSelectedIndex: 3,
+                    //imagePosition:"right",
                     onSelected: function(selectedData){
                         if(selectedData.selectedData.value>0) {
                             /*$('#tt_tree_menu').tree({
                                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
                             });*/
-
                         }
-                        //console.log(selectedData.selectedData.value);
-                       /* if(selectedData.selectedData.value==6) {
-                            $('#dropdownOperationsToolsContainer').loadImager();
-                            $('#dropdownOperationsToolsContainer').loadImager('appendImage');
-                            window.getOperationTypeTools();
-                        } else {
-                            $('#dropdownOperationsToolsContainer').loadImager();
-                            $('#dropdownOperationsToolsContainer').loadImager('appendImage');
-                            $('#dropdownOperationsTools').ddslick('destroy');
-                            window.getOperationTypeToolsPleaseSelect();
-                        }*/
                     }   
                 });
             } else {
-                console.error('"pkFillComboBoxRoles_sysAclRoles" servis datası boştur!!');
+                console.error('"pkGetUnitSystems_sysUnitSystems" servis datası boştur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkFillComboBoxRoles_sysAclRoles" servis hatası->'+textStatus);
+            console.error('"pkGetUnitSystems_sysUnitSystems" servis hatası->'+textStatus);
         }
     });
 
@@ -202,7 +170,7 @@ $(document).ready(function () {
     $.fn.leftMenuFunction();
 
     //Validation forms binded...
-    jQuery("#menuForm").validationEngine();
+    jQuery("#unitForm").validationEngine();
     
 
 
@@ -226,14 +194,14 @@ $(document).ready(function () {
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.deleteMenuDialog= function(nodeID){
+   window.deleteUnitDialog= function(nodeID){
        var nodeID = nodeID;
         BootstrapDialog.show({
             type: BootstrapDialog.TYPE_WARNING,
-            title: 'Menü Silme İşlemi Gerçekleştirmek Üzeresiniz!',
-            message: 'Menü Öğesini silmek üzeresiniz, menü silme işlemi geri alınamaz!! ',
+            title: 'Birim Silme İşlemi Gerçekleştirmek Üzeresiniz!',
+            message: 'Birim Öğesini silmek üzeresiniz, birim silme işlemi geri alınamaz!! ',
             buttons: [ {
                 icon: 'glyphicon glyphicon-ban-circle',
                 label: 'Vazgeç',
@@ -247,20 +215,20 @@ $(document).ready(function () {
                 cssClass: 'btn-success',
                 action: function(dialogItself){
                     dialogItself.close();
-                    deleteMenu(nodeID);
+                    deleteUnit(nodeID);
                 }
             }]
         });
    }
    
    /**
-    * set menu item delete
+    * set unit item delete
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.deleteMenu = function(nodeID) {
+   window.deleteUnit = function(nodeID) {
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -273,8 +241,8 @@ $(document).ready(function () {
             if(data.length!==0) {
                 BootstrapDialog.show({
                     type: BootstrapDialog.TYPE_SUCCESS,
-                    title: 'Menü Silme İşlemi Başarılı...',
-                    message: 'Menü Silme işlemini gerçekleştirdiniz... ',
+                    title: 'Birim Silme İşlemi Başarılı...',
+                    message: 'Birim Silme işlemini gerçekleştirdiniz... ',
                     buttons: [ {
                         icon: 'glyphicon glyphicon-ok-sign',
                         label: 'Kapat',
@@ -289,8 +257,8 @@ $(document).ready(function () {
             } else {
                 BootstrapDialog.show({
                     type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Menü Silme İşlemi Başarısız...',
-                    message: 'Menü Silme işlemini gerçekleştiremediniz,Sistem Yneticisi ile temasa geçiniz... ',
+                    title: 'Birim Silme İşlemi Başarısız...',
+                    message: 'Birim Silme işlemini gerçekleştiremediniz,Sistem Yneticisi ile temasa geçiniz... ',
                     buttons: [ {
                         icon: 'glyphicon glyphicon-ban-circle',
                         label: 'Kapat',
@@ -310,18 +278,18 @@ $(document).ready(function () {
    }
    
    /**
-    * wrapper class for pop up and passive menu item
+    * wrapper class for pop up and passive unit item
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.passiveMenuDialog= function(nodeID){
+   window.passiveUnitDialog= function(nodeID){
         var nodeID = nodeID;
         BootstrapDialog.show({
             type: BootstrapDialog.TYPE_WARNING,
-            title: 'Menü Ögesini Pasifleştirmek Üzeresiniz!',
-            message: 'Menü öğesini pasifleştirmek üzeresiniz !! ',
+            title: 'Birim Ögesini Pasifleştirmek Üzeresiniz!',
+            message: 'Birim öğesini pasifleştirmek üzeresiniz !! ',
             buttons: [ {
                 icon: 'glyphicon glyphicon-ban-circle',
                 label: 'Vazgeç',
@@ -342,13 +310,13 @@ $(document).ready(function () {
    }
    
    /**
-    * set menu item passive
+    * set unit item passive
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.passiveMenu = function(nodeID) {
+   window.passiveUnit = function(nodeID) {
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -362,8 +330,8 @@ $(document).ready(function () {
                 if(data.found) {
                    BootstrapDialog.show({
                         type: BootstrapDialog.TYPE_SUCCESS,
-                        title: 'Menü Pasif İşlemi Başarılı...',
-                        message: 'Menü Pasifleştirme işlemini gerçekleştirdiniz... ',
+                        title: 'Birim Pasif İşlemi Başarılı...',
+                        message: 'Birim Pasifleştirme işlemini gerçekleştirdiniz... ',
                         buttons: [ {
                             icon: 'glyphicon glyphicon-ok-sign',
                             label: 'Kapat',
@@ -420,8 +388,8 @@ $(document).ready(function () {
                 } else {
                     BootstrapDialog.show({
                         type: BootstrapDialog.TYPE_DANGER,
-                        title: 'Menü Pasifleştirme İşlemi Başarısız...',
-                        message: 'Menü pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
+                        title: 'Birim Pasifleştirme İşlemi Başarısız...',
+                        message: 'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
                         buttons: [ {
                             icon: 'glyphicon glyphicon-ok-sign',
                             label: 'Kapat',
@@ -435,8 +403,8 @@ $(document).ready(function () {
             } else {
                 BootstrapDialog.show({
                     type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Menü Pasifleştirme İşlemi Başarısız...',
-                    message: 'Menü pasifleştirme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ',
+                    title: 'Birim Pasifleştirme İşlemi Başarısız...',
+                    message: 'Birim pasifleştirme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ',
                     buttons: [ {
                         icon: 'glyphicon glyphicon-ban-circle',
                         label: 'Kapat',
@@ -456,18 +424,18 @@ $(document).ready(function () {
    }
    
    /**
-    * wrapper class for pop up and active menu item
+    * wrapper class for pop up and active unit item
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.activeMenuDialog= function(nodeID){
+   window.activeUnitDialog= function(nodeID){
         var nodeID = nodeID;
         BootstrapDialog.show({
             type: BootstrapDialog.TYPE_WARNING,
-            title: 'Menü Ögesini Aktifleştirmek Üzeresiniz!',
-            message: 'Menü öğesini aktifleştirmek üzeresiniz !! ',
+            title: 'Birim Ögesini Aktifleştirmek Üzeresiniz!',
+            message: 'Birim öğesini aktifleştirmek üzeresiniz !! ',
             buttons: [ {
                 icon: 'glyphicon glyphicon-ban-circle',
                 label: 'Vazgeç',
@@ -488,13 +456,13 @@ $(document).ready(function () {
    }
    
    /**
-    * set menu item active
+    * set unit item active
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.activeMenu = function(nodeID) {
+   window.activeUnit = function(nodeID) {
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -508,8 +476,8 @@ $(document).ready(function () {
                 if(data.found) {
                     BootstrapDialog.show({
                     type: BootstrapDialog.TYPE_SUCCESS,
-                    title: 'Menü Aktifleştirme İşlemi Başarılı...',
-                    message: 'Menü aktifleştirme işlemini gerçekleştirdiniz... ',
+                    title: 'Birim Aktifleştirme İşlemi Başarılı...',
+                    message: 'Birim aktifleştirme işlemini gerçekleştirdiniz... ',
                     buttons: [ {
                         icon: 'glyphicon glyphicon-ok-sign',
                         label: 'Kapat',
@@ -567,8 +535,8 @@ $(document).ready(function () {
                 else {
                    BootstrapDialog.show({
                         type: BootstrapDialog.TYPE_DANGER,
-                        title: 'Menü Aktifleştirme İşlemi Başarısız...',
-                        message: 'Menü aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
+                        title: 'Birim Aktifleştirme İşlemi Başarısız...',
+                        message: 'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
                         buttons: [ {
                             icon: 'glyphicon glyphicon-ok-sign',
                             label: 'Kapat',
@@ -582,8 +550,8 @@ $(document).ready(function () {
             } else {
                 BootstrapDialog.show({
                     type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Menü Aktifleştirme İşlemi Başarısız...',
-                    message: 'Menü aktifleştirme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ',
+                    title: 'Birim Aktifleştirme İşlemi Başarısız...',
+                    message: 'Birim aktifleştirme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ',
                     buttons: [ {
                         icon: 'glyphicon glyphicon-ban-circle',
                         label: 'Kapat',
@@ -607,35 +575,35 @@ $(document).ready(function () {
     * for 'insert' and 'update' form buttons
     * @returns null
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
    window.regulateButtons = function () {
-       $('#updateMenu').attr('disabled', true);
-       $('#insertMenu').attr('disabled', false);
+       $('#updateUnit').attr('disabled', true);
+       $('#insertUnit').attr('disabled', false);
        /*var node = $('#tt_tree_menu').tree('getSelected');
        $('#tt_tree_menu').tree('unselect', node.target);*/
        //$('#tt_tree_menu').tree('unselect');
    }
    
    /**
-    * insert menu item
+    * insert unit item
     * @returns {Boolean}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.insertMenuWrapper = function (e, nodeID, nodeName) {
+   window.insertUnitWrapper = function (e, nodeID, nodeName) {
     e.preventDefault();
     var nodeID = nodeID;
     var nodeName = nodeName;
 
-    if ($("#menuFormInsert").validationEngine('validate')) {
-        var ddData = $('#dropdownRoles').data('ddslick');
+    if ($("#unitFormInsert").validationEngine('validate')) {
+        var ddData = $('#dropdownUnitSystems').data('ddslick');
         if(ddData.selectedData.value>0) {
             insertMenu(nodeID, nodeName);
         } else {
             BootstrapDialog.show({
-                title: 'Rol Seçiniz',
-                message: 'Lütfen Kullanıcı Rolü Seçiniz!',
+                title: 'Metrik Sistem Seçiniz',
+                message: 'Lütfen Metrik sistem Seçiniz!',
                 type: BootstrapDialog.TYPE_WARNING,
         //        closable: false
             });
@@ -644,63 +612,93 @@ $(document).ready(function () {
     return false;
    }
    
-   window.insertMenuDialog = function (nodeID, nodeName) {
+   /**
+    * wrapper for unit insert process
+    * @param {type} nodeID
+    * @param {type} nodeName
+    * @returns {Boolean}
+    * @author Mustafa Zeynel Dağlı
+    * @since 04/04/2016
+    */
+   window.insertUnitDialog = function (nodeID, nodeName) {
     var nodeID = nodeID;
     var nodeName = nodeName;
     BootstrapDialog.show({
-        title: '"'+ nodeName + '" Menü katmanına menü item eklemektesiniz...',
+        title: '"'+ nodeName + '" Birim katmanına yeni birim eklemektesiniz...',
         message: function (dialogRef) {
                     var dialogRef = dialogRef;
-                    var $message = $(' <form id="menuFormInsert" method="get" class="form-horizontal">\n\
+                    var $message = $(' <form id="unitFormInsert" method="get" class="form-horizontal">\n\
                                         <div class="hr-line-dashed"></div>\n\
                                             <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Menü</label>\n\
+                                                <label class="col-sm-2 control-label">Birim</label>\n\
                                                 <div class="col-sm-10">\n\
                                                     <div class="input-group">\n\
                                                         <div class="input-group-addon">\n\
                                                             <i class="fa fa-hand-o-right"></i>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="menu_name_popup" id="menu_name_popup" />\n\
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_popup" id="unit_popup" />\n\
                                                     </div>\n\
                                                 </div>\n\
                                             </div>\n\
                                             <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">İngilizce Menü</label>\n\
+                                                <label class="col-sm-2 control-label">İngilizce Birim</label>\n\
                                                 <div class="col-sm-10">\n\
                                                     <div class="input-group">\n\
                                                         <div class="input-group-addon">\n\
                                                             <i class="fa fa-hand-o-right"></i>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="menu_name_eng_popup" id="menu_name_eng_popup" />\n\
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_eng_popup" id="unit_eng_popup" />\n\
                                                     </div>\n\
                                                 </div>\n\
-                                            </div>\n\
+                                            </div>\n\\n\
                                             <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Url</label>\n\
+                                                <label class="col-sm-2 control-label">Birim Kodu</label>\n\
                                                 <div class="col-sm-10">\n\
                                                     <div class="input-group">\n\
                                                         <div class="input-group-addon">\n\
                                                             <i class="fa fa-hand-o-right"></i>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="url_popup" id="url_popup" />\n\
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_popup" id="unitcode_popup" />\n\
                                                     </div>\n\
                                                 </div>\n\
-                                            </div>\n\
+                                            </div>\n\\n\
                                             <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Menü İkon</label>\n\
+                                                <label class="col-sm-2 control-label">İngilizce Birim Kodu</label>\n\
                                                 <div class="col-sm-10">\n\
                                                     <div class="input-group">\n\
                                                         <div class="input-group-addon">\n\
                                                             <i class="fa fa-hand-o-right"></i>\n\
                                                         </div>\n\
-                                                        <input value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class_popup" id="icon_class_popup" />\n\
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_eng_popup" id="unitcode_eng_popup" />\n\
+                                                    </div>\n\
+                                                </div>\n\
+                                            </div>\n\\n\
+                                            <div class="form-group">\n\
+                                                <label class="col-sm-2 control-label">Birim Kısaltması</label>\n\
+                                                <div class="col-sm-10">\n\
+                                                    <div class="input-group">\n\
+                                                        <div class="input-group-addon">\n\
+                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        </div>\n\
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_popup" id="abbreviation_popup" />\n\
+                                                    </div>\n\
+                                                </div>\n\
+                                            </div>\n\\n\
+                                            <div class="form-group">\n\
+                                                <label class="col-sm-2 control-label">İngilizce Birim Kısaltması</label>\n\
+                                                <div class="col-sm-10">\n\
+                                                    <div class="input-group">\n\
+                                                        <div class="input-group-addon">\n\
+                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        </div>\n\
+                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng_popup" id="abbreviation_eng_popup" />\n\
                                                     </div>\n\
                                                 </div>\n\
                                             </div>\n\
                                             <div class="hr-line-dashed"></div>\n\
                                             <div class="form-group">\n\
                                                 <div class="col-sm-10 col-sm-offset-2">\n\
-                                                <button id="insertMenuPopUp" class="btn btn-primary" type="submit" onclick="return insertMenuWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
+                                                <button id="insertUnitPopUp" class="btn btn-primary" type="submit" onclick="return insertUnitWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
                                                     <i class="fa fa-save"></i> Kaydet </button>\n\
                                                 <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
                                                     <i class="fa fa-remove"></i> Reset </button>\n\
@@ -711,10 +709,10 @@ $(document).ready(function () {
                 },
         type: BootstrapDialog.TYPE_PRIMARY,
         onshown : function () {
-            $("#menuFormInsert").validationEngine();
+            $("#unitFormInsert").validationEngine();
         },
         onhide : function() {
-            $('#menuForm')[0].reset();
+            $('#unitForm')[0].reset();
             regulateButtons();
         },
     });
@@ -722,15 +720,24 @@ $(document).ready(function () {
     return false;
    }
    
-   
-   window.insertMenu = function (nodeID, nodeName) {
-        menu_name = $('#menu_name_popup').val();
-        menu_name_eng = $('#menu_name_eng_popup').val();
-        icon_class = $('#icon_class_popup').val();
-        url = $('#url_popup').val();
+   /**
+    * insert unit item
+    * @param {type} nodeID
+    * @param {type} nodeName
+    * @returns {undefined}
+    * @author Mustafa Zeynel Dağlı
+    * @since 04/04/2016
+    */
+   window.insertUnit = function (nodeID, nodeName) {
+        unit = $('#unit_popup').val();
+        unit_eng = $('#unit_eng_popup').val();
+        unitcode = $('#unitcode_popup').val();
+        unitcode_eng = $('#unitcode_eng_popup').val();
+        abbreviation = $('#abbreviation_popup').val();
+        abbreviation_eng = $('#abbreviation_eng_popup').val();
         language_code = $('#langCode').val();
-        var ddData = $('#dropdownRoles').data('ddslick');
-        role_id = ddData.selectedData.value;
+        var ddData = $('#dropdownUnitSystems').data('ddslick');
+        system_id = ddData.selectedData.value;
         selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
         //console.log(ddData);
         parent = nodeID;
@@ -738,12 +745,14 @@ $(document).ready(function () {
            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
            data: { url:'pkInsert_leftnavigation' ,
                    language_code : language_code,
-                   icon_class : icon_class,
-                   menu_name_eng : menu_name_eng,
-                   menu_name : menu_name,
-                   urlx : url,
-                   parent : parent,
-                   role_id : role_id,
+                   unit : unit,
+                   unit_eng : unit_eng,
+                   unitcode : unitcode,
+                   unitcode_eng : unitcode_eng,
+                   abbreviation : abbreviation,
+                   abbreviation_eng : abbreviation_eng,
+                   //parent : parent,
+                   system_id : system_id,
                    pk : $("#pk").val()},  
            type: 'GET',
            dataType: 'json',
@@ -752,16 +761,16 @@ $(document).ready(function () {
                    if(data.found) {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Menü Kayıt İşlemi Başarılı...',
-                            message: 'Menü kayıt işlemini gerçekleştirdiniz... ',
+                            title: 'Birim Kayıt İşlemi Başarılı...',
+                            message: 'Birim kayıt işlemini gerçekleştirdiniz... ',
                             buttons: [ {
                                 icon: 'glyphicon glyphicon-ok-sign',
                                 label: 'Kapat',
                                 cssClass: 'btn-success',
                                 action: function(dialogItself){
                                     dialogItself.close();
-                                    $('#menuFormInsert')[0].reset();
-                                    $('#menuForm')[0].reset();
+                                    $('#unitFormInsert')[0].reset();
+                                    $('#unitForm')[0].reset();
                                     regulateButtons();
                                 }
                             }]
@@ -769,8 +778,8 @@ $(document).ready(function () {
                    } else {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Menü Kayıt İşlemi Başarısız...',
-                            message: 'Menü kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
+                            title: 'Birim Kayıt İşlemi Başarısız...',
+                            message: 'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
                             buttons: [ {
                                 icon: 'glyphicon glyphicon-ok-sign',
                                 label: 'Kapat',
@@ -808,24 +817,24 @@ $(document).ready(function () {
    }
    
    /**
-    * insert menu item
+    * insert unit item for root
     * @returns {Boolean}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.insertMenuRootWrapper = function (e) {
+   window.insertUnitRootWrapper = function (e) {
     e.preventDefault();
     var nodeID = nodeID;
     var nodeName = nodeName;
 
-    if ($("#menuForm").validationEngine('validate')) {
-        var ddData = $('#dropdownRoles').data('ddslick');
+    if ($("#unitForm").validationEngine('validate')) {
+        var ddData = $('#dropdownUnitSystems').data('ddslick');
         if(ddData.selectedData.value>0) {
-            insertMenuRoot();
+            insertUnitRoot();
         } else {
             BootstrapDialog.show({
-                title: 'Rol Seçiniz',
-                message: 'Lütfen Kullanıcı Rolü Seçiniz!',
+                title: 'Metrik Sistem Seçiniz',
+                message: 'Lütfen Metrik Sistem Seçiniz!',
                 type: BootstrapDialog.TYPE_WARNING,
             });
         }
@@ -833,26 +842,36 @@ $(document).ready(function () {
     return false;
    }
    
-   window.insertMenuRoot = function () {
-        menu_name = $('#menu_name').val();
-        menu_name_eng = $('#menu_name_eng').val();
-        icon_class = $('#icon_class').val();
-        url = $('#url').val();
+   /**
+    * insert unit for root level
+    * @returns {undefined}
+    * @author Mustafa Zeynel Dağlı
+    * @since 04/04/2016
+    */
+   window.insertUnitRoot = function () {
+        unit = $('#unit').val();
+        unit_eng = $('#unit_eng').val();
+        unitcode = $('#unitcode').val();
+        unitcode_eng = $('#unitcode_eng').val();
+        abbreviation = $('#abbreviation').val();
+        abbreviation_eng = $('#abbreviation_eng').val();
         language_code = $('#langCode').val();
-        var ddData = $('#dropdownRoles').data('ddslick');
-        role_id = ddData.selectedData.value;
+        var ddData = $('#dropdownUnitSystems').data('ddslick');
+        system_id = ddData.selectedData.value;
         //console.log(ddData);
         
        $.ajax({
            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
            data: { url:'pkInsert_leftnavigation' ,
                    language_code : language_code,
-                   icon_class : icon_class,
-                   menu_name_eng : menu_name_eng,
-                   menu_name : menu_name,
-                   urlx : url,
-                   parent : 0,
-                   role_id : role_id,
+                   unit : unit,
+                   unit_eng : unit_eng,
+                   unitcode : unitcode,
+                   unitcode_eng : unitcode_eng,
+                   abbreviation : abbreviation,
+                   abbreviation_eng : abbreviation_eng,
+                   //parent : 0,
+                   system_id : system_id,
                    pk : $("#pk").val()},  
            type: 'GET',
            dataType: 'json',
@@ -861,8 +880,8 @@ $(document).ready(function () {
                    if(data.found) {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Menü Kayıt İşlemi Başarılı...',
-                            message: 'Menü kayıt işlemini gerçekleştirdiniz... ',
+                            title: 'Birim Kayıt İşlemi Başarılı...',
+                            message: 'Birim kayıt işlemini gerçekleştirdiniz... ',
                             buttons: [ {
                                 icon: 'glyphicon glyphicon-ok-sign',
                                 label: 'Kapat',
@@ -876,8 +895,8 @@ $(document).ready(function () {
                    } else {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Menü Kayıt İşlemi Başarısız...',
-                            message: 'Menü kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
+                            title: 'Birim Kayıt İşlemi Başarısız...',
+                            message: 'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
                             buttons: [ {
                                 icon: 'glyphicon glyphicon-ok-sign',
                                 label: 'Kapat',
@@ -892,12 +911,11 @@ $(document).ready(function () {
                         //parent: selectedTreeItem.target,
                         data: [{
                                 attributes:{notroot: false, 
-                                            text_eng: menu_name_eng, 
+                                            unit_eng: unit_eng, 
                                             active: 0, 
-                                            url: url, 
-                                            icon_class: icon_class},
+                                            },
                                 id: data.lastInsertId,
-                                text: menu_name,
+                                text: unit,
                                 checked: false,
                                 state : 'open',
                             },]
@@ -913,21 +931,21 @@ $(document).ready(function () {
    }
    
    /**
-    * update menu item
+    * update unit item
     * @returns {Boolean}
     * @author Mustafa Zeynel Dağlı
-    * @since 28/03/2016
+    * @since 04/04/2016
     */
-   window.updateMenuWrapper = function (e) {
+   window.updateUnitWrapper = function (e) {
     e.preventDefault();
     if ($("#menuForm").validationEngine('validate')) {
-        var ddData = $('#dropdownRoles').data('ddslick');
+        var ddData = $('#dropdownUnitSystems').data('ddslick');
         
         selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
         if(selectedTreeItem == null) {
             BootstrapDialog.show({
-                title: 'Menü Öğesi Seçiniz',
-                message: 'Lütfen Menü Öğesi Seçiniz!',
+                title: 'Birim Öğesi Seçiniz',
+                message: 'Lütfen Birim Öğesi Seçiniz!',
                 type: BootstrapDialog.TYPE_WARNING,
             });
             return false;
@@ -935,11 +953,11 @@ $(document).ready(function () {
         
         if(ddData.selectedData.value>0) {
             //alert(ddData.selectedData.text);
-            updateMenu();
+            updateUnit();
         } else {
             BootstrapDialog.show({
-                title: 'Rol Seçiniz',
-                message: 'Lütfen Kullanıcı Rolü Seçiniz!',
+                title: 'Metrik Sistem Seçiniz',
+                message: 'Lütfen Metrik Sistem Seçiniz!',
                 type: BootstrapDialog.TYPE_WARNING,
             });
         }
@@ -947,29 +965,37 @@ $(document).ready(function () {
     return false;
    }
    
-   window.updateMenu = function () {
-        menu_name = $('#menu_name').val();
-        menu_name_eng = $('#menu_name_eng').val();
-        icon_class = $('#icon_class').val();
-        url = $('#url').val();
+   /**
+    * update unit item
+    * @returns {undefined}
+    * @author Mustafa Zeynel Dağlı
+    * @since 05/04/2016
+    */
+   window.updateUnit = function () {
+        unit = $('#unit').val();
+        unit_eng = $('#unit_eng').val();
+        unitcode = $('#unitcode').val();
+        unitcode_eng = $('#unitcode_eng').val();
+        abbreviation = $('#abbreviation').val();
+        abbreviation_eng = $('#abbreviation_eng').val();
         language_code = $('#langCode').val();
-        selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
-        console.log(selectedTreeItem);
-        var ddData = $('#dropdownRoles').data('ddslick');
-        role_id = ddData.selectedData.value;
-        console.log(ddData);
+        var ddData = $('#dropdownUnitSystems').data('ddslick');
+        system_id = ddData.selectedData.value;
+                selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
         id = selectedTreeItem.id;
         
        $.ajax({
            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
            data: { url:'pkUpdate_leftnavigation' ,
                    language_code : language_code,
-                   icon_class : icon_class,
-                   menu_name_eng : menu_name_eng,
-                   menu_name : menu_name,
-                   urlx : url,
+                   unit : unit,
+                   unit_eng : unit_eng,
+                   unitcode : unitcode,
+                   unitcode_eng : unitcode_eng,
+                   abbreviation : abbreviation,
+                   abbreviation_eng : abbreviation_eng,
                    id : id,
-                   role_id : role_id,
+                   system_id : system_id,
                    pk : $("#pk").val()}, 
            type: 'GET',
            dataType: 'json',
@@ -978,8 +1004,8 @@ $(document).ready(function () {
                    if(data.found) {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Menü Güncelleme İşlemi Başarılı...',
-                            message: 'Menü güncelleme işlemini gerçekleştirdiniz... ',
+                            title: 'Birim Güncelleme İşlemi Başarılı...',
+                            message: 'Birim güncelleme işlemini gerçekleştirdiniz... ',
                             buttons: [ {
                                 icon: 'glyphicon glyphicon-ok-sign',
                                 label: 'Kapat',
@@ -993,8 +1019,8 @@ $(document).ready(function () {
                    } else {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Menü Güncelleme İşlemi Başarısız...',
-                            message: 'Menü güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
+                            title: 'Birim Güncelleme İşlemi Başarısız...',
+                            message: 'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
                             buttons: [ {
                                 icon: 'glyphicon glyphicon-ok-sign',
                                 label: 'Kapat',
@@ -1007,7 +1033,8 @@ $(document).ready(function () {
                    }
                 $('#tt_tree_menu').tree('update', {
                      target: selectedTreeItem.target,
-                     text: menu_name
+                     text: unit,
+                     attributes:{notroot: true, unitcode_eng: unitcode_eng , active: 0}
                 });
                } else {
                    console.error('"pkUpdate_leftnavigation" servis datası boştur!!');
