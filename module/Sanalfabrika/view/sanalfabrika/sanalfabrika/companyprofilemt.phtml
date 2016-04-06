@@ -85,7 +85,7 @@
     <div class="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="index.html">
+            <a class="logo" href="index-2.html">
                 <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
             </a>
             <!-- End Logo -->
@@ -166,11 +166,12 @@
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
         <div style='background: #E0EDDF;' class="container">
-            <h1 id="header_company_name" class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
+            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
+                <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>">
+                ?>">
                            <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
@@ -180,7 +181,13 @@
                            <?php echo $this->translate('Clients Page') ?>
                     </a>
                 </li>
-                <li class="active"><?php echo $this->translate('Company Machine Tools') ?></li>
+                <li>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'id' => $selectedCompanyNpk));
+                           ?>">
+                           <?php echo $this->translate('Company Profile') ?>
+                    </a>
+                </li>
+                <li class="active"><?php echo $this->translate('Company Products') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -196,22 +203,22 @@
                      src="" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    <li id="companyprofilelink" class="list-group-item active">
+                    <li id="companyprofilelink" class="list-group-item ">
                     </li>
                     <li id="companyperformancemetersprofilelink" class="list-group-item">
                     </li>
                     <li id="companyproductsprofilelink" class="list-group-item">
                     </li>  
-                    <li id="companyprofilemtlink" class="list-group-item">
+                    <li class="list-group-item list-toggle active" id='companyprofilemtlink'>                        
                     </li>
                     <li id="companymembersprofilelink" class="list-group-item">
                     </li>                                        
                     <li id="companyprojectsprofilelink" class="list-group-item">
                     </li>
                     <li id="companycommentsprofilelink" class="list-group-item">
-                    </li>   
+                    </li>
                     <li id="companyhistoryprofilelink" class="list-group-item">
-                    </li>                                        
+                    </li>                                           
                     <li class="list-group-item">
                     </li>                                       
                     <!--                    <li class="list-group-item">
@@ -220,101 +227,23 @@
                 </ul>     
 
                 <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left">
-                        <i class="fa fa-bar-chart-o"></i> 
-                        <?php echo $this->translate('Task Progress') ?>
-                    </h2>
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
-                <h3 class="heading-xs">
-                    <?php echo $this->translate('Web Design') ?> 
-                    <span class="pull-right">92%</span>
-                </h3>
+                <h3 class="heading-xs">Web Design <span class="pull-right">92%</span></h3>
                 <div class="progress progress-u progress-xxs">
-                    <div style="width: 92%" aria-valuemax="100" 
-                         aria-valuemin="0" aria-valuenow="92" 
-                         role="progressbar" class="progress-bar progress-bar-u">
+                    <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
                     </div>
                 </div>
-                <h3 class="heading-xs">
-                    <?php echo $this->translate('Unify Project') ?> 
-                    <span class="pull-right">85%</span>
-                </h3>
+                <h3 class="heading-xs">Unify Project <span class="pull-right">85%</span></h3>
                 <div class="progress progress-u progress-xxs">
-                    <div style="width: 85%" aria-valuemax="100" 
-                         aria-valuemin="0" aria-valuenow="85" 
-                         role="progressbar" class="progress-bar progress-bar-blue">
+                    <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
                     </div>
                 </div>
-                <h3 class="heading-xs"><?php echo $this->translate('Sony Corporation') ?>
-                    <span class="pull-right">64%</span>
-                </h3>
+                <h3 class="heading-xs">Sony Corporation <span class="pull-right">64%</span></h3>
                 <div class="progress progress-u progress-xxs margin-bottom-40">
-                    <div style="width: 64%" aria-valuemax="100" 
-                         aria-valuemin="0" aria-valuenow="64" 
-                         role="progressbar" class="progress-bar progress-bar-dark">
+                    <div style="width: 64%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar" class="progress-bar progress-bar-dark">
                     </div>
-                </div>
-
-                <hr>
-
-                <!--Notification-->
-                <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> 
-                        <?php echo $this->translate('Notification') ?></h2>
-                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                </div>
-                <div class="margin-bottom-20">
-                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
-                        data-mcs-theme="minimal-dark">
-                        <li class="notification">
-                            <i class="icon-custom icon-sm rounded-x 
-                               icon-bg-red icon-line icon-envelope"></i>
-                            <div class="overflow-h">
-                                <span><strong>Albert Heller</strong> has sent you email.</span>
-                                <small>Two minutes ago</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <img class="rounded-x" 
-                                 src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" 
-                                 alt="">
-                            <div class="overflow-h">
-                                <span><strong>Taylor Lee</strong> started following you.</span>
-                                <small>Today 18:25 pm</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
-                            <div class="overflow-h">
-                                <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
-                                <small>Yesterday 1:07 pm</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <img class="rounded-x" 
-                                 src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
-                            <div class="overflow-h">
-                                <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
-                                <small>23/12 11:01 am</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                            <div class="overflow-h">
-                                <span><strong>Bruno Js.</strong> added you to group chating.</span>
-                                <small>Yesterday 1:07 pm</small>
-                            </div>    
-                        </li>
-                        <li class="notification">
-                            <img class="rounded-x" 
-                                 src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                            <div class="overflow-h">
-                                <span><strong>Taylor Lee</strong> changed profile picture.</span>
-                                <small>23/12 15:15 pm</small>
-                            </div>    
-                        </li>
-                    </ul>    
                 </div>
             </div>
             <!--End Left Sidebar-->
@@ -327,9 +256,7 @@
                     <div class="col-sm-6 sm-margin-bottom-20">
                         <div class="service-block-v3 service-block-aviation">
                             <i class="icon-plane"></i>
-                            <span class="service-heading">
-                                <?php echo $this->translate('Submitted Aviation Projects') ?>
-                            </span>
+                            <span class="service-heading"><?php echo $this->translate('Submitted Aviation Projects') ?></span>
                             <span class="counter">358</span>
 
                             <div class="clearfix margin-bottom-10"></div>
@@ -359,9 +286,7 @@
                     <div class="col-sm-6">
                         <div class="service-block-v3 service-block-renewable">
                             <i class="icon-energy"></i>
-                            <span class="service-heading">
-                                <?php echo $this->translate('Submitted Renewable Energy Projects') ?>
-                            </span>
+                            <span class="service-heading"><?php echo $this->translate('Submitted Renewable Energy Projects') ?></span>
                             <span class="counter">324,056</span>
 
                             <div class="clearfix margin-bottom-10"></div>
@@ -397,23 +322,282 @@
             <!-- Profile Content -->            
             <div class="col-md-9">
                 <div class="profile-body">
-                    <div class="block-description">
-                        <div class="container">
-                            <div class="title-box-v2 col-md-8" id="companyAddressPH">
-                            </div> 
+                    <div class="headline-center margin-bottom-60">
+                        <h2><?php echo $this->translate('Machine Tools List') ?></h2>
+                    </div>
+                    <div class="alert alert-info fade in">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4>Info! Machine Tools Section!</h4>
+                        <p>you may have access to company machine park from this section. By clicking over your desired machine tool you may see more detailed information if it is already in the system.</p>
 
-                            <div class='left-inner'>
-                                <div class='progression'>
-                                    <div class='row'>
-                                        <table id="cnc_machine_table" 
-                                               class="table table-hover table-striped table-condensed" 
-                                               cellspacing="0" style="font-size: 12px">
-                                        </table>
+                    </div>
+                    <div class="block-description" id='table_place_holder' style='visibility:hidden;display:none'>
+                        <div class="container">
+                            <div class="row">
+                                <!-- Left Inner -->
+                                <div class="col-md-8">
+                                    <div id='sel_mach_cat_list_div'>
+
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id='selected_machine_divider'  style='visibility: hidden;display:none'  
+                     class='row' style="padding-top: 20px;padding-bottom: 20px">
+                    <div class="col-md-12 shadow-wrapper">
+                        <blockquote class="hero box-shadow shadow-effect-2">
+                            <p><em><?php echo $this->translate('More information about your selected machine is goven below') ?></em></p>
+                            <strong><em id='selectedMachineNamePH'></em></strong>
+                        </blockquote>
+                    </div>
+                </div>
 
+                <div id='machine_details_DIV' style='visibility: hidden' lastIndex=''></div>
 
+                <hr>
+
+                <div class="funny-boxes funny-boxes-colored funny-boxes-blue">
+                    <div class="row">
+                        <div class="col-md-4 funny-boxes-img">
+                            <img id="logoPlace1" class="img-responsive" style="max-width: 50%" src="" alt="">
+                            <ul class="list-unstyled">
+                                <li><i class="fa-fw fa fa-briefcase"></i> EMGE</li>
+                                <li><i class="fa-fw fa fa-map-marker"></i> Ankara, Turkey</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8">
+                            <h2><a href="#">EMGE Obtained recently wire cutting capability</a></h2>
+                            <ul class="list-unstyled funny-boxes-rating">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                            <p>Buying new CNC wire cutting machines, EMGE is now able to realize wire cutting processes....</p>
+                        </div>
+                    </div>                            
+                </div>
+
+                <hr>
+
+                <div class="profile-body">
+                    <div class="block-description">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Left Inner -->
+                                <div class="col-md-8">
+                                    <div id='product_details_DIV' lastIndex='' style='visibility:hidden; display:none'> 
+                                    </div>
+
+                                    <div class="left-inner">
+                                        <div class="progression">
+                                            <h2><?php echo $this->translate('Sample product videos') ?></h2>
+                                            <p><?php
+                                                echo $this->translate('In order to give a better description about '
+                                                        . 'products and their amnufacturing processes companies may inclued product '
+                                                        . 'videos in this section.')
+                                                ?></p>
+
+                                            <div class="row margin-bottom-60">
+                                                <!-- Vimeo Video -->
+                                                <div class="col-md-6">
+                                                    <div class="responsive-video md-margin-bottom-40">
+                                                        <iframe width="100%" src="https://www.youtube.com/embed/4dmt7tQG1-w" 
+                                                                frameborder="0" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                                <!-- End Vimeo Video -->
+
+                                                <!-- Youtube Video -->
+                                                <div class="col-md-6">
+                                                    <div class="responsive-video">
+                                                        <iframe width="100%" src="https://www.youtube.com/embed/Squv4KI751w" 
+                                                                frameborder="0" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                                <!-- End Youtube Video -->
+                                            </div>
+                                            <!-- End Video Blocks -->
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="left-inner">
+                                        <!--=== Cube-Portfdlio ===-->
+                                        <div class="cube-portfolio margin-bottom-60">
+                                            <h2><?php echo $this->translate("Products' Pictures") ?></h2>
+
+                                            <div class="content-xs">
+                                                <div id="filters-container" class="cbp-l-filters-text content-xs">
+                                                    <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> <?php echo $this->translate('All') ?> </div> |
+                                                    <div data-filter=".identity" class="cbp-filter-item">  <?php echo $this->translate('Category One Products') ?> </div> |
+                                                    <div data-filter=".web-design" class="cbp-filter-item"> <?php echo $this->translate('Category Two Products') ?> </div> |
+                                                    <div data-filter=".graphic" class="cbp-filter-item"> <?php echo $this->translate('Category Three Products') ?> </div> |
+                                                    <div data-filter=".logos" class="cbp-filter-item"> <?php echo $this->translate('Category Four Products') ?> </div>
+                                                </div><!--/end Filters Container-->
+                                            </div>
+
+                                            <div id="grid-container" class="cbp-l-grid-agency">
+                                                <div class="cbp-item graphic">
+                                                    <div class="cbp-caption margin-bottom-20">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img12.jpg') ?>" alt="">
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">
+                                                                    <ul class="link-captions no-bottom-space">
+                                                                        <li>
+                                                                            <a href="https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img12.jpg" 
+                                                                               class="cbp-lightbox" data-title="Design Object">
+                                                                                <i class="rounded-x fa fa-search"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cbp-title-dark">
+                                                        <div class="cbp-l-grid-agency-title">Design Object 01</div>
+                                                        <div class="cbp-l-grid-agency-desc">Web Design</div>
+                                                    </div>
+                                                </div>
+                                                <div class="cbp-item web-design logos">
+                                                    <div class="cbp-caption margin-bottom-20">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img18.jpg') ?>" alt="">
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">
+                                                                    <ul class="link-captions no-bottom-space">
+                                                                        <li>
+                                                                            <a href="https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img18.jpg" 
+                                                                               class="cbp-lightbox" data-title="Design Object">
+                                                                                <i class="rounded-x fa fa-search"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cbp-title-dark">
+                                                        <div class="cbp-l-grid-agency-title">Design Object 02</div>
+                                                        <div class="cbp-l-grid-agency-desc">Web Design</div>
+                                                    </div>
+                                                </div>
+                                                <div class="cbp-item graphic logos">
+                                                    <div class="cbp-caption margin-bottom-20">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img7.jpg') ?>" alt="">
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">
+                                                                    <ul class="link-captions no-bottom-space">
+                                                                        <li>
+                                                                            <a href="https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img7.jpg" 
+                                                                               class="cbp-lightbox" data-title="Design Object">
+                                                                                <i class="rounded-x fa fa-search"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cbp-title-dark">
+                                                        <div class="cbp-l-grid-agency-title">Design Object 03</div>
+                                                        <div class="cbp-l-grid-agency-desc">Web Design</div>
+                                                    </div>
+                                                </div>
+                                                <div class="cbp-item web-design graphic">
+                                                    <div class="cbp-caption margin-bottom-20">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img4.jpg') ?>" alt="">
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">
+                                                                    <ul class="link-captions no-bottom-space">
+                                                                        <li>
+                                                                            <a href="https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img4.jpg" 
+                                                                               class="cbp-lightbox" data-title="Design Object">
+                                                                                <i class="rounded-x fa fa-search"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cbp-title-dark">
+                                                        <div class="cbp-l-grid-agency-title">Design Object 04</div>
+                                                        <div class="cbp-l-grid-agency-desc">Web Design</div>
+                                                    </div>
+                                                </div>
+                                                <div class="cbp-item identity web-design">
+                                                    <div class="cbp-caption margin-bottom-20">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img3.jpg') ?>" alt="">
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">
+                                                                    <ul class="link-captions no-bottom-space">
+                                                                        <li>
+                                                                            <a href="https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img3.jpg" 
+                                                                               class="cbp-lightbox" data-title="Design Object">
+                                                                                <i class="rounded-x fa fa-search"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cbp-title-dark">
+                                                        <div class="cbp-l-grid-agency-title">Design Object 05</div>
+                                                        <div class="cbp-l-grid-agency-desc">Web Design</div>
+                                                    </div>
+                                                </div>
+                                                <div class="cbp-item identity web-design">
+                                                    <div class="cbp-caption margin-bottom-20">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/main/img6.jpg') ?>" alt="">
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">
+                                                                    <ul class="link-captions no-bottom-space">
+                                                                        <li>
+                                                                            <a href="https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img6.jpg" 
+                                                                               class="cbp-lightbox" data-title="Design Object">
+                                                                                <i class="rounded-x fa fa-search"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cbp-title-dark">
+                                                        <div class="cbp-l-grid-agency-title">Design Object 06</div>
+                                                        <div class="cbp-l-grid-agency-desc">Web Design</div>
+                                                    </div>
+                                                </div>
+                                            </div><!--/end Grid Container-->
+                                        </div>    
+                                        <!--=== End Cube-Portfdlio ===-->
+                                    </div>
+                                    <!-- End Left Inner -->
+                                </div>    
+                            </div>
                         </div>
                     </div>
                 </div>

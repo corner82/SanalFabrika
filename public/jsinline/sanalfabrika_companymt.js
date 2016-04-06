@@ -6,6 +6,8 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     console.log($('#selectedCompanyNpk').val());
+
+
     /*
      * Profile left menu links arrangement
      * @author: Bahram Lotfi
@@ -60,13 +62,94 @@ $(document).ready(function () {
      * Company machine tools Link
      */
     var companyProfileMTLink = window.location.href;
-    var mtslink = "<a href='"
-            + companyProfileMTLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
+    var mtslink = "<a data-toggle='collapse' data-parent='#sidebar-nav' href='#collapse_mach_cats'"
+            + "aria-expanded='true'>"
+            + window.lang.translate('Machines List')
+            + "</a>"
+            + "<ul id='collapse_mach_cats' class='collapse'>"
+            + "<li id='cnc_machine_link' onclick=gotLink(this)>"
+            + "<span class='badge rounded badge-red'>"
+            + window.lang.translate('C')
+            + "</span>"
+            + "<a href='#'>"
+            + "<i class='fa fa-chevron-circle-right'>"
             + "</i>"
-            + window.lang.translate('Company Machine Tools')
-            + "</a>";
+            + window.lang.translate('CNC Machines')
+            + "</a>"
+            + "</li>"
+
+            + "<li id='turning_machine_link' onclick=gotLink(this)>"
+            + "<span class='badge rounded badge-red'>"
+            + window.lang.translate('C')
+            + "</span>"
+            + "<a href='#'>"
+            + "<i class='fa fa-chevron-circle-right'>"
+            + "</i>"
+            + window.lang.translate('Turning Machines')
+            + "</a>"
+            + "</li>"
+
+            + "<li id='milling_machine_link' onclick=gotLink(this)>"
+            + "<span class='badge rounded badge-red'>"
+            + window.lang.translate('C')
+            + "</span>"
+            + "<a href='#'>"
+            + "<i class='fa fa-chevron-circle-right'>"
+            + "</i>"
+            + window.lang.translate('Milling Machines')
+            + "</a>"
+            + "</li>"
+
+            + "<li id='drilling_machine_link' onclick=gotLink(this)>"
+            + "<span class='badge rounded badge-red'>"
+            + window.lang.translate('C')
+            + "</span>"
+            + "<a href='#'>"
+            + "<i class='fa fa-chevron-circle-right'>"
+            + "</i>"
+            + window.lang.translate('Drilling Machines')
+            + "</a>"
+            + "</li>"
+
+            + "<li id='drilling_machine_link' onclick=gotLink(this)>"
+            + "<span class='badge rounded badge-red'>"
+            + window.lang.translate('C')
+            + "</span>"
+            + "<a href='#'>"
+            + "<i class='fa fa-chevron-circle-right'>"
+            + "</i>"
+            + window.lang.translate('Grinding Machines')
+            + "</a>"
+            + "</li>"
+
+            + "<li id='uswelding_machine_link' onclick=gotLink(this)>"
+            + "<span class='badge rounded badge-blue'>"
+            + window.lang.translate('W')
+            + "</span>"
+            + "<span class='badge rounded badge-blue'>"
+            + window.lang.translate('')
+            + "</span>"
+            + "<a href='#'>"
+            + "<i class='fa fa-chevron-circle-right'>"
+            + "</i>"
+            + window.lang.translate('US Welding Machines')
+            + "</a>"
+            + "</li>"
+
+            + "<li id='edm_machine_link' onclick=gotLink(this)>"
+            + "<span class='badge rounded badge-yellow'>"
+            + window.lang.translate('UN')
+            + "</span>"
+            + "<span class='badge badge-u'>"
+            + window.lang.translate('')
+            + "</span>"
+            + "<a href='#'>"
+            + "<i class='fa fa-chevron-circle-right'>"
+            + "</i>"
+            + window.lang.translate('EDM Machines')
+            + "</a>"
+            + "</li>"
+            + "</ul>";
     $('#companyprofilemtlink').empty();
     $('#companyprofilemtlink').append(mtslink);
     /*
@@ -125,6 +208,9 @@ $(document).ready(function () {
      * End of left menu links
      */
 
+
+
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -138,67 +224,102 @@ $(document).ready(function () {
             console.log(data);
             window.logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
+            $('#logoPlace1').attr('src', window.logosrc);
         }
     });
-    /*
-     * Company machine tools information
-     */
+});
+function gotLink(clicked_Id) {
 
-    var machinesCNC = [
-        ["Mazak", "VariAxis II", "1", "2000", "Yes"],
-        ["Mazak", "INTEGREX j-200 (500U)", "1", "2000", "Yes"],
-        ["EMCO", "TURN CNC with C axes", "1", "2000", "Yes"],
-        ["YANG", "CNC Turning Lathe", "1", "2000", "Yes"],
-        ["TSUGAMI", "CNC Automatic Lathe", "1", "2000", "Yes"]
-    ];
+    window.target_machine_id = clicked_Id.id.toString().replace('_link', '');
+    window.target_table = target_machine_id + "_table";
+    window.target_data = target_machine_id + "_data";
+    window.machine_map = new Object();
 
-    var machinesLathe = [
-        ["METAL SUPER 2000", "Turning Lathe Universal", "1", "2000", "Yes"],
-        ["TEZSAN TOS", "Turning Lathe Universal", "1", "2000", "Yes"],
-        ["MEUSER", "Turning Lathe Universal", "1", "2000", "Yes"],
-        ["ROVELVER 20", "Turning Lathe", "1", "2000", "Yes"],
-        ["SCHAUBLIN ROVELVER", "102N Turning Lathe", "2", "2000", "Yes"],
-        ["EMCO Mailer ", "maximat V13 Turning lathe", "1", "2000", "Yes"],
-        ["BECHLER", "Automat Turning Lathe", "2", "2000", "Yes"],
-        ["STROHM SLIDING", "Turning Lathe", "4", "No", "Yes"]
-    ];
-
-    var machinesMilling = [
-        ["UMF RUHLA", "NC Mold Milling Machine", "1", "2000", "Yes"],
-        ["TAKSAN", "Universal Milling Machine", "1", "2000", "Yes"]
-    ];
-
-    var machinesDrilling = [
-        ["LUS-SAN", "Drilling Machine", "2", "2000", "Yes"],
-        ["BILMAKSAN", "Drilling Machine", "1", "2000", "Yes"],
-        ["TOS", "Drilling Machine", "1", "2000", "Yes"],
-        ["MITAS", "Drilling Machine", "1", "2000", "Yes"],
-        ["ACIERA", "Drilling and Tapping Machine", "1", "2000", "Yes"]
-    ];
-
-    var machinesGrinding = [
-        ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes"],
-        ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes"],
-        ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes"]
-    ];
-
-    var machinesUSWelding = [
-        ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes"],
-        ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes"],
-        ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes"]
-    ];
-
-    var machinesEDMs = [
-        ["CHARMILE", "D20 EDM", "1", "2000", "Yes"],
-        ["SODICK", "AG600 L CNC WIRE EDM", "1", "2000", "Yes"],
-        ["SODICK", "AQ750LH CNC WIRE EDM", "1", "2000", "Yes"],
-        ["OSCAR", "MAX CNC SINK EDM", "1", "2000", "2000", "Yes"]
-    ];
+    if ($('#table_place_holder').css('visibility', 'hidden')) {
+        $('#table_place_holder').css('visibility', 'visible');
+        $('#table_place_holder').css('display', 'block');
 
 
+        $('#machine_details_DIV').empty();
+        $('#selectedMachineNamePH').empty();
 
-    $('#cnc_machine_table').DataTable({
-        data: machinesCNC,
+        $('#machine_details_DIV').css('visibility', 'hidden');
+        $('#machine_details_DIV').css('display', 'none');
+
+        $('#selected_machine_divider').css('visibility', 'hidden');
+        $('#selected_machine_divider').css('display', 'none');
+    }
+
+
+    machine_map['cnc_machine_data'] =
+            [
+                ["Mazak", "VariAxis II", "1", "2000", "Yes"],
+                ["Mazak", "INTEGREX j-200 (500U)", "1", "2000", "Yes"],
+                ["EMCO", "TURN CNC with C axes", "1", "2000", "Yes"],
+                ["YANG", "CNC Turning Lathe", "1", "2000", "Yes"],
+                ["TSUGAMI", "CNC Automatic Lathe", "1", "2000", "Yes"]
+            ];
+    machine_map['turning_machine_data'] =
+            [
+                ["METAL SUPER 2000", "Turning Lathe Universal", "1", "2000", "Yes"],
+                ["TEZSAN TOS", "Turning Lathe Universal", "1", "2000", "Yes"],
+                ["MEUSER", "Turning Lathe Universal", "1", "2000", "Yes"],
+                ["ROVELVER 20", "Turning Lathe", "1", "2000", "Yes"],
+                ["SCHAUBLIN ROVELVER", "102N Turning Lathe", "2", "2000", "Yes"],
+                ["EMCO Mailer ", "maximat V13 Turning lathe", "1", "2000", "Yes"],
+                ["BECHLER", "Automat Turning Lathe", "2", "2000", "Yes"],
+                ["STROHM SLIDING", "Turning Lathe", "4", "2000", "Yes"]
+            ];
+    machine_map['milling_machine_data'] =
+            [
+                ["UMF RUHLA", "NC Mold Milling Machine", "1", "2000", "Yes"],
+                ["TAKSAN", "Universal Milling Machine", "1", "2000", "Yes"]
+            ];
+    machine_map['drilling_machine_data'] =
+            [
+                ["LUS-SAN", "Drilling Machine", "2", "2000", "Yes"],
+                ["BILMAKSAN", "Drilling Machine", "1", "2000", "Yes"],
+                ["TOS", "Drilling Machine", "1", "2000", "Yes"],
+                ["MITAS", "Drilling Machine", "1", "2000", "Yes"],
+                ["ACIERA", "Drilling and Tapping Machine", "1", "2000", "Yes"]
+            ];
+    machine_map['grinding_machine_data'] =
+            [
+                ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes"],
+                ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes"],
+                ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes"]
+            ];
+    machine_map['uswelding_machine_data'] =
+            [
+                ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes"],
+                ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes"],
+                ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes"]
+            ];
+    machine_map['edm_machine_data'] =
+            [
+                ["CHARMILE", "D20 EDM", "1", "2000", "Yes"],
+                ["SODICK", "AG600 L CNC WIRE EDM", "1", "2000", "Yes"],
+                ["SODICK", "AQ750LH CNC WIRE EDM", "1", "2000", "Yes"],
+                ["OSCAR", "MAX CNC SINK EDM", "1", "2000", "2000", "Yes"]
+            ];
+    var appending_list = "<div class='left-inner'>"
+            + "<div class='row'>"
+            + "<div id='"
+            + window.target_machine_id
+            + "'>"
+            + "<table id='"
+            + window.target_machine_id
+            + "_table'"
+            + " class='table table-hover table-striped table-condensed'"
+            + " cellspacing='0' style='font-size: 12px'>"
+            + " </table>"
+            + " </div>"
+            + " </div>"
+            + " </div>";
+    $('#sel_mach_cat_list_div').empty();
+    $('#sel_mach_cat_list_div').append(appending_list);
+    $('#' + window.target_table).DataTable({
+        data: window.machine_map[target_data],
         fixedColumns: true,
         scrollX: true,
         select: {
@@ -212,9 +333,14 @@ $(document).ready(function () {
             {title: window.lang.translate("Owner")}
         ]
     });
-    
-    window.table = $('#cnc_machine_table').DataTable();
-    $('#cnc_machine_table tbody').on('click', 'tr', function () {
+
+    $('html, body').animate({
+        scrollTop: $("#sel_mach_cat_list_div").offset().top
+    }, 1000);
+
+    window.table = $('#' + window.target_table).DataTable();
+    $('#' + window.target_table + ' tbody').on('click', 'tr', function () {
+
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         }
@@ -224,7 +350,7 @@ $(document).ready(function () {
         }
 
         var selectedRowIndex = $(this)[0]._DT_RowIndex;
-        this.style.color = '#72c02c';
+//        this.style.color = '#72c02c';
         var d = window.table.row(this).data();
         /*
          * 
@@ -232,17 +358,24 @@ $(document).ready(function () {
          * ajxa request to get product properties should be added here...
          * for now a properties array is created...
          */
+
+
         var properties = [
             {key: 'name', value: 'machine_name'},
             {key: 'code', value: 'machine_series'},
             {key: 'prop 1', value: 'machine_prop1'},
             {key: 'prop 2', value: 'machine_prop2'}
         ];
-
         if ($('#machine_details_DIV').css('visibility') === 'hidden') {
 
             $('#machine_details_DIV').empty();
-            var appending = "<div class='left-inner'>"
+            $('#selectedMachineNamePH').empty();
+
+            var appending =
+//                    "<hr>"
+                    "<div class='funny-boxes funny-boxes-top-sea'>"
+                    + "<div class='row'>"
+                    + "<div class='left-inner'>"
                     + "<div class='progression'>"
                     + "<h3>"
                     + window.lang.translate('Machine Details')
@@ -275,9 +408,11 @@ $(document).ready(function () {
                     + "</div>"
                     + "</div>"
                     + "</div>"
-                    + "</div>"
-                    + "<hr>";
+                    + "</div>";
+
             $('#machine_details_DIV').append(appending);
+            $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
+
             var appending2;
             $.each(properties, function (key, vlaue) {
 
@@ -291,37 +426,62 @@ $(document).ready(function () {
                         + "</tr>";
                 $('#machinePropertiesTable').append(appending2);
             });
+
+            $('#selected_machine_divider').css('visibility', 'visible');
+            $('#selected_machine_divider').css('display', 'block');
+
             $('#machine_details_DIV').css('visibility', 'visible');
+            $('#machine_details_DIV').css('display', 'block');
+
             $('#machine_details_DIV').slideDown('slow');
             $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
+
         } else {
             if ($('#machine_details_DIV').attr('lastIndex').toString() === selectedRowIndex.toString()) {
 
                 $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
                 $('#machine_details_DIV').slideUp('Slow');
+
                 $('#machine_details_DIV').css('visibility', 'hidden');
+                $('#machine_details_DIV').css('display', 'none');
+
+                $('#selected_machine_divider').css('visibility', 'hidden');
+                $('#selected_machine_divider').css('display', 'none');
+
             } else {
 
                 $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
                 $('#machine_details_DIV').slideUp('Slow');
+
                 $('#machine_details_DIV').css('visibility', 'hidden');
+                $('#machine_details_DIV').css('display', 'none');
                 $('#machine_details_DIV').empty();
-                var appending = "<div class='left-inner'>"
+
+                $('#selected_machine_divider').css('visibility', 'hidden');
+                $('#selected_machine_divider').css('display', 'none');
+                $('#selectedMachineNamePH').empty();
+
+                var appending =
+//                        "<hr>"
+                        "<div class='funny-boxes funny-boxes-top-sea'>"
+                        + "<div class='row'>"
+                        + "<div class='left-inner'>"
                         + "<div class='progression'>"
                         + "<h3>"
-                        + window.lang.translate('Product Details')
+                        + window.lang.translate('Machine Details')
                         + "</h3>"
                         + "<div class='row'>"
                         + "<a href="
                         + "https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img12.jpg"
                         + ">"
-                        + "<img class='prod_sample' src="
+                        + "<img class='mach_sample' src="
                         + "../../../onyuz/standard/assets/img/main/img12.jpg"
                         + " alt=''>"
                         + "</a>"
                         + "</div>"
 
-                        + "<table id=productPropertiesTable "
+                        + "<div class='row'>"
+                        + "<table id=machinePropertiesTable "
                         + "class='table table-hover table-striped table-condensed' "
                         + "cellspacing='0' style='font-size: 12px'>"
 
@@ -335,11 +495,11 @@ $(document).ready(function () {
                         + "</tr>"
 
                         + "</table>"
+                        + "</div>"
+                        + "</div>"
+                        + "</div>"
+                        + "</div>";
 
-                        + "</div>"
-                        + "</div>"
-                        + "</div>"
-                        + "<hr>";
                 $('#machine_details_DIV').append(appending);
                 var appending2;
                 $.each(properties, function (key, vlaue) {
@@ -354,7 +514,14 @@ $(document).ready(function () {
                             + "</tr>";
                     $('#machinePropertiesTable').append(appending2);
                 });
+
+                $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
+                $('#selected_machine_divider').css('visibility', 'visible');
+                $('#selected_machine_divider').css('display', 'block');
+
                 $('#machine_details_DIV').css('visibility', 'visible');
+                $('#machine_details_DIV').css('display', 'block');
+
                 $('#machine_details_DIV').slideDown('slow');
             }
         }
@@ -366,4 +533,7 @@ $(document).ready(function () {
         }
 
     });
-});
+}
+
+
+
