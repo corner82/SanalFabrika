@@ -43,8 +43,9 @@ $(document).ready(function () {
             + "'>" + "<i class='fa fa-bar-chart-o'>" + "</i>" + window.lang.translate('Company Products') + "</a>"
             + "</li>";
     var mtslink =
-            "<li id='companymtprofile' class='list-group-item' onclick=changeMenu(this)>" +
-            "<a data-toggle='collapse' data-parent='#sidebar-nav' href='#collapse_mach_cats'"
+            "<li id='companymtprofile' class='list-group-item list-toggle' onclick=ulActivation(this)>"
+            + "<a id='companymtprofile_a' class='collapsed' data-toggle='collapse' "
+            + "data-parent='#sidebar-nav-1'  href='#collapse_mach_cats'"
             + "aria-expanded='true'>"
             + window.lang.translate('Machines List')
             + "</a>"
@@ -198,8 +199,6 @@ $(document).ready(function () {
     }
     var page = pagenpk.replace('/' + npk, '');
 
-    console.log(page);
-
     $('.li').on('click', function () {
         $('.active').removeClass('active');
         $('.' + $(this).attr('class')).addClass('active');
@@ -218,9 +217,26 @@ $(document).ready(function () {
         active_action = found_active[3];
     }
 
-    $('#companyprofile').siblings().removeClass('active');
-    $('#' + active_action).addClass('active');
+    if (active_action === 'companymtprofile') {
+        $('#' + active_action).siblings().removeClass('active');
+        $('#' + active_action).addClass('active');
+        console.log($('#companymtprofile_a').attr('aria-expanded'));
+        console.log($('#companymtprofile_a').attr('class'));
+        
+        $('#companymtprofile_a').attr('aria-expanded', true);
+        $('#companymtprofile_a').attr('class', '');
+        $('#collapse_mach_cats').addClass('in');
+        $('#collapse_mach_cats').attr('aria-expanded', true);
+        
+        console.log($('#companymtprofile_a').attr('aria-expanded'));
+        console.log($('#companymtprofile_a').attr('class'));
 
+    } else {
+
+        $('#' + active_action).siblings().removeClass('active');
+        $('#' + active_action).addClass('active');
+
+    }
 });
 
 
@@ -241,5 +257,30 @@ function changeMenu(clicked_link) {
 
     var newURL = window.location.href.replace(action, clicked_link.id);
     window.location.replace(newURL);
+
+}
+
+function ulActivation(clicked) {
+
+    if (!$('#companymtprofile').hasClass('.active')) {
+
+        $('#companymtprofile').siblings().removeClass('active');
+        $('#companymtprofile').addClass('.active');
+
+        var divided = $('#requestUriRegulated').val().split('/');
+        var action;
+
+        if (divided[1] === '--dil--') {
+            action = divided[4];
+        } else {
+            action = divided[3];
+        }
+
+        $(clicked).siblings().removeClass('active');
+        $(clicked).addClass('active');
+
+        var newURL = window.location.href.replace(action, clicked.id);
+        window.location.replace(newURL);
+    }
 
 }

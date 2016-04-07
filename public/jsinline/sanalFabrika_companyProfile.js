@@ -7,137 +7,7 @@ $(document).ready(function () {
     });
 
 //    console.log($('#selectedCompanyNpk').val());
-
-
-
-    /*
-     * Profile left menu links arrangement
-     * @author: Bahram Lotfi
-     * @Since: 2016.03.25     
-     *
-     * Start of left menu links
-     */
-
-
-    /*
-     * Company profile Link
-     */
-
-    var companyProfileLink = window.location.href;
-    var profilelink = "<a href='"
-            + companyProfileLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.lang.translate('Company Profile')
-            + "</a>";
-    $('#companyprofilelink').empty();
-    $('#companyprofilelink').append(profilelink);
-
-    /*
-     * Company performance meters Link
-     */
-
-    var companyPerformanceMetersProfileLink = window.location.href.replace('companyprofile', 'companyperformancemetersprofile');
-    var perfromancelink = "<a href='"
-            + companyPerformanceMetersProfileLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.lang.translate('Performance Meters')
-            + "</a>";
-    $('#companyperformancemetersprofilelink').empty();
-    $('#companyperformancemetersprofilelink').append(perfromancelink);
-
-    /*
-     * Company products Link
-     */
-    var companyProductsProfileLink = window.location.href.replace('companyprofile', 'companyproductsprofile');
-    var productslink = "<a href='"
-            + companyProductsProfileLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.lang.translate('Company Products')
-            + "</a>";
-    $('#companyproductsprofilelink').empty();
-    $('#companyproductsprofilelink').append(productslink);
-
-    /*
-     * Company machine tools Link
-     */
-    var companyProfileMTLink = window.location.href.replace('companyprofile', 'companyprofilemt');
-    var mtslink = "<a href='"
-            + companyProfileMTLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.lang.translate('Company Machine Tools')
-            + "</a>";
-    $('#companyprofilemtlink').empty();
-    $('#companyprofilemtlink').append(mtslink);
-
-    /*
-     * Company members Link
-     */
-    var companyMembersProfileLink = window.location.href.replace('companyprofile', 'companymembersprofile');
-    var memberslink = "<a href='"
-            + companyMembersProfileLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.lang.translate('Company Members')
-            + "</a>";
-    $('#companymembersprofilelink').empty();
-    $('#companymembersprofilelink').append(memberslink);
-
-    /*
-     * Company projects Link
-     */
-    var companyProjectsProfileLink = window.location.href.replace('companyprofile', 'companyprojectsprofile');
-    var projectslink = "<a href='"
-            + companyProjectsProfileLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.lang.translate('Company Projects')
-            + "</a>";
-    $('#companyprojectsprofilelink').empty();
-    $('#companyprojectsprofilelink').append(projectslink);
-
-    /*
-     * Company comments Link
-     */
-    var companyCommentsProfileLink = window.location.href.replace('companyprofile', 'companycommentsprofile');
-    var commentslink = "<a href='"
-            + companyCommentsProfileLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.lang.translate('Comments')
-            + "</a>";
-    $('#companycommentsprofilelink').empty();
-    $('#companycommentsprofilelink').append(commentslink);
-
-    /*
-     * Company history Link
-     */
-    var companyHistoryProfileLink = window.location.href.replace('companyprofile', 'companyhistoryprofile');
-    var historylink = "<a href='"
-            + companyHistoryProfileLink
-            + "'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.lang.translate('Company History')
-            + "</a>";
-    $('#companyhistoryprofilelink').empty();
-    $('#companyhistoryprofilelink').append(historylink);
-
-    /*
-     * End of left menu links
-     */
-
-
+   
 
 
     $.ajax({
@@ -150,7 +20,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
+//            console.log(data);
             window.logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
             $('#header_company_name').empty();
