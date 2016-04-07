@@ -187,7 +187,7 @@
                            <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>
-                <li class="active"><?php echo $this->translate('Company Products') ?></li>
+                <li class="active"><?php echo $this->translate('Company Machine Tools') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -203,27 +203,7 @@
                      src="" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    <li id="companyprofilelink" class="list-group-item ">
-                    </li>
-                    <li id="companyperformancemetersprofilelink" class="list-group-item">
-                    </li>
-                    <li id="companyproductsprofilelink" class="list-group-item">
-                    </li>  
-                    <li class="list-group-item list-toggle active" id='companyprofilemtlink'>                        
-                    </li>
-                    <li id="companymembersprofilelink" class="list-group-item">
-                    </li>                                        
-                    <li id="companyprojectsprofilelink" class="list-group-item">
-                    </li>
-                    <li id="companycommentsprofilelink" class="list-group-item">
-                    </li>
-                    <li id="companyhistoryprofilelink" class="list-group-item">
-                    </li>                                           
-                    <li class="list-group-item">
-                    </li>                                       
-                    <!--                    <li class="list-group-item">
-                                            <a href="companyprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
-                                        </li> -->
+                    
                 </ul>     
 
                 <div class="panel-heading-v2 overflow-h">
@@ -249,9 +229,9 @@
             <!--End Left Sidebar-->
 
             <!-- Counter header start -->
-            <div class="col-md-9" style="padding-bottom: 20px">
-                <!--<div class="parallax-counter-v4 parallaxBg">-->
-                <!--Service Block v3-->
+<!--            <div class="col-md-9" style="padding-bottom: 20px">
+                <div class="parallax-counter-v4 parallaxBg">
+                Service Block v3
                 <div class="row margin-bottom-10">
                     <div class="col-sm-6 sm-margin-bottom-20">
                         <div class="service-block-v3 service-block-aviation">
@@ -311,10 +291,10 @@
                             </div>            
                         </div>
                     </div>
-                </div><!--/end row-->
-                <!--End Service Block v3-->                    
-                <!--</div>-->
-            </div>
+                </div>/end row
+                End Service Block v3                    
+                </div>
+            </div>-->
 
 
             <!-- Counter header ends -->
@@ -328,8 +308,7 @@
                     <div class="alert alert-info fade in">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                         <h4>Info! Machine Tools Section!</h4>
-                        <p>you may have access to company machine park from this section. By clicking over your desired machine tool you may see more detailed information if it is already in the system.</p>
-
+                        <p>You may have access to company machine park from this section. By clicking over your desired machine tool you may see more detailed information if it is already in the system.</p>
                     </div>
                     <div class="block-description" id='table_place_holder' style='visibility:hidden;display:none'>
                         <div class="container">
@@ -337,7 +316,6 @@
                                 <!-- Left Inner -->
                                 <div class="col-md-8">
                                     <div id='sel_mach_cat_list_div'>
-
                                     </div>
                                 </div>
                             </div>
@@ -390,15 +368,12 @@
                             <div class="row">
                                 <!-- Left Inner -->
                                 <div class="col-md-8">
-                                    <div id='product_details_DIV' lastIndex='' style='visibility:hidden; display:none'> 
-                                    </div>
-
                                     <div class="left-inner">
                                         <div class="progression">
-                                            <h2><?php echo $this->translate('Sample product videos') ?></h2>
+                                            <h2><?php echo $this->translate('Sample machine tools videos') ?></h2>
                                             <p><?php
                                                 echo $this->translate('In order to give a better description about '
-                                                        . 'products and their amnufacturing processes companies may inclued product '
+                                                        . 'processes and their machine tools abilities companies may inclued machines '
                                                         . 'videos in this section.')
                                                 ?></p>
 
@@ -428,15 +403,15 @@
                                     <div class="left-inner">
                                         <!--=== Cube-Portfdlio ===-->
                                         <div class="cube-portfolio margin-bottom-60">
-                                            <h2><?php echo $this->translate("Products' Pictures") ?></h2>
+                                            <h2><?php echo $this->translate("Machines' Pictures") ?></h2>
 
                                             <div class="content-xs">
                                                 <div id="filters-container" class="cbp-l-filters-text content-xs">
                                                     <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> <?php echo $this->translate('All') ?> </div> |
-                                                    <div data-filter=".identity" class="cbp-filter-item">  <?php echo $this->translate('Category One Products') ?> </div> |
-                                                    <div data-filter=".web-design" class="cbp-filter-item"> <?php echo $this->translate('Category Two Products') ?> </div> |
-                                                    <div data-filter=".graphic" class="cbp-filter-item"> <?php echo $this->translate('Category Three Products') ?> </div> |
-                                                    <div data-filter=".logos" class="cbp-filter-item"> <?php echo $this->translate('Category Four Products') ?> </div>
+                                                    <div data-filter=".identity" class="cbp-filter-item">  <?php echo $this->translate('Category One') ?> </div> |
+                                                    <div data-filter=".web-design" class="cbp-filter-item"> <?php echo $this->translate('Category Two') ?> </div> |
+                                                    <div data-filter=".graphic" class="cbp-filter-item"> <?php echo $this->translate('Category Three') ?> </div> |
+                                                    <div data-filter=".logos" class="cbp-filter-item"> <?php echo $this->translate('Category Four') ?> </div>
                                                 </div><!--/end Filters Container-->
                                             </div>
 

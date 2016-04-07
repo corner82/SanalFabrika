@@ -17,6 +17,7 @@
         $('#companyprojectsprofilelink').remove();
         $('#companycommentsprofilelink').css('visibility', 'hidden');
         $('#companycommentsprofilelink').remove();
+        
         /*
          * Div Controls
          */

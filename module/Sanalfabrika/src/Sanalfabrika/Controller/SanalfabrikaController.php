@@ -329,7 +329,7 @@ class SanalfabrikaController extends AbstractActionController {
         return $view;
     }
     
-    public function companyprofilemtAction() {
+    public function companymtprofileAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()

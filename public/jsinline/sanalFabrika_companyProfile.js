@@ -282,7 +282,7 @@ $(document).ready(function () {
                                     "<div class='owl-item' style='width: 134px;'>"
                                     + "<div class='item'>"
                                     + "<img src='../../../onyuz/standard/assets/img/customers/"
-                                    + customer_logo
+//                                    + customer_logo
                                     + "')?>"
                                     + "alt=''"
                                     + "</div>"
