@@ -409,3 +409,12 @@ References logos section in company profile page Css override
     margin-left:0px;
     margin-top:20px
 }
+
+/*
+Parallax backgound override
+*/
+
+/*Parallax Counter v3
+------------------------------------*/
+.parallax-counter-v3 {
+    background: url(../../onyuz/assets/img/ostim/DSC_5954_smaller.jpg) 50% 0 fixed !important;

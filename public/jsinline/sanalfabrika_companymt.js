@@ -5,7 +5,7 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-    console.log($('#selectedCompanyNpk').val());
+//    console.log($('#selectedCompanyNpk').val());
    
     
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
+//            console.log(data);
             window.logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
             $('#logoPlace1').attr('src', window.logosrc);
@@ -27,14 +27,23 @@ $(document).ready(function () {
     });
 });
 
+/*
+ * 
+ * here this function manages data table of machines on click event of company
+ * machine tools sub menus
+ * @author: Bahram
+ * @Since: 2016.4.7
+ */
+
 
 function gotLink(clicked_Id) {
         
     window.target_machine_id = clicked_Id.id.toString().replace('_link', '');
-    console.log(target_machine_id);
     window.target_table = target_machine_id + "_table";
     window.target_data = target_machine_id + "_data";
     window.machine_map = new Object();
+    
+    $('#companymtprofile').addClass('.active');
 
     if ($('#table_place_holder').css('visibility', 'hidden')) {
         $('#table_place_holder').css('visibility', 'visible');

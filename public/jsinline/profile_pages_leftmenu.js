@@ -10,7 +10,11 @@ $(document).ready(function () {
      * Profile left menu links arrangement
      * @author: Bahram Lotfi
      * @Since: 2016.03.25     
-     *
+     */
+    
+    
+    
+    /*
      * Start of left menu links
      */
     var npk = $('#selectedCompanyNpk').val();
