@@ -63,54 +63,54 @@ function gotLink(clicked_Id) {
 
     machine_map['cnc_machine_data'] =
             [
-                ["Mazak", "VariAxis II", "1", "2000", "Yes"],
-                ["Mazak", "INTEGREX j-200 (500U)", "1", "2000", "Yes"],
-                ["EMCO", "TURN CNC with C axes", "1", "2000", "Yes"],
-                ["YANG", "CNC Turning Lathe", "1", "2000", "Yes"],
-                ["TSUGAMI", "CNC Automatic Lathe", "1", "2000", "Yes"]
+                ["Mazak", "VariAxis II", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/Mazak_VariAxisII.jpg"],
+                ["Mazak", "INTEGREX j-200 (500U)", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/Mazak_INTEGREX-j-200-(500U).jpg"],
+                ["EMCO", "TURN CNC with C axes", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/EMCO_TURNCNCwithCaxes.jpg"],
+                ["YANG", "CNC Turning Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/YANG_CNCTurningLathe.jpg"],
+                ["TSUGAMI", "CNC Automatic Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/TSUGAMI_CNCAutomaticLathe.jpg"]
             ];
     machine_map['turning_machine_data'] =
             [
-                ["METAL SUPER 2000", "Turning Lathe Universal", "1", "2000", "Yes"],
-                ["TEZSAN TOS", "Turning Lathe Universal", "1", "2000", "Yes"],
-                ["MEUSER", "Turning Lathe Universal", "1", "2000", "Yes"],
-                ["ROVELVER 20", "Turning Lathe", "1", "2000", "Yes"],
-                ["SCHAUBLIN ROVELVER", "102N Turning Lathe", "2", "2000", "Yes"],
-                ["EMCO Mailer ", "maximat V13 Turning lathe", "1", "2000", "Yes"],
-                ["BECHLER", "Automat Turning Lathe", "2", "2000", "Yes"],
-                ["STROHM SLIDING", "Turning Lathe", "4", "2000", "Yes"]
+                ["METAL SUPER 2000", "Turning Lathe Universal", "1", "2000", "Yes","#"],
+                ["TEZSAN TOS", "Turning Lathe Universal", "1", "2000", "Yes","#"],
+                ["MEUSER", "Turning Lathe Universal", "1", "2000", "Yes","#"],
+                ["ROVELVER 20", "Turning Lathe", "1", "2000", "Yes","#"],
+                ["SCHAUBLIN ROVELVER", "102N Turning Lathe", "2", "2000", "Yes","#"],
+                ["EMCO Mailer ", "maximat V13 Turning lathe", "1", "2000", "Yes","#"],
+                ["BECHLER", "Automat Turning Lathe", "2", "2000", "Yes","#"],
+                ["STROHM SLIDING", "Turning Lathe", "4", "2000", "Yes","#"]
             ];
     machine_map['milling_machine_data'] =
             [
-                ["UMF RUHLA", "NC Mold Milling Machine", "1", "2000", "Yes"],
-                ["TAKSAN", "Universal Milling Machine", "1", "2000", "Yes"]
+                ["UMF RUHLA", "NC Mold Milling Machine", "1", "2000", "Yes","#"],
+                ["TAKSAN", "Universal Milling Machine", "1", "2000", "Yes","#"]
             ];
     machine_map['drilling_machine_data'] =
             [
-                ["LUS-SAN", "Drilling Machine", "2", "2000", "Yes"],
-                ["BILMAKSAN", "Drilling Machine", "1", "2000", "Yes"],
-                ["TOS", "Drilling Machine", "1", "2000", "Yes"],
-                ["MITAS", "Drilling Machine", "1", "2000", "Yes"],
-                ["ACIERA", "Drilling and Tapping Machine", "1", "2000", "Yes"]
+                ["LUS-SAN", "Drilling Machine", "2", "2000", "Yes","#"],
+                ["BILMAKSAN", "Drilling Machine", "1", "2000", "Yes","#"],
+                ["TOS", "Drilling Machine", "1", "2000", "Yes","#"],
+                ["MITAS", "Drilling Machine", "1", "2000", "Yes","#"],
+                ["ACIERA", "Drilling and Tapping Machine", "1", "2000", "Yes","#"]
             ];
     machine_map['grinding_machine_data'] =
             [
-                ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes"],
-                ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes"],
-                ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes"]
+                ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes","#"],
+                ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes","#"],
+                ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes","#"]
             ];
     machine_map['uswelding_machine_data'] =
             [
-                ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes"],
-                ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes"],
-                ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes"]
+                ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes","#"],
+                ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes","#"],
+                ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes","#"]
             ];
     machine_map['edm_machine_data'] =
             [
-                ["CHARMILE", "D20 EDM", "1", "2000", "Yes"],
-                ["SODICK", "AG600 L CNC WIRE EDM", "1", "2000", "Yes"],
-                ["SODICK", "AQ750LH CNC WIRE EDM", "1", "2000", "Yes"],
-                ["OSCAR", "MAX CNC SINK EDM", "1", "2000", "2000", "Yes"]
+                ["CHARMILE", "D20 EDM", "1", "2000", "Yes","#"],
+                ["SODICK", "AG600 L CNC WIRE EDM", "1", "2000", "Yes","#"],
+                ["SODICK", "AQ750LH CNC WIRE EDM", "1", "2000", "Yes","#"],
+                ["OSCAR", "MAX CNC SINK EDM", "1", "2000", "2000", "Yes","#"]
             ];
     var appending_list = "<div class='left-inner'>"
             + "<div class='row'>"
@@ -171,10 +171,11 @@ function gotLink(clicked_Id) {
 
 
         var properties = [
-            {key: 'name', value: 'machine_name'},
-            {key: 'code', value: 'machine_series'},
-            {key: 'prop 1', value: 'machine_prop1'},
-            {key: 'prop 2', value: 'machine_prop2'}
+            {key: 'Brand', value: d[0]},
+            {key: 'Series', value: d[1]},
+            {key: 'Number', value: d[2]},
+            {key: 'Model', value: d[3]},
+            {key: 'Owner', value: d[4]}
         ];
         if ($('#machine_details_DIV').css('visibility') === 'hidden') {
 
@@ -192,10 +193,10 @@ function gotLink(clicked_Id) {
                     + "</h3>"
                     + "<div class='row'>"
                     + "<a href="
-                    + "https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img12.jpg"
+                    + d[5]
                     + ">"
                     + "<img class='mach_sample' src="
-                    + "../../../onyuz/standard/assets/img/main/img12.jpg"
+                    + d[5]
                     + " alt=''>"
                     + "</a>"
                     + "</div>"
@@ -282,10 +283,10 @@ function gotLink(clicked_Id) {
                         + "</h3>"
                         + "<div class='row'>"
                         + "<a href="
-                        + "https://www.bahram.sanalfabrika.com/onyuz/standard/assets/img/main/img12.jpg"
+                        + d[5]
                         + ">"
                         + "<img class='mach_sample' src="
-                        + "../../../onyuz/standard/assets/img/main/img12.jpg"
+                        + d[5]
                         + " alt=''>"
                         + "</a>"
                         + "</div>"
