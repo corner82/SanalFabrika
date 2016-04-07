@@ -177,142 +177,109 @@
             </section>
             <!-- Main content -->
             <section class="content">
-                <!-- Small boxes (Stat box) -->
                 <!--first collapsible panel row -->
                 <div class="row">
-                    
-                    
-                    
                     <!--first collapsible panel width, single column-->
-                    <div class="col-md-12">
+                    <div class="col-lg-12">
                         <!--arrange first panel color to blue by assigning primary class-->
                         <div id="loading-image-crud" class="box box-primary">
-                            
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
                                 <h3 class="box-title"> Kullanıcı tiplerine göre menüler </h3>
-                                
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
                                     <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                                 </div><!--/. button div-->
                             </div><!--/. panel 1 header div-->
                             <!--Panel 1 contents-->
-                            <div  class="box-body">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        
-                                        <form id='menuForm' method="get" class="form-horizontal">  
-
-                                            <!-- Search roles box -->
-<!--                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label"><?php echo $this->translate('Search Roles') ?></label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group margin">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input class="form-control validate[not-required,custom[onlyLetterNumber]]" type="text" name="searchRole" id="searchRole">                                                        
-                                                        <span class="input-group-btn">
-                                                            <button class="btn btn-info btn-flat" type="button" onclick="searchForRoles()"><?php echo $this->translate('Go') ?></button>
-                                                        </span>
-                                                    </div> /input-group 
-                                                </div>
-                                            </div>//form group-->
-
-                                            <div class="hr-line-dashed"></div>
-                                            
-                                            <div class="alert alert-danger alert-dismissable">
-                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                                <h4><i class="icon fa fa-info"></i> Menü İşlemlerine başlamak için 'Kullanıcı Rolü' seçiniz!</h4>
-                                                Menü işlemleri kullanıcı rolü bazlı olarak yapılmaktadır.
-                                                    Öncelikle 'Kullanıcı Rolü' belirleyiniz, Menü öğelerini gösteren
-                                                    yapı aktif olacaktır.
-                                            </div>
-
-                                            <!--Easyui tree  div start-->
-                                            <div id="roleFormBlock" class="box box-primary" style="padding-top: 20px;">                                             
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Menü</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-code-fork"></i>
-                                                            </div>
-                                                            <div class="inner">
-                                                                <div id="loading-image">
-                                                                <ul id="tt_tree_menu" class="easyui-tree" ></ul> 
-                                                                </div>
-                                                            </div>                                                       
-                                                        </div>
+                            <div  class="box-body">       
+                                <form id='menuForm' method="get" class="form-horizontal">  
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h4><i class="icon fa fa-info"></i> Menü İşlemlerine başlamak için 'Kullanıcı Rolü' seçiniz!</h4>
+                                        Menü işlemleri kullanıcı rolü bazlı olarak yapılmaktadır.
+                                            Öncelikle 'Kullanıcı Rolü' belirleyiniz, Menü öğelerini gösteren
+                                            yapı aktif olacaktır.
+                                    </div>
+                                    <div id="roleFormBlock" class="box box-primary" style="padding-top: 20px;">
+                                    <!--Easyui tree  div start-->
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Menü</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-code-fork"></i>
                                                     </div>
-                                                </div>
-                                            </div>  
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Kullanıcı Rolleri</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group"> 
-                                                      <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                                      <div id="dropdownRoles" ></div>
-                                                    </div>
-                                                </div>
-                                              </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Menü</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
+                                                    <div class="inner">
+                                                        <div id="loading-image">
+                                                        <ul id="tt_tree_menu" class="easyui-tree" ></ul> 
                                                         </div>
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="menu_name" id="menu_name" />
-                                                    </div>
+                                                    </div>                                                       
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">İngilizce Menü</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="menu_name_eng" id="menu_name_eng" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Kullanıcı Rolleri</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group"> 
+                                                  <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                                                  <div id="dropdownRoles" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Menü</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
                                                     </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="menu_name" id="menu_name" />
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Url</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="url" id="url" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">İngilizce Menü</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
                                                     </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="menu_name_eng" id="menu_name_eng" />
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Menü İkon</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input data-prompt-position="topLeft:70" value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class" id="icon_class" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Url</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
                                                     </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="url" id="url" />
                                                 </div>
                                             </div>
-
-                                            <div class="hr-line-dashed"></div>
-                                            <div class="form-group">
-                                                <div class="col-sm-10 col-sm-offset-2">
-                                                    <button id="insertMenu" class="btn btn-primary" type="submit" onclick="return insertMenuRootWrapper(event);"><i class="fa fa-save"></i>  Ana Kategoriye Menü Kaydet </button>
-                                                    <button id="updateMenu" class="btn btn-flat" type="submit" onclick="return updateMenuWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
-                                                    <button id="resetForm" class="btn btn-flat" type="reset" onclick="regulateButtons();" ><i class="fa fa-remove"></i> Reset </button>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Menü İkon</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class" id="icon_class" />
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-10 col-sm-offset-2">
+                                                <button id="insertMenu" class="btn btn-primary" type="submit" onclick="return insertMenuRootWrapper(event);"><i class="fa fa-save"></i>  Ana Kategoriye Menü Kaydet </button>
+                                                <button id="updateMenu" class="btn btn-flat" type="submit" onclick="return updateMenuWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
+                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="regulateButtons();" ><i class="fa fa-remove"></i> Reset </button>
+                                            </div>
                                         </div>
                                     </div> 
+                                </form>   
                             </div><!-- /.box-body -->
                         </div><!--/. primary box div-->
                     </div><!--/. first panel single column div -->

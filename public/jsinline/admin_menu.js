@@ -47,7 +47,7 @@ $(document).ready(function () {
                 $('#dropdownRoles').ddslick({
                     height : 200,
                     data : data, 
-                    width:'100%',
+                    width:'98%',
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
                     onSelected: function(selectedData){

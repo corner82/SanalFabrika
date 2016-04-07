@@ -210,6 +210,7 @@ $(document).ready(function () {
                             }
                         }]
                     });
+                    selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
                 } else {
                     if(data.errorInfo == 23503) {
                         BootstrapDialog.show({
@@ -222,13 +223,14 @@ $(document).ready(function () {
                                 cssClass: 'btn-danger',
                                 action: function(dialogItself){
                                     dialogItself.close();
+                                    loader.loadImager('removeLoadImage');
                                 }
                             }]
                         });
                     }
                 }
                 
-                selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                
                             
             } else {
                 BootstrapDialog.show({
