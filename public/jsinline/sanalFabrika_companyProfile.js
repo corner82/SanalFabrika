@@ -146,13 +146,22 @@ $(document).ready(function () {
                     $('#customersPH').empty();
 
                     var i;
+                    var c_logo;
+                    
                     if (data4.length !== null) {
                         for (i = 0; i < data4.length; i++) {
+                                                        
+                            if(data4[i].customer_logo === null){
+                                c_logo = "image_not_found.png"
+                            }else{
+                                c_logo = data4[i].customer_logo;
+                            }
+                            
                             var referencesPHAppending =
                                     "<div class='owl-item' style='width: 134px;'>"
                                     + "<div class='item'>"
                                     + "<img src='../../../onyuz/standard/assets/img/customers/"
-//                                    + customer_logo
+                                    + c_logo
                                     + "')?>"
                                     + "alt=''"
                                     + "</div>"

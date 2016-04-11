@@ -224,16 +224,16 @@ $(document).ready(function () {
     if (active_action === 'companymtprofile') {
         $('#' + active_action).siblings().removeClass('active');
         $('#' + active_action).addClass('active');
-        console.log($('#companymtprofile_a').attr('aria-expanded'));
-        console.log($('#companymtprofile_a').attr('class'));
+//        console.log($('#companymtprofile_a').attr('aria-expanded'));
+//        console.log($('#companymtprofile_a').attr('class'));
         
         $('#companymtprofile_a').attr('aria-expanded', true);
         $('#companymtprofile_a').attr('class', '');
         $('#collapse_mach_cats').addClass('in');
         $('#collapse_mach_cats').attr('aria-expanded', true);
         
-        console.log($('#companymtprofile_a').attr('aria-expanded'));
-        console.log($('#companymtprofile_a').attr('class'));
+//        console.log($('#companymtprofile_a').attr('aria-expanded'));
+//        console.log($('#companymtprofile_a').attr('class'));
 
     } else {
 
@@ -257,7 +257,7 @@ function changeMenu(clicked_link) {
 
     $(clicked_link).siblings().removeClass('active');
     $(clicked_link).addClass('active');
-    console.log(window.location.href);
+//    console.log(window.location.href);
 
     var newURL = window.location.href.replace(action, clicked_link.id);
     window.location.replace(newURL);
