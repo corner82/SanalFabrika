@@ -90,6 +90,26 @@ class SanalfabrikaController extends AbstractActionController {
         $this->authenticate(null, $view);
         return $view;
     }
+    
+    public function prodsercatAction() {
+        $langCode = $this->getServiceLocator()
+                ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                ->get('servicePublicKeyReader');
+
+        // Do this inside your Controller before you return your ViewModel
+        $this->layout()->setVariable('test', $langCode);
+
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        $this->authenticate(null, $view);
+        return $view;
+    }
 
     public function userprofileAction() {
         $langCode = $this->getServiceLocator()

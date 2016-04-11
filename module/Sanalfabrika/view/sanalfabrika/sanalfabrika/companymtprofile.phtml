@@ -310,12 +310,17 @@
                         <h4>Info! Machine Tools Section!</h4>
                         <p>You may have access to company machine park from this section. By clicking over your desired machine tool you may see more detailed information if it is already in the system.</p>
                     </div>
-                    <div class="block-description" id='table_place_holder' style='visibility:hidden;display:none'>
+                    <div class="block-description" id='table_place_holder' style='visibility:hidden; display:none'>
                         <div class="container">
                             <div class="row">
                                 <!-- Left Inner -->
                                 <div class="col-md-8">
                                     <div id='sel_mach_cat_list_div'>
+                                        <div id="sel_Cat_Machines">
+                                            <table id="sel_Cat_Mach_table" cellspacing='0' style='font-size: 12px'
+                                                   class='table table-hover table-striped table-condensed'>                                                
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -333,8 +338,32 @@
                     </div>
                 </div>
 
-                <div id='machine_details_DIV' style='visibility: hidden' lastIndex=''></div>
-
+                <div id='machine_details_DIV' style='visibility: hidden; display: none'  lastIndex=''>
+                    <div class='funny-boxes funny-boxes-top-sea'>
+                        <div class='row'>
+                            <div class='left-inner'>
+                                <div class='progression'>
+                                    <h3>
+                                        <?php echo $this->translate('Machine Details')?>
+                                    </h3>
+                                    <div class='row'>
+                                        <a href=''><img class='mach_sample' src="" alt=''></a>                                        
+                                    </div>
+                                    <div class='row'>
+                                        <table id='machinePropertiesTable' cellspacing='0' style='font-size: 12px'
+                                               class='table table-hover table-striped table-condensed'>
+                                            <tr>
+                                                <td id='sel_mach_manuf'></td>
+                                                <td id='sel_mach_series'></td>
+                                            </tr>                                            
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <hr>
 
                 <div class="funny-boxes funny-boxes-colored funny-boxes-blue">
@@ -406,7 +435,7 @@
                 </div>
 
                 <hr>
-                
+
                 <div class="parallax-counter-v3 parallaxBg" style="background-position: 50% -163px;">
                     <div class="container">
                         <div class="row">
@@ -439,7 +468,7 @@
                 </div>
 
                 <hr>
-                
+
                 <div class="profile-body" style="background-color: #487f6d">
                     <div class="block-description">
                         <div class="container">

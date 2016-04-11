@@ -11,9 +11,9 @@ $(document).ready(function () {
      * @author: Bahram Lotfi
      * @Since: 2016.03.25     
      */
-    
-    
-    
+
+
+
     /*
      * Start of left menu links
      */
@@ -51,6 +51,8 @@ $(document).ready(function () {
             + "<a id='companymtprofile_a' class='collapsed' data-toggle='collapse' "
             + "data-parent='#sidebar-nav-1'  href='#collapse_mach_cats'"
             + "aria-expanded='true'>"
+            + "<i class='fa fa-bar-chart-o'>" 
+            + "</i>"
             + window.lang.translate('Machines List')
             + "</a>"
             + "<ul id='collapse_mach_cats' class='collapse'>"
@@ -226,12 +228,12 @@ $(document).ready(function () {
         $('#' + active_action).addClass('active');
 //        console.log($('#companymtprofile_a').attr('aria-expanded'));
 //        console.log($('#companymtprofile_a').attr('class'));
-        
+
         $('#companymtprofile_a').attr('aria-expanded', true);
         $('#companymtprofile_a').attr('class', '');
         $('#collapse_mach_cats').addClass('in');
         $('#collapse_mach_cats').attr('aria-expanded', true);
-        
+
 //        console.log($('#companymtprofile_a').attr('aria-expanded'));
 //        console.log($('#companymtprofile_a').attr('class'));
 
