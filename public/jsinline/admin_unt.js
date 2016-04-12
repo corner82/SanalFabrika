@@ -31,7 +31,7 @@ $(document).ready(function () {
     var selectedNode;
     
     
-     /*
+    /*
     * 
     * @type @call;$@call;tree
     * Menu tree
@@ -62,13 +62,12 @@ $(document).ready(function () {
             //console.log(selectedItem);
             $('#updateUnit').attr('disabled', false);
             $('#insertUnit').attr('disabled', true);
-            if(selectedItem.attributes.notroot == 'true' ) {
-                alert(selectedItem.attributes.system_id);
+            if(selectedItem.attributes.notroot == true ) {
                 $('#unit').attr('disabled',false);
                 $('#unit_eng').attr('disabled',false);
                 $('#abbreviation').attr('disabled',false);
                 $('#abbreviation_eng').attr('disabled',false);
-                
+
                 $('#unitcode').val(selectedItem.text);
                 $('#unitcode_eng').val(selectedItem.attributes.unitcode_eng);
                 $('#abbreviation').val(selectedItem.attributes.abbreviation);
@@ -82,13 +81,18 @@ $(document).ready(function () {
                                             {index: selectedItem.attributes.system_id,
                                             text : selectedItem.text}
                                                 );
+                //console.warn($('#dropdownUnitSystems').data('ddslick'));
                 
             } else {
                 $('#dropdownUnitSystems').ddslick('selectByValue', 
-                                            {index: 999999,
+                                            {index: 0,
                                             text : selectedItem.text}
                                                 );
-                //alert('root');
+                $('#unit').val('');
+                $('#unit_eng').val('');
+                $('#abbreviation').val('');
+                $('#abbreviation_eng').val('');
+                
                 $('#unitcode').val(selectedItem.text);
                 $('#unitcode_eng').val(selectedItem.attributes.unitcode_eng);
                 $('#unit').attr('disabled',true);
@@ -98,29 +102,35 @@ $(document).ready(function () {
                 /*$('#dropdownUnitSystems').ddslick('select', 
                                             {index: -1 }
                                                 );*/
-               
+               //console.warn($('#dropdownUnitSystems').data('ddslick'));
             }
         },
-        onCheck: function (node) {
+       onCheck: function (node) {
 
         },
-        formatter: function (node) {
-            var s = node.text;
+       formatter: function (node) {
+           if(node.attributes.system != null) {
+               var s = node.text+' ('+node.attributes.system+')';
+           } else {
+               var s = node.text;
+           }
+            
             var id = node.id;
             if (node.attributes.active == 0) {
+                
                 s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="birim sil" onclick="deleteUnitDialog('+id+')"></i>&nbsp;\n\
                      <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveUnitDialog('+id+');"></i>&nbsp;&nbsp;\n\
-                    <i class="fa fa-level-down" title="alt kırılıma birim ekle" onclick="insertUnitDialog('+id+', \''+node.text+'\')"></i>';
+                    ';
+                if(node.attributes.notroot == false) {
+                   s += '<i class="fa fa-level-down" title="alt kırılıma birim ekle" onclick="insertUnitDialog('+id+', \''+node.text+'\')"></i>' 
+                }
                 return s;
 
             } else if (node.attributes.active == 1) {
                 s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="birim sil" onclick="deleteUnitDialog('+id+')"></i>&nbsp;\n\
                 <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeUnitDialog('+id+');"></i>';
                 s = "<font color = '#B6B6B4'>" + s + "</font>"
-                //buda koşullu kullanım için örnek satır    
-                /*if (node.children) {
-                    s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
-                }*/
+                
                 return s;
             }
         }
@@ -144,7 +154,7 @@ $(document).ready(function () {
                 $('#dropdownUnitSystems').ddslick({
                     height : 200,
                     data : data, 
-                    width:'100%',
+                    width:'98%',
                     selectText: "Select your preferred social network",
                     //showSelectedHTML : false,
                     defaultSelectedIndex: 3,
@@ -185,8 +195,12 @@ $(document).ready(function () {
      */
     var loader = $("#loading-image").loadImager();
 
-   
-   
+    var sm  = $(window).successMessage();
+    var dm  = $(window).dangerMessage();
+    var wm  = $(window).warningMessage();
+    var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
+                                                actionButtonLabel : 'İşleme devam et'});
+
     //$('#menuForm').submit(newRoleSubmission);
     
    /**
@@ -198,27 +212,12 @@ $(document).ready(function () {
     */
    window.deleteUnitDialog= function(nodeID){
        var nodeID = nodeID;
-        BootstrapDialog.show({
-            type: BootstrapDialog.TYPE_WARNING,
-            title: 'Birim Silme İşlemi Gerçekleştirmek Üzeresiniz!',
-            message: 'Birim Öğesini silmek üzeresiniz, birim silme işlemi geri alınamaz!! ',
-            buttons: [ {
-                icon: 'glyphicon glyphicon-ban-circle',
-                label: 'Vazgeç',
-                cssClass: 'btn-warning',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }, {
-                icon: 'glyphicon glyphicon-ok-sign',
-                label: 'Sil',
-                cssClass: 'btn-success',
-                action: function(dialogItself){
-                    dialogItself.close();
-                    deleteUnit(nodeID);
-                }
-            }]
-        });
+       wcm.warningComplexMessage({onShown : function(event, data) {
+           deleteUnit(nodeID);
+       }
+       });
+       wcm.warningComplexMessage('show', 'Birim Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                         'Birim Öğesini silmek üzeresiniz, birim silme işlemi geri alınamaz!! ');
    }
    
    /**
@@ -229,50 +228,49 @@ $(document).ready(function () {
     * @since 04/04/2016
     */
    window.deleteUnit = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkDelete_leftnavigation' ,
+        data: { url:'pkDelete_sysUnits' ,
                 id : nodeID,
                 pk : $("#pk").val()}, 
         type: 'GET',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             if(data.length!==0) {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_SUCCESS,
-                    title: 'Birim Silme İşlemi Başarılı...',
-                    message: 'Birim Silme işlemini gerçekleştirdiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ok-sign',
-                        label: 'Kapat',
-                        cssClass: 'btn-success',
-                        action: function(dialogItself){
-                            dialogItself.close();
+                
+                if(data.found) {
+                    sm.successMessage({ onShown : function(event, data) {
+                            loader.loadImager('removeLoadImage');
                         }
-                    }]
-                });
-                selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
-                            
+                    });
+                    sm.successMessage('show', 'Birim Silme İşlemi Başarılı...', 
+                                              'Birim Silme işlemini gerçekleştirdiniz... ')
+                    selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                } else {
+                    if(data.errorInfo == 23503) {
+                        dm.dangerMessage({ onShown : function(event, data) {
+                                loader.loadImager('removeLoadImage');
+                            }
+                        });
+                        dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                                     'Birim kategorisi altında kayıtlı birim olduğu için işlemi gerçekleştiremezsiniz, önce birim kaydının silinmasi gerekmektedir... ' );
+                    }
+                }            
             } else {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Birim Silme İşlemi Başarısız...',
-                    message: 'Birim Silme işlemini gerçekleştiremediniz,Sistem Yneticisi ile temasa geçiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ban-circle',
-                        label: 'Kapat',
-                        cssClass: 'btn-danger',
-                        action: function(dialogItself){
-                            dialogItself.close();
-                        }
-                    }]
-                });
-                console.error('"pkDelete_leftnavigation" servis datası boştur!!');
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                         'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
+                console.error('"pkDelete_sysUnits" servis datası boştur!!');
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkDelete_leftnavigation" servis hatası->'+textStatus);
+        error: function (jqXHR, textStatus, errorThrown) {  
+            dm.dangerMessage('resetOnShown');
+            dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                         'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
+            console.error('"pkDelete_sysUnits" servis hatası->'+textStatus);
         }
     });
    }
@@ -303,7 +301,7 @@ $(document).ready(function () {
                 cssClass: 'btn-success',
                 action: function(dialogItself){
                     dialogItself.close();
-                    passiveMenu(nodeID);
+                    passiveUnit(nodeID);
                 }
             }]
         });
@@ -317,10 +315,12 @@ $(document).ready(function () {
     * @since 04/04/2016
     */
    window.passiveUnit = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkUpdateMakeActiveOrPassive_leftnavigation' ,
+        data: { url:'pkUpdateMakeActiveOrPassive_sysUnits' ,
                 id : nodeID,
                 pk : $("#pk").val()}, 
         type: 'GET',
@@ -328,25 +328,24 @@ $(document).ready(function () {
         success: function (data, textStatus, jqXHR) {
             if(data.length!==0) {
                 if(data.found) {
-                   BootstrapDialog.show({
-                        type: BootstrapDialog.TYPE_SUCCESS,
-                        title: 'Birim Pasif İşlemi Başarılı...',
-                        message: 'Birim Pasifleştirme işlemini gerçekleştirdiniz... ',
-                        buttons: [ {
-                            icon: 'glyphicon glyphicon-ok-sign',
-                            label: 'Kapat',
-                            cssClass: 'btn-success',
-                            action: function(dialogItself){
-                                dialogItself.close();
-                            }
-                        }]
+                    sm.successMessage({
+                                data : {
+                                    deneme : 'deneme test',
+                                    deneme2 : 'deneme2 test',
+                                    deneme3 : 'deneme3 test',
+                                    deneme4 : 'deneme4 test',
+                                },
+                                test : 'test değer',
+                                onShown : function (event, data) {
+                            loader.loadImager('removeLoadImage');
+                        }
                     });
-                    var childNodes;
+                    sm.successMessage('show', 'Birim Pasif İşlemi Başarılı...', 
+                                              'Birim Pasifleştirme işlemini gerçekleştirdiniz... ')                   
                     var nodeState;
                     if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
                         nodeState = 'open';
                     } else {
-                        childNodes = $('#tt_tree_menu').tree('getChildren', selectedTreeItem.target);
                         nodeState = 'closed';
                     }
                     
@@ -356,11 +355,16 @@ $(document).ready(function () {
                     if(jQuery.type(parentNode) === "null") { 
                         $('#tt_tree_menu').tree('append', {
                             data: [{
-                                    attributes:{notroot: node.attributes.notroot, 
-                                                text_eng: node.attributes.text_eng, 
-                                                active: 1, 
-                                                url: node.attributes.url, 
-                                                icon_class: node.attributes.icon_class},
+                                    attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                                unitcode_eng : selectedTreeItem.attributes.unitcode_eng, 
+                                                system_id : selectedTreeItem.attributes.system_id,
+                                                system : selectedTreeItem.attributes.system,
+                                                system_eng : selectedTreeItem.attributes.system_eng,
+                                                abbreviation : selectedTreeItem.attributes.abbreviation,
+                                                abbreviation_eng : selectedTreeItem.attributes.abbreviation_eng,
+                                                unit_eng : selectedTreeItem.attributes.unit_eng,
+                                                unit : selectedTreeItem.attributes.unit,
+                                                active: 1,},
                                     id: node.id,
                                     text: node.text,
                                     checked: false,
@@ -383,42 +387,26 @@ $(document).ready(function () {
                                 },]
                         });
                     }
-                            
-                    
                 } else {
-                    BootstrapDialog.show({
-                        type: BootstrapDialog.TYPE_DANGER,
-                        title: 'Birim Pasifleştirme İşlemi Başarısız...',
-                        message: 'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                        buttons: [ {
-                            icon: 'glyphicon glyphicon-ok-sign',
-                            label: 'Kapat',
-                            cssClass: 'btn-danger',
-                            action: function(dialogItself){
-                                dialogItself.close();
-                            }
-                        }]
+                    dm.dangerMessage({ onShown : function(event, data) {
+                                loader.loadImager('removeLoadImage');
+                                }
                     });
+                    dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
+                                             'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
                 }           
             } else {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Birim Pasifleştirme İşlemi Başarısız...',
-                    message: 'Birim pasifleştirme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ban-circle',
-                        label: 'Kapat',
-                        cssClass: 'btn-danger',
-                        action: function(dialogItself){
-                            dialogItself.close();
-                        }
-                    }]
-                });
-                console.error('"pkDelete_leftnavigation" servis datası boştur!!');
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
+                                         'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
+                console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis datası boştur!!');
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkDelete_leftnavigation" servis hatası->'+textStatus);
+        error: function (jqXHR, textStatus, errorThrown) {
+            dm.dangerMessage('resetOnShown');
+            dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
+                                     'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
+            console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
         }
     });
    }
@@ -432,27 +420,12 @@ $(document).ready(function () {
     */
    window.activeUnitDialog= function(nodeID){
         var nodeID = nodeID;
-        BootstrapDialog.show({
-            type: BootstrapDialog.TYPE_WARNING,
-            title: 'Birim Ögesini Aktifleştirmek Üzeresiniz!',
-            message: 'Birim öğesini aktifleştirmek üzeresiniz !! ',
-            buttons: [ {
-                icon: 'glyphicon glyphicon-ban-circle',
-                label: 'Vazgeç',
-                cssClass: 'btn-warning',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }, {
-                icon: 'glyphicon glyphicon-ok-sign',
-                label: 'Aktif Yap',
-                cssClass: 'btn-success',
-                action: function(dialogItself){
-                    dialogItself.close();
-                    activeMenu(nodeID);
-                }
-            }]
+        wcm.warningComplexMessage({onShown : function(event, data) {
+            activeUnit(nodeID);
+        }
         });
+        wcm.warningComplexMessage('show', 'Birim Ögesini Aktifleştirmek Üzeresiniz!', 
+                                          'Birim öğesini aktifleştirmek üzeresiniz !! ');
    }
    
    /**
@@ -463,10 +436,12 @@ $(document).ready(function () {
     * @since 04/04/2016
     */
    window.activeUnit = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkUpdateMakeActiveOrPassive_leftnavigation' ,
+        data: { url:'pkUpdateMakeActiveOrPassive_sysUnits' ,
                 id : nodeID,
                 pk : $("#pk").val()}, 
         type: 'GET',
@@ -474,98 +449,75 @@ $(document).ready(function () {
         success: function (data, textStatus, jqXHR) {
             if(data.length!==0) {
                 if(data.found) {
-                    BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_SUCCESS,
-                    title: 'Birim Aktifleştirme İşlemi Başarılı...',
-                    message: 'Birim aktifleştirme işlemini gerçekleştirdiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ok-sign',
-                        label: 'Kapat',
-                        cssClass: 'btn-success',
-                        action: function(dialogItself){
-                            dialogItself.close();
+                    sm.successMessage({ onShown : function(event, data){
+                            loader.loadImager('removeLoadImage');
                         }
-                    }]
-                });
-                var childNodes;
-                var nodeState;
-                if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
-                    nodeState = 'open';
-                } else {
-                    childNodes = $('#tt_tree_menu').tree('getChildren', selectedTreeItem.target);
-                    nodeState = 'closed';
-                }
-                
-                var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
-                var node = selectedTreeItem;
-                $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
-                if(jQuery.type(parentNode) === "null") { 
-                    $('#tt_tree_menu').tree('append', {
-                        data: [{
-                                attributes:{notroot: node.attributes.notroot, 
-                                            text_eng: node.attributes.text_eng, 
-                                            active: 0, 
-                                            url: node.attributes.url, 
-                                            icon_class: node.attributes.icon_class},
-                                id: node.id,
-                                text: node.text,
-                                checked: false,
-                                state : nodeState,
-                            },]
                     });
-                } else {
-                    $('#tt_tree_menu').tree('append', {
-                        parent: parentNode.target,
-                        data: [{
-                                attributes:{notroot: node.attributes.notroot, 
-                                            text_eng: node.attributes.text_eng, 
-                                            active: 0, 
-                                            url: node.attributes.url, 
-                                            icon_class: node.attributes.icon_class},
-                                id: node.id,
-                                text: node.text,
-                                checked: false,
-                                state : nodeState,
-                            },]
-                    });
-                }
-                
-                
+                    sm.successMessage('show', 'Birim Aktifleştirme İşlemi Başarılı...', 
+                                              'Birim aktifleştirme işlemini gerçekleştirdiniz... ')
+                    var nodeState;
+                    if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
+                        nodeState = 'open';
+                    } else {
+                        nodeState = 'closed';
+                    }
+
+                    var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
+                    var node = selectedTreeItem;
+                    $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                    if(jQuery.type(parentNode) === "null") { 
+                        $('#tt_tree_menu').tree('append', {
+                            data: [{
+                                    attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                                unitcode_eng : selectedTreeItem.attributes.unitcode_eng, 
+                                                system_id : selectedTreeItem.attributes.system_id,
+                                                system : selectedTreeItem.attributes.system,
+                                                system_eng : selectedTreeItem.attributes.system_eng,
+                                                abbreviation : selectedTreeItem.attributes.abbreviation,
+                                                abbreviation_eng : selectedTreeItem.attributes.abbreviation_eng,
+                                                unit_eng : selectedTreeItem.attributes.unit_eng,
+                                                unit : selectedTreeItem.attributes.unit,
+                                                active: 0,},
+                                    id: node.id,
+                                    text: node.text,
+                                    checked: false,
+                                    state : nodeState,
+                                },]
+                        });
+                    } else {
+                        $('#tt_tree_menu').tree('append', {
+                            parent: parentNode.target,
+                            data: [{
+                                    attributes:{notroot: node.attributes.notroot, 
+                                                text_eng: node.attributes.text_eng, 
+                                                active: 0, 
+                                                url: node.attributes.url, 
+                                                icon_class: node.attributes.icon_class},
+                                    id: node.id,
+                                    text: node.text,
+                                    checked: false,
+                                    state : nodeState,
+                                },]
+                        });
+                    }
                 } 
                 else {
-                   BootstrapDialog.show({
-                        type: BootstrapDialog.TYPE_DANGER,
-                        title: 'Birim Aktifleştirme İşlemi Başarısız...',
-                        message: 'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                        buttons: [ {
-                            icon: 'glyphicon glyphicon-ok-sign',
-                            label: 'Kapat',
-                            cssClass: 'btn-danger',
-                            action: function(dialogItself){
-                                dialogItself.close();
-                            }
-                        }]
-                    });
+                    dm.dangerMessage('resetOnShown');
+                    dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                             'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
                }          
             } else {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Birim Aktifleştirme İşlemi Başarısız...',
-                    message: 'Birim aktifleştirme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ban-circle',
-                        label: 'Kapat',
-                        cssClass: 'btn-danger',
-                        action: function(dialogItself){
-                            dialogItself.close();
-                        }
-                    }]
-                });
-                console.error('"pkDelete_leftnavigation" servis datası boştur!!');
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                         'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+                console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis datası boştur!!');
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkDelete_leftnavigation" servis hatası->'+textStatus);
+        error: function (jqXHR, textStatus, errorThrown) { 
+            dm.dangerMessage('resetOnShown');
+            dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                     'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+            console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
         }
     });
    }
@@ -580,9 +532,16 @@ $(document).ready(function () {
    window.regulateButtons = function () {
        $('#updateUnit').attr('disabled', true);
        $('#insertUnit').attr('disabled', false);
-       /*var node = $('#tt_tree_menu').tree('getSelected');
-       $('#tt_tree_menu').tree('unselect', node.target);*/
-       //$('#tt_tree_menu').tree('unselect');
+       
+       $('#unit').val('');
+       $('#unit_eng').val('');
+       $('#abbreviation').val('');
+       $('#abbreviation_eng').val('');
+       
+       $('#unit').attr('disabled',true);
+       $('#unit_eng').attr('disabled',true);
+       $('#abbreviation').attr('disabled',true);
+       $('#abbreviation_eng').attr('disabled',true);
    }
    
    /**
@@ -597,16 +556,12 @@ $(document).ready(function () {
     var nodeName = nodeName;
 
     if ($("#unitFormInsert").validationEngine('validate')) {
-        var ddData = $('#dropdownUnitSystems').data('ddslick');
+        var ddData = $('#dropdownUnitSystemsPopup').data('ddslick');
         if(ddData.selectedData.value>0) {
-            insertMenu(nodeID, nodeName);
+            insertUnit(nodeID, nodeName);
         } else {
-            BootstrapDialog.show({
-                title: 'Metrik Sistem Seçiniz',
-                message: 'Lütfen Metrik sistem Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-        //        closable: false
-            });
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Metrik Sistem Seçiniz', 'Lütfen Metrik sistem Seçiniz!');
         }
     }
     return false;
@@ -627,89 +582,148 @@ $(document).ready(function () {
         title: '"'+ nodeName + '" Birim katmanına yeni birim eklemektesiniz...',
         message: function (dialogRef) {
                     var dialogRef = dialogRef;
-                    var $message = $(' <form id="unitFormInsert" method="get" class="form-horizontal">\n\
-                                        <div class="hr-line-dashed"></div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Birim</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                    var $message = $(' <div class="row">\n\
+                                            <div class="col-md-12">\n\
+                                                <div id="loading-image-crud-popup" class="box box-primary">\n\
+                                                    <form id="unitFormInsert" method="get" class="form-horizontal">\n\
+                                                    <div class="hr-line-dashed"></div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birim Sistemi</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownUnitSystemsPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_popup" id="unit_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">İngilizce Birim</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birim</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_popup" id="unit_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_eng_popup" id="unit_eng_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Birim Kodu</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İngilizce Birim</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_eng_popup" id="unit_eng_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_popup" id="unitcode_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">İngilizce Birim Kodu</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birim Kodu</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_popup" id="unitcode_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_eng_popup" id="unitcode_eng_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Birim Kısaltması</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İngilizce Birim Kodu</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_eng_popup" id="unitcode_eng_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_popup" id="abbreviation_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">İngilizce Birim Kısaltması</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birim Kısaltması</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_popup" id="abbreviation_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng_popup" id="abbreviation_eng_popup" />\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İngilizce Birim Kısaltması</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng_popup" id="abbreviation_eng_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="hr-line-dashed"></div>\n\
+                                                        <div class="form-group">\n\
+                                                            <div class="col-sm-10 col-sm-offset-2">\n\
+                                                            <button id="insertUnitPopUp" class="btn btn-primary" type="submit" onclick="return insertUnitWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
+                                                                <i class="fa fa-save"></i> Kaydet </button>\n\
+                                                            <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
+                                                                <i class="fa fa-remove"></i> Reset </button>\n\
+                                                        </div>\n\
                                                     </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="hr-line-dashed"></div>\n\
-                                            <div class="form-group">\n\
-                                                <div class="col-sm-10 col-sm-offset-2">\n\
-                                                <button id="insertUnitPopUp" class="btn btn-primary" type="submit" onclick="return insertUnitWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
-                                                    <i class="fa fa-save"></i> Kaydet </button>\n\
-                                                <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
-                                                    <i class="fa fa-remove"></i> Reset </button>\n\
+                                                </form>\n\
                                             </div>\n\
                                         </div>\n\
-                                    </form>');
+                                    </div>');
                     return $message;
                 },
         type: BootstrapDialog.TYPE_PRIMARY,
         onshown : function () {
             $("#unitFormInsert").validationEngine();
+            /**
+            * user roles  select box filling
+            * @author Mustafa Zeynel Dağlı
+            * @since 04/04/2016
+            */
+           $.ajax({
+               url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+               data: { url:'pkGetUnitSystems_sysUnitSystems' ,
+                       language_code : 'tr',
+                       main_group : 2,
+                       pk : $("#pk").val()}, 
+               type: 'GET',
+               dataType: 'json',
+               success: function (data, textStatus, jqXHR) {
+                   if(data.length!==0) {
+
+                       dropdownUnitSystemsPopup
+                       $('#dropdownUnitSystemsPopup').ddslick({
+                           height : 200,
+                           data : data, 
+                           width:'100%',
+                           selectText: "Select your preferred social network",
+                           //showSelectedHTML : false,
+                           defaultSelectedIndex: 3,
+                           //imagePosition:"right",
+                           onSelected: function(selectedData){
+                               if(selectedData.selectedData.value>0) {
+                                   /*$('#tt_tree_menu').tree({
+                                       url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                                   });*/
+                               }
+                           }   
+                       });
+                   } else {
+                       console.error('"pkGetUnitSystems_sysUnitSystems" servis datası boştur!!');
+                   }
+               },
+               error: function (jqXHR, textStatus, errorThrown) {           
+                   console.error('"pkGetUnitSystems_sysUnitSystems" servis hatası->'+textStatus);
+               }
+           });
+            
         },
         onhide : function() {
             $('#unitForm')[0].reset();
@@ -729,6 +743,8 @@ $(document).ready(function () {
     * @since 04/04/2016
     */
    window.insertUnit = function (nodeID, nodeName) {
+        var loader = $("#loading-image-crud-popup").loadImager();
+        loader.loadImager('appendImage');
         unit = $('#unit_popup').val();
         unit_eng = $('#unit_eng_popup').val();
         unitcode = $('#unitcode_popup').val();
@@ -736,14 +752,16 @@ $(document).ready(function () {
         abbreviation = $('#abbreviation_popup').val();
         abbreviation_eng = $('#abbreviation_eng_popup').val();
         language_code = $('#langCode').val();
-        var ddData = $('#dropdownUnitSystems').data('ddslick');
+        var ddData = $('#dropdownUnitSystemsPopup').data('ddslick');
         system_id = ddData.selectedData.value;
+        system = ddData.selectedData.text;
+        system_eng = ddData.selectedData.description;
         selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
         //console.log(ddData);
         parent = nodeID;
        $.ajax({
            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkInsert_leftnavigation' ,
+           data: { url:'pkInsert_sysUnits' ,
                    language_code : language_code,
                    unit : unit,
                    unit_eng : unit_eng,
@@ -751,7 +769,7 @@ $(document).ready(function () {
                    unitcode_eng : unitcode_eng,
                    abbreviation : abbreviation,
                    abbreviation_eng : abbreviation_eng,
-                   //parent : parent,
+                   parent_id : parent,
                    system_id : system_id,
                    pk : $("#pk").val()},  
            type: 'GET',
@@ -759,59 +777,66 @@ $(document).ready(function () {
            success: function (data, textStatus, jqXHR) {
                if(data.length!==0) {
                    if(data.found) {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Birim Kayıt İşlemi Başarılı...',
-                            message: 'Birim kayıt işlemini gerçekleştirdiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-success',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                    $('#unitFormInsert')[0].reset();
-                                    $('#unitForm')[0].reset();
-                                    regulateButtons();
-                                }
-                            }]
+                       sm.successMessage({
+                            onShown: function( event, data ) {
+                                $('#unitFormInsert')[0].reset();
+                                $('#unitForm')[0].reset();
+                                regulateButtons();
+                                loader.loadImager('removeLoadImage');
+                            }
                         });
+                        sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
+                                                  'Birim kayıt işlemini gerçekleştirdiniz... ');
+                        $('#tt_tree_menu').tree('append', {
+                            parent: selectedTreeItem.target,
+                            data: [{
+                                    attributes:{notroot: true, 
+                                                unitcode_eng : unitcode_eng, 
+                                                system_id : system_id,
+                                                system : system,
+                                                system_eng : system_eng,
+                                                abbreviation : abbreviation,
+                                                abbreviation_eng : abbreviation_eng,
+                                                unit_eng : unit_eng,
+                                                unit : unit,
+                                                active: 0,
+                                                },
+                                    id: data.lastInsertId,
+                                    text: unitcode,
+                                    checked: false,
+                                    state : 'open',
+                                },]
+                        });
+                        
                    } else {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Birim Kayıt İşlemi Başarısız...',
-                            message: 'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-danger',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                }
-                            }]
-                        });
+                       if(data.errorInfo == 23505) {
+                           dm.dangerMessage({
+                              onShown : function(event, data) {
+                                  $('#unitFormInsert')[0].reset();
+                                  $('#unitForm')[0].reset();
+                                  loader.loadImager('removeLoadImage');
+                              }
+                           });
+                           dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                                    'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
+                       } else {
+                           dm.dangerMessage('resetOnShown');
+                           dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                                    'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                       }                         
                    }
-                //$('#tt_tree_menu').tree('reload');
-                $('#tt_tree_menu').tree('append', {
-                        parent: selectedTreeItem.target,
-                        data: [{
-                                attributes:{notroot: true, 
-                                            text_eng: menu_name_eng, 
-                                            active: 0, 
-                                            url: url, 
-                                            icon_class: icon_class},
-                                id: data.lastInsertId,
-                                text: menu_name,
-                                checked: false,
-                                state : 'open',
-                            },]
-                });
-                
                } else {
-                   console.error('"pkInsert_leftnavigation" servis datası boştur!!');
+                   dm.dangerMessage('resetOnShown');
+                   dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                            'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                   console.error('"pkInsert_sysUnits" servis datası boştur!!');
                }
            },
-           error: function (jqXHR, textStatus, errorThrown) {           
-               console.error('"pkInsert_leftnavigation" servis hatası->'+textStatus);
+           error: function (jqXHR, textStatus, errorThrown) { 
+               dm.dangerMessage('resetOnShown');
+               dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                        'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+               console.error('"pkInsert_sysUnits" servis hatası->'+textStatus);
            }
        });
    }
@@ -828,16 +853,7 @@ $(document).ready(function () {
     var nodeName = nodeName;
 
     if ($("#unitForm").validationEngine('validate')) {
-        var ddData = $('#dropdownUnitSystems').data('ddslick');
-        if(ddData.selectedData.value>0) {
-            insertUnitRoot();
-        } else {
-            BootstrapDialog.show({
-                title: 'Metrik Sistem Seçiniz',
-                message: 'Lütfen Metrik Sistem Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-            });
-        }
+        insertUnitRoot();
     }
     return false;
    }
@@ -849,6 +865,8 @@ $(document).ready(function () {
     * @since 04/04/2016
     */
    window.insertUnitRoot = function () {
+        var loader = $("#loading-image-crud").loadImager();
+        loader.loadImager('appendImage');
         unit = $('#unit').val();
         unit_eng = $('#unit_eng').val();
         unitcode = $('#unitcode').val();
@@ -862,7 +880,7 @@ $(document).ready(function () {
         
        $.ajax({
            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkInsert_leftnavigation' ,
+           data: { url:'pkInsert_sysUnits' ,
                    language_code : language_code,
                    unit : unit,
                    unit_eng : unit_eng,
@@ -871,60 +889,72 @@ $(document).ready(function () {
                    abbreviation : abbreviation,
                    abbreviation_eng : abbreviation_eng,
                    //parent : 0,
-                   system_id : system_id,
+                   system_id : '',
                    pk : $("#pk").val()},  
            type: 'GET',
            dataType: 'json',
            success: function (data, textStatus, jqXHR) {
                if(data.length!==0) {
                    if(data.found) {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Birim Kayıt İşlemi Başarılı...',
-                            message: 'Birim kayıt işlemini gerçekleştirdiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-success',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                    $('#menuForm')[0].reset();
-                                }
-                            }]
+                       sm.successMessage({
+                            onShown: function( event, data ) {
+                                $('#unitForm')[0].reset();
+                                regulateButtons();
+                                loader.loadImager('removeLoadImage');
+                            }
                         });
-                   } else {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Birim Kayıt İşlemi Başarısız...',
-                            message: 'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-danger',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                }
-                            }]
-                        });
-                   }
-                $('#tt_tree_menu').tree('append', {
-                        //parent: selectedTreeItem.target,
-                        data: [{
+                        sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
+                                                  'Birim kayıt işlemini gerçekleştirdiniz... ');
+                        
+                        $('#tt_tree_menu').tree('append', {
+                            //parent: selectedTreeItem.target,
+                            data: [{
                                 attributes:{notroot: false, 
-                                            unit_eng: unit_eng, 
-                                            active: 0, 
+                                            unitcode_eng : unitcode_eng, 
+                                            system_id : '',
+                                            system : null,
+                                            system_eng : null,
+                                            abbreviation : null,
+                                            abbreviation_eng : null,
+                                            unit_eng : null,
+                                            unit : null,
+                                            active: 0,
                                             },
                                 id: data.lastInsertId,
-                                text: unit,
+                                text: unitcode,
                                 checked: false,
                                 state : 'open',
                             },]
-                });
+                        });
+                        
+                   } else {
+                        if(data.errorInfo == 23505) {
+                            dm.dangerMessage({
+                              onShown : function(event, data) {
+                                $('#unitForm')[0].reset();
+                                loader.loadImager('removeLoadImage');
+                              }
+                           });
+                           dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                                    'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
+                        } else {
+                            dm.dangerMessage('resetOnShown');
+                            dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                                     'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                        } 
+                   }
+                
                } else {
+                   dm.dangerMessage('resetOnShown');
+                   dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                            'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
                    console.error('"pkInsert_leftnavigation" servis datası boştur!!');
                }
            },
-           error: function (jqXHR, textStatus, errorThrown) {           
+           error: function (jqXHR, textStatus, errorThrown) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                         'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
                console.error('"pkInsert_leftnavigation" servis hatası->'+textStatus);
            }
        });
@@ -938,29 +968,25 @@ $(document).ready(function () {
     */
    window.updateUnitWrapper = function (e) {
     e.preventDefault();
-    if ($("#menuForm").validationEngine('validate')) {
-        var ddData = $('#dropdownUnitSystems').data('ddslick');
-        
+    if ($("#unitForm").validationEngine('validate')) {
         selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
         if(selectedTreeItem == null) {
-            BootstrapDialog.show({
-                title: 'Birim Öğesi Seçiniz',
-                message: 'Lütfen Birim Öğesi Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-            });
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Birim Öğesi Seçiniz', 'Lütfen Birim Öğesi Seçiniz!')
             return false;
         }
         
-        if(ddData.selectedData.value>0) {
-            //alert(ddData.selectedData.text);
-            updateUnit();
-        } else {
-            BootstrapDialog.show({
-                title: 'Metrik Sistem Seçiniz',
-                message: 'Lütfen Metrik Sistem Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-            });
+        if(selectedTreeItem.attributes.notroot == true) {
+            var ddData = $('#dropdownUnitSystems').data('ddslick');
+            if(ddData.selectedData.value>0) {
+                updateUnit();
+            } else {
+                wm.warningMessage('resetOnShown');
+                wm.warningMessage('show', 'Metrik Sistem Seçiniz', 'Lütfen Metrik Sistem Seçiniz!')
+            }
+            return false;
         }
+        updateUnit();
     }
     return false;
    }
@@ -972,6 +998,8 @@ $(document).ready(function () {
     * @since 05/04/2016
     */
    window.updateUnit = function () {
+        var loader = $("#loading-image-crud").loadImager();
+        loader.loadImager('appendImage');
         unit = $('#unit').val();
         unit_eng = $('#unit_eng').val();
         unitcode = $('#unitcode').val();
@@ -981,12 +1009,14 @@ $(document).ready(function () {
         language_code = $('#langCode').val();
         var ddData = $('#dropdownUnitSystems').data('ddslick');
         system_id = ddData.selectedData.value;
-                selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
+        system = ddData.selectedData.text;
+        system_eng = ddData.selectedData.description;
+        selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
         id = selectedTreeItem.id;
         
        $.ajax({
            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkUpdate_leftnavigation' ,
+           data: { url:'pkUpdate_sysUnits' ,
                    language_code : language_code,
                    unit : unit,
                    unit_eng : unit_eng,
@@ -1002,22 +1032,34 @@ $(document).ready(function () {
            success: function (data, textStatus, jqXHR) {
                if(data.length!==0) {
                    if(data.found) {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Birim Güncelleme İşlemi Başarılı...',
-                            message: 'Birim güncelleme işlemini gerçekleştirdiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-success',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                    
-                                }
-                            }]
+                       sm.successMessage({
+                            onShown: function( event, data ) {
+                                $('#unitForm')[0].reset();
+                                regulateButtons();
+                                loader.loadImager('removeLoadImage');
+                            }
                         });
+                        sm.successMessage('show', 'Birim Güncelleme İşlemi Başarılı...', 
+                                                  'Birim güncelleme işlemini gerçekleştirdiniz... ');
+                        $('#tt_tree_menu').tree('update', {
+                            target: selectedTreeItem.target,
+                            text: unitcode,
+                            attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                        unitcode_eng : unitcode_eng, 
+                                        system_id : system_id,
+                                        system : system,
+                                        system_eng : system_eng,
+                                        abbreviation : abbreviation,
+                                        abbreviation_eng : abbreviation_eng,
+                                        unit_eng : unit_eng,
+                                        unit : unit,
+                                        active: 0,}
+                       });
                    } else {
-                       BootstrapDialog.show({
+                       dm.dangerMessage('resetOnShown');
+                       dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+                                                'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                       /*BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_DANGER,
                             title: 'Birim Güncelleme İşlemi Başarısız...',
                             message: 'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
@@ -1029,19 +1071,20 @@ $(document).ready(function () {
                                     dialogItself.close();
                                 }
                             }]
-                        });
+                        });*/
                    }
-                $('#tt_tree_menu').tree('update', {
-                     target: selectedTreeItem.target,
-                     text: unit,
-                     attributes:{notroot: true, unitcode_eng: unitcode_eng , active: 0}
-                });
                } else {
-                   console.error('"pkUpdate_leftnavigation" servis datası boştur!!');
+                   dm.dangerMessage('resetOnShown');
+                   dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+                                              'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                   console.error('"pkUpdate_sysUnits" servis datası boştur!!');
                }
            },
-           error: function (jqXHR, textStatus, errorThrown) {           
-               console.error('"pkUpdate_leftnavigation" servis hatası->'+textStatus);
+           error: function (jqXHR, textStatus, errorThrown) {   
+               dm.dangerMessage('resetOnShown');
+               dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+                                              'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+               console.error('"pkUpdate_sysUnits" servis hatası->'+textStatus);
            }
        });
    }

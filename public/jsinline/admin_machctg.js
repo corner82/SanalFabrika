@@ -228,10 +228,7 @@ $(document).ready(function () {
                             }]
                         });
                     }
-                }
-                
-                
-                            
+                }           
             } else {
                 BootstrapDialog.show({
                     type: BootstrapDialog.TYPE_DANGER,
@@ -711,6 +708,19 @@ $(document).ready(function () {
                                 }
                             }]
                         });
+                        $('#tt_tree_menu').tree('append', {
+                            parent: selectedTreeItem.target,
+                            data: [{
+                                    attributes:{notroot: true, 
+                                                group_eng: group_name_eng, 
+                                                active: 0, 
+                                                icon_class: icon_class},
+                                    id: data.lastInsertId,
+                                    text: group_name,
+                                    checked: false,
+                                    state : 'open',
+                                },]
+                        });
                    } else {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_DANGER,
@@ -727,19 +737,6 @@ $(document).ready(function () {
                             }]
                         });
                    }
-                $('#tt_tree_menu').tree('append', {
-                        parent: selectedTreeItem.target,
-                        data: [{
-                                attributes:{notroot: true, 
-                                            group_eng: group_name_eng, 
-                                            active: 0, 
-                                            icon_class: icon_class},
-                                id: data.lastInsertId,
-                                text: group_name,
-                                checked: false,
-                                state : 'open',
-                            },]
-                });
                } else {
                    console.error('"pkInsert_sysMachineToolGroups" servis datası boştur!!');
                }
@@ -811,6 +808,20 @@ $(document).ready(function () {
                                 }
                             }]
                         });
+                        $('#tt_tree_menu').tree('append', {
+                                //parent: selectedTreeItem.target,
+                                data: [{
+                                        attributes:{notroot: false, 
+                                                    group_eng: group_name_eng, 
+                                                    active: 0, 
+                                                    icon_class: icon_class},
+                                        id: data.lastInsertId,
+                                        text: group_name,
+                                        checked: false,
+                                        state : 'open',
+                                    },]
+                        });
+                        
                    } else {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_DANGER,
@@ -826,19 +837,7 @@ $(document).ready(function () {
                             }]
                         });
                    }
-                $('#tt_tree_menu').tree('append', {
-                        //parent: selectedTreeItem.target,
-                        data: [{
-                                attributes:{notroot: false, 
-                                            group_eng: group_name_eng, 
-                                            active: 0, 
-                                            icon_class: icon_class},
-                                id: data.lastInsertId,
-                                text: group_name,
-                                checked: false,
-                                state : 'open',
-                            },]
-                });
+                
                } else {
                    console.error('"pkInsert_sysMachineToolGroups" servis datası boştur!!');
                }

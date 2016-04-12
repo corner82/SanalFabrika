@@ -186,6 +186,194 @@
 
 
     /**
+     * wrapper for warning message
+     * @author Mustafa Zeynel Dağlı
+     * @since 07/04/2016
+     */
+    $.widget('sanalfabrika.warningDeleteMessage', {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+        },
+        _create: function () {
+        },
+        show : function(title, message) {
+            BootstrapDialog.show({
+                title: title,
+                message: message,
+                type: BootstrapDialog.TYPE_WARNING,
+            });
+        },
+        resetOnShown : function() {
+            this.onShown = function() {
+                alert('on shown reset');
+            }
+        }
+        
+    });
+    
+    /**
+     * wrapper for warning message for complex warning operations
+     * @author Mustafa Zeynel Dağlı
+     * @since 08/04/2016
+     */
+    $.widget('sanalfabrika.warningComplexMessage', {  
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            actionButtonLabel  : '',
+            denyButtonLabel    : '',
+        },
+        _create: function () {
+        },
+        show : function(title, message) {
+            var self = this;
+            BootstrapDialog.show({
+                type: BootstrapDialog.TYPE_WARNING,
+                title: title,
+                message: message,
+                buttons: [ {
+                    icon: 'glyphicon glyphicon-ban-circle',
+                    label: self.options.denyButtonLabel,
+                    cssClass: 'btn-warning',
+                    action: function(dialogItself){
+                        dialogItself.close();
+                    }
+                }, {
+                    icon: 'glyphicon glyphicon-ok-sign',
+                    label: self.options.actionButtonLabel,
+                    cssClass: 'btn-success',
+                    action: function(dialogItself){
+                        dialogItself.close();
+                        self._trigger('onShown');
+                    }
+                }]
+            });
+            
+        },
+        resetOnShown : function() {
+            this.options.onShown = function () {
+            }
+        }
+    });
+
+    /**
+     * wrapper for warning message
+     * @author Mustafa Zeynel Dağlı
+     * @since 07/04/2016
+     */
+    $.widget('sanalfabrika.warningMessage', {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+        },
+        _create: function () {
+        },
+        show : function(title, message) {
+            var self = this;
+            BootstrapDialog.show({
+                title: title,
+                message: message,
+                type: BootstrapDialog.TYPE_WARNING,
+            });
+            self._trigger('onShown');
+        },
+        resetOnShown : function() {
+            this.options.onShown = function () {
+            }
+        }
+    });
+    
+    /**
+     * wrapper for success message
+     * @author Mustafa Zeynel Dağlı
+     * @since 08/04/2016
+     */
+    $.widget('sanalfabrika.successMessage', {
+        
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            data : '',
+        },
+        _create: function () {
+            var self = this;
+            // Call the base
+            this._super();
+        },
+        
+        show : function(title, message) {
+            var self = this;
+            alert(this.options.test);
+            console.warn(self.options.data);
+            BootstrapDialog.show({
+                type: BootstrapDialog.TYPE_SUCCESS,
+                title: title,
+                message: message,
+                buttons: [ {
+                    icon: 'glyphicon glyphicon-ok-sign',
+                    label: 'Kapat',
+                    cssClass: 'btn-success',
+                    action: function(dialogItself){
+                        dialogItself.close();
+                        self._trigger('onShown');                        
+                    }
+                }]
+            });
+        },
+        resetOnShown : function() {
+            this.options.onShown = function () {
+            }
+        }
+        
+    });
+    
+    /**
+     * wrapper for danger message
+     * @author Mustafa Zeynel Dağlı
+     * @since 08/04/2016
+     */
+    $.widget('sanalfabrika.dangerMessage', {  
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+        },
+        _create: function () {
+        },
+        show : function(title, message) {
+            var self = this;
+            BootstrapDialog.show({
+                type: BootstrapDialog.TYPE_DANGER,
+                title: title,
+                message: message,
+                buttons: [ {
+                    icon: 'glyphicon glyphicon-ok-sign',
+                    label: 'Kapat',
+                    cssClass: 'btn-danger',
+                    action: function(dialogItself){
+                        dialogItself.close();
+                        self._trigger('onShown');
+                    }
+                }]
+            });  
+        },
+        resetOnShown : function() {
+            this.options.onShown = function () {
+            }
+        }
+    });
+    
+    /**
      * widget for machine tools tree view
      * @author Mustafa Zeynel Dağlı
      * @since 12/02/2016

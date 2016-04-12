@@ -768,7 +768,6 @@ $(document).ready(function () {
            success: function (data, textStatus, jqXHR) {
                if(data.length!==0) {
                    if(data.found) {
-                       
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_SUCCESS,
                             title: 'Menü Kayıt İşlemi Başarılı...',
@@ -786,6 +785,21 @@ $(document).ready(function () {
                                 }
                             }]
                         });
+                        $('#tt_tree_menu').tree('append', {
+                            parent: selectedTreeItem.target,
+                            data: [{
+                                    attributes:{notroot: true, 
+                                                text_eng: menu_name_eng, 
+                                                active: 0, 
+                                                url: url, 
+                                                icon_class: icon_class},
+                                    id: data.lastInsertId,
+                                    text: menu_name,
+                                    checked: false,
+                                    state : 'open',
+                                },]
+                        });
+                        
                    } else {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_DANGER,
@@ -802,22 +816,6 @@ $(document).ready(function () {
                             }]
                         });
                    }
-                //$('#tt_tree_menu').tree('reload');
-                $('#tt_tree_menu').tree('append', {
-                        parent: selectedTreeItem.target,
-                        data: [{
-                                attributes:{notroot: true, 
-                                            text_eng: menu_name_eng, 
-                                            active: 0, 
-                                            url: url, 
-                                            icon_class: icon_class},
-                                id: data.lastInsertId,
-                                text: menu_name,
-                                checked: false,
-                                state : 'open',
-                            },]
-                });
-                
                } else {
                    console.error('"pkInsert_leftnavigation" servis datası boştur!!');
                }
@@ -897,6 +895,22 @@ $(document).ready(function () {
                                 }
                             }]
                         });
+                        $('#tt_tree_menu').tree('append', {
+                            //parent: selectedTreeItem.target,
+                            data: [{
+                                    attributes:{notroot: false, 
+                                                text_eng: menu_name_eng, 
+                                                active: 0, 
+                                                url: url, 
+                                                icon_class: icon_class},
+                                    id: data.lastInsertId,
+                                    text: menu_name,
+                                    checked: false,
+                                    state : 'open',
+                                },]
+                        });
+                        
+                        
                    } else {
                        BootstrapDialog.show({
                             type: BootstrapDialog.TYPE_DANGER,
@@ -912,20 +926,7 @@ $(document).ready(function () {
                             }]
                         });
                    }
-                $('#tt_tree_menu').tree('append', {
-                        //parent: selectedTreeItem.target,
-                        data: [{
-                                attributes:{notroot: false, 
-                                            text_eng: menu_name_eng, 
-                                            active: 0, 
-                                            url: url, 
-                                            icon_class: icon_class},
-                                id: data.lastInsertId,
-                                text: menu_name,
-                                checked: false,
-                                state : 'open',
-                            },]
-                });
+                
                } else {
                    console.error('"pkInsert_leftnavigation" servis datası boştur!!');
                }
