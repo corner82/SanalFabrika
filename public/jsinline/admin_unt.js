@@ -182,8 +182,6 @@ $(document).ready(function () {
     //Validation forms binded...
     jQuery("#unitForm").validationEngine();
     
-
-
     /*
      * 
      * @type @call;$@call;loadImager
@@ -231,48 +229,54 @@ $(document).ready(function () {
        var loader = $("#loading-image-crud").loadImager();
        loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
-       $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkDelete_sysUnits' ,
-                id : nodeID,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-            if(data.length!==0) {
-                
-                if(data.found) {
-                    sm.successMessage({ onShown : function(event, data) {
-                            loader.loadImager('removeLoadImage');
+       
+       var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkDelete_sysUnits' ,
+                            id : nodeID,
+                            pk : $("#pk").val()
                         }
-                    });
-                    sm.successMessage('show', 'Birim Silme İşlemi Başarılı...', 
-                                              'Birim Silme işlemini gerçekleştirdiniz... ')
-                    selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
-                } else {
-                    if(data.errorInfo == 23503) {
-                        dm.dangerMessage({ onShown : function(event, data) {
-                                loader.loadImager('removeLoadImage');
-                            }
-                        });
-                        dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
-                                                     'Birim kategorisi altında kayıtlı birim olduğu için işlemi gerçekleştiremezsiniz, önce birim kaydının silinmasi gerekmektedir... ' );
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                         'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
+                console.error('"pkDelete_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({ onShown : function(event, data) {
+                        loader.loadImager('removeLoadImage');
                     }
-                }            
-            } else {
+                });
+                sm.successMessage('show', 'Birim Silme İşlemi Başarılı...', 
+                                          'Birim Silme işlemini gerçekleştirdiniz... ')
+                selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+             },
+             onErrorDataNull : function (event, data) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
                                          'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
                 console.error('"pkDelete_sysUnits" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {  
-            dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
                                          'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
-            console.error('"pkDelete_sysUnits" servis hatası->'+textStatus);
-        }
-    });
+             },
+             onError23503 : function (event, data) {
+                 dm.dangerMessage({ onShown : function(event, data) {
+                        loader.loadImager('removeLoadImage');
+                    }
+                });
+                dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                         'Birim kategorisi altında kayıtlı birim olduğu için işlemi gerçekleştiremezsiniz, önce birim kaydının silinmasi gerekmektedir... ' );
+             },
+             onError23505 : function (event, data) {
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    /**
@@ -284,27 +288,13 @@ $(document).ready(function () {
     */
    window.passiveUnitDialog= function(nodeID){
         var nodeID = nodeID;
-        BootstrapDialog.show({
-            type: BootstrapDialog.TYPE_WARNING,
-            title: 'Birim Ögesini Pasifleştirmek Üzeresiniz!',
-            message: 'Birim öğesini pasifleştirmek üzeresiniz !! ',
-            buttons: [ {
-                icon: 'glyphicon glyphicon-ban-circle',
-                label: 'Vazgeç',
-                cssClass: 'btn-warning',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }, {
-                icon: 'glyphicon glyphicon-ok-sign',
-                label: 'Pasif Yap',
-                cssClass: 'btn-success',
-                action: function(dialogItself){
-                    dialogItself.close();
-                    passiveUnit(nodeID);
-                }
-            }]
-        });
+        wm.warningComplexMessage({ 
+            onShown : function() {
+                passiveUnit(nodeID);
+            }
+       });
+       wm.warningComplexMessage('show', 'Birim Ögesini Pasifleştirmek Üzeresiniz!',
+                                 'Birim öğesini pasifleştirmek üzeresiniz !! ');
    }
    
    /**
@@ -318,97 +308,96 @@ $(document).ready(function () {
        var loader = $("#loading-image-crud").loadImager();
        loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
-       $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkUpdateMakeActiveOrPassive_sysUnits' ,
-                id : nodeID,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-            if(data.length!==0) {
-                if(data.found) {
-                    sm.successMessage({
-                                data : {
-                                    deneme : 'deneme test',
-                                    deneme2 : 'deneme2 test',
-                                    deneme3 : 'deneme3 test',
-                                    deneme4 : 'deneme4 test',
-                                },
-                                test : 'test değer',
-                                onShown : function (event, data) {
-                            loader.loadImager('removeLoadImage');
+       
+       var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkUpdateMakeActiveOrPassive_sysUnits' ,
+                            id : nodeID,
+                            pk : $("#pk").val()
                         }
-                    });
-                    sm.successMessage('show', 'Birim Pasif İşlemi Başarılı...', 
-                                              'Birim Pasifleştirme işlemini gerçekleştirdiniz... ')                   
-                    var nodeState;
-                    if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
-                        nodeState = 'open';
-                    } else {
-                        nodeState = 'closed';
-                    }
-                    
-                    var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
-                    var node = selectedTreeItem;
-                    $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
-                    if(jQuery.type(parentNode) === "null") { 
-                        $('#tt_tree_menu').tree('append', {
-                            data: [{
-                                    attributes:{notroot: selectedTreeItem.attributes.notroot, 
-                                                unitcode_eng : selectedTreeItem.attributes.unitcode_eng, 
-                                                system_id : selectedTreeItem.attributes.system_id,
-                                                system : selectedTreeItem.attributes.system,
-                                                system_eng : selectedTreeItem.attributes.system_eng,
-                                                abbreviation : selectedTreeItem.attributes.abbreviation,
-                                                abbreviation_eng : selectedTreeItem.attributes.abbreviation_eng,
-                                                unit_eng : selectedTreeItem.attributes.unit_eng,
-                                                unit : selectedTreeItem.attributes.unit,
-                                                active: 1,},
-                                    id: node.id,
-                                    text: node.text,
-                                    checked: false,
-                                    state : nodeState,
-                                },]
-                        });
-                    } else {
-                        $('#tt_tree_menu').tree('append', {
-                            parent: parentNode.target,
-                            data: [{
-                                    attributes:{notroot: node.attributes.notroot, 
-                                                text_eng: node.attributes.text_eng, 
-                                                active: 1, 
-                                                url: node.attributes.url, 
-                                                icon_class: node.attributes.icon_class},
-                                    id: node.id,
-                                    text: node.text,
-                                    checked: false,
-                                    state : nodeState,
-                                },]
-                        });
-                    }
-                } else {
-                    dm.dangerMessage({ onShown : function(event, data) {
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
+                                     'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
+                console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({
+                            onShown : function (event, data) {
                                 loader.loadImager('removeLoadImage');
-                                }
+                            }
+                });
+                sm.successMessage('show', 'Birim Pasif İşlemi Başarılı...', 
+                                          'Birim Pasifleştirme işlemini gerçekleştirdiniz... ')                   
+                var nodeState;
+                if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
+                    nodeState = 'open';
+                } else {
+                    nodeState = 'closed';
+                }
+
+                var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
+                var node = selectedTreeItem;
+                $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                if(jQuery.type(parentNode) === "null") { 
+                    $('#tt_tree_menu').tree('append', {
+                        data: [{
+                                attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                            unitcode_eng : selectedTreeItem.attributes.unitcode_eng, 
+                                            system_id : selectedTreeItem.attributes.system_id,
+                                            system : selectedTreeItem.attributes.system,
+                                            system_eng : selectedTreeItem.attributes.system_eng,
+                                            abbreviation : selectedTreeItem.attributes.abbreviation,
+                                            abbreviation_eng : selectedTreeItem.attributes.abbreviation_eng,
+                                            unit_eng : selectedTreeItem.attributes.unit_eng,
+                                            unit : selectedTreeItem.attributes.unit,
+                                            active: 1,},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
                     });
-                    dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
-                                             'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
-                }           
-            } else {
+                } else {
+                    $('#tt_tree_menu').tree('append', {
+                        parent: parentNode.target,
+                        data: [{
+                                attributes:{notroot: node.attributes.notroot, 
+                                            text_eng: node.attributes.text_eng, 
+                                            active: 1, 
+                                            url: node.attributes.url, 
+                                            icon_class: node.attributes.icon_class},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
+                    });
+                }
+             },
+             onErrorDataNull : function (event, data) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
                                          'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
                 console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
-                                     'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
-            console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
-        }
-    });
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage({ onShown : function(event, data) {
+                            loader.loadImager('removeLoadImage');
+                            }
+                });
+                dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
+                                         'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    /**
@@ -436,90 +425,91 @@ $(document).ready(function () {
     * @since 04/04/2016
     */
    window.activeUnit = function(nodeID) {
+
        var loader = $("#loading-image-crud").loadImager();
        loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
-       $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkUpdateMakeActiveOrPassive_sysUnits' ,
-                id : nodeID,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-            if(data.length!==0) {
-                if(data.found) {
-                    sm.successMessage({ onShown : function(event, data){
+       var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url : 'pkUpdateMakeActiveOrPassive_sysUnits' ,
+                            id : nodeID,
+                            pk : $("#pk").val()
+                        }
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                         'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+                 console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                 sm.successMessage({ onShown : function(event, data){
                             loader.loadImager('removeLoadImage');
                         }
                     });
-                    sm.successMessage('show', 'Birim Aktifleştirme İşlemi Başarılı...', 
-                                              'Birim aktifleştirme işlemini gerçekleştirdiniz... ')
-                    var nodeState;
-                    if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
-                        nodeState = 'open';
-                    } else {
-                        nodeState = 'closed';
-                    }
+                sm.successMessage('show', 'Birim Aktifleştirme İşlemi Başarılı...', 
+                                          'Birim aktifleştirme işlemini gerçekleştirdiniz... ')
+                var nodeState;
+                if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
+                    nodeState = 'open';
+                } else {
+                    nodeState = 'closed';
+                }
 
-                    var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
-                    var node = selectedTreeItem;
-                    $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
-                    if(jQuery.type(parentNode) === "null") { 
-                        $('#tt_tree_menu').tree('append', {
-                            data: [{
-                                    attributes:{notroot: selectedTreeItem.attributes.notroot, 
-                                                unitcode_eng : selectedTreeItem.attributes.unitcode_eng, 
-                                                system_id : selectedTreeItem.attributes.system_id,
-                                                system : selectedTreeItem.attributes.system,
-                                                system_eng : selectedTreeItem.attributes.system_eng,
-                                                abbreviation : selectedTreeItem.attributes.abbreviation,
-                                                abbreviation_eng : selectedTreeItem.attributes.abbreviation_eng,
-                                                unit_eng : selectedTreeItem.attributes.unit_eng,
-                                                unit : selectedTreeItem.attributes.unit,
-                                                active: 0,},
-                                    id: node.id,
-                                    text: node.text,
-                                    checked: false,
-                                    state : nodeState,
-                                },]
-                        });
-                    } else {
-                        $('#tt_tree_menu').tree('append', {
-                            parent: parentNode.target,
-                            data: [{
-                                    attributes:{notroot: node.attributes.notroot, 
-                                                text_eng: node.attributes.text_eng, 
-                                                active: 0, 
-                                                url: node.attributes.url, 
-                                                icon_class: node.attributes.icon_class},
-                                    id: node.id,
-                                    text: node.text,
-                                    checked: false,
-                                    state : nodeState,
-                                },]
-                        });
-                    }
-                } 
-                else {
-                    dm.dangerMessage('resetOnShown');
-                    dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
-                                             'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-               }          
-            } else {
-                dm.dangerMessage('resetOnShown');
-                dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
+                var node = selectedTreeItem;
+                $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                if(jQuery.type(parentNode) === "null") { 
+                    $('#tt_tree_menu').tree('append', {
+                        data: [{
+                                attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                            unitcode_eng : selectedTreeItem.attributes.unitcode_eng, 
+                                            system_id : selectedTreeItem.attributes.system_id,
+                                            system : selectedTreeItem.attributes.system,
+                                            system_eng : selectedTreeItem.attributes.system_eng,
+                                            abbreviation : selectedTreeItem.attributes.abbreviation,
+                                            abbreviation_eng : selectedTreeItem.attributes.abbreviation_eng,
+                                            unit_eng : selectedTreeItem.attributes.unit_eng,
+                                            unit : selectedTreeItem.attributes.unit,
+                                            active: 0,},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
+                    });
+                } else {
+                    $('#tt_tree_menu').tree('append', {
+                        parent: parentNode.target,
+                        data: [{
+                                attributes:{notroot: node.attributes.notroot, 
+                                            text_eng: node.attributes.text_eng, 
+                                            active: 0, 
+                                            url: node.attributes.url, 
+                                            icon_class: node.attributes.icon_class},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
+                    });
+                }
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
                                          'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
                 console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) { 
-            dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
-                                     'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-            console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
-        }
-    });
+             },
+             onErrorMessage : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                             'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    /**
@@ -682,48 +672,45 @@ $(document).ready(function () {
         type: BootstrapDialog.TYPE_PRIMARY,
         onshown : function () {
             $("#unitFormInsert").validationEngine();
-            /**
-            * user roles  select box filling
-            * @author Mustafa Zeynel Dağlı
-            * @since 04/04/2016
-            */
-           $.ajax({
-               url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-               data: { url:'pkGetUnitSystems_sysUnitSystems' ,
-                       language_code : 'tr',
-                       main_group : 2,
-                       pk : $("#pk").val()}, 
-               type: 'GET',
-               dataType: 'json',
-               success: function (data, textStatus, jqXHR) {
-                   if(data.length!==0) {
-
-                       dropdownUnitSystemsPopup
-                       $('#dropdownUnitSystemsPopup').ddslick({
-                           height : 200,
-                           data : data, 
-                           width:'100%',
-                           selectText: "Select your preferred social network",
-                           //showSelectedHTML : false,
-                           defaultSelectedIndex: 3,
-                           //imagePosition:"right",
-                           onSelected: function(selectedData){
-                               if(selectedData.selectedData.value>0) {
-                                   /*$('#tt_tree_menu').tree({
-                                       url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                                   });*/
-                               }
-                           }   
-                       });
-                   } else {
-                       console.error('"pkGetUnitSystems_sysUnitSystems" servis datası boştur!!');
-                   }
-               },
-               error: function (jqXHR, textStatus, errorThrown) {           
-                   console.error('"pkGetUnitSystems_sysUnitSystems" servis hatası->'+textStatus);
-               }
-           });
             
+            var aj = $(window).ajaxCallWidget({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkGetUnitSystems_sysUnitSystems' ,
+                            language_code : 'tr',
+                            main_group : 2,
+                            pk : $("#pk").val(),
+                        }
+       })
+       aj.ajaxCallWidget ({
+             onError : function (event, data) {
+                 console.error('"pkGetUnitSystems_sysUnitSystems" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                 var dataArray = jQuery.makeArray( arguments );
+                 dataArray.shift();
+                 //console.warn(dataArray);
+                 var data = data;
+                 $('#dropdownUnitSystemsPopup').ddslick({
+                        height : 200,
+                        data : dataArray, 
+                        width:'100%',
+                        selectText: "Select your preferred social network",
+                        //showSelectedHTML : false,
+                        defaultSelectedIndex: 3,
+                        //imagePosition:"right",
+                        onSelected: function(selectedData){
+                            if(selectedData.selectedData.value>0) {
+
+                            }
+                        }   
+                });
+             },
+             onErrorDataNull : function (event, data) {
+                 console.error('"pkGetUnitSystems_sysUnitSystems" servis datası boştur!!');
+             },
+       }) 
+       aj.ajaxCallWidget('call');
         },
         onhide : function() {
             $('#unitForm')[0].reset();
@@ -759,86 +746,89 @@ $(document).ready(function () {
         selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
         //console.log(ddData);
         parent = nodeID;
-       $.ajax({
-           url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkInsert_sysUnits' ,
-                   language_code : language_code,
-                   unit : unit,
-                   unit_eng : unit_eng,
-                   unitcode : unitcode,
-                   unitcode_eng : unitcode_eng,
-                   abbreviation : abbreviation,
-                   abbreviation_eng : abbreviation_eng,
-                   parent_id : parent,
-                   system_id : system_id,
-                   pk : $("#pk").val()},  
-           type: 'GET',
-           dataType: 'json',
-           success: function (data, textStatus, jqXHR) {
-               if(data.length!==0) {
-                   if(data.found) {
-                       sm.successMessage({
-                            onShown: function( event, data ) {
-                                $('#unitFormInsert')[0].reset();
-                                $('#unitForm')[0].reset();
-                                regulateButtons();
-                                loader.loadImager('removeLoadImage');
-                            }
-                        });
-                        sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
-                                                  'Birim kayıt işlemini gerçekleştirdiniz... ');
-                        $('#tt_tree_menu').tree('append', {
-                            parent: selectedTreeItem.target,
-                            data: [{
-                                    attributes:{notroot: true, 
-                                                unitcode_eng : unitcode_eng, 
-                                                system_id : system_id,
-                                                system : system,
-                                                system_eng : system_eng,
-                                                abbreviation : abbreviation,
-                                                abbreviation_eng : abbreviation_eng,
-                                                unit_eng : unit_eng,
-                                                unit : unit,
-                                                active: 0,
-                                                },
-                                    id: data.lastInsertId,
-                                    text: unitcode,
-                                    checked: false,
-                                    state : 'open',
-                                },]
-                        });
-                        
-                   } else {
-                       if(data.errorInfo == 23505) {
-                           dm.dangerMessage({
-                              onShown : function(event, data) {
-                                  $('#unitFormInsert')[0].reset();
-                                  $('#unitForm')[0].reset();
-                                  loader.loadImager('removeLoadImage');
-                              }
-                           });
-                           dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
-                                                    'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
-                       } else {
-                           dm.dangerMessage('resetOnShown');
-                           dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
-                                                    'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                       }                         
-                   }
-               } else {
-                   dm.dangerMessage('resetOnShown');
-                   dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
-                                            'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                   console.error('"pkInsert_sysUnits" servis datası boştur!!');
-               }
-           },
-           error: function (jqXHR, textStatus, errorThrown) { 
-               dm.dangerMessage('resetOnShown');
-               dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+        
+        var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkInsert_sysUnits' ,
+                            language_code : language_code,
+                            unit : unit,
+                            unit_eng : unit_eng,
+                            unitcode : unitcode,
+                            unitcode_eng : unitcode_eng,
+                            abbreviation : abbreviation,
+                            abbreviation_eng : abbreviation_eng,
+                            parent_id : parent,
+                            system_id : system_id,
+                            pk : $("#pk").val()
+                        }
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                          'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+                 console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({
+                    onShown: function( event, data ) {
+                        $('#unitFormInsert')[0].reset();
+                        $('#unitForm')[0].reset();
+                        regulateButtons();
+                        loader.loadImager('removeLoadImage');
+                    }
+                });
+                sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
+                                          'Birim kayıt işlemini gerçekleştirdiniz... ');
+                $('#tt_tree_menu').tree('append', {
+                    parent: selectedTreeItem.target,
+                    data: [{
+                            attributes:{notroot: true, 
+                                        unitcode_eng : unitcode_eng, 
+                                        system_id : system_id,
+                                        system : system,
+                                        system_eng : system_eng,
+                                        abbreviation : abbreviation,
+                                        abbreviation_eng : abbreviation_eng,
+                                        unit_eng : unit_eng,
+                                        unit : unit,
+                                        active: 0,
+                                        },
+                            id: data.lastInsertId,
+                            text: unitcode,
+                            checked: false,
+                            state : 'open',
+                        },]
+                });
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                          'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                 console.error('"pkInsert_sysUnits" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
                                         'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-               console.error('"pkInsert_sysUnits" servis hatası->'+textStatus);
-           }
-       });
+                console.error('"pkInsert_sysUnits" servis hatası->'+textStatus);
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+                 dm.dangerMessage({
+                    onShown : function(event, data) {
+                        $('#unitFormInsert')[0].reset();
+                        $('#unitForm')[0].reset();
+                        loader.loadImager('removeLoadImage');
+                    }
+                 });
+                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                          'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    /**
@@ -878,86 +868,87 @@ $(document).ready(function () {
         system_id = ddData.selectedData.value;
         //console.log(ddData);
         
-       $.ajax({
-           url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkInsert_sysUnits' ,
-                   language_code : language_code,
-                   unit : unit,
-                   unit_eng : unit_eng,
-                   unitcode : unitcode,
-                   unitcode_eng : unitcode_eng,
-                   abbreviation : abbreviation,
-                   abbreviation_eng : abbreviation_eng,
-                   //parent : 0,
-                   system_id : '',
-                   pk : $("#pk").val()},  
-           type: 'GET',
-           dataType: 'json',
-           success: function (data, textStatus, jqXHR) {
-               if(data.length!==0) {
-                   if(data.found) {
-                       sm.successMessage({
-                            onShown: function( event, data ) {
-                                $('#unitForm')[0].reset();
-                                regulateButtons();
-                                loader.loadImager('removeLoadImage');
-                            }
-                        });
-                        sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
-                                                  'Birim kayıt işlemini gerçekleştirdiniz... ');
-                        
-                        $('#tt_tree_menu').tree('append', {
-                            //parent: selectedTreeItem.target,
-                            data: [{
-                                attributes:{notroot: false, 
-                                            unitcode_eng : unitcode_eng, 
-                                            system_id : '',
-                                            system : null,
-                                            system_eng : null,
-                                            abbreviation : null,
-                                            abbreviation_eng : null,
-                                            unit_eng : null,
-                                            unit : null,
-                                            active: 0,
-                                            },
-                                id: data.lastInsertId,
-                                text: unitcode,
-                                checked: false,
-                                state : 'open',
-                            },]
-                        });
-                        
-                   } else {
-                        if(data.errorInfo == 23505) {
-                            dm.dangerMessage({
-                              onShown : function(event, data) {
-                                $('#unitForm')[0].reset();
-                                loader.loadImager('removeLoadImage');
-                              }
-                           });
-                           dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
-                                                    'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
-                        } else {
-                            dm.dangerMessage('resetOnShown');
-                            dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
-                                                     'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                        } 
-                   }
-                
-               } else {
-                   dm.dangerMessage('resetOnShown');
-                   dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
-                                            'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                   console.error('"pkInsert_leftnavigation" servis datası boştur!!');
-               }
-           },
-           error: function (jqXHR, textStatus, errorThrown) {
+       var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkInsert_sysUnits' ,
+                            language_code : language_code,
+                            unit : unit,
+                            unit_eng : unit_eng,
+                            unitcode : unitcode,
+                            unitcode_eng : unitcode_eng,
+                            abbreviation : abbreviation,
+                            abbreviation_eng : abbreviation_eng,
+                            //parent : 0,
+                            system_id : '',
+                            pk : $("#pk").val()
+                        }
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
                                          'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-               console.error('"pkInsert_leftnavigation" servis hatası->'+textStatus);
-           }
-       });
+                console.error('"pkInsert_leftnavigation" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({
+                    onShown: function( event, data ) {
+                        $('#unitForm')[0].reset();
+                        regulateButtons();
+                        loader.loadImager('removeLoadImage');
+                    }
+                });
+                sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
+                                          'Birim kayıt işlemini gerçekleştirdiniz... ');
+
+                $('#tt_tree_menu').tree('append', {
+                    //parent: selectedTreeItem.target,
+                    data: [{
+                        attributes:{notroot: false, 
+                                    unitcode_eng : unitcode_eng, 
+                                    system_id : '',
+                                    system : null,
+                                    system_eng : null,
+                                    abbreviation : null,
+                                    abbreviation_eng : null,
+                                    unit_eng : null,
+                                    unit : null,
+                                    active: 0,
+                                    },
+                        id: data.lastInsertId,
+                        text: unitcode,
+                        checked: false,
+                        state : 'open',
+                    },]
+                });
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                            'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                 console.error('"pkInsert_leftnavigation" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                         'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+                 dm.dangerMessage({
+                    onShown : function(event, data) {
+                      $('#unitForm')[0].reset();
+                      loader.loadImager('removeLoadImage');
+                    }
+                 });
+                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                          'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
+             }
+       }) 
+       aj.ajaxCall('call');
+       
    }
    
    /**
@@ -1014,79 +1005,71 @@ $(document).ready(function () {
         selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
         id = selectedTreeItem.id;
         
-       $.ajax({
-           url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkUpdate_sysUnits' ,
-                   language_code : language_code,
-                   unit : unit,
-                   unit_eng : unit_eng,
-                   unitcode : unitcode,
-                   unitcode_eng : unitcode_eng,
-                   abbreviation : abbreviation,
-                   abbreviation_eng : abbreviation_eng,
-                   id : id,
-                   system_id : system_id,
-                   pk : $("#pk").val()}, 
-           type: 'GET',
-           dataType: 'json',
-           success: function (data, textStatus, jqXHR) {
-               if(data.length!==0) {
-                   if(data.found) {
-                       sm.successMessage({
-                            onShown: function( event, data ) {
-                                $('#unitForm')[0].reset();
-                                regulateButtons();
-                                loader.loadImager('removeLoadImage');
-                            }
-                        });
-                        sm.successMessage('show', 'Birim Güncelleme İşlemi Başarılı...', 
-                                                  'Birim güncelleme işlemini gerçekleştirdiniz... ');
-                        $('#tt_tree_menu').tree('update', {
-                            target: selectedTreeItem.target,
-                            text: unitcode,
-                            attributes:{notroot: selectedTreeItem.attributes.notroot, 
-                                        unitcode_eng : unitcode_eng, 
-                                        system_id : system_id,
-                                        system : system,
-                                        system_eng : system_eng,
-                                        abbreviation : abbreviation,
-                                        abbreviation_eng : abbreviation_eng,
-                                        unit_eng : unit_eng,
-                                        unit : unit,
-                                        active: 0,}
-                       });
-                   } else {
-                       dm.dangerMessage('resetOnShown');
-                       dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
-                                                'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                       /*BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Birim Güncelleme İşlemi Başarısız...',
-                            message: 'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-danger',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                }
-                            }]
-                        });*/
-                   }
-               } else {
-                   dm.dangerMessage('resetOnShown');
-                   dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+        var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkUpdate_sysUnits' ,
+                            language_code : language_code,
+                            unit : unit,
+                            unit_eng : unit_eng,
+                            unitcode : unitcode,
+                            unitcode_eng : unitcode_eng,
+                            abbreviation : abbreviation,
+                            abbreviation_eng : abbreviation_eng,
+                            id : id,
+                            system_id : system_id,
+                            pk : $("#pk").val()
+                        }
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
                                               'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                   console.error('"pkUpdate_sysUnits" servis datası boştur!!');
-               }
-           },
-           error: function (jqXHR, textStatus, errorThrown) {   
-               dm.dangerMessage('resetOnShown');
-               dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+                console.error('"pkUpdate_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({
+                    onShown: function( event, data ) {
+                        $('#unitForm')[0].reset();
+                        regulateButtons();
+                        loader.loadImager('removeLoadImage');
+                    }
+                });
+                sm.successMessage('show', 'Birim Güncelleme İşlemi Başarılı...', 
+                                          'Birim güncelleme işlemini gerçekleştirdiniz... ');
+                $('#tt_tree_menu').tree('update', {
+                    target: selectedTreeItem.target,
+                    text: unitcode,
+                    attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                unitcode_eng : unitcode_eng, 
+                                system_id : system_id,
+                                system : system,
+                                system_eng : system_eng,
+                                abbreviation : abbreviation,
+                                abbreviation_eng : abbreviation_eng,
+                                unit_eng : unit_eng,
+                                unit : unit,
+                                active: 0,}
+               });
+             },
+             onErrorDataNull : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
                                               'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-               console.error('"pkUpdate_sysUnits" servis hatası->'+textStatus);
-           }
-       });
+                console.error('"pkUpdate_sysUnits" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+                                         'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    

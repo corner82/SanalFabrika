@@ -312,8 +312,6 @@
         
         show : function(title, message) {
             var self = this;
-            alert(this.options.test);
-            console.warn(self.options.data);
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_SUCCESS,
                 title: title,
@@ -842,6 +840,129 @@
         },
 
     });
+    
+    /**
+     * ajax wrapper class with call backs attached 
+     * @author Mustafa Zeynle Dağlı
+     * @since 12/04/2016
+     */
+    $.widget("sanalfabrika.ajaxCall", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            data : null,
+            url: null,
+            errorCode: null,
+            page: null,
+            service: null,
+            proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            errorInfo: null,
+            errorUrl: null,
+            type : 'GET',
+            dataType : 'json',
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+        },
+        /**
+         * make ajax call
+         * @returns {null}
+         */
+        call: function () {
+            var self = this;
+            $.ajax({
+                url: this.options.proxy,
+                data: this.options.data,
+                type: this.options.type,
+                dataType: this.options.dataType,
+                success: function (data, textStatus, jqXHR) {
+                    if(data.length!==0) {
+                        if(data.found) {
+                            self._trigger('onSuccess',  data);
+                            
+                        }else {
+                            if(data.errorInfo == 23505) {
+                                self._trigger('onError23505');
+                            } else if(data.errorInfo == 23503) {
+                                self._trigger('onError23503');
+                            } else {
+                                self._trigger('onErrorMessage');
+                            }
+                        }
+                    } else {
+                        self._trigger('onErrorDataNull');
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    self._trigger('onError');  
+                }
+            });
+        },
+       
+    });
+    
+    
+     /**
+     * ajax wrapper class for widget calls
+     * @author Mustafa Zeynle Dağlı
+     * @since 12/04/2016
+     */
+    $.widget("sanalfabrika.ajaxCallWidget", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            data : null,
+            url: null,
+            errorCode: null,
+            page: null,
+            service: null,
+            proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            errorInfo: null,
+            errorUrl: null,
+            type : 'GET',
+            dataType : 'json',
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+        },
+        /**
+         * make ajax call
+         * @returns {null}
+         */
+        call: function () {
+            var self = this;
+            $.ajax({
+                url: this.options.proxy,
+                data: this.options.data,
+                type: this.options.type,
+                dataType: this.options.dataType,
+                success: function (data, textStatus, jqXHR) {
+                    var data = data;
+                    if(data.length!==0) {
+                        self._trigger('onSuccess', event,  data);
+                    } else {
+                        self._trigger('onErrorDataNull');
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    self._trigger('onError');  
+                }
+            });
+        },
+       
+    });
+
+
 
 
 
