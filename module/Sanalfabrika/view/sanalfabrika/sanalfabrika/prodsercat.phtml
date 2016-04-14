@@ -355,8 +355,7 @@
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                         <h4><i class="icon fa fa-info"></i> Note!</h4>
                         <?php
-                        echo $this->translate('Please select product and service categories '
-                                . 'those are produced or served by your company.')
+                        echo $this->translate('Please select your companies producing or serving product and service categories')
                         ?>
                     </div>
                     <div class="box box-danger">
@@ -364,64 +363,105 @@
                             <h3 class="box-title"><?php echo $this->translate('Product Service Categories') ?></h3>
                         </div>
                         <div class="box-body">
-                            <div class="row">
+                            <div class="row" id='categories_div'>
                                 <div class="col-xs-3" id='first_lev_cat' style="font-size: 12px">
                                     <div class="form-group">
-                                        <label><?php echo $this->translate('Main Categories')?></label>
-                                        <select multiple="" class="form-control" onchange='first_cat_sel(this)'>
-                                            <option value='option 1'>option 1</option>
-                                            <option value='option 2'>option 2</option>
-                                            <option value='option 3'>option 3</option>
-                                            <option value='option 4'>option 4</option>
-                                            <option value='option 5'>option 5</option>
+                                        <label><?php echo $this->translate('Main Categories') ?></label>
+                                        <select multiple="" id='first_lev_cat_list'
+                                                class="form-control" onchange='first_cat_sel(this)'>
+<!--                                            <option value='option 1_1'>option 1</option>
+                                            <option value='option 1_2'>option 2</option>
+                                            <option value='option 1_3'>option 3</option>
+                                            <option value='option 1_4'>option 4</option>
+                                            <option value='option 1_5'>option 5</option>-->
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-xs-3" id='sec_lev_cat' style='display:none;visibility:hidden;font-size: 12px'>
                                     <div class="form-group">
                                         <label id='sec_lev_cat_label'></label>
-                                        <select multiple="" class="form-control" onchange='sec_cat_sel(this)'>
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
+                                        <select multiple="" id='sec_lev_cat_list'
+                                                class="form-control" onchange='sec_cat_sel(this)'>
+<!--                                            <option value='option 2_1'>option 1</option>
+                                            <option value='option 2_2'>option 2</option>
+                                            <option value='option 2_3'>option 3</option>
+                                            <option value='option 2_4'>option 4</option>
+                                            <option value='option 2_5'>option 5</option>-->
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-3" id='thi_lev_cat' style='display:none;visibility:hidden'>
+                                <div class="col-xs-3" id='thi_lev_cat' style='display:none;visibility:hidden;font-size: 12px''>
                                     <div class="form-group">
                                         <label id='thi_lev_cat_label'></label>
-                                        <select multiple="" class="form-control" onchange='third_cat_sel(this)'>
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
+                                        <select multiple="" id='thi_lev_cat_list'
+                                                class="form-control" onchange='third_cat_sel(this)'>
+<!--                                            <option value='option 3_1'>option 1</option>
+                                            <option value='option 3_2'>option 2</option>
+                                            <option value='option 3_3'>option 3</option>
+                                            <option value='option 3_4'>option 4</option>
+                                            <option value='option 3_5'>option 5</option>-->
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-3" id='for_lev_cat' style='display:none;visibility:hidden'>
+                                <div class="col-xs-3" id='for_lev_cat' style='display:none;visibility:hidden;font-size: 12px''>
                                     <div class="form-group">
                                         <label id='for_lev_cat_label'></label>
-                                        <select multiple="" class="form-control">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
+                                        <select multiple="" id='for_lev_cat_list'
+                                                class="form-control" onchange='forth_cat_sel(this)'>
+<!--                                            <option value='option 4_1'>option 1</option>
+                                            <option value='option 4_2'>option 2</option>
+                                            <option value='option 4_3'>option 3</option>
+                                            <option value='option 4_4'>option 4</option>
+                                            <option value='option 4_5'>option 5</option>-->
                                         </select>
                                     </div>
                                 </div>
+                            </div>
+                            <div id='sel_but_div'>
+                                <button id='add_cat_but' type="button" disabled='true'
+                                        class="btn btn-block btn-primary" onclick='add_sel_cat()'>
+                                            <?php echo $this->translate('Add') ?>
+                                </button>
                             </div>
                         </div>
                         <!-- /.box-body -->
                     </div>
                 </div>
             </div>
-
+            <div class="row">
+                <div class='col-md-12'>
+                    <div class='box box-primary'>
+                        <div class='box-body'>
+                            <div id='selected_cat_list'>
+                                <div class="form-group">
+                                    <label><?php echo $this->translate('Selected Product Service Categories')?></label>
+                                    <select id='selected_categories_list' 
+                                            multiple="" class="form-control" onchange='sel_cat_list(this)'>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id='del_sel_but_div'>
+                                <button id='del_sel_cat_but' type="button"
+                                        class="btn btn-block btn-primary" onclick='del_sel_cat()'>
+                                            <?php echo $this->translate('Remove') ?>
+                                </button>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
+
+
+
+
+
+
+
+
+
+
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
             <b><?php echo $this->translate('Version') ?></b> 1.0
@@ -743,31 +783,31 @@
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-<?php echo $this->translate('Report panel usage') ?>
+                            <?php echo $this->translate('Report panel usage') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-<?php echo $this->translate('Some information about this general settings option') ?>
+                            <?php echo $this->translate('Some information about this general settings option') ?>
                         </p>
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-<?php echo $this->translate('Allow mail redirect') ?>
+                            <?php echo $this->translate('Allow mail redirect') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-<?php echo $this->translate('Other sets of options are available') ?>
+                            <?php echo $this->translate('Other sets of options are available') ?>
                         </p>
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-<?php echo $this->translate('Other sets of options are available') ?>
+                            <?php echo $this->translate('Other sets of options are available') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-<?php echo $this->translate('Expose author name in posts') ?>
+                            <?php echo $this->translate('Expose author name in posts') ?>
                         </p>
                     </div><!-- /.form-group -->
 
@@ -775,21 +815,21 @@
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-<?php echo $this->translate('Show me as online') ?>
+                            <?php echo $this->translate('Show me as online') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>                
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-<?php echo $this->translate('Turn off notifications') ?>
+                            <?php echo $this->translate('Turn off notifications') ?>
                             <input type="checkbox" class="pull-right" />
                         </label>                
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-<?php echo $this->translate('Delete chat history') ?>
+                            <?php echo $this->translate('Delete chat history') ?>
                             <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
                         </label>                
                     </div><!-- /.form-group -->
