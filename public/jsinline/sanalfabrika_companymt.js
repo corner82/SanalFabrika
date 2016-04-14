@@ -360,7 +360,6 @@ function gotLink(clicked_Id) {
                 scrollTop: $("#machine_details_DIV").offset().top
             }, 1000);
         }
-
     });
 }
 
