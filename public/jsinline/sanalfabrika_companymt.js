@@ -20,7 +20,11 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 //            console.log(data);
-            window.logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
+
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
+                                
+            window.logosrc = imageFolAddress + data[0].logo;
+            
             $('#profileLogosrc').attr('src', window.logosrc);
             $('#logoPlace1').attr('src', window.logosrc);
         }
@@ -112,39 +116,24 @@ function gotLink(clicked_Id) {
                 ["SODICK", "AQ750LH CNC WIRE EDM", "1", "2000", "Yes", "#"],
                 ["OSCAR", "MAX CNC SINK EDM", "1", "2000", "2000", "Yes", "#"]
             ];
-//    var appending_list = "<div class='left-inner'>"
-//            + "<div class='row'>"
-//            + "<div id='"
-//            + window.target_machine_id
-//            + "'>"
-//            + "<table id='"
-//            + window.target_machine_id
-//            + "_table'"
-//            + " class='table table-hover table-striped table-condensed'"
-//            + " cellspacing='0' style='font-size: 12px'>"
-//            + " </table>"
-//            + " </div>"
-//            + " </div>"
-//            + " </div>";
-//    $('#sel_mach_cat_list_div').empty();
-//    $('#sel_mach_cat_list_div').append(appending_list);
-//    $('#' + window.target_table).DataTable({
-//        data: window.machine_map[target_data],
-//        fixedColumns: true,
-//        scrollX: true,
-//        select: {
-//            style: 'single'
-//        },
-//        columns: [
-//            {title: window.lang.translate("Manufacturer")},
-//            {title: window.lang.translate("Series")},
-//            {title: window.lang.translate("Number")},
-//            {title: window.lang.translate("Model")},
-//            {title: window.lang.translate("Owner")}
-//        ]
-//    });
-
-    $('#sel_Cat_Mach_table').DataTable({
+            
+    var appending_list = "<div class='left-inner'>"
+            + "<div class='row'>"
+            + "<div id='"
+            + window.target_machine_id
+            + "'>"
+            + "<table id='"
+            + window.target_machine_id
+            + "_table'"
+            + " class='table table-hover table-striped table-condensed'"
+            + " cellspacing='0' style='font-size: 12px'>"
+            + " </table>"
+            + " </div>"
+            + " </div>"
+            + " </div>";
+    $('#sel_mach_cat_list_div').empty();
+    $('#sel_mach_cat_list_div').append(appending_list);
+    $('#' + window.target_table).DataTable({
         data: window.machine_map[target_data],
         fixedColumns: true,
         scrollX: true,
@@ -164,8 +153,11 @@ function gotLink(clicked_Id) {
         scrollTop: $("#sel_mach_cat_list_div").offset().top
     }, 1000);
 
-    window.table = $('#sel_Cat_Mach_table').DataTable();
-    $('#sel_Cat_Mach_table tbody').on('click', 'tr', function () {
+ window.table = $('#' + window.target_table).DataTable();
+    $('#' + window.target_table + ' tbody').on('click', 'tr', function () {
+
+//    window.table = $('#sel_Cat_Mach_table').DataTable();
+//    $('#sel_Cat_Mach_table tbody').on('click', 'tr', function () {
 
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
@@ -195,51 +187,51 @@ function gotLink(clicked_Id) {
         ];
         if ($('#machine_details_DIV').css('visibility') === 'hidden') {
 
-//            $('#machine_details_DIV').empty();
+            $('#machine_details_DIV').empty();
             $('#selectedMachineNamePH').empty();
 
-//            var appending =
-////                    "<hr>"
-//                    "<div class='funny-boxes funny-boxes-top-sea'>"
-//                    + "<div class='row'>"
-//                    + "<div class='left-inner'>"
-//                    + "<div class='progression'>"
-//                    + "<h3>"
-//                    + window.lang.translate('Machine Details')
-//                    + "</h3>"
-//                    + "<div class='row'>"
-//                    + "<a href="
-//                    + d[5]
-//                    + ">"
-//                    + "<img class='mach_sample' src="
-//                    + d[5]
-//                    + " alt=''>"
-//                    + "</a>"
-//                    + "</div>"
-//
-//                    + "<div class='row'>"
-//                    + "<table id='machinePropertiesTable' "
-//                    + "class='table table-hover table-striped table-condensed' "
-//                    + "cellspacing='0' style='font-size: 12px'>"
-//
-//                    + "<tr>"
-//                    + "<td>"
-//                    + d[0]
-//                    + "</td>"
-//                    + "<td>"
-//                    + d[1]
-//                    + "</td>"
-//                    + "</tr>"
-//
-//                    + "</table>"
-//                    + "</div>"
-//                    + "</div>"
-//                    + "</div>"
-//                    + "</div>";
+            var appending =
+//                    "<hr>"
+                    "<div class='funny-boxes funny-boxes-top-sea'>"
+                    + "<div class='row'>"
+                    + "<div class='left-inner'>"
+                    + "<div class='progression'>"
+                    + "<h3>"
+                    + window.lang.translate('Machine Details')
+                    + "</h3>"
+                    + "<div class='row'>"
+                    + "<a href="
+                    + d[5]
+                    + ">"
+                    + "<img class='mach_sample' src="
+                    + d[5]
+                    + " alt=''>"
+                    + "</a>"
+                    + "</div>"
 
-//            $('#machine_details_DIV').append(appending);
-//            $('#sel_mach_manuf').append(d[0]);
-//            $('#sel_mach_series').append(d[1]);
+                    + "<div class='row'>"
+                    + "<table id='machinePropertiesTable' "
+                    + "class='table table-hover table-striped table-condensed' "
+                    + "cellspacing='0' style='font-size: 12px'>"
+
+                    + "<tr>"
+                    + "<td>"
+                    + d[0]
+                    + "</td>"
+                    + "<td>"
+                    + d[1]
+                    + "</td>"
+                    + "</tr>"
+
+                    + "</table>"
+                    + "</div>"
+                    + "</div>"
+                    + "</div>"
+                    + "</div>";
+
+            $('#machine_details_DIV').append(appending);
+            $('#sel_mach_manuf').append(d[0]);
+            $('#sel_mach_series').append(d[1]);
             $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
 
             var appending2;

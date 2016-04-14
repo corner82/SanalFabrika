@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     console.log($('#selectedCompanyNpk').val());
 
-  
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -23,9 +23,13 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 //            console.log(data);
-            var logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
-            $('#profileLogosrc').attr('src', logosrc);
-
+            
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
+                                
+            window.logosrc = imageFolAddress + data[0].logo;
+            
+            $('#profileLogosrc').attr('src', window.logosrc);
+            $('#logoPlace1').attr('src', window.logosrc);
 
         }
     });

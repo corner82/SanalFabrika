@@ -175,7 +175,6 @@ function third_cat_sel(clicked) {
 
     selected_third_cat_index = clicked.selectedIndex;
     selected_third_cat_value = clicked.value;
-    console.log(selected_third_cat_value);
 
     if (selected_third_cat_index !== null) {
 
@@ -289,6 +288,7 @@ function del_sel_cat() {
 
     $("#selected_categories_list option[value='" + sel_cat_to_rem_value + "']").remove();    
     added_cats.splice($.inArray(sel_cat_to_rem_value, added_cats), 1 );
+//    $('#categories_div').empty().load(window.location.href + '#categories_div');
 
 
 }

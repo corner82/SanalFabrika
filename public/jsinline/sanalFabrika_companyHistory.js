@@ -24,8 +24,11 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 //            console.log(data);
-            var logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
-            $('#profileLogosrc').attr('src', logosrc);
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
+                                
+            window.logosrc = imageFolAddress + data[0].logo;
+            
+            $('#profileLogosrc').attr('src', window.logosrc);
 
 
         }

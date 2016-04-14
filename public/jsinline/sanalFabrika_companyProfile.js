@@ -7,7 +7,7 @@ $(document).ready(function () {
     });
 
 //    console.log($('#selectedCompanyNpk').val());
-   
+
 
 
     $.ajax({
@@ -21,8 +21,14 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 //            console.log(data);
-            window.logosrc = "../../../onyuz/standard/assets/img/sfClients/logos/" + data[0].logo;
+
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
+
+            window.logosrc = imageFolAddress + data[0].logo;
+
             $('#profileLogosrc').attr('src', window.logosrc);
+            $('#logoPlace1').attr('src', window.logosrc);
+
             $('#header_company_name').empty();
             $('#header_company_name').append(data[0].firm_name_short);
             var companyAddressPHAppending =
@@ -147,16 +153,16 @@ $(document).ready(function () {
 
                     var i;
                     var c_logo;
-                    
+
                     if (data4.length !== null) {
                         for (i = 0; i < data4.length; i++) {
-                                                        
-                            if(data4[i].customer_logo === null){
+
+                            if (data4[i].customer_logo === null) {
                                 c_logo = "image_not_found.png"
-                            }else{
+                            } else {
                                 c_logo = data4[i].customer_logo;
                             }
-                            
+
                             var referencesPHAppending =
                                     "<div class='owl-item' style='width: 134px;'>"
                                     + "<div class='item'>"

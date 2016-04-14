@@ -27,24 +27,27 @@ $(document).ready(function () {
 
     var profilelink =
             "<li id='companyprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='"
-            + "#"
-//          + companyProfileLink 
-            + "'>" + "<i class='fa fa-bar-chart-o'>" + "</i>" + window.lang.translate('Company Profile') + "</a>";
-    +"</li>";
+            + "<a onmouseover='' style='cursor: pointer;'>" 
+            + "<i class='fa fa-bar-chart-o'>" 
+            + "</i>" 
+            + window.lang.translate('Company Profile') 
+            + "</a>";
+            +"</li>";
     var perfromancelink =
             "<li id='companyperformancemetersprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='" +
-            +"#"
-//            companyPerformanceMetersProfileLink 
-            + "'>" + "<i class='fa fa-bar-chart-o'>" + "</i>" + window.lang.translate('Performance Meters') + "</a>";
+            + "<a onmouseover='' style='cursor: pointer;'>" 
+            + "<i class='fa fa-bar-chart-o'>" 
+            + "</i>" 
+            + window.lang.translate('Performance Meters') 
+            + "</a>";
     +"</li>";
     var productslink =
             "<li id='companyproductsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='"
-            + "#"
-//            + companyProductsProfileLink 
-            + "'>" + "<i class='fa fa-bar-chart-o'>" + "</i>" + window.lang.translate('Company Products') + "</a>"
+            + "<a onmouseover='' style='cursor: pointer;'>" 
+            + "<i class='fa fa-bar-chart-o'>" 
+            + "</i>" 
+            + window.lang.translate('Company Products') 
+            + "</a>"
             + "</li>";
     var mtslink =
             "<li id='companymtprofile' class='list-group-item list-toggle' onclick=ulActivation(this)>"
@@ -60,7 +63,7 @@ $(document).ready(function () {
             + "<span class='badge rounded badge-red'>"
             + window.lang.translate('C')
             + "</span>"
-            + "<a href='#'>"
+            + "<a onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-chevron-circle-right'>"
             + "</i>"
             + window.lang.translate('CNC Machines')
@@ -71,7 +74,7 @@ $(document).ready(function () {
             + "<span class='badge rounded badge-red'>"
             + window.lang.translate('C')
             + "</span>"
-            + "<a href='#'>"
+            + "<a onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-chevron-circle-right'>"
             + "</i>"
             + window.lang.translate('Turning Machines')
@@ -82,7 +85,7 @@ $(document).ready(function () {
             + "<span class='badge rounded badge-red'>"
             + window.lang.translate('C')
             + "</span>"
-            + "<a href='#'>"
+            + "<a onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-chevron-circle-right'>"
             + "</i>"
             + window.lang.translate('Milling Machines')
@@ -93,7 +96,7 @@ $(document).ready(function () {
             + "<span class='badge rounded badge-red'>"
             + window.lang.translate('C')
             + "</span>"
-            + "<a href='#'>"
+            + "<a onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-chevron-circle-right'>"
             + "</i>"
             + window.lang.translate('Drilling Machines')
@@ -104,7 +107,7 @@ $(document).ready(function () {
             + "<span class='badge rounded badge-red'>"
             + window.lang.translate('C')
             + "</span>"
-            + "<a href='#'>"
+            + "<a onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-chevron-circle-right'>"
             + "</i>"
             + window.lang.translate('Grinding Machines')
@@ -118,7 +121,7 @@ $(document).ready(function () {
             + "<span class='badge rounded badge-blue'>"
             + window.lang.translate('')
             + "</span>"
-            + "<a href='#'>"
+            + "<a onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-chevron-circle-right'>"
             + "</i>"
             + window.lang.translate('US Welding Machines')
@@ -132,7 +135,7 @@ $(document).ready(function () {
             + "<span class='badge badge-u'>"
             + window.lang.translate('')
             + "</span>"
-            + "<a href='#'>"
+            + "<a onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-chevron-circle-right'>"
             + "</i>"
             + window.lang.translate('EDM Machines')
@@ -142,31 +145,35 @@ $(document).ready(function () {
             + "</li>";
     var memberslink =
             " <li id='companymembersprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='"
-            + "#"
-//            + companyMembersProfileLink 
-            + "'>" + "<i class='fa fa-bar-chart-o'>" + "</i>" + window.lang.translate('Company Members') + "</a>"
+            + "<a onmouseover='' style='cursor: pointer;'>" 
+            + "<i class='fa fa-bar-chart-o'>" 
+            + "</i>" 
+            + window.lang.translate('Company Members') 
+            + "</a>"
             + "</li>";
     var projectslink =
             " <li id='companyprojectsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='"
-            + "#"
-//            + companyProjectsProfileLink 
-            + "'>" + "<i class='fa fa-bar-chart-o'>" + "</i>" + window.lang.translate('Company Projects') + "</a>";
+            + "<a onmouseover='' style='cursor: pointer;'>" 
+            + "<i class='fa fa-bar-chart-o'>" 
+            + "</i>" 
+            + window.lang.translate('Company Projects') 
+            + "</a>";
     +"</li>";
     var commentslink =
             "<li id='companycommentsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='"
-            + "#"
-//            + companyCommentsProfileLink 
-            + "'>" + "<i class='fa fa-bar-chart-o'>" + "</i>" + window.lang.translate('Comments') + "</a>";
+            + "<a onmouseover='' style='cursor: pointer;'>" 
+            + "<i class='fa fa-bar-chart-o'>" 
+            + "</i>" 
+            + window.lang.translate('Comments') 
+            + "</a>";
     +"</li>";
     var historylink =
             "<li id='companyhistoryprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='"
-            + "#"
-//            + companyHistoryProfileLink 
-            + "'>" + "<i class='fa fa-bar-chart-o'>" + "</i>" + window.lang.translate('Company History') + "</a>";
+            + "<a href='#'>" 
+            + "<i class='fa fa-bar-chart-o'>" 
+            + "</i>" 
+            + window.lang.translate('Company History') 
+            + "</a>";
     +"</li>";
 
     /*
