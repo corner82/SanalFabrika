@@ -210,7 +210,7 @@ $(document).ready(function () {
     */
    window.deleteUnitDialog= function(nodeID){
        var nodeID = nodeID;
-       wcm.warningComplexMessage({onShown : function(event, data) {
+       wcm.warningComplexMessage({onConfirm : function(event, data) {
            deleteUnit(nodeID);
        }
        });
@@ -289,7 +289,7 @@ $(document).ready(function () {
    window.passiveUnitDialog= function(nodeID){
         var nodeID = nodeID;
         wm.warningComplexMessage({ 
-            onShown : function() {
+            onConfirm : function() {
                 passiveUnit(nodeID);
             }
        });
@@ -409,7 +409,7 @@ $(document).ready(function () {
     */
    window.activeUnitDialog= function(nodeID){
         var nodeID = nodeID;
-        wcm.warningComplexMessage({onShown : function(event, data) {
+        wcm.warningComplexMessage({onConfirm : function(event, data) {
             activeUnit(nodeID);
         }
         });

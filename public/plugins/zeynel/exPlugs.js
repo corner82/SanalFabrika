@@ -249,7 +249,7 @@
                     cssClass: 'btn-success',
                     action: function(dialogItself){
                         dialogItself.close();
-                        self._trigger('onShown');
+                        self._trigger('onConfirm');
                     }
                 }]
             });
