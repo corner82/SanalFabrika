@@ -170,21 +170,21 @@
             <ul class="pull-right breadcrumb">                        
                 <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'index')); ?>">
-                        <?php echo $this->translate('Home') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                ?>">
+                           <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'clientspage')); ?>">
-                        <?php echo $this->translate('Clients Page') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage'));
+                           ?>">
+                           <?php echo $this->translate('Clients Page') ?>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'companyprofile', 'id' => $selectedCompanyNpk)); ?>">
-                        <?php echo $this->translate('Company Profile') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'id' => $selectedCompanyNpk));
+                           ?>">
+                           <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>
                 <li class="active"><?php echo $this->translate('Company Products') ?></li>
@@ -321,8 +321,20 @@
                                             </p>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                                    <hr> 
+                <hr> 
+
+                <div class="profile-body">
+                    <div class="block-description">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Left Inner -->
+                                <div class="col-md-8">
 
                                     <div class='left-inner'>
                                         <div class='progression'>
@@ -334,8 +346,18 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="profile-body">
+                    <div class="block-description">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Left Inner -->
+                                <div class="col-md-8">
 
                                     <div id='product_details_DIV' lastIndex='' style='visibility:hidden; display:none'> 
                                     </div>

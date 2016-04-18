@@ -389,7 +389,11 @@
                                         <a href="#"><i class="position-top fa fa-print"></i></a>
 
                                         <div class="overflow-h">
-                                            <p class="hex" id="companyInfoPH"><?php echo $this->translate('Turkey') ?>, 200 <?php echo $this->translate('Employees') ?></p>
+                                            <p class="hex" id="companyInfoPH">
+                                                <?php echo $this->translate('Turkey') ?>, 
+                                                200 <?php echo $this->translate('Employees') ?>
+                                            </p>
+                                            <!--
                                             <ul class="list-inline star-vote">
                                                 <li><i class="color-green fa fa-star"></i></li>
                                                 <li><i class="color-green fa fa-star"></i></li>
@@ -399,478 +403,434 @@
                                             </ul>                                            
                                             <span><a href="#">34 <?php echo $this->translate('reviews') ?></a></span>
 
+                                        --></div>
+                                            <ul class="social-icons" id="socialMediaHP">
+                                            </ul> 
                                         </div>
-                                        <ul class="social-icons" id="socialMediaHP">
-                                        </ul> 
+                                    </div>
+                                </div> 
+
+                                <div class='row' style='margin-top: 20px; margin-bottom: 20px'>
+                                    <div class='col-md-8'>
+                                        <div class="left-inner">
+                                            <div class="process-v1 bg-color-light">
+                                                <div class='row'>
+                                                    <div class="headline-center margin-bottom-60">
+                                                        <h2><?php echo $this->translate('Company Capabilities') ?></h2>
+                                                        <p><strong id='company_name_PH'></strong><br><?php echo $this->translate('is competitive in: ') ?></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class='row'>  
+                                                    <ul class="list-inline row process-in process-border">
+                                                        <li class="col-xs-3 sm-margin-bottom-50">
+                                                            <div class="process-icon">
+                                                                <i class="rounded-x dot-active"></i>
+                                                            </div>
+                                                            <div class="process-desc">
+                                                                <h3>
+                                                                    <?php echo $this->translate('Precise Metal Cutting') ?>
+                                                                </h3>
+                                                            </div>
+                                                        </li>
+                                                        <li class="col-xs-3 sm-margin-bottom-50">
+                                                            <div class="process-icon">
+                                                                <i class="rounded-x dot-active"></i>
+                                                            </div>
+                                                            <div class="process-desc">
+                                                                <h3>
+                                                                    <?php echo $this->translate('Plastic Injection') ?>
+                                                                </h3>
+                                                            </div>
+                                                        </li>
+                                                        <li class="col-xs-3 sm-margin-bottom-50">
+                                                            <div class="process-icon">
+                                                                <i class="rounded-x dot-active"></i>
+                                                            </div>
+                                                            <div class="process-desc">
+                                                                <h3>
+                                                                    <?php echo $this->translate('Wire Cutting') ?>
+                                                                </h3>
+                                                            </div>
+                                                        </li>
+                                                        <li class="col-xs-3">
+                                                            <div class="process-icon">
+                                                                <i class="rounded-x dot-active"></i>
+                                                            </div>
+                                                            <div class="process-desc">
+                                                                <h3>
+                                                                    <?php echo $this->translate('Electronic Circuits') ?>
+                                                                </h3>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>                                        
+                                        </div>                                    
                                     </div>
                                 </div>
-                            </div> 
 
-                            <div class='row' style='margin-top: 20px; margin-bottom: 20px'>
-                                <div class='col-md-8'>
-                                    <div class="left-inner">
-                                        <div class="process-v1 bg-color-light">
+                                <div id="company_performance_div" class="row" style='margin-top: 20px; margin-bottom: 20px'>
+                                    <div class="col-md-8">                                    
+                                        <!-- Left Inner -->
+                                        <div class="left-inner">
                                             <div class='row'>
                                                 <div class="headline-center margin-bottom-60">
-                                                    <h2><?php echo $this->translate('Company Capabilities') ?></h2>
-                                                    <p><strong id='company_name_PH'></strong><br><?php echo $this->translate('is competitive in: ') ?></p>
+                                                    <h2><?php echo $this->translate('Company Performance') ?></h2>
+                                                    <p><strong id='company_name_PH'></strong><br> <?php echo $this->translate('Last 12 months performance regarding last year') ?></p>
                                                 </div>
                                             </div>
+                                            <div class="progression">
+                                                <span><?php echo $this->translate('Production Increase') ?></span>
+                                                <div class="progress progress-u progress-xs">
+                                                    <div style="width: 88%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="88" role="progressbar" class="progress-bar progress-bar-u">
+                                                    </div>
+                                                </div>
 
-                                            <div class='row'>  
-                                                <ul class="list-inline row process-in process-border">
-                                                    <li class="col-xs-3 sm-margin-bottom-50">
-                                                        <div class="process-icon">
-                                                            <i class="rounded-x dot-active"></i>
-                                                        </div>
-                                                        <div class="process-desc">
-                                                            <h3>
-                                                                <?php echo $this->translate('Precise Metal Cutting') ?>
-                                                            </h3>
-                                                        </div>
+                                                <span><?php echo $this->translate('Employee Increase') ?></span>
+                                                <div class="progress progress-u progress-xs">
+                                                    <div style="width: 76%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="76" role="progressbar" class="progress-bar progress-bar-u">
+                                                    </div>
+                                                </div>
+
+                                                <span><?php echo $this->translate('Energy Consumption') ?></span>
+                                                <div class="progress progress-u progress-xs">
+                                                    <div style="width: 97%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="97" role="progressbar" class="progress-bar progress-bar-u">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style='margin-top: 20px; margin-bottom: 20px'>
+                                    <div class="col-md-8">                                    
+                                        <!-- Left Inner -->
+                                        <div class="left-inner">
+                                            <div class="progression">
+                                                <div class='row'>
+                                                    <div class="headline-center margin-bottom-60">
+                                                        <h2><?php echo $this->translate('Company Brief Description') ?></h2>
+                                                        <p id='company_desc_PH' style='text-align: left'><?php echo $this->translate('description') ?></p>
+                                                    </div>
+                                                </div>
+                                                <p id="briefDescPH">                                                
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style='margin-top: 20px; margin-bottom: 20px;'>
+                                    <div class="col-md-8">                                    
+                                        <!-- Left Inner -->
+                                        <div class="left-inner">
+                                            <div class="progression">
+                                                <div class="headline-center margin-bottom-60">
+                                                    <h2><?php echo $this->translate('References') ?></h2>
+                                                </div>
+                                            </div>
+                                            <div class='content job-partners'>
+                                                <ul class="list-inline our-clients" id="effect-2">
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/ea-canada.png') ?>" alt="">
+                                                            <div class="img-hover">
+                                                                <h4>Ea Canada</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li> 
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/inspiring.png') ?>" alt="">
+                                                            <div class="img-hover">
+                                                                <h4>Inspiring</h4>  
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/ucweb.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>UcWeb</h4>  
+                                                            </div>
+                                                        </figure>
+                                                    </li>  
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/clarks.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>Clarks</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/corepreserves.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>Core Preserves</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/finals.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>USL Champions</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/getaround.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>GetAround</h4>
+                                                            </div>
+                                                        </figure>
                                                     </li>
-                                                    <li class="col-xs-3 sm-margin-bottom-50">
-                                                        <div class="process-icon">
-                                                            <i class="rounded-x dot-active"></i>
-                                                        </div>
-                                                        <div class="process-desc">
-                                                            <h3>
-                                                                <?php echo $this->translate('Plastic Injection') ?>
-                                                            </h3>
-                                                        </div>
-                                                    </li>
-                                                    <li class="col-xs-3 sm-margin-bottom-50">
-                                                        <div class="process-icon">
-                                                            <i class="rounded-x dot-active"></i>
-                                                        </div>
-                                                        <div class="process-desc">
-                                                            <h3>
-                                                                <?php echo $this->translate('Wire Cutting') ?>
-                                                            </h3>
-                                                        </div>
-                                                    </li>
-                                                    <li class="col-xs-3">
-                                                        <div class="process-icon">
-                                                            <i class="rounded-x dot-active"></i>
-                                                        </div>
-                                                        <div class="process-desc">
-                                                            <h3>
-                                                                <?php echo $this->translate('Electronic Circuits') ?>
-                                                            </h3>
-                                                        </div>
-                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/baderbrau.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>Baderbrau</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>      
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emirates.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>Emirates</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/fddw.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>Field Days</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/district-karaoke.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>District Karaoke</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>        
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/marianos.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>Mariano's</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/grifting-tree.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>The Grifting Tree</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/jaguar.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>Jaguar</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li>    
+                                                    <li>
+                                                        <figure>
+                                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/hermes.png') ?>" alt="">  
+                                                            <div class="img-hover">
+                                                                <h4>Hermes</h4>
+                                                            </div>
+                                                        </figure>
+                                                    </li> 
                                                 </ul>
                                             </div>
-                                        </div>                                        
-                                    </div>                                    
-                                </div>
-                            </div>
-
-                            <div id="company_performance_div" class="row" style='margin-top: 20px; margin-bottom: 20px'>
-                                <div class="col-md-8">                                    
-                                    <!-- Left Inner -->
-                                    <div class="left-inner">
-                                        <div class='row'>
-                                            <div class="headline-center margin-bottom-60">
-                                                <h2><?php echo $this->translate('Company Performance') ?></h2>
-                                                <p><strong id='company_name_PH'></strong><br> <?php echo $this->translate('Last 12 months performance regarding last year') ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="progression">
-                                            <span><?php echo $this->translate('Production Increase') ?></span>
-                                            <div class="progress progress-u progress-xs">
-                                                <div style="width: 88%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="88" role="progressbar" class="progress-bar progress-bar-u">
-                                                </div>
-                                            </div>
-
-                                            <span><?php echo $this->translate('Employee Increase') ?></span>
-                                            <div class="progress progress-u progress-xs">
-                                                <div style="width: 76%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="76" role="progressbar" class="progress-bar progress-bar-u">
-                                                </div>
-                                            </div>
-
-                                            <span><?php echo $this->translate('Energy Consumption') ?></span>
-                                            <div class="progress progress-u progress-xs">
-                                                <div style="width: 97%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="97" role="progressbar" class="progress-bar progress-bar-u">
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row" style='margin-top: 20px; margin-bottom: 20px'>
-                                <div class="col-md-8">                                    
-                                    <!-- Left Inner -->
-                                    <div class="left-inner">
-                                        <div class="progression">
-                                            <div class='row'>
+                                <div id="customers_div" class="row" style='margin-top: 20px; margin-bottom: 20px;'>
+                                    <div class="col-md-8">                                    
+                                        <!-- Left Inner -->
+                                        <div class="left-inner">
+                                            <div class="progression">
                                                 <div class="headline-center margin-bottom-60">
-                                                    <h2><?php echo $this->translate('Company Brief Description') ?></h2>
-                                                    <p><strong id='company_name_PH'></strong><br> <?php echo $this->translate('description') ?></p>
+                                                    <h2><?php echo $this->translate('Customers') ?></h2>
                                                 </div>
-                                            </div>
-                                            <p id="briefDescPH">                                                
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                                <!--                                            <ul class="list-unstyled" id="customersPH">
+                                                                                            </ul>-->
+                                                <div class="bg-color-light">
+                                                    <div class="owl-clients-v1 owl-carousel owl-theme" style="opacity: 1; display: block;">
+                                                        <div class="owl-wrapper-outer">
+                                                            <div id="customersPH">
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <div class="owl-controls clickable">
+                                                            <div class="owl-pagination">
+                                                                <div class="owl-page">
+                                                                    <span class="">
 
-                            <div class="row" style='margin-top: 20px; margin-bottom: 20px;'>
-                                <div class="col-md-8">                                    
-                                    <!-- Left Inner -->
-                                    <div class="left-inner">
-                                        <div class="progression">
-                                            <div class="headline-center margin-bottom-60">
-                                                <h2><?php echo $this->translate('References') ?></h2>
-                                            </div>
-                                        </div>
-                                        <div class='content job-partners'>
-                                            <ul class="list-inline our-clients" id="effect-2">
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/ea-canada.png') ?>" alt="">
-                                                        <div class="img-hover">
-                                                            <h4>Ea Canada</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li> 
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/inspiring.png') ?>" alt="">
-                                                        <div class="img-hover">
-                                                            <h4>Inspiring</h4>  
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/ucweb.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>UcWeb</h4>  
-                                                        </div>
-                                                    </figure>
-                                                </li>  
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/clarks.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>Clarks</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/corepreserves.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>Core Preserves</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/finals.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>USL Champions</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/getaround.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>GetAround</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/baderbrau.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>Baderbrau</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>      
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emirates.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>Emirates</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/fddw.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>Field Days</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/district-karaoke.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>District Karaoke</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>        
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/marianos.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>Mariano's</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/grifting-tree.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>The Grifting Tree</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/jaguar.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>Jaguar</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li>    
-                                                <li>
-                                                    <figure>
-                                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/hermes.png') ?>" alt="">  
-                                                        <div class="img-hover">
-                                                            <h4>Hermes</h4>
-                                                        </div>
-                                                    </figure>
-                                                </li> 
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div id="customers_div" class="row" style='margin-top: 20px; margin-bottom: 20px;'>
-                                <div class="col-md-8">                                    
-                                    <!-- Left Inner -->
-                                    <div class="left-inner">
-                                        <div class="progression">
-                                            <div class="headline-center margin-bottom-60">
-                                                <h2><?php echo $this->translate('Customers') ?></h2>
-                                            </div>
-<!--                                            <ul class="list-unstyled" id="customersPH">
-                                            </ul>-->
-                                            <div class="bg-color-light">
-                                                <div class="owl-clients-v1 owl-carousel owl-theme" style="opacity: 1; display: block;">
-                                                    <div class="owl-wrapper-outer">
-                                                        <div id="customersPH" class="owl-wrapper" style="width: 2412px; left: 0px; display: block; transition: all 800ms ease; transform: translate3d(-268px, 0px, 0px);">
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/1.png')?>" alt="">
+                                                                    </span>
                                                                 </div>
-                                                            </div>
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/2.png')?>" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/3.png')?>" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/4.png')?>" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/5.png')?>" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/6.png')?>" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                    <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/7.png')?>" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/8.png')?>" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="owl-item" style="width: 134px;">
-                                                                <div class="item">
-                                                                    <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients4/9.png')?>" alt="">
+                                                                <div class="owl-page active">
+                                                                    <span class="">
+
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="owl-controls clickable">
-                                                        <div class="owl-pagination">
-                                                            <div class="owl-page">
-                                                                <span class="">
-                                                                    
-                                                                </span>
-                                                            </div>
-                                                            <div class="owl-page active">
-                                                                <span class="">
-                                                                    
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- End Left Inner -->
-                                </div>    
+                                        <!-- End Left Inner -->
+                                    </div>    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- End Profile Content -->            
             </div>
-            <!-- End Profile Content -->            
-        </div>
-    </div><!--/container-->    
-    <!--=== End Profile ===-->
+        </div><!--/container-->    
+        <!--=== End Profile ===-->
 
-    <!--=== Footer Version 1 ===-->
-    <div class="footer-v1">
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <!-- About -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <a href="index-2.html"><img id="logo-footer" class="footer-logo" 
-                                                    src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
-                                                    alt=""></a>
-                        <p><?php
-                            echo $this->translate('A virtual enterprise (VE) is a temporary alliance of '
-                                    . 'businesses that come together to share skills or core competencies and resources '
-                                    . 'in order to better respond to business opportunities, and whose cooperation is '
-                                    . 'supported by computer networks.')
-                            ?></p>
-                    </div><!--/col-md-3-->
-                    <!-- End About -->
+        <!--=== Footer Version 1 ===-->
+        <div class="footer-v1">
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- About -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <a href="index-2.html"><img id="logo-footer" class="footer-logo" 
+                                                        src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                                        alt=""></a>
+                            <p><?php
+                                echo $this->translate('A virtual enterprise (VE) is a temporary alliance of '
+                                        . 'businesses that come together to share skills or core competencies and resources '
+                                        . 'in order to better respond to business opportunities, and whose cooperation is '
+                                        . 'supported by computer networks.')
+                                ?></p>
+                        </div><!--/col-md-3-->
+                        <!-- End About -->
 
-                    <!-- Latest -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <div class="posts">
-                            <div class="headline"><h2><?php echo $this->translate('Latest Posts') ?></h2></div>
-                            <ul class="list-unstyled latest-list">
+                        <!-- Latest -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="posts">
+                                <div class="headline"><h2><?php echo $this->translate('Latest Posts') ?></h2></div>
+                                <ul class="list-unstyled latest-list">
+                                    <li>
+                                        <a href="#"><?php echo $this->translate('Latest News about OSTIM VE') ?></a>
+                                        <small><?php echo $this->translate('February') ?> 8, 2016</small>
+                                    </li>
+                                    <li>
+                                        <a href="#"><?php echo $this->translate('OSTIM Clusters News') ?></a>
+                                        <small><?php echo $this->translate('January') ?> 23, 2016</small>
+                                    </li>
+                                    <li>
+                                        <a href="#"><?php echo $this->translate('New Project Calls') ?></a>
+                                        <small><?php echo $this->translate('December') ?> 15, 2016</small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--/col-md-3-->  
+                        <!-- End Latest --> 
+
+                        <!-- Link List -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="headline"><h2><?php echo $this->translate('Useful Links') ?></h2></div>
+                            <ul class="list-unstyled link-list">
+                                <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('Ostim Organized Industrial Zone') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('Turkish Ministry of SIT') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('TUBITAK') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('KOSGEB') ?></a><i class="fa fa-angle-right"></i></li>
+                                <!--<li><a href="#"><?php echo $this->translate('') ?></a><i class="fa fa-angle-right"></i></li>-->
+                            </ul>
+                        </div><!--/col-md-3-->
+                        <!-- End Link List -->                    
+
+                        <!-- Address -->
+                        <div class="col-md-3 map-img md-margin-bottom-40">
+                            <div class="headline"><h2><?php echo $this->translate('Contact Us') ?></h2></div>                         
+                            <address class="md-margin-bottom-40">
+                                100. Yıl Bulvarı No: 101/A <br />
+                                OSTIM, Ankara <br />
+                                Turkey <br />
+                                <?php echo $this->translate('Phone') ?> :  +90 312 385 50 90 <br />
+                                <?php echo $this->translate('Fax') ?>:    +90 312 354 58 98 <br />
+                                <?php echo $this->translate('Email') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
+                            </address>
+                        </div><!--/col-md-3-->
+                        <!-- End Address -->
+                    </div>
+                </div> 
+            </div><!--/footer-->
+
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">                     
+                            <p>
+                                2016 &copy; <?php echo $this->translate('All Rights Reserved.') ?>
+                                <a href="#"><?php echo $this->translate('Privacy Policy') ?></a> | <a href="#"><?php echo $this->translate('Terms of Service') ?></a>
+                            </p>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="col-md-6">
+                            <ul class="footer-socials list-inline">
                                 <li>
-                                    <a href="#"><?php echo $this->translate('Latest News about OSTIM VE') ?></a>
-                                    <small><?php echo $this->translate('February') ?> 8, 2016</small>
+                                    <a href="https://www.facebook.com/OstimOSB/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#"><?php echo $this->translate('OSTIM Clusters News') ?></a>
-                                    <small><?php echo $this->translate('January') ?> 23, 2016</small>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
+                                        <i class="fa fa-skype"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#"><?php echo $this->translate('New Project Calls') ?></a>
-                                    <small><?php echo $this->translate('December') ?> 15, 2016</small>
+                                    <a href="https://plus.google.com/+OST%C4%B0MOSB1967" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/ostim-osb-2b94b847" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ostimosb/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/ostimosb" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
+                                        <i class="fa fa-dribbble"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
-                    </div><!--/col-md-3-->  
-                    <!-- End Latest --> 
-
-                    <!-- Link List -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <div class="headline"><h2><?php echo $this->translate('Useful Links') ?></h2></div>
-                        <ul class="list-unstyled link-list">
-                            <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('Ostim Organized Industrial Zone') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('Turkish Ministry of SIT') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('TUBITAK') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('KOSGEB') ?></a><i class="fa fa-angle-right"></i></li>
-                            <!--<li><a href="#"><?php echo $this->translate('') ?></a><i class="fa fa-angle-right"></i></li>-->
-                        </ul>
-                    </div><!--/col-md-3-->
-                    <!-- End Link List -->                    
-
-                    <!-- Address -->
-                    <div class="col-md-3 map-img md-margin-bottom-40">
-                        <div class="headline"><h2><?php echo $this->translate('Contact Us') ?></h2></div>                         
-                        <address class="md-margin-bottom-40">
-                            100. Yıl Bulvarı No: 101/A <br />
-                            OSTIM, Ankara <br />
-                            Turkey <br />
-                            <?php echo $this->translate('Phone') ?> :  +90 312 385 50 90 <br />
-                            <?php echo $this->translate('Fax') ?>:    +90 312 354 58 98 <br />
-                            <?php echo $this->translate('Email') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
-                        </address>
-                    </div><!--/col-md-3-->
-                    <!-- End Address -->
-                </div>
-            </div> 
-        </div><!--/footer-->
-
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">                     
-                        <p>
-                            2016 &copy; <?php echo $this->translate('All Rights Reserved.') ?>
-                            <a href="#"><?php echo $this->translate('Privacy Policy') ?></a> | <a href="#"><?php echo $this->translate('Terms of Service') ?></a>
-                        </p>
+                        <!-- End Social Links -->
                     </div>
-
-                    <!-- Social Links -->
-                    <div class="col-md-6">
-                        <ul class="footer-socials list-inline">
-                            <li>
-                                <a href="https://www.facebook.com/OstimOSB/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
-                                    <i class="fa fa-skype"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://plus.google.com/+OST%C4%B0MOSB1967" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/in/ostim-osb-2b94b847" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/ostimosb/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/ostimosb" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
-                                    <i class="fa fa-dribbble"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End Social Links -->
-                </div>
-            </div> 
-        </div><!--/copyright-->
-    </div>        
-    <!--=== End Footer Version 1 ===-->
-</div><!--/wrapper-->
+                </div> 
+            </div><!--/copyright-->
+        </div>        
+        <!--=== End Footer Version 1 ===-->
+    </div><!--/wrapper-->

@@ -20,7 +20,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data);
+            console.log(data);
 
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
 
@@ -58,9 +58,11 @@ $(document).ready(function () {
             $('#companyInfoPH').append(data[0].country_names + "<br/>");
             $('#companyInfoPH').append(window.lang.translate("Total number of employees") + ": ");
             $('#companyInfoPH').append(data[0].number_of_employees + "<br/>");
-            $('#companyInfoPH').append(window.lang.translate('Foundation_Date') + ": ");
-            $('#companyInfoPH').append(data[0].foundation_date + "<br/>");
+            $('#companyInfoPH').append(window.lang.translate('Foundation Date') + ": ");
+            $('#companyInfoPH').append(data[0].foundation_year + "<br/>");
 
+            $('#company_desc_PH').empty();
+            $('#company_desc_PH').append(data[0].about + "<br/>");
             /*
              $('#companyInfoPH').append(window.lang.translate('Engineers') + ": ");
              $('#companyInfoPH').append(data[0].number_of_engineer + "<br/>");
@@ -149,6 +151,8 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (data4) {
 
+                    console.log(data4);
+
                     $('#customersPH').empty();
 
                     var i;
@@ -157,27 +161,27 @@ $(document).ready(function () {
                     if (data4.length !== null) {
                         for (i = 0; i < data4.length; i++) {
 
-                            if (data4[i].customer_logo === null) {
-                                c_logo = "image_not_found.png"
-                            } else {
-                                c_logo = data4[i].customer_logo;
-                            }
-
-                            var referencesPHAppending =
-                                    "<div class='owl-item' style='width: 134px;'>"
-                                    + "<div class='item'>"
-                                    + "<img src='../../../onyuz/standard/assets/img/customers/"
-                                    + c_logo
-                                    + "')?>"
-                                    + "alt=''"
-                                    + "</div>"
+//                            if (data4[i].customer_logo === null) {
+//                                c_logo = "image_not_found.png";
+//                            } else {
+//                                c_logo = data4[i].customer_logo;
+//                            }
+                            var colors = ['dark', 'blue', 'aqua', 'red', 'yellow', 'purple', 'green', 'orange'];
+//                            console.log(colors);
+                            var ran_color = colors[Math.floor(Math.random() * colors.length)];
+//                            console.log(ran_color);
+                            var customersPHAppending =
+                                    "<div style='float: left;margin-left:5px'>"
+                                    + "<button class='btn-u btn-brd btn-brd-hover rounded-2x "
+                                    + "btn-u-"
+                                    + ran_color
+                                    + " btn-u-lg'"
+                                    + "type='button'>"
+                                    + data4[i].customer_names
+                                    + "</button>"
                                     + "</div>";
 
-                            "<li><i class='fa fa-check color-green'></i>"
-                                    + data4[i].customer_names
-                                    + "</li>";
-
-                            $('#customersPH').append(referencesPHAppending);
+                            $('#customersPH').append(customersPHAppending);
                         }
                     }
                 }
