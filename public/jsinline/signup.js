@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     /**
      * multilanguage plugin 
      * @type Lang
@@ -241,12 +240,14 @@ $.ajax({
                 selectText: window.lang.translate("Please select a country from list..."),
                 imagePosition: 'right',
                 onSelected: function (selectedData) {
-
+                    if (selectedData.selectedData.value !== 0) {
+                        
+                        window.cityList = selectedData.selectedData.attributes.citylist;                        
+                        window.boroughList = false;
+                    }
                     selectedCountryId = selectedData.selectedData.value;
-//                        console.log(selectedCountryId);
+//                    selectedCountryList = selectedData                    
                     userCityDropDownUpdate();
-//                        console.log(selectedData);
-//                        console.log(selectedCountryId);
                     //callback function: do something with selectedData;
                 }
             });
@@ -258,7 +259,6 @@ $.ajax({
                 selectText: window.lang.translate("Please select a country from list..."),
                 imagePosition: 'right',
                 onSelected: function (selectedData) {
-
                     selectedCompanyCountryId = selectedData.selectedData.value;
                 }
             });
@@ -280,15 +280,14 @@ function userCityDropDownUpdate() {
 
     $("#usercity").empty();
     $("#userdistrict").empty();
-    if (selectedCountryId === '91') {
 
+    if (window.cityList === true) {
         $('#cityNameSection').hide();
         $('#cityDropdownSection').show();
-        $('#districtDropdownSection').show();
+
     } else {
         $('#cityNameSection').show();
         $('#cityDropdownSection').hide();
-        $('#districtDropdownSection').hide();
     }
 
     $.ajax({
@@ -314,7 +313,11 @@ function userCityDropDownUpdate() {
                     selectText: window.lang.translate("Please select a city from list..."),
                     imagePosition: 'right',
                     onSelected: function (selectedData) {
+//                        console.log(selectedData.selectedData);
                         selectedCityId = selectedData.selectedData.value;
+                        if (selectedCityId !== 0) {
+                            window.boroughList = selectedData.selectedData.attributes.boroughlist;
+                        }
 //                            console.log(selectedData);
 //                            console.log(selectedCityId);
                         districtDropDownUpdate();
@@ -340,6 +343,13 @@ function districtDropDownUpdate() {
 
     $("#userdistrict").empty();
     $("#uservillage").empty();
+
+    if (window.boroughList === true) {
+        $('#districtDropdownSection').show();
+    } else {
+        $('#districtDropdownSection').hide();
+    }
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
@@ -1292,6 +1302,7 @@ function companyInfoSubmission() {
                 tax_no: $('#companyTaxNumber').val(),
                 sgk_sicil_no: $('#companySocialSecurityNumber').val(),
                 foundation_year: $('#companyFoundationDate').val(),
+                foundation_yearx: window.okan,
                 duns_number: $('#companyDUNSNumber').val(),
                 description: $('#companyDescription').val(),
                 web_address: $('#companyWebAddress').val()
@@ -1900,5 +1911,15 @@ if ($('#pktemp').val().length) {
                     {field: 'profile_public', sortable: true, width: 100}
                 ]
     });
-}
-;
+};
+
+function milliseconds()
+{
+    var input_date = $('#companyFoundationDate').val();
+    var entered_date = new Date(input_date);
+    window.date_value = entered_date.getTime();    
+    window.okan = Math.round(window.date_value/1000.0);    
+    console.log(window.date_value);
+    console.log(okan);
+    
+};

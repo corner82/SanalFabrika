@@ -140,6 +140,7 @@ $(document).ready(function () {
                 }
             });
 
+
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -184,6 +185,45 @@ $(document).ready(function () {
                             $('#customersPH').append(customersPHAppending);
                         }
                     }
+                }
+            });
+
+
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+                data: {url: 'fillCompanyInfoSectorsGuest_infoFirmProfile',
+                    language_code: $("#langCode").val(),
+                    npk: $('#selectedCompanyNpk').val()
+                },
+                method: "GET",
+                dataType: "json",
+                success: function (data5) {
+                    $("#com_sec_list").empty();
+                    var i;
+
+                    for (i = 0; i < data5.length; i++) {
+
+                        var appending =
+                                "<tr>"
+                                + "<td>"
+                                + "<img class='sec_logo' src='"
+                                + "https://"
+                                + window.location.hostname
+                                + "/onyuz/standard/assets/img/sfClients/logos/"
+                                + data5[i].logo
+                                + "' alt=''>"
+                                + "</td>"
+                                + "<td>"
+                                + "<h5>"
+                                + data5[i].sector_name
+                                + "</h5>"
+                                + "</td>"
+                                + "</tr>";
+                        console.log(appending);
+                        $("#com_sec_list").append(appending);
+                    }
+
                 }
             });
         }

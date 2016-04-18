@@ -45,7 +45,7 @@ var Masking = function () {
             /*
              * Data Masks
              */
-            $("#companyFoundationDate").mask('99/99/9999', {placeholder: 'X'});
+            $("#companyFoundationDate").mask('9999/99/99', {placeholder: 'X'});
             
 //            if(selectedCountry == 'Turkey'){
 //                

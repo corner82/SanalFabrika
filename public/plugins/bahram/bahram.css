@@ -387,6 +387,11 @@ scrolling table with fixed first column
     max-height: 100% !important;
 }
 
+.sec_logo{
+    max-width: 50px;
+    max-height: 50px;
+}
+
 /*
 References logos section in company profile page Css override
 */
