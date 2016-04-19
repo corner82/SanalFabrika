@@ -133,6 +133,7 @@ return array(
     ),
     'ACL_pages' => array(
         'consultant' => array(
+                         'parent' => 'guest',
                          'action' => array('sfdm' => array ('index',
                                                             'profile',
                                                             'confirm',
