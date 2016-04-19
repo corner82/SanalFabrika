@@ -67,22 +67,22 @@ function gotLink(clicked_Id) {
 
     machine_map['cnc_machine_data'] =
             [
-                ["Mazak", "VariAxis II", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/Mazak_VariAxisII.jpg"],
-                ["Mazak", "INTEGREX j-200 (500U)", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/Mazak_INTEGREX-j-200-(500U).jpg"],
-                ["EMCO", "TURN CNC with C axes", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/EMCO_TURNCNCwithCaxes.jpg"],
-                ["YANG", "CNC Turning Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/YANG_CNCTurningLathe.jpg"],
-                ["TSUGAMI", "CNC Automatic Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/images/EMGE_Machines/TSUGAMI_CNCAutomaticLathe.jpg"]
+                ["Mazak", "VariAxis II", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/Mazak_VariAxisII.jpg"],
+                ["Mazak", "INTEGREX j-200 (500U)", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/Mazak_INTEGREX-j-200-(500U).jpg"],
+                ["EMCO", "TURN CNC with C axes", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/EMCO_TURNCNCwithCaxes.jpg"],
+                ["YANG", "CNC Turning Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/YANG_CNCTurningLathe.jpg"],
+                ["TSUGAMI", "CNC Automatic Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/TSUGAMI_CNCAutomaticLathe.jpg"]
             ];
     machine_map['turning_machine_data'] =
             [
-                ["METAL SUPER 2000", "Turning Lathe Universal", "1", "2000", "Yes", "#"],
-                ["TEZSAN TOS", "Turning Lathe Universal", "1", "2000", "Yes", "#"],
-                ["MEUSER", "Turning Lathe Universal", "1", "2000", "Yes", "#"],
-                ["ROVELVER 20", "Turning Lathe", "1", "2000", "Yes", "#"],
-                ["SCHAUBLIN ROVELVER", "102N Turning Lathe", "2", "2000", "Yes", "#"],
-                ["EMCO Mailer ", "maximat V13 Turning lathe", "1", "2000", "Yes", "#"],
-                ["BECHLER", "Automat Turning Lathe", "2", "2000", "Yes", "#"],
-                ["STROHM SLIDING", "Turning Lathe", "4", "2000", "Yes", "#"]
+                ["METAL SUPER 2000", "Turning Lathe Universal", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
+                ["TEZSAN TOS", "Turning Lathe Universal", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
+                ["MEUSER", "Turning Lathe Universal", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
+                ["ROVELVER 20", "Turning Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
+                ["SCHAUBLIN ROVELVER", "102N Turning Lathe", "2", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
+                ["EMCO Mailer ", "maximat V13 Turning lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
+                ["BECHLER", "Automat Turning Lathe", "2", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
+                ["STROHM SLIDING", "Turning Lathe", "4", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"]
             ];
     machine_map['milling_machine_data'] =
             [
