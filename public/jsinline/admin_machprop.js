@@ -3,7 +3,7 @@ $(document).ready(function () {
     /**
      * easyui tree extend for 'unselect' event
      * @author Mustafa Zeynel Dağlı
-     * @since 31/03/2016
+     * @since 04/04/2016
      */
     $.extend($.fn.tree.methods,{
             unselect:function(jq,target){
@@ -28,174 +28,101 @@ $(document).ready(function () {
     });
     lang.change($('#ln').val());
     
-    
-    /**
-     * user roles  select box filling
-     * @author Mustafa Zeynel Dağlı
-     * @since 31/03/2016
-     */
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkFillComboBoxRoles_sysAclRoles' ,
-                language_code : 'tr',
-                main_group : 2,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-            if(data.length!==0) {
-                $('#dropdownRoles').ddslick({
-                    height : 200,
-                    data : data, 
-                    width:'100%',
-                    //selectText: "Select your preferred social network",
-                    imagePosition:"right",
-                    onSelected: function(selectedData){
-                        if(selectedData.selectedData.value>0) {
-                            /*$('#tt_tree_menu').tree({
-                                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                            });*/
-                            
-                            
-                             /*
-                            * 
-                            * @type @call;$@call;tree
-                            * Menu tree
-                            * Mustafa Zeynel Dağlı
-                            * 29/03/2016
-                            */
+    var selectedNode;
 
-                           $('#tt_tree_menu').tree({
-                               url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                               method: 'get',
-                               animate: true,
-                               checkbox: true,
-                               cascadeCheck: false,
-                               lines: true,
-                               onBeforeCheck : function (node) {        
-                               },
-                               onDblClick: function (node) {
-                                   
-                                /*var checked = $('#tt_tree_menu').tree('getChecked');
-                                    console.log(node);
-                                    $.each(checked , function(index, element) {
-                                        console.log(element);
-                                        if(node.id!=element.id) {
+    /*
+    * 
+    * @type @call;$@call;tree
+    * machine Category tree
+    * Mustafa Zeynel Dağlı
+    * 30/03/2016
+    */
 
-                                            $('#tt_tree_menu').tree('uncheck', element.target); 
-                                        }
+   $('#tt_tree_menu2').tree({
+       url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillJustMachineToolGroupsBootstrap_sysMachineToolGroups&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+       method: 'get',
+       animate: true,
+       checkbox: true,
+       cascadeCheck: false,
+       lines: true,
+       onBeforeCheck : function (node) {        
+       },
+       onDblClick: function (node) {
+       },
+       onAfterEdit: function (node) {
 
-                                })*/
-                                      
-                                /*editNode = $(this).tree('getData', node.target);
-                                beforeEditTextValue = $(this).tree('getData', node.target).text;
-                                parent = $(this).tree('getParent', node.target);
+           id = editNode.id;
+           root = $(this).tree('getRoot', node.target);
+           if (editNode.text === '') {
 
-                                if (parent == null) {
-                                    parentId = 0;
-                                } else {
-                                    parentId = parent.id;
-                                }
+               testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
+               testBlockuiRoleNameChangeNull.blockuiWrapper('show');
 
-                                $(this).tree('beginEdit', node.target);*/
-                               },
-                               onAfterEdit: function (node) {
+               editNode.text = beforeEditTextValue;
 
-                                   id = editNode.id;
-                                   root = $(this).tree('getRoot', node.target);
-                                   if (editNode.text === '') {
+               $('#tt_tree_menu2').tree('update', {
+                   target: node.target,
+                   text: beforeEditTextValue
+               });
 
-                                       testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
-                                       testBlockuiRoleNameChangeNull.blockuiWrapper('show');
+           } else {
 
-                                       editNode.text = beforeEditTextValue;
-
-                                       $('#tt_tree_menu').tree('update', {
-                                           target: node.target,
-                                           text: beforeEditTextValue
-                                       });
-
-                                   } else {
-
-                                       testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
-                                           showOverlay: true
-                                       });
-                                       testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
-                                       active = editNode.attributes.active;
-                                   }
-                                   },
-                                onLoadSuccess: function (node, data) {
-                                loader.loadImager('removeLoadImage');
-                                },
-                                onClick: function (node) {
-
-                                    selectedRoot = $(this).tree('getRoot', node.target);
-                                    selectedItem = $(this).tree('getData', node.target);
-                                    console.log(selectedItem);
-                                    $('#menu_name').val(selectedItem.text);
-                                    $('#menu_name_eng').val(selectedItem.attributes.text_eng);
-                                    $('#url').val(selectedItem.attributes.url);
-                                    $('#icon_class').val(selectedItem.attributes.icon_class);
-                                    $('#updateMenu').attr('disabled', false);
-                                    $('#insertMenu').attr('disabled', true);
-
-                                },
-                                onCheck: function (node) {
-                              
-                                },
-                                formatter: function (node) {
-                                    var s = node.text;
-                                    var id = node.id;
-                                    if (node.attributes.active == 0) {
-                                        s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                                             <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveMenuDialog('+id+');"></i>&nbsp;&nbsp;\n\
-                                            <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMenuDialog('+id+', \''+node.text+'\')"></i>';
-                                        return s;
-
-                                    } else if (node.attributes.active == 1) {
-                                        s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                                        <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeMenuDialog('+id+');"></i>';
-                                        s = "<font color = '#B6B6B4'>" + s + "</font>"
-                                        //buda koşullu kullanım için örnek satır    
-                                        /*if (node.children) {
-                                            s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
-                                        }*/
-                                        return s;
-                                    }
-                                }
-                            });
-                        }
-                        //console.log(selectedData.selectedData.value);
-                       /* if(selectedData.selectedData.value==6) {
-                            $('#dropdownOperationsToolsContainer').loadImager();
-                            $('#dropdownOperationsToolsContainer').loadImager('appendImage');
-                            window.getOperationTypeTools();
-                        } else {
-                            $('#dropdownOperationsToolsContainer').loadImager();
-                            $('#dropdownOperationsToolsContainer').loadImager('appendImage');
-                            $('#dropdownOperationsTools').ddslick('destroy');
-                            window.getOperationTypeToolsPleaseSelect();
-                        }*/
-                    }   
-                });
-            } else {
-                console.error('"pkFillComboBoxRoles_sysAclRoles" servis datası boştur!!');
-            }
+               testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
+                   showOverlay: true
+               });
+               testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
+               active = editNode.attributes.active;
+           }
+           },
+        onLoadSuccess: function (node, data) {
+        loader.loadImager('removeLoadImage');
         },
-        error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkFillComboBoxRoles_sysAclRoles" servis hatası->'+textStatus);
+        onClick: function (node) {
+            selectedRoot = $(this).tree('getRoot', node.target);
+            selectedItem = $(this).tree('getData', node.target);
+            //console.log(selectedItem);
+            $('#group_name').val(selectedItem.text);
+            $('#group_name_eng').val(selectedItem.attributes.group_name_eng);
+            //$('#url').val(selectedItem.attributes.url);
+            $('#icon_class').val(selectedItem.attributes.icon_class);
+            $('#updateMachineCategory').attr('disabled', false);
+            $('#insertMachineCategory').attr('disabled', true);
+
+        },
+        onCheck: function (node) {
+
+        },
+        formatter: function (node) {
+            var s = node.text;
+            var id = node.id;
+            /*var childrenNodes = $(this).tree('getChildren', node.target);
+            console.log(childrenNodes);*/
+            
+            var parent = $(this).tree('getParent', node.target);
+            console.warn(parent);
+            
+            console.log(node);
+            
+            if(node.state == 'open') {
+                s += '&nbsp;\n\
+                     <i class="fa fa-hand-o-left" title="Makina özellikleri getir" onclick="passiveMachineDialog('+id+');"></i>&nbsp;&nbsp;\n\
+                    <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMachPropDialog('+id+', \''+node.text+'\')"></i>';
+                return s;
+            }
+            return s;
+            
         }
     });
-
     
+    
+    
+
     // Left menuyu oluşturmak için çağırılan fonksiyon...
     $.fn.leftMenuFunction();
 
     //Validation forms binded...
-    jQuery("#machinePropForm").validationEngine();
+    jQuery("#unitForm").validationEngine();
     
-
-
     /*
      * 
      * @type @call;$@call;loadImager
@@ -207,299 +134,340 @@ $(document).ready(function () {
      */
     var loader = $("#loading-image").loadImager();
 
-   
+    var sm  = $(window).successMessage();
+    var dm  = $(window).dangerMessage();
+    var wm  = $(window).warningMessage();
+    var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
+                                                actionButtonLabel : 'İşleme devam et'});
+                                            
+    var tagBuilder = $(window).tagCabin({
+        tagDeletable : true,
+        
+        tagRemoved : function(event, data) {
+            console.log(data);
+            alert('tag removed-->'+ data);
+        },
+        tagCopied : function(event, data) {
+            console.log(data);
+            alert('tag copied-->'+ data);
+        }
+    });
+    
+    var data = '[{"id":"2","name":"\u0130malat","state":"closed","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-barcode","group_name_eng":"Manufacturing","machine":1}},{"id":"52","name":"Test Cihazlar\u0131","state":"open","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-flask","group_name_eng":"Test Devices","machine":0}},{"id":"50","name":"test1","state":"open","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-circle-o","group_name_eng":"test1 eng","machine":0}},{"id":"51","name":"test2","state":"closed","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-circle-o","group_name_eng":"test2 eng","machine":0}}]';
+    tagBuilder.tagCabin('addTags', data);  
+    
 
+   
     
    /**
-    * wrapper class for pop up and delet machine property
+    * wrapper class for pop up and active menu item
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.deleteMachinePropDialog= function(nodeID){
+   window.deleteUnitDialog= function(nodeID){
        var nodeID = nodeID;
-        BootstrapDialog.show({
-            type: BootstrapDialog.TYPE_WARNING,
-            title: 'Makina Özellik Silme İşlemi Gerçekleştirmek Üzeresiniz!',
-            message: 'Makina özellik Öğesini silmek üzeresiniz, menü silme işlemi geri alınamaz!! ',
-            buttons: [ {
-                icon: 'glyphicon glyphicon-ban-circle',
-                label: 'Vazgeç',
-                cssClass: 'btn-warning',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }, {
-                icon: 'glyphicon glyphicon-ok-sign',
-                label: 'Sil',
-                cssClass: 'btn-success',
-                action: function(dialogItself){
-                    dialogItself.close();
-                    deleteMachineProp(nodeID);
-                }
-            }]
-        });
+       wcm.warningComplexMessage({onConfirm : function(event, data) {
+           deleteUnit(nodeID);
+       }
+       });
+       wcm.warningComplexMessage('show', 'Birim Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                         'Birim Öğesini silmek üzeresiniz, birim silme işlemi geri alınamaz!! ');
    }
    
    /**
-    * set machine property delete
+    * set unit item delete
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.deleteMachineProp = function(nodeID) {
-       $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkDelete_leftnavigation' ,
-                id : nodeID,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-            if(data.length!==0) {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_SUCCESS,
-                    title: 'Makina Özellik Silme İşlemi Başarılı...',
-                    message: 'Makina özellik Silme işlemini gerçekleştirdiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ok-sign',
-                        label: 'Kapat',
-                        cssClass: 'btn-success',
-                        action: function(dialogItself){
-                            dialogItself.close();
+   window.deleteUnit = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
+       selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       
+       var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkDelete_sysUnits' ,
+                            id : nodeID,
+                            pk : $("#pk").val()
                         }
-                    }]
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                         'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
+                console.error('"pkDelete_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({ onShown : function(event, data) {
+                        loader.loadImager('removeLoadImage');
+                    }
                 });
-                $('#tt_tree_menu').tree('reload');
-                            
-            } else {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Makina Özellik Silme İşlemi Başarısız...',
-                    message: 'Makina özellik Silme işlemini gerçekleştiremediniz,Sistem Yneticisi ile temasa geçiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ban-circle',
-                        label: 'Kapat',
-                        cssClass: 'btn-danger',
-                        action: function(dialogItself){
-                            dialogItself.close();
-                        }
-                    }]
+                sm.successMessage('show', 'Birim Silme İşlemi Başarılı...', 
+                                          'Birim Silme işlemini gerçekleştirdiniz... ')
+                selectedTreeItem = $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+             },
+             onErrorDataNull : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                         'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
+                console.error('"pkDelete_sysUnits" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                         'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
+             },
+             onError23503 : function (event, data) {
+                 dm.dangerMessage({ onShown : function(event, data) {
+                        loader.loadImager('removeLoadImage');
+                    }
                 });
-                console.error('"pkDelete_leftnavigation" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkDelete_leftnavigation" servis hatası->'+textStatus);
-        }
-    });
+                dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
+                                         'Birim kategorisi altında kayıtlı birim olduğu için işlemi gerçekleştiremezsiniz, önce birim kaydının silinmasi gerekmektedir... ' );
+             },
+             onError23505 : function (event, data) {
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    /**
-    * wrapper class for pop up and passive machine property
+    * wrapper class for pop up and passive unit item
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.passiveMachinePropDialog= function(nodeID){
+   window.passiveUnitDialog= function(nodeID){
         var nodeID = nodeID;
-        BootstrapDialog.show({
-            type: BootstrapDialog.TYPE_WARNING,
-            title: 'Makina Özellik Ögesini Pasifleştirmek Üzeresiniz!',
-            message: 'Makina özellik öğesini pasifleştirmek üzeresiniz !! ',
-            buttons: [ {
-                icon: 'glyphicon glyphicon-ban-circle',
-                label: 'Vazgeç',
-                cssClass: 'btn-warning',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }, {
-                icon: 'glyphicon glyphicon-ok-sign',
-                label: 'Pasif Yap',
-                cssClass: 'btn-success',
-                action: function(dialogItself){
-                    dialogItself.close();
-                    passiveMachineProp(nodeID);
-                }
-            }]
-        });
+        wm.warningComplexMessage({ 
+            onConfirm : function() {
+                passiveUnit(nodeID);
+            }
+       });
+       wm.warningComplexMessage('show', 'Birim Ögesini Pasifleştirmek Üzeresiniz!',
+                                 'Birim öğesini pasifleştirmek üzeresiniz !! ');
    }
    
    /**
-    * set machine property passive
+    * set unit item passive
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.passiveMachineProp = function(nodeID) {
-       $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkUpdateMakeActiveOrPassive_leftnavigation' ,
-                id : nodeID,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-            if(data.length!==0) {
-                if(data.found) {
-                   BootstrapDialog.show({
-                        type: BootstrapDialog.TYPE_SUCCESS,
-                        title: 'Makina Özellik Pasif İşlemi Başarılı...',
-                        message: 'Makina özellik Pasifleştirme işlemini gerçekleştirdiniz... ',
-                        buttons: [ {
-                            icon: 'glyphicon glyphicon-ok-sign',
-                            label: 'Kapat',
-                            cssClass: 'btn-success',
-                            action: function(dialogItself){
-                                dialogItself.close();
+   window.passiveUnit = function(nodeID) {
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
+       selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       
+       var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkUpdateMakeActiveOrPassive_sysUnits' ,
+                            id : nodeID,
+                            pk : $("#pk").val()
+                        }
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
+                                     'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
+                console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({
+                            onShown : function (event, data) {
+                                loader.loadImager('removeLoadImage');
                             }
-                        }]
-                    });
-                    $('#tt_tree_menu').tree('reload'); 
+                });
+                sm.successMessage('show', 'Birim Pasif İşlemi Başarılı...', 
+                                          'Birim Pasifleştirme işlemini gerçekleştirdiniz... ')                   
+                var nodeState;
+                if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
+                    nodeState = 'open';
                 } else {
-                    BootstrapDialog.show({
-                        type: BootstrapDialog.TYPE_DANGER,
-                        title: 'Makina Özellik Pasifleştirme İşlemi Başarısız...',
-                        message: 'Makina özellik pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                        buttons: [ {
-                            icon: 'glyphicon glyphicon-ok-sign',
-                            label: 'Kapat',
-                            cssClass: 'btn-danger',
-                            action: function(dialogItself){
-                                dialogItself.close();
-                            }
-                        }]
+                    nodeState = 'closed';
+                }
+
+                var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
+                var node = selectedTreeItem;
+                $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                if(jQuery.type(parentNode) === "null") { 
+                    $('#tt_tree_menu').tree('append', {
+                        data: [{
+                                attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                            unitcode_eng : selectedTreeItem.attributes.unitcode_eng, 
+                                            system_id : selectedTreeItem.attributes.system_id,
+                                            system : selectedTreeItem.attributes.system,
+                                            system_eng : selectedTreeItem.attributes.system_eng,
+                                            abbreviation : selectedTreeItem.attributes.abbreviation,
+                                            abbreviation_eng : selectedTreeItem.attributes.abbreviation_eng,
+                                            unit_eng : selectedTreeItem.attributes.unit_eng,
+                                            unit : selectedTreeItem.attributes.unit,
+                                            active: 1,},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
                     });
-                }           
-            } else {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Makina Özellik Pasifleştirme İşlemi Başarısız...',
-                    message: 'Makina özellik pasifleştirme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ban-circle',
-                        label: 'Kapat',
-                        cssClass: 'btn-danger',
-                        action: function(dialogItself){
-                            dialogItself.close();
-                        }
-                    }]
+                } else {
+                    $('#tt_tree_menu').tree('append', {
+                        parent: parentNode.target,
+                        data: [{
+                                attributes:{notroot: node.attributes.notroot, 
+                                            text_eng: node.attributes.text_eng, 
+                                            active: 1, 
+                                            url: node.attributes.url, 
+                                            icon_class: node.attributes.icon_class},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
+                    });
+                }
+             },
+             onErrorDataNull : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
+                                         'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
+                console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage({ onShown : function(event, data) {
+                            loader.loadImager('removeLoadImage');
+                            }
                 });
-                console.error('"pkDelete_leftnavigation" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkDelete_leftnavigation" servis hatası->'+textStatus);
-        }
-    });
+                dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
+                                         'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    /**
-    * wrapper class for pop up and active machine property
+    * wrapper class for pop up and active unit item
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.activeMachinePropDialog= function(nodeID){
+   window.activeUnitDialog= function(nodeID){
         var nodeID = nodeID;
-        BootstrapDialog.show({
-            type: BootstrapDialog.TYPE_WARNING,
-            title: 'Makina Özellik Ögesini Aktifleştirmek Üzeresiniz!',
-            message: 'Makina özellik öğesini aktifleştirmek üzeresiniz !! ',
-            buttons: [ {
-                icon: 'glyphicon glyphicon-ban-circle',
-                label: 'Vazgeç',
-                cssClass: 'btn-warning',
-                action: function(dialogItself){
-                    dialogItself.close();
-                }
-            }, {
-                icon: 'glyphicon glyphicon-ok-sign',
-                label: 'Aktif Yap',
-                cssClass: 'btn-success',
-                action: function(dialogItself){
-                    dialogItself.close();
-                    activeMachineProp(nodeID);
-                }
-            }]
+        wcm.warningComplexMessage({onConfirm : function(event, data) {
+            activeUnit(nodeID);
+        }
         });
+        wcm.warningComplexMessage('show', 'Birim Ögesini Aktifleştirmek Üzeresiniz!', 
+                                          'Birim öğesini aktifleştirmek üzeresiniz !! ');
    }
    
    /**
-    * set machine property active
+    * set unit item active
     * @param {integer} nodeID
     * @returns {null}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.activeMachineProperty = function(nodeID) {
-       $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkUpdateMakeActiveOrPassive_leftnavigation' ,
-                id : nodeID,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-            if(data.length!==0) {
-                if(data.found) {
-                    BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_SUCCESS,
-                    title: 'Makina Özellik Aktifleştirme İşlemi Başarılı...',
-                    message: 'Makina özellik aktifleştirme işlemini gerçekleştirdiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ok-sign',
-                        label: 'Kapat',
-                        cssClass: 'btn-success',
-                        action: function(dialogItself){
-                            dialogItself.close();
+   window.activeUnit = function(nodeID) {
+
+       var loader = $("#loading-image-crud").loadImager();
+       loader.loadImager('appendImage');
+       selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url : 'pkUpdateMakeActiveOrPassive_sysUnits' ,
+                            id : nodeID,
+                            pk : $("#pk").val()
                         }
-                    }]
-                });
-                $('#tt_tree_menu').tree('reload');
-                } 
-                else {
-                   BootstrapDialog.show({
-                        type: BootstrapDialog.TYPE_DANGER,
-                        title: 'Makina Özellik Aktifleştirme İşlemi Başarısız...',
-                        message: 'Makina özellik aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                        buttons: [ {
-                            icon: 'glyphicon glyphicon-ok-sign',
-                            label: 'Kapat',
-                            cssClass: 'btn-danger',
-                            action: function(dialogItself){
-                                dialogItself.close();
-                            }
-                        }]
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                         'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+                 console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                 sm.successMessage({ onShown : function(event, data){
+                            loader.loadImager('removeLoadImage');
+                        }
                     });
-               }          
-            } else {
-                BootstrapDialog.show({
-                    type: BootstrapDialog.TYPE_DANGER,
-                    title: 'Menü Aktifleştirme İşlemi Başarısız...',
-                    message: 'Menü aktifleştirme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ',
-                    buttons: [ {
-                        icon: 'glyphicon glyphicon-ban-circle',
-                        label: 'Kapat',
-                        cssClass: 'btn-danger',
-                        action: function(dialogItself){
-                            dialogItself.close();
-                        }
-                    }]
-                });
-                console.error('"pkDelete_leftnavigation" servis datası boştur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkDelete_leftnavigation" servis hatası->'+textStatus);
-        }
-    });
+                sm.successMessage('show', 'Birim Aktifleştirme İşlemi Başarılı...', 
+                                          'Birim aktifleştirme işlemini gerçekleştirdiniz... ')
+                var nodeState;
+                if($('#tt_tree_menu').tree('isLeaf', selectedTreeItem.target)) {
+                    nodeState = 'open';
+                } else {
+                    nodeState = 'closed';
+                }
+
+                var parentNode = $('#tt_tree_menu').tree('getParent', selectedTreeItem.target);
+                var node = selectedTreeItem;
+                $('#tt_tree_menu').tree('remove', selectedTreeItem.target);
+                if(jQuery.type(parentNode) === "null") { 
+                    $('#tt_tree_menu').tree('append', {
+                        data: [{
+                                attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                            unitcode_eng : selectedTreeItem.attributes.unitcode_eng, 
+                                            system_id : selectedTreeItem.attributes.system_id,
+                                            system : selectedTreeItem.attributes.system,
+                                            system_eng : selectedTreeItem.attributes.system_eng,
+                                            abbreviation : selectedTreeItem.attributes.abbreviation,
+                                            abbreviation_eng : selectedTreeItem.attributes.abbreviation_eng,
+                                            unit_eng : selectedTreeItem.attributes.unit_eng,
+                                            unit : selectedTreeItem.attributes.unit,
+                                            active: 0,},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
+                    });
+                } else {
+                    $('#tt_tree_menu').tree('append', {
+                        parent: parentNode.target,
+                        data: [{
+                                attributes:{notroot: node.attributes.notroot, 
+                                            text_eng: node.attributes.text_eng, 
+                                            active: 0, 
+                                            url: node.attributes.url, 
+                                            icon_class: node.attributes.icon_class},
+                                id: node.id,
+                                text: node.text,
+                                checked: false,
+                                state : nodeState,
+                            },]
+                    });
+                }
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                         'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+                console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                             'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    /**
@@ -507,123 +475,284 @@ $(document).ready(function () {
     * for 'insert' and 'update' form buttons
     * @returns null
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
    window.regulateButtons = function () {
-       $('#updateMachineProp').attr('disabled', true);
-       $('#insertMachineProp').attr('disabled', false);
-       /*var node = $('#tt_tree_menu').tree('getSelected');
-       $('#tt_tree_menu').tree('unselect', node.target);*/
-       //$('#tt_tree_menu').tree('unselect');
+       $('#updateUnit').attr('disabled', true);
+       $('#insertUnit').attr('disabled', false);
+       
+       $('#unit').val('');
+       $('#unit_eng').val('');
+       $('#abbreviation').val('');
+       $('#abbreviation_eng').val('');
+       
+       $('#unit').attr('disabled',true);
+       $('#unit_eng').attr('disabled',true);
+       $('#abbreviation').attr('disabled',true);
+       $('#abbreviation_eng').attr('disabled',true);
    }
    
    /**
-    * insert machine property
+    * insert unit item
     * @returns {Boolean}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.insertMachinePropWrapper = function (e, nodeID, nodeName) {
+   window.insertMachPropWrapper = function (e, nodeID, nodeName) {
     e.preventDefault();
     var nodeID = nodeID;
     var nodeName = nodeName;
 
-    if ($("#machinePropFormInsert").validationEngine('validate')) {
-        var ddData = $('#dropdownRoles').data('ddslick');
+    if ($("#machPropFormInsert").validationEngine('validate')) {
+        /*var ddData = $('#dropdownUnitSystemsPopup').data('ddslick');
         if(ddData.selectedData.value>0) {
-            insertMachineProp(nodeID, nodeName);
+            insertUnit(nodeID, nodeName);
         } else {
-            BootstrapDialog.show({
-                title: 'Rol Seçiniz',
-                message: 'Lütfen Kullanıcı Rolü Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-        //        closable: false
-            });
-        }
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Metrik Sistem Seçiniz', 'Lütfen Metrik sistem Seçiniz!');
+        }*/
     }
     return false;
    }
    
    /**
-    * opens pop upfor machine property insert
+    * wrapper for machine property insert process
     * @param {type} nodeID
     * @param {type} nodeName
     * @returns {Boolean}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 19/04/2016
     */
-   window.insertMachinePropDialog = function (nodeID, nodeName) {
+   window.insertMachPropDialog = function (nodeID, nodeName) {
     var nodeID = nodeID;
     var nodeName = nodeName;
-    BootstrapDialog.show({
-        title: '"'+ nodeName + '" Makina kategorisine  yeni kategori eklemektesiniz...',
+    BootstrapDialog.show({  
+        title: '"'+ nodeName + '" makina katmanına yeni özellik eklemektesiniz...',
         message: function (dialogRef) {
                     var dialogRef = dialogRef;
-                    var $message = $(' <form id="machinePropFormInsert" method="get" class="form-horizontal">\n\
-                                        <div class="hr-line-dashed"></div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Özellik</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                    var $message = $(' <div class="row">\n\
+                                            <div class="col-md-12">\n\
+                                                <div id="loading-image-crud-popup" class="box box-primary">\n\
+                                                    <form id="machPropFormInsert" method="get" class="form-horizontal">\n\
+                                                    <div class="hr-line-dashed"></div>\n\
+                                                        <div class="form-group" style="padding-top: 10px;" >\n\
+                                                            <label class="col-sm-2 control-label">Birim Sistemi</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <ul id="tt_tree_menu" class="easyui-tree" ></ul>\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="property_name_popup" id="property_name_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">İngilizce Özellik</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birim</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div style="margin-bottom: -10px;" class="tag-container-popup">\n\
+                                                                        <ul class="tag-box"></ul>\n\
+                                                                    </div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="property_name_eng_popup" id="property_name_eng_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Url</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İngilizce Birim</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_eng_popup" id="unit_eng_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input class="form-control validate[required]" type="text" name="url_popup" id="url_popup" />\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="form-group">\n\
-                                                <label class="col-sm-2 control-label">Özellik İkon</label>\n\
-                                                <div class="col-sm-10">\n\
-                                                    <div class="input-group">\n\
-                                                        <div class="input-group-addon">\n\
-                                                            <i class="fa fa-hand-o-right"></i>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birim Kodu</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_popup" id="unitcode_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
                                                         </div>\n\
-                                                        <input value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class_popup" id="icon_class_popup" />\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İngilizce Birim Kodu</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_eng_popup" id="unitcode_eng_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birim Kısaltması</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_popup" id="abbreviation_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İngilizce Birim Kısaltması</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng_popup" id="abbreviation_eng_popup" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="hr-line-dashed"></div>\n\
+                                                        <div class="form-group">\n\
+                                                            <div class="col-sm-10 col-sm-offset-2">\n\
+                                                            <button id="insertUnitPopUp" class="btn btn-primary" type="submit" onclick="return insertMachPropWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
+                                                                <i class="fa fa-save"></i> Kaydet </button>\n\
+                                                            <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
+                                                                <i class="fa fa-remove"></i> Reset </button>\n\
+                                                        </div>\n\
                                                     </div>\n\
-                                                </div>\n\
-                                            </div>\n\
-                                            <div class="hr-line-dashed"></div>\n\
-                                            <div class="form-group">\n\
-                                                <div class="col-sm-10 col-sm-offset-2">\n\
-                                                <button id="insertMenuPopUp" class="btn btn-primary" type="submit" onclick="return insertMachinePropWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
-                                                    <i class="fa fa-save"></i> Kaydet </button>\n\
-                                                <button id="resetForm" class="btn btn-flat" type="reset" " >\n\
-                                                    <i class="fa fa-remove"></i> Reset </button>\n\
+                                                </form>\n\
                                             </div>\n\
                                         </div>\n\
-                                    </form>');
+                                    </div>');
                     return $message;
                 },
         type: BootstrapDialog.TYPE_PRIMARY,
         onshown : function () {
-            $("#machinePropFormInsert").validationEngine();
+            $("#machPropFormInsert").validationEngine();
+            
+            var tagBuilderPopup = $(window).tagCabin({
+                tagCopy      : false,
+                tagDeletable : true,
+                tagBox       : $('.tag-container-popup').find('ul'),
+                tagRemoved : function(event, data) {
+                    console.log(data);
+                    alert('tag removed-->'+ data);  
+                }
+            });
+            tagBuilderPopup.tagCabin('addTag', 2, 'test test  test  test  test ');
+            tagBuilderPopup.tagCabin('addTag', 3, 'test test  test  test  test ');
+            tagBuilderPopup.tagCabin('addTag', 4, 'test test  test  test  test ');
+            tagBuilderPopup.tagCabin('addTag', 5, 'test test  test  test  test ');
+            tagBuilderPopup.tagCabin('addTag', 6, 'test test  test  test  test ');
+            tagBuilderPopup.tagCabin('addTag', 7, 'test test  test  test  test ');
+            tagBuilderPopup.tagCabin('addTag', 8, 'test test  test  test  test ');
+            tagBuilderPopup.tagCabin('addTag', 9, 'test');
+            tagBuilderPopup.tagCabin('addTag', 10, 'test'); 
+            
+            $('#tt_tree_menu').tree({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+                method: 'get',
+                animate: true,
+                checkbox: true,
+                cascadeCheck: false,
+                lines: true,
+                onBeforeCheck : function (node) {        
+                },
+                onDblClick: function (node) {
+                },
+                onAfterEdit: function (node) { 
+                 },
+                onLoadSuccess: function (node, data) {
+                     loader.loadImager('removeLoadImage');
+                 },
+                onClick: function (node) {
+                     selectedNode = node;
+                     selectedRoot = $(this).tree('getRoot', node.target);
+                     selectedItem = $(this).tree('getData', node.target);
+                     //console.log(selectedItem);
+                     $('#updateUnit').attr('disabled', false);
+                     $('#insertUnit').attr('disabled', true);
+                     if(selectedItem.attributes.notroot == true ) {
+                         $('#unit').attr('disabled',false);
+                         $('#unit_eng').attr('disabled',false);
+                         $('#abbreviation').attr('disabled',false);
+                         $('#abbreviation_eng').attr('disabled',false);
+
+                         $('#unitcode').val(selectedItem.text);
+                         $('#unitcode_eng').val(selectedItem.attributes.unitcode_eng);
+                         $('#abbreviation').val(selectedItem.attributes.abbreviation);
+                         $('#abbreviation_eng').val(selectedItem.attributes.abbreviation_eng);
+                         $('#unit').val(selectedItem.attributes.unit);
+                         $('#unit_eng').val(selectedItem.attributes.unit_eng);
+                         /*$('#dropdownUnitSystems').ddslick('select', 
+                                                     {index: selectedItem.attributes.system_id }
+                                                         );*/
+                         $('#dropdownUnitSystems').ddslick('selectByValue', 
+                                                     {index: selectedItem.attributes.system_id,
+                                                     text : selectedItem.text}
+                                                         );
+                         //console.warn($('#dropdownUnitSystems').data('ddslick'));
+
+                     } else {
+                         $('#dropdownUnitSystems').ddslick('selectByValue', 
+                                                     {index: 0,
+                                                     text : selectedItem.text}
+                                                         );
+                         $('#unit').val('');
+                         $('#unit_eng').val('');
+                         $('#abbreviation').val('');
+                         $('#abbreviation_eng').val('');
+
+                         $('#unitcode').val(selectedItem.text);
+                         $('#unitcode_eng').val(selectedItem.attributes.unitcode_eng);
+                         $('#unit').attr('disabled',true);
+                         $('#unit_eng').attr('disabled',true);
+                         $('#abbreviation').attr('disabled',true);
+                         $('#abbreviation_eng').attr('disabled',true);
+                         /*$('#dropdownUnitSystems').ddslick('select', 
+                                                     {index: -1 }
+                                                         );*/
+                        //console.warn($('#dropdownUnitSystems').data('ddslick'));
+                     }
+                 },
+                onCheck: function (node) {
+
+                 },
+                formatter: function (node) {
+                    if(node.attributes.system != null) {
+                        var s = node.text+' ('+node.attributes.system+')';
+                    } else {
+                        var s = node.text;
+                    }
+
+                     var id = node.id;
+                     if (node.attributes.active == 0) {    
+
+                         s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="birim sil" onclick="deleteUnitDialog('+id+')"></i>&nbsp;\n\
+                              <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveUnitDialog('+id+');"></i>&nbsp;&nbsp;\n\
+                             ';
+                         if(node.attributes.notroot == false) {
+                            s += '<i class="fa fa-level-down" title="alt kırılıma birim ekle" onclick="insertMachPropDialog('+id+', \''+node.text+'\')"></i>' 
+                         }
+                         return s;
+
+                     } else if (node.attributes.active == 1) {
+                         s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="birim sil" onclick="deleteUnitDialog('+id+')"></i>&nbsp;\n\
+                         <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeUnitDialog('+id+');"></i>';
+                         s = "<font color = '#B6B6B4'>" + s + "</font>"
+
+                         return s;
+                     }
+                 }
+             });
+
         },
         onhide : function() {
-            $('#machinePropForm')[0].reset();
-            regulateButtons();
+            $('#machPropFormInsert')[0].reset();
+            //regulateButtons();
         },
     });
     
@@ -631,286 +760,354 @@ $(document).ready(function () {
    }
    
    /**
-    * insert machine property
+    * insert unit item
     * @param {type} nodeID
     * @param {type} nodeName
     * @returns {undefined}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.insertMachineProp = function (nodeID, nodeName) {
-        property_name = $('#property_name_popup').val();
-        property_name_eng = $('#property_name_eng_popup').val();
-        icon_class = $('#icon_class_popup').val();
-        url = $('#url_popup').val();
+   window.insertUnit = function (nodeID, nodeName) {
+        var loader = $("#loading-image-crud-popup").loadImager();
+        loader.loadImager('appendImage');
+        unit = $('#unit_popup').val();
+        unit_eng = $('#unit_eng_popup').val();
+        unitcode = $('#unitcode_popup').val();
+        unitcode_eng = $('#unitcode_eng_popup').val();
+        abbreviation = $('#abbreviation_popup').val();
+        abbreviation_eng = $('#abbreviation_eng_popup').val();
         language_code = $('#langCode').val();
-        var ddData = $('#dropdownRoles').data('ddslick');
-        role_id = ddData.selectedData.value;
+        var ddData = $('#dropdownUnitSystemsPopup').data('ddslick');
+        system_id = ddData.selectedData.value;
+        system = ddData.selectedData.text;
+        system_eng = ddData.selectedData.description;
+        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
         //console.log(ddData);
         parent = nodeID;
-       $.ajax({
-           url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkInsert_leftnavigation' ,
-                   language_code : language_code,
-                   icon_class : icon_class,
-                   menu_name_eng : menu_name_eng,
-                   menu_name : menu_name,
-                   urlx : url,
-                   parent : parent,
-                   role_id : role_id,
-                   pk : $("#pk").val()},  
-           type: 'GET',
-           dataType: 'json',
-           success: function (data, textStatus, jqXHR) {
-               if(data.length!==0) {
-                   if(data.found) {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Makina Özellik Kayıt İşlemi Başarılı...',
-                            message: 'Makina özellik kayıt işlemini gerçekleştirdiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-success',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                    $('#machinePropFormInsert')[0].reset();
-                                    $('#machinePropForm')[0].reset();
-                                    regulateButtons();
-                                }
-                            }]
-                        });
-                   } else {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Makina Özellik Kayıt İşlemi Başarısız...',
-                            message: 'Makina özellik kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-danger',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                }
-                            }]
-                        });
-                   }
-                $('#tt_tree_menu').tree('reload');
-               } else {
-                   console.error('"pkInsert_leftnavigation" servis datası boştur!!');
-               }
-           },
-           error: function (jqXHR, textStatus, errorThrown) {           
-               console.error('"pkInsert_leftnavigation" servis hatası->'+textStatus);
-           }
-       });
+        
+        var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkInsert_sysUnits' ,
+                            language_code : language_code,
+                            unit : unit,
+                            unit_eng : unit_eng,
+                            unitcode : unitcode,
+                            unitcode_eng : unitcode_eng,
+                            abbreviation : abbreviation,
+                            abbreviation_eng : abbreviation_eng,
+                            parent_id : parent,
+                            system_id : system_id,
+                            pk : $("#pk").val()
+                        }
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
+                                          'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+                 console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({
+                    onShown: function( event, data ) {
+                        $('#machPropFormInsert')[0].reset();
+                        //$('#unitForm')[0].reset();
+                        regulateButtons();
+                        loader.loadImager('removeLoadImage');
+                    }
+                });
+                sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
+                                          'Birim kayıt işlemini gerçekleştirdiniz... ');
+                $('#tt_tree_menu').tree('append', {
+                    parent: selectedTreeItem.target,
+                    data: [{
+                            attributes:{notroot: true, 
+                                        unitcode_eng : unitcode_eng, 
+                                        system_id : system_id,
+                                        system : system,
+                                        system_eng : system_eng,
+                                        abbreviation : abbreviation,
+                                        abbreviation_eng : abbreviation_eng,
+                                        unit_eng : unit_eng,
+                                        unit : unit,
+                                        active: 0,
+                                        },
+                            id: data.lastInsertId,
+                            text: unitcode,
+                            checked: false,
+                            state : 'open',
+                        },]
+                });
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                          'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                 console.error('"pkInsert_sysUnits" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                        'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                console.error('"pkInsert_sysUnits" servis hatası->'+textStatus);
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+                 dm.dangerMessage({
+                    onShown : function(event, data) {
+                        $('#machPropFormInsert')[0].reset();
+                        $('#unitForm')[0].reset();
+                        loader.loadImager('removeLoadImage');
+                    }
+                 });
+                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                          'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    /**
-    * insert machine property to root wrapper
+    * insert unit item for root
     * @returns {Boolean}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.insertMachinePropRootWrapper = function (e) {
+   window.insertUnitRootWrapper = function (e) {
     e.preventDefault();
     var nodeID = nodeID;
     var nodeName = nodeName;
 
-    if ($("#machinePropForm").validationEngine('validate')) {
-        var ddData = $('#dropdownRoles').data('ddslick');
-        if(ddData.selectedData.value>0) {
-            insertMachinePropRoot();
-        } else {
-            BootstrapDialog.show({
-                title: 'Rol Seçiniz',
-                message: 'Lütfen Kullanıcı Rolü Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-            });
-        }
+    if ($("#unitForm").validationEngine('validate')) {
+        insertUnitRoot();
     }
     return false;
    }
    
    /**
-    * insert machine property for root
+    * insert unit for root level
     * @returns {undefined}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.insertMachinePropRoot = function () {
-        property_name = $('#property_name').val();
-        property_name_eng = $('#property_name_eng').val();
-        icon_class = $('#icon_class').val();
-        url = $('#url').val();
+   window.insertUnitRoot = function () {
+        var loader = $("#loading-image-crud").loadImager();
+        loader.loadImager('appendImage');
+        unit = $('#unit').val();
+        unit_eng = $('#unit_eng').val();
+        unitcode = $('#unitcode').val();
+        unitcode_eng = $('#unitcode_eng').val();
+        abbreviation = $('#abbreviation').val();
+        abbreviation_eng = $('#abbreviation_eng').val();
         language_code = $('#langCode').val();
-        var ddData = $('#dropdownRoles').data('ddslick');
-        role_id = ddData.selectedData.value;
+        var ddData = $('#dropdownUnitSystems').data('ddslick');
+        system_id = ddData.selectedData.value;
         //console.log(ddData);
         
-       $.ajax({
-           url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkInsert_leftnavigation' ,
-                   language_code : language_code,
-                   icon_class : icon_class,
-                   menu_name_eng : menu_name_eng,
-                   menu_name : menu_name,
-                   urlx : url,
-                   parent : 0,
-                   role_id : role_id,
-                   pk : $("#pk").val()},  
-           type: 'GET',
-           dataType: 'json',
-           success: function (data, textStatus, jqXHR) {
-               if(data.length!==0) {
-                   if(data.found) {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Makina Özellik Kayıt İşlemi Başarılı...',
-                            message: 'Makina özellik kayıt işlemini gerçekleştirdiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-success',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                    $('#machinePropForm')[0].reset();
-                                }
-                            }]
-                        });
-                   } else {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Makina Özellik Kayıt İşlemi Başarısız...',
-                            message: 'Makina özellik kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-danger',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                }
-                            }]
-                        });
-                   }
-                $('#tt_tree_menu').tree('reload');
-               } else {
-                   console.error('"pkInsert_leftnavigation" servis datası boştur!!');
-               }
-           },
-           error: function (jqXHR, textStatus, errorThrown) {           
-               console.error('"pkInsert_leftnavigation" servis hatası->'+textStatus);
-           }
-       });
+       var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkInsert_sysUnits' ,
+                            language_code : language_code,
+                            unit : unit,
+                            unit_eng : unit_eng,
+                            unitcode : unitcode,
+                            unitcode_eng : unitcode_eng,
+                            abbreviation : abbreviation,
+                            abbreviation_eng : abbreviation_eng,
+                            //parent : 0,
+                            system_id : '',
+                            pk : $("#pk").val()
+                        }
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                         'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                console.error('"pkInsert_leftnavigation" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({
+                    onShown: function( event, data ) {
+                        $('#unitForm')[0].reset();
+                        regulateButtons();
+                        loader.loadImager('removeLoadImage');
+                    }
+                });
+                sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
+                                          'Birim kayıt işlemini gerçekleştirdiniz... ');
+
+                $('#tt_tree_menu').tree('append', {
+                    //parent: selectedTreeItem.target,
+                    data: [{
+                        attributes:{notroot: false, 
+                                    unitcode_eng : unitcode_eng, 
+                                    system_id : '',
+                                    system : null,
+                                    system_eng : null,
+                                    abbreviation : null,
+                                    abbreviation_eng : null,
+                                    unit_eng : null,
+                                    unit : null,
+                                    active: 0,
+                                    },
+                        id: data.lastInsertId,
+                        text: unitcode,
+                        checked: false,
+                        state : 'open',
+                    },]
+                });
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                            'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                 console.error('"pkInsert_leftnavigation" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                         'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+                 dm.dangerMessage({
+                    onShown : function(event, data) {
+                      $('#unitForm')[0].reset();
+                      loader.loadImager('removeLoadImage');
+                    }
+                 });
+                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
+                                          'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
+             }
+       }) 
+       aj.ajaxCall('call');
+       
    }
    
    /**
-    * update machine property wrapper
+    * update unit item
     * @returns {Boolean}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 04/04/2016
     */
-   window.updateMachinePropWrapper = function (e) {
+   window.updateUnitWrapper = function (e) {
     e.preventDefault();
-    if ($("#machinePropForm").validationEngine('validate')) {
-        var ddData = $('#dropdownRoles').data('ddslick');
-        
+    if ($("#unitForm").validationEngine('validate')) {
         selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
         if(selectedTreeItem == null) {
-            BootstrapDialog.show({
-                title: 'Makina Özellik Öğesi Seçiniz',
-                message: 'Lütfen Makina Özellik Öğesi Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-            });
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Birim Öğesi Seçiniz', 'Lütfen Birim Öğesi Seçiniz!')
             return false;
         }
         
-        if(ddData.selectedData.value>0) {
-            //alert(ddData.selectedData.text);
-            updateMachineProp();
-        } else {
-            BootstrapDialog.show({
-                title: 'Rol Seçiniz',
-                message: 'Lütfen Kullanıcı Rolü Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-            });
+        if(selectedTreeItem.attributes.notroot == true) {
+            var ddData = $('#dropdownUnitSystems').data('ddslick');
+            if(ddData.selectedData.value>0) {
+                updateUnit();
+            } else {
+                wm.warningMessage('resetOnShown');
+                wm.warningMessage('show', 'Metrik Sistem Seçiniz', 'Lütfen Metrik Sistem Seçiniz!')
+            }
+            return false;
         }
+        updateUnit();
     }
     return false;
    }
    
    /**
-    * update machine property
+    * update unit item
     * @returns {undefined}
     * @author Mustafa Zeynel Dağlı
-    * @since 31/03/2016
+    * @since 05/04/2016
     */
-   window.updateMachineProp = function () {
-        property_name = $('#property_name').val();
-        property_name_eng = $('#property_name_eng').val();
-        icon_class = $('#icon_class').val();
-        url = $('#url').val();
+   window.updateUnit = function () {
+        var loader = $("#loading-image-crud").loadImager();
+        loader.loadImager('appendImage');
+        unit = $('#unit').val();
+        unit_eng = $('#unit_eng').val();
+        unitcode = $('#unitcode').val();
+        unitcode_eng = $('#unitcode_eng').val();
+        abbreviation = $('#abbreviation').val();
+        abbreviation_eng = $('#abbreviation_eng').val();
         language_code = $('#langCode').val();
+        var ddData = $('#dropdownUnitSystems').data('ddslick');
+        system_id = ddData.selectedData.value;
+        system = ddData.selectedData.text;
+        system_eng = ddData.selectedData.description;
         selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
-        console.log(selectedTreeItem);
-        var ddData = $('#dropdownRoles').data('ddslick');
-        role_id = ddData.selectedData.value;
-        console.log(ddData);
         id = selectedTreeItem.id;
         
-       $.ajax({
-           url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-           data: { url:'pkUpdate_leftnavigation' ,
-                   language_code : language_code,
-                   icon_class : icon_class,
-                   menu_name_eng : menu_name_eng,
-                   menu_name : menu_name,
-                   urlx : url,
-                   id : id,
-                   role_id : role_id,
-                   pk : $("#pk").val()}, 
-           type: 'GET',
-           dataType: 'json',
-           success: function (data, textStatus, jqXHR) {
-               if(data.length!==0) {
-                   if(data.found) {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_SUCCESS,
-                            title: 'Makina Özellik Güncelleme İşlemi Başarılı...',
-                            message: 'Makina özellik güncelleme işlemini gerçekleştirdiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-success',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                }
-                            }]
-                        });
-                   } else {
-                       BootstrapDialog.show({
-                            type: BootstrapDialog.TYPE_DANGER,
-                            title: 'Makina Özellik Güncelleme İşlemi Başarısız...',
-                            message: 'Makina özellik güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ',
-                            buttons: [ {
-                                icon: 'glyphicon glyphicon-ok-sign',
-                                label: 'Kapat',
-                                cssClass: 'btn-danger',
-                                action: function(dialogItself){
-                                    dialogItself.close();
-                                }
-                            }]
-                        });
-                   }
-                $('#tt_tree_menu').tree('reload');
-               } else {
-                   console.error('"pkUpdate_leftnavigation" servis datası boştur!!');
-               }
-           },
-           error: function (jqXHR, textStatus, errorThrown) {           
-               console.error('"pkUpdate_leftnavigation" servis hatası->'+textStatus);
-           }
-       });
+        var aj = $(window).ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkUpdate_sysUnits' ,
+                            language_code : language_code,
+                            unit : unit,
+                            unit_eng : unit_eng,
+                            unitcode : unitcode,
+                            unitcode_eng : unitcode_eng,
+                            abbreviation : abbreviation,
+                            abbreviation_eng : abbreviation_eng,
+                            id : id,
+                            system_id : system_id,
+                            pk : $("#pk").val()
+                        }
+       })
+       aj.ajaxCall ({
+             onError : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+                                              'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                console.error('"pkUpdate_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                sm.successMessage({
+                    onShown: function( event, data ) {
+                        $('#unitForm')[0].reset();
+                        regulateButtons();
+                        loader.loadImager('removeLoadImage');
+                    }
+                });
+                sm.successMessage('show', 'Birim Güncelleme İşlemi Başarılı...', 
+                                          'Birim güncelleme işlemini gerçekleştirdiniz... ');
+                $('#tt_tree_menu').tree('update', {
+                    target: selectedTreeItem.target,
+                    text: unitcode,
+                    attributes:{notroot: selectedTreeItem.attributes.notroot, 
+                                unitcode_eng : unitcode_eng, 
+                                system_id : system_id,
+                                system : system,
+                                system_eng : system_eng,
+                                abbreviation : abbreviation,
+                                abbreviation_eng : abbreviation_eng,
+                                unit_eng : unit_eng,
+                                unit : unit,
+                                active: 0,}
+               });
+             },
+             onErrorDataNull : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+                                              'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                console.error('"pkUpdate_sysUnits" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
+                                         'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+             }
+       }) 
+       aj.ajaxCall('call');
    }
    
    
