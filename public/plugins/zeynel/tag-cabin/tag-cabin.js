@@ -1,31 +1,4 @@
 
-// dasboard sayfasında birinci sütun özet bilgi başlıklarını yazdırır
-(function ($) {
-    $.fn.headerSetter = function (data, options) {
-        var data = data;
-        //console.error(data);
-        var opts = $.extend({}, $.fn.headerSetter.defaults, options);
-        //console.log(opts);
-        return this.each(function () {
-            $this = $(this);
-            //$this.find('div:first').html( data.adet);
-            if (typeof data != 'undefined') {
-                $this.find('div:first h3:first-child').html(data.adet);
-                $this.find('p:first').html(data.aciklama);
-            }
-
-            //$this.find('span:last').html(data.adet);
-            //$this.attr('data-original-title', data.aciklama).tooltip('fixTitle');
-            //$('[rel="tooltip"],[data-rel="tooltip"]').tooltip({"placement":"top",delay: { show: 400, hide: 200 }});
-        });
-    };
-
-    $.fn.headerSetter.defaults = {
-        class: 'test',
-        background: 'yellow'
-    };
-
-}(jQuery));
 
 (function ($) {
 
@@ -34,32 +7,95 @@
      * @author Mustafa Zeynel Dağlı
      * @since 11/01/2016
      */
-    $.widget("sanalfabrika.loadImager", {
+    $.widget("sanalfabrika.tagCabin", {
         /**
          * Default options.
          * @returns {null}
          */
         options: {
-            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
-            overlayKey: ".overlay:first",
+            tagCopy             : true,
+            tagDeletable        : true,
+            tagBox              : $('.tag-container').find("ul"),
+            //tagBox              : '.tag-box',
+            //closeTag            : '<a class="close"></a>',
+            closeTag            : '<i class="fa fa-fw fa-trash-o delete-icon" title="Sil" onclick=""></i>',
+            //copyTag            : '<a class="copy"></a>',
+            copyTag             : '<i class="fa fa-copy copy-icon" title="Kopyala" onclick=""></i>',
+            tagRemovable        : '<li data-id="{id}" class="tags">{tag}</li>',
+            tagNotRemovable     : '<li class="tags">{tag}</li>',
+            tagContainer        : '.tag-container',
         },
+        deleteTag : function() {
+            
+        },
+        
+        addTags : function(data) {
+            var dataArr = $.parseJSON(data);
+            var self = this;
+            $.each(dataArr, function(key, row) {
+                self.addTag(row.id, row.name);
+            })
+        },
+        
+        addTag : function(id, tag) {
+            var self = this;
+            var tag = tag;
+            var icons = '';
+            
+            if(self.options.tagCopy) {
+               icons += self.options.copyTag;
+            }
+            
+            if(self.options.tagDeletable) {
+                icons += self.options.closeTag;       
+            }
+            self.options.tagBox.append('<li class="tags" data-attribute="'+id+'">'+tag+icons+'</li>');
+        },
+        
+        /**
+         * add listener for tag copy element
+         * @returns {undefined}
+         * 
+         */
+        _addTagCopyListener : function() {
+            var self = this;
+            $(self.options.tagBox).on("click", ".copy-icon", function()  {
+                var id = $(this).parent().attr('data-attribute');
+                self._trigger('tagCopied', event, id);
+            });
+        },
+        
+        /**
+         * add listener for remove element
+         * @returns {undefined}
+         * 
+         */
+        _addTagRemoveListener : function() {
+            var self = this;
+            $(self.options.tagBox).on("click", ".delete-icon", function()  {
+                var id = $(this).parent().attr('data-attribute');
+                $(this).parent().remove();
+                self._trigger('tagRemoved', event, id);
+            });
+        },
+        
         /**
          * private constructor method for jquery widget
          * @returns {null}
          */
         _create: function () {
-            this.element.append(this.options.overlay);
+            
         },
-        /**
-         * public method to remove loading image when necessary
-         * @returns {null}
-         */
-        removeLoadImage: function () {
-            this.element.find(this.options.overlayKey).remove();
+        
+        _init : function() {
+            if(this.options.tagDeletable) {
+                this._addTagRemoveListener();   
+            }
+            
+            if(this.options.tagCopy) {
+                this._addTagCopyListener();   
+            }
         },
-        appendImage: function () {
-            this.element.append(this.options.overlay);
-        }
     });
 
 
@@ -725,7 +761,10 @@
             //this._trigger('tested');
         }
     });
-
+    
+    
+    
+    
     /**
      * set alpaca form due to machine tree selected machine item
      * @author Mustafa Zeynel Dağlı
@@ -958,6 +997,11 @@
         },
        
     });
+
+
+
+
+
 
 }(jQuery));
 
