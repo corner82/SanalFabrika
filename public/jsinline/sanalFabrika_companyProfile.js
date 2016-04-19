@@ -6,7 +6,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
-//    console.log($('#selectedCompanyNpk').val());
+    console.log($('#selectedCompanyNpk').val());
 
 
 
@@ -20,7 +20,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
+//            console.log(data);
 
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
 
@@ -152,7 +152,7 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (data4) {
 
-                    console.log(data4);
+//                    console.log(data4);
 
                     $('#customersPH').empty();
 
@@ -220,7 +220,7 @@ $(document).ready(function () {
                                 + "</h5>"
                                 + "</td>"
                                 + "</tr>";
-                        console.log(appending);
+//                        console.log(appending);
                         $("#com_sec_list").append(appending);
                     }
 

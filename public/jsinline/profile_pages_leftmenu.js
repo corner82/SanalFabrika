@@ -5,14 +5,11 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
+    
+    
+    
 
-    /*
-     * Profile left menu links arrangement
-     * @author: Bahram Lotfi
-     * @Since: 2016.03.25     
-     */
-
-
+    
 
     /*
      * Start of left menu links
@@ -27,26 +24,26 @@ $(document).ready(function () {
 
     var profilelink =
             "<li id='companyprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>" 
-            + "<i class='fa fa-bar-chart-o'>" 
-            + "</i>" 
-            + window.lang.translate('Company Profile') 
+            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company Profile')
             + "</a>";
-            +"</li>";
-    var perfromancelink =
+    +"</li>";
+    var performancelink =
             "<li id='companyperformancemetersprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>" 
-            + "<i class='fa fa-bar-chart-o'>" 
-            + "</i>" 
-            + window.lang.translate('Performance Meters') 
+            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Performance Meters')
             + "</a>";
     +"</li>";
     var productslink =
             "<li id='companyproductsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>" 
-            + "<i class='fa fa-bar-chart-o'>" 
-            + "</i>" 
-            + window.lang.translate('Company Products') 
+            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company Products')
             + "</a>"
             + "</li>";
     var mtslink =
@@ -54,125 +51,125 @@ $(document).ready(function () {
             + "<a id='companymtprofile_a' class='collapsed' data-toggle='collapse' "
             + "data-parent='#sidebar-nav-1'  href='#collapse_mach_cats'"
             + "aria-expanded='true'>"
-            + "<i class='fa fa-bar-chart-o'>" 
+            + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
             + window.lang.translate('Machines List')
             + "</a>"
             + "<ul id='collapse_mach_cats' class='collapse'>"
-            + "<li id='cnc_machine_link' onclick=gotLink(this)>"
-            + "<span class='badge rounded badge-red'>"
-            + window.lang.translate('C')
-            + "</span>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
-            + "<i class='fa fa-chevron-circle-right'>"
-            + "</i>"
-            + window.lang.translate('CNC Machines')
-            + "</a>"
-            + "</li>"
-
-            + "<li id='turning_machine_link' onclick=gotLink(this)>"
-            + "<span class='badge rounded badge-red'>"
-            + window.lang.translate('C')
-            + "</span>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
-            + "<i class='fa fa-chevron-circle-right'>"
-            + "</i>"
-            + window.lang.translate('Turning Machines')
-            + "</a>"
-            + "</li>"
-
-            + "<li id='milling_machine_link' onclick=gotLink(this)>"
-            + "<span class='badge rounded badge-red'>"
-            + window.lang.translate('C')
-            + "</span>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
-            + "<i class='fa fa-chevron-circle-right'>"
-            + "</i>"
-            + window.lang.translate('Milling Machines')
-            + "</a>"
-            + "</li>"
-
-            + "<li id='drilling_machine_link' onclick=gotLink(this)>"
-            + "<span class='badge rounded badge-red'>"
-            + window.lang.translate('C')
-            + "</span>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
-            + "<i class='fa fa-chevron-circle-right'>"
-            + "</i>"
-            + window.lang.translate('Drilling Machines')
-            + "</a>"
-            + "</li>"
-
-            + "<li id='drilling_machine_link' onclick=gotLink(this)>"
-            + "<span class='badge rounded badge-red'>"
-            + window.lang.translate('C')
-            + "</span>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
-            + "<i class='fa fa-chevron-circle-right'>"
-            + "</i>"
-            + window.lang.translate('Grinding Machines')
-            + "</a>"
-            + "</li>"
-
-            + "<li id='uswelding_machine_link' onclick=gotLink(this)>"
-            + "<span class='badge rounded badge-blue'>"
-            + window.lang.translate('W')
-            + "</span>"
-            + "<span class='badge rounded badge-blue'>"
-            + window.lang.translate('')
-            + "</span>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
-            + "<i class='fa fa-chevron-circle-right'>"
-            + "</i>"
-            + window.lang.translate('US Welding Machines')
-            + "</a>"
-            + "</li>"
-
-            + "<li id='edm_machine_link' onclick=gotLink(this)>"
-            + "<span class='badge rounded badge-yellow'>"
-            + window.lang.translate('UN')
-            + "</span>"
-            + "<span class='badge badge-u'>"
-            + window.lang.translate('')
-            + "</span>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
-            + "<i class='fa fa-chevron-circle-right'>"
-            + "</i>"
-            + window.lang.translate('EDM Machines')
-            + "</a>"
-            + "</li>"
+//            + "<li id='cnc_machine_link' onclick=gotLink(this)>"
+//            + "<span class='badge rounded badge-red'>"
+//            + window.lang.translate('C')
+//            + "</span>"
+//            + "<a onmouseover='' style='cursor: pointer;'>"
+//            + "<i class='fa fa-chevron-circle-right'>"
+//            + "</i>"
+//            + window.lang.translate('CNC Machines')
+//            + "</a>"
+//            + "</li>"
+//
+//            + "<li id='turning_machine_link' onclick=gotLink(this)>"
+//            + "<span class='badge rounded badge-red'>"
+//            + window.lang.translate('C')
+//            + "</span>"
+//            + "<a onmouseover='' style='cursor: pointer;'>"
+//            + "<i class='fa fa-chevron-circle-right'>"
+//            + "</i>"
+//            + window.lang.translate('Turning Machines')
+//            + "</a>"
+//            + "</li>"
+//
+//            + "<li id='milling_machine_link' onclick=gotLink(this)>"
+//            + "<span class='badge rounded badge-red'>"
+//            + window.lang.translate('C')
+//            + "</span>"
+//            + "<a onmouseover='' style='cursor: pointer;'>"
+//            + "<i class='fa fa-chevron-circle-right'>"
+//            + "</i>"
+//            + window.lang.translate('Milling Machines')
+//            + "</a>"
+//            + "</li>"
+//
+//            + "<li id='drilling_machine_link' onclick=gotLink(this)>"
+//            + "<span class='badge rounded badge-red'>"
+//            + window.lang.translate('C')
+//            + "</span>"
+//            + "<a onmouseover='' style='cursor: pointer;'>"
+//            + "<i class='fa fa-chevron-circle-right'>"
+//            + "</i>"
+//            + window.lang.translate('Drilling Machines')
+//            + "</a>"
+//            + "</li>"
+//
+//            + "<li id='drilling_machine_link' onclick=gotLink(this)>"
+//            + "<span class='badge rounded badge-red'>"
+//            + window.lang.translate('C')
+//            + "</span>"
+//            + "<a onmouseover='' style='cursor: pointer;'>"
+//            + "<i class='fa fa-chevron-circle-right'>"
+//            + "</i>"
+//            + window.lang.translate('Grinding Machines')
+//            + "</a>"
+//            + "</li>"
+//
+//            + "<li id='uswelding_machine_link' onclick=gotLink(this)>"
+//            + "<span class='badge rounded badge-blue'>"
+//            + window.lang.translate('W')
+//            + "</span>"
+//            + "<span class='badge rounded badge-blue'>"
+//            + window.lang.translate('')
+//            + "</span>"
+//            + "<a onmouseover='' style='cursor: pointer;'>"
+//            + "<i class='fa fa-chevron-circle-right'>"
+//            + "</i>"
+//            + window.lang.translate('US Welding Machines')
+//            + "</a>"
+//            + "</li>"
+//
+//            + "<li id='edm_machine_link' onclick=gotLink(this)>"
+//            + "<span class='badge rounded badge-yellow'>"
+//            + window.lang.translate('UN')
+//            + "</span>"
+//            + "<span class='badge badge-u'>"
+//            + window.lang.translate('')
+//            + "</span>"
+//            + "<a onmouseover='' style='cursor: pointer;'>"
+//            + "<i class='fa fa-chevron-circle-right'>"
+//            + "</i>"
+//            + window.lang.translate('EDM Machines')
+//            + "</a>"
+//            + "</li>"
             + "</ul>"
             + "</li>";
     var memberslink =
             " <li id='companymembersprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>" 
-            + "<i class='fa fa-bar-chart-o'>" 
-            + "</i>" 
-            + window.lang.translate('Company Members') 
+            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company Members')
             + "</a>"
             + "</li>";
     var projectslink =
             " <li id='companyprojectsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>" 
-            + "<i class='fa fa-bar-chart-o'>" 
-            + "</i>" 
-            + window.lang.translate('Company Projects') 
+            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company Projects')
             + "</a>";
     +"</li>";
     var commentslink =
             "<li id='companycommentsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>" 
-            + "<i class='fa fa-bar-chart-o'>" 
-            + "</i>" 
-            + window.lang.translate('Comments') 
+            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Comments')
             + "</a>";
     +"</li>";
     var historylink =
             "<li id='companyhistoryprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='#'>" 
-            + "<i class='fa fa-bar-chart-o'>" 
-            + "</i>" 
-            + window.lang.translate('Company History') 
+            + "<a href='#'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.lang.translate('Company History')
             + "</a>";
     +"</li>";
 
@@ -193,7 +190,7 @@ $(document).ready(function () {
         $('#sidebar-nav-1').empty();
         $('#sidebar-nav-1').append(
                 profilelink
-                + perfromancelink
+                + performancelink
                 + productslink
                 + mtslink
                 + memberslink
@@ -275,6 +272,7 @@ function changeMenu(clicked_link) {
 
 function ulActivation(clicked) {
 
+
     if (!$('#companymtprofile').hasClass('.active')) {
 
         $('#companymtprofile').siblings().removeClass('active');
@@ -295,5 +293,45 @@ function ulActivation(clicked) {
         var newURL = window.location.href.replace(action, clicked.id);
         window.location.replace(newURL);
     }
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {
+            url: 'pkFillFirmMachineGroupsCounts_infoFirmMachineTool',
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $('#pk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            $('#collapse_mach_cats').empty();
+            var i;
+            for (i = 0; i < data.length; i++) {
+                
+                var id_name = data[i].group_name.replace(/\s+/, "_") + "_machine_link";
+
+                var appending =
+                         "<li id='"
+                        + id_name
+                        + "' onclick=gotLink(this)>"
+                        + "<span class='badge rounded badge-red'>"
+                        + data[i].machine_count
+                        + "</span>"
+                        + "<a onmouseover='' style='cursor: pointer;'>"
+                        + "<i class='fa fa-chevron-circle-right'>"
+                        + "</i>"
+                        + window.lang.translate(data[i].group_name)
+                        + "</a>"
+                        + "</li>";
+
+                $('#collapse_mach_cats').append(appending);
+
+
+            }
+        }
+    });
 
 }

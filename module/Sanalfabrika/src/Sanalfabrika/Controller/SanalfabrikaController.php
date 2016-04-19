@@ -226,7 +226,7 @@ class SanalfabrikaController extends AbstractActionController {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
-                ->get('serviceTranslatorUrlRegulator');
+                ->get('serviceTranslatorUrlRegulator');        
         $selectedCompanyNpk = $this->getEvent()
                 ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()

@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    console.log($('#pk').val());
+
     $("#pagination_content").empty();
     //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
     $.ajax({

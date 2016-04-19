@@ -169,21 +169,21 @@
             <ul class="pull-right breadcrumb">                        
                 <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'index')); ?>">
-                        <?php echo $this->translate('Home') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                ?>">
+                           <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'clientspage')); ?>">
-                        <?php echo $this->translate('Clients Page') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage'));
+                           ?>">
+                           <?php echo $this->translate('Clients Page') ?>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'companyprofile', 'id' => $selectedCompanyNpk)); ?>">
-                        <?php echo $this->translate('Company Profile') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'id' => $selectedCompanyNpk));
+                           ?>">
+                           <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>
                 <li class="active"><?php echo $this->translate('Performance Meters') ?></li>
@@ -202,7 +202,7 @@
                      src="" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    
+
                 </ul>       
 
                 <div class="panel-heading-v2 overflow-h">
@@ -484,12 +484,9 @@
                                                 </div> 
                                             </div>
                                             <div id="qualityDetaildDIV" 
-                                                 class="row margin-bottom-20 left-inner" style="display:none" >
-                                                <hr>
-                                                <div id="qualityDetailsInsideDIV" class="left-inner" >
-
+                                                 class="row margin-bottom-20 left-inner" style="display:none" >                                                
+                                                <div id="qualityDetailsInsideDIV" class="left-inner" >                                                    
                                                 </div>
-                                                <hr>
                                             </div>
                                             <hr>
                                             <div class="row margin-bottom-20">
@@ -543,52 +540,16 @@
                                             </div>
                                             <div id="customerDetailsDIV" 
                                                  class="row margin-bottom-20 left-inner" style="display:none" >
-                                                <hr>
+
                                                 <div id="customerDetailsInsideDIV" class="left-inner" >
 
                                                 </div>
-                                                <hr>
+
                                             </div>
-
                                             <!-- End Pie Chart Progress Bar -->
-
                                         </div>
-
-                                        <hr>
-
-                                        <h3>Latest Recommendations</h3>
-                                        <div class="people-say margin-bottom-20">
-                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img2.jpg') ?>" alt="">
-                                            <div class="overflow-h">
-                                                <span>Eva Maria Kl.</span>
-                                                <small class="hex pull-right">5 - hours ago</small>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis varius hendrerit nisl id condimentum.</p>
-                                            </div>    
-                                        </div>
-
-                                        <div class="people-say margin-bottom-20">
-                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/user.jpg') ?>" alt="">
-                                            <div class="overflow-h">
-                                                <span>Christian Draxler</span>
-                                                <small class="hex pull-right">2 - days ago</small>
-                                                <p>Vestibulum justo est, pharetra fermentum justo in, tincidunt mollis turpis. Duis imperdiet non justo euismod semper.</p>
-                                            </div>    
-                                        </div>
-
-                                        <div class="people-say">
-                                            <img src="<?php echo $this->basePath('onyuz/standard/assets/img/testimonials/img3.jpg') ?>" alt="">
-                                            <div class="overflow-h">
-                                                <span>Alex Taylor</span>
-                                                <small class="hex pull-right">3 - days ago</small>
-                                                <p>A Wal-Mart cashier is responsible for effectively executing and adhering to the “Basic Beliefs” of the founder.</p>
-                                            </div>    
-                                        </div>
-
-                                        <hr> 
-
                                     </div>   
                                 </div>
-
                             </div>
                         </div>
                     </div>

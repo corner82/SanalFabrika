@@ -21,7 +21,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 //            console.log(data);
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/Logos/';
 
             window.logosrc = imageFolAddress + data[0].logo;
 
@@ -135,13 +135,13 @@ $(document).ready(function () {
                             + "<a href='"
                             + "https://"
                             + window.location.hostname
-                            + "/onyuz/standard/assets/img/sfClients/products/"
+                            + "/onyuz/standard/assets/img/sfClients/Products/"
                             + properties[selectedRowIndex][1].value
                             + "'>"
                             + "<img class='mach_sample' src='"
                             + "https://"
                             + window.location.hostname
-                            + "/onyuz/standard/assets/img/sfClients/products/"
+                            + "/onyuz/standard/assets/img/sfClients/Products/"
                             + properties[selectedRowIndex][1].value
                             + "' alt=''>"
                             + "</a>"
@@ -204,13 +204,13 @@ $(document).ready(function () {
                                 + "<a href='"
                                 + "https://"
                                 + window.location.hostname
-                                + "/onyuz/standard/assets/img/sfClients/products/"
+                                + "/onyuz/standard/assets/img/sfClients/Products/"
                                 + properties[selectedRowIndex][1].value
                                 + "'>"
                                 + "<img class='mach_sample' src='"
                                 + "https://"
                                 + window.location.hostname
-                                + "/onyuz/standard/assets/img/sfClients/products/"
+                                + "/onyuz/standard/assets/img/sfClients/Products/"
                                 + properties[selectedRowIndex][1].value
                                 + "' alt=''>"
                                 + "</a>"

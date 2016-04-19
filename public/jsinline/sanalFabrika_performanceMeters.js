@@ -7,9 +7,9 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
-    console.log($('#selectedCompanyNpk').val());
+//    console.log($('#selectedCompanyNpk').val());
 
-    
+
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -21,14 +21,14 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
-            
+//            console.log(data);
+
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
-                                
+
             window.logosrc = imageFolAddress + data[0].logo;
-            
-            $('#profileLogosrc').attr('src', window.logosrc);        
-            
+
+            $('#profileLogosrc').attr('src', window.logosrc);
+
             var total_employees = data[0].number_of_employees;
             $('#number_of_employees').append(total_employees);
             document.getElementById('employee_per_bar').style.width = '100%';
@@ -62,8 +62,28 @@ function listOfCertificates() {
         $("#qualityDetaildDIV").slideUp('Slow');
         $("#qualityDetailsInsideDIV").empty();
     } else {
-        window.i++;
-        $("#qualityDetailsInsideDIV").append('Certificates ' + i + ' , ');
+        var appending =
+                "<hr>"
+                +"<div class='col-xs-3'>"
+                + "<img style='width:100px; height: 100px' "
+                + "src='../../../../onyuz/standard/assets/img/sfClients/Images/Certificates/ISO_9001.jpg'"
+                + "alt=''>"
+                + "</div>"
+                + "<div class='col-xs-9'>"
+                + "<header>"
+                + "<h3>"
+                + window.lang.translate('ISO 9001')
+                + "</h3>"
+                + "</header>"
+                + "<div>"
+                + "<p>"
+                + window.lang.translate('EMGE has ISO 9001 Quality Standard')
+                + "</p>"
+                + "</div>"
+                + "</div>"
+                + "<hr>";
+        
+        $("#qualityDetailsInsideDIV").append(appending);
         $("#qualityDetaildDIV").addClass("active");
         $("#qualityDetaildDIV").slideDown("slow");
     }

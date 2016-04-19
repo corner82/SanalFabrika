@@ -7,6 +7,76 @@ $(document).ready(function () {
     });
 //    console.log($('#selectedCompanyNpk').val());
 
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {
+            url: 'pkFillFirmMachineGroupsCounts_infoFirmMachineTool',
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $('#pk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            $('#collapse_mach_cats').empty();
+            $('#filters-container').empty();
+            $('#filters-container').append(
+                    "<div data-filter='*' class='cbp-filter-item-active cbp-filter-item'>"
+                    + window.lang.translate('All')
+                    + "</div> |");
+            var i;
+            for (i = 0; i < data.length; i++) {
+
+                var id_name = data[i].group_name.replace(/\s+/, "_") + "_machine_link";
+
+                var appending =
+                        "<li id='"
+                        + id_name
+                        + "' onclick=gotLink(this)>"
+                        + "<span class='badge rounded badge-red'>"
+                        + data[i].machine_count
+                        + "</span>"
+                        + "<a onmouseover='' style='cursor: pointer;'>"
+                        + "<i class='fa fa-chevron-circle-right'>"
+                        + "</i>"
+                        + window.lang.translate(data[i].group_name)
+                        + "</a>"
+                        + "</li>";
+
+                $('#collapse_mach_cats').append(appending);
+
+                var appending2 =
+                        "<div data-filter='."
+                        + id_name
+                        + "' class='cbp-filter-item'>"
+                        + window.lang.translate(data[i].group_name)
+                        + "</div> |";
+
+                $('#filters-container').append(appending2);
+
+                $.ajax({
+                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+                    data: {
+                        url: '',
+                        language_code: $("#langCode").val(),
+                        npk: $('#selectedCompanyNpk').val(),
+                        pk: $('#pk').val()
+                    },
+                    method: "GET",
+                    dataType: "json",
+                    success: function (data2) {
+
+                    }
+                });
+            }
+        }
+    });
+
+
+
 
 
     $.ajax({
@@ -21,10 +91,10 @@ $(document).ready(function () {
         success: function (data) {
 //            console.log(data);
 
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
-                                
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/Logos/';
+
             window.logosrc = imageFolAddress + data[0].logo;
-            
+
             $('#profileLogosrc').attr('src', window.logosrc);
             $('#logoPlace1').attr('src', window.logosrc);
         }
@@ -116,7 +186,7 @@ function gotLink(clicked_Id) {
                 ["SODICK", "AQ750LH CNC WIRE EDM", "1", "2000", "Yes", "#"],
                 ["OSCAR", "MAX CNC SINK EDM", "1", "2000", "2000", "Yes", "#"]
             ];
-            
+
     var appending_list = "<div class='left-inner'>"
             + "<div class='row'>"
             + "<div id='"
@@ -153,7 +223,7 @@ function gotLink(clicked_Id) {
         scrollTop: $("#sel_mach_cat_list_div").offset().top
     }, 1000);
 
- window.table = $('#' + window.target_table).DataTable();
+    window.table = $('#' + window.target_table).DataTable();
     $('#' + window.target_table + ' tbody').on('click', 'tr', function () {
 
 //    window.table = $('#sel_Cat_Mach_table').DataTable();
@@ -323,7 +393,7 @@ function gotLink(clicked_Id) {
 
                 $('#machine_details_DIV').append(appending);
                 var appending2;
-                $.each(properties, function (key, vlaue) {
+                $.each(properties, function (key, value) {
 
                     appending2 = "<tr>"
                             + "<td>"
@@ -354,6 +424,32 @@ function gotLink(clicked_Id) {
         }
     });
 }
+
+function getCategoryImages() {
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {url: 'fillCompanyInfoEmployeesGuest_infoFirmProfile',
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            var j;
+
+            for (j = 0; j < data.length; j++) {
+
+//                var appending = 
+
+            }
+
+        }
+    });
+}
+
+
 
 
 
