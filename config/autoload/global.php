@@ -132,6 +132,30 @@ return array(
 
     ),
     'ACL_pages' => array(
+        'guest' => array(
+                         'action' => array('sanalfabrika' => array ('index',
+                                                                    'registration',
+                                                                    'login',
+                                                                    'userprofile',
+                                                                    'userprofilepersonal',
+                                                                    'userprofileusers',
+                                                                    'userprofileprojects',
+                                                                    'userprofilecomments',
+                                                                    'userprofilehistory',
+                                                                    'userprofilesettings',
+                                                                    'companyprofile',
+                                                                    'companyperformancemetersprofile',
+                                                                    'companyproductsprofile',
+                                                                    'companycommentsprofile',
+                                                                    'companymembersprofile',
+                                                                    'companyhistoryprofile',
+                                                                    'companyprojectsprofile', 
+                                                                    'companyprofilesettings',
+                                                                    'companymtprofile',
+                                                                    'clientspage'
+                                                                    ),
+                                     'login' => array('index'),)
+                   ),
         'consultant' => array(
                          'parent' => 'guest',
                          'action' => array('sfdm' => array ('index',
@@ -162,30 +186,7 @@ return array(
                                                             'unt'),
                                            )
                    ),
-        'guest' => array(
-                         'action' => array('sanalfabrika' => array ('index',
-                                                                    'registration',
-                                                                    'login',
-                                                                    'userprofile',
-                                                                    'userprofilepersonal',
-                                                                    'userprofileusers',
-                                                                    'userprofileprojects',
-                                                                    'userprofilecomments',
-                                                                    'userprofilehistory',
-                                                                    'userprofilesettings',
-                                                                    'companyprofile',
-                                                                    'companyperformancemetersprofile',
-                                                                    'companyproductsprofile',
-                                                                    'companycommentsprofile',
-                                                                    'companymembersprofile',
-                                                                    'companyhistoryprofile',
-                                                                    'companyprojectsprofile', 
-                                                                    'companyprofilesettings',
-                                                                    'companymtprofile',
-                                                                    'clientspage'
-                                                                    ),
-                                     'login' => array('index'),)
-                   ),
+        
         'new user' => array(
                          'parent' => 'guest',
                          'action' => array('sanalfabrika' => array ('cmt' , 
