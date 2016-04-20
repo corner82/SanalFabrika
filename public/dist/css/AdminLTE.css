@@ -120,12 +120,198 @@ body {
 .fixed .right-side {
   padding-top: 50px;
 }
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .fixed .content-wrapper,
   .fixed .right-side {
     padding-top: 100px;
   }
 }
+
+/*@media (max-width: 992px) {
+  .test-tree {
+    overflow: auto;
+    background: #181f23;
+    width : 600px;    
+
+  }
+}
+
+@media (max-width: 767px) {
+  .test-tree {
+    overflow: scroll;
+    background: #00a65a;
+    width : 447px;
+
+    
+  }
+}*/
+
+/*@media (max-width: 447px) {
+  .test-tree {
+    overflow: auto;
+    background: lightgoldenrodyellow;
+    width : 250px;
+    
+    
+  }
+}*/
+
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 200px;
+      }
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 200px;
+      }
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 250px;
+      }
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 250px;
+      }
+}
+
+/* ----------- Galaxy S3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 250px;
+      }
+}
+
+/* ----------- Galaxy S4 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 250px;
+      }
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 250px;
+      }
+}
+
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 250px;
+      }
+}
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  /*and (-webkit-device-pixel-ratio: 3)*/ {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 250px;
+      }
+}
+
+/* ----------- LG ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 533px) 
+  and (-webkit-device-pixel-ratio: 3) {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 200px;
+      }
+}
+
+/* ----------- LG ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 533px) 
+  /*and (-webkit-device-pixel-ratio: 2)*/ {
+      .test-tree {
+        overflow: auto;
+        /*background: lightgoldenrodyellow;*/
+        width : 200px;
+      }
+}
+
+
+
+
+
 .fixed.layout-boxed .wrapper {
   max-width: 100%;
 }
