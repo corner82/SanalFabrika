@@ -889,7 +889,7 @@ $(document).ready(function () {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
                                          'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                console.error('"pkInsert_leftnavigation" servis hatası->'+textStatus);
+                console.error('"pkInsert_sysUnits" servis hatası->'+textStatus);
              },
              onSuccess : function (event, data) {
                 sm.successMessage({
@@ -927,7 +927,7 @@ $(document).ready(function () {
                  dm.dangerMessage('resetOnShown');
                  dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
                                             'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                 console.error('"pkInsert_leftnavigation" servis datası boştur!!');
+                 console.error('"pkInsert_sysUnits" servis datası boştur!!');
              },
              onErrorMessage : function (event, data) {
                 dm.dangerMessage('resetOnShown');

@@ -75,7 +75,8 @@ return array(
                           'machctg' => 'layout/machctg.phtml',
                           'machprop' => 'layout/machprop.phtml',
                           'mach' => 'layout/mach.phtml',
-                          'unt'  => 'layout/unt.phtml'
+                          'unt'  => 'layout/unt.phtml',
+                          'prodtypes'  => 'layout/prodtypes.phtml'
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -183,7 +184,8 @@ return array(
                                                             'machctg',
                                                             'machprop',
                                                             'mach',
-                                                            'unt'),
+                                                            'unt',
+                                                            'prodtypes'),
                                            )
                    ),
         
