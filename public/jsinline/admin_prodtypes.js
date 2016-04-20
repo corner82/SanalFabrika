@@ -440,7 +440,7 @@ $(document).ready(function () {
    window.insertProdTypeWrapper = function (e) {
     e.preventDefault();
 
-    if ($("#unitForm").validationEngine('validate')) {
+    if ($("#prodTypeForm").validationEngine('validate')) {
         insertProdTypeRoot();
     }
     return false;
