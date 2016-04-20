@@ -5,11 +5,6 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-    
-    
-    
-
-    
 
     /*
      * Start of left menu links
@@ -56,88 +51,6 @@ $(document).ready(function () {
             + window.lang.translate('Machines List')
             + "</a>"
             + "<ul id='collapse_mach_cats' class='collapse'>"
-//            + "<li id='cnc_machine_link' onclick=gotLink(this)>"
-//            + "<span class='badge rounded badge-red'>"
-//            + window.lang.translate('C')
-//            + "</span>"
-//            + "<a onmouseover='' style='cursor: pointer;'>"
-//            + "<i class='fa fa-chevron-circle-right'>"
-//            + "</i>"
-//            + window.lang.translate('CNC Machines')
-//            + "</a>"
-//            + "</li>"
-//
-//            + "<li id='turning_machine_link' onclick=gotLink(this)>"
-//            + "<span class='badge rounded badge-red'>"
-//            + window.lang.translate('C')
-//            + "</span>"
-//            + "<a onmouseover='' style='cursor: pointer;'>"
-//            + "<i class='fa fa-chevron-circle-right'>"
-//            + "</i>"
-//            + window.lang.translate('Turning Machines')
-//            + "</a>"
-//            + "</li>"
-//
-//            + "<li id='milling_machine_link' onclick=gotLink(this)>"
-//            + "<span class='badge rounded badge-red'>"
-//            + window.lang.translate('C')
-//            + "</span>"
-//            + "<a onmouseover='' style='cursor: pointer;'>"
-//            + "<i class='fa fa-chevron-circle-right'>"
-//            + "</i>"
-//            + window.lang.translate('Milling Machines')
-//            + "</a>"
-//            + "</li>"
-//
-//            + "<li id='drilling_machine_link' onclick=gotLink(this)>"
-//            + "<span class='badge rounded badge-red'>"
-//            + window.lang.translate('C')
-//            + "</span>"
-//            + "<a onmouseover='' style='cursor: pointer;'>"
-//            + "<i class='fa fa-chevron-circle-right'>"
-//            + "</i>"
-//            + window.lang.translate('Drilling Machines')
-//            + "</a>"
-//            + "</li>"
-//
-//            + "<li id='drilling_machine_link' onclick=gotLink(this)>"
-//            + "<span class='badge rounded badge-red'>"
-//            + window.lang.translate('C')
-//            + "</span>"
-//            + "<a onmouseover='' style='cursor: pointer;'>"
-//            + "<i class='fa fa-chevron-circle-right'>"
-//            + "</i>"
-//            + window.lang.translate('Grinding Machines')
-//            + "</a>"
-//            + "</li>"
-//
-//            + "<li id='uswelding_machine_link' onclick=gotLink(this)>"
-//            + "<span class='badge rounded badge-blue'>"
-//            + window.lang.translate('W')
-//            + "</span>"
-//            + "<span class='badge rounded badge-blue'>"
-//            + window.lang.translate('')
-//            + "</span>"
-//            + "<a onmouseover='' style='cursor: pointer;'>"
-//            + "<i class='fa fa-chevron-circle-right'>"
-//            + "</i>"
-//            + window.lang.translate('US Welding Machines')
-//            + "</a>"
-//            + "</li>"
-//
-//            + "<li id='edm_machine_link' onclick=gotLink(this)>"
-//            + "<span class='badge rounded badge-yellow'>"
-//            + window.lang.translate('UN')
-//            + "</span>"
-//            + "<span class='badge badge-u'>"
-//            + window.lang.translate('')
-//            + "</span>"
-//            + "<a onmouseover='' style='cursor: pointer;'>"
-//            + "<i class='fa fa-chevron-circle-right'>"
-//            + "</i>"
-//            + window.lang.translate('EDM Machines')
-//            + "</a>"
-//            + "</li>"
             + "</ul>"
             + "</li>";
     var memberslink =
@@ -310,13 +223,15 @@ function ulActivation(clicked) {
             $('#collapse_mach_cats').empty();
             var i;
             for (i = 0; i < data.length; i++) {
-                
-                var id_name = data[i].group_name.replace(/\s+/, "_") + "_machine_link";
 
+                var id_name = data[i].group_name.replace(/\s+/, "_") + "_machine_link";
+                
                 var appending =
-                         "<li id='"
+                        "<li id='"
                         + id_name
-                        + "' onclick=gotLink(this)>"
+                        + "' group_id="
+                        + data[i].machine_grup_id
+                        +" onclick=gotLink(this)>"
                         + "<span class='badge rounded badge-red'>"
                         + data[i].machine_count
                         + "</span>"
