@@ -16,7 +16,7 @@ $(document).ready(function () {
                     });
             }
     });
-
+     
     /**
      * multilanguage plugin 
      * @type Lang
@@ -547,7 +547,7 @@ $(document).ready(function () {
                                                             </div>\n\
                                                         </div>\n\
                                                         <div class="form-group">\n\
-                                                            <label class="col-sm-2 control-label">Birim</label>\n\
+                                                            <label class="col-sm-2 control-label">Mevcut Kategori Özellikleri</label>\n\
                                                             <div class="col-sm-10">\n\
                                                                 <div class="input-group">\n\
                                                                     <div class="input-group-addon">\n\

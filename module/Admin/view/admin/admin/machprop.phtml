@@ -167,13 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Sistem Birim Grupları İşlemleri
+                    Makina Özellikleri Tanımlama İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li><a href="#"><i class="fa fa-certificate"></i> Tanımlamalar</a></li>
-                    <li class="active">Birim Tanımlamaları</li>
+                    <li><a href="#"><i class="fa fa-certificate"></i> Makina İşlemleri</a></li>
+                    <li class="active">Makina Özellikleri Tanımlamaları</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -190,7 +190,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Metrik sistemlere göre birim grupları </h3>
+                                <h3 class="box-title"> Makina Özellikleri İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -199,132 +199,151 @@
                             </div><!--/. panel 1 header div-->
                             <!--Panel 1 contents-->
                             <div class="box-body">
-                                <form id='unitForm' method="get" class="form-horizontal">     
-                                    <div class="alert alert-info alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                        <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm birimlerin tanımlamaları bu sayfada yapılabilir!</h4>
-                                        Birim grubu ekleyebilir , silebilir, güncelleyebilir ve birim gruplarını metric sistemlere göre düzenleyebilirsiniz....
+                                
+                                
+                            <div class="alert alert-info alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm makina özellikleri makina kategorilerine bağlı olarak sisteme eklenebilmektedir!</h4>
+                                Makina özelliği ekleyebilir , silebilir, güncelleyebilir ve kopyalayabilirsiniz....
+                            </div>    
+                                
+                                
+            <!-- Custom Tabs -->
+              <div class="nav-tabs-custom" >
+                <ul class="nav nav-tabs">
+                  <li class="active" ><a href="#tab_1" data-toggle="tab">Makina Kategorisine göre makina özellikleri</a></li>
+                  <li><a href="#tab_2" data-toggle="tab" zeynel='testcccc'>Tab 2</a></li>
+                  <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">  
+                    
+                     <form id='unitForm' method="get" class="form-horizontal">     
+                    
+                    <div id="roleFormBlock" class="box box-primary" style="padding-top: 20px;">                                     
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Kategori</label>
+                            <div class="col-sm-10 " >
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-code-fork"></i>
                                     </div>
-                                    <div id="roleFormBlock" class="box box-primary" style="padding-top: 20px;">
-                                        <!--Easyui tree  div start-->                                          
-                                        <!--<div class="form-group">
-                                            <label class="col-sm-2 control-label">Birimler</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-code-fork"></i>
-                                                    </div>
-                                                    <div class="inner">
-                                                        <div id="loading-image">
-                                                        <ul id="tt_tree_menu" class="easyui-tree" ></ul> 
-                                                        </div>
-                                                    </div>                                                       
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        <!--Easyui tree  div start-->                                      
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Kategori</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-code-fork"></i>
-                                                    </div>
-                                                    <div class="inner">
-                                                        <div id="loading-image">
-                                                        <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
-                                                        </div>
-                                                    </div>                                                       
-                                                </div>
-                                            </div>
+                                    <div class="inner test-tree" style='overflow:auto;'>    
+                                        <div id="loading-image" class='scrollbar-inner'>
+                                        <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Birim Sistemi</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group"> 
-                                                  <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                                  <div style="margin-bottom: -10px;" class="tag-container">
-                                                      <ul class="tag-box"></ul>    
-                                                  </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div>                                                       
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Kategori Özellikleri</label>  
+                            <div class="col-sm-10">
+                                <div class="input-group"> 
+                                  <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                                  <div style="margin-bottom: -10px;" class="tag-container">
+                                      <ul class="tag-box"></ul>    
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Birimler</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit" id="unit" disabled="true"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">İngilizce Birimler</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_eng" id="unit_eng" disabled="true" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Birim Kodu</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode" id="unitcode" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">İngilizce Birim Kodu</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_eng" id="unitcode_eng" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Birim Kısaltması</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation" id="abbreviation" disabled="true" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">İngilizce Birim Kısaltması</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng" id="abbreviation_eng" disabled="true" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertUnit" class="btn btn-primary" type="submit" onclick="return insertUnitRootWrapper(event);"><i class="fa fa-save"></i>  Birim Grubu Kaydet </button>
-                                                <button id="updateUnit" class="btn btn-flat" type="submit" onclick="return updateUnitWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
-                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="regulateButtons();" ><i class="fa fa-remove"></i> Reset </button>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                </form>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Birimler</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit" id="unit" disabled="true"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">İngilizce Birimler</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_eng" id="unit_eng" disabled="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Birim Kodu</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode" id="unitcode" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">İngilizce Birim Kodu</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_eng" id="unitcode_eng" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Birim Kısaltması</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation" id="abbreviation" disabled="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">İngilizce Birim Kısaltması</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng" id="abbreviation_eng" disabled="true" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <button id="insertUnit" class="btn btn-primary" type="submit" onclick="return insertUnitRootWrapper(event);"><i class="fa fa-save"></i>  Birim Grubu Kaydet </button>
+                                <button id="updateUnit" class="btn btn-flat" type="submit" onclick="return updateUnitWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
+                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="regulateButtons();" ><i class="fa fa-remove"></i> Reset </button>
+                            </div>
+                        </div>
+                    </div> 
+                </form>  
+    
+                  </div><!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_2" >
+ 
+                   
+                    The European languages are members of the same family. Their separate existence is a myth.
+                    For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                    in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                    new common language would be desirable: one could refuse to pay expensive translators. To
+                    achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                    words. If several languages coalesce, the grammar of the resulting language is more simple
+                    and regular than that of the individual languages.   
+                   
+                  </div><!-- /.tab-pane -->
+                  
+                </div><!-- /.tab-content -->
+              </div><!-- nav-tabs-custom -->
+                                
+                                
+                                
+                                
                             </div><!-- /.box-body -->
                         </div><!--/. primary box div-->
                     </div><!--/. first panel single column div -->
