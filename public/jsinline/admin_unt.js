@@ -114,7 +114,6 @@ $(document).ready(function () {
            } else {
                var s = node.text;
            }
-            
             var id = node.id;
             if (node.attributes.active == 0) {
                 
@@ -248,6 +247,7 @@ $(document).ready(function () {
              onSuccess : function (event, data) {
                 sm.successMessage({ onShown : function(event, data) {
                         loader.loadImager('removeLoadImage');
+                        regulateButtonsForCRUD();
                     }
                 });
                 sm.successMessage('show', 'Birim Silme İşlemi Başarılı...', 
@@ -258,16 +258,19 @@ $(document).ready(function () {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
                                          'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
+                regulateButtonsForCRUD();
                 console.error('"pkDelete_sysUnits" servis datası boştur!!');
              },
              onErrorMessage : function (event, data) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
                                          'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
+                regulateButtonsForCRUD();
              },
              onError23503 : function (event, data) {
                  dm.dangerMessage({ onShown : function(event, data) {
                         loader.loadImager('removeLoadImage');
+                        regulateButtonsForCRUD(); 
                     }
                 });
                 dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
@@ -527,6 +530,33 @@ $(document).ready(function () {
        $('#unit_eng').val('');
        $('#abbreviation').val('');
        $('#abbreviation_eng').val('');
+       
+       $('#unit').attr('disabled',true);
+       $('#unit_eng').attr('disabled',true);
+       $('#abbreviation').attr('disabled',true);
+       $('#abbreviation_eng').attr('disabled',true);
+       
+       $('#dropdownUnitSystems').ddslick('close');
+   }
+   
+   /**
+    * reset button function setting disabled/ enabled
+    * for 'insert' and 'update' form buttons
+    * @returns null
+    * @author Mustafa Zeynel Dağlı
+    * @since 04/04/2016
+    */
+   window.regulateButtonsForCRUD = function () {
+       $('#updateUnit').attr('disabled', true);
+       $('#insertUnit').attr('disabled', false);
+       
+       $('#unit').val('');
+       $('#unit_eng').val('');
+       $('#abbreviation').val('');
+       $('#abbreviation_eng').val('');
+       
+       $('#unitcode').val('');
+       $('#unitcode_eng').val('');
        
        $('#unit').attr('disabled',true);
        $('#unit_eng').attr('disabled',true);
@@ -892,6 +922,7 @@ $(document).ready(function () {
                 console.error('"pkInsert_sysUnits" servis hatası->'+textStatus);
              },
              onSuccess : function (event, data) {
+                 var data = data;
                 sm.successMessage({
                     onShown: function( event, data ) {
                         $('#unitForm')[0].reset();
@@ -900,8 +931,7 @@ $(document).ready(function () {
                     }
                 });
                 sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
-                                          'Birim kayıt işlemini gerçekleştirdiniz... ');
-
+                                          'Birim kayıt işlemini gerçekleştirdiniz... ');                      
                 $('#tt_tree_menu').tree('append', {
                     //parent: selectedTreeItem.target,
                     data: [{
@@ -1004,6 +1034,9 @@ $(document).ready(function () {
         system_eng = ddData.selectedData.description;
         selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
         id = selectedTreeItem.id;
+        if(selectedTreeItem.attributes.notroot == false) {
+            system_id = 0;
+        }
         
         var aj = $(window).ajaxCall({
                         proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
