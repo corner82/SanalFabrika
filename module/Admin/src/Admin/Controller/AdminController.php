@@ -172,6 +172,30 @@
          
      }
      
+     /**
+      * system machine attributes definitions admin panel
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 21/04/2016
+      */
+     public function machattrAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+         
+     }
+     
 
  }
 
