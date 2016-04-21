@@ -288,12 +288,12 @@ $(document).ready(function () {
     */
    window.passiveUnitDialog= function(nodeID){
         var nodeID = nodeID;
-        wm.warningComplexMessage({ 
+        wcm.warningComplexMessage({ 
             onConfirm : function() {
                 passiveUnit(nodeID);
             }
        });
-       wm.warningComplexMessage('show', 'Birim Ögesini Pasifleştirmek Üzeresiniz!',
+       wcm.warningComplexMessage('show', 'Birim Ögesini Pasifleştirmek Üzeresiniz!',
                                  'Birim öğesini pasifleştirmek üzeresiniz !! ');
    }
    

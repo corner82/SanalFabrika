@@ -99,6 +99,13 @@
 
 .tag-box li.tags:hover { padding-right: 28px; }
 
+/*.tag-box li.tags.hover_effect { padding-right: 28px; }
+
+.hover {
+-webkit-user-select: none;
+-webkit-touch-callout: none;        
+}
+*/
 .tag-box li.tags:hover .close { width: 14px; }
 .tag-box li.tags:hover .copy { width: 14px; }
 
