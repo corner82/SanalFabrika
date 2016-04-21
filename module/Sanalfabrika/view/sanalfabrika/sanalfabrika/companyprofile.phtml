@@ -188,7 +188,7 @@
 
 
     <!--=== Profile ===-->
-    <div class="container content profile">
+    <div class="container content profile" style='padding-top:0px;'>
         <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
@@ -319,11 +319,11 @@
             <!--End Left Sidebar-->
 
             <!-- Counter header start -->
-            <div class="col-md-9" style="padding-bottom: 20px">
+            <div class="col-md-9" >
                 <!--<div class="parallax-counter-v4 parallaxBg">-->
                 <!--Service Block v3-->
-                <div class="row margin-bottom-10">
-                    <div class="col-sm-6 sm-margin-bottom-20">
+                <div class="row margin-bottom-10" style='margin-top:0px;'>
+                    <div class="col-md-6 sm-margin-bottom-20">
                         <div class="service-block-v3 service-block-aviation">
                             <i class="icon-plane"></i>
                             <span class="service-heading">
@@ -388,115 +388,90 @@
                 </div><!--/end row-->
                 <!--End Service Block v3-->                    
                 <!--</div>-->
-            </div>
-
-
-            <!-- Counter header ends -->
-
-            <!-- Profile Content -->    
-
-            <!--=== Parallax About Block ===-->
-            <div class="col-md-9">
-                <div class="profile-body">
-                    <!--<div class="block-description">-->
-                        <div class="container">
-
-                            <div class="parallax-bg parallaxBg1">            
-                                <div class="container content parallax-about">
-                                    <div class="title-box-v2">
-                                        <h2>About our <span class="color-green">company</span></h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="banner-info dark margin-bottom-10">
-                                                <i class="rounded-x icon-bell"></i>
-                                                <div class="overflow-h">
-                                                    <h3>Our mission</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt sit amet dui auctor pellentesque. Nulla ut posuere purus.</p>
-                                                </div>
-                                            </div>
-                                            <div class="banner-info dark margin-bottom-10">
-                                                <i class="rounded-x fa fa-magic"></i>
-                                                <div class="overflow-h">
-                                                    <h3>Our vision</h3>
-                                                    <p>Phasellus vitae rhoncus ipsum. Aliquam ultricies, velit sit amet scelerisque tincidunt, dolor neque consequat est, a dictum felis metus eget nulla.</p>
-                                                </div>
-                                            </div>
-                                            <div class="banner-info dark margin-bottom-10">
-                                                <i class="rounded-x fa fa-thumbs-o-up"></i>
-                                                <div class="overflow-h">
-                                                    <h3>We are good at ...</h3>
-                                                    <p>Nunc ac ligula ut diam rutrum porttitor. Integer et neque at lacus placerat pretium eu ac dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                                                </div>
-                                            </div>
-                                            <div class="margin-bottom-20"></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <img class="img-responsive" src="assets/img/mockup/1.png" alt="">
-                                        </div>
-                                    </div>    
-                                </div><!--/container--> 
-                            </div>      
-                            <!--=== End Parallax About Block ===-->
-                        </div>
-                    <!--</div>-->
-                </div>
-            </div>
-
-            <div class="col-md-9">
-                <div class="profile-body">
-                    <div class="block-description">
-                        <div class="container">
-                            <div class="title-box-v2 col-md-8" id="companyAddressPH">
-                            </div> 
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <!-- Left Inner -->
-                                    <div class="left-inner">
-                                        <img id="logosrc" src="" style="width: 20%; height: 20%"  alt="">                                        
-                                        <h4 id="logoName"></h4>
-                                        <a href="#"><i class="position-top fa fa-print"></i></a>
-
-                                        <div class="overflow-h">
-                                            <p class="hex" id="companyInfoPH">
-                                                <?php echo $this->translate('Turkey') ?>, 
-                                                200 <?php echo $this->translate('Employees') ?>
-                                            </p>
-                                            <!--
-                                            <ul class="list-inline star-vote">
-                                                <li><i class="color-green fa fa-star"></i></li>
-                                                <li><i class="color-green fa fa-star"></i></li>
-                                                <li><i class="color-green fa fa-star"></i></li>
-                                                <li><i class="color-green fa fa-star-half-o"></i></li>
-                                                <li><i class="color-green fa fa-star-o"></i></li>
-                                            </ul>                                            
-                                            <span><a href="#">34 <?php echo $this->translate('reviews') ?></a></span>
-
-                                            --></div>
-                                        <ul class="social-icons" id="socialMediaHP">
-                                        </ul> 
-                                    </div>
-                                </div>
+                
+                <div class='row'>
+                    <!-- about company block -->
+                    <div class="parallax-bg parallaxBg1">            
+                        <div class=" content parallax-about">
+                            <div class="title-box-v2">
+                                <h2>About our <span class="color-green">company</span></h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x icon-bell"></i>
+                                        <div class="overflow-h">
+                                            <h3>Our mission</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt sit amet dui auctor pellentesque. Nulla ut posuere purus.</p>
+                                        </div>
+                                    </div>
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x fa fa-magic"></i>
+                                        <div class="overflow-h">
+                                            <h3>Our vision</h3>
+                                            <p>Phasellus vitae rhoncus ipsum. Aliquam ultricies, velit sit amet scelerisque tincidunt, dolor neque consequat est, a dictum felis metus eget nulla.</p>
+                                        </div>
+                                    </div>
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x fa fa-thumbs-o-up"></i>
+                                        <div class="overflow-h">
+                                            <h3>We are good at ...</h3>
+                                            <p>Nunc ac ligula ut diam rutrum porttitor. Integer et neque at lacus placerat pretium eu ac dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+                                        </div>
+                                    </div>
+                                    <div class="margin-bottom-20"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/mockup/1.png') ?>" alt="">
+                                </div>
+                            </div>    
+                        </div><!--/container--> 
+                    </div>  
+                    <!-- about company block end -->
+                </div>
+                
+                <div class="row">
+                <div class="col-sm-6">
+                    <!-- Testimonials v4 -->
+                    <div class="testimonials-v4 md-margin-bottom-50">
+                        <div class="testimonials-v4-in">
+                            <p>The best programs are written so that computing machines can perform them quickly and so that human beings can understand them clearly. A programmer is ideally an essayist who works with traditional aesthetic and literary forms as well as mathematical concepts.</p>
                         </div>
+                        <img class="rounded-x" src="assets/img/testimonials/img5.jpg" alt="thumb">
+                        <span class="testimonials-author">
+                            Jeremy Asigner<br>
+                            <em>Web Developer, <a href="#">Google Inc.</a></em>
+                        </span>
                     </div>
+                    <!-- End Testimonials v4 -->
                 </div>
-
-                <hr>
-
-                <div class="funny-boxes funny-boxes-colored funny-boxes-sea">
-                    <div class="row">
-                        <h2 style='color: #ffffff'><?php echo $this->translate('Active Sectors') ?></h2>
+                <div class="col-sm-6">
+                    <!-- Testimonials v4 -->
+                    <div class="testimonials-v4">
+                        <div class="testimonials-v4-in">
+                            <p>We see a lot of feature-driven product design in which the cost of features is not properly accounted. Features can have a negative value to customers because they make the products more difficult to understand and use. We are finding that people like products that just work.</p>
+                        </div>
+                        <img class="rounded-x" src="assets/img/testimonials/img4.jpg" alt="thumb">
+                        <span class="testimonials-author">
+                            John Davenport<br>
+                            <em>UX/UI Designer, <a href="#">Apple Inc.</a></em>
+                        </span>
                     </div>
-                    <div class="row">
-                        <table class='table-hover' style='width:100%' id='com_sec_list'>
-                        </table>
-                    </div>                            
+                    <!-- End Testimonials v4 -->
                 </div>
+            </div>
+                
+            </div>
 
-                <hr>
+
+             
+
+            
+
+            <div class="col-md-9">
+                
 
                 <div class="profile-body">
                     <div class="block-description">
