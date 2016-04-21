@@ -14,7 +14,8 @@ class FactoryServiceAuthenticatedRedirectUser  implements FactoryInterface{
         $route = $event ->getRouteMatch()
                         ->getMatchedRouteName();
         $url = $event->getRouter()
-                     ->assemble(array('action' => 'cmt'), 
+//                     ->assemble(array('action' => 'cmt'), 
+                     ->assemble(array('action' => 'clientspage'), 
                                          array('name' => 'sanalfabrika'));
         $response = $event->getResponse();  
         $response->setHeaders( $response->getHeaders ()

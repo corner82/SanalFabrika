@@ -170,21 +170,21 @@
             <ul class="pull-right breadcrumb">                        
                 <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'index')); ?>">
-                        <?php echo $this->translate('Home') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                ?>">
+                           <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'clientspage')); ?>">
-                        <?php echo $this->translate('Clients Page') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage'));
+                           ?>">
+                           <?php echo $this->translate('Clients Page') ?>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'companyprofile', 'id' => $selectedCompanyNpk)); ?>">
-                        <?php echo $this->translate('Company Profile') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'id' => $selectedCompanyNpk));
+                           ?>">
+                           <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>
                 <li class="active"><?php echo $this->translate('Company Members') ?></li>
@@ -203,7 +203,7 @@
                      src="" alt="">
 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    
+
                 </ul>    
 
                 <div class="panel-heading-v2 overflow-h">
@@ -229,149 +229,58 @@
             </div>
             <!--End Left Sidebar-->
 
-            <!-- Counter header start -->
-            <div class="col-md-9" style="padding-bottom: 20px">
-                <!--<div class="parallax-counter-v4 parallaxBg">-->
-                <!--Service Block v3-->
-                <div class="row margin-bottom-10">
-                    <div class="col-sm-6 sm-margin-bottom-20">
-                        <div class="service-block-v3 service-block-aviation">
-                            <i class="icon-plane"></i>
-                            <span class="service-heading"><?php echo $this->translate('Submitted Aviation Projects') ?></span>
-                            <span class="counter">358</span>
-
-                            <div class="clearfix margin-bottom-10"></div>
-
-                            <div class="row margin-bottom-20">
-                                <div class="col-xs-6 service-in">
-                                    <small><?php echo $this->translate('Last Week') ?></small>
-                                    <h4 class="counter">25</h4>
-                                </div>
-                                <div class="col-xs-6 text-right service-in">
-                                    <small><?php echo $this->translate('Last Month') ?></small>
-                                    <h4 class="counter">114</h4>
-                                </div>
-                            </div>
-                            <div class="statistics">
-                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar') ?><span class="pull-right">67%</span></h3>
-                                <div class="progress progress-u progress-xxs">
-                                    <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
-                                    </div>
-                                </div>
-                                <small>11% less <strong><?php echo $this->translate('than last month') ?></strong></small>
-                            </div>            
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-6">
-                        <div class="service-block-v3 service-block-renewable">
-                            <i class="icon-energy"></i>
-                            <span class="service-heading"><?php echo $this->translate('Submitted Renewable Energy Projects') ?></span>
-                            <span class="counter">324,056</span>
-
-                            <div class="clearfix margin-bottom-10"></div>
-
-                            <div class="row margin-bottom-20">
-                                <div class="col-xs-6 service-in">
-                                    <small><?php echo $this->translate('Last Week') ?></small>
-                                    <h4 class="counter">26,904</h4>
-                                </div>
-                                <div class="col-xs-6 text-right service-in">
-                                    <small><?php echo $this->translate('Last Month') ?></small>
-                                    <h4 class="counter">124,766</h4>
-                                </div>
-                            </div>
-                            <div class="statistics">
-                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar') ?><span class="pull-right">89%</span></h3>
-                                <div class="progress progress-u progress-xxs">
-                                    <div style="width: 89%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="89" role="progressbar" class="progress-bar progress-bar-light">
-                                    </div>
-                                </div>
-                                <small>15% <?php echo $this->translate('higher') ?> <strong><?php echo $this->translate('than last month') ?></strong></small>
-                            </div>            
-                        </div>
-                    </div>
-                </div><!--/end row-->
-                <!--End Service Block v3-->                    
-                <!--</div>-->
-            </div>
-            <!-- Counter header ends -->
 
             <!-- Profile Content -->
+            <div class="col-md-9" >
+                <div class="profile-body margin-bottom-20" style="background-color: #717984">
+                    <!--=== Parallax Counter ===-->
+                    <div class="parallax-counter parallax">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-2 col-xs-3">
+                                    <div class="counters">
+                                        <span class="counter">8</span>   
+                                        <h4><?php echo $this->translate("Engineers")?></h4>
+                                    </div>    
+                                </div>
+                                <div class="col-sm-2 col-xs-3">
+                                    <div class="counters">
+                                        <span class="counter">13</span> 
+                                        <h4><?php echo $this->translate("Technicians")?></h4>
+                                    </div>    
+                                </div>
+                                <div class="col-sm-2 col-xs-3">
+                                    <div class="counters">
+                                        <span class="counter">3</span>
+                                        <h4><?php echo $this->translate("Foreign Trade Staff")?></h4>
+                                    </div>    
+                                </div>
+                                <div class="col-sm-2 col-xs-3">
+                                    <div class="counters">
+                                        <span class="counter">151</span>
+                                        <h4><?php echo $this->translate("Total Employees")?></h4>
+                                    </div>    
+                                </div>
+                            </div>            
+                        </div>
+                    </div>        
+                    <!--=== Parallax Counter ===-->
+                </div>
+            </div>
+
             <div class="col-md-9">
                 <div class="profile-body margin-bottom-20">
-                    <div class="left-inner">
-                        <!-- our team  -->
-                        <div class="team-v1 bg-grey content-lg">
-                            <div class="container">
-                                <div class="title-v1 col-md-8">
-                                    <h2><?php echo $this->translate('Company Employees') ?>     </h2>
-                                    <p>We <strong>meet</strong> and get to know you. You tell us and we listen. <br>
-                                        We build your website to realise your vision and we <strong>deliver</strong> the ready product.</p>
-                                </div>
-
-                                <ul class="list-unstyled row col-md-8">
-                                    <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
-                                        <div class="team-img">
-                                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/team/img1-md.jpg') ?>" alt="">
-                                            <ul>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h3>John Brown</h3>
-                                        <h4>/ <?php echo $this->translate('R&D Department Manager')?></h4>
-                                        <p><?php echo $this->translate('Description...')?></p>
-                                    </li>
-                                    <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
-                                        <div class="team-img">
-                                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/team/img2-md.jpg') ?>" alt="">
-                                            <ul>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h3>Tina Krueger</h3>
-                                        <h4>/ <?php echo $this->translate('Lead Designer')?></h4>
-                                        <p><?php echo $this->translate('Description...')?></p>
-                                    </li>
-                                    <li class="col-sm-3 col-xs-6">
-                                        <div class="team-img">
-                                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/team/img3-md.jpg') ?>" alt="">
-                                            <ul>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h3>David Case</h3>
-                                        <h4>/ <?php echo $this->translate('Chief Engineer')?></h4>
-                                        <p><?php echo $this->translate('Description...')?></p>
-                                    </li>
-                                    <li class="col-sm-3 col-xs-6">
-                                        <div class="team-img">
-                                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/team/img5-md.jpg') ?>" alt="">
-                                            <ul>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h3>Kathy Reyes</h3>
-                                        <h4>/ <?php echo $this->translate('Technician')?></h4>
-                                        <p><?php echo $this->translate('Description...')?></p>
-                                    </li>
-                                </ul>
-                            </div>
+                    <!--Profile Blog-->
+                    <div class="row margin-bottom-20">
+                        <div class="title-v1 col-md-12">
+                            <h2><?php echo $this->translate('Company Employees') ?>     </h2>
+                            <p><?php echo $this->translate('') ?></p>
                         </div>
-                        <!-- our team  end-->
-
+                        <div class="col-sm-6 sm-margin-bottom-20" id="members_ph">
+                        </div>
                     </div>
-
                 </div>
+                <!-- our team  end-->
             </div>
             <div class="margin-bottom-50"></div>
             <!-- End Profile Content -->            

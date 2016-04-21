@@ -27,10 +27,13 @@ $(document).ready(function () {
                     + window.lang.translate('All')
                     + "</div> |");
             var i;
+            window.total_machines = parseFloat(0);
+            $('#companymtprofile').attr('tot_mach_count', window.total_machines);
+
             for (i = 0; i < data.length; i++) {
 
                 var id_name = data[i].group_name.replace(/\s+/, "_") + "_machine_link";
-                
+
                 var appending =
                         "<li id='"
                         + id_name
@@ -47,6 +50,7 @@ $(document).ready(function () {
                         + "</a>"
                         + "</li>";
                 $('#collapse_mach_cats').append(appending);
+
                 var appending2 =
                         "<div data-filter='."
                         + id_name
@@ -69,9 +73,26 @@ $(document).ready(function () {
 
                     }
                 });
+
+                window.total_machines += parseFloat(data[i].machine_count);
             }
+            
+            /*
+             * here total number of machines are populated
+             * 
+             * for getting number of cncs, unavailable and special machines machine attributes 
+             * must be controled from service
+             */
+            
+            $('#companymtprofile').attr('tot_mach_count', window.total_machines);
+            $('#total_machs').empty();
+            $('#total_machs').append(window.total_machines);
+            
         }
     });
+
+
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -90,6 +111,11 @@ $(document).ready(function () {
             $('#logoPlace1').attr('src', window.logosrc);
         }
     });
+
+    $('#total_machs').append();
+
+
+
 });
 /*
  * 
@@ -148,7 +174,7 @@ function gotLink(clicked_Id) {
                     + " </div>"
                     + " </div>"
                     + " </div>";
-            
+
             $('#sel_mach_cat_list_div').empty();
             $('#sel_mach_cat_list_div').append(appending_list);
 
