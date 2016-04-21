@@ -30,6 +30,7 @@ $(document).ready(function () {
             for (i = 0; i < data.length; i++) {
 
                 var id_name = data[i].group_name.replace(/\s+/, "_") + "_machine_link";
+                
                 var appending =
                         "<li id='"
                         + id_name
@@ -147,6 +148,7 @@ function gotLink(clicked_Id) {
                     + " </div>"
                     + " </div>"
                     + " </div>";
+            
             $('#sel_mach_cat_list_div').empty();
             $('#sel_mach_cat_list_div').append(appending_list);
 
