@@ -21,7 +21,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 //            console.log(data);
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/Logos/';
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/EMGE/Logos/';
 
             window.logosrc = imageFolAddress + data[0].logo;
 
@@ -33,8 +33,6 @@ $(document).ready(function () {
     /*
      * Products categories and category products service
      *
-     *
-     * 
      *
      */
     $.ajax({
@@ -135,13 +133,13 @@ $(document).ready(function () {
                             + "<a href='"
                             + "https://"
                             + window.location.hostname
-                            + "/onyuz/standard/assets/img/sfClients/Products/"
+                            + "/onyuz/standard/assets/img/sfClients/EMGE/Products/"
                             + properties[selectedRowIndex][1].value
                             + "'>"
                             + "<img class='mach_sample' src='"
                             + "https://"
                             + window.location.hostname
-                            + "/onyuz/standard/assets/img/sfClients/Products/"
+                            + "/onyuz/standard/assets/img/sfClients/EMGE/Products/"
                             + properties[selectedRowIndex][1].value
                             + "' alt=''>"
                             + "</a>"
@@ -158,7 +156,7 @@ $(document).ready(function () {
                             + "<hr>";
 
 
-                    console.log(appending);
+//                    console.log(appending);
 
                     $('#product_details_DIV').append(appending);
 
@@ -204,13 +202,13 @@ $(document).ready(function () {
                                 + "<a href='"
                                 + "https://"
                                 + window.location.hostname
-                                + "/onyuz/standard/assets/img/sfClients/Products/"
+                                + "/onyuz/standard/assets/img/sfClients/EMGE/Products/"
                                 + properties[selectedRowIndex][1].value
                                 + "'>"
                                 + "<img class='mach_sample' src='"
                                 + "https://"
                                 + window.location.hostname
-                                + "/onyuz/standard/assets/img/sfClients/Products/"
+                                + "/onyuz/standard/assets/img/sfClients/EMGE/Products/"
                                 + properties[selectedRowIndex][1].value
                                 + "' alt=''>"
                                 + "</a>"
@@ -227,7 +225,7 @@ $(document).ready(function () {
                                 + "</div>"
                                 + "<hr>";
 
-                        console.log(appending);
+//                        console.log(appending);
 
                         $('#product_details_DIV').append(appending);
 
@@ -259,6 +257,114 @@ $(document).ready(function () {
         }
 
     });
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {
+            url: 'fillCompanyInfoProductsGuest_infoFirmProfile',
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            console.log(data);
+
+            $('#filters-container').empty();
+//            $('#grid-container').empty();
+
+            $('#filters-container').append(
+                    "<div data-filter='*' class='cbp-filter-item-active cbp-filter-item'>"
+                    + window.lang.translate('All')
+                    + "</div>");
+
+            var categories = [];
+            var appendings = '';
+
+            for (var i = 0; i < data.length; i++) {
+
+//                var production_type = data[i].production_type;
+                var production_type = 'emge_products';
+                var product_name = data[i].product_name;
+                var product_image_name = data[i].product_picture;
+
+                var image_url =
+                        "https://"
+                        + window.location.hostname
+                        + "/onyuz/standard/assets/img/sfClients/"
+                        + "EMGE/Products/"
+                        + product_image_name;
+
+                var appending =
+                        "| <div data-filter='."
+                        + production_type
+                        + "' "
+                        + "class='cbp-filter-item'>"
+                        + window.lang.translate(production_type)
+                        + "</div>";
+
+                if ($.inArray(production_type, categories)) {
+
+                    categories.push(production_type);
+                    $('#filters-container').append(appending);
+
+                }
+
+                var appending2 =
+                        "<div class='cbp-item "
+                        + production_type
+                        + "'>"
+                        + "<div class='cbp-caption margin-bottom-20'>"
+                        + "<div class='cbp-caption-defaultWrap'>"
+                        + "<img src='"
+                        + image_url
+                        + "' alt=''>"
+                        + "</div>"
+                        + "<div class='cbp-caption-activeWrap'>"
+                        + "<div class='cbp-l-caption-alignCenter'>"
+                        + "<div class='cbp-l-caption-body'>"
+                        + "<ul class='link-captions no-bottom-space'>"
+                        + "<li>"
+                        + "<a href='"
+                        + image_url
+                        + "' "
+                        + " class='cbp-lightbox' data-title=''>"
+                        + "<i class='rounded-x fa fa-search'></i>"
+                        + "</a>"
+                        + "</li>"
+                        + "</ul>"
+                        + "</div>"
+                        + "</div>"
+                        + "</div>"
+                        + "</div>"
+                        + "<div class='cbp-title-dark'>"
+                        + " <div class='cbp-l-grid-agency-title'>"
+                        + production_type + ' ' + i
+                        + "</div>"
+                        + "<div class='cbp-l-grid-agency-desc'>"
+                        + product_name
+                        + "</div>"
+                        + "</div>"
+                        + "</div>";
+
+                appendings += appending2;
+            }
+            
+            jQuery("#grid-container").cubeportfolio('appendItems', appendings);
+
+        }
+    });
+
+
+
+
+
+
+
+
+
 
 
     /*
@@ -296,7 +402,7 @@ $(document).ready(function () {
 
 function listOfCertificates() {
 
-    console.log('Available Certificates');
+//    console.log('Available Certificates');
     if ($("#qualityDetaildDIV").hasClass('active')) {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
