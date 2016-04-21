@@ -241,16 +241,16 @@
                          border-bottom:0px;height:30px; font-size:12px;
                          font-weight:bold;padding:5px 0px;">
                         <span style="margin-left:2px;background-image:url(//www.exchangeratewidget.com/flag.png); 
-                        background-position: 0 -1232px; width:100%; height:15px; 
-                        background-repeat:no-repeat;padding-left:5px;">
+                              background-position: 0 -1232px; width:100%; height:15px; 
+                              background-repeat:no-repeat;padding-left:5px;">
                             <a href="https://www.exchangeratewidget.com/" 
-                            style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
-                                <?php echo $this->translate('US Dollar Exchange Rates')?>
+                               style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
+                                   <?php echo $this->translate('US Dollar Exchange Rates') ?>
                             </a>
                         </span>
                     </div>
                     <script type="text/javascript" 
-                    src="//www.exchangeratewidget.com/converter.php?l=en&f=USD&t=EUR,GBP,TRY,JPY,CHF,CAD,AUD,CNY,ZAR,RUB,BRL,HKD,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=5">
+                            src="//www.exchangeratewidget.com/converter.php?l=en&f=USD&t=EUR,GBP,TRY,JPY,CHF,CAD,AUD,CNY,ZAR,RUB,BRL,HKD,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=5">
                     </script>
                 </div>
                 <!-- End of Exchange Rates Script -->
@@ -393,8 +393,63 @@
 
             <!-- Counter header ends -->
 
-            <!-- Profile Content -->            
+            <!-- Profile Content -->    
+
+            <!--=== Parallax About Block ===-->
             <div class="col-md-9">
+                <div class="profile-body">
+                    <div class="block-description">
+                        <div class="container">
+                            <!--<div class="parallax-bg parallaxBg1">-->            
+                            <div class="container content parallax-about col-md-8">
+                                <div class="title-box-v2">
+                                    <h2>
+                                        <?php echo $this->translate('About our') ?>
+                                        <span class="color-green">
+                                            <?php echo $this->translate('company') ?>
+                                        </span>
+                                    </h2>
+                                    <p></p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x icon-bell"></i>
+                                        <div class="overflow-h">
+                                            <h3><?php echo $this->translate('Address')?></h3>
+                                            <p id="address_ph">Turkey, Ankara<br/>
+                                                Yenimahalle</br>
+                                                Ostim, 1211. Sk., Yenimahalle
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x fa fa-magic"></i>
+                                        <div class="overflow-h">
+                                            <h3><?php echo $this->translate('Total number of employees')?></h3>
+                                            <p id="tot_num_emp_ph"></p>
+                                        </div>
+                                    </div>
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x fa fa-thumbs-o-up"></i>
+                                        <div class="overflow-h">
+                                            <h3><?php echo $this->translate('Foundation Date')?></h3>
+                                            <p id="found_date_ph"></p>
+                                        </div>
+                                    </div>
+                                    <div class="margin-bottom-20"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <img class="img-responsive" src="assets/img/mockup/1.png" alt="">
+                                </div>
+                                <!--</div>/container--> 
+                            </div>      
+                            <!--=== End Parallax About Block ===-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div class="col-md-9">
                 <div class="profile-body">
                     <div class="block-description">
                         <div class="container">
@@ -402,7 +457,7 @@
                             </div> 
                             <div class="row">
                                 <div class="col-md-8">
-                                    <!-- Left Inner -->
+                                     Left Inner 
                                     <div class="left-inner">
                                         <img id="logosrc" src="" style="width: 20%; height: 20%"  alt="">                                        
                                         <h4 id="logoName"></h4>
@@ -413,7 +468,7 @@
                                                 <?php echo $this->translate('Turkey') ?>, 
                                                 200 <?php echo $this->translate('Employees') ?>
                                             </p>
-                                            <!--
+                                            
                                             <ul class="list-inline star-vote">
                                                 <li><i class="color-green fa fa-star"></i></li>
                                                 <li><i class="color-green fa fa-star"></i></li>
@@ -423,7 +478,7 @@
                                             </ul>                                            
                                             <span><a href="#">34 <?php echo $this->translate('reviews') ?></a></span>
 
-                                            --></div>
+                                            </div>
                                         <ul class="social-icons" id="socialMediaHP">
                                         </ul> 
                                     </div>
@@ -452,7 +507,7 @@
                         <div class="container">
                             <div id="company_performance_div" class="row" style='margin-top: 20px; margin-bottom: 20px'>
                                 <div class="col-md-8">                                    
-                                    <!-- Left Inner -->
+                                     Left Inner 
                                     <div class="left-inner">
                                         <div class='row'>
                                             <div class="headline-center margin-bottom-60">
@@ -493,7 +548,7 @@
                         <div class="container">
                             <div class="row" style='margin-top: 20px; margin-bottom: 20px'>
                                 <div class="col-md-8">                                    
-                                    <!-- Left Inner -->
+                                     Left Inner 
                                     <div class="left-inner">
                                         <div class="progression">
                                             <div class='row'>
@@ -519,7 +574,7 @@
                         <div class="container">
                             <div class="row" style='margin-top: 20px; margin-bottom: 20px;'>
                                 <div class="col-md-8">                                    
-                                    <!-- Left Inner -->
+                                     Left Inner 
                                     <div class="left-inner">
                                         <div class="progression">
                                             <div class="headline-center margin-bottom-60">
@@ -664,14 +719,14 @@
                         <div class="container">
                             <div id="customers_div" class="row" style='margin-top: 20px; margin-bottom: 20px;'>
                                 <div class="col-md-8">                                    
-                                    <!-- Left Inner -->
+                                     Left Inner 
                                     <div class="left-inner">
                                         <div class="progression">
                                             <div class="headline-center margin-bottom-60">
                                                 <h2><?php echo $this->translate('Customers') ?></h2>
                                             </div>
-                                            <!--                                            <ul class="list-unstyled" id="customersPH">
-                                                                                        </ul>-->
+                                                                                        <ul class="list-unstyled" id="customersPH">
+                                                                                        </ul>
                                             <div class="bg-color-light">
                                                 <div class="owl-clients-v1 owl-carousel owl-theme" style="opacity: 1; display: block;">
                                                     <div class="owl-wrapper-outer">
@@ -697,13 +752,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- End Left Inner -->
+                                     End Left Inner 
                                 </div>    
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- End Profile Content -->            
         </div>
     </div><!--/container-->    
