@@ -880,7 +880,7 @@
                 success: function (data, textStatus, jqXHR) {
                     if(data.length!==0) {
                         if(data.found) {
-                            self._trigger('onSuccess',  data);
+                            self._trigger('onSuccess', event, data);
                             
                         }else {
                             if(data.errorInfo == 23505) {
