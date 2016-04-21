@@ -76,18 +76,18 @@ $(document).ready(function () {
 
                 window.total_machines += parseFloat(data[i].machine_count);
             }
-            
+
             /*
              * here total number of machines are populated
              * 
              * for getting number of cncs, unavailable and special machines machine attributes 
              * must be controled from service
              */
-            
+
             $('#companymtprofile').attr('tot_mach_count', window.total_machines);
             $('#total_machs').empty();
             $('#total_machs').append(window.total_machines);
-            
+
         }
     });
 
@@ -177,6 +177,11 @@ function gotLink(clicked_Id) {
 
             $('#sel_mach_cat_list_div').empty();
             $('#sel_mach_cat_list_div').append(appending_list);
+            $('#tab_header').empty();
+            var header = clicked_Id.id.toString().replace('_link', '');
+            header = header.replace('_machine', '');
+            header = header.replace('_', ' ');
+            $('#tab_header').append(header + ' ' + window.lang.translate("Machines List"));
 
             for (var j = 0; j < data.rows.length; j++) {
                 dataSet.push(
@@ -245,64 +250,66 @@ function gotLink(clicked_Id) {
                     $('#machine_details_DIV').empty();
                     $('#selectedMachineNamePH').empty();
                     var appending =
-//                    "<hr>"
-                            "<div class='funny-boxes funny-boxes-top-sea'>"
-                            + "<div class='row'>"
-                            + "<div class='left-inner'>"
-                            + "<div class='progression'>"
-                            + "<h3>"
-                            + window.lang.translate('Machine Details')
-                            + "</h3>"
-                            + "<div class='row'>"
-                            + "<a href="
-                            + "https://" + window.location.hostname
-                            + "/onyuz/standard/assets/img/sfClients/EMGE/"
-                            + data.rows[selectedRowIndex].picture
-                            + ">"
-                            + "<img class='mach_sample' src="
-                            + "https://" + window.location.hostname
-                            + "/onyuz/standard/assets/img/sfClients/EMGE/"
-                            + data.rows[selectedRowIndex].picture
-                            + " alt=''>"
-                            + "</a>"
-                            + "</div>"
+//                        "<hr>"
+                                "<div class='funny-boxes funny-boxes-top-sea'>"
+                                + "<div class='row'>"
+                                + "<div class='left-inner'>"
+                                + "<div class='progression'>"
+                                + "<h3>"
+                                + window.lang.translate('Machine Details')
+                                + "</h3>"
+                                + "<div class='row'>"
+                                + "<a href="
+                                + "https://" + window.location.hostname
+                                + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                                + data.rows[selectedRowIndex].picture
+                                + ">"
+                                + "<img class='mach_sample' src="
+                                + " https://" + window.location.hostname
+                                + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                                + data.rows[selectedRowIndex].picture
+                                + " alt=''>"
+                                + "</a>"
+                                + "</div>"
+                                + "<div class='row'>"
+                                + "<div class='panel panel-profile no-bg'>"
+                                + "<div class='panel-heading overflow-h'>"
+                                + "<h2 class='panel-title heading-sm pull-left'>"
+                                + "<i class='fa fa-pencil'>"
+                                + "</i>"
+                                + d[0] + ' ' + d[1]
+                                + "</h2>"
+                                + "<a href='#'>"
+                                + "<i class='fa fa-cog pull-right'></i>"
+                                + "</a>"
+                                + "</div>"
+                                + "<div id='scrollbar' id='mach_det_prop' "
+                                + "class='panel-body no-padding mCustomScrollbar' "
+                                + "data-mcs-theme='minimal-dark'>";
 
-                            + "<div class='row'>"
-                            + "<table id='machinePropertiesTable' "
-                            + "class='table table-hover table-striped table-condensed' "
-                            + "cellspacing='0' style='font-size: 12px'>"
 
-                            + "<tr>"
-                            + "<td>"
-                            + d[0]
-                            + "</td>"
-                            + "<td>"
-                            + d[1]
-                            + "</td>"
-                            + "</tr>"
 
-                            + "</table>"
-                            + "</div>"
-                            + "</div>"
-                            + "</div>"
-                            + "</div>";
-                    $('#machine_details_DIV').append(appending);
-                    $('#sel_mach_manuf').append(d[0]);
-                    $('#sel_mach_series').append(d[1]);
-                    $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
-                    var appending2;
-                    $.each(properties, function (key, vlaue) {
+                        $('#machine_details_DIV').append(appending);
+                        var appending2;
+                        $.each(properties, function (key, value) {
 
-                        appending2 = "<tr>"
-                                + "<td>"
-                                + properties[key].key
-                                + "</td>"
-                                + "<td>"
-                                + properties[key].value
-                                + "</td>"
-                                + "</tr>";
-                        $('#machinePropertiesTable').append(appending2);
-                    });
+                            appending2 =
+                                    +"<div class='row'>"
+                                    + "<div class='profile-post color-one'>"
+                                    + "<span class='profile-post-numb'>"
+                                    + properties[key].key
+                                    + "</span>"
+                                    + "<div class='profile-post-in'>"
+                                    + "<h3 class='heading-xs'><a href='#'>"
+                                    + properties[key].value
+                                    + "</a></h3>"
+                                    + "<p></p>"
+                                    + "</div>"
+                                    + "</div>";
+                            
+//                            $('#mach_det_prop').empty();
+                            $('#mach_det_prop').append(appending2);
+                        });
                     $('#selected_machine_divider').css('visibility', 'visible');
                     $('#selected_machine_divider').css('display', 'block');
                     $('#machine_details_DIV').css('visibility', 'visible');
@@ -350,39 +357,44 @@ function gotLink(clicked_Id) {
                                 + " alt=''>"
                                 + "</a>"
                                 + "</div>"
-
                                 + "<div class='row'>"
-                                + "<table id=machinePropertiesTable "
-                                + "class='table table-hover table-striped table-condensed' "
-                                + "cellspacing='0' style='font-size: 12px'>"
+                                + "<div class='panel panel-profile no-bg'>"
+                                + "<div class='panel-heading overflow-h'>"
+                                + "<h2 class='panel-title heading-sm pull-left'>"
+                                + "<i class='fa fa-pencil'>"
+                                + "</i>"
+                                + d[0] + ' ' + d[1]
+                                + "</h2>"
+                                + "<a href='#'>"
+                                + "<i class='fa fa-cog pull-right'></i>"
+                                + "</a>"
+                                + "</div>"
+                                + "<div id='scrollbar' id='mach_det_prop' "
+                                + "class='panel-body no-padding mCustomScrollbar' "
+                                + "data-mcs-theme='minimal-dark'>";
 
-                                + "<tr>"
-                                + "<td>"
-                                + d[0]
-                                + "</td>"
-                                + "<td>"
-                                + d[1]
-                                + "</td>"
-                                + "</tr>"
 
-                                + "</table>"
-                                + "</div>"
-                                + "</div>"
-                                + "</div>"
-                                + "</div>";
+
                         $('#machine_details_DIV').append(appending);
                         var appending2;
                         $.each(properties, function (key, value) {
 
-                            appending2 = "<tr>"
-                                    + "<td>"
+                            appending2 =
+                                    +"<div class='row'>"
+                                    + "<div class='profile-post color-one'>"
+                                    + "<span class='profile-post-numb'>"
                                     + properties[key].key
-                                    + "</td>"
-                                    + "<td>"
+                                    + "</span>"
+                                    + "<div class='profile-post-in'>"
+                                    + "<h3 class='heading-xs'><a href='#'>"
                                     + properties[key].value
-                                    + "</td>"
-                                    + "</tr>";
-                            $('#machinePropertiesTable').append(appending2);
+                                    + "</a></h3>"
+                                    + "<p></p>"
+                                    + "</div>"
+                                    + "</div>";
+                            
+//                            $('#mach_det_prop').empty();
+                            $('#mach_det_prop').append(appending2);
                         });
                         $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
                         $('#selected_machine_divider').css('visibility', 'visible');
