@@ -28,8 +28,12 @@ $(document).ready(function () {
     });
     lang.change($('#ln').val());
     
+    /**
+     * !! Important , do not delete
+     * @type node
+     */
     var selectedNode;
-
+    
     /*
     * 
     * @type @call;$@call;tree
@@ -140,6 +144,36 @@ $(document).ready(function () {
     var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                                 actionButtonLabel : 'İşleme devam et'});
                                             
+    //$('#mach_prop_tab_container a[href="#tab_mach_prop_update"]').tab('show');
+    
+    /**
+     * machine property update  tab click
+     * @author Mustafa Zeynel Dağlı
+     * @since 21/04/2016
+     */
+    $('#mach_prop_tab_container #tab_mach_prop_update_clicker').click(function (e) {
+        if(!$('#tab_mach_prop_update').hasClass('active')) {
+            wm.warningMessage({ 
+                onShown : function(event, data) {
+                    $('#tab_mach_prop_update').loadImager();
+                    $('#tab_mach_prop_update').loadImager('appendImage');
+                    //$('#tab_image_loader').loadImager('removeLoadImage');  
+                    
+                }
+            });
+            wm.warningMessage('show', 'Metrik Sistem Seçiniz', 'Lütfen Metrik sistem Seçiniz!');
+            //$('#mach_prop_tab_container a:first').tab('show');
+              
+            
+        }
+        
+        e.preventDefault();
+     })
+    
+    /**
+     * tag builder tests
+     * @type @call;$@call;tagCabin
+     */
     var tagBuilder = $(window).tagCabin({
         tagDeletable : true,
         
@@ -246,12 +280,12 @@ $(document).ready(function () {
     */
    window.passiveUnitDialog= function(nodeID){
         var nodeID = nodeID;
-        wm.warningComplexMessage({ 
+        wcm.warningComplexMessage({ 
             onConfirm : function() {
                 passiveUnit(nodeID);
             }
        });
-       wm.warningComplexMessage('show', 'Birim Ögesini Pasifleştirmek Üzeresiniz!',
+       wcm.warningComplexMessage('show', 'Birim Ögesini Pasifleştirmek Üzeresiniz!',
                                  'Birim öğesini pasifleştirmek üzeresiniz !! ');
    }
    
