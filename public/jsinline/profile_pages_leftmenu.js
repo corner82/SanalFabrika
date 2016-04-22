@@ -19,23 +19,23 @@ $(document).ready(function () {
 
     var profilelink =
             "<li id='companyprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<a href onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Company Profile')
+            + "<span>" + window.lang.translate('Company Profile') + "</span>"
             + "</a>";
-    +"</li>";
+            +"</li>";
     var performancelink =
             "<li id='companyperformancemetersprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<a href onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
             + window.lang.translate('Performance Meters')
             + "</a>";
-    +"</li>";
+            +"</li>";
     var productslink =
             "<li id='companyproductsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<a href onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
             + window.lang.translate('Company Products')
@@ -43,7 +43,7 @@ $(document).ready(function () {
             + "</li>";
     var mtslink =
             "<li id='companymtprofile' tot_mach_count='' class='list-group-item list-toggle' onclick=ulActivation(this)>"
-            + "<a id='companymtprofile_a' class='collapsed' data-toggle='collapse' "
+            + "<a href id='companymtprofile_a' class='collapsed' data-toggle='collapse' "
             + "data-parent='#sidebar-nav-1'  href='#collapse_mach_cats'"
             + "aria-expanded='true'>"
             + "<i class='fa fa-bar-chart-o'>"
@@ -55,7 +55,7 @@ $(document).ready(function () {
             + "</li>";
     var memberslink =
             " <li id='companymembersprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<a href onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
             + window.lang.translate('Company Members')
@@ -63,7 +63,7 @@ $(document).ready(function () {
             + "</li>";
     var projectslink =
             " <li id='companyprojectsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<a href onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
             + window.lang.translate('Company Projects')
@@ -71,7 +71,7 @@ $(document).ready(function () {
     +"</li>";
     var commentslink =
             "<li id='companycommentsprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a onmouseover='' style='cursor: pointer;'>"
+            + "<a href onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
             + window.lang.translate('Comments')
@@ -79,7 +79,7 @@ $(document).ready(function () {
     +"</li>";
     var historylink =
             "<li id='companyhistoryprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='#'>"
+            + "<a href onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
             + window.lang.translate('Company History')
@@ -184,8 +184,6 @@ function changeMenu(clicked_link) {
 }
 
 function ulActivation(clicked) {
-
-
     if (!$('#companymtprofile').hasClass('.active')) {
 
         $('#companymtprofile').siblings().removeClass('active');
@@ -235,11 +233,11 @@ function ulActivation(clicked) {
                         + "<span class='badge rounded badge-red'>"
                         + data[i].machine_count
                         + "</span>"
-                        + "<a onmouseover='' style='cursor: pointer;'>"
                         + "<i class='fa fa-chevron-circle-right'>"
-                        + "</i>"
+                        + "<a href onmouseover='' style='cursor: pointer;'>"
                         + window.lang.translate(data[i].group_name)
                         + "</a>"
+                        + "</i>"
                         + "</li>";
 
                 $('#collapse_mach_cats').append(appending);
