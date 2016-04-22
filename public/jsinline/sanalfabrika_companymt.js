@@ -43,7 +43,7 @@ $(document).ready(function () {
                         + "<span class='badge rounded badge-red'>"
                         + data[i].machine_count
                         + "</span>"
-                        + "<a href onmouseover='' style='cursor: pointer;'>"
+                        + "<a href='#' onmouseover='' style='cursor: pointer;'>"
                         + "<i class='fa fa-chevron-circle-right'>"
                         + "</i>"
                         + window.lang.translate(data[i].group_name)
@@ -228,7 +228,7 @@ function gotLink(clicked_Id) {
                 var selectedRowIndex = $(this)[0]._DT_RowIndex;
                 console.log(selectedRowIndex);
                 console.log(data.rows[selectedRowIndex].picture);
-//        this.style.color = '#72c02c';
+//                this.style.color = '#72c02c';
                 var d = window.table.row(this).data();
                 /*
                  * 
@@ -245,13 +245,13 @@ function gotLink(clicked_Id) {
                     {key: 'Model', value: d[3]},
                     {key: 'Series', value: d[4]}
                 ];
+
                 if ($('#machine_details_DIV').css('visibility') === 'hidden') {
 
                     $('#machine_details_DIV').empty();
                     $('#selectedMachineNamePH').empty();
 
                     var appending =
-                            
                             "<div class='funny-boxes funny-boxes-top-sea'>"
                             + "<div class='row'>"
                             + "<div class='left-inner'>"
@@ -292,44 +292,33 @@ function gotLink(clicked_Id) {
                             + "</div>"
                             + "</div>"
                             + "</div>";
-                    
+
                     console.log(appending);
-                    
+
                     $('#machine_details_DIV').append(appending);
-                    
+
                     var appending2;
-                    
+                    window.colors = ["color-one", "color-two", "color-three", "color-four", "color-five", "color-six", "color-seven"];
+
                     $.each(properties, function (key, value) {
+                        var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
 
                         appending2 =
-                                "<div class='profile-post color-one'>"
-                                + "<span class='profile-post-numb'>"
-                                + "Brand"
+                                "<div class='profile-post "
+                                + picked_color
+                                + "'>"
+                                + "<span class='profile-post-numb' style='width:200px;font-size:12px'>"
+                                + properties[key].key
                                 + "</span>"
                                 + "<div class='profile-post-in'>"
                                 + "<h3 class='heading-xs'>"
-                                + "<a href='#'>"
-                                + "Emco"
-                                + "</a>"
+                                + properties[key].value
                                 + "</h3>"
                                 + "<p></p>"
                                 + "</div>"
                                 + "</div>";
 
-//                                "<div class='profile-post color-one'>"
-//                                + "<span class='profile-post-numb'>"
-//                                + properties[key].key
-//                                + "</span>"
-//                                + "<div class='profile-post-in'>"
-//                                + "<h3 class='heading-xs'><a href='#'>"
-//                                + properties[key].value
-//                                + "</a></h3>"
-//                                + "<p></p>"
-//                                + "</div>"
-//                                + "</div>";
-                        console.log(appending2);
-//                            $('#mach_det_prop').empty();
-                        $('#mach_det_prop').append(appending2);
+                        $('#scrollbar').append(appending2);
                     });
                     $('#selected_machine_divider').css('visibility', 'visible');
                     $('#selected_machine_divider').css('display', 'block');
@@ -346,7 +335,7 @@ function gotLink(clicked_Id) {
                         $('#machine_details_DIV').css('display', 'none');
                         $('#selected_machine_divider').css('visibility', 'hidden');
                         $('#selected_machine_divider').css('display', 'none');
-                        
+
                     } else {
 
                         $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
@@ -393,31 +382,36 @@ function gotLink(clicked_Id) {
                                 + "</div>"
                                 + "<div id='scrollbar' id='mach_det_prop' "
                                 + "class='panel-body no-padding mCustomScrollbar' "
-                                + "data-mcs-theme='minimal-dark'>";
-
-
+                                + "data-mcs-theme='minimal-dark'>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>";
 
                         $('#machine_details_DIV').append(appending);
+
                         var appending2;
 
                         $.each(properties, function (key, value) {
-
+                            var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
                             appending2 =
-                                    +"<div class='row'>"
-                                    + "<div class='profile-post color-one'>"
-                                    + "<span class='profile-post-numb'>"
+                                    "<div class='profile-post "
+                                    + picked_color
+                                    + "'>"
+                                    + "<span class='profile-post-numb' style='width:200px;font-size:12px'>"
                                     + properties[key].key
                                     + "</span>"
                                     + "<div class='profile-post-in'>"
-                                    + "<h3 class='heading-xs'><a href='#'>"
+                                    + "<h3 class='heading-xs'>"
                                     + properties[key].value
-                                    + "</a></h3>"
+                                    + "</h3>"
                                     + "<p></p>"
                                     + "</div>"
                                     + "</div>";
 
-//                            $('#mach_det_prop').empty();
-                            $('#mach_det_prop').append(appending2);
+                            $('#scrollbar').append(appending2);
+
                         });
                         $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
                         $('#selected_machine_divider').css('visibility', 'visible');
@@ -438,29 +432,6 @@ function gotLink(clicked_Id) {
     });
 
 
-}
-
-function getCategoryImages() {
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {url: 'fillCompanyInfoEmployeesGuest_infoFirmProfile',
-            language_code: $("#langCode").val(),
-            npk: $('#selectedCompanyNpk').val()
-        },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-
-            var j;
-            for (j = 0; j < data.length; j++) {
-
-//                var appending = 
-
-            }
-
-        }
-    });
 }
 
 
