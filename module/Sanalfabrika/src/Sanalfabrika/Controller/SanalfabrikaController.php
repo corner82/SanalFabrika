@@ -75,7 +75,9 @@ class SanalfabrikaController extends AbstractActionController {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
-                ->get('serviceTranslatorUrlRegulator');
+                ->get('serviceTranslatorUrlRegulator');        
+        $selectedCompanyNpk = $this->getEvent()
+                ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
                 ->get('servicePublicKeyReader');
 
@@ -85,7 +87,8 @@ class SanalfabrikaController extends AbstractActionController {
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
-            'publicKey' => $publicKey,
+            'publicKey' => $publicKey,            
+            'selectedCompanyNpk' => $selectedCompanyNpk,
         ));
         $this->authenticate(null, $view);
         return $view;

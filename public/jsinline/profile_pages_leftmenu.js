@@ -27,7 +27,7 @@ $(document).ready(function () {
     +"</li>";
     var performancelink =
             "<li id='companyperformancemetersprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='#' onmouseover='' style='cursor: pointer;'>"
+            + "<a href='#' target='' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
             + window.lang.translate('Performance Meters')

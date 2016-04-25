@@ -45,6 +45,8 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 
+            console.log(data);
+
             $('#members_ph').empty();
 
             for (var i = 0; i < data.rows.length; i++) {
@@ -58,30 +60,7 @@ $(document).ready(function () {
 
 
                 var appending =
-//                        "<li class='col-sm-3 col-xs-6 md-margin-bottom-30'>"
-//                        + "<div class='team-img'>"
-//                        + "<img class='img-responsive' src='"
-//                        + image_url
-//                        + "' alt=''>"
-//                        + "<ul>"
-//                        + "<li><a href='#'><i class='icon-custom icon-sm rounded-x fa fa-twitter'></i></a></li>"
-//                        + "<li><a href='#'><i class='icon-custom icon-sm rounded-x fa fa-facebook'></i></a></li>"
-//                        + "<li><a href='#'><i class='icon-custom icon-sm rounded-x fa fa-google-plus'></i></a></li>"
-//                        + "</ul>"
-//                        + "</div>"
-//                        + "<h3>"
-//                        + data.rows[i].name + ' ' + data.rows[i].surname
-//                        + "</h3>"
-//                        + "<h4>"
-//                        + "<strong>Title: </strong>" + window.lang.translate(data.rows[i].title)
-//                        + "</h4>"
-//                        + "<p>"
-//                        + "<strong>Description: </strong>" + window.lang.translate(data.rows[i].description)
-//                        + "</p>"
-//                        + "</li>";
-
-
-                        "<div class='col-sm-12 sm-margin-bottom-20'>"
+                        "<div class='col-sm-6 sm-margin-bottom-20' style='margin-bottom:20px'>"
                         + "<div class='profile-blog'>"
                         + "<img class='rounded-x' src='"
                         + image_url
@@ -95,7 +74,7 @@ $(document).ready(function () {
                         + "</span>"
                         + "</div>"
                         + "<div class='clearfix margin-bottom-20'></div>"
-                        + "<p><strong>Description: </strong>"
+                        + "<p>"
                         + window.lang.translate(data.rows[i].description)
                         + "</p>"
                         + "<hr>"

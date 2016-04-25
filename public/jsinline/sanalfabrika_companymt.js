@@ -226,8 +226,8 @@ function gotLink(clicked_Id) {
                 }
 
                 var selectedRowIndex = $(this)[0]._DT_RowIndex;
-                console.log(selectedRowIndex);
-                console.log(data.rows[selectedRowIndex].picture);
+//                console.log(selectedRowIndex);
+//                console.log(data.rows[selectedRowIndex].picture);
 //                this.style.color = '#72c02c';
                 var d = window.table.row(this).data();
                 /*
@@ -293,7 +293,7 @@ function gotLink(clicked_Id) {
                             + "</div>"
                             + "</div>";
 
-                    console.log(appending);
+//                    console.log(appending);
 
                     $('#machine_details_DIV').append(appending);
 

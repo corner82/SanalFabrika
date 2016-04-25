@@ -6,7 +6,6 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-//    console.log($('#selectedCompanyNpk').val());
 
 
     $.ajax({
@@ -20,16 +19,12 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data);
+            
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/EMGE/Logos/';
-
             window.logosrc = imageFolAddress + data[0].logo;
-
             $('#profileLogosrc').attr('src', window.logosrc);
         }
     });
-
-
     /*
      * Products categories and category products service
      *
@@ -46,10 +41,12 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data);
+            
             var j;
             var dataSet = [];
             var properties = [];
+
+            $('#sample_header').empty();
 
             for (j = 0; j < data.length; j++) {
 
@@ -65,7 +62,6 @@ $(document).ready(function () {
                 var finished_good = null;
 //                var price = data[j].product_price;
                 var price = null;
-
                 if (category === null) {
                     category = 'Registration Required!';
                 }
@@ -81,6 +77,80 @@ $(document).ready(function () {
                 dataSet.push([product, category, customer, finished_good, price, "Order Now"]);
                 properties.push([{key: 'name', value: product}, {key: 'image', value: product_image}, {key: 'desc', value: product_desc}, {key: 'video_link', value: product_video}]);
             }
+
+            /*
+             * Page header random sample product chooser
+             */
+            
+            var colors = ["red", "yellow", "sea", "dark", "green", "blue", "purple"]
+            var fir_sam_prod = properties[Math.floor(Math.random() * properties.length)];
+            var second_sam_prod = properties[Math.floor(Math.random() * properties.length)];
+            var sel_color_1 = colors[Math.floor(Math.random() * colors.length)];
+            var sel_color_2 = colors[Math.floor(Math.random() * colors.length)];
+            
+            var app_sam_prod =
+                    "<div class='col-sm-6 sm-margin-bottom-40'>"
+                    + "<div class='funny-boxes funny-boxes-top-"
+                    + sel_color_1
+                    + "'>"
+                    + "<div class='row'>"
+                    + "<div class='col-md-5 funny-boxes-img'>"
+                    + "<img class='img-responsive' src='"
+                    + "https://"
+                    + window.location.hostname
+                    + "/onyuz/standard/assets/img/sfClients/EMGE/Products/"
+                    + fir_sam_prod[1].value
+                    + "' alt=''>"
+                    + "</div>"
+                    + "<div class='col-md-7'>"
+                    + "<h2>"
+                    + fir_sam_prod[0].value
+                    + "</h2>"
+                    + "</div>"
+                    + "</div>"
+                    + "<hr>"
+                    + "<div class='row'>"
+                    + "<p>"
+                    + fir_sam_prod[2].value
+                    + "</p>"
+                    + "</div>"
+                    + "</div>"
+                    + "</div>"
+
+                    + "<div class='col-sm-6 sm-margin-bottom-40'>"
+                    + "<div class='funny-boxes funny-boxes-top-"
+                    + sel_color_2
+                    + "'>"
+                    + "<div class='row'>"
+                    + "<div class='col-md-5 funny-boxes-img'>"
+                    + "<img class='img-responsive' src='"
+                    + "https://"
+                    + window.location.hostname
+                    + "/onyuz/standard/assets/img/sfClients/EMGE/Products/"
+                    + second_sam_prod[1].value
+                    + "' alt=''>"
+                    + "</div>"
+                    + "<div class='col-md-7'>"
+                    + "<h2>"
+                    + second_sam_prod[0].value
+                    + "</h2>"
+                    + "</div>"
+                    + "</div>"
+                    + "<hr>"
+                    + "<div class='row'>"
+                    + "<p>"
+                    + second_sam_prod[2].value
+                    + "</p>"
+                    + "</div>"
+                    + "</div>"
+                    + "</div>";
+
+            $('#sample_header').append(app_sam_prod);
+
+
+            /*
+             * product table
+             */
 
             $('#product_table').DataTable({
                 data: dataSet,
@@ -98,8 +168,6 @@ $(document).ready(function () {
                     {title: "Order"}
                 ]
             });
-
-
             window.table = $('#product_table').DataTable();
             $('#product_table tbody').on('click', 'tr', function () {
                 if ($(this).hasClass('selected')) {
@@ -123,19 +191,17 @@ $(document).ready(function () {
                 if ($('#product_details_DIV').css('visibility') === 'hidden') {
 
                     $('#product_details_DIV').empty();
-
-                    var appending = "<div class='left-inner'>"
-                            + "<div class='progression'>"
-                            + "<h3>"
+                    var appending =
+                            "<h3>"
                             + window.lang.translate('Product Details')
                             + "</h3>"
-                            + "<div class='row'>"
+                            + "<div class='col-md-4'>"
                             + "<a href='"
                             + "https://"
                             + window.location.hostname
                             + "/onyuz/standard/assets/img/sfClients/EMGE/Products/"
                             + properties[selectedRowIndex][1].value
-                            + "'>"
+                            + "' target='_newtab'>"
                             + "<img class='mach_sample' src='"
                             + "https://"
                             + window.location.hostname
@@ -145,36 +211,47 @@ $(document).ready(function () {
                             + "</a>"
                             + "</div>"
 
-                            + "<div class='row'>"
-                            + "<table id=productPropertiesTable "
-                            + "class='table table-hover table-striped table-condensed' "
-                            + "cellspacing='0' style='font-size: 12px'>"
-                            + "</table>"
+                            + "<div class='col-md-8'>"
+                            + "<div class='panel panel-profile no-bg'>"
+                            + "<div class='panel-heading overflow-h'>"
+                            + "<h2 class='panel-title heading-sm pull-left'>"
+                            + "<i class='fa fa-pencil'></i>"
+                            + window.lang.translate('Product Properties')
+                            + "</h2>"
+                            + "<a href='#'>"
+                            + "<i class='fa fa-cog pull-right'></i>"
+                            + "</a>"
                             + "</div>"
-                            + "</div>"
-                            + "</div>"
-                            + "<hr>";
+                            + "<div id='productPropertiesTable' class='panel-body no-padding mCustomScrollbar' data-mcs-theme='minimal-dark'>"
 
-
-//                    console.log(appending);
+                            + "</div>"
+                            + "</div>"
+                            + "</div>";
 
                     $('#product_details_DIV').append(appending);
-
                     var properties_temp = properties[selectedRowIndex];
+                    window.colors = ["color-one", "color-two", "color-three", "color-four", "color-five", "color-six", "color-seven"];
 
                     $.each(properties_temp, function (key, value) {
-                        var appending2 = "<tr>"
-                                + "<td>"
+
+                        var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
+
+                        var appending2 =
+                                "<div class='profile-post "
+                                + picked_color
+                                + "'>"
+                                + "<span class='profile-post-numb'  style='width:150px;font-size:12px'>"
                                 + properties_temp[key].key
-                                + "</td>"
-                                + "<td>"
+                                + "</span>"
+                                + "<div class='profile-post-in'>"
+                                + "<h3 class='heading-xs'>"
                                 + properties_temp[key].value
-                                + "</td>"
-                                + "</tr>";
+                                + "</h3>"
+                                + "<p></p>"
+                                + "</div>"
+                                + "</div>";
                         $('#productPropertiesTable').append(appending2);
                     });
-
-
                     $('#product_details_DIV').css('visibility', 'visible');
                     $('#product_details_DIV').slideDown('slow');
                     $('#product_details_DIV').attr('lastIndex', selectedRowIndex);
@@ -193,18 +270,16 @@ $(document).ready(function () {
                         $('#product_details_DIV').empty();
 
                         var appending =
-                                "<div class='left-inner'>"
-                                + "<div class='progression'>"
-                                + "<h3>"
+                                "<h3>"
                                 + window.lang.translate('Product Details')
                                 + "</h3>"
-                                + "<div class='row'>"
+                                + "<div class='col-md-4'>"
                                 + "<a href='"
                                 + "https://"
                                 + window.location.hostname
                                 + "/onyuz/standard/assets/img/sfClients/EMGE/Products/"
                                 + properties[selectedRowIndex][1].value
-                                + "'>"
+                                + "' target='_newtab'>"
                                 + "<img class='mach_sample' src='"
                                 + "https://"
                                 + window.location.hostname
@@ -214,32 +289,45 @@ $(document).ready(function () {
                                 + "</a>"
                                 + "</div>"
 
-                                + "<div class='row'>"
-                                + "<table id=productPropertiesTable "
-                                + "class='table table-hover table-striped table-condensed' "
-                                + "cellspacing='0' style='font-size: 12px'>"
-                                + "</table>"
+                                + "<div class='col-md-8'>"
+                                + "<div class='panel panel-profile no-bg'>"
+                                + "<div class='panel-heading overflow-h'>"
+                                + "<h2 class='panel-title heading-sm pull-left'>"
+                                + "<i class='fa fa-pencil'></i>"
+                                + window.lang.translate('Product Properties')
+                                + "</h2>"
+                                + "<a href='#'>"
+                                + "<i class='fa fa-cog pull-right'></i>"
+                                + "</a>"
                                 + "</div>"
-                                + "</div>"
-                                + "</div>"
-                                + "</div>"
-                                + "<hr>";
+                                + "<div id='productPropertiesTable' class='panel-body no-padding mCustomScrollbar' data-mcs-theme='minimal-dark'>"
 
-//                        console.log(appending);
+                                + "</div>"
+                                + "</div>"
+                                + "</div>";
 
                         $('#product_details_DIV').append(appending);
 
                         var properties_temp = properties[selectedRowIndex];
+                        window.colors = ["color-one", "color-two", "color-three", "color-four", "color-five", "color-six", "color-seven"];
 
                         $.each(properties_temp, function (key, value) {
-                            var appending2 = "<tr>"
-                                    + "<td>"
+                            var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
+
+                            var appending2 =
+                                    "<div class='profile-post "
+                                    + picked_color
+                                    + "'>"
+                                    + "<span class='profile-post-numb'  style='width:150px;font-size:12px'>"
                                     + properties_temp[key].key
-                                    + "</td>"
-                                    + "<td>"
+                                    + "</span>"
+                                    + "<div class='profile-post-in'>"
+                                    + "<h3 class='heading-xs'>"
                                     + properties_temp[key].value
-                                    + "</td>"
-                                    + "</tr>";
+                                    + "</h3>"
+                                    + "<p></p>"
+                                    + "</div>"
+                                    + "</div>";
                             $('#productPropertiesTable').append(appending2);
                         });
                         $('#product_details_DIV').css('visibility', 'visible');
@@ -257,7 +345,6 @@ $(document).ready(function () {
         }
 
     });
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -270,8 +357,6 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 
-            console.log(data);
-
             $('#filters-container').empty();
 //            $('#grid-container').empty();
 
@@ -279,24 +364,20 @@ $(document).ready(function () {
                     "<div data-filter='*' class='cbp-filter-item-active cbp-filter-item'>"
                     + window.lang.translate('All')
                     + "</div>");
-
             var categories = [];
             var appendings = '';
-
             for (var i = 0; i < data.length; i++) {
 
 //                var production_type = data[i].production_type;
                 var production_type = 'emge_products';
                 var product_name = data[i].product_name;
                 var product_image_name = data[i].product_picture;
-
                 var image_url =
                         "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
                         + "EMGE/Products/"
                         + product_image_name;
-
                 var appending =
                         "| <div data-filter='."
                         + production_type
@@ -304,12 +385,10 @@ $(document).ready(function () {
                         + "class='cbp-filter-item'>"
                         + window.lang.translate(production_type)
                         + "</div>";
-
                 if ($.inArray(production_type, categories)) {
 
                     categories.push(production_type);
                     $('#filters-container').append(appending);
-
                 }
 
                 var appending2 =
@@ -348,25 +427,12 @@ $(document).ready(function () {
                         + "</div>"
                         + "</div>"
                         + "</div>";
-
                 appendings += appending2;
             }
-            
-            jQuery("#grid-container").cubeportfolio('appendItems', appendings);
 
+            jQuery("#grid-container").cubeportfolio('appendItems', appendings);
         }
     });
-
-
-
-
-
-
-
-
-
-
-
     /*
      * Create list of products for each category service
      */
@@ -401,8 +467,7 @@ $(document).ready(function () {
 
 
 function listOfCertificates() {
-
-//    console.log('Available Certificates');
+    
     if ($("#qualityDetaildDIV").hasClass('active')) {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
