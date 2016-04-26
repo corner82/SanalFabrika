@@ -198,34 +198,129 @@
     <div class="container content profile">
         <div class="row">
             <!--Left Sidebar-->
-            <div class="col-md-3 md-margin-bottom-40">
-                <img id="profileLogosrc" class="img-responsive profile-img margin-bottom-20" 
-                     src="" alt="">
+        <div class="col-md-3 md-margin-bottom-40">
+            <img class="img-responsive profile-img margin-bottom-20" id="profileLogosrc"
+                 src="" alt="">
 
-                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                    
-                </ul>    
+            <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+            </ul>     
 
-                <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
-                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                </div>
-                <h3 class="heading-xs">Web Design <span class="pull-right">92%</span></h3>
-                <div class="progress progress-u progress-xxs">
-                    <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
-                    </div>
-                </div>
-                <h3 class="heading-xs">Unify Project <span class="pull-right">85%</span></h3>
-                <div class="progress progress-u progress-xxs">
-                    <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
-                    </div>
-                </div>
-                <h3 class="heading-xs">Sony Corporation <span class="pull-right">64%</span></h3>
-                <div class="progress progress-u progress-xxs margin-bottom-40">
-                    <div style="width: 64%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar" class="progress-bar progress-bar-dark">
-                    </div>
+            <div class="panel-heading-v2 overflow-h">
+                <h2 class="heading-xs pull-left">
+                    <i class="fa fa-bar-chart-o"></i> 
+                    <?php echo $this->translate('Company info update period')?>
+                </h2>
+                <!--<a href="#"><i class="fa fa-cog pull-right"></i></a>-->
+            </div>
+            <h3 class="heading-xs">
+                <?php echo $this->translate('Company profil completion rate')?>
+                <span class="pull-right">92%</span>
+            </h3>
+            <div class="progress progress-u progress-xxs">
+                <div style="width: 92%" aria-valuemax="100" 
+                     aria-valuemin="0" aria-valuenow="92" 
+                     role="progressbar" class="progress-bar progress-bar-u">
                 </div>
             </div>
+            <h3 class="heading-xs">
+                <?php echo $this->translate('Machine data update period')?>
+                <span class="pull-right">85%</span>
+            </h3>
+            <div class="progress progress-u progress-xxs">
+                <div style="width: 85%" aria-valuemax="100" 
+                     aria-valuemin="0" aria-valuenow="85" 
+                     role="progressbar" class="progress-bar progress-bar-blue">
+                </div>
+            </div>
+            <h3 class="heading-xs"> <?php echo $this->translate('Company technologies update period')?>
+                <span class="pull-right">64%</span>
+            </h3>
+            <div class="progress progress-u progress-xxs margin-bottom-40">
+                <div style="width: 64%" aria-valuemax="100" 
+                     aria-valuemin="0" aria-valuenow="64" 
+                     role="progressbar" class="progress-bar progress-bar-dark">
+                </div>
+            </div>
+
+            <!-- Exchange Rates Script - EXCHANGERATEWIDGET.COM -->
+            <div style="width:auto; border:0px solid #55A516; text-align:left;">
+                <div style="text-align:left;background-color:#717984;width:100%;
+                     border-bottom:0px;height:30px; font-size:12px;
+                     font-weight:bold;padding:5px 0px;">
+                    <span style="margin-left:2px;background-image:url(//www.exchangeratewidget.com/flag.png); 
+                          background-position: 0 -1232px; width:100%; height:15px; 
+                          background-repeat:no-repeat;padding-left:5px;">
+                        <a href="https://www.exchangeratewidget.com/" 
+                           style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
+                               <?php echo $this->translate('Daily currency exchange rates')?>
+                        </a>
+                    </span>
+                </div>
+                <script type="text/javascript" 
+                        src="//www.exchangeratewidget.com/converter.php?l=en&f=USD&t=EUR,GBP,TRY,JPY,CHF,CAD,AUD,CNY,ZAR,RUB,BRL,HKD,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=5">
+                </script>
+            </div>
+            <!-- End of Exchange Rates Script -->
+
+            <!--Notification-->
+            <div class="panel-heading-v2 overflow-h">
+                <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> 
+                    <?php echo $this->translate('Notification') ?></h2>
+                <a href="#"><i class="fa fa-cog pull-right"></i></a>
+            </div>
+            <div class="margin-bottom-20">
+                <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
+                    data-mcs-theme="minimal-dark">
+                    <li class="notification">
+                        <i class="icon-custom icon-sm rounded-x 
+                           icon-bg-red icon-line icon-envelope"></i>
+                        <div class="overflow-h">
+                            <span><strong>Muhsin Teber</strong> <?php echo $this->translate('Email')?> <?php echo $this->translate('Sent')?></span>
+                            <small>2 <?php echo $this->translate('Minutes')?> <?php echo $this->translate('Before')?></small>
+                        </div>    
+                    </li>
+                    <li class="notification">
+                        <img class="rounded-x" 
+                             src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" 
+                             alt="">
+                        <div class="overflow-h">
+                            <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your project page')?></span>
+                            <small><?php echo $this->translate('Today')?> 18:25 </small>
+                        </div>    
+                    </li>
+                    <li class="notification">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
+                        <div class="overflow-h">
+                            <span><strong>Adem Başarır</strong> <?php echo $this->translate('Reviewed your document')?></span>
+                            <small><?php echo $this->translate('Yesterday')?> 13:07</small>
+                        </div>    
+                    </li>
+                    <li class="notification">
+                        <img class="rounded-x" 
+                             src="<?php echo $this->basePath('onyuz/standard/assets/img/men-icon.png') ?>" alt="">
+                        <div class="overflow-h">
+                            <span><strong>Mikel Andrews</strong> <?php echo $this->translate('Proposal document added')?></span>
+                            <small>2 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?> 12:09</small>
+                        </div>    
+                    </li>
+                    <li class="notification">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                        <div class="overflow-h">
+                            <span><strong>Burhan Yetiş</strong> <?php echo $this->translate('Following your company')?></span>
+                            <small>2 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?>Önce 09:34</small>
+                        </div>    
+                    </li>
+                    <li class="notification">
+                        <img class="rounded-x" 
+                             src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" alt="">
+                        <div class="overflow-h">
+                            <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your projects page')?></span>
+                            <small>3 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?> 14:28</small>  
+                        </div>      
+                    </li>
+                </ul>    
+            </div>
+        </div>
             <!--End Left Sidebar-->
 
             <!-- Counter header start -->

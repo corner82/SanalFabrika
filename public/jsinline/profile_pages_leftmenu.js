@@ -1,11 +1,18 @@
 $(document).ready(function () {
 
+    /**
+     * multilanguage plugin 
+     * @type Lang
+     */
+
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
         defaultLang: 'en'
     });
 
+    lang.change($('#langCode').val());
+    
     /*
      * Start of left menu links
      */
@@ -14,7 +21,7 @@ $(document).ready(function () {
     var companyprofilerootLink = window.location.host + "/ostim/sanalfabrika/";
 
     /*
-     * appendings
+     * appendings left menu
      */
 
     var profilelink =

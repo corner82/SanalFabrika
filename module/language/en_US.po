@@ -447,6 +447,9 @@ msgstr ""
 msgid "Telephone"
 msgstr ""
 
+msgid "Phone"
+msgstr ""
+
 msgid "Fax"
 msgstr ""
 
@@ -777,3 +780,416 @@ msgstr ""
 msgid "Please Enter Machine Model (Production Year)"
 msgstr ""
 
+
+
+
+
+
+msgid "Company Profile"
+msgstr ""
+
+msgid "Notification"
+msgstr ""
+
+msgid "References"
+msgstr ""
+
+msgid "Latest Posts"
+msgstr ""
+
+msgid "Useful Links"
+msgstr ""
+
+msgid "Contact Us"
+msgstr ""
+
+msgid "A virtual enterprise (VE) is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
+msgstr ""
+
+msgid "Latest News about OSTIM VE"
+msgstr ""
+
+msgid "OSTIM Clusters News"
+msgstr ""
+
+msgid "New Project Calls"
+msgstr ""
+
+msgid "Ostim Organized Industrial Zone"
+msgstr ""
+
+msgid "Turkish Ministry of SIT"
+msgstr ""
+
+msgid "TUBITAK"
+msgstr ""
+
+msgid "KOSGEB"
+msgstr ""
+
+msgid "Terms of Service"
+msgstr ""
+
+msgid "Privacy Policy"
+msgstr ""
+
+msgid "All Rights Reserved."
+msgstr ""
+
+msgid "Performance Meters"
+msgstr ""
+
+msgid "Projects in progress"
+msgstr ""
+
+msgid "Last Week"
+msgstr ""
+
+msgid "Last Month"
+msgstr ""
+
+msgid "Last month projects to overall project number"
+msgstr ""
+
+msgid "Project started in the last month"
+msgstr ""
+
+msgid "Total machine tools number"
+msgstr ""
+
+msgid "Added machine tools in last 6 months"
+msgstr ""
+
+msgid "Added machine tools in last month"
+msgstr ""
+
+msgid "Rate of added machine tools in last 6 months to overall machine tools"
+msgstr ""
+
+
+
+
+
+
+
+msgid "January"
+msgstr ""
+
+msgid "February"
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "April"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
+msgid "September"
+msgstr ""
+
+msgid "October"
+msgstr ""
+
+msgid "November"
+msgstr ""
+
+msgid "December"
+msgstr ""
+
+
+
+
+
+msgid "today"
+msgstr ""
+
+msgid "yesterday"
+msgstr ""
+
+msgid "tommorrow"
+msgstr ""
+
+msgid "Company Products"
+msgstr ""
+
+msgid "Sample Products"
+msgstr ""
+
+msgid "Brief Description About Products"
+msgstr ""
+
+msgid "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
+msgstr ""
+
+msgid "Sample product videos"
+msgstr ""
+
+msgid "List of Products"
+msgstr ""
+
+msgid "Company\'s Total Projetcs"
+msgstr ""
+
+msgid "Finished Successfully"
+msgstr ""
+
+msgid "In progress"
+msgstr ""
+
+msgid "Sucessfully completed projects rate"
+msgstr ""
+
+msgid "than last month"
+msgstr ""
+
+msgid "Quality and Standard Certificates"
+msgstr ""
+
+msgid "Acquired certificate in last year"
+msgstr ""
+
+msgid "Applied for new certificates"
+msgstr ""
+
+msgid "Required certificates rate"
+msgstr ""
+
+msgid "higher"
+msgstr ""
+
+msgid "than last year"
+msgstr ""
+
+msgid "Company Performance Meters"
+msgstr ""
+
+msgid "Engineers"
+msgstr ""
+
+msgid "Foreign Trade Staff"
+msgstr ""
+
+msgid "Technicians"
+msgstr ""
+
+msgid "Number of Employee"
+msgstr ""
+
+msgid "Company Meters"
+msgstr ""
+
+msgid "Company Quality Performance"
+msgstr ""
+
+msgid "Last Year Increase Ratio"
+msgstr ""
+
+msgid "Overall Performance"
+msgstr ""
+
+msgid "Available Quality Certificates and Standards"
+msgstr ""
+
+msgid "Project Completion Performance"
+msgstr ""
+
+msgid "Contributed Projects"
+msgstr ""
+
+msgid "Accomplished Successfully"
+msgstr ""
+
+msgid "Unfinished Porjects"
+msgstr ""
+
+msgid "Projects in Progress"
+msgstr ""
+
+msgid "Customer Satisfaction Rate"
+msgstr ""
+
+msgid "Consent Customers"
+msgstr ""
+
+msgid "Complained Customers"
+msgstr ""
+
+msgid "Company Machine Tools"
+msgstr ""
+
+msgid "More information about your selected machine is given below"
+msgstr ""
+
+msgid "Total Machine Tools"
+msgstr ""
+
+msgid "CNC Machines"
+msgstr ""
+
+msgid "Special Machine Tools"
+msgstr ""
+
+msgid "Unavailable Machines"
+msgstr ""
+
+msgid "Sample machine tools videos"
+msgstr ""
+
+msgid "Company Members"
+msgstr ""
+
+msgid "Registered Company Employees"
+msgstr ""
+
+msgid "Virtual Enterprise Clinets"
+msgstr ""
+
+msgid "Clients Page"
+msgstr ""
+
+msgid "For more information, questions please contact us"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "Panel"
+msgstr ""
+
+msgid "Contact Information"
+msgstr ""
+
+msgid "TURKEY"
+msgstr ""
+
+msgid "Working Hours"
+msgstr ""
+
+msgid "Week days Mon- Fri"
+msgstr ""
+
+msgid "Weekends Sat"
+msgstr ""
+
+msgid "Weekends Sun"
+msgstr ""
+
+msgid "Closed"
+msgstr ""
+
+msgid "For more information please keep in touch ..."
+msgstr ""
+
+msgid "Based on your order, working hours could be revised..."
+msgstr ""
+
+msgid "Write details..."
+msgstr ""
+
+msgid "Ask your question"
+msgstr ""
+
+msgid "Our Profession..."
+msgstr ""
+
+msgid "Our Vision..."
+msgstr ""
+
+msgid "We are competitive at ..."
+msgstr ""
+
+msgid "Production and Quality Control Engineer"
+msgstr ""
+
+msgid "Company info update period"
+msgstr ""
+
+msgid "Company profil completion rate"
+msgstr ""
+
+msgid "Machine data update period"
+msgstr ""
+
+msgid "Company technologies update period"
+msgstr ""
+
+msgid "Daily currency exchange rates"
+msgstr ""
+
+msgid "Minutes"
+msgstr ""
+
+msgid "Before"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Visited your projects page"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Reviewed your document"
+msgstr ""
+
+msgid "Days"
+msgstr ""
+
+msgid "Proposal document added"
+msgstr ""
+
+msgid "Following your company"
+msgstr ""
+
+msgid "less"
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""

@@ -13,7 +13,6 @@ $(document).ready(function () {
 
     lang.change($('#langCode').val());
 
-
     /*
      * Language bar on top of page...
      * @author:Bahram

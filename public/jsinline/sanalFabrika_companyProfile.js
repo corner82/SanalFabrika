@@ -6,8 +6,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
-    console.log($('#selectedCompanyNpk').val());
-
+    lang.change($('#langCode').val());
 
 
     $.ajax({

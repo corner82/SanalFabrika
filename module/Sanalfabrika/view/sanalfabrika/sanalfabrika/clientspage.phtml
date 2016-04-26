@@ -203,7 +203,7 @@
             <div class="col-md-3">
                 <!-- Our Services -->
                 <div class="who margin-bottom-30">
-                    <div class="headline"><h2>Our Services</h2></div>
+                    <div class="headline"><h2><?php echo $this->translate('Our Services')?></h2></div>
                     <p>At vero eos et accusamus et iusto odio dign issimos ducimus qui blanditiis iusto.</p>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="fa fa-desktop"></i>Vivamus imperdiet condimentum</a></li>
@@ -214,7 +214,7 @@
                 </div>
 
                 <!-- About Us -->
-                <div class="headline"><h2>About Us</h2></div>
+                <div class="headline"><h2><?php echo $this->translate('About Us')?></h2></div>
                 <div class="margin-bottom-30">
                     <p>At vero eos et acc usamus et iusto odio dign issimos ducimus atque corrupti quos.</p> 
                     <p>dolores etrerum facilis est etenim a feugiat cupiditate non quos. <a class="linked color-green" href="#">Read more</a></p>                    
@@ -222,7 +222,7 @@
 
                 <!-- Contact Us -->
                 <div class="who margin-bottom-30">
-                    <div class="headline"><h2>Contact Us</h2></div>
+                    <div class="headline"><h2><?php echo $this->translate('Contact Us')?></h2></div>
                     <p>Vero facilis est etenim a feugiat cupiditate non quos etrerum facilis.</p>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="fa fa-home"></i>5B amus ED554, New York, US</a></li>
@@ -243,28 +243,34 @@
                 <div class="row">
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <a href="index-2.html"><img id="logo-footer" class="footer-logo" src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" alt=""></a>
-                        <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
-                        <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>    
+                        <a href="index-2.html"><img id="logo-footer" class="footer-logo" 
+                                                    src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                                    alt=""></a>
+                        <p><?php
+                            echo $this->translate('A virtual enterprise (VE) is a temporary alliance of '
+                                    . 'businesses that come together to share skills or core competencies and resources '
+                                    . 'in order to better respond to business opportunities, and whose cooperation is '
+                                    . 'supported by computer networks.')
+                            ?></p>
                     </div><!--/col-md-3-->
                     <!-- End About -->
 
                     <!-- Latest -->
                     <div class="col-md-3 md-margin-bottom-40">
                         <div class="posts">
-                            <div class="headline"><h2>Latest Posts</h2></div>
+                            <div class="headline"><h2><?php echo $this->translate('Latest Posts') ?></h2></div>
                             <ul class="list-unstyled latest-list">
                                 <li>
-                                    <a href="#">Incredible content</a>
-                                    <small>May 8, 2014</small>
+                                    <a href="#"><?php echo $this->translate('Latest News about OSTIM VE') ?></a>
+                                    <small><?php echo $this->translate('February') ?> 8, 2016</small>
                                 </li>
                                 <li>
-                                    <a href="#">Best shoots</a>
-                                    <small>June 23, 2014</small>
+                                    <a href="#"><?php echo $this->translate('OSTIM Clusters News') ?></a>
+                                    <small><?php echo $this->translate('January') ?> 23, 2016</small>
                                 </li>
                                 <li>
-                                    <a href="#">New Terms and Conditions</a>
-                                    <small>September 15, 2014</small>
+                                    <a href="#"><?php echo $this->translate('New Project Calls') ?></a>
+                                    <small><?php echo $this->translate('December') ?> 15, 2016</small>
                                 </li>
                             </ul>
                         </div>
@@ -273,26 +279,27 @@
 
                     <!-- Link List -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <div class="headline"><h2>Useful Links</h2></div>
+                        <div class="headline"><h2><?php echo $this->translate('Useful Links') ?></h2></div>
                         <ul class="list-unstyled link-list">
-                            <li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('Ostim Organized Industrial Zone') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('Turkish Ministry of SIT') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('TUBITAK') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('KOSGEB') ?></a><i class="fa fa-angle-right"></i></li>
+                            <!--<li><a href="#"><?php echo $this->translate('') ?></a><i class="fa fa-angle-right"></i></li>-->
                         </ul>
                     </div><!--/col-md-3-->
                     <!-- End Link List -->                    
 
                     <!-- Address -->
                     <div class="col-md-3 map-img md-margin-bottom-40">
-                        <div class="headline"><h2>Contact Us</h2></div>                         
+                        <div class="headline"><h2><?php echo $this->translate('Contact Us') ?></h2></div>                         
                         <address class="md-margin-bottom-40">
-                            25, Lorem Lis Street, Orange <br />
-                            California, US <br />
-                            Phone: 800 123 3456 <br />
-                            Fax: 800 123 3456 <br />
-                            Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                            100. Yıl Bulvarı No: 101/A <br />
+                            OSTIM, Ankara <br />
+                            Turkey <br />
+                            <?php echo $this->translate('Phone') ?> :  +90 312 385 50 90 <br />
+                            <?php echo $this->translate('Fax') ?>:    +90 312 354 58 98 <br />
+                            <?php echo $this->translate('Email') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
                         </address>
                     </div><!--/col-md-3-->
                     <!-- End Address -->
@@ -305,8 +312,8 @@
                 <div class="row">
                     <div class="col-md-6">                     
                         <p>
-                            2015 &copy; All Rights Reserved.
-                            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                            2016 &copy; <?php echo $this->translate('All Rights Reserved.') ?>
+                            <a href="#"><?php echo $this->translate('Privacy Policy') ?></a> | <a href="#"><?php echo $this->translate('Terms of Service') ?></a>
                         </p>
                     </div>
 
@@ -314,7 +321,7 @@
                     <div class="col-md-6">
                         <ul class="footer-socials list-inline">
                             <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                <a href="https://www.facebook.com/OstimOSB/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
                                     <i class="fa fa-facebook"></i>
                                 </a>
                             </li>
@@ -324,22 +331,22 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+                                <a href="https://plus.google.com/+OST%C4%B0MOSB1967" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
                                     <i class="fa fa-google-plus"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+                                <a href="https://www.linkedin.com/in/ostim-osb-2b94b847" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
-                                    <i class="fa fa-pinterest"></i>
+                                <a href="https://www.instagram.com/ostimosb/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+                                    <i class="fa fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                <a href="https://twitter.com/ostimosb" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
                                     <i class="fa fa-twitter"></i>
                                 </a>
                             </li>
@@ -354,6 +361,6 @@
                 </div>
             </div> 
         </div><!--/copyright-->
-    </div>     
+    </div>    
     <!--=== End Footer Version 1 ===-->
 </div><!--/wrapper-->

@@ -8,6 +8,8 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
+    lang.change($('#langCode').val());
+
 //    console.log($('#selectedCompanyNpk').val());
 
     $.ajax({
@@ -57,7 +59,6 @@ $(document).ready(function () {
                         + "/onyuz/standard/assets/img/sfClients/"
                         + "EMGE/"
                         + data.rows[i].picture;
-
 
                 var appending =
                         "<div class='col-sm-6 sm-margin-bottom-20' style='margin-bottom:20px'>"

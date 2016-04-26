@@ -574,6 +574,9 @@ msgstr "Posta Kodu"
 msgid "Telephone"
 msgstr "Tel"
 
+msgid "Phone"
+msgstr "Tel"
+
 msgid "Fax"
 msgstr "Faks"
 
@@ -903,3 +906,400 @@ msgstr "Makine adını giriniz (Makine serisi)"
 
 msgid "Please Enter Machine Model (Production Year)"
 msgstr "Makine modeli (üretim yılını) giriniz"
+
+
+
+
+
+
+
+msgid "Company Profile"
+msgstr "Firma Profili"
+
+msgid "Notification"
+msgstr "İlişkiler ve Uyarılar"
+
+msgid "References"
+msgstr "Referanslar"
+
+msgid "Latest Posts"
+msgstr "Son iletiler"
+
+msgid "Useful Links"
+msgstr "Faydalı Bağlantılar"
+
+msgid "Contact Us"
+msgstr "Bize Ulaşın"
+
+msgid "A virtual enterprise (VE) is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
+msgstr ""
+
+msgid "Latest News about OSTIM VE"
+msgstr "OSTİM SF hakkında son haberler"
+
+msgid "OSTIM Clusters News"
+msgstr "OSTİM kümeleri haberleri"
+
+msgid "New Project Calls"
+msgstr "Yeni Proje Çağrıları"
+
+msgid "Ostim Organized Industrial Zone"
+msgstr "OSTİM OSB"
+
+msgid "Turkish Ministry of SIT"
+msgstr "T.C. Bilim, Teknoloji ve Sanayi Bakanlığı"
+
+msgid "TUBITAK"
+msgstr "TÜBİTAK"
+
+msgid "KOSGEB"
+msgstr "KOSGEB"
+
+msgid "Terms of Service"
+msgstr "Anlaşma Şartları"
+
+msgid "Privacy Policy"
+msgstr "Gizlilik Kuralları"
+
+msgid "All Rights Reserved."
+msgstr "Bütün Haklar Saklıdır."
+
+msgid "Performance Meters"
+msgstr "Performans Değerleri"
+
+msgid "Projects in progress"
+msgstr "Devam eden projeler"
+
+msgid "Last Week"
+msgstr "Son Hafta'da"
+
+msgid "Last Month"
+msgstr "Son Ay'da"
+
+msgid "Last month projects to overall project number"
+msgstr "Son ay alınan projelerin toplam proje sayısına oranı"
+
+msgid "Project started in the last month"
+msgstr "Son ayda başlayan projeler"
+
+msgid "Total machine tools number"
+msgstr "Toplam makine sayısı"
+
+msgid "Added machine tools in last 6 months"
+msgstr "Son 6 ayda eklenen makine sayısı"
+
+msgid "Added machine tools in last month"
+msgstr "Son bir ayda eklenen makine sayısı"
+
+msgid "Rate of added machine tools in last 6 months to overall machine tools"
+msgstr "Son 6 ayda eklenen makine sayısının toplam makine sayısına oranı"
+
+
+
+
+
+
+
+msgid "January"
+msgstr "Ocak"
+
+msgid "February"
+msgstr "Şubat"
+
+msgid "March"
+msgstr "Mart"
+
+msgid "April"
+msgstr "Nisan"
+
+msgid "May"
+msgstr "Mayıs"
+
+msgid "June"
+msgstr "Haziran"
+
+msgid "July"
+msgstr "Temmuz"
+
+msgid "August"
+msgstr "Ağustos"
+
+msgid "September"
+msgstr "Eylül"
+
+msgid "October"
+msgstr "Ekim"
+
+msgid "November"
+msgstr "Kasım"
+
+msgid "December"
+msgstr "Aralık"
+
+
+
+
+
+msgid "today"
+msgstr "bugün"
+
+msgid "yesterday"
+msgstr "dün"
+
+msgid "tommorrow"
+msgstr "yarın"
+
+msgid "Company Products"
+msgstr "Firma ürünleri"
+
+msgid "Sample Products"
+msgstr "Örnek ürünler"
+
+msgid "Brief Description About Products"
+msgstr "Ürünler hakkında kısa özet"
+
+msgid "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
+msgstr ""
+
+msgid "Sample product videos"
+msgstr "Örnek ürün videoları"
+
+msgid "List of Products"
+msgstr "Ürün listesi"
+
+msgid "Company\'s Total Projetcs"
+msgstr "Toplam firma projeleri"
+
+msgid "Finished Successfully"
+msgstr "Başarıyla bitirilen"
+
+msgid "In progress"
+msgstr "Devam eden"
+
+msgid "Sucessfully completed projects rate"
+msgstr "Başarılı bitn proje oranı"
+
+msgid "than last month"
+msgstr "son aya göre"
+
+msgid "Quality and Standard Certificates"
+msgstr "Kalite Belgeleri ve Sertifikalar"
+
+msgid "Acquired certificate in last year"
+msgstr "Son ayda alınan sertifikalar sayısı"
+
+msgid "Applied for new certificates"
+msgstr "Yeni sertifikalar için yapılan başvuru sayısı"
+
+msgid "Required certificates rate"
+msgstr "Alınmış belgelerin toplam gerekli belgelere oranı"
+
+msgid "higher"
+msgstr "fazladır"
+
+msgid "than last year"
+msgstr "son yıla göre"
+
+msgid "Company Performance Meters"
+msgstr "Firma Performans Değerleri"
+
+msgid "Engineers"
+msgstr "Mühendis"
+
+msgid "Foreign Trade Staff"
+msgstr "Dış Ticaret Uzmanı"
+
+msgid "Technicians"
+msgstr "Tekniker"
+
+msgid "Number of Employee"
+msgstr "Toplam Çalışan Sayısı"
+
+msgid "Company Meters"
+msgstr "Firma Değerleri"
+
+msgid "Company Quality Performance"
+msgstr "Firma Kalite Performansı"
+
+msgid "Last Year Increase Ratio"
+msgstr "Son bir yılda iyileşme oranı"
+
+msgid "Overall Performance"
+msgstr "Toplam performans değeri"
+
+msgid "Available Quality Certificates and Standards"
+msgstr "Alınan Kalite Belgeleri ve Sertifikalar"
+
+msgid "Project Completion Performance"
+msgstr "Proje Bitirme Oranı"
+
+msgid "Contributed Projects"
+msgstr "Katkıda bulunduğu projeler"
+
+msgid "Accomplished Successfully"
+msgstr "Başarıyla tamamlanan projeler"
+
+msgid "Unfinished Porjects"
+msgstr "Sonlandırılmayan projeler"
+
+msgid "Projects in Progress"
+msgstr "Devam eden projeler"
+
+msgid "Customer Satisfaction Rate"
+msgstr "Müşteri memnuniyeti oranı"
+
+msgid "Consent Customers"
+msgstr "Memnun olan müşteriler"
+
+msgid "Complained Customers"
+msgstr "Şikayetçi müşteriler"
+
+msgid "Company Machine Tools"
+msgstr "Firma Tezgahları"
+
+msgid "More information about your selected machine is given below"
+msgstr "Seçtiğiniz makine hakkında daha fazla detaylı bilgi aşağıda sunulmuştur"
+
+msgid "Total Machine Tools"
+msgstr "Toplam tezgahlar"
+
+msgid "CNC Machines"
+msgstr "CNC Makineler"
+
+msgid "Special Machine Tools"
+msgstr "Özel Makineler"
+
+msgid "Unavailable Machines"
+msgstr "Müsait olmayan makineler"
+
+msgid "Sample machine tools videos"
+msgstr "Örnek makine videoları"
+
+msgid "Company Members"
+msgstr "Firma çalışanları"
+
+msgid "Registered Company Employees"
+msgstr "Kayıtlı firma çalışanları"
+
+msgid "Virtual Enterprise Clinets"
+msgstr "Sanal Fabrika Üyeleri"
+
+msgid "Turkey"
+msgstr "Türkiye"
+
+msgid "Clients Page"
+msgstr "Üyeler sayfası"
+
+msgid "For more information, questions please contact us"
+msgstr "Soru , öneri ve detaylı ürün bilgileri için bizimle temasa geçiniz."
+
+msgid "Contact"
+msgstr "İletişim"
+
+msgid "Panel"
+msgstr "Paneli"
+
+msgid "Contact Information"
+msgstr "İletişim Bilgileri"
+
+msgid "TURKEY"
+msgstr "TÜRKİYE"
+
+msgid "Working Hours"
+msgstr "Çalışma Saatleri"
+
+msgid "Week days Mon- Fri"
+msgstr "Hafta içi Pztsi- Cuma"
+
+msgid "Weekends Sat"
+msgstr "Hafta Sonu Cmtsi"
+
+msgid "Weekends Sun"
+msgstr "Hafta Sonu Paz"
+
+msgid "Closed"
+msgstr "Kapalı"
+
+msgid "For more information please keep in touch ..."
+msgstr "Bilgilendirme için iletişimde kalın..."
+
+msgid "Based on your order, working hours could be revised..."
+msgstr "İş ve sipariş durumuna göre vardiya sayısı artırılıp , azaltılabilmektedir"
+
+msgid "Write details..."
+msgstr "Detayları yazınız..."
+
+msgid "Ask your question"
+msgstr "Soru Sorun"
+
+msgid "Our Profession..."
+msgstr "İşimiz..."
+
+msgid "Our Vision..."
+msgstr "Vizyonumuz..."
+
+msgid "We are competitive at ..."
+msgstr "Biz işimizde iyiyiz..."
+
+msgid "Production and Quality Control Engineer"
+msgstr "Üretim Ve Kalite Kontrol Mühendisi"
+
+msgid "Company info update period"
+msgstr "Firma Temel Bilgi Yenileme Sıklığı"
+
+msgid "Company profil completion rate"
+msgstr "Profil Tamamlanmışlık Oranı"
+
+msgid "Machine data update period"
+msgstr "Makina Bilgisi Yenileme Sürekliliği"
+
+msgid "Company technologies update period"
+msgstr "Firma Teknolojileri Bilgi Yenileme Sıklığı"
+
+msgid "Daily currency exchange rates"
+msgstr "Günlük Kur Bilgileri"
+
+msgid "Minutes"
+msgstr "Dakika"
+
+msgid "Before"
+msgstr "Önce"
+
+msgid "Today"
+msgstr "Bugün"
+
+msgid "Visited your projects page"
+msgstr "Proje sayfanızı ziyaret etti"
+
+msgid "Yesterday"
+msgstr "Dün"
+
+msgid "Reviewed your document"
+msgstr "Dosyanızı inceledi"
+
+msgid "Days"
+msgstr "Gün"
+
+msgid "Proposal document added"
+msgstr "Teklif dosyasını ekledi"
+
+msgid "Following your company"
+msgstr "Sizin firmayı takibe aldı"
+
+msgid "less"
+msgstr "daha az"
+
+msgid "Machine tools rate to 6 month before"
+msgstr "6 ay öncesine göre makine teçhizat oranı artışı"
+
+msgid "Phone"
+msgstr "تلفن"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""

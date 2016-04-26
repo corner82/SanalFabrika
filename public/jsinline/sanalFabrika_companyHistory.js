@@ -8,6 +8,8 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
+    lang.change($('#langCode').val());
+
     console.log($('#selectedCompanyNpk').val());
 
     

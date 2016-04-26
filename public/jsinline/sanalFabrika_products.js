@@ -7,6 +7,8 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
+    lang.change($('#langCode').val());
+
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',

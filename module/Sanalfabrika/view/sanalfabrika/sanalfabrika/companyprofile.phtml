@@ -203,12 +203,12 @@
             <div class="panel-heading-v2 overflow-h">
                 <h2 class="heading-xs pull-left">
                     <i class="fa fa-bar-chart-o"></i> 
-                    Firma Temel Bilgi Yenileme Sıklığı
+                    <?php echo $this->translate('Company info update period')?>
                 </h2>
                 <!--<a href="#"><i class="fa fa-cog pull-right"></i></a>-->
             </div>
             <h3 class="heading-xs">
-                Profil Tamamlanmışlık Oranı
+                <?php echo $this->translate('Company profil completion rate')?>
                 <span class="pull-right">92%</span>
             </h3>
             <div class="progress progress-u progress-xxs">
@@ -218,7 +218,7 @@
                 </div>
             </div>
             <h3 class="heading-xs">
-                Makina Bilgisi Yenileme Sürekliliği
+                <?php echo $this->translate('Machine data update period')?>
                 <span class="pull-right">85%</span>
             </h3>
             <div class="progress progress-u progress-xxs">
@@ -227,7 +227,7 @@
                      role="progressbar" class="progress-bar progress-bar-blue">
                 </div>
             </div>
-            <h3 class="heading-xs"> Firma Teknolojileri Bilgi Yenileme Sıklığı
+            <h3 class="heading-xs"> <?php echo $this->translate('Company technologies update period')?>
                 <span class="pull-right">64%</span>
             </h3>
             <div class="progress progress-u progress-xxs margin-bottom-40">
@@ -247,7 +247,7 @@
                           background-repeat:no-repeat;padding-left:5px;">
                         <a href="https://www.exchangeratewidget.com/" 
                            style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
-                               Günlük Kur Bilgileri (Amerikan Doları)
+                               <?php echo $this->translate('Daily currency exchange rates')?>
                         </a>
                     </span>
                 </div>
@@ -270,8 +270,8 @@
                         <i class="icon-custom icon-sm rounded-x 
                            icon-bg-red icon-line icon-envelope"></i>
                         <div class="overflow-h">
-                            <span><strong>Muhsin Teber</strong> e-posta yolladı</span>
-                            <small>2 dakika önce</small>
+                            <span><strong>Muhsin Teber</strong> <?php echo $this->translate('Email')?> <?php echo $this->translate('Sent')?></span>
+                            <small>2 <?php echo $this->translate('Minutes')?> <?php echo $this->translate('Before')?></small>
                         </div>    
                     </li>
                     <li class="notification">
@@ -279,38 +279,38 @@
                              src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" 
                              alt="">
                         <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> Projeler sayfanızı ziyaret etti</span>
-                            <small>Bugün 18:25 </small>
+                            <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your project page')?></span>
+                            <small><?php echo $this->translate('Today')?> 18:25 </small>
                         </div>    
                     </li>
                     <li class="notification">
                         <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
                         <div class="overflow-h">
-                            <span><strong>Adem Başarır</strong> teklif dosyanızı görüntüledi.</span>
-                            <small>Dün 13:07</small>
+                            <span><strong>Adem Başarır</strong> <?php echo $this->translate('Reviewed your document')?></span>
+                            <small><?php echo $this->translate('Yesterday')?> 13:07</small>
                         </div>    
                     </li>
                     <li class="notification">
                         <img class="rounded-x" 
                              src="<?php echo $this->basePath('onyuz/standard/assets/img/men-icon.png') ?>" alt="">
                         <div class="overflow-h">
-                            <span><strong>Mikel Andrews</strong> firmanızı proje teklif dosyasına ekledi</span>
-                            <small>2 Gün Önce 12:09</small>
+                            <span><strong>Mikel Andrews</strong> <?php echo $this->translate('Proposal document added')?></span>
+                            <small>2 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?> 12:09</small>
                         </div>    
                     </li>
                     <li class="notification">
                         <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
                         <div class="overflow-h">
-                            <span><strong>Burhan Yetiş</strong> firmanızı izleme listesine aldı</span>
-                            <small>2 Gün Önce 09:34</small>
+                            <span><strong>Burhan Yetiş</strong> <?php echo $this->translate('Following your company')?></span>
+                            <small>2 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?>Önce 09:34</small>
                         </div>    
                     </li>
                     <li class="notification">
                         <img class="rounded-x" 
                              src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" alt="">
                         <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> tamamladığınız projeler sayfasını inceledi</span>
-                            <small>3 Gün Önce 14:28</small>  
+                            <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your projects page')?></span>
+                            <small>3 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?> 14:28</small>  
                         </div>      
                     </li>
                 </ul>    
@@ -327,7 +327,7 @@
                     <div class="service-block-v3 service-block-aviation">
                         <i class="icon-plane"></i>
                         <span class="service-heading">
-                            <?php echo $this->translate('Devam Eden Projeler') ?>
+                            <?php echo $this->translate('Projects in progress') ?>
                         </span>
                         <span class="counter">12</span>
 
@@ -335,21 +335,21 @@
 
                         <div class="row margin-bottom-20">
                             <div class="col-xs-6 service-in">
-                                <small><?php echo $this->translate('Geçen Hafta') ?></small>
+                                <small><?php echo $this->translate('Last Week') ?></small>
                                 <h4 class="counter">2</h4>
                             </div>
                             <div class="col-xs-6 text-right service-in">
-                                <small><?php echo $this->translate('Geçen Ay') ?></small>
+                                <small><?php echo $this->translate('Last Month') ?></small>
                                 <h4 class="counter">5</h4>
                             </div>
                         </div>
                         <div class="statistics">
-                            <h3 class="heading-xs"><?php echo $this->translate('Son ay içerisinde alına projelerin toplam proje sayısına oranı') ?><span class="pull-right">41%</span></h3>
+                            <h3 class="heading-xs"><?php echo $this->translate('Last month projects to overall project number') ?><span class="pull-right">41%</span></h3>
                             <div class="progress progress-u progress-xxs">
                                 <div style="width: 41%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="41" role="progressbar" class="progress-bar progress-bar-light">
                                 </div>
                             </div>
-                            <small>59% less <strong><?php echo $this->translate('1 ay öncesi başlayan projeler') ?></strong></small>
+                            <small>59% <?php echo $this->translate('less')?> <strong><?php echo $this->translate('Project started in the last month') ?></strong></small>
                         </div>            
                     </div>
                 </div>
@@ -357,7 +357,7 @@
                     <div class="service-block-v3 service-block-renewable">
                         <i class="icon-energy"></i>
                         <span class="service-heading">
-                            <?php echo $this->translate('Toplam tezgah sayısı') ?>
+                            <?php echo $this->translate('Total machine tools number') ?>
                         </span>
                         <span class="counter">12</span>
 
@@ -365,21 +365,21 @@
 
                         <div class="row margin-bottom-20">
                             <div class="col-xs-6 service-in">
-                                <small><?php echo $this->translate('Son 6 ay  eklenen tezgah sayısı') ?></small>
+                                <small><?php echo $this->translate('Added machine tools in last 6 months') ?></small>
                                 <h4 class="counter">3</h4>
                             </div>
                             <div class="col-xs-6 text-right service-in">
-                                <small><?php echo $this->translate('Son ay  eklenen tezgah sayısı') ?></small>
+                                <small><?php echo $this->translate('Added machine tools in last month') ?></small>
                                 <h4 class="counter">1</h4>
                             </div>
                         </div>
                         <div class="statistics">
-                            <h3 class="heading-xs"><?php echo $this->translate('6 ay içinde eklenen tezgahların toplam tezgah sayısına oranı') ?><span class="pull-right">40%</span></h3>
+                            <h3 class="heading-xs"><?php echo $this->translate('Rate of added machine tools in last 6 months to overall machine tools') ?><span class="pull-right">40%</span></h3>
                             <div class="progress progress-u progress-xxs">
                                 <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-light">
                                 </div>
                             </div>
-                            <small>60% <?php echo $this->translate('6 ay ve öncesinde alınan tezgahların oranı') ?> <strong><?php echo $this->translate('than last month') ?></strong></small>
+                            <small>60% <?php echo $this->translate('Machine tools rate to 6 month before') ?> <strong><?php echo $this->translate('than last month') ?></strong></small>
                         </div>            
                     </div>
                 </div>
@@ -392,10 +392,10 @@
                 <div class="parallax-bg parallaxBg1">            
                     <div class=" content parallax-about">
                         <div class="title-box-v2">
-                            <h2><span class="color-green">EMGE Elektro Mekanik Gereçler Endüstrisi</span> Hakkında </h2>
-                            <p>1975 yılında 90 metrekarelik bir alanda kurulmuş olan firmamız 1981 yılında EMGE KOLLEKTİF ŞİRKETİ Elektro Mekanik Gereçler Endüstrisi ünvanını almış, bugün ise 6000 metrekarelik kendi binasında faaliyetlerine devam etmektedir. Ürün yelpazesini her geçen gün biraz daha genişleten firmamız, kalite ve müşteri memnuniyetini her zaman ön planda tutmuş ve çalışmalarını bu doğrultuda sürdürmüştür.
-
-40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.</p>
+                            <h2><span class="color-green"><?php echo $this->translate('EMGE Elektro Mekanik Gereçler Endüstrisi')?></span></h2>
+                            <p>
+                                <?php echo $this->translate('1975 yılında 90 metrekarelik bir alanda kurulmuş olan firmamız 1981 yılında EMGE KOLLEKTİF ŞİRKETİ Elektro Mekanik Gereçler Endüstrisi ünvanını almış, bugün ise 6000 metrekarelik kendi binasında faaliyetlerine devam etmektedir. Ürün yelpazesini her geçen gün biraz daha genişleten firmamız, kalite ve müşteri memnuniyetini her zaman ön planda tutmuş ve çalışmalarını bu doğrultuda sürdürmüştür. 40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.')?>
+                            </p>
                         </div>
 
                         <div class="row">
@@ -403,26 +403,28 @@
                                 <div class="banner-info dark margin-bottom-10">
                                     <i class="rounded-x icon-bell"></i>
                                     <div class="overflow-h">
-                                        <h3>işimiz...</h3>  
-                                        <p>40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.</p>
+                                        <h3><?php echo $this->translate('Our Profession...')?></h3>  
+                                        <p>
+                                            <?php echo $this->translate('40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.')?>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="banner-info dark margin-bottom-10">
                                     <i class="rounded-x fa fa-magic"></i>
                                     <div class="overflow-h">
-                                        <h3>Vizyonumuz...</h3>
-                                        <p>Floresan lambaların tehlikeli atık sınıfına gireceği gündeme geldiği yıllarda kendi binamızı henüz yeni bir kavram olan LED Aydınlatmaya çevirmeye karar verdik ve AR-GE ekibimiz bu konuda çalışmaya başladı. Bu çalışmalara başladığımızda amacımız birçok firma gibi hazır sürücülerle veya malzemeler ile bir ürün ortaya koymak değil, kendi sürücümüz ile kendimize özgü bir ürün ortaya koymaktı.
-
-Yapılan çalışmalar sonucunda 85-265VAC aralığında çalışan bir sürücü tasarlayıp üreterek ilk prototip ürünlerimiz ortaya çıktı. Ortaya çıkan ürünümüzde ısınma söz konusu olmadığından armatürümüzü de o zamanlar bir ilk olarak komple plastik olarak imal ettik. İlk üretimlerimizi kendi fabrikamıza uygulayarak uzun bir test sürecinden geçirdik. Yaklaşık 2 yıllık bir test sürecinden sonra ortaya kaliteli bir ürün ortaya çıktığına karar verdik. Bununla birlikte yılların verdiği deneyimlerimizi bu sektöre de aktararak LED Aydınlatma ürünlerimizi ve çeşitlerimizi geliştirmeye karar verdik.
-
-Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambası, LED Projektör, LED Downlight, LED Line, LED Wallwasher ve müşteri odaklı özel üretimler yer almaktadır.</p>
+                                        <h3><?php echo $this->translate('Our Vision...')?></h3>
+                                        <p>
+                                            <?php echo $this->translate('Floresan lambaların tehlikeli atık sınıfına gireceği gündeme geldiği yıllarda kendi binamızı henüz yeni bir kavram olan LED Aydınlatmaya çevirmeye karar verdik ve AR-GE ekibimiz bu konuda çalışmaya başladı. Bu çalışmalara başladığımızda amacımız birçok firma gibi hazır sürücülerle veya malzemeler ile bir ürün ortaya koymak değil, kendi sürücümüz ile kendimize özgü bir ürün ortaya koymaktı. Yapılan çalışmalar sonucunda 85-265VAC aralığında çalışan bir sürücü tasarlayıp üreterek ilk prototip ürünlerimiz ortaya çıktı. Ortaya çıkan ürünümüzde ısınma söz konusu olmadığından armatürümüzü de o zamanlar bir ilk olarak komple plastik olarak imal ettik. İlk üretimlerimizi kendi fabrikamıza uygulayarak uzun bir test sürecinden geçirdik. Yaklaşık 2 yıllık bir test sürecinden sonra ortaya kaliteli bir ürün ortaya çıktığına karar verdik. Bununla birlikte yılların verdiği deneyimlerimizi bu sektöre de aktararak LED Aydınlatma ürünlerimizi ve çeşitlerimizi geliştirmeye karar verdik. Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambası, LED Projektör, LED Downlight, LED Line, LED Wallwasher ve müşteri odaklı özel üretimler yer almaktadır.')?>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="banner-info dark margin-bottom-10">
                                     <i class="rounded-x fa fa-thumbs-o-up"></i>
                                     <div class="overflow-h">
-                                        <h3>İşimizde iyiyiz...</h3>
-                                        <p>LED iç aydınlatma ürünlerinden sürücülerin tasarım ve üretimleri de dahil olmak üzere, LED PCB kartların tasarımı, bu kartların üretimleri, smd komponent dizgileri ve montajları da dahil olmak üzere firmamız çatısı altında yapılmaktadır. Her zaman ürettiği ürünlerin arkasında duran firmamız LED Aydınlatma ürünlerine 3 yıl değişim garantisi vermektedir.</p>
+                                        <h3><?php echo $this->translate('We are competitive at ...')?></h3>
+                                        <p>
+                                            <?php echo $this->translate('LED iç aydınlatma ürünlerinden sürücülerin tasarım ve üretimleri de dahil olmak üzere, LED PCB kartların tasarımı, bu kartların üretimleri, smd komponent dizgileri ve montajları da dahil olmak üzere firmamız çatısı altında yapılmaktadır. Her zaman ürettiği ürünlerin arkasında duran firmamız LED Aydınlatma ürünlerine 3 yıl değişim garantisi vermektedir.')?>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="margin-bottom-20"></div>
@@ -443,12 +445,12 @@ Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambas�
                     <!-- Testimonials v4 -->
                     <div class="testimonials-v4 md-margin-bottom-50">
                         <div class="testimonials-v4-in">
-                            <p>40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.</p>
+                            <p><?php echo $this->translate('40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.')?></p>
                         </div>
                         <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/filozof.png') ?>" alt="thumb">
                         <span class="testimonials-author">
                             Mithat Ertuğ<br>
-                            <em>CEO<a href="#">  EMGE</a></em>
+                            <em><?php echo $this->translate('CEO')?><a href="#">  EMGE</a></em>
                         </span>
                     </div>
                     <!-- End Testimonials v4 -->
@@ -457,12 +459,12 @@ Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambas�
                     <!-- Testimonials v4 -->
                     <div class="testimonials-v4">
                         <div class="testimonials-v4-in">
-                            <p>1975 yılında 90 metrekarelik bir alanda kurulmuş olan firmamız 1981 yılında EMGE KOLLEKTİF ŞİRKETİ Elektro Mekanik Gereçler Endüstrisi ünvanını almış, bugün ise 6000 metrekarelik kendi binasında faaliyetlerine devam etmektedir. Ürün yelpazesini her geçen gün biraz daha genişleten firmamız, kalite ve müşteri memnuniyetini her zaman ön planda tutmuş ve çalışmalarını bu doğrultuda sürdürmüştür..</p>
+                            <p><?php echo $this->translate('1975 yılında 90 metrekarelik bir alanda kurulmuş olan firmamız 1981 yılında EMGE KOLLEKTİF ŞİRKETİ Elektro Mekanik Gereçler Endüstrisi ünvanını almış, bugün ise 6000 metrekarelik kendi binasında faaliyetlerine devam etmektedir. Ürün yelpazesini her geçen gün biraz daha genişleten firmamız, kalite ve müşteri memnuniyetini her zaman ön planda tutmuş ve çalışmalarını bu doğrultuda sürdürmüştür..')?></p>
                         </div>
                         <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/filozof.png') ?>" alt="thumb">
                         <span class="testimonials-author">
                             Münir Ertuğ<br>
-                            <em>Üretim ve Kalite Kontrol Mühendisi<a href="#">  EMGE</a></em>
+                            <em><?php echo $this->translate('Production and Quality Control Engineer')?><a href="#">  EMGE</a></em>
                         </span>
                     </div>
                     <!-- End Testimonials v4 -->
@@ -613,8 +615,8 @@ Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambas�
             <div class='row'>
                 <div class="contacts content">
                     <div class="title-box-v2">
-                        <h2> <span class="color-green">İletişim</span> Paneli</h2>
-                        <p>Soru , öneri ve detaylı ürün bilgileri için bizimle temasa geçiniz.</p>
+                        <h2> <span class="color-green"><?php echo $this->translate('Contact')?></span> <?php echo $this->translate('Panel')?></h2>
+                        <p><?php echo $this->translate('For more information, questions please contact us')?></p>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -645,9 +647,9 @@ Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambas�
                         <div class="col-md-6 col-sm-6">
                             
                             <!-- Contacts -->
-                            <div class="headline"><h2>İletişim Bilgileri</h2></div>  
+                            <div class="headline"><h2><?php echo $this->translate('Contact Information')?></h2></div>  
                             <ul class="list-unstyled who margin-bottom-30">
-                                <li><a href="#"><i class="fa fa-home"></i>Ahi Evran Cad. 1211. Sk. No:14 Ostim - Ankara - TÜRKİYE</a></li>
+                                <li><a href="#"><i class="fa fa-home"></i>Ahi Evran Cad. 1211. Sk. No:14 Ostim - Ankara - <?php echo $this->translate('TURKEY')?></a></li>
                                 <li><a href="#"><i class="fa fa-envelope"></i>can@emge.com.tr</a></li>
                                 <li><a href="#"><i class="fa fa-phone"></i>0312 354 9271 (PBX)</a></li>
                                 <li><a href="#"><i class="fa fa-fax"></i>0312 354 5481</a></li>
@@ -655,34 +657,34 @@ Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambas�
                             </ul>
 
                             <!-- Business Hours -->
-                            <div class="headline"><h2>Çalışma Saatleri</h2></div>
+                            <div class="headline"><h2><?php echo $this->translate('Working Hours')?></h2></div>
                             <ul class="list-unstyled margin-bottom-30">
-                                    <li><strong>Paz.-Cu.:</strong> 08:00 - 18:00</li>
-                                    <li><strong>Cum.:</strong> 08:00 - 13:00</li>
-                                    <li><strong>Paz.:</strong> Kapalı</li>
+                                    <li><strong><?php echo $this->translate('Week days Mon- Fri')?>: </strong> 08:00 - 18:00</li>
+                                    <li><strong><?php echo $this->translate('Weekends Sat')?>: </strong> 08:00 - 13:00</li>
+                                    <li><strong><?php echo $this->translate('Weekends Sun')?>: </strong><?php echo $this->translate('Closed')?></li>
                             </ul>
 
                             <!-- Business Hours -->
-                            <div class="headline"><h2>Bilgilendirme için iletişimde kalın...</h2></div>
-                            <p>İş ve sipariş durumuna göre vardiya sayısı artırılıp , azaltılabilmektedir</p>
+                            <div class="headline"><h2><?php echo $this->translate('For more information please keep in touch ...')?></h2></div>
+                            <p><?php echo $this->translate('Based on your order, working hours could be revised...')?></p>
                             
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="input-group margin-bottom-10">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input type="name" placeholder="İsim" class="form-control">
+                                        <input type="name" placeholder="<?php echo $this->translate('name')?>" class="form-control">
                                     </div>    
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="input-group margin-bottom-20">
                                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                        <input type="email" placeholder="E-posta" class="form-control">
+                                        <input type="email" placeholder="<?php echo $this->translate('Email')?>" class="form-control">
                                     </div>    
                                 </div>
                             </div>    
 
-                            <textarea rows="5" class="form-control margin-bottom-20" placeholder="Detayları yazınız..."></textarea>
-                            <button class="btn-u btn-u-sm pull-right" type="button">Soru Sorun</button>
+                            <textarea rows="5" class="form-control margin-bottom-20" placeholder="<?php echo $this->translate('Write details...')?>"></textarea>
+                            <button class="btn-u btn-u-sm pull-right" type="button"><?php echo $this->translate('Ask your question')?></button>
                         </div>
                     </div>
                 </div>    
@@ -761,7 +763,7 @@ Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambas�
                             Turkey <br />
                             <?php echo $this->translate('Phone') ?> :  +90 312 385 50 90 <br />
                             <?php echo $this->translate('Fax') ?>:    +90 312 354 58 98 <br />
-                            <?php echo $this->translate('Email') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
+                            <?php echo $this->translate('Email') ?>:  <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
                         </address>
                     </div><!--/col-md-3-->
                     <!-- End Address -->
