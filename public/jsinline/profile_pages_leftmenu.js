@@ -19,6 +19,41 @@ $(document).ready(function () {
     var npk = $('#selectedCompanyNpk').val();
     var currentLink = window.location.href;
     var companyprofilerootLink = window.location.host + "/ostim/sanalfabrika/";
+    
+    /*
+     * due to problem in changing language in jquery plugin 
+     * temporarily different language variables are assigned!!!
+     *  
+     */
+    
+    if($('#langCode').val() === 'en'){
+        window.companyprofile = 'Company profile';
+        window.performance = 'Performance Meters';
+        window.products = 'Company Products';
+        window.machine_list = 'Machines List';
+        window.members = 'Company Members';
+        window.projects = 'Company Projects';
+        window.comments = 'Comments';
+        window.brief_history = 'Company History';
+    } else if($('#langCode').val() === 'tr'){
+        window.companyprofile = 'Firma Profili';
+        window.performance = 'Performans Değerleri';
+        window.products = 'Firma Ürünleri';
+        window.machine_list = 'Makine Listesi';
+        window.members = 'Firma Çalışanları';
+        window.projects = 'Firma Projeleri';
+        window.comments = 'Yorumlar';
+        window.brief_history = 'Firma Ticari Tarihçesi';
+    } else if($('#langCode').val() === 'fa'){
+        window.companyprofile = 'پروفایل شرکت';
+        window.performance = 'معیارهای عملکرد';
+        window.products = 'محصولات شرکت';
+        window.machine_list = 'لیست ماشین ابزار';
+        window.members = 'کارکنان شرکت';
+        window.projects = 'پروژه های شرکت';
+        window.comments = 'نظرات';
+        window.brief_history = 'تاریخچه تجاری شرکت';
+    }
 
     /*
      * appendings left menu
@@ -30,7 +65,7 @@ $(document).ready(function () {
             + "<a href='#' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Company Profile')
+            + window.companyprofile
             + "</a>";
     +"</li>";
     var performancelink =
@@ -38,7 +73,7 @@ $(document).ready(function () {
             + "<a href='#' target='' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Performance Meters')
+            + window.performance
             + "</a>";
     +"</li>";
     var productslink =
@@ -46,7 +81,7 @@ $(document).ready(function () {
             + "<a href='#' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Company Products')
+            + window.products
             + "</a>"
             + "</li>";
     var mtslink =
@@ -56,7 +91,7 @@ $(document).ready(function () {
             + "aria-expanded='true'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Machines List')
+            + window.machine_list
             + "</a>"
             + "<ul id='collapse_mach_cats' class='collapse'>"
             + "</ul>"
@@ -66,7 +101,7 @@ $(document).ready(function () {
             + "<a href='#' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Company Members')
+            + window.members
             + "</a>"
             + "</li>";
     var projectslink =
@@ -74,7 +109,7 @@ $(document).ready(function () {
             + "<a href='#' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Company Projects')
+            + window.projects
             + "</a>";
     +"</li>";
     var commentslink =
@@ -82,15 +117,15 @@ $(document).ready(function () {
             + "<a href='#' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Comments')
+            + window.comments
             + "</a>";
     +"</li>";
     var historylink =
             "<li id='companyhistoryprofile' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='#'>"
+            + "<a href='#' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
-            + window.lang.translate('Company History')
+            + window.brief_history
             + "</a>";
     +"</li>";
 

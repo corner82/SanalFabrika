@@ -46,7 +46,9 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            
+
+            console.log(data);
+
             $('#members_ph').empty();
 
             for (var i = 0; i < data.rows.length; i++) {
@@ -77,10 +79,10 @@ $(document).ready(function () {
                         + window.lang.translate(data.rows[i].description)
                         + "</p>"
                         + "<hr>"
-                        + "<ul class='list-inline team-social'>"
-                        + "<li><a data-placement='top' data-toggle='tooltip' class='fb tooltips' data-original-title='Facebook' href='#'><i class='fa fa-facebook'></i></a></li>"
-                        + "<li><a data-placement='top' data-toggle='tooltip' class='tw tooltips' data-original-title='Twitter' href='#'><i class='fa fa-twitter'></i></a></li>"
-                        + "<li><a data-placement='top' data-toggle='tooltip' class='gp tooltips' data-original-title='Google +' href='#'><i class='fa fa-google'></i></a></li>"
+                        + "<ul class='list-inline team-social' id='" + data.rows[i].user_id + "_social_media_ph'>"
+//                        + "<li><a data-placement='top' data-toggle='tooltip' class='fb tooltips' data-original-title='Facebook' href='#'><i class='fa fa-facebook'></i></a></li>"
+//                        + "<li><a data-placement='top' data-toggle='tooltip' class='tw tooltips' data-original-title='Twitter' href='#'><i class='fa fa-twitter'></i></a></li>"
+//                        + "<li><a data-placement='top' data-toggle='tooltip' class='gp tooltips' data-original-title='Google +' href='#'><i class='fa fa-google'></i></a></li>"
                         + "</ul>"
                         + "</div>"
                         + "</div>";
@@ -89,9 +91,16 @@ $(document).ready(function () {
                 $('#members_ph').append(appending);
             }
 
+            social_media_call();
+
         }
     });
-    
+
+
+
+});
+
+function social_media_call() {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -104,11 +113,35 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            
+
+
             console.log(data);
-            
-            
+            for (var i = 0; i < data.rows.length; i++) {
+
+                console.log('abbr: ' + data.rows[i].abbreviation);
+                console.log('title: ' + data.rows[i].socialmedia_name);
+                console.log('link: ' + data.rows[i].user_link);
+                console.log('social name: ' + data.rows[i].socialmedia_name);
+                
+                if(data.rows[i].socialmedia_name === 'googleplus'){
+                    var social_media_name = 'google-plus';
+                }else{
+                    var social_media_name = data.rows[i].socialmedia_name;
+                }
+
+                $('#' + data.rows[i].user_id + '_social_media_ph').append(
+                        "<li><a data-placement='top' data-toggle='tooltip' class='"
+                        + data.rows[i].abbreviation
+                        + " tooltips' data-original-title='"
+                        + data.rows[i].socialmedia_name
+                        + "' href='"
+                        + data.rows[i].user_link
+//                    + "'><i class='rounded-x social_" 
+                        + "'><i class='fa fa-"
+                        + social_media_name
+                        + "'></i></a></li>");
+            }
+
         }
     });
-
-});
+}
