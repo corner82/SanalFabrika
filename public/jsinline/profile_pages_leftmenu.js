@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 
     lang.change($('#langCode').val());
-    
+        
     /*
      * Start of left menu links
      */
@@ -23,6 +23,7 @@ $(document).ready(function () {
     /*
      * appendings left menu
      */
+    
 
     var profilelink =
             "<li id='companyprofile' class='list-group-item' onclick=changeMenu(this)>"

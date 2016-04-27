@@ -46,9 +46,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-
-            console.log(data);
-
+            
             $('#members_ph').empty();
 
             for (var i = 0; i < data.rows.length; i++) {
@@ -87,12 +85,30 @@ $(document).ready(function () {
                         + "</div>"
                         + "</div>";
 
-                console.log(appending);
+//                console.log(appending);
                 $('#members_ph').append(appending);
             }
 
         }
     });
-
+    
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {
+            url: 'pkFillCompanyUsersSocialMediaNpk_infoUsersSocialmedia',
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $('#pk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            
+            console.log(data);
+            
+            
+        }
+    });
 
 });

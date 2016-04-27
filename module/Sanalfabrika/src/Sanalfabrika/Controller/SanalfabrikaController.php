@@ -221,7 +221,6 @@ class SanalfabrikaController extends AbstractActionController {
             'selectedCompanyNpk' => $selectedCompanyNpk,
             'publicKey' => $publicKey
         ));
-
         return $view;
     }
 
