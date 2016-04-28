@@ -198,7 +198,7 @@
                                 </div><!--/. button div-->
                             </div><!--/. panel 1 header div-->
                             <!--Panel 1 contents-->
-                            <div class="box-body">
+                            <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
                                 
                                 
                             <div class="alert alert-info alert-dismissable">
@@ -210,13 +210,13 @@
                                 
             <!-- Custom Tabs -->
               <div class="nav-tabs-custom" >
-                <ul class="nav nav-tabs">
-                  <li class="active" ><a href="#tab_1" data-toggle="tab">Makina Kategorisine göre makina özellikleri</a></li>
-                  <li><a href="#tab_2" data-toggle="tab" zeynel='testcccc'>Tab 2</a></li>
+                <ul id="mach_prop_tab_container" class="nav nav-tabs">
+                  <li class="active" ><a href="#tab_mach_prop" id="tab_mach_prop_clicker" name="tab_mach_prop_clicker" data-toggle="tab">Makina Kategorisine göre makina özellikleri</a></li>
+                  <li><a href="#tab_mach_prop_update" id="tab_mach_prop_update_clicker" name="tab_mach_prop_update_clicker" data-toggle="tab" >Makina Özelliği Güncelle</a></li>
                   <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                 </ul>
                 <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">  
+                  <div class="tab-pane active" id="tab_mach_prop">  
                     
                      <form id='unitForm' method="get" class="form-horizontal">     
                     
@@ -236,81 +236,53 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Kategori Özellikleri</label>  
+                        <div id="mach-prop-box" class="form-group box" style="border-top : 0px;">
+                            <label class="col-sm-2 control-label">Seçili Makina Kategorisi Özellikleri</label>
                             <div class="col-sm-10">
-                                <div class="input-group"> 
-                                  <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                  <div style="margin-bottom: -10px;" class="tag-container">
-                                      <ul class="tag-box"></ul>    
-                                  </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <div style="margin-bottom: -10px;" class="tag-container">
+                                        <ul class="tag-box"></ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Birimler</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 " >
                                 <div class="input-group">
                                     <div class="input-group-addon">
-                                        <i class="fa fa-hand-o-right"></i>
+                                        <i class="fa fa-code-fork"></i>
                                     </div>
-                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit" id="unit" disabled="true"/>
+                                    <div class="inner test-tree" style='overflow:auto;'>    
+                                        <div id="loading-image" class='scrollbar-inner'>
+                                        <ul id="tt_tree_menu" class="easyui-tree" ></ul> 
+                                        </div>
+                                    </div>                                                       
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">İngilizce Birimler</label>
+                            <label class="col-sm-2 control-label">Makina Kategori Özelliği</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-hand-o-right"></i>
                                     </div>
-                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit_eng" id="unit_eng" disabled="true" />
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="property_name" id="property_name" />
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Birim Kodu</label>
+                            <label class="col-sm-2 control-label">İngilizce Makina Kategori Özelliği</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-hand-o-right"></i>
                                     </div>
-                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode" id="unitcode" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">İngilizce Birim Kodu</label>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-hand-o-right"></i>
-                                    </div>
-                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unitcode_eng" id="unitcode_eng" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Birim Kısaltması</label>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-hand-o-right"></i>
-                                    </div>
-                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation" id="abbreviation" disabled="true" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">İngilizce Birim Kısaltması</label>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-hand-o-right"></i>
-                                    </div>
-                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng" id="abbreviation_eng" disabled="true" />
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="property_name_eng" id="property_name_eng"  />
                                 </div>
                             </div>
                         </div>
@@ -325,7 +297,7 @@
                 </form>  
     
                   </div><!-- /.tab-pane -->
-                  <div class="tab-pane" id="tab_2" >
+                  <div class="tab-pane box" id="tab_mach_prop_update" >
  
                    
                     The European languages are members of the same family. Their separate existence is a myth.

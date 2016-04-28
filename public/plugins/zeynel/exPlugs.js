@@ -99,6 +99,7 @@
              *  
              */
             var self = this;
+            //console.log(self.options.data);
             $(this.options.domObjectKey).each(function (key, value) {
                 if (typeof self.options.data[key] != 'undefined') {
                     var test = self.options.domObjectKeyDataLabel;
@@ -878,21 +879,21 @@
                 type: this.options.type,
                 dataType: this.options.dataType,
                 success: function (data, textStatus, jqXHR) {
+                    console.error(data);
                     if(data.length!==0) {
                         if(data.found) {
                             self._trigger('onSuccess', event, data);
-                            
                         }else {
                             if(data.errorInfo == 23505) {
-                                self._trigger('onError23505');
+                                self._trigger('onError23505', event, data); 
                             } else if(data.errorInfo == 23503) {
-                                self._trigger('onError23503');
+                                self._trigger('onError23503', event, data);
                             } else {
-                                self._trigger('onErrorMessage');
-                            }
+                                self._trigger('onErrorMessage', event, data);
+                            } 
                         }
                     } else {
-                        self._trigger('onErrorDataNull');
+                        self._trigger('onErrorDataNull');   
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -944,9 +945,25 @@
                 type: this.options.type,
                 dataType: this.options.dataType,
                 success: function (data, textStatus, jqXHR) {
-                    var data = data;
+                    //console.log(data);
+                    /*var arr = $.makeArray(data);
+                    console.log(arr);
+                    console.log(arr.length);
+                    console.log(arr[0]);*/
+                    var jsonString = JSON.stringify(data);
+                    //console.log(jsonString);
+
                     if(data.length!==0) {
-                        self._trigger('onSuccess', event,  data);
+                        if(data.found) {
+                            self._trigger('onSuccess', event, jsonString);
+                        } else if(data.errorInfo == 23505) {
+                            self._trigger('onError23505', event, jsonString);
+                        } else if(data.errorInfo == 23503) {
+                            self._trigger('onError23503', event, jsonString);
+                        } else {
+                            self._trigger('onSuccess', event,  jsonString);
+                        }
+                        
                     } else {
                         self._trigger('onErrorDataNull');
                     }

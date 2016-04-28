@@ -34,15 +34,133 @@ $(document).ready(function () {
      */
     var selectedNode;
     
-    /*
+     /*
+     * 
+     * @type @call;$@call;loadImager
+     * @Since 2016.01.16
+     * @Author Mustafa Zeynel Dagli
+     * @Purpose this variable is to create loader image for roles tree 
+     * this imager goes to #loading-image div in html.
+     * imager will be removed on roles tree onLoadSuccess method.
+     */
+    var loader = $("#loading-image").loadImager();
+
+    var sm  = $(window).successMessage();
+    var dm  = $(window).dangerMessage();
+    var wm  = $(window).warningMessage();
+    var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
+                                                actionButtonLabel : 'İşleme devam et'});
+    
+    
+    
+     /*
     * 
     * @type @call;$@call;tree
-    * machine Category tree
+    * Menu tree for units  
     * Mustafa Zeynel Dağlı
-    * 30/03/2016
+    * 25/04/2016
     */
 
-   $('#tt_tree_menu2').tree({
+   $('#tt_tree_menu').tree({
+       url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+       method: 'get',
+       animate: true,
+       checkbox: false,
+       cascadeCheck: false,
+       lines: true,
+       onSelect : function (node) {   
+            var self = $(this);
+            if(self.tree('isLeaf', node.target)) {
+                wm.warningMessage( {
+                    onShown : function (event ,data ) {
+                       self.tree('uncheck', node.target); 
+                    }
+                });
+                wm.warningMessage('show','Ana Birim Seçiniz',
+                                         'Lütfen ana birim kategorisi seçiniz, Birim altındaki tüm itemlar kaydedilmiş olacaktır...');
+                var parentNode = self.tree('getParent', node.target);
+                self.tree('select', parentNode.target);
+            }
+            
+       },
+       onDblClick: function (node) {
+       },
+       onAfterEdit: function (node) { 
+        },
+       onLoadSuccess: function (node, data) {
+            loader.loadImager('removeLoadImage');
+        },
+       onClick: function (node) {
+            selectedNode = node;
+            selectedRoot = $(this).tree('getRoot', node.target);
+            selectedItem = $(this).tree('getData', node.target);
+            //console.log(selectedItem);
+            $('#updateUnit').attr('disabled', false);
+            $('#insertUnit').attr('disabled', true);
+            if(selectedItem.attributes.notroot == true ) {
+                $('#unit').attr('disabled',false);
+                $('#unit_eng').attr('disabled',false);
+                $('#abbreviation').attr('disabled',false);
+                $('#abbreviation_eng').attr('disabled',false);
+
+                $('#unitcode').val(selectedItem.text);
+                $('#unitcode_eng').val(selectedItem.attributes.unitcode_eng);
+                $('#abbreviation').val(selectedItem.attributes.abbreviation);
+                $('#abbreviation_eng').val(selectedItem.attributes.abbreviation_eng);
+                $('#unit').val(selectedItem.attributes.unit);
+                $('#unit_eng').val(selectedItem.attributes.unit_eng);
+                /*$('#dropdownUnitSystems').ddslick('select', 
+                                            {index: selectedItem.attributes.system_id }
+                                                );*/
+                $('#dropdownUnitSystems').ddslick('selectByValue', 
+                                            {index: selectedItem.attributes.system_id,
+                                            text : selectedItem.text}
+                                                );
+                //console.warn($('#dropdownUnitSystems').data('ddslick'));
+                
+            } else {
+                $('#dropdownUnitSystems').ddslick('selectByValue', 
+                                            {index: 0,
+                                            text : selectedItem.text}
+                                                );
+                $('#unit').val('');
+                $('#unit_eng').val('');
+                $('#abbreviation').val('');
+                $('#abbreviation_eng').val('');
+                
+                $('#unitcode').val(selectedItem.text);
+                $('#unitcode_eng').val(selectedItem.attributes.unitcode_eng);
+                $('#unit').attr('disabled',true);
+                $('#unit_eng').attr('disabled',true);
+                $('#abbreviation').attr('disabled',true);
+                $('#abbreviation_eng').attr('disabled',true);
+                /*$('#dropdownUnitSystems').ddslick('select', 
+                                            {index: -1 }
+                                                );*/
+               //console.warn($('#dropdownUnitSystems').data('ddslick'));
+            }
+        },
+       onCheck: function (node) {
+
+        },
+       formatter: function (node) {
+           if(node.attributes.system != null) {
+               var s = node.text+' ('+node.attributes.system+')';
+           } else {
+               var s = node.text;
+           }
+           return s;
+        }
+    });
+    
+
+    /*
+    * 
+    * machine category tree
+    * Mustafa Zeynel Dağlı
+    * 25/04/2016
+    */
+   $('#tt_tree_menu2').tree({  
        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillJustMachineToolGroupsBootstrap_sysMachineToolGroups&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
        method: 'get',
        animate: true,
@@ -53,64 +171,134 @@ $(document).ready(function () {
        },
        onDblClick: function (node) {
        },
-       onAfterEdit: function (node) {
-
-           id = editNode.id;
-           root = $(this).tree('getRoot', node.target);
-           if (editNode.text === '') {
-
-               testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
-               testBlockuiRoleNameChangeNull.blockuiWrapper('show');
-
-               editNode.text = beforeEditTextValue;
-
-               $('#tt_tree_menu2').tree('update', {
-                   target: node.target,
-                   text: beforeEditTextValue
-               });
-
-           } else {
-
-               testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
-                   showOverlay: true
-               });
-               testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
-               active = editNode.attributes.active;
-           }
-           },
-        onLoadSuccess: function (node, data) {
-        loader.loadImager('removeLoadImage');
-        },
-        onClick: function (node) {
+       onLoadSuccess: function (node, data) {
+            loader.loadImager('removeLoadImage');
+       },
+       onClick: function (node) {
             selectedRoot = $(this).tree('getRoot', node.target);
             selectedItem = $(this).tree('getData', node.target);
-            //console.log(selectedItem);
             $('#group_name').val(selectedItem.text);
             $('#group_name_eng').val(selectedItem.attributes.group_name_eng);
-            //$('#url').val(selectedItem.attributes.url);
             $('#icon_class').val(selectedItem.attributes.icon_class);
             $('#updateMachineCategory').attr('disabled', false);
             $('#insertMachineCategory').attr('disabled', true);
 
         },
-        onCheck: function (node) {
+       onCheck: function (node, checked) {
+           /*console.log(checked);
+           console.log(node.state);*/
+           var self = $(this);
+           var tagBuilderPopup = $(window).tagCabin({
+                    tagCopy      : false,
+                    tagDeletable : true,  
+                    tagBox       : $('.tag-container').find('ul'),
+                    dataMapper   : {attributes : Array('machine_grup_id')}
 
+            });  
+            if(checked) {
+                if(!self.tree('isLeaf', node.target)) {
+                    wm.warningMessage( {
+                        onShown : function (event ,data ) {
+                           self.tree('uncheck', node.target); 
+                        }
+                    });
+                    wm.warningMessage('show','Alt Kategori Seçiniz',
+                                             'Lütfen alt kategori seçiniz...');
+
+                } else {
+                    $('#mach-prop-box').loadImager();
+                    $('#mach-prop-box').loadImager('appendImage');
+                    var nodeID = node.id;
+                    if(tagBuilderPopup.tagCabin('findSpecificTags', nodeID, 'data-machine_grup_id')) {
+                        var ajaxMacProp = $(window).ajaxCallWidget({
+                            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                                    data : {
+                                        url:'pkFillMachineGroupPropertyDefinitions_sysMachineToolPropertyDefinition' ,
+                                        language_code : $('#langCode').val(),
+                                        machine_grup_id : nodeID,
+                                        pk : $("#pk").val()
+                                    }
+                           })
+                            ajaxMacProp.ajaxCallWidget ({
+                                 onError : function (event, data) {
+                                     dm.dangerMessage({
+                                        onShown : function() {
+                                            $('#mach-prop-box').loadImager('removeLoadImage'); 
+                                            self.tree('uncheck', node.target);
+                                        }
+                                     });
+                                     dm.dangerMessage('show', 'Kategori Özelliği Yüklenememiştir...',
+                                                              'Kategori özellikleri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
+                                 },
+                                 onSuccess : function (event, data) {
+
+                                     tagBuilderPopup.tagCabin(
+                                        {tagsFound :function(event, item) { 
+                                         //console.log($(item).attr('data-attribute'));
+                                         //console.log($(item).attr('data-tree-item'));
+                                        }  
+                                     });
+                                     tagBuilderPopup.tagCabin(
+                                        {tagRemoved :function(event, element, id) {
+                                            //console.log(element);
+                                            var id = element.attr('data-attribute');
+                                            console.log(id);
+                                            var machine_group_id = element.attr('data-machine_grup_id');
+                                            console.log(machine_group_id);
+                                            return false;
+                                        }
+                                     });
+                                     //console.log(data);
+                                     tagBuilderPopup.tagCabin('addTags', data);
+                                     $('#mach-prop-box').loadImager('removeLoadImage');
+
+                                 },
+                                 onErrorDataNull : function (event, data) {
+                                     dm.dangerMessage({
+                                        onShown : function() {
+                                            $('#mach-prop-box').loadImager('removeLoadImage'); 
+                                            self.tree('uncheck', node.target);
+                                        }
+                                     });
+                                     dm.dangerMessage('show', 'Kategoride Özellik Bulunamamıştır...',
+                                                              'Seçtiğiniz makina kategorisine ait makina özellik kaydı bulunamamıştır...');
+
+                                 },
+                           }) 
+                           ajaxMacProp.ajaxCallWidget('call');
+                    } else {
+                        wm.warningMessage('resetOnShown');
+                        wm.warningMessage('show', 'Özellikler Seçilmiştir!!!'
+                                                , 'Seçili makina kategorisi özellikleri yüklenmiş durumdadır...');
+                        $('#mach-prop-box').loadImager('removeLoadImage');
+                    }
+                    
+                    
+                }
+            } else if(checked == false){
+               //console.log(node.id);
+                if(self.tree('isLeaf', node.target) && node.state=='open') {
+                    console.log(node.id);
+                    var nodeID = node.id;
+                    tagBuilderPopup.tagCabin('removeSpecificTags', nodeID, 'data-machine_grup_id');
+                    //removeSpecificTags
+                }
+            }
         },
-        formatter: function (node) {
+       formatter: function (node) {
             var s = node.text;
             var id = node.id;
             /*var childrenNodes = $(this).tree('getChildren', node.target);
             console.log(childrenNodes);*/
             
             var parent = $(this).tree('getParent', node.target);
-            console.warn(parent);
-            
-            console.log(node);
+            //console.warn(parent);
+            //console.log(node);
             
             if(node.state == 'open') {
                 s += '&nbsp;\n\
-                     <i class="fa fa-hand-o-left" title="Makina özellikleri getir" onclick="passiveMachineDialog('+id+');"></i>&nbsp;&nbsp;\n\
-                    <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMachPropDialog('+id+', \''+node.text+'\')"></i>';
+                    <i class="fa fa-hand-o-left" title="Makina özellikleri getir" onclick="passiveMachineDialog('+id+');"></i>&nbsp;&nbsp;\n\
+                    <i class="fa fa-level-down" title="Kategoriye makina özelliği ekle" onclick="insertMachPropDialog('+id+', \''+node.text+'\')"></i>';
                 return s;
             }
             return s;
@@ -127,22 +315,7 @@ $(document).ready(function () {
     //Validation forms binded...
     jQuery("#unitForm").validationEngine();
     
-    /*
-     * 
-     * @type @call;$@call;loadImager
-     * @Since 2016.01.16
-     * @Author Mustafa Zeynel Dagli
-     * @Purpose this variable is to create loader image for roles tree 
-     * this imager goes to #loading-image div in html.
-     * imager will be removed on roles tree onLoadSuccess method.
-     */
-    var loader = $("#loading-image").loadImager();
-
-    var sm  = $(window).successMessage();
-    var dm  = $(window).dangerMessage();
-    var wm  = $(window).warningMessage();
-    var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
-                                                actionButtonLabel : 'İşleme devam et'});
+   
                                             
     //$('#mach_prop_tab_container a[href="#tab_mach_prop_update"]').tab('show');
     
@@ -158,41 +331,14 @@ $(document).ready(function () {
                     $('#tab_mach_prop_update').loadImager();
                     $('#tab_mach_prop_update').loadImager('appendImage');
                     //$('#tab_image_loader').loadImager('removeLoadImage');  
-                    
                 }
             });
             wm.warningMessage('show', 'Metrik Sistem Seçiniz', 'Lütfen Metrik sistem Seçiniz!');
-            //$('#mach_prop_tab_container a:first').tab('show');
-              
-            
         }
-        
         e.preventDefault();
      })
     
-    /**
-     * tag builder tests
-     * @type @call;$@call;tagCabin
-     */
-    var tagBuilder = $(window).tagCabin({
-        tagDeletable : true,
-        
-        tagRemoved : function(event, data) {
-            console.log(data);
-            alert('tag removed-->'+ data);
-        },
-        tagCopied : function(event, data) {
-            console.log(data);
-            alert('tag copied-->'+ data);
-        }
-    });
-    
-    var data = '[{"id":"2","name":"\u0130malat","state":"closed","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-barcode","group_name_eng":"Manufacturing","machine":1}},{"id":"52","name":"Test Cihazlar\u0131","state":"open","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-flask","group_name_eng":"Test Devices","machine":0}},{"id":"50","name":"test1","state":"open","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-circle-o","group_name_eng":"test1 eng","machine":0}},{"id":"51","name":"test2","state":"closed","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-circle-o","group_name_eng":"test2 eng","machine":0}}]';
-    tagBuilder.tagCabin('addTags', data);  
-    
 
-   
-    
    /**
     * wrapper class for pop up and active menu item
     * @param {integer} nodeID
@@ -524,6 +670,8 @@ $(document).ready(function () {
        $('#unit_eng').attr('disabled',true);
        $('#abbreviation').attr('disabled',true);
        $('#abbreviation_eng').attr('disabled',true);
+       
+       $('#unitForm').validationEngine('hide');
    }
    
    /**
@@ -665,27 +813,46 @@ $(document).ready(function () {
                 },
         type: BootstrapDialog.TYPE_PRIMARY,
         onshown : function () {
+            console.warn(nodeID);
             $("#machPropFormInsert").validationEngine();
             
-            var tagBuilderPopup = $(window).tagCabin({
-                tagCopy      : false,
-                tagDeletable : true,
-                tagBox       : $('.tag-container-popup').find('ul'),
-                tagRemoved : function(event, data) {
-                    console.log(data);
-                    alert('tag removed-->'+ data);  
-                }
-            });
-            tagBuilderPopup.tagCabin('addTag', 2, 'test test  test  test  test ');
-            tagBuilderPopup.tagCabin('addTag', 3, 'test test  test  test  test ');
-            tagBuilderPopup.tagCabin('addTag', 4, 'test test  test  test  test ');
-            tagBuilderPopup.tagCabin('addTag', 5, 'test test  test  test  test ');
-            tagBuilderPopup.tagCabin('addTag', 6, 'test test  test  test  test ');
-            tagBuilderPopup.tagCabin('addTag', 7, 'test test  test  test  test ');
-            tagBuilderPopup.tagCabin('addTag', 8, 'test test  test  test  test ');
-            tagBuilderPopup.tagCabin('addTag', 9, 'test');
-            tagBuilderPopup.tagCabin('addTag', 10, 'test'); 
-            
+            var aj = $(window).ajaxCall({
+                            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                            data : {
+                                url:'pkFillMachineGroupPropertyDefinitions_sysMachineToolPropertyDefinition' ,
+                                language_code : $('#langCode').val(),
+                                machine_grup_id : nodeID,
+                                pk : $("#pk").val()
+                            }
+           })
+           aj.ajaxCall ({
+                 onError : function (event, data) {
+                     alert('on error');
+                 },
+                 onSuccess : function (event, data) {
+                     alert('on success');
+                    
+                 },
+                 onErrorDataNull : function (event, data) {
+                     alert('on error data null');
+                     var tagBuilderPopup = $(window).tagCabin({
+                        tagCopy      : false,
+                        tagDeletable : true,
+                        tagBox       : $('.tag-container-popup').find('ul'),
+                        /*tagRemoved : function(event, data) {
+                            //console.log(data);
+                            alert('tag removed-->'+ data);  
+                        }*/
+                    });
+                    var data = '[{"id":"101","text":"test1","state":"closed","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-barcode","group_name_eng":"Manufacturing","machine":1}},\n\
+                                 {"id":"102","text":"test2","state":"open","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-flask","group_name_eng":"Test Devices","machine":0}},\n\
+                                 {"id":"103","text":"test3","state":"open","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-circle-o","group_name_eng":"test1 eng","machine":0}},\n\
+                                 {"id":"104","text":"test4","state":"closed","checked":false,"attributes":{"notroot":true,"active":0,"icon_class":"fa-circle-o","group_name_eng":"test2 eng","machine":0}}]';
+                    tagBuilder.tagCabin('addTags', data);  
+                 },
+           }) 
+           aj.ajaxCall('call');
+
             $('#tt_tree_menu').tree({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
                 method: 'get',
