@@ -162,7 +162,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Öznitelik Silme İşlemi Başarısız...', 
                                          'Makina öznitelik silme işlemini gerçekleştiremediniz,sistem yöneticisi ile temasa geçiniz... ');
@@ -246,7 +246,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Öznitelik Pasifleştirme İşlemi Başarısız...', 
                                          'Makina öznitelik pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
@@ -364,7 +364,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                  dm.dangerMessage('resetOnShown');
                  dm.dangerMessage('show', 'Makina Öznitelik Aktifleştirme İşlemi Başarısız...', 
                                          'Makina öznitelik aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
@@ -501,7 +501,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Öznitelik Kayıt İşlemi Başarısız...', 
                                          'Makina öznitelik kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
@@ -613,7 +613,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Öznitelik Güncelleme İşlemi Başarısız...', 
                                          'Makina öznitelik güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');

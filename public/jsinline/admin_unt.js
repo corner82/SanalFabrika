@@ -238,7 +238,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Silme İşlemi Başarısız...', 
                                          'Birim Silme işlemini gerçekleştiremediniz,Sistem Yöneticisi ile temasa geçiniz... ');
@@ -321,7 +321,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Pasifleştirme İşlemi Başarısız...', 
                                      'Birim pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
@@ -441,7 +441,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                  dm.dangerMessage('resetOnShown');
                  dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
                                          'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
@@ -713,7 +713,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCallWidget ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                  console.error('"pkGetUnitSystems_sysUnitSystems" servis hatası->'+textStatus);
              },
              onSuccess : function (event, data) {
@@ -794,7 +794,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                  dm.dangerMessage('resetOnShown');
                  dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
                                           'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
@@ -915,7 +915,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
                                          'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
@@ -1055,7 +1055,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Birim Güncelleme İşlemi Başarısız...', 
                                               'Birim güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');

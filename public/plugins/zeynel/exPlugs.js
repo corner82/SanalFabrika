@@ -879,7 +879,6 @@
                 type: this.options.type,
                 dataType: this.options.dataType,
                 success: function (data, textStatus, jqXHR) {
-                    console.error(data);
                     if(data.length!==0) {
                         if(data.found) {
                             self._trigger('onSuccess', event, data);
@@ -897,7 +896,7 @@
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    self._trigger('onError');  
+                    self._trigger('onError', event, textStatus, errorThrown);  
                 }
             });
         },
@@ -969,7 +968,7 @@
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    self._trigger('onError');  
+                    self._trigger('onError', event, textStatus, errorThrown);  
                 }
             });
         },

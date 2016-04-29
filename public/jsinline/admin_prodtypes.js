@@ -161,7 +161,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Üretim Tipi Silme Silme İşlemi Başarısız...', 
                                          'Üretim tipi silme işlemini gerçekleştiremediniz,sistem yöneticisi ile temasa geçiniz... ');
@@ -240,7 +240,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Üretim Tipi Pasifleştirme İşlemi Başarısız...', 
                                      'Üretim Tipi pasifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz...' );
@@ -351,7 +351,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                  dm.dangerMessage('resetOnShown');
                  dm.dangerMessage('show', 'Üretim Tipi Aktifleştirme İşlemi Başarısız...', 
                                          'Üretim tipi aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
@@ -470,7 +470,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Üretim Tipi Kayıt İşlemi Başarısız...', 
                                          'Üretim tipi kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
@@ -570,7 +570,7 @@ $(document).ready(function () {
                         }
        })
        aj.ajaxCall ({
-             onError : function (event, data) {
+             onError : function (event, textStatus, errorThrown) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Üretim Tipi Güncelleme İşlemi Başarısız...', 
                                          'Üretim tipi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
