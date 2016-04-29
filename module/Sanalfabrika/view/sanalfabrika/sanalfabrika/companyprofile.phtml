@@ -3,6 +3,7 @@
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
 <input id="selectedCompanyNpk" type="hidden"  value="<?php echo $this->selectedCompanyNpk; ?>"></input>
+<input id="selectedCompanyShN" type="hidden"  value="<?php echo $this->selectedCompanyShN; ?>"></input>
 
 
 <!--=== Style Switcher ===-->    
@@ -384,18 +385,18 @@
                     </div>
                 </div>
             </div><!--/end row-->
-            <!--End Service Block v3-->                    
-
-                
+            <!--End Service Block v3-->
+            
             <!-- about company block -->
             <div class='row'>
                 <div class="parallax-bg parallaxBg1">            
                     <div class=" content parallax-about">
                         <div class="title-box-v2">
-                            <h2><span class="color-green"><?php echo $this->translate('EMGE Elektro Mekanik Gereçler Endüstrisi')?></span></h2>
-                            <p>
-                                <?php echo $this->translate('1975 yılında 90 metrekarelik bir alanda kurulmuş olan firmamız 1981 yılında EMGE KOLLEKTİF ŞİRKETİ Elektro Mekanik Gereçler Endüstrisi ünvanını almış, bugün ise 6000 metrekarelik kendi binasında faaliyetlerine devam etmektedir. Ürün yelpazesini her geçen gün biraz daha genişleten firmamız, kalite ve müşteri memnuniyetini her zaman ön planda tutmuş ve çalışmalarını bu doğrultuda sürdürmüştür. 40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.')?>
-                            </p>
+                            <h2><span id="firm_name_ph" class="color-green">
+                                
+                                </span></h2>
+                            <p id="about_firm_ph">
+                                </p>
                         </div>
 
                         <div class="row">
@@ -403,27 +404,27 @@
                                 <div class="banner-info dark margin-bottom-10">
                                     <i class="rounded-x icon-bell"></i>
                                     <div class="overflow-h">
-                                        <h3><?php echo $this->translate('Our Profession...')?></h3>  
-                                        <p>
-                                            <?php echo $this->translate('40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.')?>
+                                        <h3 id="title_1_ph"></h3>  
+                                        <p id="verbal_1_ph">
+                                            
                                         </p>
                                     </div>
                                 </div>
                                 <div class="banner-info dark margin-bottom-10">
                                     <i class="rounded-x fa fa-magic"></i>
                                     <div class="overflow-h">
-                                        <h3><?php echo $this->translate('Our Vision...')?></h3>
-                                        <p>
-                                            <?php echo $this->translate('Floresan lambaların tehlikeli atık sınıfına gireceği gündeme geldiği yıllarda kendi binamızı henüz yeni bir kavram olan LED Aydınlatmaya çevirmeye karar verdik ve AR-GE ekibimiz bu konuda çalışmaya başladı. Bu çalışmalara başladığımızda amacımız birçok firma gibi hazır sürücülerle veya malzemeler ile bir ürün ortaya koymak değil, kendi sürücümüz ile kendimize özgü bir ürün ortaya koymaktı. Yapılan çalışmalar sonucunda 85-265VAC aralığında çalışan bir sürücü tasarlayıp üreterek ilk prototip ürünlerimiz ortaya çıktı. Ortaya çıkan ürünümüzde ısınma söz konusu olmadığından armatürümüzü de o zamanlar bir ilk olarak komple plastik olarak imal ettik. İlk üretimlerimizi kendi fabrikamıza uygulayarak uzun bir test sürecinden geçirdik. Yaklaşık 2 yıllık bir test sürecinden sonra ortaya kaliteli bir ürün ortaya çıktığına karar verdik. Bununla birlikte yılların verdiği deneyimlerimizi bu sektöre de aktararak LED Aydınlatma ürünlerimizi ve çeşitlerimizi geliştirmeye karar verdik. Bugün LED Aydınlatma ürün gamımızda LED Tüp, LED Panel, LED Sokak Lambası, LED Projektör, LED Downlight, LED Line, LED Wallwasher ve müşteri odaklı özel üretimler yer almaktadır.')?>
+                                        <h3 id="title_2_ph"></h3>
+                                        <p id="verbal_2_ph">
+                                            
                                         </p>
                                     </div>
                                 </div>
                                 <div class="banner-info dark margin-bottom-10">
                                     <i class="rounded-x fa fa-thumbs-o-up"></i>
                                     <div class="overflow-h">
-                                        <h3><?php echo $this->translate('We are competitive at ...')?></h3>
-                                        <p>
-                                            <?php echo $this->translate('LED iç aydınlatma ürünlerinden sürücülerin tasarım ve üretimleri de dahil olmak üzere, LED PCB kartların tasarımı, bu kartların üretimleri, smd komponent dizgileri ve montajları da dahil olmak üzere firmamız çatısı altında yapılmaktadır. Her zaman ürettiği ürünlerin arkasında duran firmamız LED Aydınlatma ürünlerine 3 yıl değişim garantisi vermektedir.')?>
+                                        <h3 id="title_3_ph"></h3>
+                                        <p id="verbal_3_ph">
+                                            
                                         </p>
                                     </div>
                                 </div>

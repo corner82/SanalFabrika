@@ -31,14 +31,16 @@ $(document).ready(function () {
             }
             for (i = 0; i < window.companyperpage; i++) {
                 $('#selectedCompanyNpk').val(data.rows[i].pk);
-                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyNpk').val());
-
+                var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ","-");
+                $('#selectedCompanyShN').val(rep_firm_short_name);
+                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
+                
                 var appending_html =
                         "<!-- Clients Block-->"
 //                                    + "<a href='#'>"
                         + "<div class='row clients-page'>"
                         + "<div class = 'col-md-2'>"
-                        + "<img src='/onyuz/standard/assets/img/sfClients/logos/"
+                        + "<img src='/onyuz/standard/assets/img/sfClients/"
                         + data.rows[i].logo
                         + "' "
                         + "class = 'img-responsive hover-effect' alt = '' / >"

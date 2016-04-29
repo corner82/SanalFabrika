@@ -169,9 +169,9 @@
             <ul class="pull-right breadcrumb">                        
                 <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'index')); ?>">
-                        <?php echo $this->translate('Home') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                ?>">
+                           <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
                 <li class="active"><?php echo $this->translate('User Profile') ?></li>
@@ -188,28 +188,28 @@
             <div class="col-md-3 md-margin-bottom-40">
                 <img class="img-responsive profile-img margin-bottom-20" src="<?php echo $this->basePath('onyuz/assets/img/team/img32-md.jpg') ?>" alt="">
 
-               <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
                     <li class="list-group-item active">
-                        <a href="userprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Overall')?></a>
+                        <a href="userprofile"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Overall') ?></a>
                     </li>
                     <li class="list-group-item">
-                        <a href="userprofilepersonal"><i class="fa fa-user"></i> <?php echo $this->translate('Profile')?></a>
+                        <a href="userprofilepersonal"><i class="fa fa-user"></i> <?php echo $this->translate('Profile') ?></a>
                     </li>
                     <li class="list-group-item">
-                        <a href="userprofileusers"><i class="fa fa-group"></i> <?php echo $this->translate('Users')?></a>
+                        <a href="userprofileusers"><i class="fa fa-group"></i> <?php echo $this->translate('Users') ?></a>
                     </li>                                        
                     <li class="list-group-item">
-                        <a href="userprofileprojects"><i class="fa fa-cubes"></i> <?php echo $this->translate('My Projects')?></a>
+                        <a href="userprofileprojects"><i class="fa fa-cubes"></i> <?php echo $this->translate('My Projects') ?></a>
                     </li>
                     <li class="list-group-item">
-                        <a href="userprofilecomments"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments')?></a>
+                        <a href="userprofilecomments"><i class="fa fa-comments"></i> <?php echo $this->translate('Comments') ?></a>
                     </li>                                        
                     <li class="list-group-item">
-                        <a href="userprofilehistory"><i class="fa fa-history"></i> <?php echo $this->translate('History')?></a>
+                        <a href="userprofilehistory"><i class="fa fa-history"></i> <?php echo $this->translate('History') ?></a>
                     </li>                                       
-<!--                    <li class="list-group-item">
-                        <a href="userprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings')?></a>
-                    </li> -->
+                    <!--                    <li class="list-group-item">
+                                            <a href="userprofilesettings"><i class="fa fa-cog"></i> <?php echo $this->translate('Settings') ?></a>
+                                        </li> -->
                 </ul>     
 
                 <div class="panel-heading-v2 overflow-h">
@@ -236,7 +236,7 @@
 
                 <!--Notification-->
                 <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notification')?></h2>
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notification') ?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
                 <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
@@ -292,63 +292,63 @@
                 <!--<div class="parallax-counter-v4 parallaxBg">-->
                 <!--Service Block v3-->
                 <div class="row margin-bottom-10">
-                    
-                    
+
+
                     <div class="col-sm-6 sm-margin-bottom-20">
                         <div class="service-block-v3 service-block-aviation">
                             <i class="icon-plane"></i>
-                            <span class="service-heading"><?php echo $this->translate('Submitted Aviation Projects')?></span>
+                            <span class="service-heading"><?php echo $this->translate('Submitted Aviation Projects') ?></span>
                             <span class="counter">358</span>
 
                             <div class="clearfix margin-bottom-10"></div>
 
                             <div class="row margin-bottom-20">
                                 <div class="col-xs-6 service-in">
-                                    <small><?php echo $this->translate('Last Week')?></small>
+                                    <small><?php echo $this->translate('Last Week') ?></small>
                                     <h4 class="counter">25</h4>
                                 </div>
                                 <div class="col-xs-6 text-right service-in">
-                                    <small><?php echo $this->translate('Last Month')?></small>
+                                    <small><?php echo $this->translate('Last Month') ?></small>
                                     <h4 class="counter">114</h4>
                                 </div>
                             </div>
                             <div class="statistics">
-                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar')?><span class="pull-right">67%</span></h3>
+                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar') ?><span class="pull-right">67%</span></h3>
                                 <div class="progress progress-u progress-xxs">
                                     <div style="width: 67%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="67" role="progressbar" class="progress-bar progress-bar-light">
                                     </div>
                                 </div>
-                                <small>11% less <strong><?php echo $this->translate('than last month')?></strong></small>
+                                <small>11% less <strong><?php echo $this->translate('than last month') ?></strong></small>
                             </div>            
                         </div>
                     </div>
-                                       
+
 
                     <div class="col-sm-6">
                         <div class="service-block-v3 service-block-renewable">
                             <i class="icon-energy"></i>
-                            <span class="service-heading"><?php echo $this->translate('Submitted Renewable Energy Projects')?></span>
+                            <span class="service-heading"><?php echo $this->translate('Submitted Renewable Energy Projects') ?></span>
                             <span class="counter">324,056</span>
 
                             <div class="clearfix margin-bottom-10"></div>
 
                             <div class="row margin-bottom-20">
                                 <div class="col-xs-6 service-in">
-                                    <small><?php echo $this->translate('Last Week')?></small>
+                                    <small><?php echo $this->translate('Last Week') ?></small>
                                     <h4 class="counter">26,904</h4>
                                 </div>
                                 <div class="col-xs-6 text-right service-in">
-                                    <small><?php echo $this->translate('Last Month')?></small>
+                                    <small><?php echo $this->translate('Last Month') ?></small>
                                     <h4 class="counter">124,766</h4>
                                 </div>
                             </div>
                             <div class="statistics">
-                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar')?><span class="pull-right">89%</span></h3>
+                                <h3 class="heading-xs"><?php echo $this->translate('Statistics in Progress Bar') ?><span class="pull-right">89%</span></h3>
                                 <div class="progress progress-u progress-xxs">
                                     <div style="width: 89%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="89" role="progressbar" class="progress-bar progress-bar-light">
                                     </div>
                                 </div>
-                                <small>15% <?php echo $this->translate('higher')?> <strong><?php echo $this->translate('than last month')?></strong></small>
+                                <small>15% <?php echo $this->translate('higher') ?> <strong><?php echo $this->translate('than last month') ?></strong></small>
                             </div>            
                         </div>
                     </div>
@@ -356,723 +356,720 @@
                 <!--End Service Block v3-->                    
                 <!--</div>-->
             </div>
-
             <!-- Counter header ends -->
 
             <!-- Profile Content -->            
             <div class="col-md-9">
-                <div class="profile-body">
-                    <!--Service Block v3-->
-                    <div class="row margin-bottom-10">
-                        <h2 class="panel-title heading-sm pull-left">
-                            <i class="fa fa-history"></i>
-                            <span class="counter">53</span><?php echo $this->translate(' people visited your profile page in the last 7 days') ?>                            
-                        </h2>
-                    </div><!--/end row-->
-                    <!--End Service Block v3-->
+                <!--Service Block v3-->
+                <div class="row margin-bottom-10">
+                    <h2 class="panel-title heading-sm pull-left">
+                        <i class="fa fa-history"></i>
+                        <span class="counter">53</span><?php echo $this->translate(' people visited your profile page in the last 7 days') ?>                            
+                    </h2>
+                </div><!--/end row-->
+                <!--End Service Block v3-->
 
-                    <hr>
+                <hr>
 
-                    <div class="row margin-bottom-20">
-                        <!--Profile Post-->
-                        <div class="col-sm-6">
-                            <div class="panel panel-profile no-bg">
-                                <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left">
-                                        <i class="fa fa-pencil"></i>
-                                        <?php echo $this->translate('News from Virtual Enterprise') ?>
-                                    </h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                                </div>
-                                <div id="scrollbar" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
-                                    <div class="profile-post color-VE"  style="background-color: #72c02c">
-                                        <span class="profile-post-numb-bahram">VE News</span>
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#">
-                                                    <?php echo $this->translate('OSTIM Virtual Enterprise') ?></a></h3>
-                                            <p style="color:#ddd"><?php echo $this->translate('News')?></p>
-                                        </div>
-                                    </div>                                    
-                                    <div class="profile-post color-VE">
-                                        <span class="profile-post-numb-bahram-VE">01</span> 
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New updates uploaded ') ?></a></h3>
-                                            <p><?php echo $this->translate('New version of e-negotiation system added') ?></p>
-                                        </div>
-                                    </div> 
-                                    <div class="profile-post color-defense"  style="background-color: #9b6bcc">
-                                        <span class="profile-post-numb-bahram">Defense</span>
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#">
-                                                    <?php echo $this->translate('Defense & Aviation') ?></a></h3>
-                                            <p style="color:#ddd"><?php echo $this->translate('News')?></p>
-                                        </div>
-                                    </div>                                    
-                                    <div class="profile-post color-defense">
-                                        <span class="profile-post-numb-bahram-defense">01</span> 
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>TAI</u></a></h3>
-                                            <p><?php echo $this->translate('Atak Engine parts manufacturing issue') ?></p>
-                                        </div>
-                                    </div>                                    
-                                    <div class="profile-post color-defense">
-                                        <span class="profile-post-numb-bahram-defense">02</span> 
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Otokar</u></a></h3>
-                                            <p><?php echo $this->translate('Altay pallets manufacturing issue') ?></p>
-                                        </div>
-                                    </div>
-
-                                    <div class="profile-post color-medical"  style="background-color: #3498db">
-                                        <span class="profile-post-numb-bahram">Medical</span>
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#">
-                                                    <?php echo $this->translate('Medical & Health') ?></a></h3>
-                                            <p style="color:#ddd"><?php echo $this->translate('News')?></p>
-                                        </div>
-                                    </div>
-                                    <div class="profile-post color-medical">
-                                        <span class="profile-post-numb-bahram-medical">01</span> 
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Novartis</u></a></h3>
-                                            <p><?php echo $this->translate('Special Package Machine Call') ?></p>
-                                        </div>
-                                    </div>                                    
-                                    <div class="profile-post color-medical">
-                                        <span class="profile-post-numb-bahram-medical">02</span> 
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Abdi Ibrahim</u></a></h3>
-                                            <p><?php echo $this->translate('Special chemical mixer machine') ?></p>
-                                        </div>
-                                    </div>
-
-                                    <div class="profile-post color-transportation"  style="background-color: #e74c3c">
-                                        <span class="profile-post-numb-bahram">Transportation</span>
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#">
-                                                    <?php echo $this->translate('Transportaion') ?></a></h3>
-                                            <p style="color:#ddd"><?php echo $this->translate('News')?></p>
-                                        </div>
-                                    </div>
-                                    <div class="profile-post color-transportation">
-                                        <span class="profile-post-numb-bahram-transportation">01</span> 
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Bombardier</u></a></h3>
-                                            <p><?php echo $this->translate('Boggy Parts Manufacturing Issue') ?></p>
-                                        </div>
-                                    </div>                                    
-                                    <div class="profile-post color-transportation">
-                                        <span class="profile-post-numb-bahram-transportation">02</span> 
-                                        <div class="profile-post-in">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Siemens</u></a></h3>
-                                            <p><?php echo $this->translate('Electrical Engine Design Issue') ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>        
-                        </div>
-                        <!--End Profile Post-->
-
-                        <!--Profile Event-->
-                        <div class="col-sm-6 md-margin-bottom-20">
-                            <div class="panel panel-profile no-bg">
-                                <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i>
-                                        <?php echo $this->translate('Upcoming Events') ?>
-                                    </h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                                </div>
-                                <div id="scrollbar2" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
-                                    <div class="profile-event">
-                                        <div class="date-formats-defense">
-                                            <span>25</span>
-                                            <small>03, 2016</small>
-                                        </div>
-                                        <div class="overflow-h">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Project Report Submission') ?> </a></h3>
-                                            <p><u>TAI</u>'s <?php echo $this->translate(' project title') ?> </p>
-                                        </div>    
-                                    </div>
-                                    <div class="profile-event">
-                                        <div class="date-formats-defense">
-                                            <span>15</span>
-                                            <small>04, 2016</small>
-                                        </div>
-                                        <div class="overflow-h">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Project Meeting') ?> </a></h3>
-                                            <p><u>FNSS</u>'s <?php echo $this->translate(' project title') ?> </p>
-                                        </div>    
-                                    </div>                                    
-                                    <div class="profile-event">
-                                        <div class="date-formats-VE">
-                                            <span>30</span>
-                                            <small>04, 2016</small>
-                                        </div>
-                                        <div class="overflow-h">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('VE Meeting') ?> </a></h3>
-                                            <p><u>OSTIM</u>'s <?php echo $this->translate(' project title') ?> </p>
-                                        </div>    
-                                    </div>                                   
-                                    <div class="profile-event">
-                                        <div class="date-formats-defense">
-                                            <span>10</span>
-                                            <small>05, 2016</small>
-                                        </div>
-                                        <div class="overflow-h">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Defense Cluster Meeting') ?> </a></h3>
-                                            <p><u>OSTIM</u>'s <?php echo $this->translate(' project title') ?> </p>
-                                        </div>    
-                                    </div>                                  
-                                    <div class="profile-event">
-                                        <div class="date-formats-medical">
-                                            <span>20</span>
-                                            <small>05, 2016</small>
-                                        </div>
-                                        <div class="overflow-h">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Medical Cluster Meeting') ?> </a></h3>
-                                            <p><u>OSTIM</u>'s <?php echo $this->translate(' project title') ?> </p>
-                                        </div>    
-                                    </div>
-                                 
-                                    <div class="profile-event">
-                                        <div class="date-formats-transportation">
-                                            <span>20</span>
-                                            <small>05, 2016</small>
-                                        </div>
-                                        <div class="overflow-h">
-                                            <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Official Meeting') ?> </a></h3>
-                                            <p><u>Transportation</u>'s <?php echo $this->translate(' Foreign Investment') ?> </p>
-                                        </div>    
-                                    </div>
-                                </div>    
+                <div class="row margin-bottom-20">
+                    <!--Profile Post-->
+                    <div class="col-sm-6">
+                        <div class="panel panel-profile no-bg">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left">
+                                    <i class="fa fa-pencil"></i>
+                                    <?php echo $this->translate('News from Virtual Enterprise') ?>
+                                </h2>
+                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
                             </div>
-                        </div>
-                        <!--End Profile Event-->
-                    </div><!--/end row-->
-
-                    <hr>
-
-                    <!--Profile Blog-->
-                    <div class="panel panel-profile">
-                        <div class="panel-heading overflow-h">
-                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i><?php echo $this->translate('Connected People')?></h2>
-                            <a href="page_profile_users.html" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-xs pull-right"><?php echo $this->translate('View All')?></a>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="profile-blog blog-border">
-                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
-                                        <div class="name-location">
-                                            <strong>Mikel Andrews</strong>
-                                            <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
-                                        </div>
-                                        <div class="clearfix margin-bottom-20"></div>    
-                                        <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                        <hr>
-                                        <ul class="list-inline share-list">
-                                            <li><i class="fa fa-bell"></i><a href="#">12 Notifications</a></li>
-                                            <li><i class="fa fa-group"></i><a href="#">54 Followers</a></li>
-                                            <li><i class="fa fa-twitter"></i><a href="#">Retweet</a></li>
-                                        </ul>
+                            <div id="scrollbar" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                                <div class="profile-post color-VE"  style="background-color: #72c02c">
+                                    <span class="profile-post-numb-bahram">VE News</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">
+                                                <?php echo $this->translate('OSTIM Virtual Enterprise') ?></a></h3>
+                                        <p style="color:#ddd"><?php echo $this->translate('News') ?></p>
                                     </div>
-                                </div>        
+                                </div>                                    
+                                <div class="profile-post color-VE">
+                                    <span class="profile-post-numb-bahram-VE">01</span> 
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New updates uploaded ') ?></a></h3>
+                                        <p><?php echo $this->translate('New version of e-negotiation system added') ?></p>
+                                    </div>
+                                </div> 
+                                <div class="profile-post color-defense"  style="background-color: #9b6bcc">
+                                    <span class="profile-post-numb-bahram">Defense</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">
+                                                <?php echo $this->translate('Defense & Aviation') ?></a></h3>
+                                        <p style="color:#ddd"><?php echo $this->translate('News') ?></p>
+                                    </div>
+                                </div>                                    
+                                <div class="profile-post color-defense">
+                                    <span class="profile-post-numb-bahram-defense">01</span> 
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>TAI</u></a></h3>
+                                        <p><?php echo $this->translate('Atak Engine parts manufacturing issue') ?></p>
+                                    </div>
+                                </div>                                    
+                                <div class="profile-post color-defense">
+                                    <span class="profile-post-numb-bahram-defense">02</span> 
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Otokar</u></a></h3>
+                                        <p><?php echo $this->translate('Altay pallets manufacturing issue') ?></p>
+                                    </div>
+                                </div>
 
-                                <div class="col-sm-6">
-                                    <div class="profile-blog blog-border">
-                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img4.jpg') ?>" alt="">
-                                        <div class="name-location">
-                                            <strong>Natasha Kolnikova</strong>
-                                            <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
-                                        </div>
-                                        <div class="clearfix margin-bottom-20"></div>    
-                                        <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
-                                        <hr>
-                                        <ul class="list-inline share-list">
-                                            <li><i class="fa fa-bell"></i><a href="#">37 Notifications</a></li>
-                                            <li><i class="fa fa-group"></i><a href="#">46 Followers</a></li>
-                                            <li><i class="fa fa-twitter"></i><a href="#">Retweet</a></li>
-                                        </ul>
-                                    </div> 
-                                </div>    
+                                <div class="profile-post color-medical"  style="background-color: #3498db">
+                                    <span class="profile-post-numb-bahram">Medical</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">
+                                                <?php echo $this->translate('Medical & Health') ?></a></h3>
+                                        <p style="color:#ddd"><?php echo $this->translate('News') ?></p>
+                                    </div>
+                                </div>
+                                <div class="profile-post color-medical">
+                                    <span class="profile-post-numb-bahram-medical">01</span> 
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Novartis</u></a></h3>
+                                        <p><?php echo $this->translate('Special Package Machine Call') ?></p>
+                                    </div>
+                                </div>                                    
+                                <div class="profile-post color-medical">
+                                    <span class="profile-post-numb-bahram-medical">02</span> 
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Abdi Ibrahim</u></a></h3>
+                                        <p><?php echo $this->translate('Special chemical mixer machine') ?></p>
+                                    </div>
+                                </div>
+
+                                <div class="profile-post color-transportation"  style="background-color: #e74c3c">
+                                    <span class="profile-post-numb-bahram">Transportation</span>
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#">
+                                                <?php echo $this->translate('Transportaion') ?></a></h3>
+                                        <p style="color:#ddd"><?php echo $this->translate('News') ?></p>
+                                    </div>
+                                </div>
+                                <div class="profile-post color-transportation">
+                                    <span class="profile-post-numb-bahram-transportation">01</span> 
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Bombardier</u></a></h3>
+                                        <p><?php echo $this->translate('Boggy Parts Manufacturing Issue') ?></p>
+                                    </div>
+                                </div>                                    
+                                <div class="profile-post color-transportation">
+                                    <span class="profile-post-numb-bahram-transportation">02</span> 
+                                    <div class="profile-post-in">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('New Project Call from ') ?><u>Siemens</u></a></h3>
+                                        <p><?php echo $this->translate('Electrical Engine Design Issue') ?></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>        
                     </div>
-                    <!--End Profile Blog-->
+                    <!--End Profile Post-->
 
-                    <hr>
-
-                    <div class="row">
-                        <!--Alert-->
-                        <div class="col-sm-7 sm-margin-bottom-30">
-                            <div class="panel panel-profile">
-                                <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-send"></i> <?php echo $this->translate('Alarm Notification')?></h2>
-                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                                </div>
-                                <div id="scrollbar3" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
-                                    <div class="alert-blocks alert-blocks-pending alert-dismissable">
-                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img3.jpg') ?>" alt="">
-                                        <div class="overflow-h">
-                                            <strong class="color-yellow">Pending... <small class="pull-right"><em>Just now</em></small></strong> 
-                                            <p>Your friend request has been sent.</p>
-                                        </div>    
-                                    </div>
-                                    <div class="alert-blocks alert-blocks-success alert-dismissable">
-                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img2.jpg') ?>" alt="">
-                                        <div class="overflow-h">
-                                            <strong class="color-green">Accepted. <small class="pull-right"><em>7 hours ago</em></small></strong> 
-                                            <p>Your friend request has been accepted.</p>
-                                        </div>    
-                                    </div>
-                                    <div class="alert-blocks alert-blocks-info alert-dismissable">
-                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                        <i class="icon-custom rounded-x icon-bg-blue fa fa-bolt"></i>
-                                        <div class="overflow-h">
-                                            <strong class="color-blue">Info <small class="pull-right"><em>2 days ago</em></small></strong> 
-                                            <p>Your friend request has been denied :)</p>
-                                        </div>    
-                                    </div>
-                                    <div class="alert-blocks alert-blocks-error alert-dismissable">
-                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                                        <div class="overflow-h">
-                                            <strong class="color-red">Denied! <small class="pull-right"><em>2 days ago</em></small></strong> 
-                                            <p>Your friend request has been denied.</p>
-                                        </div>    
-                                    </div>
-                                    <div class="alert-blocks alert-dismissable">
-                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                        <i class="icon-custom rounded-x icon-bg-dark fa fa-magic"></i>
-                                        <div class="overflow-h">
-                                            <strong class="color-dark">Default <small class="pull-right"><em>Just now</em></small></strong> 
-                                            <p><strong>Adam Johnson's</strong> friend request pending..</p>
-                                        </div>    
-                                    </div>
-                                    <div class="alert-blocks alert-blocks-pending alert-dismissable">
-                                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                        <i class="icon-custom rounded-x icon-bg-yellow fa fa-info"></i>
-                                        <div class="overflow-h">
-                                            <strong class="color-yellow">Pending <small class="pull-right"><em>Just now</em></small></strong> 
-                                            <p><strong>Adam Johnson's</strong> friend request pending..</p>
-                                        </div>    
-                                    </div>
-                                </div>
+                    <!--Profile Event-->
+                    <div class="col-sm-6 md-margin-bottom-20">
+                        <div class="panel panel-profile no-bg">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i>
+                                    <?php echo $this->translate('Upcoming Events') ?>
+                                </h2>
+                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
                             </div>
-                        </div>
-                        <!--End Alert-->
-
-                        <div class="col-sm-5">
-                            <div class="panel panel-profile">
-                                <div class="panel-heading overflow-h">
-                                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-comments-o"></i> Discussions</h2>
-                                    <a href="page_profile_comments.html" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-xs pull-right">View All</a>
+                            <div id="scrollbar2" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                                <div class="profile-event">
+                                    <div class="date-formats-defense">
+                                        <span>25</span>
+                                        <small>03, 2016</small>
+                                    </div>
+                                    <div class="overflow-h">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Project Report Submission') ?> </a></h3>
+                                        <p><u>TAI</u>'s <?php echo $this->translate(' project title') ?> </p>
+                                    </div>    
                                 </div>
-                                <div id="scrollbar4" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
-                                    <div class="comment">
-                                        <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                                        <div class="overflow-h">
-                                            <strong>Taylor Lee<small class="pull-right"> 25m</small></strong> 
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            <ul class="list-inline comment-list">
-                                                <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
-                                                <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
-                                            </ul>
-                                        </div>    
+                                <div class="profile-event">
+                                    <div class="date-formats-defense">
+                                        <span>15</span>
+                                        <small>04, 2016</small>
                                     </div>
-                                    <div class="comment">
-                                        <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img2.jpg') ?>" alt="">
-                                        <div class="overflow-h">
-                                            <strong>Miranda Clarsson<small class="pull-right"> 44m</small></strong> 
-                                            <p>Donec cursus, orci non posuere luctus, risus massa luctus nisi, sit amet cursus leo massa id arcu. Nunc tincidunt magna sit amet sapien congue.</p>
-                                            <ul class="list-inline comment-list">
-                                                <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
-                                                <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
-                                            </ul>
-                                        </div>    
+                                    <div class="overflow-h">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Project Meeting') ?> </a></h3>
+                                        <p><u>FNSS</u>'s <?php echo $this->translate(' project title') ?> </p>
+                                    </div>    
+                                </div>                                    
+                                <div class="profile-event">
+                                    <div class="date-formats-VE">
+                                        <span>30</span>
+                                        <small>04, 2016</small>
                                     </div>
-                                    <div class="comment">
-                                        <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img4.jpg') ?>" alt="">
-                                        <div class="overflow-h">
-                                            <strong>Natasha Kolnikova<small class="pull-right"> 7h</small></strong> 
-                                            <p>Suspendisse est est, sollicitudin eget auctor et, pharetra eu sapien. Mauris mollis libero ac auctor iaculis.</p>
-                                            <ul class="list-inline comment-list">
-                                                <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
-                                                <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
-                                            </ul>
-                                        </div>    
+                                    <div class="overflow-h">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('VE Meeting') ?> </a></h3>
+                                        <p><u>OSTIM</u>'s <?php echo $this->translate(' project title') ?> </p>
+                                    </div>    
+                                </div>                                   
+                                <div class="profile-event">
+                                    <div class="date-formats-defense">
+                                        <span>10</span>
+                                        <small>05, 2016</small>
                                     </div>
-                                    <div class="comment">
-                                        <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
-                                        <div class="overflow-h">
-                                            <strong>Mikel Andrews<small class="pull-right"> 15h</small></strong> 
-                                            <p>Nam ut dolor cursus nibh aliquet bibendum in eget risus.</p>
-                                            <ul class="list-inline comment-list">
-                                                <li><i class="fa fa-heart"></i> <a href="#">20</a></li>
-                                                <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
-                                            </ul>
-                                        </div>    
+                                    <div class="overflow-h">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Defense Cluster Meeting') ?> </a></h3>
+                                        <p><u>OSTIM</u>'s <?php echo $this->translate(' project title') ?> </p>
+                                    </div>    
+                                </div>                                  
+                                <div class="profile-event">
+                                    <div class="date-formats-medical">
+                                        <span>20</span>
+                                        <small>05, 2016</small>
                                     </div>
-                                    <div class="comment">
-                                        <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img7.jpg') ?>" alt="">
-                                        <div class="overflow-h">
-                                            <strong>Edward Rooster<small class="pull-right"> 1d</small></strong> 
-                                            <p>Nam ut dolor cursus nibh aliquet bibendum in eget risus. Mauris mollis libero ac auctor iaculis.</p>
-                                            <ul class="list-inline comment-list">
-                                                <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
-                                                <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
-                                            </ul>
-                                        </div>    
+                                    <div class="overflow-h">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Medical Cluster Meeting') ?> </a></h3>
+                                        <p><u>OSTIM</u>'s <?php echo $this->translate(' project title') ?> </p>
+                                    </div>    
+                                </div>
+
+                                <div class="profile-event">
+                                    <div class="date-formats-transportation">
+                                        <span>20</span>
+                                        <small>05, 2016</small>
                                     </div>
+                                    <div class="overflow-h">
+                                        <h3 class="heading-xs"><a href="#"><?php echo $this->translate('Official Meeting') ?> </a></h3>
+                                        <p><u>Transportation</u>'s <?php echo $this->translate(' Foreign Investment') ?> </p>
+                                    </div>    
                                 </div>
                             </div>    
                         </div>
-                    </div><!--/end row-->        
-
-                    <hr>
-
-                    <!--Table Search v1-->
-                    <div class="table-search-v1 margin-bottom-20">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th class="hidden-sm">Description</th>
-                                        <th>Headquarters</th>
-                                        <th>Progress</th>
-                                        <th style="width: 100px;">Status</th>
-                                        <th>Contacts</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <a href="#">HP Enterprise Service</a>
-                                        </td>
-                                        <td class="td-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
-                                        <td>
-                                            <div class="m-marker">
-                                                <a href="#"><i class="color-green fa fa-map-marker"></i></a>
-                                                <a href="#" class="display-b">USA</a>
-                                                <a href="#">Palo Alto</a>
-                                            </div>    
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-u progress-xxs">
-                                                <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><button class="btn-u btn-u-red btn-block btn-u-xs"><i class="fa fa-sort-amount-desc margin-right-5"></i> Deep</button></td>
-                                        <td>
-                                            <span>1(123) 456</span>
-                                            <span><a href="#">info@example.com</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="#">Samsung Electronics</a>
-                                        </td>
-                                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
-                                        <td>
-                                            <div class="m-marker">
-                                                <a href="#"><i class="color-green fa fa-map-marker"></i></a>
-                                                <a href="#" class="display-b">South Korea</a>
-                                                <a href="#">Suwon</a>
-                                            </div>
-                                        </td>    
-                                        <td>
-                                            <div class="progress progress-u progress-xxs">
-                                                <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><button class="btn-u btn-block btn-u-dark btn-u-xs"><i class="icon-graph margin-right-5"></i> High</button></td>
-                                        <td>
-                                            <span>1(123) 456</span>
-                                            <span><a href="#">info@example.com</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="#">LG</a>
-                                        </td>
-                                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
-                                        <td>
-                                            <div class="m-marker">
-                                                <a href="#"><i class="color-green fa fa-map-marker"></i></a>
-                                                <a href="#" class="display-b">South Korea</a>
-                                                <a href="#">Seoul</a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-u progress-xxs">
-                                                <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><button class="btn-u btn-block btn-u-aqua btn-u-xs"><i class="fa fa-level-down margin-right-5"></i> Low</button></td>
-                                        <td>
-                                            <span>1(123) 456</span>
-                                            <span><a href="#">info@example.com</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="#">Sony Corporation</a>
-                                        </td>
-                                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
-                                        <td>
-                                            <div class="m-marker">
-                                                <a href="#"><i class="color-green fa fa-map-marker"></i></a>
-                                                <a href="#" class="display-b">Japan</a>
-                                                <a href="#">Tokyo</a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-u progress-xxs">
-                                                <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><button class="btn-u btn-block btn-u-yellow btn-u-xs"><i class="fa fa-arrows-v margin-right-5"></i> Middle</button></td>
-                                        <td>
-                                            <span>1(123) 456</span>
-                                            <span><a href="#">info@example.com</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="#">Lenovo Group</a>
-                                        </td>
-                                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
-                                        <td>
-                                            <div class="m-marker">
-                                                <a href="#"><i class="color-green fa fa-map-marker"></i></a>
-                                                <a href="#" class="display-b">Chinese</a>
-                                                <a href="#">Beijing</a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-u progress-xxs">
-                                                <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><button class="btn-u btn-block btn-u-green btn-u-xs"><i class="fa fa-level-up margin-right-5"></i> High</button></td>
-                                        <td>
-                                            <span>1(123) 456</span>
-                                            <span><a href="#">info@example.com</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="#">Acer</a>
-                                        </td>
-                                        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
-                                        <td>
-                                            <div class="m-marker">
-                                                <a href="#"><i class="color-green fa fa-map-marker"></i></a>
-                                                <a href="#" class="display-b">Taiwan</a>
-                                                <a href="#">Taipei</a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="progress progress-u progress-xxs">
-                                                <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><button class="btn-u btn-block btn-u-blue btn-u-xs"><i class="icon-graph margin-right-5"></i> Stabile</button></td>
-                                        <td>
-                                            <span>1(123) 456</span>
-                                            <span><a href="#">info@example.com</a></span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>    
                     </div>
-                    <!--End Table Search v1-->
+                    <!--End Profile Event-->
+                </div><!--/end row-->
 
-                    <!-- Begin Table Search v2 -->
-                    <div class="table-search-v2">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>User Image</th>
-                                        <th class="hidden-sm">About</th>
-                                        <th>Status</th>
-                                        <th>Contacts</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
-                                        </td>
-                                        <td class="td-width">
-                                            <h3><a href="#">Sed nec elit arcu</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus. Fusce non malesuada ante. Donec vel arcu.</p>
-                                            <small class="hex">Joined February 28, 2014</small>
-                                        </td>
-                                        <td>
-                                            <span class="label label-success">Success</span>
-                                        </td>
-                                        <td>
-                                            <ul class="list-inline s-icons">
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Dropbox" href="#">
-                                                        <i class="fa fa-dropbox"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Linkedin" href="#">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <span><a href="#">info@example.com</a></span>
-                                            <span><a href="#">www.htmlstream.com</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img2.jpg') ?>" alt="">
-                                        </td>
-                                        <td>
-                                            <h3><a href="#">Donec at aliquam est, a mattis mauris</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus. Fusce non malesuada ante. Donec vel arcu.</p>
-                                            <small class="hex">Joined March 2, 2014</small>
-                                        </td>
-                                        <td>
-                                            <span class="label label-info"> Pending</span>
-                                        </td>
-                                        <td>
-                                            <ul class="list-inline s-icons">
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Dropbox" href="#">
-                                                        <i class="fa fa-dropbox"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Linkedin" href="#">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <span><a href="#">info@example.com</a></span>
-                                            <span><a href="#">www.htmlstream.com</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img3.jpg') ?>" alt="">
-                                        </td>
-                                        <td>
-                                            <h3><a href="#">Pellentesque semper tempus vehicula</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus. Fusce non malesuada ante. Donec vel arcu.</p>
-                                            <small class="hex">Joined March 3, 2014</small>
-                                        </td>
-                                        <td>
-                                            <span class="label label-warning">Expiring</span>
-                                        </td>
-                                        <td>
-                                            <ul class="list-inline s-icons">
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Dropbox" href="#">
-                                                        <i class="fa fa-dropbox"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Linkedin" href="#">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <span><a href="#">info@example.com</a></span>
-                                            <span><a href="#">www.htmlstream.com</a></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img4.jpg') ?>" alt="">
-                                        </td>
-                                        <td>
-                                            <h3><a href="#">Alesuada fames ac turpis egestas</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus. Fusce non malesuada ante. Donec vel arcu.</p>
-                                            <small class="hex">Joined March 4, 2014</small>
-                                        </td>
-                                        <td>
-                                            <span class="label label-danger">Error!</span>
-                                        </td>
-                                        <td>
-                                            <ul class="list-inline s-icons">
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Dropbox" href="#">
-                                                        <i class="fa fa-dropbox"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Linkedin" href="#">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <span><a href="#">info@example.com</a></span>
-                                            <span><a href="#">www.htmlstream.com</a></span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>    
+                <hr>
+
+                <!--Profile Blog-->
+                <div class="panel panel-profile">
+                    <div class="panel-heading overflow-h">
+                        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-tasks"></i><?php echo $this->translate('Connected People') ?></h2>
+                        <a href="page_profile_users.html" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-xs pull-right"><?php echo $this->translate('View All') ?></a>
                     </div>
-                    <!-- End Table Search v2 -->
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="profile-blog blog-border">
+                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
+                                    <div class="name-location">
+                                        <strong>Mikel Andrews</strong>
+                                        <span><i class="fa fa-map-marker"></i><a href="#">California,</a> <a href="#">US</a></span>
+                                    </div>
+                                    <div class="clearfix margin-bottom-20"></div>    
+                                    <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
+                                    <hr>
+                                    <ul class="list-inline share-list">
+                                        <li><i class="fa fa-bell"></i><a href="#">12 Notifications</a></li>
+                                        <li><i class="fa fa-group"></i><a href="#">54 Followers</a></li>
+                                        <li><i class="fa fa-twitter"></i><a href="#">Retweet</a></li>
+                                    </ul>
+                                </div>
+                            </div>        
+
+                            <div class="col-sm-6">
+                                <div class="profile-blog blog-border">
+                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img4.jpg') ?>" alt="">
+                                    <div class="name-location">
+                                        <strong>Natasha Kolnikova</strong>
+                                        <span><i class="fa fa-map-marker"></i><a href="#">Moscow,</a> <a href="#">Russia</a></span>
+                                    </div>
+                                    <div class="clearfix margin-bottom-20"></div>    
+                                    <p>Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
+                                    <hr>
+                                    <ul class="list-inline share-list">
+                                        <li><i class="fa fa-bell"></i><a href="#">37 Notifications</a></li>
+                                        <li><i class="fa fa-group"></i><a href="#">46 Followers</a></li>
+                                        <li><i class="fa fa-twitter"></i><a href="#">Retweet</a></li>
+                                    </ul>
+                                </div> 
+                            </div>    
+                        </div>
+                    </div>        
                 </div>
+                <!--End Profile Blog-->
+
+                <hr>
+
+                <div class="row">
+                    <!--Alert-->
+                    <div class="col-sm-7 sm-margin-bottom-30">
+                        <div class="panel panel-profile">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-send"></i> <?php echo $this->translate('Alarm Notification') ?></h2>
+                                <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                            </div>
+                            <div id="scrollbar3" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                                <div class="alert-blocks alert-blocks-pending alert-dismissable">
+                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img3.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <strong class="color-yellow">Pending... <small class="pull-right"><em>Just now</em></small></strong> 
+                                        <p>Your friend request has been sent.</p>
+                                    </div>    
+                                </div>
+                                <div class="alert-blocks alert-blocks-success alert-dismissable">
+                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img2.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <strong class="color-green">Accepted. <small class="pull-right"><em>7 hours ago</em></small></strong> 
+                                        <p>Your friend request has been accepted.</p>
+                                    </div>    
+                                </div>
+                                <div class="alert-blocks alert-blocks-info alert-dismissable">
+                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                    <i class="icon-custom rounded-x icon-bg-blue fa fa-bolt"></i>
+                                    <div class="overflow-h">
+                                        <strong class="color-blue">Info <small class="pull-right"><em>2 days ago</em></small></strong> 
+                                        <p>Your friend request has been denied :)</p>
+                                    </div>    
+                                </div>
+                                <div class="alert-blocks alert-blocks-error alert-dismissable">
+                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                    <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <strong class="color-red">Denied! <small class="pull-right"><em>2 days ago</em></small></strong> 
+                                        <p>Your friend request has been denied.</p>
+                                    </div>    
+                                </div>
+                                <div class="alert-blocks alert-dismissable">
+                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                    <i class="icon-custom rounded-x icon-bg-dark fa fa-magic"></i>
+                                    <div class="overflow-h">
+                                        <strong class="color-dark">Default <small class="pull-right"><em>Just now</em></small></strong> 
+                                        <p><strong>Adam Johnson's</strong> friend request pending..</p>
+                                    </div>    
+                                </div>
+                                <div class="alert-blocks alert-blocks-pending alert-dismissable">
+                                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                    <i class="icon-custom rounded-x icon-bg-yellow fa fa-info"></i>
+                                    <div class="overflow-h">
+                                        <strong class="color-yellow">Pending <small class="pull-right"><em>Just now</em></small></strong> 
+                                        <p><strong>Adam Johnson's</strong> friend request pending..</p>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Alert-->
+
+                    <div class="col-sm-5">
+                        <div class="panel panel-profile">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-comments-o"></i> Discussions</h2>
+                                <a href="page_profile_comments.html" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-xs pull-right">View All</a>
+                            </div>
+                            <div id="scrollbar4" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                                <div class="comment">
+                                    <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <strong>Taylor Lee<small class="pull-right"> 25m</small></strong> 
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <ul class="list-inline comment-list">
+                                            <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
+                                            <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                        </ul>
+                                    </div>    
+                                </div>
+                                <div class="comment">
+                                    <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img2.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <strong>Miranda Clarsson<small class="pull-right"> 44m</small></strong> 
+                                        <p>Donec cursus, orci non posuere luctus, risus massa luctus nisi, sit amet cursus leo massa id arcu. Nunc tincidunt magna sit amet sapien congue.</p>
+                                        <ul class="list-inline comment-list">
+                                            <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
+                                            <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                        </ul>
+                                    </div>    
+                                </div>
+                                <div class="comment">
+                                    <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img4.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <strong>Natasha Kolnikova<small class="pull-right"> 7h</small></strong> 
+                                        <p>Suspendisse est est, sollicitudin eget auctor et, pharetra eu sapien. Mauris mollis libero ac auctor iaculis.</p>
+                                        <ul class="list-inline comment-list">
+                                            <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
+                                            <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                        </ul>
+                                    </div>    
+                                </div>
+                                <div class="comment">
+                                    <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <strong>Mikel Andrews<small class="pull-right"> 15h</small></strong> 
+                                        <p>Nam ut dolor cursus nibh aliquet bibendum in eget risus.</p>
+                                        <ul class="list-inline comment-list">
+                                            <li><i class="fa fa-heart"></i> <a href="#">20</a></li>
+                                            <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                        </ul>
+                                    </div>    
+                                </div>
+                                <div class="comment">
+                                    <img src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img7.jpg') ?>" alt="">
+                                    <div class="overflow-h">
+                                        <strong>Edward Rooster<small class="pull-right"> 1d</small></strong> 
+                                        <p>Nam ut dolor cursus nibh aliquet bibendum in eget risus. Mauris mollis libero ac auctor iaculis.</p>
+                                        <ul class="list-inline comment-list">
+                                            <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
+                                            <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                        </ul>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div><!--/end row-->        
+
+                <hr>
+
+                <!--Table Search v1-->
+                <div class="table-search-v1 margin-bottom-20">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th class="hidden-sm">Description</th>
+                                    <th>Headquarters</th>
+                                    <th>Progress</th>
+                                    <th style="width: 100px;">Status</th>
+                                    <th>Contacts</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="#">HP Enterprise Service</a>
+                                    </td>
+                                    <td class="td-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
+                                    <td>
+                                        <div class="m-marker">
+                                            <a href="#"><i class="color-green fa fa-map-marker"></i></a>
+                                            <a href="#" class="display-b">USA</a>
+                                            <a href="#">Palo Alto</a>
+                                        </div>    
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-u progress-xxs">
+                                            <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><button class="btn-u btn-u-red btn-block btn-u-xs"><i class="fa fa-sort-amount-desc margin-right-5"></i> Deep</button></td>
+                                    <td>
+                                        <span>1(123) 456</span>
+                                        <span><a href="#">info@example.com</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">Samsung Electronics</a>
+                                    </td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
+                                    <td>
+                                        <div class="m-marker">
+                                            <a href="#"><i class="color-green fa fa-map-marker"></i></a>
+                                            <a href="#" class="display-b">South Korea</a>
+                                            <a href="#">Suwon</a>
+                                        </div>
+                                    </td>    
+                                    <td>
+                                        <div class="progress progress-u progress-xxs">
+                                            <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><button class="btn-u btn-block btn-u-dark btn-u-xs"><i class="icon-graph margin-right-5"></i> High</button></td>
+                                    <td>
+                                        <span>1(123) 456</span>
+                                        <span><a href="#">info@example.com</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">LG</a>
+                                    </td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
+                                    <td>
+                                        <div class="m-marker">
+                                            <a href="#"><i class="color-green fa fa-map-marker"></i></a>
+                                            <a href="#" class="display-b">South Korea</a>
+                                            <a href="#">Seoul</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-u progress-xxs">
+                                            <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><button class="btn-u btn-block btn-u-aqua btn-u-xs"><i class="fa fa-level-down margin-right-5"></i> Low</button></td>
+                                    <td>
+                                        <span>1(123) 456</span>
+                                        <span><a href="#">info@example.com</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">Sony Corporation</a>
+                                    </td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
+                                    <td>
+                                        <div class="m-marker">
+                                            <a href="#"><i class="color-green fa fa-map-marker"></i></a>
+                                            <a href="#" class="display-b">Japan</a>
+                                            <a href="#">Tokyo</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-u progress-xxs">
+                                            <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><button class="btn-u btn-block btn-u-yellow btn-u-xs"><i class="fa fa-arrows-v margin-right-5"></i> Middle</button></td>
+                                    <td>
+                                        <span>1(123) 456</span>
+                                        <span><a href="#">info@example.com</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">Lenovo Group</a>
+                                    </td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
+                                    <td>
+                                        <div class="m-marker">
+                                            <a href="#"><i class="color-green fa fa-map-marker"></i></a>
+                                            <a href="#" class="display-b">Chinese</a>
+                                            <a href="#">Beijing</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-u progress-xxs">
+                                            <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><button class="btn-u btn-block btn-u-green btn-u-xs"><i class="fa fa-level-up margin-right-5"></i> High</button></td>
+                                    <td>
+                                        <span>1(123) 456</span>
+                                        <span><a href="#">info@example.com</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#">Acer</a>
+                                    </td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porttitor arcu.</td>
+                                    <td>
+                                        <div class="m-marker">
+                                            <a href="#"><i class="color-green fa fa-map-marker"></i></a>
+                                            <a href="#" class="display-b">Taiwan</a>
+                                            <a href="#">Taipei</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-u progress-xxs">
+                                            <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><button class="btn-u btn-block btn-u-blue btn-u-xs"><i class="icon-graph margin-right-5"></i> Stabile</button></td>
+                                    <td>
+                                        <span>1(123) 456</span>
+                                        <span><a href="#">info@example.com</a></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>    
+                </div>
+                <!--End Table Search v1-->
+
+                <!-- Begin Table Search v2 -->
+                <div class="table-search-v2">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>User Image</th>
+                                    <th class="hidden-sm">About</th>
+                                    <th>Status</th>
+                                    <th>Contacts</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
+                                    </td>
+                                    <td class="td-width">
+                                        <h3><a href="#">Sed nec elit arcu</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus. Fusce non malesuada ante. Donec vel arcu.</p>
+                                        <small class="hex">Joined February 28, 2014</small>
+                                    </td>
+                                    <td>
+                                        <span class="label label-success">Success</span>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline s-icons">
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Dropbox" href="#">
+                                                    <i class="fa fa-dropbox"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Linkedin" href="#">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <span><a href="#">info@example.com</a></span>
+                                        <span><a href="#">www.htmlstream.com</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img2.jpg') ?>" alt="">
+                                    </td>
+                                    <td>
+                                        <h3><a href="#">Donec at aliquam est, a mattis mauris</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus. Fusce non malesuada ante. Donec vel arcu.</p>
+                                        <small class="hex">Joined March 2, 2014</small>
+                                    </td>
+                                    <td>
+                                        <span class="label label-info"> Pending</span>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline s-icons">
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Dropbox" href="#">
+                                                    <i class="fa fa-dropbox"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Linkedin" href="#">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <span><a href="#">info@example.com</a></span>
+                                        <span><a href="#">www.htmlstream.com</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img3.jpg') ?>" alt="">
+                                    </td>
+                                    <td>
+                                        <h3><a href="#">Pellentesque semper tempus vehicula</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus. Fusce non malesuada ante. Donec vel arcu.</p>
+                                        <small class="hex">Joined March 3, 2014</small>
+                                    </td>
+                                    <td>
+                                        <span class="label label-warning">Expiring</span>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline s-icons">
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Dropbox" href="#">
+                                                    <i class="fa fa-dropbox"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Linkedin" href="#">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <span><a href="#">info@example.com</a></span>
+                                        <span><a href="#">www.htmlstream.com</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img4.jpg') ?>" alt="">
+                                    </td>
+                                    <td>
+                                        <h3><a href="#">Alesuada fames ac turpis egestas</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id commodo lacus. Fusce non malesuada ante. Donec vel arcu.</p>
+                                        <small class="hex">Joined March 4, 2014</small>
+                                    </td>
+                                    <td>
+                                        <span class="label label-danger">Error!</span>
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline s-icons">
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Facebook" href="#">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Twitter" href="#">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Dropbox" href="#">
+                                                    <i class="fa fa-dropbox"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a data-placement="top" data-toggle="tooltip" class="tooltips" data-original-title="Linkedin" href="#">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <span><a href="#">info@example.com</a></span>
+                                        <span><a href="#">www.htmlstream.com</a></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>    
+                </div>
+                <!-- End Table Search v2 -->
             </div>
             <!-- End Profile Content -->            
         </div>
