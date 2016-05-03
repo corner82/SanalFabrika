@@ -1158,10 +1158,10 @@ msgstr ""
 msgid "less"
 msgstr ""
 
-msgid ""
+msgid "Machine tools rate to 6 month before"
 msgstr ""
 
-msgid ""
+msgid "Total Employees"
 msgstr ""
 
 msgid ""

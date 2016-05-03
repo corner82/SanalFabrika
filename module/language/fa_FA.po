@@ -1197,11 +1197,11 @@ msgstr "نسبت ماشین ابزار به 6 ماه قبل"
 msgid "Phone"
 msgstr "تلفن"
 
-msgid ""
-msgstr ""
+msgid "Total Employees"
+msgstr "تعداد کارکنان"
 
-msgid ""
-msgstr ""
+msgid "Visited your project page"
+msgstr "صفحه پروژه را زیارت کرد"
 
 msgid ""
 msgstr ""

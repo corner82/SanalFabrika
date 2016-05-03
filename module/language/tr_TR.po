@@ -1292,14 +1292,11 @@ msgstr "daha az"
 msgid "Machine tools rate to 6 month before"
 msgstr "6 ay öncesine göre makine teçhizat oranı artışı"
 
-msgid "Phone"
-msgstr "تلفن"
+msgid "Total Employees"
+msgstr "Toplam Çalışan Sayısı"
 
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
+msgid "Visited your project page"
+msgstr "Proje sayfasına bakmıştır"
 
 msgid ""
 msgstr ""

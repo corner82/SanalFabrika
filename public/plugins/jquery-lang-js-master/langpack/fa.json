@@ -312,7 +312,13 @@
         "Company History":
                 "تاریخچه تجاری شرکت",
         "Product Details":
-                "جزئیات محصول"
+                "جزئیات محصول",
+        "Title":
+                "عنوان",
+        "Log in":
+                "ورود",
+        "Log out":
+                "خروج"
     },
     "regex": [
         ["Budget", "Bütçe"],

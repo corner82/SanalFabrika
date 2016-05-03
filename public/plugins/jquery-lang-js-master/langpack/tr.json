@@ -312,7 +312,13 @@
         "Company History":
                 "Firma Tarihçesi",
         "Product Details":
-                "Ürün Detayları"
+                "Ürün Detayları",
+        "Title":
+                "Ünvan",
+        "LOGIN":
+                "Giriş",
+        "LOGOUT":
+                "Çıkış"
 
     },
     "regex": [

@@ -10,11 +10,18 @@ $(document).ready(function () {
 
     lang.change($('#langCode').val());
     
+    $('#loging_ph').empty();
+    
     if ($('#pk').val()) {
         var emp_service_url = 'pkFillCompanyInfoEmployees_infoFirmProfile';
+        var loging_value = window.lang.translate('Log out');
     } else {
-        var emp_service_url = 'fillCompanyInfoEmployeesGuest_infoFirmProfile ';        
+        var emp_service_url = 'fillCompanyInfoEmployeesGuest_infoFirmProfile ';
+        var loging_value = window.lang.translate('Log in');        
     }
+    $('#loging_ph').append(loging_value);
+    
+    
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -61,7 +68,6 @@ $(document).ready(function () {
                         "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
-                        + "EMGE/"
                         + data.rows[i].picture;
 
                 var appending =
@@ -74,7 +80,8 @@ $(document).ready(function () {
                         + "<strong>"
                         + data.rows[i].name + ' ' + data.rows[i].surname
                         + "</strong>"
-                        + "<span><i class='fa fa-tag'></i>Title: "
+                        + "<span><i class='fa fa-tag'></i>"
+                        + window.lang.translate('Title') + ": " 
                         + window.lang.translate(data.rows[i].title)
                         + "</span>"
                         + "</div>"

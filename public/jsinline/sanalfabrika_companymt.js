@@ -9,6 +9,16 @@ $(document).ready(function () {
     lang.change($('#langCode').val());
 //    console.log($('#selectedCompanyNpk').val());
 
+    $('#loging_ph').empty();
+
+    if ($('#pk').val()) {
+        var loging_value = window.lang.translate('Log out');
+    } else {
+        var loging_value = window.lang.translate('Log in');
+    }
+    $('#loging_ph').append(loging_value);
+
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            

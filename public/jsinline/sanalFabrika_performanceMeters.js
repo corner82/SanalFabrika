@@ -10,6 +10,14 @@ $(document).ready(function () {
     lang.change($('#langCode').val());
 //    console.log($('#selectedCompanyNpk').val());
 
+    $('#loging_ph').empty();
+
+    if ($('#pk').val()) {
+        var loging_value = window.lang.translate('Log out');
+    } else {
+        var loging_value = window.lang.translate('Log in');
+    }
+    $('#loging_ph').append(loging_value);
 
 
     $.ajax({
@@ -65,7 +73,7 @@ function listOfCertificates() {
     } else {
         var appending =
                 "<hr>"
-                +"<div class='col-xs-3'>"
+                + "<div class='col-xs-3'>"
                 + "<img style='width:100px; height: 100px' "
                 + "src='../../../../onyuz/standard/assets/img/sfClients/Images/Certificates/ISO_9001.jpg'"
                 + "alt=''>"
@@ -83,7 +91,7 @@ function listOfCertificates() {
                 + "</div>"
                 + "</div>"
                 + "<hr>";
-        
+
         $("#qualityDetailsInsideDIV").append(appending);
         $("#qualityDetaildDIV").addClass("active");
         $("#qualityDetaildDIV").slideDown("slow");

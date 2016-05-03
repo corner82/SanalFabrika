@@ -10,11 +10,16 @@ $(document).ready(function () {
     lang.change($('#langCode').val());
 
 
+    $('#loging_ph').empty();
+    
     if ($('#pk').val()) {
         var prod_service_url = 'pkFillCompanyInfoProducts_infoFirmProfile';
+        var loging_value = window.lang.translate('Log out');
     } else {
         var prod_service_url = 'fillCompanyInfoProductsGuest_infoFirmProfile';
+        var loging_value = window.lang.translate('Log in');
     }
+    $('#loging_ph').append(loging_value);
 
 
     $.ajax({
