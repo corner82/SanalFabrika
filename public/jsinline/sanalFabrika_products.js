@@ -10,6 +10,13 @@ $(document).ready(function () {
     lang.change($('#langCode').val());
 
 
+    if ($('#pk').val()) {
+        var prod_service_url = 'pkFillCompanyInfoProducts_infoFirmProfile';
+    } else {
+        var prod_service_url = 'fillCompanyInfoProductsGuest_infoFirmProfile';
+    }
+
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -36,9 +43,10 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
         data: {
-            url: 'fillCompanyInfoProductsGuest_infoFirmProfile',
+            url: prod_service_url,
             language_code: $("#langCode").val(),
-            npk: $('#selectedCompanyNpk').val()
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $('#pk').val()
         },
         method: "GET",
         dataType: "json",
@@ -347,117 +355,6 @@ $(document).ready(function () {
         }
 
     });
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {
-            url: 'fillCompanyInfoProductsGuest_infoFirmProfile',
-            language_code: $("#langCode").val(),
-            npk: $('#selectedCompanyNpk').val()
-        },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-
-            $('#filters-container').empty();
-//            $('#grid-container').empty();
-
-            $('#filters-container').append(
-                    "<div data-filter='*' class='cbp-filter-item-active cbp-filter-item'>"
-                    + window.lang.translate('All')
-                    + "</div>");
-            var categories = [];
-            var appendings = '';
-            for (var i = 0; i < data.length; i++) {
-
-//                var production_type = data[i].production_type;
-                var production_type = 'emge_products';
-                var product_name = data[i].product_name;
-                var product_image_name = data[i].product_picture;
-                var image_url =
-                        "https://"
-                        + window.location.hostname
-                        + "/onyuz/standard/assets/img/sfClients/"
-                        + "EMGE/Products/"
-                        + product_image_name;
-                var appending =
-                        "| <div data-filter='."
-                        + production_type
-                        + "' "
-                        + "class='cbp-filter-item'>"
-                        + window.lang.translate(production_type)
-                        + "</div>";
-                if ($.inArray(production_type, categories)) {
-
-                    categories.push(production_type);
-                    $('#filters-container').append(appending);
-                }
-
-                var appending2 =
-                        "<div class='cbp-item "
-                        + production_type
-                        + "'>"
-                        + "<div class='cbp-caption margin-bottom-20'>"
-                        + "<div class='cbp-caption-defaultWrap'>"
-                        + "<img src='"
-                        + image_url
-                        + "' alt=''>"
-                        + "</div>"
-                        + "<div class='cbp-caption-activeWrap'>"
-                        + "<div class='cbp-l-caption-alignCenter'>"
-                        + "<div class='cbp-l-caption-body'>"
-                        + "<ul class='link-captions no-bottom-space'>"
-                        + "<li>"
-                        + "<a href='"
-                        + image_url
-                        + "' "
-                        + " class='cbp-lightbox' data-title=''>"
-                        + "<i class='rounded-x fa fa-search'></i>"
-                        + "</a>"
-                        + "</li>"
-                        + "</ul>"
-                        + "</div>"
-                        + "</div>"
-                        + "</div>"
-                        + "</div>"
-                        + "<div class='cbp-title-dark'>"
-                        + " <div class='cbp-l-grid-agency-title'>"
-                        + production_type + ' ' + i
-                        + "</div>"
-                        + "<div class='cbp-l-grid-agency-desc'>"
-                        + product_name
-                        + "</div>"
-                        + "</div>"
-                        + "</div>";
-                appendings += appending2;
-            }
-
-            jQuery("#grid-container").cubeportfolio('appendItems', appendings);
-        }
-    });
-    /*
-     * Create list of products for each category service
-     */
-
-//    var dataSet = [
-//        ["Product A", "Category A", "Customer A", "Yes", "$ 250.00", "Order Now"],
-//        ["Product B", "Category A", "Customer B", "No", "$ 420.00", "Order Now"],
-//        ["Product C", "Category B", "Customer E", "Yes", "Contact Company", "Order Now"],
-//        ["Product D", "Category C", "Customer G", "No", "$ 1035.00", "Order Now"],
-//        ["Product E", "Category A", "Customer A", "No", "$ 270.00", "Order Now"],
-//        ["Product F", "Category A", "Customer B", "No", "$ 200.00", "Order Now"],
-//        ["Product G", "Category B", "Customer E", "Yes", "Contact Company", "Order Now"],
-//        ["Product H", "Category C", "Customer G", "No", "$ 1543.00", "Order Now"],
-//        ["Product I", "Category A", "Customer Y", "Yes", "$ 250.00", "Order Now"],
-//        ["Product J", "Category A", "Customer A", "No", "$ 420.00", "Order Now"],
-//        ["Product K", "Category B", "Customer X", "Yes", "Contact Company", "Order Now"],
-//        ["Product L", "Category C", "Customer Q", "No", "$ 1035.00", "Order Now"],
-//        ["Product M", "Category A", "Customer T", "No", "$ 270.00", "Order Now"],
-//        ["Product N", "Category A", "Customer B", "No", "$ 200.00", "Order Now"],
-//        ["Product O", "Category B", "Customer E", "Yes", "Contact Company", "Order Now"],
-//        ["Product P", "Category C", "Customer G", "No", "$ 1543.00", "Order Now"]
-//    ];
-
 
 });
 /*

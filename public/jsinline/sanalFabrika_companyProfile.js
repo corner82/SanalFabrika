@@ -9,12 +9,24 @@ $(document).ready(function () {
     lang.change($('#langCode').val());
 
 
+    if ($('#pk').val()) {
+        var ref_service_url = 'pkFillCompanyInfoReferences_infoFirmProfile';
+        var soc_med_service_url = 'pkFillCompanyInfoSocialedia_infoFirmProfile';
+        var verbal_service_url = 'pkFillUsersFirmVerbalNpk_infoFirmVerbal';
+    } else {
+        var ref_service_url = 'fillCompanyInfoReferencesGuest_infoFirmProfile';
+        var soc_med_service_url = 'fillCompanyInfoSocialediaGuest_infoFirmProfile ';
+        var verbal_service_url = 'fillUsersFirmVerbalNpkGuest_infoFirmVerbal';
+    }
+
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {url: 'fillUsersFirmVerbalNpkGuest_infoFirmVerbal',
+        data: {url: verbal_service_url,
             language_code: $("#langCode").val(),
-            npk: $('#selectedCompanyNpk').val()
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $('#pk').val()
         },
         method: "GET",
         dataType: "json",
@@ -42,7 +54,7 @@ $(document).ready(function () {
             var verbal_3 = data.rows[0].verbal3;
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
             var logo_src = imageFolAddress + data.rows[0].logo;
-            
+
             $('#header_company_name').append("<i class='fa fa-user'></i>" + firm_name);
             $('#firm_name_ph').append(firm_name);
             $('#about_firm_ph').append(about_company);
@@ -56,49 +68,81 @@ $(document).ready(function () {
         }
     });
 
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {url: '',
+        data: {url: ref_service_url,
             language_code: $("#langCode").val(),
-            npk: $('#selectedCompanyNpk').val()
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $("#pk").val()
         },
         method: "GET",
         dataType: "json",
         success: function (data) {
 
-        }
-    });
-
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {url: 'fillCompanyInfoReferencesGuest_infoFirmProfile',
-            language_code: $("#langCode").val(),
-            npk: $('#selectedCompanyNpk').val()
-        },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-            console.log(data);
-
-            $('#referencesPH').empty();
+            $('#effect-2').empty();
 
             var i;
             if (data.length !== null) {
                 for (i = 0; i < data.length; i++) {
+                    var ref_image_url = "https://"
+                            + window.location.hostname
+                            + "/onyuz/standard/assets/img/sfClients/"
+                            + data[i].firm_logo;
                     var referencesPHAppending =
-                            "<li><i class='fa fa-check color-green'></i>"
+                            "<li>"
+                            + "<figure>"
+                            + "<img src='"
+                            + ref_image_url
+                            + "' alt=''>"
+                            + "<div class='img-hover'>"
+                            + "<h4 style='font-size:10px'>"
                             + data[i].ref_name
+                            + "</h4>"
+                            + "</div>"
+                            + "</figure>"
                             + "</li>";
 
-                    $('#referencesPH').append(referencesPHAppending);
+                    $('#effect-2').append(referencesPHAppending);
                 }
             }
         }
     });
 
-
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {url: soc_med_service_url,
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $("#pk").val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+//            console.log(data);
+            $('#social_media_ph').empty();
+            
+            var i;
+            for (i = 0; i < data.length; i++) {
+                var soc_appending =
+                        "<li>"
+                        + "<a id='"
+                        + data[i].socialmedia
+                        + "' href='"
+                        + data[i].firm_link
+                        +"' data-original-title='"
+                        + data[i].socialmedia
+                        +"' class='rounded-x social_"
+                        + data[i].socialmedia
+                        + "'></a></li>";
+                
+                $('#social_media_ph').append(soc_appending);
+                
+            }
+        }
+    });
 
 
 });

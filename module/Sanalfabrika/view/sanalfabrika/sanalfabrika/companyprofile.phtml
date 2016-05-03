@@ -162,7 +162,6 @@
     </div>
     <!--=== End Header ===-->
 
-
     <!--=== Breadcrumbs ===-->
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
@@ -187,516 +186,403 @@
     </div><!--/breadcrumbs-->
     <!--=== End Breadcrumbs ===-->
 
-
     <!--=== Profile ===-->
     <div class="container content profile" style='padding-top:0px;'>
-        <div class="row">
-            
-            
-        <!--Left column-->
-        <div class="col-md-3 md-margin-bottom-40">
-            <img class="img-responsive profile-img margin-bottom-20" id="profileLogosrc"
-                 src="" alt="">
+        <div class="row">            
 
-            <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-            </ul>     
+            <!--Left column-->
+            <div class="col-md-3 md-margin-bottom-40">
+                <img class="img-responsive profile-img margin-bottom-20" id="profileLogosrc"
+                     src="" alt="">
 
-            <div class="panel-heading-v2 overflow-h">
-                <h2 class="heading-xs pull-left">
-                    <i class="fa fa-bar-chart-o"></i> 
-                    <?php echo $this->translate('Company info update period')?>
-                </h2>
-                <!--<a href="#"><i class="fa fa-cog pull-right"></i></a>-->
-            </div>
-            <h3 class="heading-xs">
-                <?php echo $this->translate('Company profil completion rate')?>
-                <span class="pull-right">92%</span>
-            </h3>
-            <div class="progress progress-u progress-xxs">
-                <div style="width: 92%" aria-valuemax="100" 
-                     aria-valuemin="0" aria-valuenow="92" 
-                     role="progressbar" class="progress-bar progress-bar-u">
+                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                </ul>     
+
+                <div class="panel-heading-v2 overflow-h">
+                    <h2 class="heading-xs pull-left">
+                        <i class="fa fa-bar-chart-o"></i> 
+                        <?php echo $this->translate('Company info update period') ?>
+                    </h2>
+                    <!--<a href="#"><i class="fa fa-cog pull-right"></i></a>-->
                 </div>
-            </div>
-            <h3 class="heading-xs">
-                <?php echo $this->translate('Machine data update period')?>
-                <span class="pull-right">85%</span>
-            </h3>
-            <div class="progress progress-u progress-xxs">
-                <div style="width: 85%" aria-valuemax="100" 
-                     aria-valuemin="0" aria-valuenow="85" 
-                     role="progressbar" class="progress-bar progress-bar-blue">
-                </div>
-            </div>
-            <h3 class="heading-xs"> <?php echo $this->translate('Company technologies update period')?>
-                <span class="pull-right">64%</span>
-            </h3>
-            <div class="progress progress-u progress-xxs margin-bottom-40">
-                <div style="width: 64%" aria-valuemax="100" 
-                     aria-valuemin="0" aria-valuenow="64" 
-                     role="progressbar" class="progress-bar progress-bar-dark">
-                </div>
-            </div>
-
-            <!-- Exchange Rates Script - EXCHANGERATEWIDGET.COM -->
-            <div style="width:auto; border:0px solid #55A516; text-align:left;">
-                <div style="text-align:left;background-color:#717984;width:100%;
-                     border-bottom:0px;height:30px; font-size:12px;
-                     font-weight:bold;padding:5px 0px;">
-                    <span style="margin-left:2px;background-image:url(//www.exchangeratewidget.com/flag.png); 
-                          background-position: 0 -1232px; width:100%; height:15px; 
-                          background-repeat:no-repeat;padding-left:5px;">
-                        <a href="https://www.exchangeratewidget.com/" 
-                           style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
-                               <?php echo $this->translate('Daily currency exchange rates')?>
-                        </a>
-                    </span>
-                </div>
-                <script type="text/javascript" 
-                        src="//www.exchangeratewidget.com/converter.php?l=en&f=USD&t=EUR,GBP,TRY,JPY,CHF,CAD,AUD,CNY,ZAR,RUB,BRL,HKD,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=5">
-                </script>
-            </div>
-            <!-- End of Exchange Rates Script -->
-
-            <!--Notification-->
-            <div class="panel-heading-v2 overflow-h">
-                <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> 
-                    <?php echo $this->translate('Notification') ?></h2>
-                <a href="#"><i class="fa fa-cog pull-right"></i></a>
-            </div>
-            <div class="margin-bottom-20">
-                <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
-                    data-mcs-theme="minimal-dark">
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x 
-                           icon-bg-red icon-line icon-envelope"></i>
-                        <div class="overflow-h">
-                            <span><strong>Muhsin Teber</strong> <?php echo $this->translate('Email')?> <?php echo $this->translate('Sent')?></span>
-                            <small>2 <?php echo $this->translate('Minutes')?> <?php echo $this->translate('Before')?></small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" 
-                             src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" 
-                             alt="">
-                        <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your project page')?></span>
-                            <small><?php echo $this->translate('Today')?> 18:25 </small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
-                        <div class="overflow-h">
-                            <span><strong>Adem Başarır</strong> <?php echo $this->translate('Reviewed your document')?></span>
-                            <small><?php echo $this->translate('Yesterday')?> 13:07</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" 
-                             src="<?php echo $this->basePath('onyuz/standard/assets/img/men-icon.png') ?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Mikel Andrews</strong> <?php echo $this->translate('Proposal document added')?></span>
-                            <small>2 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?> 12:09</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                        <div class="overflow-h">
-                            <span><strong>Burhan Yetiş</strong> <?php echo $this->translate('Following your company')?></span>
-                            <small>2 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?>Önce 09:34</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" 
-                             src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your projects page')?></span>
-                            <small>3 <?php echo $this->translate('Days')?> <?php echo $this->translate('Before')?> 14:28</small>  
-                        </div>      
-                    </li>
-                </ul>    
-            </div>
-        </div>
-        <!-- left column end-->
-
-        <!-- right column -->
-        <div class="col-md-9" >
-                
-            <!--Service Block v3-->
-            <div class="row margin-bottom-10 " style=''>
-                <div class="col-md-6 sm-margin-bottom-20">
-                    <div class="service-block-v3 service-block-aviation">
-                        <i class="icon-plane"></i>
-                        <span class="service-heading">
-                            <?php echo $this->translate('Projects in progress') ?>
-                        </span>
-                        <span class="counter">12</span>
-
-                        <div class="clearfix margin-bottom-10"></div>
-
-                        <div class="row margin-bottom-20">
-                            <div class="col-xs-6 service-in">
-                                <small><?php echo $this->translate('Last Week') ?></small>
-                                <h4 class="counter">2</h4>
-                            </div>
-                            <div class="col-xs-6 text-right service-in">
-                                <small><?php echo $this->translate('Last Month') ?></small>
-                                <h4 class="counter">5</h4>
-                            </div>
-                        </div>
-                        <div class="statistics">
-                            <h3 class="heading-xs"><?php echo $this->translate('Last month projects to overall project number') ?><span class="pull-right">41%</span></h3>
-                            <div class="progress progress-u progress-xxs">
-                                <div style="width: 41%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="41" role="progressbar" class="progress-bar progress-bar-light">
-                                </div>
-                            </div>
-                            <small>59% <?php echo $this->translate('less')?> <strong><?php echo $this->translate('Project started in the last month') ?></strong></small>
-                        </div>            
+                <h3 class="heading-xs">
+                    <?php echo $this->translate('Company profil completion rate') ?>
+                    <span class="pull-right">92%</span>
+                </h3>
+                <div class="progress progress-u progress-xxs">
+                    <div style="width: 92%" aria-valuemax="100" 
+                         aria-valuemin="0" aria-valuenow="92" 
+                         role="progressbar" class="progress-bar progress-bar-u">
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="service-block-v3 service-block-renewable">
-                        <i class="icon-energy"></i>
-                        <span class="service-heading">
-                            <?php echo $this->translate('Total machine tools number') ?>
-                        </span>
-                        <span class="counter">12</span>
-
-                        <div class="clearfix margin-bottom-10"></div>
-
-                        <div class="row margin-bottom-20">
-                            <div class="col-xs-6 service-in">
-                                <small><?php echo $this->translate('Added machine tools in last 6 months') ?></small>
-                                <h4 class="counter">3</h4>
-                            </div>
-                            <div class="col-xs-6 text-right service-in">
-                                <small><?php echo $this->translate('Added machine tools in last month') ?></small>
-                                <h4 class="counter">1</h4>
-                            </div>
-                        </div>
-                        <div class="statistics">
-                            <h3 class="heading-xs"><?php echo $this->translate('Rate of added machine tools in last 6 months to overall machine tools') ?><span class="pull-right">40%</span></h3>
-                            <div class="progress progress-u progress-xxs">
-                                <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-light">
-                                </div>
-                            </div>
-                            <small>60% <?php echo $this->translate('Machine tools rate to 6 month before') ?> <strong><?php echo $this->translate('than last month') ?></strong></small>
-                        </div>            
+                <h3 class="heading-xs">
+                    <?php echo $this->translate('Machine data update period') ?>
+                    <span class="pull-right">85%</span>
+                </h3>
+                <div class="progress progress-u progress-xxs">
+                    <div style="width: 85%" aria-valuemax="100" 
+                         aria-valuemin="0" aria-valuenow="85" 
+                         role="progressbar" class="progress-bar progress-bar-blue">
                     </div>
                 </div>
-            </div><!--/end row-->
-            <!--End Service Block v3-->
-            
-            <!-- about company block -->
-            <div class='row'>
-                <div class="parallax-bg parallaxBg1">            
-                    <div class=" content parallax-about">
-                        <div class="title-box-v2">
-                            <h2><span id="firm_name_ph" class="color-green">
-                                
-                                </span></h2>
-                            <p id="about_firm_ph">
+                <h3 class="heading-xs"> <?php echo $this->translate('Company technologies update period') ?>
+                    <span class="pull-right">64%</span>
+                </h3>
+                <div class="progress progress-u progress-xxs margin-bottom-40">
+                    <div style="width: 64%" aria-valuemax="100" 
+                         aria-valuemin="0" aria-valuenow="64" 
+                         role="progressbar" class="progress-bar progress-bar-dark">
+                    </div>
+                </div>
+
+                <!-- Exchange Rates Script - EXCHANGERATEWIDGET.COM -->
+                <div style="width:auto; border:0px solid #55A516; text-align:left;">
+                    <div style="text-align:left;background-color:#717984;width:100%;
+                         border-bottom:0px;height:30px; font-size:12px;
+                         font-weight:bold;padding:5px 0px;">
+                        <span style="margin-left:2px;background-image:url(//www.exchangeratewidget.com/flag.png); 
+                              background-position: 0 -1232px; width:100%; height:15px; 
+                              background-repeat:no-repeat;padding-left:5px;">
+                            <a href="https://www.exchangeratewidget.com/" 
+                               style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
+                                   <?php echo $this->translate('Daily currency exchange rates') ?>
+                            </a>
+                        </span>
+                    </div>
+                    <script type="text/javascript" 
+                            src="//www.exchangeratewidget.com/converter.php?l=en&f=USD&t=EUR,GBP,TRY,JPY,CHF,CAD,AUD,CNY,ZAR,RUB,BRL,HKD,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=5">
+                    </script>
+                </div>
+                <!-- End of Exchange Rates Script -->
+
+                <!--Notification-->
+                <div class="panel-heading-v2 overflow-h">
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> 
+                        <?php echo $this->translate('Notification') ?></h2>
+                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                </div>
+                <div class="margin-bottom-20">
+                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
+                        data-mcs-theme="minimal-dark">
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x 
+                               icon-bg-red icon-line icon-envelope"></i>
+                            <div class="overflow-h">
+                                <span><strong>Muhsin Teber</strong> <?php echo $this->translate('Email') ?> <?php echo $this->translate('Sent') ?></span>
+                                <small>2 <?php echo $this->translate('Minutes') ?> <?php echo $this->translate('Before') ?></small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" 
+                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" 
+                                 alt="">
+                            <div class="overflow-h">
+                                <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your project page') ?></span>
+                                <small><?php echo $this->translate('Today') ?> 18:25 </small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
+                            <div class="overflow-h">
+                                <span><strong>Adem Başarır</strong> <?php echo $this->translate('Reviewed your document') ?></span>
+                                <small><?php echo $this->translate('Yesterday') ?> 13:07</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" 
+                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/men-icon.png') ?>" alt="">
+                            <div class="overflow-h">
+                                <span><strong>Mikel Andrews</strong> <?php echo $this->translate('Proposal document added') ?></span>
+                                <small>2 <?php echo $this->translate('Days') ?> <?php echo $this->translate('Before') ?> 12:09</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                            <div class="overflow-h">
+                                <span><strong>Burhan Yetiş</strong> <?php echo $this->translate('Following your company') ?></span>
+                                <small>2 <?php echo $this->translate('Days') ?> <?php echo $this->translate('Before') ?>Önce 09:34</small>
+                            </div>    
+                        </li>
+                        <li class="notification">
+                            <img class="rounded-x" 
+                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" alt="">
+                            <div class="overflow-h">
+                                <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your projects page') ?></span>
+                                <small>3 <?php echo $this->translate('Days') ?> <?php echo $this->translate('Before') ?> 14:28</small>  
+                            </div>      
+                        </li>
+                    </ul>    
+                </div>                
+            </div>
+            <!-- left column end-->
+
+            <!-- right column -->
+            <div class="col-md-9" >
+
+                <!--Service Block v3-->
+                <div class="row margin-bottom-10 " style=''>
+                    <div class="col-md-6 sm-margin-bottom-20">
+                        <div class="service-block-v3 service-block-aviation">
+                            <i class="icon-plane"></i>
+                            <span class="service-heading">
+                                <?php echo $this->translate('Projects in progress') ?>
+                            </span>
+                            <span class="counter">12</span>
+
+                            <div class="clearfix margin-bottom-10"></div>
+
+                            <div class="row margin-bottom-20">
+                                <div class="col-xs-6 service-in">
+                                    <small><?php echo $this->translate('Last Week') ?></small>
+                                    <h4 class="counter">2</h4>
+                                </div>
+                                <div class="col-xs-6 text-right service-in">
+                                    <small><?php echo $this->translate('Last Month') ?></small>
+                                    <h4 class="counter">5</h4>
+                                </div>
+                            </div>
+                            <div class="statistics">
+                                <h3 class="heading-xs"><?php echo $this->translate('Last month projects to overall project number') ?><span class="pull-right">41%</span></h3>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 41%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="41" role="progressbar" class="progress-bar progress-bar-light">
+                                    </div>
+                                </div>
+                                <small>59% <?php echo $this->translate('less') ?> <strong><?php echo $this->translate('Project started in the last month') ?></strong></small>
+                            </div>            
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="service-block-v3 service-block-renewable">
+                            <i class="icon-energy"></i>
+                            <span class="service-heading">
+                                <?php echo $this->translate('Total machine tools number') ?>
+                            </span>
+                            <span class="counter">12</span>
+
+                            <div class="clearfix margin-bottom-10"></div>
+
+                            <div class="row margin-bottom-20">
+                                <div class="col-xs-6 service-in">
+                                    <small><?php echo $this->translate('Added machine tools in last 6 months') ?></small>
+                                    <h4 class="counter">3</h4>
+                                </div>
+                                <div class="col-xs-6 text-right service-in">
+                                    <small><?php echo $this->translate('Added machine tools in last month') ?></small>
+                                    <h4 class="counter">1</h4>
+                                </div>
+                            </div>
+                            <div class="statistics">
+                                <h3 class="heading-xs"><?php echo $this->translate('Rate of added machine tools in last 6 months to overall machine tools') ?><span class="pull-right">40%</span></h3>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-light">
+                                    </div>
+                                </div>
+                                <small>60% <?php echo $this->translate('Machine tools rate to 6 month before') ?> <strong><?php echo $this->translate('than last month') ?></strong></small>
+                            </div>            
+                        </div>
+                    </div>
+                </div><!--/end row-->
+                <!--End Service Block v3-->
+
+                <!-- about company block -->
+                <div class='row'>
+                    <div class="parallax-bg parallaxBg1">            
+                        <div class=" content parallax-about">
+                            <div class="title-box-v2">
+                                <h2><span id="firm_name_ph" class="color-green">
+
+                                    </span></h2>
+                                <p id="about_firm_ph">
                                 </p>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="banner-info dark margin-bottom-10">
-                                    <i class="rounded-x icon-bell"></i>
-                                    <div class="overflow-h">
-                                        <h3 id="title_1_ph"></h3>  
-                                        <p id="verbal_1_ph">
-                                            
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="banner-info dark margin-bottom-10">
-                                    <i class="rounded-x fa fa-magic"></i>
-                                    <div class="overflow-h">
-                                        <h3 id="title_2_ph"></h3>
-                                        <p id="verbal_2_ph">
-                                            
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="banner-info dark margin-bottom-10">
-                                    <i class="rounded-x fa fa-thumbs-o-up"></i>
-                                    <div class="overflow-h">
-                                        <h3 id="title_3_ph"></h3>
-                                        <p id="verbal_3_ph">
-                                            
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="margin-bottom-20"></div>
                             </div>
-                            <div class="col-md-6">
-                                <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/industry.png')/*$this->basePath('onyuz/standard/assets/img/mockup/1.png')*/ ?>" alt="">
-                            </div>
-                        </div>    
-                    </div><!--/container--> 
-                </div>  
-            </div>
-            <!-- about company block end -->
-                
-                
-            <!-- testemonials block-->
-            <div class="row">
-                <div class="col-sm-6">
-                    <!-- Testimonials v4 -->
-                    <div class="testimonials-v4 md-margin-bottom-50">
-                        <div class="testimonials-v4-in">
-                            <p><?php echo $this->translate('40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.')?></p>
-                        </div>
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/filozof.png') ?>" alt="thumb">
-                        <span class="testimonials-author">
-                            Mithat Ertuğ<br>
-                            <em><?php echo $this->translate('CEO')?><a href="#">  EMGE</a></em>
-                        </span>
-                    </div>
-                    <!-- End Testimonials v4 -->
-                </div>
-                <div class="col-sm-6">
-                    <!-- Testimonials v4 -->
-                    <div class="testimonials-v4">
-                        <div class="testimonials-v4-in">
-                            <p><?php echo $this->translate('1975 yılında 90 metrekarelik bir alanda kurulmuş olan firmamız 1981 yılında EMGE KOLLEKTİF ŞİRKETİ Elektro Mekanik Gereçler Endüstrisi ünvanını almış, bugün ise 6000 metrekarelik kendi binasında faaliyetlerine devam etmektedir. Ürün yelpazesini her geçen gün biraz daha genişleten firmamız, kalite ve müşteri memnuniyetini her zaman ön planda tutmuş ve çalışmalarını bu doğrultuda sürdürmüştür..')?></p>
-                        </div>
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/filozof.png') ?>" alt="thumb">
-                        <span class="testimonials-author">
-                            Münir Ertuğ<br>
-                            <em><?php echo $this->translate('Production and Quality Control Engineer')?><a href="#">  EMGE</a></em>
-                        </span>
-                    </div>
-                    <!-- End Testimonials v4 -->
-                </div>
-            </div>
-            <!-- testemonials block end-->
-                     
-            <!-- references block-->            
-            <div class="row" >
-                <div class="col-md-12">                                    
-                    <!-- Left Inner -->
-                    <div class="left-inner">
-                        <div class="progression">
-                            <div class="headline-center ">
-                                <h2><?php echo $this->translate('References') ?></h2>
-                            </div>
-                        </div>
-                        <div class=''>
-                            <ul class="list-inline our-clients" id="effect-2">
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/ea-canada.png') ?>" alt="">
-                                        <div class="img-hover">
-                                            <h4>Ea Canada</h4>
-                                        </div>
-                                    </figure>
-                                </li> 
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/inspiring.png') ?>" alt="">
-                                        <div class="img-hover">
-                                            <h4>Inspiring</h4>  
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/ucweb.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>UcWeb</h4>  
-                                        </div>
-                                    </figure>
-                                </li>  
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/clarks.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>Clarks</h4>
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/corepreserves.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>Core Preserves</h4>
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/finals.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>USL Champions</h4>
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/getaround.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>GetAround</h4>
-                                        </div>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/baderbrau.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>Baderbrau</h4>
-                                        </div>
-                                    </figure>
-                                </li>      
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/emirates.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>Emirates</h4>
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/fddw.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>Field Days</h4>
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/district-karaoke.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>District Karaoke</h4>
-                                        </div>
-                                    </figure>
-                                </li>        
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/marianos.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>Mariano's</h4>
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/grifting-tree.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>The Grifting Tree</h4>
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/jaguar.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>Jaguar</h4>
-                                        </div>
-                                    </figure>
-                                </li>    
-                                <li>
-                                    <figure>
-                                        <img src="<?php echo $this->basePath('onyuz/standard/assets/img/clients2/hermes.png') ?>" alt="">  
-                                        <div class="img-hover">
-                                            <h4>Hermes</h4>
-                                        </div>
-                                    </figure>
-                                </li> 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- references block end-->                        
-                      
-            <!-- Contacts block -->
-            <div class='row'>
-                <div class="contacts content">
-                    <div class="title-box-v2">
-                        <h2> <span class="color-green"><?php echo $this->translate('Contact')?></span> <?php echo $this->translate('Panel')?></h2>
-                        <p><?php echo $this->translate('For more information, questions please contact us')?></p>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-                            <script src="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-                            <!-- leaflet map -->
-                            <div id="map" class="map">
-                                <script type="text/javascript">
-                                    var map = L.map('map').setView([41.83683, 19.33594], 4);
-                                            map.fitWorld().zoomIn();
 
-                                                            map.on('resize', function(e) {
-                                                                map.fitWorld({reset: true}).zoomIn();
-                                                            });
-                                    mapLink =
-                                        '<a href="https://openstreetmap.org">OpenStreetMap</a>';
-                                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                                                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                                                            }).addTo(map);
-
-                                </script>
-                            </div>
-                            <!-- leaflet map end -->
-                        </div>
-                        
-                        
-                        
-                        <div class="col-md-6 col-sm-6">
-                            
-                            <!-- Contacts -->
-                            <div class="headline"><h2><?php echo $this->translate('Contact Information')?></h2></div>  
-                            <ul class="list-unstyled who margin-bottom-30">
-                                <li><a href="#"><i class="fa fa-home"></i>Ahi Evran Cad. 1211. Sk. No:14 Ostim - Ankara - <?php echo $this->translate('TURKEY')?></a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i>can@emge.com.tr</a></li>
-                                <li><a href="#"><i class="fa fa-phone"></i>0312 354 9271 (PBX)</a></li>
-                                <li><a href="#"><i class="fa fa-fax"></i>0312 354 5481</a></li>
-                                <li><a href="#"><i class="fa fa-globe"></i>http://www.emge.com.tr/</a></li>
-                            </ul>
-
-                            <!-- Business Hours -->
-                            <div class="headline"><h2><?php echo $this->translate('Working Hours')?></h2></div>
-                            <ul class="list-unstyled margin-bottom-30">
-                                    <li><strong><?php echo $this->translate('Week days Mon- Fri')?>: </strong> 08:00 - 18:00</li>
-                                    <li><strong><?php echo $this->translate('Weekends Sat')?>: </strong> 08:00 - 13:00</li>
-                                    <li><strong><?php echo $this->translate('Weekends Sun')?>: </strong><?php echo $this->translate('Closed')?></li>
-                            </ul>
-
-                            <!-- Business Hours -->
-                            <div class="headline"><h2><?php echo $this->translate('For more information please keep in touch ...')?></h2></div>
-                            <p><?php echo $this->translate('Based on your order, working hours could be revised...')?></p>
-                            
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="input-group margin-bottom-10">
-                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input type="name" placeholder="<?php echo $this->translate('name')?>" class="form-control">
-                                    </div>    
+                                <div class="col-md-6">
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x icon-bell"></i>
+                                        <div class="overflow-h">
+                                            <h3 id="title_1_ph"></h3>  
+                                            <p id="verbal_1_ph">
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x fa fa-magic"></i>
+                                        <div class="overflow-h">
+                                            <h3 id="title_2_ph"></h3>
+                                            <p id="verbal_2_ph">
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="banner-info dark margin-bottom-10">
+                                        <i class="rounded-x fa fa-thumbs-o-up"></i>
+                                        <div class="overflow-h">
+                                            <h3 id="title_3_ph"></h3>
+                                            <p id="verbal_3_ph">
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="margin-bottom-20"></div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="input-group margin-bottom-20">
-                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                        <input type="email" placeholder="<?php echo $this->translate('Email')?>" class="form-control">
-                                    </div>    
+                                <div class="col-md-6">
+                                    <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/industry.png')/* $this->basePath('onyuz/standard/assets/img/mockup/1.png') */ ?>" alt="">
                                 </div>
                             </div>    
+                        </div><!--/container--> 
+                    </div>  
+                </div>
+                <!-- about company block end -->
 
-                            <textarea rows="5" class="form-control margin-bottom-20" placeholder="<?php echo $this->translate('Write details...')?>"></textarea>
-                            <button class="btn-u btn-u-sm pull-right" type="button"><?php echo $this->translate('Ask your question')?></button>
+
+                <!-- testemonials block-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- Testimonials v4 -->
+                        <div class="testimonials-v4 md-margin-bottom-50">
+                            <div class="testimonials-v4-in">
+                                <p><?php echo $this->translate('40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.') ?></p>
+                            </div>
+                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/filozof.png') ?>" alt="thumb">
+                            <span class="testimonials-author">
+                                Mithat Ertuğ<br>
+                                <em><?php echo $this->translate('CEO') ?><a href="#">  EMGE</a></em>
+                            </span>
+                        </div>
+                        <!-- End Testimonials v4 -->
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- Testimonials v4 -->
+                        <div class="testimonials-v4">
+                            <div class="testimonials-v4-in">
+                                <p><?php echo $this->translate('1975 yılında 90 metrekarelik bir alanda kurulmuş olan firmamız 1981 yılında EMGE KOLLEKTİF ŞİRKETİ Elektro Mekanik Gereçler Endüstrisi ünvanını almış, bugün ise 6000 metrekarelik kendi binasında faaliyetlerine devam etmektedir. Ürün yelpazesini her geçen gün biraz daha genişleten firmamız, kalite ve müşteri memnuniyetini her zaman ön planda tutmuş ve çalışmalarını bu doğrultuda sürdürmüştür..') ?></p>
+                            </div>
+                            <img class="rounded-x" src="<?php echo $this->basePath('onyuz/standard/assets/img/filozof.png') ?>" alt="thumb">
+                            <span class="testimonials-author">
+                                Münir Ertuğ<br>
+                                <em><?php echo $this->translate('Production and Quality Control Engineer') ?><a href="#">  EMGE</a></em>
+                            </span>
+                        </div>
+                        <!-- End Testimonials v4 -->
+                    </div>
+                </div>
+                <!-- testemonials block end-->
+
+                <!-- references block-->            
+                <div class="row" >
+                    <div class="col-md-12">                                    
+                        <!-- Left Inner -->
+                        <div class="left-inner">
+                            <div class="progression">
+                                <div class="headline-center ">
+                                    <h2><?php echo $this->translate('References') ?></h2>
+                                </div>
+                            </div>
+                            <div class=''>
+                                <ul class="list-inline our-clients" id="effect-2">
+
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>    
-            </div>
-            <!-- Contacts block end-->
-    
- 
-        </div>
-        <!--  right column end -->
+                </div>
+                <!-- references block end-->                        
 
-          
+                <!-- Contacts block -->
+                <div class='row'>
+                    <div class="contacts content">
+                        <div class="title-box-v2">
+                            <h2> <span class="color-green"><?php echo $this->translate('Contact') ?></span> <?php echo $this->translate('Panel') ?></h2>
+                            <p><?php echo $this->translate('For more information, questions please contact us') ?></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+                                <script src="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+                                <!-- leaflet map -->
+                                <div id="map" class="map">
+                                    <script type="text/javascript">
+                                var map = L.map('map').setView([41.83683, 19.33594], 4);
+                                map.fitWorld().zoomIn();
+
+                                map.on('resize', function (e) {
+                                    map.fitWorld({reset: true}).zoomIn();
+                                });
+                                mapLink =
+                                        '<a href="https://openstreetmap.org">OpenStreetMap</a>';
+                                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                }).addTo(map);
+
+                                    </script>
+                                </div>
+                                <!-- leaflet map end -->
+                            </div>
+
+
+
+                            <div class="col-md-6 col-sm-6">
+
+                                <!-- Contacts -->
+                                <div class="headline"><h2><?php echo $this->translate('Contact Information') ?></h2></div>  
+                                <ul class="list-unstyled who margin-bottom-30">
+                                    <li><a href="#"><i class="fa fa-home"></i>Ahi Evran Cad. 1211. Sk. No:14 Ostim - Ankara - <?php echo $this->translate('TURKEY') ?></a></li>
+                                    <li><a href="#"><i class="fa fa-envelope"></i>can@emge.com.tr</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i>0312 354 9271 (PBX)</a></li>
+                                    <li><a href="#"><i class="fa fa-fax"></i>0312 354 5481</a></li>
+                                    <li><a href="#"><i class="fa fa-globe"></i>http://www.emge.com.tr/</a></li>
+                                </ul>
+                                
+                                <div class="headline">
+                                    <h2><?php echo $this->translate('Social Media') ?></h2>
+                                </div>                                 
+
+                                <ul class="social-icons" id="social_media_ph">
+                                    
+                                </ul>
+
+                                <!-- Business Hours -->
+                                <div class="headline"><h2><?php echo $this->translate('Working Hours') ?></h2></div>
+                                <ul class="list-unstyled margin-bottom-30">
+                                    <li><strong><?php echo $this->translate('Week days Mon- Fri') ?>: </strong> 08:00 - 18:00</li>
+                                    <li><strong><?php echo $this->translate('Weekends Sat') ?>: </strong> 08:00 - 13:00</li>
+                                    <li><strong><?php echo $this->translate('Weekends Sun') ?>: </strong><?php echo $this->translate('Closed') ?></li>
+                                </ul>
+
+                                <!-- Business Hours -->
+                                <div class="headline"><h2><?php echo $this->translate('For more information please keep in touch ...') ?></h2></div>
+                                <p><?php echo $this->translate('Based on your order, working hours could be revised...') ?></p>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="input-group margin-bottom-10">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="name" placeholder="<?php echo $this->translate('name') ?>" class="form-control">
+                                        </div>    
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group margin-bottom-20">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                            <input type="email" placeholder="<?php echo $this->translate('Email') ?>" class="form-control">
+                                        </div>    
+                                    </div>
+                                </div>    
+
+                                <textarea rows="5" class="form-control margin-bottom-20" placeholder="<?php echo $this->translate('Write details...') ?>"></textarea>
+                                <button class="btn-u btn-u-sm pull-right" type="button"><?php echo $this->translate('Ask your question') ?></button>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <!-- Contacts block end-->
+
+
+            </div>
+            <!--  right column end -->
+
+
         </div>
     </div><!--/container-->    
     <!--=== End Profile ===-->

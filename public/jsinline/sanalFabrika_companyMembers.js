@@ -9,14 +9,18 @@ $(document).ready(function () {
     });
 
     lang.change($('#langCode').val());
-
-//    console.log($('#selectedCompanyNpk').val());
+    
+    if ($('#pk').val()) {
+        var emp_service_url = 'pkFillCompanyInfoEmployees_infoFirmProfile';
+    } else {
+        var emp_service_url = 'fillCompanyInfoEmployeesGuest_infoFirmProfile ';        
+    }
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
         data: {
-            url: 'fillCompanyInfoEmployeesGuest_infoFirmProfile',
+            url: emp_service_url,
             language_code: $("#langCode").val(),
             npk: $('#selectedCompanyNpk').val()
         },

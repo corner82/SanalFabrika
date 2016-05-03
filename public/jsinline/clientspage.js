@@ -1,13 +1,20 @@
 $(document).ready(function () {
 
-    console.log($('#pk').val());
+//    console.log($('#pk').val());
+
+    if ($('#pk').val()) {
+        var list_service_url = 'pkFillCompanyLists_infoFirmProfile';
+    } else {
+        var list_service_url = 'fillCompanyListsGuest_infoFirmProfile';
+    }
 
     $("#pagination_content").empty();
     //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {url: 'fillCompanyListsGuest_infoFirmProfile',
+        data: {url: list_service_url,
+            pk: $('#pk').val(),
             language_code: $("#langCode").val(),
             page: 1,
             rows: 10,
@@ -31,13 +38,13 @@ $(document).ready(function () {
             }
             for (i = 0; i < window.companyperpage; i++) {
                 $('#selectedCompanyNpk').val(data.rows[i].pk);
-                var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ","-");
+                var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
                 $('#selectedCompanyShN').val(rep_firm_short_name);
                 var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
-                
+
                 var appending_html =
                         "<!-- Clients Block-->"
-//                                    + "<a href='#'>"
+//                        + "<a href='#'>"
                         + "<div class='row clients-page'>"
                         + "<div class = 'col-md-2'>"
                         + "<img src='/onyuz/standard/assets/img/sfClients/"
@@ -69,7 +76,7 @@ $(document).ready(function () {
                         + "</li>"
                         + "<li>"
                         + "<i class = 'fa fa-briefcase color-green'> </i>"
-                        //                            + data[i].sectors
+//                        + data[i].sectors
                         + "</li>"
                         + "</ul>"
                         + "<p>"
