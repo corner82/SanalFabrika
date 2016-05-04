@@ -198,7 +198,8 @@ return array(
         'new user' => array(
                          'parent' => 'guest',
                          'action' => array('sanalfabrika' => array ('cmt' , 
-                                                                    'prodsercat'
+                                                                    'prodsercat',
+                                                                    'cprofileset'
                                                                     ))
                    ),
         
