@@ -207,6 +207,28 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
+    
+    public function cprofilesetAction() {
+        $langCode = $this->getServiceLocator()
+                ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                ->get('serviceTranslatorUrlRegulator');
+        $selectedCompanyShN = $this->getEvent()
+                ->getRouteMatch()->getParam('selectedCompanyShN');
+        $selectedCompanyNpk = $this->getEvent()
+                ->getRouteMatch()->getParam('selectedCompanyNpk');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'selectedCompanyShN' => $selectedCompanyShN,
+            'selectedCompanyNpk' => $selectedCompanyNpk,
+            'publicKey' => $publicKey
+        ));
+        return $view;
+    }
 
     public function companyprofileAction() {
         $langCode = $this->getServiceLocator()

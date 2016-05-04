@@ -68,7 +68,8 @@ return array(
             'companyprojectsprofile' => 'layout/companyprojectsprofileLayout.phtml',
             'companyprofilesettings' => 'layout/companyprofilesettingsLayout.phtml',
             'companymtprofile' => 'layout/companymtprofileLayout.phtml',
-            'clientspage' => 'layout/clientspageLayout.phtml'
+            'clientspage' => 'layout/clientspageLayout.phtml',
+            'cprofileset' => 'layout/cprofilesetLayout.phtml'
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
@@ -129,7 +130,8 @@ return array(
     'ActionsTobeAuthenticated' => array(
         'Sanalfabrika' => array(
             'cmt',
-            'prodsercat'
+            'prodsercat',
+            'cprofileset'
         ),
 
     ),
@@ -154,7 +156,8 @@ return array(
                                                                     'companyprojectsprofile', 
                                                                     'companyprofilesettings',
                                                                     'companymtprofile',
-                                                                    'clientspage'
+                                                                    'clientspage',
+                                                                    'cprfileset'
                                                                     ),
                                      'login' => array('index'),)
                    ),
@@ -171,7 +174,8 @@ return array(
                                                               'registration',
                                                               'login',
                                                               'cmt',
-                                                              'prodsercat'
+                                                              'prodsercat',
+                                                              'cprofileset'
                                                               )),
                    ),
         'supervisor' => array(

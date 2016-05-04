@@ -9,9 +9,12 @@ $(document).ready(function () {
 
     lang.change($('#langCode').val());
 
+    $('#header_company_name').empty();
+    $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
+
 
     $('#loging_ph').empty();
-    
+
     if ($('#pk').val()) {
         var prod_service_url = 'pkFillCompanyInfoProducts_infoFirmProfile';
         var loging_value = window.lang.translate('Log out');
@@ -33,7 +36,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            
+
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/EMGE/Logos/';
             window.logosrc = imageFolAddress + data[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
@@ -56,7 +59,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            
+
             var j;
             var dataSet = [];
             var properties = [];
@@ -96,13 +99,13 @@ $(document).ready(function () {
             /*
              * Page header random sample product chooser
              */
-            
+
             var colors = ["red", "yellow", "sea", "dark", "green", "blue", "purple"]
             var fir_sam_prod = properties[Math.floor(Math.random() * properties.length)];
             var second_sam_prod = properties[Math.floor(Math.random() * properties.length)];
             var sel_color_1 = colors[Math.floor(Math.random() * colors.length)];
             var sel_color_2 = colors[Math.floor(Math.random() * colors.length)];
-            
+
             var app_sam_prod =
                     "<div class='col-sm-6 sm-margin-bottom-40'>"
                     + "<div class='funny-boxes funny-boxes-top-"
@@ -371,7 +374,7 @@ $(document).ready(function () {
 
 
 function listOfCertificates() {
-    
+
     if ($("#qualityDetaildDIV").hasClass('active')) {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
