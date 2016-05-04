@@ -10,6 +10,9 @@ $(document).ready(function () {
     lang.change($('#langCode').val());
 //    console.log($('#selectedCompanyNpk').val());
 
+    $('#header_company_name').empty();
+    $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
+
     $('#loging_ph').empty();
 
     if ($('#pk').val()) {
@@ -65,7 +68,7 @@ $(document).ready(function () {
 
 function listOfCertificates() {
 
-    console.log('Available Certificates');
+//    console.log('Available Certificates');
     if ($("#qualityDetaildDIV").hasClass('active')) {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
@@ -101,7 +104,7 @@ function listOfCertificates() {
 
 function qualityHistory() {
 
-    console.log('Qulaity History');
+//    console.log('Qulaity History');
     if ($("#qualityDetaildDIV").hasClass('active')) {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');

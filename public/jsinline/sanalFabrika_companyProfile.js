@@ -39,7 +39,7 @@ $(document).ready(function () {
 //            console.log(data.rows[0]);
             if (data.rows) {
 
-                console.log(data.rows[0]);
+//                console.log(data.rows[0]);
 
                 $('#firm_name_ph').empty();
                 $('#header_company_name').empty();
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
                 var logo_src = imageFolAddress + data.rows[0].logo;
 
-                $('#header_company_name').append("<i class='fa fa-user'></i>" + firm_name);
+                $('#header_company_name').append("<i class='fa fa-user'></i>" + window.firm_name);
                 $('#firm_name_ph').append(window.firm_name);
                 $('#about_firm_ph').append(about_company);
                 $('#title_1_ph').append(title_1);
@@ -88,7 +88,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
+//            console.log(data);
             var i;
             $('#testimonials_ph').empty();
 
@@ -116,7 +116,7 @@ $(document).ready(function () {
                         + "</div>"
                         + "<!-- End Testimonials v4 -->"
                         + "</div>";
-                console.log(appending);
+//                console.log(appending);
                 $('#testimonials_ph').append(appending);
 
             }

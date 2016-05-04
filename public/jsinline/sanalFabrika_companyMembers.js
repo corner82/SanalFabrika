@@ -10,6 +10,10 @@ $(document).ready(function () {
 
     lang.change($('#langCode').val());
     
+    $('#header_company_name').empty();
+    $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
+
+    
     $('#loging_ph').empty();
     
     if ($('#pk').val()) {
@@ -58,7 +62,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 
-            console.log(data);
+//            console.log(data);
 
             $('#members_ph').empty();
 
@@ -125,14 +129,8 @@ function social_media_call() {
         dataType: "json",
         success: function (data) {
 
-
-            console.log(data);
             for (var i = 0; i < data.rows.length; i++) {
 
-                console.log('abbr: ' + data.rows[i].abbreviation);
-                console.log('title: ' + data.rows[i].socialmedia_name);
-                console.log('link: ' + data.rows[i].user_link);
-                console.log('social name: ' + data.rows[i].socialmedia_name);
                 
                 if(data.rows[i].socialmedia_name === 'googleplus'){
                     var social_media_name = 'google-plus';
