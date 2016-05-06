@@ -35,6 +35,7 @@ $(document).ready(function () {
         window.projects = 'Company Projects';
         window.comments = 'Comments';
         window.brief_history = 'Company History';
+        window.profile_setting = 'Profile Setting';
     } else if($('#langCode').val() === 'tr'){
         window.companyprofile = 'Firma Profili';
         window.performance = 'Performans Değerleri';
@@ -44,6 +45,7 @@ $(document).ready(function () {
         window.projects = 'Firma Projeleri';
         window.comments = 'Yorumlar';
         window.brief_history = 'Firma Ticari Tarihçesi';
+        window.profile_setting = 'Profil Ayarları';
     } else if($('#langCode').val() === 'fa'){
         window.companyprofile = 'پروفایل شرکت';
         window.performance = 'معیارهای عملکرد';
@@ -53,6 +55,7 @@ $(document).ready(function () {
         window.projects = 'پروژه های شرکت';
         window.comments = 'نظرات';
         window.brief_history = 'تاریخچه تجاری شرکت';
+        window.profile_setting = 'تنظیمات پروفایل';
     }
 
     /*
@@ -128,6 +131,14 @@ $(document).ready(function () {
             + window.brief_history
             + "</a>";
     +"</li>";
+    var settingslink =
+            "<li id='cprofileset' class='list-group-item' onclick=changeMenu(this)>"
+            + "<a href='#' onmouseover='' style='cursor: pointer;'>"
+            + "<i class='fa fa-bar-chart-o'>"
+            + "</i>"
+            + window.profile_setting
+            + "</a>";
+    +"</li>";
 
     /*
      * Check registered user and call required menu links
@@ -152,7 +163,8 @@ $(document).ready(function () {
                 + memberslink
 //                + projectslink
 //                + commentslink
-                + historylink);
+                + historylink
+                + settingslink);
     }
 
     /*

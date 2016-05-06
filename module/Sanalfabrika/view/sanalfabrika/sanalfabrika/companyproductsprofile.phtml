@@ -183,7 +183,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'id' => $selectedCompanyNpk));
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile','selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
                            ?>">
                            <?php echo $this->translate('Company Profile') ?>
                     </a>

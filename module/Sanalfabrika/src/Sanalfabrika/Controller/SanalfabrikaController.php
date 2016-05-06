@@ -240,7 +240,7 @@ class SanalfabrikaController extends AbstractActionController {
         $selectedCompanyNpk = $this->getEvent()
                 ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                            ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,

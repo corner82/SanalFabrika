@@ -7,7 +7,7 @@ $(document).ready(function () {
     });
 
     lang.change($('#langCode').val());
-
+    
     $('#loging_ph').empty();
 
     if ($('#pk').val()) {
@@ -18,7 +18,7 @@ $(document).ready(function () {
         var loging_value = window.lang.translate('Log out');
     } else {
         var ref_service_url = 'fillCompanyInfoReferencesGuest_infoFirmProfile';
-        var soc_med_service_url = 'fillCompanyInfoSocialediaGuest_infoFirmProfile ';
+        var soc_med_service_url = 'fillCompanyInfoSocialediaGuest_infoFirmProfile';
         var verbal_service_url = 'fillUsersFirmVerbalNpkGuest_infoFirmVerbal';
         var user_desc_service_url = 'fillUsersDescForFirmVerbalNpkGuest_infoFirmUserDescForCompany';
         var loging_value = window.lang.translate('Log in');
@@ -62,7 +62,7 @@ $(document).ready(function () {
                 var verbal_3 = data.rows[0].verbal3;
                 var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
                 var logo_src = imageFolAddress + data.rows[0].logo;
-
+                                        
                 $('#header_company_name').append("<i class='fa fa-user'></i>" + window.firm_name);
                 $('#firm_name_ph').append(window.firm_name);
                 $('#about_firm_ph').append(about_company);

@@ -35,7 +35,7 @@ $(document).ready(function () {
         success: function (data) {
 //            console.log(data);
 
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
 
             window.logosrc = imageFolAddress + data[0].logo;
 
