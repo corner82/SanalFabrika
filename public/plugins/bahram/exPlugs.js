@@ -216,7 +216,8 @@
 
     /*
      * paginator widget 
-     * 
+     * @author: Bahram Lotfi Sadigh
+     * @Since: 2016.03.20
      */
 
     if ($('#pk').val()) {
@@ -230,9 +231,6 @@
          * Default options.
          * @returns {null}
          */
-
-
-
         options: {
             total: 50,
             page: 1,
@@ -356,7 +354,3 @@
         }
     });
 }(jQuery));
-
-
-
-

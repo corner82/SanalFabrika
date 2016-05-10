@@ -374,8 +374,8 @@
                 </li>
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile','selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
-                ?>">
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
+                           ?>">
                            <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>
@@ -433,16 +433,24 @@
                                                 <div id="company_country_ph">
                                                 </div>
                                             </div>
-                                            <img id="company_logo_ph" class="img-responsive pad" 
-                                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
-                                                 alt="Photo" style="max-height: 300px;max-width: 300px">
-                                            <div class="form-group">
-                                                <label for="logoInputFile"><?php echo $this->translate('Company Logo') ?></label>
-                                                <input type="file" id="exampleInputFile">
-                                                <p class="help-block"><?php echo $this->translate('Please provide your company logo in png format. Give your company name to this file and upload your file to the system. Please note, this image must be in 400X400 pixels and has minimum resolution of 300 dpi.') ?></p>
+                                            <div class="image-upload col-lg-6" style="margin-top: 20px">
+                                                <label for="file_input">
+                                                    <a id="logo_edit_title" class="hovertext col-md-12" title="Click to update logo">
+                                                    <img id="company_logo" class="img-responsive" 
+                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
+                                                         border="0" alt="">
+                                                    </a>
+                                                </label>
+                                                <input id="file_input" type="file"/>
+                                            </div>
+                                            <div class="form-group col-lg-6" >
+                                                <!--<label for="logoInputFile"><?php echo $this->translate('Company Logo') ?></label>-->
+                                                <!--<input type="file" id="exampleInputFile">-->
+                                                <p class="help-block"><?php echo $this->translate('Please provide your company logo in png format. Give your company name to this file and upload your file to the system. Please note, this image must be in 300 pixels X 400 pixels and minimum resolution of 300 dpi.') ?></p>
                                                 <p class="help-block"><?php echo $this->translate('Example:') ?></p>
                                                 <p class="help-block"><?php echo $this->translate('If your company name is "abc" then the name of your logo file should be "abc.png".') ?></p>
-                                            </div>                                                      
+                                            </div>
+
                                         </div>
 
                                         <!-- First Column End -->
@@ -456,17 +464,17 @@
                                                 <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                             </div>
                                             <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company\'s main business sectors.") ?>
+                                                <label><?php echo $this->translate("Your company's main business sectors.") ?>
                                                     <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
                                                 <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                             </div>  
                                             <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company\'s vision.") ?>
+                                                <label><?php echo $this->translate("Your company's vision.") ?>
                                                     <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
                                                 <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                             </div> 
                                             <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company\'s capabilities and competitive fields.") ?>
+                                                <label><?php echo $this->translate("Your company's capabilities and competitive fields.") ?>
                                                     <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
                                                 <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                             </div>
@@ -550,7 +558,6 @@
 
                                         <!-- Second Column Start -->
                                         <div class="col-lg-6">
-
                                             <div class="form-group" name="website"  id="website">
                                                 <label><?php echo $this->translate('Web site') ?></label>
                                                 <div class="input-group">
@@ -598,94 +605,100 @@
                                                 <h3 class="box-title"><?php echo $this->translate('Social Media Information') ?></h3>                    
                                             </div>
                                             <div id="social_media_ph">
-                                                
-                                            </div>
-<!--                                            <div id="facebook_ph" style="margin-top: 20px">
-                                                <a id="facebook_long" class="btn btn-block btn-social btn-facebook" 
-                                                   onclick="changecontent(this)">
-                                                    <i class="fa fa-facebook"></i>
-                                                    <span id="facebook_span">
-                                                        <?php echo $this->translate("Enter Company's Facebook Account") ?>
-                                                    </span>
-                                                </a>
-                                                <div id="facebook_input"  style="display:none; max-height: 20px;"
-                                                     class="input-group margin">
-                                                    <span class="input-group-btn">
-                                                        <a id="facebook_input_button" class="btn btn-social-icon btn-facebook" onclick="checkContent(this)"><i class="fa fa-facebook"></i></a>                                                        
-                                                    </span>
-                                                    <input id="facebook_input_field" type="text" class="form-control" value="https://www.facebook.com/">
 
-                                                </div>
                                             </div>
-                                            <div id="twitter_ph" style="margin-top: 20px">
-                                                <a id="twitter_long" class="btn btn-block btn-social btn-twitter" 
-                                                   onclick="changecontent(this)">
-                                                    <i class="fa fa-twitter"></i>
-                                                    <span id="twitter_span">
-                                                        <?php echo $this->translate("Enter Company's twitter Account") ?>
-                                                    </span>
-                                                </a>
-                                                <div id="twitter_input"  style="display:none; max-height: 20px;"
-                                                     class="input-group margin">
-                                                    <span class="input-group-btn">
-                                                        <a id="twitter_input_button" class="btn btn-social-icon btn-twitter" onclick="checkContent(this)"><i class="fa fa-twitter"></i></a>                                                        
-                                                    </span>
-                                                    <input id="twitter_input_field" type="text" class="form-control" value="https://www.twitter.com/">
+                                            <div id="ava_med_ph" style="margin-top: 20px">
 
-                                                </div>
                                             </div>
-                                            <div id="instagram_ph" style="margin-top: 20px">
-                                                <a id="instagram_long" class="btn btn-block btn-social btn-instagram" 
-                                                   onclick="changecontent(this)">
-                                                    <i class="fa fa-instagram"></i>
-                                                    <span id="instagram_span">
-                                                        <?php echo $this->translate("Enter Company's instagram Account") ?>
-                                                    </span>
-                                                </a>
-                                                <div id="instagram_input"  style="display:none; max-height: 20px;"
-                                                     class="input-group margin">
-                                                    <span class="input-group-btn">
-                                                        <a id="instagram_input_button" class="btn btn-social-icon btn-instagram" onclick="checkContent(this)"><i class="fa fa-instagram"></i></a>                                                        
-                                                    </span>
-                                                    <input id="instagram_input_field" type="text" class="form-control" value="https://www.instagram.com/">
+                                            <div id="sel_med_ph" style="margin-bottom: 20px">
 
-                                                </div>
                                             </div>
-                                            <div id="google-plus_ph" style="margin-top: 20px">
-                                                <a id="google-plus_long" class="btn btn-block btn-social btn-google-plus" 
-                                                   onclick="changecontent(this)">
-                                                    <i class="fa fa-google-plus"></i>
-                                                    <span id="google-plus_span">
-                                                        <?php echo $this->translate("Enter Company's google-plus Account") ?>
-                                                    </span>
-                                                </a>
-                                                <div id="google-plus_input"  style="display:none; max-height: 20px;"
-                                                     class="input-group margin">
-                                                    <span class="input-group-btn">
-                                                        <a id="google-plus_input_button" class="btn btn-social-icon btn-google-plus" onclick="checkContent(this)"><i class="fa fa-google-plus"></i></a>                                                        
-                                                    </span>
-                                                    <input id="google-plus_input_field" type="text" class="form-control" value="https://www.google-plus.com/">
-
-                                                </div>
-                                            </div>
-                                            <div id="tumblr_ph" style="margin-top: 20px">
-                                                <a id="tumblr_long" class="btn btn-block btn-social btn-tumblr" 
-                                                   onclick="changecontent(this)">
-                                                    <i class="fa fa-tumblr"></i>
-                                                    <span id="tumblr_span">
-                                                        <?php echo $this->translate("Enter Company's tumblr Account") ?>
-                                                    </span>
-                                                </a>
-                                                <div id="tumblr_input"  style="display:none; max-height: 20px;"
-                                                     class="input-group margin">
-                                                    <span class="input-group-btn">
-                                                        <a id="tumblr_input_button" class="btn btn-social-icon btn-tumblr" onclick="checkContent(this)"><i class="fa fa-tumblr"></i></a>                                                        
-                                                    </span>
-                                                    <input id="tumblr_input_field" type="text" class="form-control" value="https://www.tumblr.com/">
-
-                                                </div>
-                                            </div>-->
+                                            <!--                                            <div id="facebook_ph" style="margin-top: 20px">
+                                                                                            <a id="facebook_long" class="btn btn-block btn-social btn-facebook" 
+                                                                                               onclick="changecontent(this)">
+                                                                                                <i class="fa fa-facebook"></i>
+                                                                                                <span id="facebook_span">
+                                            <?php echo $this->translate("Enter Company's Facebook Account") ?>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                            <div id="facebook_input"  style="display:none; max-height: 20px;"
+                                                                                                 class="input-group margin">
+                                                                                                <span class="input-group-btn">
+                                                                                                    <a id="facebook_input_button" class="btn btn-social-icon btn-facebook" onclick="checkContent(this)"><i class="fa fa-facebook"></i></a>                                                        
+                                                                                                </span>
+                                                                                                <input id="facebook_input_field" type="text" class="form-control" value="https://www.facebook.com/">
                                             
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="twitter_ph" style="margin-top: 20px">
+                                                                                            <a id="twitter_long" class="btn btn-block btn-social btn-twitter" 
+                                                                                               onclick="changecontent(this)">
+                                                                                                <i class="fa fa-twitter"></i>
+                                                                                                <span id="twitter_span">
+                                            <?php echo $this->translate("Enter Company's twitter Account") ?>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                            <div id="twitter_input"  style="display:none; max-height: 20px;"
+                                                                                                 class="input-group margin">
+                                                                                                <span class="input-group-btn">
+                                                                                                    <a id="twitter_input_button" class="btn btn-social-icon btn-twitter" onclick="checkContent(this)"><i class="fa fa-twitter"></i></a>                                                        
+                                                                                                </span>
+                                                                                                <input id="twitter_input_field" type="text" class="form-control" value="https://www.twitter.com/">
+                                            
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="instagram_ph" style="margin-top: 20px">
+                                                                                            <a id="instagram_long" class="btn btn-block btn-social btn-instagram" 
+                                                                                               onclick="changecontent(this)">
+                                                                                                <i class="fa fa-instagram"></i>
+                                                                                                <span id="instagram_span">
+                                            <?php echo $this->translate("Enter Company's instagram Account") ?>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                            <div id="instagram_input"  style="display:none; max-height: 20px;"
+                                                                                                 class="input-group margin">
+                                                                                                <span class="input-group-btn">
+                                                                                                    <a id="instagram_input_button" class="btn btn-social-icon btn-instagram" onclick="checkContent(this)"><i class="fa fa-instagram"></i></a>                                                        
+                                                                                                </span>
+                                                                                                <input id="instagram_input_field" type="text" class="form-control" value="https://www.instagram.com/">
+                                            
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="google-plus_ph" style="margin-top: 20px">
+                                                                                            <a id="google-plus_long" class="btn btn-block btn-social btn-google-plus" 
+                                                                                               onclick="changecontent(this)">
+                                                                                                <i class="fa fa-google-plus"></i>
+                                                                                                <span id="google-plus_span">
+                                            <?php echo $this->translate("Enter Company's google-plus Account") ?>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                            <div id="google-plus_input"  style="display:none; max-height: 20px;"
+                                                                                                 class="input-group margin">
+                                                                                                <span class="input-group-btn">
+                                                                                                    <a id="google-plus_input_button" class="btn btn-social-icon btn-google-plus" onclick="checkContent(this)"><i class="fa fa-google-plus"></i></a>                                                        
+                                                                                                </span>
+                                                                                                <input id="google-plus_input_field" type="text" class="form-control" value="https://www.google-plus.com/">
+                                            
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div id="tumblr_ph" style="margin-top: 20px">
+                                                                                            <a id="tumblr_long" class="btn btn-block btn-social btn-tumblr" 
+                                                                                               onclick="changecontent(this)">
+                                                                                                <i class="fa fa-tumblr"></i>
+                                                                                                <span id="tumblr_span">
+                                            <?php echo $this->translate("Enter Company's tumblr Account") ?>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                            <div id="tumblr_input"  style="display:none; max-height: 20px;"
+                                                                                                 class="input-group margin">
+                                                                                                <span class="input-group-btn">
+                                                                                                    <a id="tumblr_input_button" class="btn btn-social-icon btn-tumblr" onclick="checkContent(this)"><i class="fa fa-tumblr"></i></a>                                                        
+                                                                                                </span>
+                                                                                                <input id="tumblr_input_field" type="text" class="form-control" value="https://www.tumblr.com/">
+                                            
+                                                                                            </div>
+                                                                                        </div>-->
+
 
                                         </div>                                        
                                         <!-- Second Column End -->
@@ -701,71 +714,7 @@
                             </div>
                             <div class="tab-pane" id="references">
                                 <!-- /.box-header -->
-                                <div class="box-body">
-                                    <form role="form">
-                                        <!-- First Column Start -->
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="full_name_ph"><?php echo $this->translate('Company Full Name') ?></label>
-                                                <input type="text" class="form-control" id="full_name_ph" placeholder="Enter company full name here please">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="short_name_ph"><?php echo $this->translate('Company Short Name') ?></label>
-                                                <input type="text" class="form-control" id="short_name_ph" placeholder="Enter company short name here please">
-                                            </div>                            
-                                            <div class="form-group">                                
-                                                <label for="company_country_ph"><?php echo $this->translate('Country') ?></label>
-                                                <div id="company_country_ph">
-                                                </div>
-                                            </div>
-                                            <img id="company_logo_ph" class="img-responsive pad" 
-                                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
-                                                 alt="Photo" style="max-height: 300px;max-width: 300px">
-                                            <div class="form-group">
-                                                <label for="logoInputFile"><?php echo $this->translate('Company Logo') ?></label>
-                                                <input type="file" id="exampleInputFile">
-                                                <p class="help-block"><?php echo $this->translate('Please provide your company logo in png format. Give your company name to this file and upload your file to the system. Please note, this image must be in 400X400 pixels and has minimum resolution of 300 dpi.') ?></p>
-                                                <p class="help-block"><?php echo $this->translate('Example:') ?></p>
-                                                <p class="help-block"><?php echo $this->translate('If your company name is "abc" then the name of your logo file should be "abc.png".') ?></p>
-                                            </div>                                                      
-                                        </div>
 
-                                        <!-- First Column End -->
-
-                                        <!-- Second Column Start -->
-                                        <div class="col-lg-6">
-
-                                            <div class="form-group">
-                                                <label><?php echo $this->translate("Please enter a brief description about your company.") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(No more than 400 character...)") ?></p></label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div>
-                                            <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company\'s main business sectors.") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div>  
-                                            <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company\'s vision.") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div> 
-                                            <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company\'s capabilities and competitive fields.") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div>
-
-                                        </div>
-                                        <!-- Second Column End -->
-
-                                        <!-- General Information Footer Start -->
-                                        <div class="box-footer col-lg-12">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
-                                        <!-- General Information Footer End -->
-                                    </form>
-                                </div>
                                 <!-- /.box-body -->
                             </div>
                         </div>

@@ -429,3 +429,46 @@ Parallax backgound override
     padding: 30px 0;
     background: url(../../onyuz/standard/assets/img/bg/background-pattern-5-filtered.jpg) repeat fixed;
 }
+
+/*
+image edit button css
+*/
+
+
+a.hovertext {
+    position: relative;
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+}
+a.hovertext:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    alignment-adjust: central;
+    padding: 0.5em 20px;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+}
+a.hovertext:hover:after, a.hovertext:focus:after {
+    opacity: 0.5;
+}
+
+
+
+#logo_ph > input
+{
+    display: none;
+}
+
+#file_input{
+    display: none;
+}
