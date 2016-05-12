@@ -406,11 +406,14 @@
                 <div class="box-body" style="display: block;">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#general_info" data-toggle="tab" aria-expanded="true"><?php echo $this->translate('General Information') ?></a></li>
-                            <li class=""><a href="#address_info" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('Address Information') ?></a></li>
-                            <li class=""><a href="#references" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('References') ?></a></li>
+                            <li class="active" onclick="hide_hidden_sections()"><a href="#general_info" data-toggle="tab" aria-expanded="true"><?php echo $this->translate('General Information') ?></a></li>
+                            <li class="" onclick="hide_hidden_sections()"><a href="#address_info" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('Address Information') ?></a></li>
+                            <li class="" onclick="hide_hidden_sections()"><a href="#references" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('References') ?></a></li>
+                            <li class="" onclick="hide_hidden_sections()"><a href="#machine_park" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('Machine Park') ?></a></li>
+                            <li class="" onclick="hide_hidden_sections()"><a href="#products" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('Products') ?></a></li>
                         </ul>
                         <div class="tab-content">
+                            <!-- Start of General Information tab contents -->
                             <div class="tab-pane active" id="general_info">
                                 <!-- /.box-header -->
                                 <div class="box-header with-border">
@@ -436,9 +439,9 @@
                                             <div class="image-upload col-lg-6" style="margin-top: 20px">
                                                 <label for="file_input">
                                                     <a id="logo_edit_title" class="hovertext col-md-12" title="Click to update logo">
-                                                    <img id="company_logo_fake" style="display: none; visibility: hidden" src="" >
+                                                        <img id="company_logo_fake" style="display: none; visibility: hidden" src="" >
                                                     </a>
-                                                        <img id="company_logo" class="img-responsive" 
+                                                    <img id="company_logo" class="img-responsive" 
                                                          src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
                                                          border="0" alt="">
                                                     </a>
@@ -486,13 +489,17 @@
 
                                         <!-- General Information Footer Start -->
                                         <div class="box-footer col-lg-12">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary">
+                                                <?php echo $this->translate('Submit') ?>
+                                            </button>
                                         </div>
                                         <!-- General Information Footer End -->
                                     </form>
                                 </div>
                             </div>
+                            <!-- End of General Information tab contents -->
                             <!-- /.box-body -->
+                            <!-- Start of Address Information tab contents -->
                             <div class="tab-pane" id="address_info">
                                 <!-- /.box-header -->
                                 <div class="box-header with-border">
@@ -614,496 +621,642 @@
                                             </div>
                                             <div id="sel_med_ph" style="margin-bottom: 20px">
 
-                                            </div>
-                                            <!--                                            <div id="facebook_ph" style="margin-top: 20px">
-                                                                                            <a id="facebook_long" class="btn btn-block btn-social btn-facebook" 
-                                                                                               onclick="changecontent(this)">
-                                                                                                <i class="fa fa-facebook"></i>
-                                                                                                <span id="facebook_span">
-                                            <?php echo $this->translate("Enter Company's Facebook Account") ?>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                            <div id="facebook_input"  style="display:none; max-height: 20px;"
-                                                                                                 class="input-group margin">
-                                                                                                <span class="input-group-btn">
-                                                                                                    <a id="facebook_input_button" class="btn btn-social-icon btn-facebook" onclick="checkContent(this)"><i class="fa fa-facebook"></i></a>                                                        
-                                                                                                </span>
-                                                                                                <input id="facebook_input_field" type="text" class="form-control" value="https://www.facebook.com/">
-                                            
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div id="twitter_ph" style="margin-top: 20px">
-                                                                                            <a id="twitter_long" class="btn btn-block btn-social btn-twitter" 
-                                                                                               onclick="changecontent(this)">
-                                                                                                <i class="fa fa-twitter"></i>
-                                                                                                <span id="twitter_span">
-                                            <?php echo $this->translate("Enter Company's twitter Account") ?>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                            <div id="twitter_input"  style="display:none; max-height: 20px;"
-                                                                                                 class="input-group margin">
-                                                                                                <span class="input-group-btn">
-                                                                                                    <a id="twitter_input_button" class="btn btn-social-icon btn-twitter" onclick="checkContent(this)"><i class="fa fa-twitter"></i></a>                                                        
-                                                                                                </span>
-                                                                                                <input id="twitter_input_field" type="text" class="form-control" value="https://www.twitter.com/">
-                                            
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div id="instagram_ph" style="margin-top: 20px">
-                                                                                            <a id="instagram_long" class="btn btn-block btn-social btn-instagram" 
-                                                                                               onclick="changecontent(this)">
-                                                                                                <i class="fa fa-instagram"></i>
-                                                                                                <span id="instagram_span">
-                                            <?php echo $this->translate("Enter Company's instagram Account") ?>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                            <div id="instagram_input"  style="display:none; max-height: 20px;"
-                                                                                                 class="input-group margin">
-                                                                                                <span class="input-group-btn">
-                                                                                                    <a id="instagram_input_button" class="btn btn-social-icon btn-instagram" onclick="checkContent(this)"><i class="fa fa-instagram"></i></a>                                                        
-                                                                                                </span>
-                                                                                                <input id="instagram_input_field" type="text" class="form-control" value="https://www.instagram.com/">
-                                            
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div id="google-plus_ph" style="margin-top: 20px">
-                                                                                            <a id="google-plus_long" class="btn btn-block btn-social btn-google-plus" 
-                                                                                               onclick="changecontent(this)">
-                                                                                                <i class="fa fa-google-plus"></i>
-                                                                                                <span id="google-plus_span">
-                                            <?php echo $this->translate("Enter Company's google-plus Account") ?>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                            <div id="google-plus_input"  style="display:none; max-height: 20px;"
-                                                                                                 class="input-group margin">
-                                                                                                <span class="input-group-btn">
-                                                                                                    <a id="google-plus_input_button" class="btn btn-social-icon btn-google-plus" onclick="checkContent(this)"><i class="fa fa-google-plus"></i></a>                                                        
-                                                                                                </span>
-                                                                                                <input id="google-plus_input_field" type="text" class="form-control" value="https://www.google-plus.com/">
-                                            
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div id="tumblr_ph" style="margin-top: 20px">
-                                                                                            <a id="tumblr_long" class="btn btn-block btn-social btn-tumblr" 
-                                                                                               onclick="changecontent(this)">
-                                                                                                <i class="fa fa-tumblr"></i>
-                                                                                                <span id="tumblr_span">
-                                            <?php echo $this->translate("Enter Company's tumblr Account") ?>
-                                                                                                </span>
-                                                                                            </a>
-                                                                                            <div id="tumblr_input"  style="display:none; max-height: 20px;"
-                                                                                                 class="input-group margin">
-                                                                                                <span class="input-group-btn">
-                                                                                                    <a id="tumblr_input_button" class="btn btn-social-icon btn-tumblr" onclick="checkContent(this)"><i class="fa fa-tumblr"></i></a>                                                        
-                                                                                                </span>
-                                                                                                <input id="tumblr_input_field" type="text" class="form-control" value="https://www.tumblr.com/">
-                                            
-                                                                                            </div>
-                                                                                        </div>-->
-
-
+                                            </div>                                            
                                         </div>                                        
                                         <!-- Second Column End -->
 
                                         <!-- General Information Footer Start -->
                                         <div class="box-footer col-lg-12">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                                            <button type="submit" class="btn btn-primary">
+                                                <?php echo $this->translate('Submit') ?>
+                                            </button>
                                         </div>
                                         <!-- General Information Footer End -->
                                     </form>
                                 </div>
                                 <!-- /.box-body -->
                             </div>
+                            <!-- End of Address Information tab contents -->
+                            <!-- /.box-body -->
+                            <!-- Start of References Information tab contents -->
                             <div class="tab-pane" id="references">
                                 <!-- /.box-header -->
+                                <div class="box-header with-border">
+                                    <h3 class="box-title"><?php echo $this->translate('References') ?></h3>                    
+                                </div>
 
+                                <div class="box-body">
+                                    <div class="row">
+                                        <!-- First Column Start -->
+                                        <div class="col-lg-9">                                          
+                                            <!--<label for="ava_ref_list"><?php echo $this->translate('List of your company references') ?></label>-->
+
+                                            <table id='refs_table' style="width:100%px" 
+                                                   title="List of References" >
+                                            </table> 
+                                        </div>
+                                        <!-- First Column End 
+                                        <!-- Second Column Start -->
+                                        <div class="col-lg-3">
+                                            <p><?php echo $this->translate('In order to get noticed by potential buyers it is recommended to obtain references.') ?><br/> 
+                                                <?php echo $this->translate('New refernces will be visible in your references list upon accepting your invitation and approval of system supervisor.') ?>
+                                            </p>
+                                            <button id="ref_inv_btn" type="button" class="btn btn-primary col-lg-12" onclick="view_send_invitation()">
+                                                <?php echo $this->translate('Send new invitation') ?>
+                                            </button>
+                                            <div class="form-group">                                
+                                                <label for=""><?php echo $this->translate('') ?></label>
+                                                <div id="">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Second Column End -->
+                                    </div> 
+                                </div>
                                 <!-- /.box-body -->
                             </div>
+                            <!-- End of References tab contents -->
+                            <!-- /.box-body -->
+                            <!-- Start of Machine Park Information tab contents -->
+                            <div class="tab-pane" id="machine_park">
+                                <!-- /.box-header -->
+                                <div class="box-header with-border">
+                                    <h3 class="box-title"><?php echo $this->translate('Machine park') ?></h3>                    
+                                </div>
+                                <div class="box-body">
+                                    <!-- Start of first column -->
+                                    <div class="col-lg-9">
+                                        <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%px;height:250px"
+                                               data-options="singleSelect:true,collapsible:true,url:'',method:'get'">
+                                            <thead>
+                                                <tr>
+                                                    <th data-options="field:'itemid',width:80">Machine ID</th>
+                                                    <th data-options="field:'manufacturer_name',width:100">Manufacturer</th>
+                                                    <th data-options="field:'series',width:80,align:'right'">Series</th>
+                                                    <th data-options="field:'model',width:80,align:'right'">Model</th>
+                                                    <th data-options="field:'number',width:250">Number</th>
+                                                    <th data-options="field:'category',width:60,align:'center'">Category</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                    <!-- End of first column -->
+                                    <!-- Start of second column -->
+                                    <div class="col-lg-3">  
+                                        <p>
+                                            <?php echo $this->translate("Company machine park reveals your company's capabilities.") ?><br/>
+                                            <?php echo $this->translate("Check machine list continuously and keep your machine park list up to date, to not to miss potential orders from customers.") ?>
+                                            <button id="add_new _machine" type="button" class="btn btn-primary col-lg-12" onclick="unhide_mt_section()">
+                                                <?php echo $this->translate('Add new machine') ?>
+                                            </button>
+                                    </div>
+                                    <!-- End of second column -->                                        
+                                </div>
+                            </div>                            
+                            <!-- End of Machine Park Information tab contents -->
+                            <!-- /.box-body -->
+                            <!-- Start of Productions Information tab contents -->
+                            <div class="tab-pane" id="products">
+                                <!-- /.box-header -->
+                                <div class="box-header with-border">
+                                    <h3 class="box-title"><?php echo $this->translate('Products') ?></h3>                    
+                                </div>
+                                <div class="box-body">
+                                    <form role="form">
+                                    </form>
+                                </div>
+                            </div>                            
+                            <!-- End of Productions Information tab contents -->
+                            <!-- /.box-body -->
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- end of company general information setting -->
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b><?php echo $this->translate('Version') ?></b> 1.0
-        </div>
-        <strong><?php echo $this->translate('Copyright') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a></strong> <?php echo $this->translate('All rights reserved.') ?>
-    </footer>
-
-    <!-- Control Sidebar -->      
-    <aside class="control-sidebar control-sidebar-dark">                
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i class="fa fa-wrench"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <!-- Home tab content -->
-            <div class="tab-pane" id="control-sidebar-home-tab">
-                <div>
-                    <h3 class="control-sidebar-heading"><?php echo $this->translate('Recent Activities') ?></h3>
-                    <ul class='control-sidebar-menu'>
-                        <li>
-                            <a href='javascript::;'>
-                                <i class="menu-icon-zeyn fa fa-file-code-o bg-green"></i>
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading"><?php echo $this->translate('Logged in') ?></h4>
-                                    <p><!--Will be 23 on April 24th--></p>
-                                </div>
-                            </a>
-                        </li>
-                        <!--<li>
-                          <a href='javascript::;'>
-                            <i class="menu-icon-zeyn fa fa-user bg-yellow"></i>
-                            <div class="menu-info">
-                              <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-                              <p>New phone +1(800)555-1234</p>
+            <!-- start of hidden reference section -->            
+            <div id="hidden_send_ref" style="display: none; visibility: hidden">
+                <div class="box box-primary">
+                    <div id="invite_ref">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><?php echo $this->translate('Invite References') ?></h3>                    
+                        </div>
+                        <div class="box-body">
+                            <div name="notification_section"> 
+                                <span style="font-weight: bold"><?php echo $this->translate('Inviting References') ?></span><br/>
+                                <span><?php echo $this->translate("You can request references from buying organizations with which you've conducted business.") ?> </span><br/>
+                                <span><?php echo $this->translate("After a buyer accepts your invitation to become a reference, their comments appear in your supplier profile.") ?> </span><br/>
+                                <span><?php echo $this->translate("We value your privacy. OSTIM virtual enterprise will not share your customer information with third parties.") ?></span><br/>
                             </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href='javascript::;'>
-                            <i class="menu-icon-zeyn fa fa-envelope-o bg-light-blue"></i>
-                            <div class="menu-info">
-                              <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-                              <p>nora@example.com</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href='javascript::;'>
-                            <i class="menu-icon-zeyn fa fa-envelope-o bg-light-blue"></i>
-                            <div class="menu-info">
-                              <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-                              <p>Execution time 5 seconds</p>
-                            </div>
-                          </a>
-                        </li>-->
-                    </ul><!-- /.control-sidebar-menu -->
+                            <hr>
+                            <div id="enter_ref_info">
+                                <!-- Reference add form start -->
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="list_reg_customers"><?php echo $this->translate('List of registered companies in OSTIM Virtual Enterprise System') ?></label>
+                                        <div id="list_reg_customers">
+                                        </div>                                            
+                                    </div>
+                                    <div class="row" style="margin-top: 20px">
+                                        <div class="col-lg-9">
+                                            <div class="form-group">    
+                                                <label for="sel_customer"><?php echo $this->translate('Selected Customer is:') ?></label>
+                                                <Input id="sel_customer" type="text" disabled="disabled" 
+                                                       class="form-control col-md-6"></Input>
+                                            </div>
 
-                    <h3 class="control-sidebar-heading"><?php echo $this->translate('Tasks Progress') ?></h3> 
-                    <ul class='control-sidebar-menu'>
-                        <li>
-                            <a href='javascript::;'>               
-                                <h4 class="control-sidebar-subheading">
-                                    Ziyaret Edilen Firmalar
-                                    <span class="label label-danger pull-right">3%</span>
-                                </h4>
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 3%"></div>
-                                </div>                                    
-                            </a>
-                        </li> 
-                        <li>
-                            <a href='javascript::;'>               
-                                <h4 class="control-sidebar-subheading">
-                                    Tamamlanan Temiz Üretim Raporları
-                                    <span class="label label-success pull-right">0%</span>
-                                </h4>
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-success" style="width: 0%"></div>
-                                </div>                                    
-                            </a>
-                        </li> 
-                        <li>
-                            <a href='javascript::;'>               
-                                <h4 class="control-sidebar-subheading">
-                                    Tamamlanan Enerji Verimliliği Raporları
-                                    <span class="label label-waring pull-right">0%</span>
-                                </h4>
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-warning" style="width: 0%"></div>
-                                </div>                                    
-                            </a>
-                        </li> 
-                        <!--<li>
-                          <a href='javascript::;'>               
+                                            <div id="inv_lett_div" class="form-group">
+                                                <label  style="margin-top: 20px"><?php echo $this->translate("Invitation letter") ?>
+                                                    <p class="help-block"><?php echo $this->translate("(You may customize your letter)") ?></p></label>
+                                                <textarea id="inv_lett_text" class="form-control" rows="15" onchange="control_send_btn();"></textarea>
+                                                <button id="reset_inv_text_btn" type="button" style="margin: 5px"
+                                                        class="btn btn-sm btn-primary col-md-12" disabled='disabled' onclick='reset_inv_text()'>
+                                                            <?php echo $this->translate('Reset Text') ?>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3"> 
+                                            <button id="approve_sel_cust_btn" type="button" style="margin: 5px"
+                                                    class="btn btn-sm btn-primary col-md-12" disabled='disabled' onclick='send_invitation()' >
+                                                        <?php echo $this->translate('Send') ?>
+                                            </button>
+                                            <button id="reject_sel_cust_btn" type="button" style="margin: 5px"
+                                                    class="btn btn-sm btn-default col-md-12" onclick="hide_hidden_sections()">
+                                                        <?php echo $this->translate('Cancel') ?>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- reference add form end -->
+                        </div>                             
+                    </div>
+                </div>                                    
+            </div>
+            <!-- end of hidden references section -->
+
+            <!-- start of hidden machine tool section -->   
+            <div id="hidden_mt_section" style="display: none; visibility: hidden">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('Add new machine') ?></h3>                    
+                    </div>
+                    <div class="box-body">
+                        <form id="new_mt_form">
+                            <!-- start of first new machine section -->  
+                            <div class="col-lg-6">
+                                <label for="machine_categories" style="margin-top: 20px">
+                                    <?php echo $this->translate('New machine tool category:') ?>
+                                </label>
+                                <div id="machine_categories"></div>
+
+                                <label for="machine_types" style="margin-top: 20px">
+                                    <?php echo $this->translate('New machine tool type:') ?>
+                                </label>                                
+                                <div id="machine_types"></div>
+
+                                <label for="machine_brands" style="margin-top: 20px">
+                                    <?php echo $this->translate('New machine tool brand:') ?>
+                                </label>                                
+                                <div id="machine_brands"></div>
+
+                                <label for="machine_series" style="margin-top: 20px">
+                                    <?php echo $this->translate('New machine tool serie:') ?>
+                                </label>                                
+                                <div id="machine_series"></div>
+                            </div>
+                            <!-- end of first new machine section -->  
+                            <!-- start of second new machine section --> 
+                            <div class="col-lg-6">
+                                <label for="selected_mt_category" style="margin-top: 20px">
+                                    <?php echo $this->translate('Selected Machine Category is:') ?>
+                                </label>
+                                <intput id="selected_mt_category" class="form-control" type="text" disabled="disabled" value=""></intput>
+                                <label for="selected_mt_type" style="margin-top: 20px">
+                                    <?php echo $this->translate('Selected Machine Type is:') ?>
+                                </label>
+                                <intput id="selected_mt_type" class="form-control" type="text" disabled="disabled"></intput>
+                                <label for="selected_mt_brand" style="margin-top: 20px">
+                                    <?php echo $this->translate('Selected Machine Brand is:') ?>
+                                </label>
+                                <intput id="selected_mt_brand" class="form-control" type="text" disabled="disabled" ></intput>
+                                <label for="selected_mt_series" style="margin-top: 20px">
+                                    <?php echo $this->translate('Selected Machine Serie is:') ?>
+                                </label>
+                                <intput id="selected_mt_series" class="form-control" type="text" disabled="disabled"></intput>
+
+                                <button class='btn btn-primary col-md-12' id="show_sel_mt_btn" 
+                                        onclick="show_sel_mt()" style="margin-top: 20px; display: none;visibility: hidden">
+                                    <?php echo $this->translate('Show Machine Properties in Detail') ?>
+                                </button>
+                                <button class='btn btn-default col-md-12' id="reset_sel_mt_btn" 
+                                        onclick="reset_sel_mt()" style="margin-top: 20px; display: none;visibility: hidden">
+                                    <?php echo $this->translate('Reset Selections') ?>
+                                </button>
+                            </div>
+                            <!-- end of second new machine section --> 
+                        </form>
+                    </div>
+                </div>
+                <div id='sel_mt_props_div' class ='box box-success' style='display: none;visibility: hidden'>
+                    <div class="box-header with-border">
+                        <h3 id='sel_mt_title' class="box-title"></h3>                    
+                    </div>
+                    <div class='box-body'>
+                        <form>
+                            <div class='col-lg-6'>
+                                <table id="pg" style="width:100%px"></table>
+                            </div>
+                            <div class='col-lg-6'>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>                
+            </div>
+            <!-- end of hidden machine tool section -->
+    </div>
+
+    <!-- end of company general information setting -->
+</section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b><?php echo $this->translate('Version') ?></b> 1.0
+    </div>
+    <strong><?php echo $this->translate('Copyright') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a></strong> <?php echo $this->translate('All rights reserved.') ?>
+</footer>
+
+<!-- Control Sidebar -->      
+<aside class="control-sidebar control-sidebar-dark">                
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i class="fa fa-wrench"></i></a></li>
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane" id="control-sidebar-home-tab">
+            <div>
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('Recent Activities') ?></h3>
+                <ul class='control-sidebar-menu'>
+                    <li>
+                        <a href='javascript::;'>
+                            <i class="menu-icon-zeyn fa fa-file-code-o bg-green"></i>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading"><?php echo $this->translate('Logged in') ?></h4>
+                                <p><!--Will be 23 on April 24th--></p>
+                            </div>
+                        </a>
+                    </li>
+                    <!--<li>
+                      <a href='javascript::;'>
+                        <i class="menu-icon-zeyn fa fa-user bg-yellow"></i>
+                        <div class="menu-info">
+                          <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+                          <p>New phone +1(800)555-1234</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href='javascript::;'>
+                        <i class="menu-icon-zeyn fa fa-envelope-o bg-light-blue"></i>
+                        <div class="menu-info">
+                          <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+                          <p>nora@example.com</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href='javascript::;'>
+                        <i class="menu-icon-zeyn fa fa-envelope-o bg-light-blue"></i>
+                        <div class="menu-info">
+                          <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+                          <p>Execution time 5 seconds</p>
+                        </div>
+                      </a>
+                    </li>-->
+                </ul><!-- /.control-sidebar-menu -->
+
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('Tasks Progress') ?></h3> 
+                <ul class='control-sidebar-menu'>
+                    <li>
+                        <a href='javascript::;'>               
                             <h4 class="control-sidebar-subheading">
-                              Back End Framework
-                              <span class="label label-primary pull-right">68%</span>
+                                Ziyaret Edilen Firmalar
+                                <span class="label label-danger pull-right">3%</span>
                             </h4>
                             <div class="progress progress-xxs">
-                              <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                                <div class="progress-bar progress-bar-danger" style="width: 3%"></div>
                             </div>                                    
-                          </a>
-                        </li>-->             
-                    </ul><!-- /.control-sidebar-menu -->         
-                </div>
-            </div><!-- /.tab-pane -->
-            <!-- Stats tab content -->
+                        </a>
+                    </li> 
+                    <li>
+                        <a href='javascript::;'>               
+                            <h4 class="control-sidebar-subheading">
+                                Tamamlanan Temiz Üretim Raporları
+                                <span class="label label-success pull-right">0%</span>
+                            </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-success" style="width: 0%"></div>
+                            </div>                                    
+                        </a>
+                    </li> 
+                    <li>
+                        <a href='javascript::;'>               
+                            <h4 class="control-sidebar-subheading">
+                                Tamamlanan Enerji Verimliliği Raporları
+                                <span class="label label-waring pull-right">0%</span>
+                            </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-warning" style="width: 0%"></div>
+                            </div>                                    
+                        </a>
+                    </li> 
+                    <!--<li>
+                      <a href='javascript::;'>               
+                        <h4 class="control-sidebar-subheading">
+                          Back End Framework
+                          <span class="label label-primary pull-right">68%</span>
+                        </h4>
+                        <div class="progress progress-xxs">
+                          <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                        </div>                                    
+                      </a>
+                    </li>-->             
+                </ul><!-- /.control-sidebar-menu -->         
+            </div>
+        </div><!-- /.tab-pane -->
+        <!-- Stats tab content -->
 
-            <div class="tab-pane active" id="control-sidebar-theme-demo-options-tab"><?php echo $this->translate('Stat Tab Content Options') ?>
-                <!--/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü-->
+        <div class="tab-pane active" id="control-sidebar-theme-demo-options-tab"><?php echo $this->translate('Stat Tab Content Options') ?>
+            <!--/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü-->
 
-                <h4 class="control-sidebar-heading"><?php echo $this->translate('Layout Options') ?></h4>
+            <h4 class="control-sidebar-heading"><?php echo $this->translate('Layout Options') ?></h4>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-layout="fixed" class="pull-right"><?php echo $this->translate('Fixed layout') ?></label>
+                <p><?php echo $this->translate("Activate the fixed layout. You can't use fixed and boxed layouts together") ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-layout="layout-boxed" class="pull-right"><?php echo $this->translate('Boxed Layout') ?></label>
+                <p><?php echo $this->translate('Activate the boxed layout') ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-layout="sidebar-collapse" class="pull-right"><?php echo $this->translate('Toggle Sidebar') ?></label>
+                <p><?php echo $this->translate("Toggle the left sidebar's state (open or collapse)") ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-enable="expandOnHover" class="pull-right"><?php echo $this->translate('Sidebar Expand on Hover') ?></label>
+                <p><?php echo $this->translate("Let the sidebar mini expand on hover") ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-controlsidebar="control-sidebar-open" class="pull-right"><?php echo $this->translate('Toggle Right Sidebar Slide') ?></label>
+                <p><?php echo $this->translate("Toggle between slide over content and push content effects") ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-sidebarskin="toggle" class="pull-right"><?php echo $this->translate("Toggle Right Sidebar Skin") ?></label>
+                <p><?php echo $this->translate("Toggle between dark and light skins for the right sidebar") ?></p>
+            </div>
+
+            <h4 class="control-sidebar-heading"><?php echo $this->translate("Skins") ?></h4>
+
+            <ul class="list-unstyled clearfix">
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9;">
+
+                            </span>
+                            <span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("Blue") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                            <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("Black") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-purple" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span>
+                            <span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("Purple") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-green" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span>
+                            <span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("Green") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-red" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span>
+                            <span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("Red") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-yellow" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span>
+                            <span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("Yellow") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-blue-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9;"></span>
+                            <span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Blue Light") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-black-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                            <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe;"></span>
+                        </div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Black Light") ?>/p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-purple-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span>
+                            <span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Purple Light") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-green-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span>
+                            <span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Green Light") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-red-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span>
+                            <span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Red Light") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-yellow-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span>
+                            <span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px;"><?php echo $this->translate("Yellow Light") ?></p>
+                </li>
+            </ul>
+
+        </div><!--/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü-->
+
+
+        <!--<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
+        <!-- Settings tab content -->
+        <div class="tab-pane" id="control-sidebar-settings-tab">            
+            <form method="post">
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('General Settings') ?></h3>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-layout="fixed" class="pull-right"><?php echo $this->translate('Fixed layout') ?></label>
-                    <p><?php echo $this->translate("Activate the fixed layout. You can't use fixed and boxed layouts together") ?></p>
-                </div>
+                        <?php echo $this->translate('Report panel usage') ?>
+                        <input type="checkbox" class="pull-right" checked />
+                    </label>
+                    <p>
+                        <?php echo $this->translate('Some information about this general settings option') ?>
+                    </p>
+                </div><!-- /.form-group -->
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-layout="layout-boxed" class="pull-right"><?php echo $this->translate('Boxed Layout') ?></label>
-                    <p><?php echo $this->translate('Activate the boxed layout') ?></p>
-                </div>
+                        <?php echo $this->translate('Allow mail redirect') ?>
+                        <input type="checkbox" class="pull-right" checked />
+                    </label>
+                    <p>
+                        <?php echo $this->translate('Other sets of options are available') ?>
+                    </p>
+                </div><!-- /.form-group -->
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-layout="sidebar-collapse" class="pull-right"><?php echo $this->translate('Toggle Sidebar') ?></label>
-                    <p><?php echo $this->translate("Toggle the left sidebar's state (open or collapse)") ?></p>
-                </div>
+                        <?php echo $this->translate('Other sets of options are available') ?>
+                        <input type="checkbox" class="pull-right" checked />
+                    </label>
+                    <p>
+                        <?php echo $this->translate('Expose author name in posts') ?>
+                    </p>
+                </div><!-- /.form-group -->
+
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('Chat Settings') ?></h3>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-enable="expandOnHover" class="pull-right"><?php echo $this->translate('Sidebar Expand on Hover') ?></label>
-                    <p><?php echo $this->translate("Let the sidebar mini expand on hover") ?></p>
-                </div>
+                        <?php echo $this->translate('Show me as online') ?>
+                        <input type="checkbox" class="pull-right" checked />
+                    </label>                
+                </div><!-- /.form-group -->
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-controlsidebar="control-sidebar-open" class="pull-right"><?php echo $this->translate('Toggle Right Sidebar Slide') ?></label>
-                    <p><?php echo $this->translate("Toggle between slide over content and push content effects") ?></p>
-                </div>
+                        <?php echo $this->translate('Turn off notifications') ?>
+                        <input type="checkbox" class="pull-right" />
+                    </label>                
+                </div><!-- /.form-group -->
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-sidebarskin="toggle" class="pull-right"><?php echo $this->translate("Toggle Right Sidebar Skin") ?></label>
-                    <p><?php echo $this->translate("Toggle between dark and light skins for the right sidebar") ?></p>
-                </div>
-
-                <h4 class="control-sidebar-heading"><?php echo $this->translate("Skins") ?></h4>
-
-                <ul class="list-unstyled clearfix">
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9;">
-
-                                </span>
-                                <span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Blue") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
-                                <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #222;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Black") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-purple" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span>
-                                <span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Purple") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-green" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span>
-                                <span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Green") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-red" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span>
-                                <span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Red") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-yellow" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span>
-                                <span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Yellow") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-blue-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9;"></span>
-                                <span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Blue Light") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-black-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
-                                <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe;"></span>
-                            </div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Black Light") ?>/p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-purple-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span>
-                                <span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Purple Light") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-green-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span>
-                                <span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Green Light") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-red-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span>
-                                <span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Red Light") ?></p>
-                    </li>
-                    <li style="float:left; width: 33.33333%; padding: 5px;">
-                        <a href="javascript:void(0);" data-skin="skin-yellow-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span>
-                                <span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span>
-                            </div>
-                            <div>
-                                <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
-                                <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
-                            </div>
-                        </a>
-                        <p class="text-center no-margin" style="font-size: 12px;"><?php echo $this->translate("Yellow Light") ?></p>
-                    </li>
-                </ul>
-
-            </div><!--/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü-->
-
-
-            <!--<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
-            <!-- Settings tab content -->
-            <div class="tab-pane" id="control-sidebar-settings-tab">            
-                <form method="post">
-                    <h3 class="control-sidebar-heading"><?php echo $this->translate('General Settings') ?></h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Report panel usage') ?>
-                            <input type="checkbox" class="pull-right" checked />
-                        </label>
-                        <p>
-                            <?php echo $this->translate('Some information about this general settings option') ?>
-                        </p>
-                    </div><!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Allow mail redirect') ?>
-                            <input type="checkbox" class="pull-right" checked />
-                        </label>
-                        <p>
-                            <?php echo $this->translate('Other sets of options are available') ?>
-                        </p>
-                    </div><!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Other sets of options are available') ?>
-                            <input type="checkbox" class="pull-right" checked />
-                        </label>
-                        <p>
-                            <?php echo $this->translate('Expose author name in posts') ?>
-                        </p>
-                    </div><!-- /.form-group -->
-
-                    <h3 class="control-sidebar-heading"><?php echo $this->translate('Chat Settings') ?></h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Show me as online') ?>
-                            <input type="checkbox" class="pull-right" checked />
-                        </label>                
-                    </div><!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Turn off notifications') ?>
-                            <input type="checkbox" class="pull-right" />
-                        </label>                
-                    </div><!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Delete chat history') ?>
-                            <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                        </label>                
-                    </div><!-- /.form-group -->
-                </form>
-            </div><!-- /.tab-pane -->
-        </div>
-    </aside><!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
-    <div class='control-sidebar-bg'></div>
+                        <?php echo $this->translate('Delete chat history') ?>
+                        <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                    </label>                
+                </div><!-- /.form-group -->
+            </form>
+        </div><!-- /.tab-pane -->
+    </div>
+</aside><!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class='control-sidebar-bg'></div>
 </div><!-- ./wrapper -->
 

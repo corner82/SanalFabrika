@@ -20,11 +20,16 @@ $(document).ready(function () {
     window.cityList;
     window.boroughList;
 
+    /*
+     * Bootstrap modals variables
+     * @type @call;$@call;successMessage
+     */
+
     var sm = $(window).successMessage();
     var dm = $(window).dangerMessage();
     var wm = $(window).warningMessage();
-    var wcm = $(window).warningComplexMessage({denyButtonLabel: 'Vazgeç',
-        actionButtonLabel: 'İşleme devam et'});
+    var wcm = $(window).warningComplexMessage({denyButtonLabel: window.lang.translate('Cancel'),
+        actionButtonLabel: window.lang.translate('Confirm')});
 
     /*
      * Get countries list for address 
@@ -41,6 +46,7 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
+//                console.log(data);
                 $('#company_country_ph').ddslick({
                     data: data,
                     width: '100%',
@@ -209,7 +215,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
+//            console.log(data);
             $('#ava_med_ph').empty();
             var i;
             for (i = 0; i < data.rows.length; i++) {
@@ -538,6 +544,73 @@ $(document).ready(function () {
             console.error('"pkFillSocicalMediaDdList_sysSocialMedia" servis hatasÄ±->' + textStatus);
         }
     });
+
+    /*
+     * Fill machine tools categories
+     * @type @call;$@call;successMessage
+     */
+
+    var mt_cats = [
+        {'description': 'Talaşlı İmalat', 'selected': false, 'text': 'Metal Cutting', 'value': '1'},
+        {'description': 'Metal Şekillendirme', 'selected': false, 'text': 'Metal Forming', 'value': '2'},
+        {'description': 'Döküm', 'selected': false, 'text': 'Casting', 'value': '3'},
+        {'description': 'Birleştime', 'selected': false, 'text': 'Joining', 'value': '4'}
+    ];
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillComboBox_syscountrys',
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+//                console.log(data);
+                $('#machine_categories').ddslick('destroy');
+                $('#machine_categories').ddslick({
+                    data: mt_cats,
+                    width: '100%',
+                    height: '500%',
+                    background: false,
+                    selectText: window.lang.translate("Please select a category from list..."),
+                    imagePosition: 'right',
+                    onSelected: function (selectedData) {
+
+                        $("#selected_mt_category").empty();
+                        $("#selected_mt_type").empty();
+                        $("#selected_mt_brand").empty();
+                        $("#selected_mt_series").empty();
+
+                        $('#machine_types').ddslick('destroy');
+                        $('#machine_brands').ddslick('destroy');
+                        $('#machine_series').ddslick('destroy');
+
+                        $("#show_sel_mt_btn").css('display', 'none');
+                        $("#show_sel_mt_btn").css('visibility', 'hidden');
+                        $("#reset_sel_mt_btn").css('display', 'none');
+                        $("#reset_sel_mt_btn").css('visibility', 'hidden');
+
+                        $("#selected_mt_category").val(selectedData.selectedData.text);
+                        $("#selected_mt_category").append(selectedData.selectedData.text);
+                        get_mt_types();
+                    }
+                });
+            } else {
+                console.error('"machine tools category" servis datasÄ± boÅŸtur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"machine tools category" servis hatasÄ±->' + textStatus);
+        }
+    });
+
+
+
 });
 
 
@@ -559,11 +632,9 @@ function changecontent(element) {
     $("#" + social_media_name + "_input").fadeIn('');
 }
 
-
 /*
  * After editing url checks for changes and edit or insert new social media link
  */
-
 
 function checkContent(element) {
 
@@ -657,6 +728,10 @@ function checkContent(element) {
     }
 }
 
+/*
+ * function to redirect to the entered social media adderss
+ */
+
 function goto_social(element) {
     var selected = element.id.replace('_goto_btn', '');
     var sel_med_url = $('#' + selected + "_btn_group").attr('url_value');
@@ -666,6 +741,9 @@ function goto_social(element) {
     window.open(sel_med_url, '_newtab');
 }
 
+/*
+ * removes selected social media link
+ */
 
 function remove_social(element) {
 
@@ -690,165 +768,331 @@ function remove_social(element) {
 
                 $('#sel_med_ph').empty();
                 $('#' + selected + "_btn_group").remove();
-                
+
             }
         }
     });
+}
 
+/*
+ * hides hidden sections of all tabs
+ */
+
+function hide_hidden_sections() {
+    $('#hidden_send_ref').css('display', 'none');
+    $('#hidden_send_ref').css('visibility', 'hidden');
+
+    $('#hidden_mt_section').css('display', 'none');
+    $('#hidden_mt_section').css('visibility', 'hidden');
+
+    $('#sel_customer').val('');
+    if ($('#hidden_send_ref').css('visibility') === 'hidden') {
+        $('html, body').animate({
+            scrollTop: $(".nav-tabs-custom").offset().top
+        }, 1000);
+    }
+    if ($('#hidden_mt_section').css('visibility') === 'hidden') {
+        $('html, body').animate({
+            scrollTop: $(".nav-tabs-custom").offset().top
+        }, 1000);
+    }
+}
+
+/*
+ * shows new machine tool adding section
+ */
+
+function unhide_mt_section() {
+    $('#hidden_mt_section').css('display', 'block');
+    $('#hidden_mt_section').css('visibility', 'visible');
+
+    if ($('#hidden_mt_section').css('visibility') === 'visible') {
+        $('html, body').animate({
+            scrollTop: $("#hidden_mt_section").offset().top
+        }, 1000);
+    }
+}
+
+/*
+ * Fill machine tools categories
+ */
+
+function get_mt_types() {
+
+    var metal_cutting_types = [
+        {'description': 'Torna', 'selected': false, 'text': 'Turning Lathe', 'value': '1'},
+        {'description': 'Freze', 'selected': false, 'text': 'Milling', 'value': '2'},
+        {'description': 'Çok fonksiyonlu CNC', 'selected': false, 'text': 'Multi Tasking', 'value': '3'},
+        {'description': 'Delme', 'selected': false, 'text': 'Drilling', 'value': '4'},
+        {'description': 'Taşlama', 'selected': false, 'text': 'Grinding', 'value': '5'},
+        {'description': 'Borlama', 'selected': false, 'text': 'Boring', 'value': '6'}
+    ];
+
+    var metal_forming_types = [
+        {'description': 'Pres', 'selected': false, 'text': 'Press', 'value': '1'},
+        {'description': 'Dövme', 'selected': false, 'text': 'Forging', 'value': '2'},
+        {'description': 'Ekstrüzyon', 'selected': false, 'text': 'Extrusion', 'value': '3'},
+        {'description': 'Haddeleme', 'selected': false, 'text': 'Roll Forming ', 'value': '4'}
+    ];
+
+    var casting_types = [
+        {'description': 'Basınçlı döküm', 'selected': false, 'text': 'Die Casting', 'value': '1'},
+        {'description': 'Merkezkaç döküm', 'selected': false, 'text': 'Centrifuge Casting', 'value': '2'},
+    ]
+
+    var joining_types = [
+        {'description': 'TIG Kaynak', 'selected': false, 'text': 'TIG Welding', 'value': '1'},
+        {'description': 'MIG Kaynak', 'selected': false, 'text': 'MIG Welding', 'value': '2'},
+        {'description': 'Lehimleme', 'selected': false, 'text': 'Brazing', 'value': '3'}
+    ];
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillComboBox_syscountrys',
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+                var dataset;
+                if ($("#selected_mt_category").val() === 'Metal Cutting') {
+                    dataset = metal_cutting_types;
+                } else if ($("#selected_mt_category").val() === 'Metal Forming') {
+                    dataset = metal_forming_types;
+                } else if ($("#selected_mt_category").val() === 'Casting') {
+                    dataset = casting_types;
+                } else if ($("#selected_mt_category").val() === 'Joining') {
+                    dataset = joining_types;
+                }
+
+//                console.log(data);
+                $('#machine_types').ddslick('destroy');
+                $('#machine_types').ddslick({
+                    data: dataset,
+                    width: '100%',
+                    height: '500%',
+                    background: false,
+                    selectText: window.lang.translate("Please select a category from list..."),
+                    imagePosition: 'right',
+                    onSelected: function (selectedData) {
+
+                        $("#selected_mt_type").empty();
+                        $("#selected_mt_brand").empty();
+                        $("#selected_mt_series").empty();
+
+                        $('#machine_brands').ddslick('destroy');
+                        $('#machine_series').ddslick('destroy');
+
+                        $("#show_sel_mt_btn").css('display', 'none');
+                        $("#show_sel_mt_btn").css('visibility', 'hidden');
+                        $("#reset_sel_mt_btn").css('display', 'none');
+                        $("#reset_sel_mt_btn").css('visibility', 'hidden');
+
+                        $("#selected_mt_type").val(selectedData.selectedData.text);
+                        $("#selected_mt_type").append(selectedData.selectedData.text);
+
+                        get_mt_brands();
+                    }
+                });
+            } else {
+                console.error('"machine tools types" servis datasÄ± boÅŸtur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"machine tools types" servis hatasÄ±->' + textStatus);
+        }
+    });
+}
+
+/*
+ * Get the category machine tool brands
+ */
+
+function get_mt_brands() {
+
+    var brands = [
+        {'description': 'Mazak', 'selected': false, 'text': 'Yamazaki Mazak', 'value': '1'},
+        {'description': 'Goodway', 'selected': false, 'text': 'Yama Seiki Goodway ', 'value': '2'},
+        {'description': 'Chevalier', 'selected': false, 'text': 'Chevalier', 'value': '3'},
+        {'description': 'DMG Mori', 'selected': false, 'text': 'DMG Mori', 'value': '4'},
+        {'description': 'Kasuga Seiki', 'selected': false, 'text': 'Kasuga Seiki', 'value': '5'},
+        {'description': 'Datron Dynamics', 'selected': false, 'text': 'Datron Dynamics', 'value': '6'},
+        {'description': 'Mitsubishi', 'selected': false, 'text': 'Mitsubishi Heavy Ind. ', 'value': '7'},
+        {'description': 'Amada', 'selected': false, 'text': 'Amada', 'value': '8'}
+    ];
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillComboBox_syscountrys',
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+//                console.log(data);
+                $('#machine_brands').ddslick('destroy');
+                $('#machine_brands').ddslick({
+                    data: brands,
+                    width: '100%',
+                    height: '500%',
+                    background: false,
+                    selectText: window.lang.translate("Please select a brand from list..."),
+                    imagePosition: 'right',
+                    onSelected: function (selectedData) {
+
+                        $("#selected_mt_brand").empty();
+                        $("#selected_mt_series").empty();
+
+                        $('#machine_series').ddslick('destroy');
+
+                        $("#show_sel_mt_btn").css('display', 'none');
+                        $("#show_sel_mt_btn").css('visibility', 'hidden');
+                        $("#reset_sel_mt_btn").css('display', 'none');
+                        $("#reset_sel_mt_btn").css('visibility', 'hidden');
+
+                        $("#selected_mt_brand").val(selectedData.selectedData.text);
+                        $("#selected_mt_brand").append(selectedData.selectedData.text);
+
+                        get_mt_series();
+                    }
+                });
+            } else {
+                console.error('"machine tools brands" servis datasÄ± boÅŸtur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"machine tools brands" servis hatasÄ±->' + textStatus);
+        }
+    });
 
 }
 
+/*
+ * Get the brand machine tool series
+ */
 
-//function edit_social(element) {
-//
-//    var selected = element.id.replace('_edit_btn', '');
-//    var sel_med_url = $('#' + selected + "_btn_group").attr('url_value');
-//
-//
-//    if ($('#sel_med_ph').find('.form-control').length) {
-//
-//        var remained_soc_med = $('#sel_med_ph').find('.form-control').attr('id').replace('_input_field', ''),
-//                default_url = "https://www." + remained_soc_med + ".com/",
-//                found_value = $('#sel_med_ph').find('.form-control').attr('value'),
-//                remained_soc_med_id = $('#sel_med_ph').find('.btn').attr('selected_soc_id');
-//
-//        window.remaining_temp_url = $("#" + remained_soc_med + "_input_field").val();
-//
-//        if (window.remaining_temp_url !== default_url && window.remaining_temp_url.indexOf((default_url)) > -1) {
-//
-//            wcm.warningComplexMessage({
-//                onConfirm: function () {
-//                    $('#sel_med_ph').empty();
-//                    $('#' + selected + "_btn_group").remove();
-//                    var appending
-//                            =
-//                            "<div id='"
-//                            + selected
-//                            + "_ph' style='margin-top: 20px'>"
-//                            + "<a id='"
-//                            + selected
-//                            + "_long' class='btn btn-block btn-social btn-"
-//                            + selected
-//                            + "' onclick='changecontent(this)'>"
-//                            + "<i class='fa fa-"
-//                            + selected
-//                            + "'></i>"
-//                            + "<span id='"
-//                            + selected
-//                            + "_span'>"
-//                            + sel_med_url
-//                            + "</span>"
-//                            + "</a>"
-//                            + "<div id='"
-//                            + selected
-//                            + "_input'  style='display:none; max-height: 20px;' class='input-group margin'>"
-//                            + "<span class='input-group-btn'>"
-//                            + "<a id='"
-//                            + selected
-//                            + "_input_button' class='btn btn-social-icon btn-"
-//                            + selected
-//                            + "' onclick='checkContent(this)'><i class='fa fa-"
-//                            + selected
-//                            + "'></i></a>"
-//                            + "</span>"
-//                            + "<input id='"
-//                            + selected
-//                            + "_input_field' type='text' class='form-control' value='"
-//                            + sel_med_url
-//                            + "'>"
-//                            + "</div>"
-//                            + "</div>";
-//                    $('#sel_med_ph').append(appending);
-//                }
-//            });
-//            wcm.warningComplexMessage('show', remained_soc_med + ' changes!!',
-//                    'Changes for ' + remained_soc_med + ' will be lost. Do you want to continue?');
-//        } else {
-//            $('#sel_med_ph').empty();
-//            $('#' + selected + "_btn_group").remove();
-//            var appending
-//                    =
-//                    "<div id='"
-//                    + selected
-//                    + "_ph' style='margin-top: 20px'>"
-//                    + "<a id='"
-//                    + selected
-//                    + "_long' class='btn btn-block btn-social btn-"
-//                    + selected
-//                    + "' onclick='changecontent(this)'>"
-//                    + "<i class='fa fa-"
-//                    + selected
-//                    + "'></i>"
-//                    + "<span id='"
-//                    + selected
-//                    + "_span'>"
-//                    + sel_med_url
-//                    + "</span>"
-//                    + "</a>"
-//                    + "<div id='"
-//                    + selected
-//                    + "_input'  style='display:none; max-height: 20px;' class='input-group margin'>"
-//                    + "<span class='input-group-btn'>"
-//                    + "<a id='"
-//                    + selected
-//                    + "_input_button' class='btn btn-social-icon btn-"
-//                    + selected
-//                    + "' onclick='checkContent(this)'><i class='fa fa-"
-//                    + selected
-//                    + "'></i></a>"
-//                    + "</span>"
-//                    + "<input id='"
-//                    + selected
-//                    + "_input_field' type='text' class='form-control' value='"
-//                    + sel_med_url
-//                    + "'>"
-//                    + "</div>"
-//                    + "</div>";
-//            $('#sel_med_ph').append(appending);
-//        }
-//    } else {
-//
-//        $('#sel_med_ph').empty();
-//        $('#' + selected + "_btn_group").remove();
-//        var appending
-//                =
-//                "<div id='"
-//                + selected
-//                + "_ph' style='margin-top: 20px'>"
-//                + "<a id='"
-//                + selected
-//                + "_long' class='btn btn-block btn-social btn-"
-//                + selected
-//                + "' onclick='changecontent(this)'>"
-//                + "<i class='fa fa-"
-//                + selected
-//                + "'></i>"
-//                + "<span id='"
-//                + selected
-//                + "_span'>"
-//                + sel_med_url
-//                + "</span>"
-//                + "</a>"
-//                + "<div id='"
-//                + selected
-//                + "_input'  style='display:none; max-height: 20px;' class='input-group margin'>"
-//                + "<span class='input-group-btn'>"
-//                + "<a id='"
-//                + selected
-//                + "_input_button' class='btn btn-social-icon btn-"
-//                + selected
-//                + "' onclick='checkContent(this)'><i class='fa fa-"
-//                + selected
-//                + "'></i></a>"
-//                + "</span>"
-//                + "<input id='"
-//                + selected
-//                + "_input_field' type='text' class='form-control' value='"
-//                + sel_med_url
-//                + "'>"
-//                + "</div>"
-//                + "</div>";
-//        $('#sel_med_ph').append(appending);
-//    }
-//
-//}
+function get_mt_series() {
+
+    var series = [
+        {'description': 'Serie 1', 'selected': false, 'text': 'Serie 1', 'value': '1'},
+        {'description': 'Serie 2', 'selected': false, 'text': 'Serie 2', 'value': '2'},
+        {'description': 'Serie 3', 'selected': false, 'text': 'Serie 3', 'value': '3'},
+        {'description': 'Serie 4', 'selected': false, 'text': 'Serie 4', 'value': '4'},
+        {'description': 'Serie 5', 'selected': false, 'text': 'Serie 5', 'value': '5'},
+        {'description': 'Serie 6', 'selected': false, 'text': 'Serie 6', 'value': '6'},
+        {'description': 'Serie 7', 'selected': false, 'text': 'Serie 7', 'value': '7'},
+        {'description': 'Serie 8', 'selected': false, 'text': 'Serie 8', 'value': '8'}
+    ];
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillComboBox_syscountrys',
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+//                console.log(data);
+                $('#machine_series').ddslick('destroy');
+                $('#machine_series').ddslick({
+                    data: series,
+                    width: '100%',
+                    height: '500%',
+                    background: false,
+                    selectText: window.lang.translate("Please select a serie from list..."),
+                    imagePosition: 'right',
+                    onSelected: function (selectedData) {
+                        $("#selected_mt_series").empty();
+                        $("#selected_mt_series").val(selectedData.selectedData.text);
+                        $("#selected_mt_series").append(selectedData.selectedData.text);
+
+                        $("#show_sel_mt_btn").css('display', 'block');
+                        $("#show_sel_mt_btn").css('visibility', 'visible');
+                        $("#reset_sel_mt_btn").css('display', 'block');
+                        $("#reset_sel_mt_btn").css('visibility', 'visible');
+
+                    }
+                });
+            } else {
+                console.error('"machine tools series" servis datasÄ± boÅŸtur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"machine tools series" servis hatasÄ±->' + textStatus);
+        }
+    });
+
+}
+/*
+ * unhide selected machine tool properties section
+ */
+
+function show_sel_mt() {
+
+    $('#sel_mt_title').empty();
+    $('#sel_mt_title').append($('#selected_mt_brand').val() + " " + $('#selected_mt_series').val());
+
+    $('#sel_mt_props_div').css('display', 'block');
+    $('#sel_mt_props_div').css('visibility', 'visible');
+
+    if ($('#sel_mt_props_div').css('visibility') === 'visible') {
+        $('html, body').animate({
+            scrollTop: $("#sel_mt_props_div").offset().top
+        }, 1000);
+    }
+    
+    call_sel_mt_props();
+
+    event.preventDefault();
+}
+
+/*
+ * reset all selected machine tools
+ */
+
+function reset_sel_mt() {
+
+    $("#selected_mt_category").empty();
+    $("#selected_mt_type").empty();
+    $("#selected_mt_brand").empty();
+    $("#selected_mt_series").empty();
+
+    $('#machine_types').ddslick('destroy');
+    $('#machine_brands').ddslick('destroy');
+    $('#machine_series').ddslick('destroy');
+
+    $("#show_sel_mt_btn").css('display', 'none');
+    $("#show_sel_mt_btn").css('visibility', 'hidden');
+    $("#reset_sel_mt_btn").css('display', 'none');
+    $("#reset_sel_mt_btn").css('visibility', 'hidden');
+
+    event.preventDefault();
+}
+
+/*
+ * Call all machine properties
+ */
+
+function call_sel_mt_props() {
+        
+    $('#pg').propertygrid({
+        url: '../../../../jsinline/props.json',
+        showGroup: true,
+        scrollbarSize: 0
+    });
+
+}
