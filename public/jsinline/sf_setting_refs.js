@@ -31,44 +31,45 @@ $(document).ready(function () {
             + $('#selectedCompanyShN').val().toUpperCase();
     $('#inv_lett_text').append(window.invitation_text);
 
+    var dataSet = {"total": 5, "rows": [
+            {'buyer_name': 'Buyer A', 'company_name': 'Company A', 'email_address': 'companya@companya.com', 'status': 'Satisfied', 'comments': 'Get orders on time with required quality'},
+            {'buyer_name': 'Buyer B', 'company_name': 'Company B', 'email_address': 'companyb@companyb.com', 'status': 'Satisfied', 'comments': 'Get orders on time with required quality'},
+            {'buyer_name': 'Buyer C', 'company_name': 'Company C', 'email_address': 'companyc@companyc.com', 'status': 'Normal', 'comments': 'Get orders with required quality'},
+            {'buyer_name': 'Buyer D', 'company_name': 'Company D', 'email_address': 'companyd@companyd.com', 'status': 'Normal', 'comments': 'Get orders on time'},
+            {'buyer_name': 'Buyer E', 'company_name': 'Company E', 'email_address': 'companye@companye.com', 'status': 'Satisfied', 'comments': 'Get orders on time with required quality'}
 
-//    var dataSet = {"total": 5, "rows": [
-//            {'buyer_name': 'Buyer A', 'company_name': 'Company A', 'email_address': 'companya@companya.com', 'status': 'Satisfied', 'comments': 'Get orders on time with required quality'},
-//            {'buyer_name': 'Buyer B', 'company_name': 'Company B', 'email_address': 'companyb@companyb.com', 'status': 'Satisfied', 'comments': 'Get orders on time with required quality'},
-//            {'buyer_name': 'Buyer C', 'company_name': 'Company C', 'email_address': 'companyc@companyc.com', 'status': 'Normal', 'comments': 'Get orders with required quality'},
-//            {'buyer_name': 'Buyer D', 'company_name': 'Company D', 'email_address': 'companyd@companyd.com', 'status': 'Normal', 'comments': 'Get orders on time'},
-//            {'buyer_name': 'Buyer E', 'company_name': 'Company E', 'email_address': 'companye@companye.com', 'status': 'Satisfied', 'comments': 'Get orders on time with required quality'}
-//
-//        ]};
+        ]};
 
-
-    $('#refs_table').datagrid({
-        url: '../../../../jsinline/data_set.json',
-        width: "500px",
-        iconCls: "icon-save",
+    $('#dg').datagrid({
+        data: dataSet,
         singleSelect: true,
         pagination: true,
         collapsible: true,
-        method: 'get',
-        toolbar: '#tb5',
-        fit: true,
-        fitColumns: true,
-        remoteFilter: true,
-        remoteSort: true,
-        columns:
-                [[
-                        {field: 'buyer_name', title: "Buyer Name"},
-                        {field: 'company_name', title: "Company Name"},
-                        {field: 'email_address', title: "Email Address"},
-                        {field: 'status', title: "Status"},
-                        {field: 'comments', title: "Comments"}
-                    ]]
+//        method: 'get',
+//        idField: 'id',
+//        toolbar:'#tb5',
+        //fit:true,
+        //fitColumns : true,
+//        remoteFilter: true,
+//        remoteSort: true,
+//        multiSort: false,
+        columns: [[
+                {field: 'buyer_name', title: 'buyer_name', width: 100},
+                {field: 'company_name', title: 'company_name', width: 100},
+                {field: 'email_address', title: 'email_address', width: 100},
+                {field: 'status', title: 'status', width: 100},
+                {field: 'comments', title: 'comments', width: 100}
+            ]]
     });
 
-//    $('#refs_table').datagrid('resize');
-//    $('#toolbar').panel('resize');
-    $('#refs_table').datagrid('reload');
 
+//    var dataSet_1 = [
+//        ['Buyer A', 'Company A', 'companya@companya.com', 'Satisfied', 'Get orders on time with required quality'],
+//        ['Buyer B', 'Company B', 'companyb@companyb.com', 'Satisfied', 'Get orders on time with required quality'],
+//        ['Buyer C', 'Company C', 'companyc@companyc.com', 'Normal', 'Get orders with required quality'],
+//        ['Buyer D', 'Company D', 'companyd@companyd.com', 'Normal', 'Get orders on time'],
+//        ['Buyer E', 'Company E', 'companye@companye.com', 'Satisfied', 'Get orders on time with required quality']
+//    ];
 
     /*
      * This part is datatable section commented out and replaced by easyui dtaagrid
@@ -76,8 +77,7 @@ $(document).ready(function () {
      */
 
 //    $('#refs_table').DataTable({
-//        data: dataSet,
-//        fixedColumns: false,
+//        data: dataSet_1,
 //        scrollX: true,
 //        select: {
 //            style: 'single'

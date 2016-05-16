@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     /**
      * multilanguage plugin 
@@ -11,9 +11,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-    /*
-     * List of countries
-     */
+
 
     window.sel_count_id;
     window.sel_comp_count_id;
@@ -24,6 +22,8 @@ $(document).ready(function () {
      * Bootstrap modals variables
      * @type @call;$@call;successMessage
      */
+
+    $("#new_mt_details_form").validationEngine({promptPosition: "topLeft:100%,0"});
 
     var sm = $(window).successMessage();
     var dm = $(window).dangerMessage();
@@ -79,11 +79,11 @@ $(document).ready(function () {
                     }
                 });
             } else {
-                console.error('"fillComboBox_syscountrys" servis datasÄ± boÅŸtur!!');
+                console.error('"fillComboBox_syscountrys" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillComboBox_syscountrys" servis hatasÄ±->' + textStatus);
+            console.error('"fillComboBox_syscountrys" servis hatasÃ„Â±->' + textStatus);
         }
     });
 
@@ -138,11 +138,11 @@ $(document).ready(function () {
                         }
                     });
                 } else {
-                    console.error('"fillComboBox_syscity" servis datasÄ± boÅŸtur!!');
+                    console.error('"fillComboBox_syscity" servis datasÃ„Â± boÃ…Å¸tur!!');
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                console.error('"fillComboBox_syscity" servis hatasÄ±->' + textStatus);
+                console.error('"fillComboBox_syscity" servis hatasÃ„Â±->' + textStatus);
             }
         });
     }
@@ -191,11 +191,11 @@ $(document).ready(function () {
                         }
                     });
                 } else {
-                    console.error('"fillComboBox_sysborough" servis datasÄ± boÅŸtur!!');
+                    console.error('"fillComboBox_sysborough" servis datasÃ„Â± boÃ…Å¸tur!!');
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                console.error('"fillComboBox_sysborough" servis hatasÄ±->' + textStatus);
+                console.error('"fillComboBox_sysborough" servis hatasÃ„Â±->' + textStatus);
             }
         });
     }
@@ -230,14 +230,17 @@ $(document).ready(function () {
                 var appending =
                         "<div class='btn-group' id='"
                         + social_media_name
-                        + "_btn_group' url_value='"
+                        + "_btn_group_"
+                        + data.rows[i].id
+                        + "' url_value='"
                         + social_url
                         + "' selected_soc_id='"
 //                        + data[i].
                         + "'>"
                         + "<a id='"
                         + social_media_name
-                        + "_button"
+                        + "_button_"
+                        + data.rows[i].id
                         + "' class='btn btn-social-icon dropdown-toggle btn-"
                         + social_media_name
                         + "' data-toggle='dropdown' aria-expanded='false' target='_newtab' "
@@ -256,7 +259,9 @@ $(document).ready(function () {
                         + "<ul class='dropdown-menu' role='menu'>"
                         + "<li class='btn' id='"
                         + social_media_name
-                        + "_goto_btn' onclick='goto_social(this)'>"
+                        + "_goto_btn_"
+                        + data.rows[i].id
+                        + "' onclick='goto_social(this)'>"
                         + window.lang.translate('Goto')
                         + "</li><br/>"
 //                        + "<li class='btn' id='"
@@ -266,7 +271,11 @@ $(document).ready(function () {
 //                        + "</li><br/>"
                         + "<li class='btn' id='"
                         + social_media_name
-                        + "_remove_btn' onclick='remove_social(this)'>"
+                        + "_remove_btn_"
+                        + data.rows[i].id
+                        + "' soc_id_val='"
+                        + data.rows[i].id
+                        + "' onclick='remove_social(this)'>"
                         + window.lang.translate('Delete')
                         + "</li>"
                         + "</ul>"
@@ -337,11 +346,11 @@ $(document).ready(function () {
                 }
 
             } else {
-                console.error('"pkFillCompanyInfoSocialedia_infoFirmProfile" servis datasÄ± boÅŸtur!!');
+                console.error('"pkFillCompanyInfoSocialedia_infoFirmProfile" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"pkFillCompanyInfoSocialedia_infoFirmProfile" servis hatasÄ±->' + textStatus);
+            console.error('"pkFillCompanyInfoSocialedia_infoFirmProfile" servis hatasÃ„Â±->' + textStatus);
         }
     });
 
@@ -537,11 +546,11 @@ $(document).ready(function () {
                     }
                 });
             } else {
-                console.error('"pkFillSocicalMediaDdList_sysSocialMedia" servis datasÄ± boÅŸtur!!');
+                console.error('"pkFillSocicalMediaDdList_sysSocialMedia" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"pkFillSocicalMediaDdList_sysSocialMedia" servis hatasÄ±->' + textStatus);
+            console.error('"pkFillSocicalMediaDdList_sysSocialMedia" servis hatasÃ„Â±->' + textStatus);
         }
     });
 
@@ -553,7 +562,7 @@ $(document).ready(function () {
     var mt_cats = [
         {'description': 'Talaşlı İmalat', 'selected': false, 'text': 'Metal Cutting', 'value': '1'},
         {'description': 'Metal Şekillendirme', 'selected': false, 'text': 'Metal Forming', 'value': '2'},
-        {'description': 'Döküm', 'selected': false, 'text': 'Casting', 'value': '3'},
+        {'description': 'Dökümm', 'selected': false, 'text': 'Casting', 'value': '3'},
         {'description': 'Birleştime', 'selected': false, 'text': 'Joining', 'value': '4'}
     ];
 
@@ -601,12 +610,44 @@ $(document).ready(function () {
                     }
                 });
             } else {
-                console.error('"machine tools category" servis datasÄ± boÅŸtur!!');
+                console.error('"machine tools category" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"machine tools category" servis hatasÄ±->' + textStatus);
+            console.error('"machine tools category" servis hatasÃ„Â±->' + textStatus);
         }
+    });
+
+    var mt_set = {"total": 5, "rows": [
+            {"manufacturer_name": "A", "series": "serie A", "model": "model A", "model_year": "2000", "number": "1", "available": "yes"},
+            {"manufacturer_name": "B", "series": "serie B", "model": "model B", "model_year": "2000", "number": "2", "available": "yes"},
+            {"manufacturer_name": "C", "series": "serie C", "model": "model C", "model_year": "2000", "number": "3", "available": "yes"},
+            {"manufacturer_name": "D", "series": "serie D", "model": "model D", "model_year": "2000", "number": "2", "available": "yes"},
+            {"manufacturer_name": "E", "series": "serie E", "model": "model E", "model_year": "2000", "number": "1", "available": "No"}
+        ]};
+
+    $('#mt_grid').empty();
+    $('#mt_grid').datagrid({
+        data: mt_set,
+        singleSelect: true,
+        pagination: true,
+        collapsible: true,
+//        method: 'get',
+//        idField: 'id',
+//        toolbar:'#tb5',
+        //fit:true,
+        //fitColumns : true,
+//        remoteFilter: true,
+//        remoteSort: true,
+//        multiSort: false,
+        columns: [[
+                {field: 'manufacturer_name', title: 'manufacturer_name', width: 100},
+                {field: 'series', title: 'series', width: 100},
+                {field: 'model', title: 'model', width: 100},
+                {field: 'model_year', title: 'model_year', width: 100},
+                {field: 'number', title: 'number', width: 100},
+                {field: 'available', title: 'available', width: 100}
+            ]]
     });
 
 
@@ -617,8 +658,8 @@ $(document).ready(function () {
 var sm = $(window).successMessage();
 var dm = $(window).dangerMessage();
 var wm = $(window).warningMessage();
-var wcm = $(window).warningComplexMessage({denyButtonLabel: 'Vazgeç',
-    actionButtonLabel: 'İşleme devam et'});
+var wcm = $(window).warningComplexMessage({denyButtonLabel: 'VazgeÃ§',
+    actionButtonLabel: 'Ä°ÅŸleme devam et'});
 
 /*
  * Change social media shape to edit content of url
@@ -673,12 +714,15 @@ function checkContent(element) {
                     var appending =
                             "<div class='btn-group' id='"
                             + social_media_name
-                            + "_btn_group' url_value='"
+                            + "_btn_group_"
+                            + data.lastInsertId
+                            + "' url_value='"
                             + window.temp_url
                             + "'>"
                             + "<a id='"
                             + social_media_name
-                            + "_button"
+                            + "_button_"
+                            + data.lastInsertId
                             + "' class='btn btn-social-icon dropdown-toggle btn-"
                             + social_media_name
                             + "' data-toggle='dropdown' aria-expanded='false' target='_newtab' "
@@ -697,7 +741,9 @@ function checkContent(element) {
                             + "<ul class='dropdown-menu' role='menu'>"
                             + "<li class='btn' id='"
                             + social_media_name
-                            + "_goto_btn' onclick='goto_social(this)'>"
+                            + "_goto_btn_'"
+                            + data.lastInsertId
+                            + "' onclick='goto_social(this)'>"
                             + window.lang.translate('Goto')
                             + "</li><br/>"
 //                            + "<li class='btn' id='"
@@ -707,7 +753,11 @@ function checkContent(element) {
 //                            + "</li><br/>"
                             + "<li class='btn' id='"
                             + social_media_name
-                            + "_remove_btn' onclick='remove_social(this)'>"
+                            + "_remove_btn_'"
+                            + data.lastInsertId
+                            + "' soc_id_val='"
+                            + data.lastInsertId
+                            + "' onclick='remove_social(this)'>"
                             + window.lang.translate('Delete')
                             + "</li>"
                             + "</ul>"
@@ -733,8 +783,11 @@ function checkContent(element) {
  */
 
 function goto_social(element) {
-    var selected = element.id.replace('_goto_btn', '');
-    var sel_med_url = $('#' + selected + "_btn_group").attr('url_value');
+//    var selected = element.id.replace('_goto_btn_', '');
+//    var selected = element.id.substring(0, element.id.indexOf("_goto_btn_"));
+//    console.log(selected);
+    var parent_grp_btn_id = element.id.replace('_goto_btn_', '_btn_group_');
+    var sel_med_url = $('#' + parent_grp_btn_id).attr('url_value');
     if (sel_med_url.indexOf('google-plus') > -1) {
         sel_med_url = sel_med_url.replace('google-plus', 'googleplus');
     }
@@ -747,8 +800,13 @@ function goto_social(element) {
 
 function remove_social(element) {
 
-    var selected = element.id.replace('_remove_btn', '');
-
+//    var selected = element.id.replace('_remove_btn', '');
+//    var selected = element.id.substring(0, element.id.indexOf("_remove_btn"));
+    var parent_grp_btn_id = element.id.replace('_remove_btn_', '_btn_group_');
+    console.log(parent_grp_btn_id);
+    var soc_id_val = $('#' + element.id).attr('soc_id_val');
+//    console.log($('#element.id'));
+    console.log(soc_id_val);
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -759,7 +817,8 @@ function remove_social(element) {
             language_code: $("#langCode").val(),
             sys_socialmedia_id: window.selected_soc_med_id,
             firm_link: window.temp_url,
-            profile_public: 0
+            profile_public: 0,
+            id: soc_id_val
         },
         method: "GET",
         dataType: "json",
@@ -767,7 +826,7 @@ function remove_social(element) {
             if (data['errorInfo'][0] === '00000') {
 
                 $('#sel_med_ph').empty();
-                $('#' + selected + "_btn_group").remove();
+                $('#' + parent_grp_btn_id).remove();
 
             }
         }
@@ -779,6 +838,7 @@ function remove_social(element) {
  */
 
 function hide_hidden_sections() {
+
     $('#hidden_send_ref').css('display', 'none');
     $('#hidden_send_ref').css('visibility', 'hidden');
 
@@ -899,11 +959,11 @@ function get_mt_types() {
                     }
                 });
             } else {
-                console.error('"machine tools types" servis datasÄ± boÅŸtur!!');
+                console.error('"machine tools types" servis datası boÃ…Å¸tur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"machine tools types" servis hatasÄ±->' + textStatus);
+            console.error('"machine tools types" servis hatası->' + textStatus);
         }
     });
 }
@@ -966,11 +1026,11 @@ function get_mt_brands() {
                     }
                 });
             } else {
-                console.error('"machine tools brands" servis datasÄ± boÅŸtur!!');
+                console.error('"machine tools brands" servis datası boÃ…Å¸tur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"machine tools brands" servis hatasÄ±->' + textStatus);
+            console.error('"machine tools brands" servis hatası->' + textStatus);
         }
     });
 
@@ -1028,11 +1088,11 @@ function get_mt_series() {
                     }
                 });
             } else {
-                console.error('"machine tools series" servis datasÄ± boÅŸtur!!');
+                console.error('"machine tools series" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"machine tools series" servis hatasÄ±->' + textStatus);
+            console.error('"machine tools series" servis hatasÃ„Â±->' + textStatus);
         }
     });
 
@@ -1054,7 +1114,7 @@ function show_sel_mt() {
             scrollTop: $("#sel_mt_props_div").offset().top
         }, 1000);
     }
-    
+
     call_sel_mt_props();
 
     event.preventDefault();
@@ -1080,6 +1140,13 @@ function reset_sel_mt() {
     $("#reset_sel_mt_btn").css('display', 'none');
     $("#reset_sel_mt_btn").css('visibility', 'hidden');
 
+    $("#sel_mt_props_div").css('display', 'none');
+    $("#sel_mt_props_div").css('visibility', 'hidden');
+
+    $('html, body').animate({
+        scrollTop: $("#hidden_mt_section").offset().top
+    }, 1000);
+
     event.preventDefault();
 }
 
@@ -1088,11 +1155,23 @@ function reset_sel_mt() {
  */
 
 function call_sel_mt_props() {
-        
+
     $('#pg').propertygrid({
         url: '../../../../jsinline/props.json',
         showGroup: true,
         scrollbarSize: 0
     });
+}
 
+
+function cont_add_mt_btn() {
+    if ($('#number_of_avai_mt').val() !== '') {
+        $('#add_machine').removeAttr('disabled');
+    } else {
+        $('#add_machine').attr('disabled', 'disabled');
+    }
+}
+
+function cancel_new_machine(){
+    
 }

@@ -647,33 +647,27 @@
                                 </div>
 
                                 <div class="box-body">
-                                    <div class="row">
-                                        <!-- First Column Start -->
-                                        <div class="col-lg-9">                                          
-                                            <!--<label for="ava_ref_list"><?php echo $this->translate('List of your company references') ?></label>-->
+                                    <!-- First Column Start -->
+                                    <div class="col-lg-9">                                             
+                                        <table id="dg" title="References" class='easyui-datagrid'></table>
+                                    </div>
+                                    <!-- First Column End 
+                                    <!-- Second Column Start -->
+                                    <div class="col-lg-3">
+                                        <p><?php echo $this->translate('In order to get noticed by potential buyers it is recommended to obtain references.') ?><br/> 
+                                            <?php echo $this->translate('New refernces will be visible in your references list upon accepting your invitation and approval of system supervisor.') ?>
+                                        </p>
+                                        <button id="ref_inv_btn" type="button" class="btn btn-primary col-lg-12" onclick="view_send_invitation()">
+                                            <?php echo $this->translate('Send new invitation') ?>
+                                        </button>
+                                        <div class="form-group">                                
+                                            <label for=""><?php echo $this->translate('') ?></label>
+                                            <div id="">
 
-                                            <table id='refs_table' style="width:100%px" 
-                                                   title="List of References" >
-                                            </table> 
-                                        </div>
-                                        <!-- First Column End 
-                                        <!-- Second Column Start -->
-                                        <div class="col-lg-3">
-                                            <p><?php echo $this->translate('In order to get noticed by potential buyers it is recommended to obtain references.') ?><br/> 
-                                                <?php echo $this->translate('New refernces will be visible in your references list upon accepting your invitation and approval of system supervisor.') ?>
-                                            </p>
-                                            <button id="ref_inv_btn" type="button" class="btn btn-primary col-lg-12" onclick="view_send_invitation()">
-                                                <?php echo $this->translate('Send new invitation') ?>
-                                            </button>
-                                            <div class="form-group">                                
-                                                <label for=""><?php echo $this->translate('') ?></label>
-                                                <div id="">
-
-                                                </div>
                                             </div>
                                         </div>
-                                        <!-- Second Column End -->
-                                    </div> 
+                                    </div>
+                                    <!-- Second Column End -->
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -688,19 +682,7 @@
                                 <div class="box-body">
                                     <!-- Start of first column -->
                                     <div class="col-lg-9">
-                                        <table class="easyui-datagrid" title="Basic DataGrid" style="width:100%px;height:250px"
-                                               data-options="singleSelect:true,collapsible:true,url:'',method:'get'">
-                                            <thead>
-                                                <tr>
-                                                    <th data-options="field:'itemid',width:80">Machine ID</th>
-                                                    <th data-options="field:'manufacturer_name',width:100">Manufacturer</th>
-                                                    <th data-options="field:'series',width:80,align:'right'">Series</th>
-                                                    <th data-options="field:'model',width:80,align:'right'">Model</th>
-                                                    <th data-options="field:'number',width:250">Number</th>
-                                                    <th data-options="field:'category',width:60,align:'center'">Category</th>
-                                                </tr>
-                                            </thead>
-                                        </table>
+                                        <table id='mt_grid' class="easyui-datagrid" title="List of Machine Tools"></table>
                                     </div>
                                     <!-- End of first column -->
                                     <!-- Start of second column -->
@@ -847,11 +829,11 @@
 
                                 <button class='btn btn-primary col-md-12' id="show_sel_mt_btn" 
                                         onclick="show_sel_mt()" style="margin-top: 20px; display: none;visibility: hidden">
-                                    <?php echo $this->translate('Show Machine Properties in Detail') ?>
+                                            <?php echo $this->translate('Show Machine Properties in Detail') ?>
                                 </button>
                                 <button class='btn btn-default col-md-12' id="reset_sel_mt_btn" 
                                         onclick="reset_sel_mt()" style="margin-top: 20px; display: none;visibility: hidden">
-                                    <?php echo $this->translate('Reset Selections') ?>
+                                            <?php echo $this->translate('Reset Selections') ?>
                                 </button>
                             </div>
                             <!-- end of second new machine section --> 
@@ -863,14 +845,79 @@
                         <h3 id='sel_mt_title' class="box-title"></h3>                    
                     </div>
                     <div class='box-body'>
-                        <form>
-                            <div class='col-lg-6'>
-                                <table id="pg" style="width:100%px"></table>
-                            </div>
-                            <div class='col-lg-6'>
-                                
-                            </div>
-                        </form>
+                        <div class='col-lg-6'>
+                            <img style='width: 50%' src='<?php echo $this->translate('/onyuz/standard/assets/img/sfClients/machines/Mazak_INTEGREX-j-200-(500U).jpg') ?>' alt=''>
+                            <table id="pg" style="width:100%px"></table>
+                        </div>
+                        <div class='col-lg-6'>
+                            <form id='new_mt_details_form'>
+                                <label for="number_of_avai_mt" style="margin-top: 20px">
+                                    <?php echo $this->translate('Available number of this machine tool:') ?>
+                                </label>                                
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-info"></i>
+                                    </div>
+                                    <input id="number_of_avai_mt" onchange="cont_add_mt_btn()"
+                                           class="form-control validate[required,custom[onlyNumberSp]]" 
+                                           type="text">
+                                </div>
+                                <hr>
+                                <label for="mt_owner_cond" style="margin-top: 20px">
+                                    <?php echo $this->translate('Ownership conditions:') ?>
+                                </label>
+                                <div class="form-group" id='mt_owner_cond'>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios_1" id="mt_owner" value="Owner" checked="">
+                                            <?php echo $this->translate("Owner") ?>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios_1" id="mt_lease" value="Leasing">
+                                            <?php echo $this->translate("Leasing") ?>
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <label for="mt_availability" style="margin-top: 20px">
+                                    <?php echo $this->translate('If machines are available for new orders:') ?>
+                                </label>                                
+                                <div class="input-group">                                    
+                                    <div class="form-group" id='mt_owner_cond'>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios_2" id="ava_yes" value="yes" checked="">
+                                                <?php echo $this->translate("Yes") ?>
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios_2" id="ava_no" value="no">
+                                                <?php echo $this->translate("No") ?>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <button class='btn btn-primary col-md-12' id="add_machine" onclick="add_machine()" 
+                                        style="margin-top: 20px" disabled="disabled"
+                                        data-balloon="Yes! Add this machine to my company machine park!" data-balloon-pos="up">
+                                            <?php echo $this->translate('Add Machine') ?>
+                                </button>                                
+                                <button class='btn btn-success col-md-12' id="propose_machine" 
+                                        onclick="propose_machine()" style="margin-top: 5px"
+                                        data-balloon="If your machine is not in the list. Propose it to the system!" data-balloon-pos="up">
+                                            <?php echo $this->translate("Propose New Machine") ?>
+                                </button>                               
+                                <button class='btn btn-default col-md-12' id="cancel_new_machine" 
+                                        onclick="cancel_new_machine()" style="margin-top: 5px"
+                                        data-balloon="Cancel add machine process!" data-balloon-pos="up">
+                                            <?php echo $this->translate('Cancel') ?>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>                
             </div>

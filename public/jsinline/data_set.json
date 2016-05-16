@@ -1,8 +1,0 @@
-{"total": 5, "rows":[
-{"buyer_name":"Buyer A","company_name":"Company A","email_address":"companya@companya.com","status":"Satisfied","comments":"Get orders on time with required quality"},
-{"buyer_name":"Buyer B","company_name":"Company B","email_address":"companyb@companyb.com","status":"Satisfied","comments":"Get orders on time with required quality"},
-{"buyer_name":"Buyer C","company_name":"Company C","email_address":"companyc@companyc.com","status":"Normal","comments":"Get orders with required quality"},
-{"buyer_name":"Buyer D","company_name":"Company D","email_address":"companyd@companyd.com","status":"Normal","comments":"Get orders on time"},
-{"buyer_name":"Buyer E","company_name":"Company E","email_address":"companye@companye.com","status":"Satisfied","comments":"Get orders on time with required quality"}
-]}
-

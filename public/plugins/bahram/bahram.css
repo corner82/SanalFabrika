@@ -472,3 +472,42 @@ a.hovertext:hover:after, a.hovertext:focus:after {
 #file_input{
     display: none;
 }
+
+
+
+
+.panel-title{
+    width: 100% !important;
+    height: auto;
+}
+
+.panel-header{
+    width: 100% !important;
+    height: auto;
+}
+
+.panel-tool{
+    width: 100% !important;
+    height: auto;
+}
+
+.datagrid-wrap{
+    width: 100% !important;
+    height: auto;
+}
+
+.datagrid-row{
+    width: 100% !important;
+    height: auto;
+}
+
+.datagrid-view{
+    width: 100% !important;
+    height: auto;
+}
+
+
+datagrid-pager{
+    width: 100% !important;
+    height: auto;
+}
