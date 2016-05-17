@@ -1,6 +1,6 @@
 $(document).ready(function () {
-
-    /**
+        
+    /*
      * multilanguage plugin 
      * @type Lang
      */
@@ -12,9 +12,8 @@ $(document).ready(function () {
     });
     lang.change($('#langCode').val());
 
-
     /*
-     * Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
+     * Left menuyu olusturmak icin Ã§aÄŸÄ±rÄ±lan fonksiyon...
      */
 
     $.fn.leftMenuFunction();
