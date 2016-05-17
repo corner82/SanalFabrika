@@ -75,11 +75,11 @@ class SanalfabrikaController extends AbstractActionController {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
-                ->get('serviceTranslatorUrlRegulator');  
+                ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');      
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
                 ->get('servicePublicKeyReader');
 
@@ -90,13 +90,13 @@ class SanalfabrikaController extends AbstractActionController {
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
             'publicKey' => $publicKey,
-            'selectedCompanyShN' => $selectedCompanyShN,            
+            'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
         ));
         $this->authenticate(null, $view);
         return $view;
     }
-    
+
     public function prodsercatAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
@@ -207,18 +207,18 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
+
     public function cprofilesetAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -229,18 +229,22 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
+
     public function cpgeneralsetAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
-        $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
+//        $selectedCompanyNpk = $this->getEvent()
+//                ->getRouteMatch()->getParam('selectedCompanyNpk');
+        $selectedCompanyNpk = $this->getServiceLocator()
+                ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
+
+        print_r($selectedCompanyNpk);
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -251,18 +255,18 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
+
     public function cpaddresssetAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -273,18 +277,18 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
+
     public function cpreferencessetAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -302,11 +306,11 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -324,11 +328,11 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -339,18 +343,29 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
+
     public function companyprofileAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader');
+                ->get('servicePublicKeyReader');
+        $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
+
+        $sessionArr = $authManager->getStorage()->read();
+//        print_r($sessionArr);
+        $sessionArr['npk'] = $selectedCompanyNpk;
+//        print_r($sessionArr);
+
+        $authManager->getStorage()->write(
+                $sessionArr
+        );
+
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -366,13 +381,13 @@ class SanalfabrikaController extends AbstractActionController {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
-                ->get('serviceTranslatorUrlRegulator'); 
+                ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');       
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -390,11 +405,11 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -412,11 +427,11 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -434,11 +449,11 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -456,11 +471,11 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -478,7 +493,7 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -494,7 +509,7 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -503,18 +518,18 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
+
     public function companymtprofileAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyShN');
+                        ->getRouteMatch()->getParam('selectedCompanyShN');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
         $selectedCompanyNpk = $this->getEvent()
-                ->getRouteMatch()->getParam('selectedCompanyNpk');
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -532,7 +547,7 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $publicKey = $this->getServiceLocator()
-                            ->get('servicePublicKeyReader'); 
+                ->get('servicePublicKeyReader');
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
@@ -572,6 +587,7 @@ class SanalfabrikaController extends AbstractActionController {
                      * @since 04/01/2016
                      */
                     $publicKey = $this->getServiceLocator()->get('servicePublicKeyGenerator');
+                    $npk = '';
                     //print_r($publicKey);
 
                     /**
@@ -603,7 +619,8 @@ class SanalfabrikaController extends AbstractActionController {
                                 'username' => $result->getIdentity(),
                                 'ip_address' => $this->getRequest()->getServer('REMOTE_ADDR'),
                                 'user_agent' => $request->getServer('HTTP_USER_AGENT'),
-                                'pk' => $publicKey,)
+                                'pk' => $publicKey,
+                                'npk' => $npk)
                     );
 
 
