@@ -369,7 +369,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1> 
-                <?php echo $this->translate('Company Profile Control Panel') ?>
+                <?php echo $this->translate('Company Profile General Setting') ?>
                 <small></small>
             </h1>
             <ol class="breadcrumb">
@@ -389,9 +389,9 @@
                 </li>
                 <li class="active">
                     <i class="fa fa-dashboard"></i>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cprofileset'));
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgeneralset'));
                            ?>">
-                           <?php echo $this->translate('Company Profile Control Panel') ?>
+                           <?php echo $this->translate('Company Profile Setting') ?>
                     </a>
                 </li>
             </ol>
@@ -412,524 +412,89 @@
                 </div>
 
                 <div class="box-body" style="display: block;">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active" onclick="hide_hidden_sections()"><a href="#general_info" data-toggle="tab" aria-expanded="true"><?php echo $this->translate('General Information') ?></a></li>
-                            <li class="" onclick="hide_hidden_sections()"><a href="#address_info" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('Address Information') ?></a></li>
-                            <li class="" onclick="hide_hidden_sections()"><a href="#references" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('References') ?></a></li>
-                            <li class="" onclick="hide_hidden_sections()"><a href="#machine_park" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('Machine Park') ?></a></li>
-                            <li class="" onclick="hide_hidden_sections()"><a href="#products" data-toggle="tab" aria-expanded="false"><?php echo $this->translate('Products') ?></a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <!-- Start of General Information tab contents -->
-                            <div class="tab-pane active" id="general_info">
-                                <!-- /.box-header -->
-                                <div class="box-header with-border">
-                                    <h3 class="box-title"><?php echo $this->translate('General Information Setting') ?></h3>                    
-                                </div>
-                                <div class="box-body">
-                                    <form role="form">
-                                        <!-- First Column Start -->
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="full_name_ph"><?php echo $this->translate('Company Full Name') ?></label>
-                                                <input type="text" class="form-control" id="full_name_ph" placeholder="Enter company full name here please">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="short_name_ph"><?php echo $this->translate('Company Short Name') ?></label>
-                                                <input type="text" class="form-control" id="short_name_ph" placeholder="Enter company short name here please">
-                                            </div>                            
-                                            <div class="form-group">                                
-                                                <label for="company_country_ph"><?php echo $this->translate('Country') ?></label>
-                                                <div id="company_country_ph">
-                                                </div>
-                                            </div>
-                                            <div class="image-upload col-lg-6" style="margin-top: 20px">
-                                                <label for="file_input">
-                                                    <a id="logo_edit_title" class="hovertext col-md-12" title="Click to update logo">
-                                                        <img id="company_logo_fake" style="display: none; visibility: hidden" src="" >
-                                                    </a>
-                                                    <img id="company_logo" class="img-responsive" 
-                                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
-                                                         border="0" alt="">
-                                                    </a>
-                                                </label>
-                                                <input id="file_input" type="file"/>
-                                            </div>
-                                            <div class="form-group col-lg-6" >
-                                                <!--<label for="logoInputFile"><?php echo $this->translate('Company Logo') ?></label>-->
-                                                <!--<input type="file" id="exampleInputFile">-->
-                                                <p class="help-block"><?php echo $this->translate('Please provide your company logo in png format. Give your company name to this file and upload your file to the system. Please note, this image must be in 300 pixels X 400 pixels and minimum resolution of 300 dpi.') ?></p>
-                                                <p class="help-block"><?php echo $this->translate('Example:') ?></p>
-                                                <p class="help-block"><?php echo $this->translate('If your company name is "abc" then the name of your logo file should be "abc.png".') ?></p>
-                                            </div>
-
-                                        </div>
-
-                                        <!-- First Column End -->
-
-                                        <!-- Second Column Start -->
-                                        <div class="col-lg-6">
-
-                                            <div class="form-group">
-                                                <label><?php echo $this->translate("Please enter a brief description about your company.") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(No more than 400 character...)") ?></p></label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div>
-                                            <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company's main business sectors.") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div>  
-                                            <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company's vision.") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div> 
-                                            <div class="form-group" style="margin-top: 20px">
-                                                <label><?php echo $this->translate("Your company's capabilities and competitive fields.") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                            </div>
-
-                                        </div>
-                                        <!-- Second Column End -->
-
-                                        <!-- General Information Footer Start -->
-                                        <div class="box-footer col-lg-12">
-                                            <button type="submit" class="btn btn-primary">
-                                                <?php echo $this->translate('Submit') ?>
-                                            </button>
-                                        </div>
-                                        <!-- General Information Footer End -->
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- End of General Information tab contents -->
-                            <!-- /.box-body -->
-                            <!-- Start of Address Information tab contents -->
-                            <div class="tab-pane" id="address_info">
-                                <!-- /.box-header -->
-                                <div class="box-header with-border">
-                                    <h3 class="box-title"><?php echo $this->translate('Address Information Settings') ?></h3>                    
-                                </div>
-                                <div class="box-body">
-                                    <form role="form">
-                                        <!-- First Column Start -->
-                                        <div class="col-lg-6">
-                                            <div class="form-group">                                
-                                                <label for="company_country_address_ph"><?php echo $this->translate('Country') ?></label>
-                                                <div id="company_country_address_ph">
-                                                </div>
-                                            </div>
-                                            <div class="form-group" name="company_city_address_ph"  id="company_city_address_ph">
-                                                <label><?php echo $this->translate('City') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-home"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control validate[required,onlyLetterSp]">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div>
-                                            <div class="form-group" id='city_dropdown'>
-                                                <label class="label"><?php echo $this->translate('City') ?></label>
-                                                <div id="company_city" >  </div> 
-                                            </div>
-                                            <div class="form-group" id='district_dropdown'>
-                                                <label class="label"><?php echo $this->translate('District') ?></label>
-                                                <div id="company_district" ></div> 
-                                            </div>
-                                            <div class="form-group" name="address_line_1"  id="address_line_1">
-                                                <label><?php echo $this->translate('Address Line 1') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-arrow-circle-right"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div> 
-                                            <div class="form-group" name="address_line_2"  id="address_line_2">
-                                                <label><?php echo $this->translate('Address Line 2') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-arrow-circle-right"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div>                                             
-                                            <div class="form-group" name="po_box"  id="po_box">
-                                                <label><?php echo $this->translate('P.O. Box') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div> 
-                                        </div>
-                                        <!-- First Column End -->
-
-                                        <!-- Second Column Start -->
-                                        <div class="col-lg-6">
-                                            <div class="form-group" name="website"  id="website">
-                                                <label><?php echo $this->translate('Web site') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-globe"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div>
-                                            <div class="form-group" name="email"  id="email">
-                                                <label><?php echo $this->translate('Email') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-envelope-o"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div>  
-                                            <div class="form-group" name="tel"  id="tel">
-                                                <label><?php echo $this->translate('Tel') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-phone"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div>  
-                                            <div class="form-group" name="fax"  id="fax">
-                                                <label><?php echo $this->translate('Fax') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-fax"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <!-- /.input group -->
-                                            </div>
-
-                                            <hr>
-
-                                            <div class="box-header with-border">
-                                                <h3 class="box-title"><?php echo $this->translate('Social Media Information') ?></h3>                    
-                                            </div>
-                                            <div id="social_media_ph">
-
-                                            </div>
-                                            <div id="ava_med_ph" style="margin-top: 20px">
-
-                                            </div>
-                                            <div id="sel_med_ph" style="margin-bottom: 20px">
-
-                                            </div>                                            
-                                        </div>                                        
-                                        <!-- Second Column End -->
-
-                                        <!-- General Information Footer Start -->
-                                        <div class="box-footer col-lg-12">
-
-                                            <button type="submit" class="btn btn-primary">
-                                                <?php echo $this->translate('Submit') ?>
-                                            </button>
-                                        </div>
-                                        <!-- General Information Footer End -->
-                                    </form>
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
-                            <!-- End of Address Information tab contents -->
-                            <!-- /.box-body -->
-                            <!-- Start of References Information tab contents -->
-                            <div class="tab-pane" id="references">
-                                <!-- /.box-header -->
-                                <div class="box-header with-border">
-                                    <h3 class="box-title"><?php echo $this->translate('References') ?></h3>                    
-                                </div>
-
-                                <div class="box-body">
-                                    <!-- First Column Start -->
-                                    <div class="col-lg-9">                                             
-                                        <table id="dg" title="References" class='easyui-datagrid'></table>
-                                    </div>
-                                    <!-- First Column End 
-                                    <!-- Second Column Start -->
-                                    <div class="col-lg-3">
-                                        <p><?php echo $this->translate('In order to get noticed by potential buyers it is recommended to obtain references.') ?><br/> 
-                                            <?php echo $this->translate('New refernces will be visible in your references list upon accepting your invitation and approval of system supervisor.') ?>
-                                        </p>
-                                        <button id="ref_inv_btn" type="button" class="btn btn-primary col-lg-12" onclick="view_send_invitation()">
-                                            <?php echo $this->translate('Send new invitation') ?>
-                                        </button>
-                                        <div class="form-group">                                
-                                            <label for=""><?php echo $this->translate('') ?></label>
-                                            <div id="">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Second Column End -->
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
-                            <!-- End of References tab contents -->
-                            <!-- /.box-body -->
-                            <!-- Start of Machine Park Information tab contents -->
-                            <div class="tab-pane" id="machine_park">
-                                <!-- /.box-header -->
-                                <div class="box-header with-border">
-                                    <h3 class="box-title"><?php echo $this->translate('Machine park') ?></h3>                    
-                                </div>
-                                <div class="box-body">
-                                    <!-- Start of first column -->
-                                    <div class="col-lg-9">
-                                        <table id='mt_grid' class="easyui-datagrid" title="List of Machine Tools"></table>
-                                    </div>
-                                    <!-- End of first column -->
-                                    <!-- Start of second column -->
-                                    <div class="col-lg-3">  
-                                        <p>
-                                            <?php echo $this->translate("Company machine park reveals your company's capabilities.") ?><br/>
-                                            <?php echo $this->translate("Check machine list continuously and keep your machine park list up to date, to not to miss potential orders from customers.") ?>
-                                            <button id="add_new _machine" type="button" class="btn btn-primary col-lg-12" onclick="unhide_mt_section()">
-                                                <?php echo $this->translate('Add new machine') ?>
-                                            </button>
-                                    </div>
-                                    <!-- End of second column -->                                        
-                                </div>
-                            </div>                            
-                            <!-- End of Machine Park Information tab contents -->
-                            <!-- /.box-body -->
-                            <!-- Start of Productions Information tab contents -->
-                            <div class="tab-pane" id="products">
-                                <!-- /.box-header -->
-                                <div class="box-header with-border">
-                                    <h3 class="box-title"><?php echo $this->translate('Products') ?></h3>                    
-                                </div>
-                                <div class="box-body">
-                                    <form role="form">
-                                    </form>
-                                </div>
-                            </div>                            
-                            <!-- End of Productions Information tab contents -->
-                            <!-- /.box-body -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- start of hidden reference section -->            
-            <div id="hidden_send_ref" style="display: none; visibility: hidden">
-                <div class="box box-primary">
-                    <div id="invite_ref">
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><?php echo $this->translate('Invite References') ?></h3>                    
-                        </div>
-                        <div class="box-body">
-                            <div name="notification_section"> 
-                                <span style="font-weight: bold"><?php echo $this->translate('Inviting References') ?></span><br/>
-                                <span><?php echo $this->translate("You can request references from buying organizations with which you've conducted business.") ?> </span><br/>
-                                <span><?php echo $this->translate("After a buyer accepts your invitation to become a reference, their comments appear in your supplier profile.") ?> </span><br/>
-                                <span><?php echo $this->translate("We value your privacy. OSTIM virtual enterprise will not share your customer information with third parties.") ?></span><br/>
-                            </div>
-                            <hr>
-                            <div id="enter_ref_info">
-                                <!-- Reference add form start -->
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label for="list_reg_customers"><?php echo $this->translate('List of registered companies in OSTIM Virtual Enterprise System') ?></label>
-                                        <div id="list_reg_customers">
-                                        </div>                                            
-                                    </div>
-                                    <div class="row" style="margin-top: 20px">
-                                        <div class="col-lg-9">
-                                            <div class="form-group">    
-                                                <label for="sel_customer"><?php echo $this->translate('Selected Customer is:') ?></label>
-                                                <Input id="sel_customer" type="text" disabled="disabled" 
-                                                       class="form-control col-md-6"></Input>
-                                            </div>
-
-                                            <div id="inv_lett_div" class="form-group">
-                                                <label  style="margin-top: 20px"><?php echo $this->translate("Invitation letter") ?>
-                                                    <p class="help-block"><?php echo $this->translate("(You may customize your letter)") ?></p></label>
-                                                <textarea id="inv_lett_text" class="form-control" rows="15" onchange="control_send_btn();"></textarea>
-                                                <button id="reset_inv_text_btn" type="button" style="margin: 5px"
-                                                        class="btn btn-sm btn-primary col-md-12" disabled='disabled' onclick='reset_inv_text()'>
-                                                            <?php echo $this->translate('Reset Text') ?>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3"> 
-                                            <button id="approve_sel_cust_btn" type="button" style="margin: 5px"
-                                                    class="btn btn-sm btn-primary col-md-12" disabled='disabled' onclick='send_invitation()' >
-                                                        <?php echo $this->translate('Send') ?>
-                                            </button>
-                                            <button id="reject_sel_cust_btn" type="button" style="margin: 5px"
-                                                    class="btn btn-sm btn-default col-md-12" onclick="hide_hidden_sections()">
-                                                        <?php echo $this->translate('Cancel') ?>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- reference add form end -->
-                        </div>                             
-                    </div>
-                </div>                                    
-            </div>
-            <!-- end of hidden references section -->
-
-            <!-- start of hidden machine tool section -->   
-            <div id="hidden_mt_section" style="display: none; visibility: hidden">
-                <div class="box box-danger">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo $this->translate('Add new machine') ?></h3>                    
+                        <h3 class="box-title"><?php echo $this->translate('General Information Setting') ?></h3>                    
                     </div>
                     <div class="box-body">
-                        <form id="new_mt_form">
-                            <!-- start of first new machine section -->  
+                        <form role="form">
+                            <!-- First Column Start -->
                             <div class="col-lg-6">
-                                <label for="machine_categories" style="margin-top: 20px">
-                                    <?php echo $this->translate('New machine tool category:') ?>
-                                </label>
-                                <div id="machine_categories"></div>
+                                <div class="form-group">
+                                    <label for="full_name_ph"><?php echo $this->translate('Company Full Name') ?></label>
+                                    <input type="text" class="form-control" id="full_name_ph" placeholder="Enter company full name here please">
+                                </div>
+                                <div class="form-group">
+                                    <label for="short_name_ph"><?php echo $this->translate('Company Short Name') ?></label>
+                                    <input type="text" class="form-control" id="short_name_ph" placeholder="Enter company short name here please">
+                                </div>                            
+                                <div class="form-group">                                
+                                    <label for="company_country_ph"><?php echo $this->translate('Country') ?></label>
+                                    <div id="company_country_ph">
+                                    </div>
+                                </div>
+                                <div class="image-upload col-lg-6" style="margin-top: 20px">
+                                    <label for="file_input">
+                                        <a id="logo_edit_title" class="hovertext col-md-12" title="Click to update logo">
+                                            <img id="company_logo_fake" style="display: none; visibility: hidden" src="" >
+                                        </a>
+                                        <img id="company_logo" class="img-responsive" 
+                                             src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
+                                             border="0" alt="">
+                                        </a>
+                                    </label>
+                                    <input id="file_input" type="file"/>
+                                </div>
+                                <div class="form-group col-lg-6" >
+                                    <!--<label for="logoInputFile"><?php echo $this->translate('Company Logo') ?></label>-->
+                                    <!--<input type="file" id="exampleInputFile">-->
+                                    <p class="help-block"><?php echo $this->translate('Please provide your company logo in png format. Give your company name to this file and upload your file to the system. Please note, this image must be in 300 pixels X 400 pixels and minimum resolution of 300 dpi.') ?></p>
+                                    <p class="help-block"><?php echo $this->translate('Example:') ?></p>
+                                    <p class="help-block"><?php echo $this->translate('If your company name is "abc" then the name of your logo file should be "abc.png".') ?></p>
+                                </div>
 
-                                <label for="machine_types" style="margin-top: 20px">
-                                    <?php echo $this->translate('New machine tool type:') ?>
-                                </label>                                
-                                <div id="machine_types"></div>
-
-                                <label for="machine_brands" style="margin-top: 20px">
-                                    <?php echo $this->translate('New machine tool brand:') ?>
-                                </label>                                
-                                <div id="machine_brands"></div>
-
-                                <label for="machine_series" style="margin-top: 20px">
-                                    <?php echo $this->translate('New machine tool serie:') ?>
-                                </label>                                
-                                <div id="machine_series"></div>
                             </div>
-                            <!-- end of first new machine section -->  
-                            <!-- start of second new machine section --> 
+
+                            <!-- First Column End -->
+
+                            <!-- Second Column Start -->
                             <div class="col-lg-6">
-                                <label for="selected_mt_category" style="margin-top: 20px">
-                                    <?php echo $this->translate('Selected Machine Category is:') ?>
-                                </label>
-                                <intput id="selected_mt_category" class="form-control" type="text" disabled="disabled" value=""></intput>
-                                <label for="selected_mt_type" style="margin-top: 20px">
-                                    <?php echo $this->translate('Selected Machine Type is:') ?>
-                                </label>
-                                <intput id="selected_mt_type" class="form-control" type="text" disabled="disabled"></intput>
-                                <label for="selected_mt_brand" style="margin-top: 20px">
-                                    <?php echo $this->translate('Selected Machine Brand is:') ?>
-                                </label>
-                                <intput id="selected_mt_brand" class="form-control" type="text" disabled="disabled" ></intput>
-                                <label for="selected_mt_series" style="margin-top: 20px">
-                                    <?php echo $this->translate('Selected Machine Serie is:') ?>
-                                </label>
-                                <intput id="selected_mt_series" class="form-control" type="text" disabled="disabled"></intput>
 
-                                <button class='btn btn-primary col-md-12' id="show_sel_mt_btn" 
-                                        onclick="show_sel_mt()" style="margin-top: 20px; display: none;visibility: hidden">
-                                            <?php echo $this->translate('Show Machine Properties in Detail') ?>
-                                </button>
-                                <button class='btn btn-default col-md-12' id="reset_sel_mt_btn" 
-                                        onclick="reset_sel_mt()" style="margin-top: 20px; display: none;visibility: hidden">
-                                            <?php echo $this->translate('Reset Selections') ?>
+                                <div class="form-group">
+                                    <label><?php echo $this->translate("Please enter a brief description about your company.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 400 character...)") ?></p></label>
+                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                </div>
+                                <div class="form-group" style="margin-top: 20px">
+                                    <label><?php echo $this->translate("Your company's main business sectors.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
+                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                </div>  
+                                <div class="form-group" style="margin-top: 20px">
+                                    <label><?php echo $this->translate("Your company's vision.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
+                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                </div> 
+                                <div class="form-group" style="margin-top: 20px">
+                                    <label><?php echo $this->translate("Your company's capabilities and competitive fields.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
+                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                </div>
+
+                            </div>
+                            <!-- Second Column End -->
+
+                            <!-- General Information Footer Start -->
+                            <div class="box-footer col-lg-12">
+                                <button type="submit" class="btn btn-primary">
+                                    <?php echo $this->translate('Submit') ?>
                                 </button>
                             </div>
-                            <!-- end of second new machine section --> 
+                            <!-- General Information Footer End -->
                         </form>
                     </div>
                 </div>
-                <div id='sel_mt_props_div' class ='box box-success' style='display: none;visibility: hidden'>
-                    <div class="box-header with-border">
-                        <h3 id='sel_mt_title' class="box-title"></h3>                    
-                    </div>
-                    <div class='box-body'>
-                        <div class='col-lg-6'>
-                            <img style='width: 50%' src='<?php echo $this->translate('/onyuz/standard/assets/img/sfClients/machines/Mazak_INTEGREX-j-200-(500U).jpg') ?>' alt=''>
-                            <table id="pg" style="width:100%px"></table>
-                        </div>
-                        <div class='col-lg-6'>
-                            <form id='new_mt_details_form'>
-                                <label for="number_of_avai_mt" style="margin-top: 20px">
-                                    <?php echo $this->translate('Available number of this machine tool:') ?>
-                                </label>                                
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-info"></i>
-                                    </div>
-                                    <input id="number_of_avai_mt" onchange="cont_add_mt_btn()"
-                                           class="form-control validate[required,custom[onlyNumberSp]]" 
-                                           type="text">
-                                </div>
-                                <hr>
-                                <label for="mt_owner_cond" style="margin-top: 20px">
-                                    <?php echo $this->translate('Ownership conditions:') ?>
-                                </label>
-                                <div class="form-group" id='mt_owner_cond'>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios_1" id="mt_owner" value="Owner" checked="">
-                                            <?php echo $this->translate("Owner") ?>
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios_1" id="mt_lease" value="Leasing">
-                                            <?php echo $this->translate("Leasing") ?>
-                                        </label>
-                                    </div>
-                                </div>
-                                <hr>
-                                <label for="mt_availability" style="margin-top: 20px">
-                                    <?php echo $this->translate('If machines are available for new orders:') ?>
-                                </label>                                
-                                <div class="input-group">                                    
-                                    <div class="form-group" id='mt_owner_cond'>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios_2" id="ava_yes" value="yes" checked="">
-                                                <?php echo $this->translate("Yes") ?>
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios_2" id="ava_no" value="no">
-                                                <?php echo $this->translate("No") ?>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <button class='btn btn-primary col-md-12' id="add_machine" onclick="add_machine()" 
-                                        style="margin-top: 20px" disabled="disabled"
-                                        data-balloon="Yes! Add this machine to my company machine park!" data-balloon-pos="up">
-                                            <?php echo $this->translate('Add Machine') ?>
-                                </button>                                
-                                <button class='btn btn-success col-md-12' id="propose_machine" 
-                                        onclick="propose_machine()" style="margin-top: 5px"
-                                        data-balloon="If your machine is not in the list. Propose it to the system!" data-balloon-pos="up">
-                                            <?php echo $this->translate("Propose New Machine") ?>
-                                </button>                               
-                                <button class='btn btn-default col-md-12' id="cancel_new_machine" 
-                                        onclick="cancel_new_machine()" style="margin-top: 5px"
-                                        data-balloon="Cancel add machine process!" data-balloon-pos="up">
-                                            <?php echo $this->translate('Cancel') ?>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>                
             </div>
-            <!-- end of hidden machine tool section -->
+        </section>
     </div>
 
     <!-- end of company general information setting -->

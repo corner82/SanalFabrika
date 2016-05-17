@@ -69,7 +69,12 @@ return array(
             'companyprofilesettings' => 'layout/companyprofilesettingsLayout.phtml',
             'companymtprofile' => 'layout/companymtprofileLayout.phtml',
             'clientspage' => 'layout/clientspageLayout.phtml',
-            'cprofileset' => 'layout/cprofilesetLayout.phtml'
+            'cprofileset' => 'layout/cprofilesetLayout.phtml',
+            'cpgeneralset' => 'layout/cpgeneralsetLayout.phtml',
+            'cpaddressset' => 'layout/cpaddresssetLayout.phtml',
+            'cpreferencesset' => 'layout/cpreferencessetLayout.phtml',
+            'cpmpset' => 'layout/cpmpsetLayout.phtml',
+            'cpprodset' => 'layout/cpprodsetLayout.phtml',
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
@@ -131,7 +136,12 @@ return array(
         'Sanalfabrika' => array(
             'cmt',
             'prodsercat',
-            'cprofileset'
+            'cprofileset',
+            'cpgeneralset',
+            'cpaddressset',
+            'cpreferencesset',
+            'cpmpset',
+            'cpprodset'
         ),
 
     ),
@@ -157,7 +167,12 @@ return array(
                                                                     'companyprofilesettings',
                                                                     'companymtprofile',
                                                                     'clientspage',
-                                                                    'cprfileset'
+                                                                    'cprfileset',
+                                                                    'cpgeneralset',
+                                                                    'cpaddressset',
+                                                                    'cpreferencesset',
+                                                                    'cpmpset',
+                                                                    'cpprodset'
                                                                     ),
                                      'login' => array('index'),)
                    ),
@@ -175,7 +190,12 @@ return array(
                                                               'login',
                                                               'cmt',
                                                               'prodsercat',
-                                                              'cprofileset'
+                                                              'cprofileset',
+                                                              'cpgeneralset',
+                                                              'cpaddressset',
+                                                              'cpreferencesset',
+                                                              'cpmpset',
+                                                              'cpprodset'
                                                               )),
                    ),
         'supervisor' => array(
@@ -199,7 +219,12 @@ return array(
                          'parent' => 'guest',
                          'action' => array('sanalfabrika' => array ('cmt' , 
                                                                     'prodsercat',
-                                                                    'cprofileset'
+                                                                    'cprofileset',
+                                                                    'cpgeneralset',
+                                                                    'cpaddressset',
+                                                                    'cpreferencesset',
+                                                                    'cpmpset',
+                                                                    'cpprodset'
                                                                     ))
                    ),
         
