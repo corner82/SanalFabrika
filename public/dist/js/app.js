@@ -442,7 +442,7 @@ function _init() {
 
     $.AdminLTE.dynamicTree = function (clickedObject) {
 
-        var currentPath = 'https://www.bahram.sanalfabrika.com'
+        var currentPath = window.location.hostname
                 + $("#requestUriRegulated").val()
                 .replace('--dil--', $("#langCode").val());
 
@@ -455,7 +455,10 @@ function _init() {
             /*
              * catches page object event with undefined id
              */
-//            console.log("sorry it is undefined. " + clickedObject.id);
+            
+            
+            
+            
 
         } else {
 
@@ -471,7 +474,7 @@ function _init() {
             var parent = $(treeview_id_ref).parents('ul').first();
             var parent_li = $(treeview_id_ref).parent("li");
             var ul = parent.find('ul:visible').slideUp('normal');
-            console.log("public key is " + $("#pk").val());
+//            console.log("public key is " + $("#pk").val());
 
             if (!$(treeview_id_ref).hasClass('menu-open')) {
                 //checks if the menu is open or not...
@@ -627,7 +630,7 @@ function _init() {
                     // fix new menu layout
                 });
                 event.stopPropagation();
-                // stop propagation of event to prevent teh reselection of
+                // stop propagation of event to prevent the reselection of
                 // direct parent(s)
 
             } else {
@@ -653,7 +656,7 @@ function _init() {
 
         if ($(treeview_id_ref).is('.treeview-menu')) {
             event.preventDefault();
-            // stop propagation of event to prevent teh reselection of
+            // stop propagation of event to prevent the reselection of
             // direct parent(s)
         }
     };

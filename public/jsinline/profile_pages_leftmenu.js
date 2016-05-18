@@ -132,7 +132,7 @@ $(document).ready(function () {
             + "</a>";
     +"</li>";
     var settingslink =
-            "<li id='cprofileset' class='list-group-item' onclick=changeMenu(this)>"
+            "<li id='cpgeneralset' class='list-group-item' onclick=changeMenu(this)>"
             + "<a href='#' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
