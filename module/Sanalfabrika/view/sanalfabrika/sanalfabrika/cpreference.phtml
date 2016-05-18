@@ -369,14 +369,16 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1> 
-                <?php echo $this->translate('Company Profile Control Panel') ?>
-                <small></small>
+                <?php echo $this->translate('Company Profile') ?>
+                <small>
+                    <?php echo $this->translate('References Setting') ?>
+                </small>
             </h1>
             <ol class="breadcrumb">
                 <li>
                     <i class="fa fa-home"></i>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                ?>">
+                    ?>">
                            <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
@@ -389,9 +391,9 @@
                 </li>
                 <li class="active">
                     <i class="fa fa-dashboard"></i>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpprodset'));
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpreference'));
                            ?>">
-                           <?php echo $this->translate('Company Products') ?>
+                           <?php echo $this->translate('Company Reference') ?>
                     </a>
                 </li>
             </ol>
@@ -412,9 +414,97 @@
                 </div>
 
                 <div class="box-body" style="display: block;">
-                    
+                    <!-- /.box-header -->
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><?php echo $this->translate('References') ?></h3>                    
+                    </div>
+
+                    <div class="box-body">
+                        <!-- First Column Start -->
+                        <div class="col-lg-9">                                             
+                            <table id="dg" title="References" class='easyui-datagrid'></table>
+                        </div>
+                        <!-- First Column End 
+                        <!-- Second Column Start -->
+                        <div class="col-lg-3">
+                            <p><?php echo $this->translate('In order to get noticed by potential buyers it is recommended to obtain references.') ?><br/> 
+                                <?php echo $this->translate('New refernces will be visible in your references list upon accepting your invitation and approval of system supervisor.') ?>
+                            </p>
+                            <button id="ref_inv_btn" type="button" class="btn btn-primary col-lg-12" onclick="view_send_invitation()">
+                                <?php echo $this->translate('Send new invitation') ?>
+                            </button>
+                            <div class="form-group">                                
+                                <label for=""><?php echo $this->translate('') ?></label>
+                                <div id="">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Second Column End -->
+                    </div>
+                    <!-- /.box-body -->
                 </div>
             </div>
+            <!-- start of hidden reference section -->            
+            <div id="hidden_send_ref" style="display: none; visibility: hidden">
+                <div class="box box-primary">
+                    <div id="invite_ref">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><?php echo $this->translate('Invite References') ?></h3>                    
+                        </div>
+                        <div class="box-body">
+                            <div name="notification_section"> 
+                                <span style="font-weight: bold"><?php echo $this->translate('Inviting References') ?></span><br/>
+                                <span><?php echo $this->translate("You can request references from buying organizations with which you've conducted business.") ?> </span><br/>
+                                <span><?php echo $this->translate("After a buyer accepts your invitation to become a reference, their comments appear in your supplier profile.") ?> </span><br/>
+                                <span><?php echo $this->translate("We value your privacy. OSTIM virtual enterprise will not share your customer information with third parties.") ?></span><br/>
+                            </div>
+                            <hr>
+                            <div id="enter_ref_info">
+                                <!-- Reference add form start -->
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="list_reg_customers"><?php echo $this->translate('List of registered companies in OSTIM Virtual Enterprise System') ?></label>
+                                        <div id="list_reg_customers">
+                                        </div>                                            
+                                    </div>
+                                    <div class="row" style="margin-top: 20px">
+                                        <div class="col-lg-9">
+                                            <div class="form-group">    
+                                                <label for="sel_customer"><?php echo $this->translate('Selected Customer is:') ?></label>
+                                                <Input id="sel_customer" type="text" disabled="disabled" 
+                                                       class="form-control col-md-6"></Input>
+                                            </div>
+
+                                            <div id="inv_lett_div" class="form-group">
+                                                <label  style="margin-top: 20px"><?php echo $this->translate("Invitation letter") ?>
+                                                    <p class="help-block"><?php echo $this->translate("(You may customize your letter)") ?></p></label>
+                                                <textarea id="inv_lett_text" class="form-control" rows="15" onchange="control_send_btn();"></textarea>
+                                                <button id="reset_inv_text_btn" type="button" style="margin-top: 5px"
+                                                        class="btn btn-sm btn-primary col-md-12" disabled='disabled' onclick='reset_inv_text()'>
+                                                            <?php echo $this->translate('Reset Text') ?>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3"> 
+                                            <button id="approve_sel_cust_btn" type="button" style="margin: 5px"
+                                                    class="btn btn-sm btn-primary col-md-12" disabled='disabled' onclick='send_invitation()' >
+                                                        <?php echo $this->translate('Send') ?>
+                                            </button>
+                                            <button id="reject_sel_cust_btn" type="button" style="margin: 5px"
+                                                    class="btn btn-sm btn-default col-md-12" onclick="hide_hidden_sections()">
+                                                        <?php echo $this->translate('Cancel') ?>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- reference add form end -->
+                        </div>                             
+                    </div>
+                </div>                                    
+            </div>
+            <!-- end of hidden references section -->
     </div>
 
     <!-- end of company general information setting -->

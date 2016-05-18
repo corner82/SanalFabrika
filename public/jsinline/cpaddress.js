@@ -4,6 +4,7 @@ $(document).ready(function () {
      * multilanguage plugin 
      * @type Lang
      */
+    console.log($('#selectedCompanyNpk').val());
 
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');

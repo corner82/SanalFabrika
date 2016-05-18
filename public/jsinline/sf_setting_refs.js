@@ -45,14 +45,14 @@ $(document).ready(function () {
         singleSelect: true,
         pagination: true,
         collapsible: true,
-//        method: 'get',
-//        idField: 'id',
-//        toolbar:'#tb5',
-        //fit:true,
-        //fitColumns : true,
-//        remoteFilter: true,
-//        remoteSort: true,
-//        multiSort: false,
+        method: 'get',
+        idField: 'id',
+        toolbar:'#tb5',
+        fit:true,
+        fitColumns : true,
+        remoteFilter: true,
+        remoteSort: true,
+        multiSort: false,
         columns: [[
                 {field: 'buyer_name', title: 'buyer_name', width: 100},
                 {field: 'company_name', title: 'company_name', width: 100},
@@ -61,35 +61,6 @@ $(document).ready(function () {
                 {field: 'comments', title: 'comments', width: 100}
             ]]
     });
-
-
-//    var dataSet_1 = [
-//        ['Buyer A', 'Company A', 'companya@companya.com', 'Satisfied', 'Get orders on time with required quality'],
-//        ['Buyer B', 'Company B', 'companyb@companyb.com', 'Satisfied', 'Get orders on time with required quality'],
-//        ['Buyer C', 'Company C', 'companyc@companyc.com', 'Normal', 'Get orders with required quality'],
-//        ['Buyer D', 'Company D', 'companyd@companyd.com', 'Normal', 'Get orders on time'],
-//        ['Buyer E', 'Company E', 'companye@companye.com', 'Satisfied', 'Get orders on time with required quality']
-//    ];
-
-    /*
-     * This part is datatable section commented out and replaced by easyui dtaagrid
-     * but still is maitained here for possible re-replacement
-     */
-
-//    $('#refs_table').DataTable({
-//        data: dataSet_1,
-//        scrollX: true,
-//        select: {
-//            style: 'single'
-//        },
-//        columns: [
-//            {title: "Buyer Name"},
-//            {title: "Company Name"},
-//            {title: "Email Address"},
-//            {title: "Status"},
-//            {title: "Comments"}
-//        ]
-//    });
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -120,7 +91,7 @@ $(document).ready(function () {
                     selectText: window.lang.translate("Please select your customer from list..."),
                     imagePosition: 'left',
                     onSelected: function (selectedData) {
-                        console.log(selectedData);
+//                        console.log(selectedData);
                         $("#sel_customer").val(selectedData.selectedData.text);
                         control_send_btn();
                     }

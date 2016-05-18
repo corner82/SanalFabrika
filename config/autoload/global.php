@@ -72,9 +72,9 @@ return array(
             'cprofileset' => 'layout/cprofilesetLayout.phtml',
             'cpgeneralset' => 'layout/cpgeneralsetLayout.phtml',
             'cpaddressset' => 'layout/cpaddresssetLayout.phtml',
-            'cpreferencesset' => 'layout/cpreferencessetLayout.phtml',
-            'cpmpset' => 'layout/cpmpsetLayout.phtml',
             'cpprodset' => 'layout/cpprodsetLayout.phtml',
+            'cpmp' => 'layout/cpmpLayout.phtml',
+            'cpreference' => 'layout/cpreferenceLayout.phtml'
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
@@ -139,9 +139,9 @@ return array(
             'cprofileset',
             'cpgeneralset',
             'cpaddressset',
-            'cpreferencesset',
-            'cpmpset',
-            'cpprodset'
+            'cpprodset',
+            'cpmp',
+            'cpreference'
         ),
 
     ),
@@ -167,12 +167,12 @@ return array(
                                                                     'companyprofilesettings',
                                                                     'companymtprofile',
                                                                     'clientspage',
-                                                                    'cprfileset',
+                                                                    'cprofileset',
                                                                     'cpgeneralset',
                                                                     'cpaddressset',
-                                                                    'cpreferencesset',
-                                                                    'cpmpset',
-                                                                    'cpprodset'
+                                                                    'cpprodset',
+                                                                    'cpmp',
+                                                                    'cpreference'
                                                                     ),
                                      'login' => array('index'),)
                    ),
@@ -193,9 +193,9 @@ return array(
                                                               'cprofileset',
                                                               'cpgeneralset',
                                                               'cpaddressset',
-                                                              'cpreferencesset',
-                                                              'cpmpset',
-                                                              'cpprodset'
+                                                              'cpprodset',
+                                                              'cpmp',
+                                                              'cpreference'
                                                               )),
                    ),
         'supervisor' => array(
@@ -222,9 +222,9 @@ return array(
                                                                     'cprofileset',
                                                                     'cpgeneralset',
                                                                     'cpaddressset',
-                                                                    'cpreferencesset',
-                                                                    'cpmpset',
-                                                                    'cpprodset'
+                                                                    'cpprodset',
+                                                                    'cpmp',
+                                                                    'cpreference'
                                                                     ))
                    ),
         
