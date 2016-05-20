@@ -231,7 +231,7 @@
         },
         _create: function () {
         },
-        show : function(title, message) {
+        show : function(title, message, data) {
             var self = this;
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_WARNING,
@@ -250,7 +250,7 @@
                     cssClass: 'btn-success',
                     action: function(dialogItself){
                         dialogItself.close();
-                        self._trigger('onConfirm');
+                        self._trigger('onConfirm', event, {data : data});
                     }
                 }]
             });
@@ -276,14 +276,14 @@
         },
         _create: function () {
         },
-        show : function(title, message) {
+        show : function(title, message, data) {
             var self = this;
             BootstrapDialog.show({
                 title: title,
                 message: message,
                 type: BootstrapDialog.TYPE_WARNING,
             });
-            self._trigger('onShown');
+            self._trigger('onShown', event, {data : data});
         },
         resetOnShown : function() {
             this.options.onShown = function () {
@@ -311,7 +311,7 @@
             this._super();
         },
         
-        show : function(title, message) {
+        show : function(title, message, data) {
             var self = this;
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_SUCCESS,
@@ -323,7 +323,7 @@
                     cssClass: 'btn-success',
                     action: function(dialogItself){
                         dialogItself.close();
-                        self._trigger('onShown');                        
+                        self._trigger('onShown', event, {data : data});                        
                     }
                 }]
             });
@@ -349,7 +349,7 @@
         },
         _create: function () {
         },
-        show : function(title, message) {
+        show : function(title, message, data) {
             var self = this;
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_DANGER,
@@ -361,7 +361,7 @@
                     cssClass: 'btn-danger',
                     action: function(dialogItself){
                         dialogItself.close();
-                        self._trigger('onShown');
+                        self._trigger('onShown', event, {data : data});
                     }
                 }]
             });  

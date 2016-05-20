@@ -72,9 +72,16 @@
   cursor: pointer;
 }
 
-.tag-box li.tags .delete-icon {
+.tag-box li.tags .delete-all-icon {
   margin-left : 4px;
-  margin-right: -22px;
+  margin-right: -25px;
+  right: 0;
+  cursor: pointer;
+}
+
+.tag-box li.tags .delete-icon {
+  margin-left : 24px;
+  margin-right: -7px;
   right: 0;
   cursor: pointer;
 }

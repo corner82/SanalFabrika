@@ -15,17 +15,14 @@
         options: {
             tagCopy             : true,
             tagDeletable        : true,
+            tagDeletableAll     : false,     
             tagBox              : $('.tag-container').find("ul"),
-            //tagBox              : '.tag-box',
-            //closeTag            : '<a class="close"></a>',
             closeTag            : '<i class="fa fa-fw fa-trash-o delete-icon" title="Sil" onclick=""></i>',
-            //copyTag            : '<a class="copy"></a>',
+            closeAllTag         : '<i class="fa fa-fw fa-remove delete-all-icon" title="Tüm Alanlardan Sil" onclick=""></i>',
             copyTag             : '<i class="fa fa-copy copy-icon" title="Kopyala" onclick=""></i>',
             tagRemovable        : '<li data-id="{id}" class="tags">{tag}</li>',
             tagNotRemovable     : '<li class="tags">{tag}</li>',
             tagContainer        : '.tag-container', 
-            /*dataMapper          : {attributes : Array('notroot', 'active'),
-                                     attributes2 : Array('icon_class')},  */
         },
         deleteTag : function() {
             
@@ -50,27 +47,22 @@
         removeSpecificTags : function(value, tagAttribute) {
             var self = this;
             var listItems = $(self.options.tagBox).find('li'); 
-            var controlor = true;
-            //console.log(listItems);  
+            var controlor = true; 
             $.each(listItems, function(key, item) {
                 //console.log($(item));
-                console.log(item);
-                console.log($(item).attr(tagAttribute));
+                //console.log(item);
                 if($(item).attr(tagAttribute) == value) {
-                    console.log($(item).attr(tagAttribute));
                     $(item).remove();  
                 }
-                
             })
+            self._trigger('onSpecificTagsRemoved', event);
             return true;
         },
         
         findTags : function() {
             var self = this;
-            var listItems = $(self.options.tagBox).find('li');
-            //console.log(listItems);  
+            var listItems = $(self.options.tagBox).find('li'); 
             $.each(listItems, function(key, item) {
-                //console.log($(item));
                 self._trigger('tagsFound', event, item);
                 /*console.log($(item).attr('data-attribute'));
                 console.log($(item).attr('data-tree-item'));*/
@@ -100,6 +92,42 @@
                 console.log($(item).attr('data-tree-item'));*/
             })
             return controlor;
+        },
+        
+        /**
+         * public function to add tag individually 
+         * @param {type} id
+         * @param {type} tag
+         * @param {type} infoArray
+         * @param {type} infoArrayManual
+         * @returns {undefined}
+         * @since 29/04/2016
+         */
+        addTagManually : function(id, tag, infoArray) {
+            var self = this;
+            var tag = tag;
+            var icons = '';
+            var tagCustom = '';
+            
+            if(typeof infoArray!= "undefined") {
+                $.each(infoArray, function(key, item) {
+                    //console.error(key+'--'+item);
+                    tagCustom += ' '+key+'="'+item+'" ';  
+                })
+            }
+            
+            if(self.options.tagCopy) {
+               icons += self.options.copyTag;
+            }
+            
+            if(self.options.tagDeletableAll) {
+               icons += self.options.closeAllTag;
+            }
+            
+            if(self.options.tagDeletable) {
+                icons += self.options.closeTag;       
+            }
+            self.options.tagBox.append('<li class="tags" data-attribute="'+id+'"  '+tagCustom+' >'+tag+icons+'</li>');
         },
         
         /**
@@ -165,6 +193,10 @@
                icons += self.options.copyTag;
             }
             
+            if(self.options.tagDeletableAll) {
+               icons += self.options.closeAllTag;
+            }
+            
             if(self.options.tagDeletable) {
                 icons += self.options.closeTag;       
             }
@@ -172,54 +204,62 @@
         },
         
         /**
-         * add listener for tag copy element
-         * @returns {undefined}
-         * 
-         */
-        _addTagCopyListener : function() {
-            var self = this;
-            $(self.options.tagBox).on("click", ".copy-icon", function()  {
-                var id = $(this).parent().attr('data-attribute');
-                self._trigger('tagCopied', event, id);
-            });
-        },
-        
-        /**
-         * add listener for remove element
-         * @returns {undefined}
-         * 
-         */
-        _addTagRemoveListener : function() {    
-            var self = this;
-            var element;
-            var id;   
-            $(self.options.tagBox).on("click", ".delete-icon", function(event)  {
-                element = $(this).parent();
-                id = $(this).parent().attr('data-attribute');
-                //$(this).parent().remove();
-                
-                self._trigger('tagRemoved', event, element, id); 
-                return false;
-            });
-             
-        },
-        
-        /**
          * private constructor method for jquery widget
          * @returns {null}
          */
         _create: function () {
-            if(this.options.tagDeletable) {
-                this._addTagRemoveListener();   
-            }
             
-            if(this.options.tagCopy) {
-                this._addTagCopyListener();   
-            }
+            var self = $(this);
+            
+            /**
+             * delete icon click event binding
+             */
+            this._on(this.element, {
+            'click.delete-icon': function(event, self) {
+                    var event = event;
+                    var element = $(event.target).parent();
+                    var id = element.attr('data-attribute');
+                    this._trigger('onTagRemoved',event, { 
+                        element : element,
+                        id : id
+                    } );   
+                }
+            });
+            
+            /**
+             * delete all icon click event binding
+             */
+            this._on(this.element, {
+            'click.delete-all-icon': function(event, self) {
+                    var event = event;
+                        var element = $(event.target).parent();
+                        var id = element.attr('data-attribute');
+                        this._trigger('onTagRemovedUltimately',event, { 
+                            element : element,  
+                            id : id
+                    } );
+   
+                }
+            });
+            
+            /**
+             * copy icon click event binding
+             */
+            this._on(this.element, {
+            'click.copy-icon': function(event, self) {
+                    var event = event;
+                    var element = $(event.target).parent();    
+                    var id = element.attr('data-attribute');
+                    this._trigger('onTagCopied',event, { 
+                        element : element,
+                        id : id
+                    } );   
+                }
+            });
+
         },  
         
         _init : function() {
-  
         },
     });  
 
