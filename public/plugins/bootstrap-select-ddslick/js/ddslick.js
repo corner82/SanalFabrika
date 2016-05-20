@@ -28,6 +28,14 @@
         }
     }
     
+    /**
+     * select by value function triggered by 'selectByValue' event described
+     * @param {type} a
+     * @param {type} b
+     * @returns {undefined}
+     * @author Zeynel Dağlı
+     * @since 01/03/2016
+     */
     function selectItemByValue (a, b) {
         //console.warn(a.find(".dd-option >.dd-option-value [value='" + b + "']"));
         //h = a.find(".dd-option >.dd-option-value [value='" + b + "']").parent();
@@ -128,7 +136,7 @@
     var b = {},
         c = {
             data: [],
-            keepJSONItemsOnTop: false,
+            keepJSONItemsOnTop: true,
             width: 260,
             height: null,
             background: "#eee",
@@ -138,12 +146,29 @@
             imagePosition: "left",
             showSelectedHTML: true,
             clickOffToClose: true,
+            search : false,
+            searchTextClass : 'search-text',
+            searchTemplate : '<div  class="form-group" style="margin-bottom:0px;margin-left:-4px;margin-top:10px;" >\n\
+                                <div class="col-sm-10">\n\
+                                    <div class="input-group">\n\
+                                        <div class="input-group-addon">\n\
+                                            <i class="fa  fa-search-plus"></i>\n\
+                                        </div>\n\
+                                        <input  class="form-control {searchTextClass}"  type="text" value="Ara"  />\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>',
             onSelected: function() {}
-        },
-        d = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
+        };
+        
+        /*d = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"> </span></div>',
         e = '<ul class="dd-options"></ul>',
-        f = '<style id="css-ddslick" type="text/css">' + ".dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer;}" + ".dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em; }" + ".dd-selected{ overflow:hidden; display:block; padding:10px; font-weight:bold;}" + ".dd-pointer{ width:0; height:0; position:absolute; right:10px; top:50%; margin-top:-3px;}" + ".dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000; }" + ".dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}" + ".dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; z-index:2000; margin:0; padding:0;background:#fff; overflow:auto;}" + ".dd-option{ padding:10px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }" + ".dd-options > li:last-child > .dd-option{ border-bottom:none;}" + ".dd-option:hover{ background:#f3f3f3; color:#000;}" + ".dd-selected-description-truncated { text-overflow: ellipsis; white-space:nowrap; }" + ".dd-option-selected { background:#f6f6f6; }" + ".dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:64px;}" + ".dd-image-right { float:right; margin-right:15px; margin-left:5px;}" + ".dd-container{ position:relative;}​ .dd-selected-text { font-weight:bold}​</style>";
+        f = '<style id="css-ddslick" type="text/css">' + ".dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer;}" + ".dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em; }" + ".dd-selected{ overflow:hidden; display:block; padding:10px; font-weight:bold;}" + ".dd-pointer{ width:0; height:0; position:absolute; right:10px; top:50%; margin-top:-3px;}" + ".dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000; }" + ".dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}" + ".dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; z-index:2000; margin:0; padding:0;background:#fff; overflow:auto;}" + ".dd-option{ padding:10px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }" + ".dd-options > li:last-child > .dd-option{ border-bottom:none;}" + ".dd-option:hover{ background:#f3f3f3; color:#000;}" + ".dd-selected-description-truncated { text-overflow: ellipsis; white-space:nowrap; }" + ".dd-option-selected { background:#f6f6f6; }" + ".dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:64px;}" + ".dd-image-right { float:right; margin-right:15px; margin-left:5px;}" + ".dd-container{ position:relative;}​ .dd-selected-text { font-weight:bold}​</style>";*/
     if (a("#css-ddslick").length <= 0) {
+        d = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"> </span></div>';
+        e = '<ul class="dd-options"></ul>';
+        f = '<style id="css-ddslick" type="text/css">' + ".dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer;}" + ".dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em; }" + ".dd-selected{ overflow:hidden; display:block; padding:10px; font-weight:bold;}" + ".dd-pointer{ width:0; height:0; position:absolute; right:10px; top:50%; margin-top:-3px;}" + ".dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000; }" + ".dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}" + ".dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; z-index:2000; margin:0; padding:0;background:#fff; overflow:auto;}" + ".dd-option{ padding:10px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }" + ".dd-options > li:last-child > .dd-option{ border-bottom:none;}" + ".dd-option:hover{ background:#f3f3f3; color:#000;}" + ".dd-selected-description-truncated { text-overflow: ellipsis; white-space:nowrap; }" + ".dd-option-selected { background:#f6f6f6; }" + ".dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:64px;}" + ".dd-image-right { float:right; margin-right:15px; margin-left:5px;}" + ".dd-container{ position:relative;}​ .dd-selected-text { font-weight:bold}​</style>";
+        //console.error(c);
         a(f).appendTo("head")
     }
     b.init = function(b) {
@@ -171,9 +196,30 @@
                     l = a('<div id="' + c.attr("id") + '"></div>');
                 c.replaceWith(l);
                 c = l;
+                
+                //console.error(b);
+                /**
+                * set search eşements due to options
+                * @author Zeynel Dağlı
+                * @since 18/05/2016
+                */
+                if(b.search) {
+                    var template = b.searchTemplate;
+                    b.searchTemplate = template.replace("{searchTextClass}", b.searchTextClass);
+                    
+                    d = '<div class="dd-select">\n\
+                    '+b.searchTemplate+'\n\
+                    <input class="dd-selected-value" type="hidden" />\n\
+                    <a class="dd-selected"></a>\n\
+                    <span class="dd-pointer dd-pointer-down"> </span>\n\
+                </div>';
+                }
+                
                 c.addClass("dd-container").append(d).append(e);
                 var i = c.find(".dd-select"),
                     m = c.find(".dd-options");
+                
+               
                 m.css({
                     width: b.width
                 });
@@ -207,8 +253,89 @@
                     g(c, o)
                 }
                 c.find(".dd-select").on("click.ddslick", function() {
-                    h(c)
+                    h(c);
                 });
+                
+                /**
+                 * selected item double click event handler
+                 * @author Zeynel Dağlı
+                 * @since 18/05/2016
+                 */
+                c.find(".dd-select").on("dblclick.ddslick", function() {
+                    
+                    //c.find(".dd-selected-text").text('Arama yapmak için tıklayınız...');
+                    //c.find(".dd-selected-text").hide();
+                    
+                    /*c.find(".dd-selected-description").text('Arama yapmak için tıklayınız...');
+                    c.find(".dd-selected-value").val('-1');*/
+                    
+                    //c.find(".dd-pointer").hide();
+                    //c.find(".dd-selected-text").append('<input class="search-text" type="text"></input>');
+
+                });
+                
+                /**
+                 * search box keyup event binder
+                 * @author Zeynel Dağlı
+                 * @since 18/05/2016
+                 */
+                c.find(".dd-select ."+b.searchTextClass+"").keyup(function() {
+                    var items = c.find(".dd-options>li");
+                    //console.log($(this).val());
+                    var searchText = $(this).val();
+                    if(searchText == '') {
+                        $.each(items, function(index, item) {
+                            $(item).show();
+                        });
+                    } else {
+                        c.find(".dd-options>li").show();
+                        $.each(items, function(index, item) {
+                            var str = $(item).find('a').text();
+                            if(str.toLowerCase().indexOf(searchText) == -1) {
+                                $(item).hide();
+                            }
+
+                        });
+                    }
+                });
+                 
+                /**
+                 * search text focus event binder
+                 * @author Zeynel Dağlı
+                 * @since 18/05/2016
+                 */
+                c.find(".dd-select ."+b.searchTextClass+"").focus(function() {
+                    //console.error(b);
+                    //c.open();
+                    //a.open();
+                    //b.open();
+                    /*var searchText = $(this).val();
+                    if(searchText == '') {
+                        c.find(".dd-options>li").show();
+                    }
+
+                    h(c);*/
+                    /*return this.each(function() {
+                        var b = a(this),
+                            c = b.data("ddslick");
+                        if (c) h(b)
+                    })*/
+
+                });
+                
+                
+                
+                /**
+                 * selected item focus event handler
+                 * @author Zeynel Dağlı
+                 * @since 18/05/2016
+                 */
+                /*c.find(".dd-select").on("focus.ddslick", function() {
+                    c.find(".dd-options>li").show();
+                });*/
+                
+                
+                        
                 c.find(".dd-option").on("click.ddslick", function() {
                     g(c, a(this).closest("li").index())
                 });
@@ -229,6 +356,13 @@
             if (b.index) g(a(this), b.index)
         })
     };
+    /**
+     * for select by value functionality added code
+     * @param {type} b
+     * @returns {ddslick_L1.b@call;each}
+     * @author Zeynel Dağlı
+     * @since 01/03/2016
+     */
     b.selectByValue = function(b) {
         return this.each(function() {
             //console.warn(b);
