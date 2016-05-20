@@ -10,9 +10,9 @@
         <!-- Logo -->
         <a href="index.phtml" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b><?php echo $this->translate('OSTIM') ?></b></span>
+            <span class="logo-mini"><b><?php echo $this->translate('OSTIM') ?></b> </span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b><?php echo $this->translate('OSTIM') ?></b><?php echo $this->translate('V.E.') ?></span>
+            <span class="logo-lg"><b><?php echo $this->translate('OSTIM') ?></b> <?php echo $this->translate('V.E.') ?></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -343,7 +343,7 @@
                            placeholder="<?php echo $this->translate('Search') ?>"/>
                     <span class="input-group-btn">
                         <button type='submit' name='search' id='search-btn' 
-                                class="btn btn-flat"><i class="fa fa-search"></i>
+                                class="btn btn-flat" onclick="send_general_info()"><i class="fa fa-search"></i>
                         </button>
                     </span>
                 </div>
@@ -369,8 +369,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1> 
-                <?php echo $this->translate('Company Profile General Setting') ?>
-                <small></small>
+                <?php echo $this->translate('Company Profile') ?>
+                <small><?php echo $this->translate('General Settings') ?></small>
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -416,70 +416,202 @@
                         <h3 class="box-title"><?php echo $this->translate('General Information Setting') ?></h3>                    
                     </div>
                     <div class="box-body">
-                        <form role="form">
+                        <form role="form" id='general_firm_form'>
                             <!-- First Column Start -->
                             <div class="col-lg-6">
-                                <div class="form-group">
+                                <div>
                                     <label for="full_name_ph"><?php echo $this->translate('Company Full Name') ?></label>
-                                    <input type="text" class="form-control" id="full_name_ph" placeholder="Enter company full name here please">
-                                </div>
-                                <div class="form-group">
-                                    <label for="short_name_ph"><?php echo $this->translate('Company Short Name') ?></label>
-                                    <input type="text" class="form-control" id="short_name_ph" placeholder="Enter company short name here please">
-                                </div>                            
-                                <div class="form-group">                                
-                                    <label for="company_country_ph"><?php echo $this->translate('Country') ?></label>
-                                    <div id="company_country_ph">
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-flag-o"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="full_name_ph" placeholder="Enter company full name here please">
+                                    </div>
+                                </div>                               
+                                <div style='margin-top:20px'>
+                                    <label for="full_name_en_ph"><?php echo $this->translate('Company Full Name in English') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-flag-o"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="full_name_en_ph" placeholder="Enter company full name in English here please">
                                     </div>
                                 </div>
-                                <div class="image-upload col-lg-6" style="margin-top: 20px">
-                                    <label for="file_input">
-                                        <a id="logo_edit_title" class="hovertext col-md-12" title="Click to update logo">
-                                            <img id="company_logo_fake" style="display: none; visibility: hidden" src="" >
-                                        </a>
-                                        <img id="company_logo" class="img-responsive" 
-                                             src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
-                                             border="0" alt="">
-                                        </a>
-                                    </label>
-                                    <input id="file_input" type="file"/>
+                                <div style='margin-top:20px'>
+                                    <label for="short_name_ph"><?php echo $this->translate('Company Short Name') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-minus"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="short_name_ph" placeholder="Enter company short name here please">
+                                    </div>
                                 </div>
-                                <div class="form-group col-lg-6" >
-                                    <!--<label for="logoInputFile"><?php echo $this->translate('Company Logo') ?></label>-->
-                                    <!--<input type="file" id="exampleInputFile">-->
-                                    <p class="help-block"><?php echo $this->translate('Please provide your company logo in png format. Give your company name to this file and upload your file to the system. Please note, this image must be in 300 pixels X 400 pixels and minimum resolution of 300 dpi.') ?></p>
-                                    <p class="help-block"><?php echo $this->translate('Example:') ?></p>
-                                    <p class="help-block"><?php echo $this->translate('If your company name is "abc" then the name of your logo file should be "abc.png".') ?></p>
+                                <div style='margin-top:20px'>
+                                    <label for="short_name_en_ph"><?php echo $this->translate('Company Short Name in English') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-minus"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="short_name_en_ph" placeholder="Enter company short name in English here please">
+                                    </div>
+                                </div> 
+                                <div style='margin-top:20px'>
+                                    <div class="form-group">                                
+                                        <label for="company_country_ph"><?php echo $this->translate('Country') ?></label>
+                                        <div id="company_country_ph">
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class='row'>
+                                    <div class="image-upload col-lg-6" style="margin-top: 20px">
+                                        <label for="file_input">
+                                            <a id="logo_edit_title" class="hovertext col-md-12" title="Click to update logo">
+                                                <img class="fake_image_ph" id="company_logo_fake" style="display: none; visibility: hidden" src="" >
+                                            </a>
+                                            <img id="company_logo" class="img-responsive image_ph" 
+                                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
+                                                 border="0" alt="">
+                                        </label>
+                                        <input id="file_input" class="file_input" type="file"/>
+                                    </div>
+                                    <div class="form-group col-lg-6" >
+                                        <!--<label for="logoInputFile"><?php echo $this->translate('Company Logo') ?></label>-->
+                                        <!--<input type="file" id="exampleInputFile">-->
+                                        <p class="help-block"><?php echo $this->translate('Please provide your company logo in png format. Give your company name to this file and upload your file to the system. Please note, this image must be in 300 pixels X 400 pixels and minimum resolution of 300 dpi.') ?></p>
+                                        <p class="help-block"><?php echo $this->translate('Example:') ?></p>
+                                        <p class="help-block"><?php echo $this->translate('If your company name is "abc" then the name of your logo file should be "abc.png".') ?></p>
+                                    </div>
+                                </div>
+                                <div style='margin-top:20px'>
+                                    <label for="estab_date"><?php echo $this->translate('Foundation Date') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-calendar"></i>
+                                        </div>
+                                        <input class="form-control validate[required,custom[date]]" 
+                                               onchange="milliseconds()"
+                                               type='date' name="compnay_foundation_date" id="compnay_foundation_date">
+                                    </div>
+                                </div>
+                                <div style='margin-top:20px'>
+                                    <label for="tax_office"><?php echo $this->translate('Tax office') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-building"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="tax_office" placeholder="Tex Office Name">
+                                    </div>
+                                </div>
+                                <div style='margin-top:20px'>
+                                    <label for="tex_number"><?php echo $this->translate('Tax Number') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-money"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="tex_number" placeholder="Enter your company tax number here please ...">
+                                    </div>
+                                </div>
+                                <div style='margin-top:20px'>
 
+                                </div>
+                                <!--                                <div class="form-group">
+                                                                    <label for="duns_number"><?php echo $this->translate('DUNS Number') ?></label>
+                                                                    <input type="text" class="form-control" id="duns_number" placeholder="Enter company's DUNS number here please">
+                                                                </div>-->
+                                <div class="form-group">
+                                    <label><?php echo $this->translate("Please enter a brief description about your company.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 3000 character...)") ?></p></label>
+                                    <textarea id="desc_text" class="form-control text-area" 
+                                              style="max-width:100%;"  rows="6" maxlength="3000"
+                                              placeholder="Please enter a brief description about your company here ..."></textarea>
+                                    <div id="desc_rem_char_alert"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label><?php echo $this->translate("Please enter a brief description in English about your company.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 3000 character...)") ?></p></label>
+                                    <textarea id="desc_text_en" class="form-control text-area" 
+                                              style="max-width:100%" rows="6" maxlength="3000"
+                                              placeholder="Please enter a brief description in English about your company here ..."></textarea>
+                                    <div id="desc_en_rem_char_alert"></div>
+                                </div>
                             </div>
 
                             <!-- First Column End -->
 
                             <!-- Second Column Start -->
-                            <div class="col-lg-6">
-
+                            <div class="col-lg-6">                                
                                 <div class="form-group">
-                                    <label><?php echo $this->translate("Please enter a brief description about your company.") ?>
-                                        <p class="help-block"><?php echo $this->translate("(No more than 400 character...)") ?></p></label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                </div>
-                                <div class="form-group" style="margin-top: 20px">
-                                    <label><?php echo $this->translate("Your company's main business sectors.") ?>
-                                        <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                </div>  
-                                <div class="form-group" style="margin-top: 20px">
-                                    <label><?php echo $this->translate("Your company's vision.") ?>
-                                        <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <label for="first_text_title"><?php echo $this->translate('Enter a title for your first text area.') ?></label>
+                                    <input type="text" class="form-control" id="first_text_title" placeholder="Enter a title for your first text area here please">
+                                </div>                                 
+                                <div class="form-group">
+                                    <label for="first_text_title_en"><?php echo $this->translate('Enter your first text area title in English.') ?></label>
+                                    <input type="text" class="form-control" id="first_text_title_en" placeholder="Enter your first text area title in English here please">
                                 </div> 
                                 <div class="form-group" style="margin-top: 20px">
-                                    <label><?php echo $this->translate("Your company's capabilities and competitive fields.") ?>
-                                        <p class="help-block"><?php echo $this->translate("(No more than 200 character...)") ?></p></label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <label><?php echo $this->translate("Your prefered text in first text-area.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
+                                    <textarea id="verbal1_text" class="form-control text-area" 
+                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                              placeholder="Enter your first text here please"></textarea>
+                                    <div id="verb1_rem_char_alert"></div>
+                                </div>                                 
+                                <div class="form-group" style="margin-top: 20px">
+                                    <label><?php echo $this->translate("Your prefered text in first text-area in English.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
+                                    <textarea id="verbal1_text_en" class="form-control text-area" 
+                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                              placeholder="Enter your first text here please in English"></textarea>
+                                    <div id="verb1_en_rem_char_alert"></div>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="second_text_title"><?php echo $this->translate('Enter a title for your second text area.') ?></label>
+                                    <input type="text" class="form-control" id="second_text_title" placeholder="Enter a title for your second text area here please">
+                                </div>                                 
+                                <div class="form-group">
+                                    <label for="second_text_title_en"><?php echo $this->translate('Enter your second text area title in English.') ?></label>
+                                    <input type="text" class="form-control" id="second_text_title_en" placeholder="Enter your second text area title in English here please">
+                                </div> 
+                                <div class="form-group" style="margin-top: 20px">
+                                    <label><?php echo $this->translate("Your prefered text in second text-area.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
+                                    <textarea id="verbal2_text" class="form-control text-area" 
+                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                              placeholder="Enter your second text here please"></textarea>
+                                    <div id="verb2_rem_char_alert"></div>
+                                </div>                                 
+                                <div class="form-group" style="margin-top: 20px">
+                                    <label><?php echo $this->translate("Your prefered text in second text-area in English.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
+                                    <textarea id="verbal2_text_en" class="form-control text-area" 
+                                              style="max-width:100%"  rows="3" maxlength="2000" 
+                                              placeholder="Enter your second text here please in English"></textarea>
+                                    <div id="verb2_en_rem_char_alert"></div>
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="third_text_title"><?php echo $this->translate('Enter a title for your third text area.') ?></label>
+                                    <input type="text" class="form-control" id="third_text_title" placeholder="Enter a title for your third text area here please">
+                                </div>                                 
+                                <div class="form-group">
+                                    <label for="third_text_title_en"><?php echo $this->translate('Enter your third text area title in English.') ?></label>
+                                    <input type="text" class="form-control" id="third_text_title_en" placeholder="Enter your third text area title in English here please">
+                                </div> 
+                                <div class="form-group" style="margin-top: 20px">
+                                    <label><?php echo $this->translate("Your prefered text in third text-area.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
+                                    <textarea id="verbal3_text" class="form-control text-area" 
+                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                              placeholder="Enter your third text here please"></textarea>
+                                    <div id="verb3_rem_char_alert"></div>
+                                </div>                                 
+                                <div class="form-group" style="margin-top: 20px">
+                                    <label><?php echo $this->translate("Your prefered text in third text-area in English.") ?>
+                                        <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
+                                    <textarea id="verbal3_text_en" class="form-control text-area" 
+                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                              placeholder="Enter your third text here please in English"></textarea>
+                                    <div id="verb3_en_rem_char_alert"></div>
+                                </div>
                             </div>
                             <!-- Second Column End -->
 
