@@ -369,8 +369,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1> 
-                <?php echo $this->translate('Company Profile Control Panel') ?>
-                <small></small>
+                <?php echo $this->translate('Company Profile') ?>
+                <small><?php echo $this->translate('Product Settings') ?></small>
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -412,9 +412,182 @@
                 </div>
 
                 <div class="box-body" style="display: block;">
-                    
+                    <!-- Start of first column -->
+                    <div class="col-lg-9">
+                        <table id='prod_grid' class="easyui-datagrid" title="List of Products"></table>
+                    </div>
+                    <!-- End of first column -->
+                    <!-- Start of second column -->
+                    <div class="col-lg-3">  
+                        <p>
+                            <?php echo $this->translate("Products list helps customer to get a clue about company activities, it's quality and capabilities. ") ?><br/>
+                            <?php echo $this->translate("Updating your product list you definitley improve the chance of grabbing new potential customers those require to submit their order to produce similar products or even buy your currently manufactured goods.") ?>
+                            <button id="add_new _machine" type="button" class="btn btn-primary col-lg-12" onclick="unhide_new_prod_sec()">
+                                <?php echo $this->translate('Add new product') ?>
+                            </button>
+                    </div>
+                    <!-- End of second column -->  
                 </div>
             </div>
+            <!-- End of first primary box -->
+            <!-- Start of new product submission hidden box -->
+            <div class="box box-primary" id="add_new_prod_hidden"
+                 style="display: none; visibility: hidden">
+                <!-- hidden part header -->
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo $this->translate('Add new product') ?></h3>
+                </div>
+                <!-- end of hidden part header -->
+                <!-- start of box body -->
+                <div class="box-body" style="display: block;">
+                    <!-- product category selection -->
+                    <div class="row" id='categories_div'>
+                        <div class="col-xs-3" id='first_lev_cat' style="font-size: 12px">
+                            <div class="form-group">
+                                <label><?php echo $this->translate('Main Categories') ?></label>
+                                <select multiple="" id='first_lev_cat_list'
+                                        class="form-control" onchange='first_cat_sel(this)'>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-3" id='sec_lev_cat' style='display:none;visibility:hidden;font-size: 12px'>
+                            <div class="form-group">
+                                <label id='sec_lev_cat_label'></label>
+                                <select multiple="" id='sec_lev_cat_list'
+                                        class="form-control" onchange='sec_cat_sel(this)'>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-3" id='thi_lev_cat' style='display:none;visibility:hidden;font-size: 12px''>
+                            <div class="form-group">
+                                <label id='thi_lev_cat_label'></label>
+                                <select multiple="" id='thi_lev_cat_list'
+                                        class="form-control" onchange='third_cat_sel(this)'>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-3" id='for_lev_cat' style='display:none;visibility:hidden;font-size: 12px''>
+                            <div class="form-group">
+                                <label id='for_lev_cat_label'></label>
+                                <select multiple="" id='for_lev_cat_list'
+                                        class="form-control" onchange='forth_cat_sel(this)'>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='sel_but_div'>
+                        <button id='add_cat_but' type="button" disabled='true'
+                                class="btn btn-block btn-primary" onclick='add_sel_cat()'>
+                                    <?php echo $this->translate('Select Category') ?>
+                        </button>
+                        <button id='change_cat_btn' type="button"
+                                class="btn btn-block btn-primary" onclick='change_sel_cat()'
+                                style="display:none;visibility: hidden">
+                                    <?php echo $this->translate('Change Category') ?>
+                        </button>
+                    </div>                    
+                    <!-- end of category selection -->
+
+                    <!-- start of first column -->
+                    <div class="col-lg-6">
+                        <!-- Start of first column -->
+                        <label for="product_categories" style="margin-top: 20px">
+                            <?php echo $this->translate('Selected product category:') ?>
+                        </label>
+                        <input type="text" class="form-control" disabled="disabled" id="selected_prod_cat">
+                        <label for="gtip_no" style="margin-top: 20px">
+                            <?php echo $this->translate('Select product GTIP number:') ?>
+                        </label>
+                        <div id="gtip_no"></div>
+                        <div class="form-group" name="prod_name_tur"  id="prod_name_tur"
+                             style="margin-top: 20px">
+                            <label><?php echo $this->translate('Product Name in Turkish') ?></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </div>
+                                <input type="text" class="form-control">
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <div class="form-group" name="prod_name_eng"  id="prod_name_eng">
+                            <label><?php echo $this->translate('Product Name in English') ?></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </div>
+                                <input type="text" class="form-control">
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <div class="form-group" name="prod_desc_tur"  id="prod_desc_tur">
+                            <label><?php echo $this->translate('Product Description in Turkish') ?></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </div>
+                                <textarea class="form-control" rows="3" placeholder="Enter product description in Turkish here ..."></textarea>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                        <div class="form-group" name="prod_desc_eng"  id="prod_desc_eng">
+                            <label><?php echo $this->translate('Product Description in English') ?></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </div>
+                                <textarea class="form-control" rows="3" placeholder="Enter product description in English here ..."></textarea>
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                    </div>
+                    <!-- End of first column -->
+                    <!-- Start of second column -->
+                    <div class="col-lg-6">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><?php echo $this->translate('Product Image') ?></h3>
+                        </div>
+                        <div class="image-upload col-lg-6" style="margin-top: 20px">
+                            <label for="file_input">
+                                <a id="prod_image_title" class="hovertext col-md-12" 
+                                   title="Click to update logo">
+                                    <img class="fake_image_ph" id="prod_image_fake" 
+                                         style="display: none; visibility: hidden" src="" >
+
+                                    <img id="prod_image" class="img-responsive image_ph" 
+                                         src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
+                                         border="0" alt="">
+                                </a>
+                            </label>
+                            <input id="file_input" class="file_input" type="file"/>
+                        </div>
+                        <div class="form-group col-lg-6" >
+                            <p class="help-block"><?php echo $this->translate('Please provide product image in png format. Give product name name to this file and upload your file to the system. Use underline instead of empty characters. Please note, this image must has image ratio of 3X4 and minimum resolution of 300 dpi. Please do not upload images larger than 3Mb. ') ?></p>
+                            <p class="help-block"><?php echo $this->translate('Example:') ?></p>
+                            <p class="help-block"><?php echo $this->translate('If your company name is "abc product 1" then the name of your logo file should be "abc_product_1.png".') ?></p>
+                        </div>
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><?php echo $this->translate('Product Videos') ?></h3>
+                        </div>
+                        <div class="form-group">
+                            <p class="help-block"><?php echo $this->translate('You may add video links for your product. As first step you should upload your image to youtube or vimeo video sharing sites then provide video link here.') ?></p>
+                        </div>
+                        <div class="form-group" name="prod_video_link"  id="prod_desc_tur">
+                            <label><?php echo $this->translate('Product Video Link') ?></label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-video-camera"></i>
+                                </div>
+                                <input type="text" class="form-control">
+                            </div>
+                            <!-- /.input group -->
+                        </div>
+                    </div>
+                    <!-- End of second column -->  
+                </div>
+                <!-- end of box body -->
+            </div>
+            <!-- Start of new product submission hidden box -->
     </div>
 
     <!-- end of company general information setting -->

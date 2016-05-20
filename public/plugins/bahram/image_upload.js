@@ -49,14 +49,14 @@ function readURL(input) {
         }
 
         /*
-         * Create a fake photo placeholder (#company_logo_fake)to catch 
+         * Create a fake photo placeholder (#company_logo_fake) with a class of (.fake_image_ph)to catch 
          * photo and check sizes
          */
 
         fake_reader.onload = function (event) {
-            $('#company_logo_fake').attr('src', event.target.result);
+            $('.fake_image_ph').attr('src', event.target.result);
             var theImage = new Image();
-            theImage.src = $('#company_logo_fake').attr('src');
+            theImage.src = $('.fake_image_ph').attr('src');
             // Get accurate measurements from that.
             var imageWidth = theImage.width;
             var imageHeight = theImage.height;
@@ -100,7 +100,7 @@ function readURL(input) {
 
                 $('#file_input').text("Uploading " + uploadFile.name);
                 reader.onload = function (e) {
-                    $('#company_logo').attr('src', e.target.result).show();
+                    $('.image_ph').attr('src', e.target.result).show();
                     $('#file_input').text(uploadFile.name);
                 };
                 reader.readAsDataURL(uploadFile);

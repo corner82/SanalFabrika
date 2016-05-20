@@ -69,8 +69,6 @@
 
                     for (var c = 3; c < currentPathArray.length; c++) {
 
-                        console.log(currentPathArray);
-
                         var data_url = data[i].url;
                         if (data[i].url) {
                             

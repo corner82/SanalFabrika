@@ -100,7 +100,7 @@ $(document).ready(function () {
                         + "<div class='testimonials-v4 md-margin-bottom-50'>"
                         + "<div class='testimonials-v4-in'>"
                         + "<p>"
-                        + window.lang.translate('40 yılı geride bırakmış olan firmamız pano tipi ölçü aletleri, alçak gerilim akım trafoları, alçak/orta/yüksek gerilim emniyet gereçleri, born klemens, buksel soket gibi ürünlerin seri üretimini yapmakla beraber gerek ülkemizde gerek dünya üzerinde önde gelen savunma ve havacılık firmalarına hizmet vermektedir.')
+                        + data.rows[i].verbal1
                         + "</p>"
                         + "</div>"
                         + "<img class='rounded-x' src='https://"
@@ -110,7 +110,7 @@ $(document).ready(function () {
                         + data.rows[i].name + " " + data.rows[i].surname
                         + "<br>"
                         + "<em>"
-                        + window.lang.translate('CEO')
+                        + data.rows[i].title
                         + "</em>"
                         + "</span>"
                         + "</div>"
