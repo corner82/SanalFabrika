@@ -1,5 +1,5 @@
 $(document).ready(function () {
-        
+
     /*
      * multilanguage plugin 
      * @type Lang
@@ -25,6 +25,120 @@ $(document).ready(function () {
     window.boroughList;
 
     /*
+     * 
+     * Firm consultants for page header
+     * 
+     */
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkGetFirmProfileConsultant_infoFirmProfile',
+            language_code: $("#langCode").val(),
+            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+                for (var i = 0; i < data.length; i++) {
+
+                    var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
+
+                    if (data[i].communications_no) {
+                        var tel_number = data[i].communications_no;
+                    } else {
+                        var tel_number = '';
+                    }
+
+                    var appending_html =
+                            "<li id='"
+                            + "consultant_" +
+                            i
+                            + "' email_address='"
+                            + data[i].auth_email
+                            + "' onclick='send_email_to_consult(this)'><!-- start consultant -->"
+                            + "<a href='#'>"
+                            + "<div class='pull-left'>"
+                            + "<img src='"
+                            + cons_image_url
+                            + "' class='img-circle' alt='User Image'/>"
+                            + "</div>"
+                            + "<h4>"
+                            + data[i].name
+                            + "<small><i class='fa fa-clock-o'></i></small>"
+                            + "</h4>"
+                            + "<p>"
+                            + "Tel: " + tel_number
+                            + "</p>"
+                            + "<p>"
+                            + window.lang.translate('Assigned Company Consultant')
+                            + "</p>"
+                            + "</a>"
+                            + "</li><!-- end message -->";
+
+                    $('#list_consultants').append(appending_html);
+                }
+                $('#number_of_consultants').empty();
+                $('#number_of_consultants_power').empty();
+                $('#number_of_consultants').append(i + " " + window.lang.translate('Consultants'));
+                $('#number_of_consultants_power').append(i);
+
+            } else {
+                console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
+        }
+    });
+
+
+/*
+     * Page consultant for box-header
+     */
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkGetFirmVerbalConsultant_infoFirmVerbal',
+            language_code: $("#langCode").val(),
+            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+                var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
+                
+                if(data[0].communications_no){
+                    var tel_number = data[0].communications_no;
+                }else{
+                    var tel_number = '';
+                }
+                
+                $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
+                $('#consultant_div').attr('email_address', data[0].auth_email);
+                $('#cons_image_ph').attr('src', cons_image_url);
+                $('#cons_name_ph').empty();
+                $('#cons_name_ph').append(data[0].name);
+
+            } else {
+                console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
+        }
+    });
+
+    /*
      * Bootstrap modals variables
      * @type @call;$@call;successMessage
      */
@@ -36,6 +150,138 @@ $(document).ready(function () {
     var wm = $(window).warningMessage();
     var wcm = $(window).warningComplexMessage({denyButtonLabel: window.lang.translate('Cancel'),
         actionButtonLabel: window.lang.translate('Confirm')});
+
+
+
+    /*
+     * Get already registered addresses as Easyui Grid
+     * 
+     */
+//    var reg_address_data = {"total": 3, "rows": [
+//            {"itemid": "1", "building_type": "Buidling A", "country": "country A", "address": "address 1", "city": "city A", "pobox": "11213", "website": "www.aaa.com", "email": "a@a.com", "tel": "213654897", "fax": "213654897"},
+//            {"itemid": "2", "building_type": "Buidling B", "country": "country B", "address": "address 2", "city": "city B", "pobox": "15154", "website": "www.bbb.com", "email": "b@b.com", "tel": "234523452", "fax": "213654897"},
+//            {"itemid": "3", "building_type": "Buidling C", "country": "country C", "address": "address 3", "city": "city C", "pobox": "89278", "website": "www.ccc.com", "email": "c@c.com", "tel": "675676634", "fax": "213654897"}
+//        ]};
+
+
+    var buildings = [
+        {building_id: 'FI-SW-01', building_type: 'Koi'},
+        {building_id: 'K9-DL-01', building_type: 'Dalmation'},
+        {building_id: 'RP-SN-01', building_type: 'Rattlesnake'},
+        {building_id: 'RP-LI-02', building_type: 'Iguana'},
+        {building_id: 'FL-DSH-01', building_type: 'Manx'},
+        {building_id: 'FL-DLH-02', building_type: 'Persian'},
+        {building_id: 'AV-CB-01', building_type: 'Amazon Parrot'}
+    ];
+    $(function () {
+        $('#reg_address_table').datagrid({
+            title: window.lang.translate('List of Registered Addresses'),
+            iconCls: 'icon-edit',
+            width: '100%',
+            height: 250,
+            singleSelect: true,
+            idField: 'itemid',
+            url: '../../../../jsinline/datagrid_data.json',
+            columns: [[
+                    {field: 'itemid', title: 'Item ID', width: 60},
+//                    {field: 'building_id', title: 'Building Type', width: 100,
+//                        formatter: function (value, row) {
+//                            return row.building_type || value;
+//                        },
+//                        editor: {
+//                            type: 'combobox',
+//                            options: {
+//                                valueField: 'building_id',
+//                                textField: 'building_type',
+//                                data: buildings,
+//                                required: true
+//                            }
+//                        }
+//                    },
+                    {field: 'building_type', title: 'Building Type', width: 80, align: 'left', editor: {type: 'text', options: {precision: 1}}},
+                    {field: 'country', title: 'Country', width: 80, align: 'left', editor: {type: 'text', options: {precision: 1}}},
+                    {field: 'city', title: 'City', width: 80, align: 'left', editor: 'text'},
+                    {field: 'address', title: 'Address', width: 180, align: 'left', editor: 'text'},
+                    {field: 'tel', title: 'Tel', width: 50, align: 'center', editor: 'text'},
+                    {field: 'fax', title: 'Fax', width: 50, align: 'center', editor: 'text'},
+                    {field: 'email', title: 'Email', width: 50, align: 'center', editor: 'text'},
+                    {field: 'action', title: 'Action', width: 80, align: 'center',
+                        formatter: function (value, row, index) {
+                            if (row.editing) {
+                                var s = '<a href="javascript:void(0)" onclick="saverow(this)">' + window.lang.translate('Save') + '</a> ';
+                                var c = '<a href="javascript:void(0)" onclick="cancelrow(this)">' + window.lang.translate('Cancel') + '</a>';
+                                return s + c;
+                            } else {
+                                var e = '<a href="javascript:void(0)" onclick="editrow(this)">' + window.lang.translate('Edit') + '</a> ';
+                                var d = '<a href="javascript:void(0)" onclick="deleterow(this)">' + window.lang.translate('Delete') + '</a>';
+                                return e + d;
+                            }
+                        }
+                    }
+                ]],
+            onEndEdit: function (index, row) {
+                var ed = $(this).datagrid('getEditor', {
+                    index: index,
+                    field: 'productid'
+                });
+                row.productname = $(ed.target).combobox('getText');
+            },
+            onBeforeEdit: function (index, row) {
+                row.editing = true;
+                $(this).datagrid('refreshRow', index);
+            },
+            onAfterEdit: function (index, row) {
+                row.editing = false;
+                $(this).datagrid('refreshRow', index);
+            },
+            onCancelEdit: function (index, row) {
+                row.editing = false;
+                $(this).datagrid('refreshRow', index);
+            }
+        });
+        $('#reg_address_table').datagrid('enableFilter');
+    });
+
+
+
+    /*
+     * Get Building types service
+     */
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'fillBuildingType_sysSpecificDefinitions',
+            language_code: $("#langCode").val(),
+            component_type: 'ddslick'
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+
+            if (data.length !== 0) {
+                $('#building_type_ph').ddslick({
+                    data: data,
+                    width: '100%',
+                    background: false,
+                    selectText: window.lang.translate("Select a Address Type"),
+                    imagePosition: "right",
+                    onSelected: function (selectedData) {
+                        selectedBuildingTypeId = selectedData.selectedData.value;
+//                        console.log(selectedData);
+//                        console.log(selectedCommunicationTypeId);
+                        //callback function: do something with selectedData;
+                    }
+                });
+            } else {
+                console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis datasÄ± boÅŸtur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillCommunicationsTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
+        }
+    });
 
     /*
      * Get countries list for address 
@@ -742,7 +988,50 @@ function remove_social(element) {
     });
 }
 
+
 /*
- * hides hidden sections of all tabs
+ * Easyui functions
+ * 
  */
+
+function getRowIndex(target) {
+    var tr = $(target).closest('tr.datagrid-row');
+    return parseInt(tr.attr('datagrid-row-index'));
+}
+function editrow(target) {
+    $('#reg_address_table').datagrid('beginEdit', getRowIndex(target));
+}
+function deleterow(target) {
+
+    wcm.warningComplexMessage({onConfirm: function (event, data) {
+            $('#reg_address_table').datagrid('deleteRow', getRowIndex(target));
+        }
+    });
+    wcm.warningComplexMessage('show', window.lang.translate('Are you sure?'), window.lang.translate('Are You Sure?'));
+}
+function saverow(target) {
+    $('#reg_address_table').datagrid('endEdit', getRowIndex(target));
+
+    sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
+}
+function cancelrow(target) {
+    $('#reg_address_table').datagrid('cancelEdit', getRowIndex(target));
+}
+function insert() {
+    var row = $('#reg_address_table').datagrid('getSelected');
+    if (row) {
+        var index = $('#reg_address_table').datagrid('getRowIndex', row);
+    } else {
+        index = 0;
+    }
+    $('#reg_address_table').datagrid('insertRow', {
+        index: index,
+        row: {
+            status: 'P'
+        }
+    });
+    $('#reg_address_table').datagrid('selectRow', index);
+    $('#reg_address_table').datagrid('beginEdit', index);
+}
+
 

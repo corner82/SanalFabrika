@@ -12,7 +12,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b><?php echo $this->translate('OSTIM') ?></b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b><?php echo $this->translate('OSTIM') ?></b><?php echo $this->translate('V.E.') ?></span>
+            <span class="logo-lg"><b><?php echo $this->translate('OSTIM') ?></b> <?php echo $this->translate('V.E.') ?></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -22,6 +22,21 @@
             </a>
             <div class="navbar-custom-menu">                
                 <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-group"></i>
+                            <span id="number_of_consultants_power" class="label label-success">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li id="number_of_consultants" class="header"></li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu" id='list_consultants'>                                    
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#"><?php echo $this->translate('Show all consultants') ?></a></li>
+                        </ul>
+                    </li>
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -399,25 +414,59 @@
 
         <!-- Main content -->
         <section class="content">
-            <!-- company general information setting box -->
+            <!-- company address information setting box -->
+            <!-- Registered Addresses -->
             <div class="box box-primary">
+                <!-- /.box-header -->
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?php echo $this->translate('Profile Page Settings') ?></h3>
-
+                    <h3 class="box-title"><?php echo $this->translate('Registered Addresses') ?></h3>  
+                    <div id='consultant_div' class="box-tools pull-right" 
+                         style='margin-right:100px; font-size:12px; width: 200px' 
+                         data-balloon="" email_address =""
+                         data-balloon-pos="left" onclick='send_email_to_consult(this)'>
+                        <a href="#">
+                            <div class="pull-left">
+                                <img id='cons_image_ph' style='max-height:30px;margin-right:10px' 
+                                     src="" class="img-circle" alt="User Image"/>
+                            </div>
+                            <h8 id='cons_name_ph'>
+                                
+                            </h8>
+                            <br/>
+                            <small></small>
+                        </a>
+                    </div>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
                     </div>
                 </div>
-
+                <div class="box-body">
+                    <div class="col-lg-12">
+                        <table id="reg_address_table"></table>
+                    </div>
+                </div>
+            </div>
+            <!-- End of registered addresses -->
+            <!-- Add New Address -->
+            <div class="box box-primary">
                 <!-- /.box-header -->
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?php echo $this->translate('Address Information Settings') ?></h3>                    
+                    <h3 class="box-title"><?php echo $this->translate('Add New Addresses') ?></h3>  
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                    </div>
                 </div>
                 <div class="box-body">
                     <form role="form">
                         <!-- First Column Start -->
                         <div class="col-lg-6">
+                            <div class="form-group">                                
+                                <label for="building_type_ph"><?php echo $this->translate('Address Type') ?></label>
+                                <div id="building_type_ph">
+                                </div>
+                            </div>
                             <div class="form-group">                                
                                 <label for="company_country_address_ph"><?php echo $this->translate('Country') ?></label>
                                 <div id="company_country_address_ph">
@@ -475,17 +524,7 @@
                         <!-- First Column End -->
 
                         <!-- Second Column Start -->
-                        <div class="col-lg-6">
-                            <div class="form-group" name="website"  id="website">
-                                <label><?php echo $this->translate('Web site') ?></label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-globe"></i>
-                                    </div>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                            </div>
+                        <div class="col-lg-6">                            
                             <div class="form-group" name="email"  id="email">
                                 <label><?php echo $this->translate('Email') ?></label>
                                 <div class="input-group">
@@ -546,6 +585,7 @@
                 </div>
                 <!-- /.box-body -->
             </div>
+            <!-- End of add new address -->
         </section>
     </div>
 

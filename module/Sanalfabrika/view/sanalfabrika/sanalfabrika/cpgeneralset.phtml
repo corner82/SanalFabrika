@@ -22,6 +22,21 @@
             </a>
             <div class="navbar-custom-menu">                
                 <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-group"></i>
+                            <span id="number_of_consultants_power" class="label label-success">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li id="number_of_consultants" class="header"></li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu" id='list_consultants'>                                    
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#"><?php echo $this->translate('Show all consultants') ?></a></li>
+                        </ul>
+                    </li>
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -403,18 +418,30 @@
             <!-- company general information setting box -->
             <div class="box box-primary">                
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?php echo $this->translate('Profile Page Settings') ?></h3>
-
-                    <div class="box-tools pull-right">
+                    <h3 class="box-title"><?php echo $this->translate('Profile Page General Settings') ?></h3>
+                    <div id='consultant_div' class="box-tools pull-right" 
+                         style='margin-right:100px; font-size:12px; width: 200px' 
+                         data-balloon="" email_address =""
+                         data-balloon-pos="left" onclick='send_email_to_consult(this)'>
+                        <a href="#">
+                            <div class="pull-left">
+                                <img id='cons_image_ph' style='max-height:30px;margin-right:10px' 
+                                     src="" class="img-circle" alt="User Image"/>
+                            </div>
+                            <h8 id='cons_name_ph'>
+                            </h8>
+                            <br/>
+                            <small></small>
+                        </a>
+                    </div>
+                    <div class="box-tools pull-right">                        
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
                     </div>
                 </div>
 
                 <div class="box-body" style="display: block;">
-                    <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo $this->translate('General Information Setting') ?></h3>                    
-                    </div>
+
                     <div class="box-body">
                         <form role="form" id='general_firm_form'>
                             <!-- First Column Start -->
@@ -425,7 +452,7 @@
                                         <div class="input-group-addon">                                        
                                             <i class="icon-prepend fa fa-flag-o"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="full_name_ph" placeholder="Enter company full name here please">
+                                        <input type="text" class="form-control validate[required, maxSize[500]]" id="full_name_ph" placeholder="Enter company full name here please">
                                     </div>
                                 </div>                               
                                 <div style='margin-top:20px'>
@@ -434,7 +461,7 @@
                                         <div class="input-group-addon">                                        
                                             <i class="icon-prepend fa fa-flag-o"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="full_name_en_ph" placeholder="Enter company full name in English here please">
+                                        <input type="text" class="form-control validate[maxSize[500]]" id="full_name_en_ph" placeholder="Enter company full name in English here please">
                                     </div>
                                 </div>
                                 <div style='margin-top:20px'>
@@ -443,7 +470,7 @@
                                         <div class="input-group-addon">                                        
                                             <i class="icon-prepend fa fa-minus"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="short_name_ph" placeholder="Enter company short name here please">
+                                        <input type="text" class="form-control validate[required, maxSize[150]]" id="short_name_ph" placeholder="Enter company short name here please">
                                     </div>
                                 </div>
                                 <div style='margin-top:20px'>
@@ -452,8 +479,20 @@
                                         <div class="input-group-addon">                                        
                                             <i class="icon-prepend fa fa-minus"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="short_name_en_ph" placeholder="Enter company short name in English here please">
+                                        <input type="text" class="form-control validate[maxSize[150]]" 
+                                               id="short_name_en_ph" placeholder="Enter company short name in English here please">
                                     </div>
+                                </div> 
+                                <div style='margin-top:20px'>
+                                    <label for="website"><?php echo $this->translate('Web site') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-globe"></i>
+                                        </div>
+                                        <input type="url" class="form-control validate[custom[url]]" 
+                                               id="website" placeholder="http:// or https://">
+                                    </div>
+                                    <div class="note">Please Note: URL begin with http:// or https://</div>                                
                                 </div> 
                                 <div style='margin-top:20px'>
                                     <div class="form-group">                                
@@ -469,7 +508,7 @@
                                                 <img class="fake_image_ph" id="company_logo_fake" style="display: none; visibility: hidden" src="" >
                                             </a>
                                             <img id="company_logo" class="img-responsive image_ph" 
-                                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/EMGE/Logos/emge.png') ?>" 
+                                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/Logos/image_not_found.png') ?>" 
                                                  border="0" alt="">
                                         </label>
                                         <input id="file_input" class="file_input" type="file"/>
@@ -481,16 +520,16 @@
                                         <p class="help-block"><?php echo $this->translate('Example:') ?></p>
                                         <p class="help-block"><?php echo $this->translate('If your company name is "abc" then the name of your logo file should be "abc.png".') ?></p>
                                     </div>
-                                </div>
+                                </div>                                
                                 <div style='margin-top:20px'>
-                                    <label for="estab_date"><?php echo $this->translate('Foundation Date') ?></label>
+                                    <label for="found_date"><?php echo $this->translate('Foundation Date') ?></label>
                                     <div class="input-group">                                    
                                         <div class="input-group-addon">                                        
                                             <i class="icon-prepend fa fa-calendar"></i>
                                         </div>
-                                        <input class="form-control validate[required,custom[date]]" 
+                                        <input class="form-control validate[custom[date]]" 
                                                onchange="milliseconds()"
-                                               type='date' name="compnay_foundation_date" id="compnay_foundation_date">
+                                               type='text' name="found_date" id="found_date">
                                     </div>
                                 </div>
                                 <div style='margin-top:20px'>
@@ -499,7 +538,7 @@
                                         <div class="input-group-addon">                                        
                                             <i class="icon-prepend fa fa-building"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="tax_office" placeholder="Tex Office Name">
+                                        <input type="text" class="form-control validate[maxSize[150]]" id="tax_office" placeholder="Tex Office Name">
                                     </div>
                                 </div>
                                 <div style='margin-top:20px'>
@@ -508,7 +547,7 @@
                                         <div class="input-group-addon">                                        
                                             <i class="icon-prepend fa fa-money"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="tex_number" placeholder="Enter your company tax number here please ...">
+                                        <input type="text" class="form-control validate[maxSize[30]]" id="tex_number" placeholder="Enter your company tax number here please ...">
                                     </div>
                                 </div>
                                 <div style='margin-top:20px'>
@@ -516,7 +555,7 @@
                                 </div>
                                 <!--                                <div class="form-group">
                                                                     <label for="duns_number"><?php echo $this->translate('DUNS Number') ?></label>
-                                                                    <input type="text" class="form-control" id="duns_number" placeholder="Enter company's DUNS number here please">
+                                                                    <input type="text" class="form-control validate[maxSize[30]]" id="duns_number" placeholder="Enter company's DUNS number here please">
                                                                 </div>-->
                                 <div class="form-group">
                                     <label><?php echo $this->translate("Please enter a brief description about your company.") ?>
@@ -617,7 +656,7 @@
 
                             <!-- General Information Footer Start -->
                             <div class="box-footer col-lg-12">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" onclick='send_general_info()'>
                                     <?php echo $this->translate('Submit') ?>
                                 </button>
                             </div>

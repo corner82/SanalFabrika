@@ -18,8 +18,10 @@ $(document).ready(function () {
      */
 
     $.fn.leftMenuFunction();
-    
+
     $('#general_firm_form').validationEngine({promptPosition: "topLeft:100%,0"});
+//Datemask dd/mm/yyyy
+    $("#found_date").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
 
     window.sel_count_id;
     window.sel_comp_count_id;
@@ -27,70 +29,262 @@ $(document).ready(function () {
     window.boroughList;
 
     /*
-     * Bootstrap modals variables
-     * @type @call;$@call;successMessage
+     * Fill form fields
+     */
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkFillFirmFullVerbal_infoFirmProfile',
+            language_code: $("#langCode").val(),
+            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+                /*
+                 * change coming foundation date from milliseconds to year/month/day
+                 * if there is not submitted found_date, it comes back empty
+                 */
+
+                if (data[0].foundation_yearx) {
+                    var found_date = new Date(found_date);
+                    var new_date = new Date(found_date);
+                    var year = new_date.getFullYear().toString();
+                    var month = (new_date.getMonth() + 1).toString();
+                    var day = new_date.getDate().toString();
+                } else {
+                    var year = '';
+                    var month = '';
+                    var day = '';
+                }
+
+
+                var image_url = "https://"
+                        + window.location.hostname
+                        + "/onyuz/standard/assets/img/sfClients/"
+                        + data[0].firm_name_short
+                        + "/Logos/"
+                        + data[0].logo;
+
+                $('#full_name_ph').val(data[0].firm_name);
+                $('#full_name_en_ph').val(data[0].firm_name_eng);
+                $('#short_name_ph').val(data[0].firm_name_short);
+                $('#short_name_en_ph').val(data[0].firm_name_short_eng);
+                $('#website').val(data[0].web_address);
+                $('#company_logo').attr('src', image_url);
+                $('#found_date').val(year + '/' + month + '/' + day);
+                $('#tax_office').val(data[0].tax_office);
+                $('#tex_number').val(data[0].tax_no);
+                $('#desc_text').val(data[0].about);
+                $('#desc_text_en').val(data[0].about_eng);
+                $('#first_text_title').val(data[0].verbal1_title);
+                $('#first_text_title_en').val(data[0].verbal1_title_eng);
+                $('#verbal1_text').val(data[0].verbal1);
+                $('#verbal1_text_en').val(data[0].verbal1_eng);
+                $('#second_text_title').val(data[0].verbal2_title);
+                $('#second_text_title_en').val(data[0].verbal2_title_eng);
+                $('#verbal2_text').val(data[0].verbal2);
+                $('#verbal2_text_en').val(data[0].verbal2_eng);
+                $('#third_text_title').val(data[0].verbal3_title);
+                $('#third_text_title_en').val(data[0].verbal3_title_eng);
+                $('#verbal3_text').val(data[0].verbal3);
+                $('#verbal3_text_en').val(data[0].verbal3_eng);
+
+                window.verbal_id = data[0].verbal_id;
+
+            } else {
+                console.error('"fillComboBox_syscountrys" servis datasÃ„Â± boÃ…Å¸tur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillComboBox_syscountrys" servis hatasÃ„Â±->' + textStatus);
+        }
+    });
+
+
+    /*
+     * 
+     * Check textarea remaining characters
      */
 
-     
-     
-     /*
-      * 
-      * Check textarea remaining characters
-      */
-    
     var desc_text_max = 3000;
 //    var title_text_max = 150;
     var verbal_text_max = 2000;
-    
+
     $('#desc_rem_char_alert').html(desc_text_max + ' characters remaining');
-    $('#desc_en_rem_char_alert').html(desc_text_max + ' characters remaining');    
-    
+    $('#desc_en_rem_char_alert').html(desc_text_max + ' characters remaining');
+
     $('#verb1_rem_char_alert').html(verbal_text_max + ' characters remaining');
     $('#verb1_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
-    
-    $('#verb2_rem_char_alert').html(verbal_text_max + ' characters remaining');
-    $('#verb2_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
-    
+
     $('#verb2_rem_char_alert').html(verbal_text_max + ' characters remaining');
     $('#verb2_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
 
-    $('.text-area').keyup(function() {
+    $('#verb2_rem_char_alert').html(verbal_text_max + ' characters remaining');
+    $('#verb2_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
+
+    $('.text-area').keyup(function () {
         var desc_text_length = $('#desc_text').val().length;
         var desc_en_text_length = $('#desc_text_en').val().length;
-        
+
         var verb1_text_length = $('#verbal1_text').val().length;
         var verb1_en_text_length = $('#verbal1_text_en').val().length;
-        
+
         var verb2_text_length = $('#verbal2_text').val().length;
         var verb2_en_text_length = $('#verbal2_text_en').val().length;
-        
+
         var verb3_text_length = $('#verbal3_text').val().length;
         var verb3_en_text_length = $('#verbal3_text_en').val().length;
-        
+
         var desc_text_remaining = desc_text_max - desc_text_length;
         var desc_text_en_remaining = desc_text_max - desc_en_text_length;
-        
+
         var verb1_text_remaining = verbal_text_max - verb1_text_length;
         var verb1_text_en_remaining = verbal_text_max - verb1_en_text_length;
-        
+
         var verb2_text_remaining = verbal_text_max - verb2_text_length;
         var verb2_text_en_remaining = verbal_text_max - verb2_en_text_length;
-        
+
         var verb3_text_remaining = verbal_text_max - verb3_text_length;
         var verb3_text_en_remaining = verbal_text_max - verb3_en_text_length;
 
         $('#desc_rem_char_alert').html(desc_text_remaining + ' characters remaining');
         $('#desc_en_rem_char_alert').html(desc_text_en_remaining + ' characters remaining');
-        
+
         $('#verb1_rem_char_alert').html(verb1_text_remaining + ' characters remaining');
         $('#verb1_en_rem_char_alert').html(verb1_text_en_remaining + ' characters remaining');
-        
+
         $('#verb2_rem_char_alert').html(verb2_text_remaining + ' characters remaining');
         $('#verb2_en_rem_char_alert').html(verb2_text_en_remaining + ' characters remaining');
-        
+
         $('#verb3_rem_char_alert').html(verb3_text_remaining + ' characters remaining');
         $('#verb3_en_rem_char_alert').html(verb3_text_en_remaining + ' characters remaining');
     });
+
+
+    /*
+     * 
+     * Firm consultants for page header
+     * 
+     */
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkGetFirmProfileConsultant_infoFirmProfile',
+            language_code: $("#langCode").val(),
+            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+                for (var i = 0; i < data.length; i++) {
+
+                    var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
+
+                    if (data[i].communications_no) {
+                        var tel_number = data[i].communications_no;
+                    } else {
+                        var tel_number = '';
+                    }
+
+                    var appending_html =
+                            "<li id='"
+                            + "consultant_" +
+                            i
+                            + "' email_address='"
+                            + data[i].auth_email
+                            + "' onclick='send_email_to_consult(this)'><!-- start consultant -->"
+                            + "<a href='#'>"
+                            + "<div class='pull-left'>"
+                            + "<img src='"
+                            + cons_image_url
+                            + "' class='img-circle' alt='User Image'/>"
+                            + "</div>"
+                            + "<h4>"
+                            + data[i].name
+                            + "<small><i class='fa fa-clock-o'></i></small>"
+                            + "</h4>"
+                            + "<p>"
+                            + "Tel: " + tel_number
+                            + "</p>"
+                            + "<p>"
+                            + window.lang.translate('Assigned Company Consultant')
+                            + "</p>"
+                            + "</a>"
+                            + "</li><!-- end message -->";
+
+                    $('#list_consultants').append(appending_html);
+                }
+                $('#number_of_consultants').empty();
+                $('#number_of_consultants_power').empty();
+                $('#number_of_consultants').append(i + " " + window.lang.translate('Consultants'));
+                $('#number_of_consultants_power').append(i);
+
+            } else {
+                console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
+        }
+    });
+
+    /*
+     * Page consultant for box-header
+     */
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'pkGetFirmVerbalConsultant_infoFirmVerbal',
+            language_code: $("#langCode").val(),
+            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            if (data.length !== 0) {
+
+                var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
+
+                if (data[0].communications_no) {
+                    var tel_number = data[0].communications_no;
+                } else {
+                    var tel_number = '';
+                }
+
+                $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
+                $('#consultant_div').attr('email_address', data[0].auth_email);
+                $('#cons_image_ph').attr('src', cons_image_url);
+                $('#cons_name_ph').empty();
+                $('#cons_name_ph').append(data[0].name);
+
+            } else {
+                console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
+        }
+    });
+
+
+
+    /* 
+     * Warning messages
+     */
+
 
     var sm = $(window).successMessage();
     var dm = $(window).dangerMessage();
@@ -159,59 +353,106 @@ $(document).ready(function () {
 
 function send_general_info() {
 
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'pkInsert_infoFirmVerbal',
-            pk: $("#pk").val(),
-            npk:$("#selectedCompanyNpk").val(),
-            lang_code:$('#langCode').val(),
-            profile_public: 0,
-            firm_name_full: $('#full_name_ph').val(),
-            firm_name_en_full: $('#full_name_en_ph').val(),
-            firm_name_short: $('#short_name_ph').val(),
-            firm_name_en_short: $('#short_name_en_ph').val(),
-            firm_country: $('#').val(),
-            about: $('#desc_text').val(),
-            about_eng: $('#desc_text_en').val(),
-            verbal1_title: $('#first_text_title').val(),
-            verbal2_title: $('#second_text_title').val(),
-            verbal3_title: $('#third_text_title').val(),
-            verbal1_title_eng: $('#first_text_title_en').val(),
-            verbal2_title_eng: $('#second_text_title_en').val(),
-            verbal3_title_eng: $('#third_text_title_en').val(),
-            verbal1:$('#verbal1_text').val(),
-            verbal2:$('#verbal2_text').val(),
-            verbal3:$('#verbal3_text').val(),
-            verbal1_eng:$('#verbal1_text_en').val(),
-            verbal2_eng:$('#verbal2_text_en').val(),
-            verbal3_eng:$('#verbal3_text_en').val()
-        },
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
+    if (window.verbal_id) {
 
-            
+//        console.log('update');
 
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log('error');
-            console.error(textStatus);
-            
-        }
-    });
+    } else {
+
+//        console.log('insert');
+
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: {
+                url: 'pkInsert_infoFirmVerbal',
+                pk: $("#pk").val(),
+                npk: $("#selectedCompanyNpk").val(),
+                lang_code: $('#langCode').val(),
+                profile_public: 0,
+                firm_name_full: $('#full_name_ph').val(),
+                firm_name_en_full: $('#full_name_en_ph').val(),
+                firm_name_short: $('#short_name_ph').val(),
+                firm_name_en_short: $('#short_name_en_ph').val(),
+                firm_country: $('#').val(),
+                about: $('#desc_text').val(),
+                about_eng: $('#desc_text_en').val(),
+                verbal1_title: $('#first_text_title').val(),
+                verbal2_title: $('#second_text_title').val(),
+                verbal3_title: $('#third_text_title').val(),
+                verbal1_title_eng: $('#first_text_title_en').val(),
+                verbal2_title_eng: $('#second_text_title_en').val(),
+                verbal3_title_eng: $('#third_text_title_en').val(),
+                verbal1: $('#verbal1_text').val(),
+                verbal2: $('#verbal2_text').val(),
+                verbal3: $('#verbal3_text').val(),
+                verbal1_eng: $('#verbal1_text_en').val(),
+                verbal2_eng: $('#verbal2_text_en').val(),
+                verbal3_eng: $('#verbal3_text_en').val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            success: function (data, textStatus, jqXHR) {
+
+                sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('error');
+                console.error(textStatus);
+                dm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information did not saved!!! Please check fiels and try again...'));
+
+            }
+        });
+    }
 
 }
 
 window.okan;
 
-function milliseconds()
-{
-    var input_date = $('#compnay_foundation_date').val();
+function milliseconds() {
+    var input_date = $('#found_date').val();
     var entered_date = new Date(input_date);
-    window.date_value = entered_date.getTime();    
-    window.okan = Math.round(window.date_value/1000.0);    
-    console.log(window.date_value);
-    console.log(okan);
-    
-};
+    window.date_value = entered_date.getTime();
+    window.okan = Math.round(window.date_value / 1000.0);
+//    console.log(window.date_value);
+//    console.log(okan);
+}
+
+function send_email_to_consult(element) {
+    BootstrapDialog.show({
+        title: 'Button Hotkey',
+        message: $('<textarea class="form-control" placeholder="' + window.lang.translate('Write your message to the consultant...') + '"></textarea>'),
+        buttons: [{
+                label: window.lang.translate('Send Message'),
+                cssClass: 'btn-primary',
+                hotkey: 13, // Enter.
+                action: function () {
+
+                    var email_address = $('#' + element.id).attr('email_address');
+//                    console.log(email_address);
+                    var data = {
+//                        name: $("#form_name").val(),
+//                        email: $("#form_email").val(),
+//                        message: $("#msg_text").val()
+                        name: 'name',
+                        email: 'bahram@ostimteknoloji.com.tr',
+                        message: 'hello'
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: "../../../../plugins/bahram/mail_sender.php",
+                        data: data,
+                        success: function () {
+                            $('.success').fadeIn(1000);
+                        }
+                    });
+
+                    return false;
+
+
+                    sm.successMessage('show', window.lang.translate('Email Sending'), window.lang.translate('Your message has been sent to the consultant. System consultant will repsond you as sson as possible.'));
+                }
+            }]
+    });
+}
