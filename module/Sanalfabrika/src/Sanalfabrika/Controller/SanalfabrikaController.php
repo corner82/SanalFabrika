@@ -338,6 +338,7 @@ class SanalfabrikaController extends AbstractActionController {
         return $view;
     }
     
+    public function cpmembersetAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
