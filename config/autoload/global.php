@@ -73,6 +73,7 @@ return array(
             'cpgeneralset' => 'layout/cpgeneralsetLayout.phtml',
             'cpaddressset' => 'layout/cpaddresssetLayout.phtml',
             'cpprodset' => 'layout/cpprodsetLayout.phtml',
+            'cpmemberset' => 'layout/cpmembersetLayout.phtml',
             'cpmp' => 'layout/cpmpLayout.phtml',
             'cpreference' => 'layout/cpreferenceLayout.phtml'
         ),
@@ -141,6 +142,7 @@ return array(
             'cpaddressset',
             'cpprodset',
             'cpmp',
+            'cpmemberset',
             'cpreference'
         ),
 
@@ -172,6 +174,7 @@ return array(
                                                                     'cpaddressset',
                                                                     'cpprodset',
                                                                     'cpmp',
+                                                                    'cpmemberset',
                                                                     'cpreference'
                                                                     ),
                                      'login' => array('index'),)
@@ -195,6 +198,7 @@ return array(
                                                               'cpaddressset',
                                                               'cpprodset',
                                                               'cpmp',
+                                                              'cpmemberset',
                                                               'cpreference'
                                                               )),
                    ),
@@ -224,6 +228,7 @@ return array(
                                                                     'cpaddressset',
                                                                     'cpprodset',
                                                                     'cpmp',
+                                                                    'cpmemberset',
                                                                     'cpreference'
                                                                     ))
                    ),
@@ -235,8 +240,7 @@ return array(
         'firm owner' => array(
                          'parent' => 'firm user',
                          //'action' => array('sanalfabrika' => array ('index'))
-                   ),
-        
+                   ),    
         
     )
 ); 
