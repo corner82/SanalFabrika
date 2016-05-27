@@ -60,6 +60,8 @@ $(document).ready(function () {
                             i
                             + "' email_address='"
                             + data[i].auth_email
+                            + "' page_consultant='"
+                            + data[i].name + " " + data[i].surname
                             + "' onclick='send_email_to_consult(this)'><!-- start consultant -->"
                             + "<a href='#'>"
                             + "<div class='pull-left'>"
@@ -68,7 +70,7 @@ $(document).ready(function () {
                             + "' class='img-circle' alt='User Image'/>"
                             + "</div>"
                             + "<h4>"
-                            + data[i].name
+                            + data[i].name + " " +  data[i].surname
                             + "<small><i class='fa fa-clock-o'></i></small>"
                             + "</h4>"
                             + "<p>"
@@ -125,9 +127,10 @@ $(document).ready(function () {
                 
                 $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
                 $('#consultant_div').attr('email_address', data[0].auth_email);
+                $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
                 $('#cons_image_ph').attr('src', cons_image_url);
                 $('#cons_name_ph').empty();
-                $('#cons_name_ph').append(data[0].name);
+                $('#cons_name_ph').append(data[0].name + " " +  data[0].surname);
 
             } else {
                 console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
@@ -265,7 +268,7 @@ $(document).ready(function () {
                     data: data,
                     width: '100%',
                     background: false,
-                    selectText: window.lang.translate("Select a Address Type"),
+                    selectText: window.lang.translate("Select an Address Type"),
                     imagePosition: "right",
                     onSelected: function (selectedData) {
                         selectedBuildingTypeId = selectedData.selectedData.value;
@@ -534,75 +537,6 @@ $(document).ready(function () {
                         + "</div>";
                 $('#ava_med_ph').append(appending);
             }
-        }
-    });
-
-    /*
-     * get the company's available social media links
-     */
-
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'pkFillCompanyInfoSocialedia_infoFirmProfile',
-            language_code: $("#langCode").val(),
-            component_type: 'ddslick',
-            pk: $('#pk').val(),
-            npk: $('#selectedCompanyNpk').val()
-        },
-        type: 'GET',
-        dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            if (data.length !== 0) {
-                $('#social_media').ddslick({
-                    data: data,
-                    width: '100%',
-                    height: '500%',
-                    background: false,
-                    selectText: window.lang.translate("Please select a social media from list..."),
-                    imagePosition: 'right',
-                    onSelected: function (selectedData) {
-
-                        $('#social_media_name_ph').empty();
-                        var appending =
-                                "<label id='social_media_name_ph'></label>"
-                                + "<div class='input-group'>"
-                                + "<div class='input-group-addon'>"
-                                + "<i id='social_icon' class=''></i>"
-                                + "</div>"
-                                + "<input id='social_address' type='text' class='form-control'>"
-                                + "</div>";
-                    }
-
-                });
-                var i;
-                for (i = 0; i < data.length; i++) {
-
-                    var social_media_name = data[i].text;
-                    if (social_media_name === 'googleplus') {
-                        social_media_name = 'google-plus';
-                    }
-                    var appending =
-                            "<a class='btn btn-social-icon btn-"
-                            + social_media_name
-                            + "'>"
-                            + "<i class='fa fa-"
-                            + social_media_name
-                            + "'></i>"
-                            + "</a>";
-                    if (appending.indexOf('undefined') < 0) {
-                        $('#ava_med_ph').append(appending);
-                    }
-
-                }
-
-            } else {
-                console.error('"pkFillCompanyInfoSocialedia_infoFirmProfile" servis datasÃ„Â± boÃ…Å¸tur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"pkFillCompanyInfoSocialedia_infoFirmProfile" servis hatasÃ„Â±->' + textStatus);
         }
     });
 

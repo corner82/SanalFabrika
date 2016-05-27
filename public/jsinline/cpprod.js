@@ -62,6 +62,8 @@ $(document).ready(function () {
                             i
                             + "' email_address='"
                             + data[i].auth_email
+                            + "' page_consultant='"
+                            + data[i].name + " " + data[i].surname
                             + "' onclick='send_email_to_consult(this)'><!-- start consultant -->"
                             + "<a href='#'>"
                             + "<div class='pull-left'>"
@@ -70,7 +72,7 @@ $(document).ready(function () {
                             + "' class='img-circle' alt='User Image'/>"
                             + "</div>"
                             + "<h4>"
-                            + data[i].name
+                            + data[i].name + data[i].surname
                             + "<small><i class='fa fa-clock-o'></i></small>"
                             + "</h4>"
                             + "<p>"
@@ -126,9 +128,10 @@ $(document).ready(function () {
 
                 $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
                 $('#consultant_div').attr('email_address', data[0].auth_email);
+                $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
                 $('#cons_image_ph').attr('src', cons_image_url);
                 $('#cons_name_ph').empty();
-                $('#cons_name_ph').append(data[0].name);
+                $('#cons_name_ph').append(data[0].name + " " +  data[0].surname);
 
             } else {
                 console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');

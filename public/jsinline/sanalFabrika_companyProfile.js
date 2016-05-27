@@ -5,26 +5,24 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-
     lang.change($('#langCode').val());
-    
     $('#loging_ph').empty();
-
     if ($('#pk').val()) {
         var ref_service_url = 'pkFillCompanyInfoReferences_infoFirmProfile';
         var soc_med_service_url = 'pkFillCompanyInfoSocialedia_infoFirmProfile';
         var verbal_service_url = 'pkFillUsersFirmVerbalNpk_infoFirmVerbal';
         var user_desc_service_url = 'pkFillUsersDescForFirmVerbalNpk_infoFirmUserDescForCompany';
+        var address_info_service_url = 'pkFillUsersFirmAddressNpk_infoFirmAddress';
         var loging_value = window.lang.translate('Log out');
     } else {
         var ref_service_url = 'fillCompanyInfoReferencesGuest_infoFirmProfile';
         var soc_med_service_url = 'fillCompanyInfoSocialediaGuest_infoFirmProfile';
         var verbal_service_url = 'fillUsersFirmVerbalNpkGuest_infoFirmVerbal';
         var user_desc_service_url = 'fillUsersDescForFirmVerbalNpkGuest_infoFirmUserDescForCompany';
+        var address_info_service_url = 'FillUsersFirmAddressNpkQuest_infoFirmAddress';
         var loging_value = window.lang.translate('Log in');
     }
     $('#loging_ph').append(loging_value);
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -38,9 +36,7 @@ $(document).ready(function () {
         success: function (data) {
 //            console.log(data.rows[0]);
             if (data.rows) {
-
 //                console.log(data.rows[0]);
-
                 $('#firm_name_ph').empty();
                 $('#header_company_name').empty();
                 $('#about_firm_ph').empty();
@@ -51,7 +47,6 @@ $(document).ready(function () {
                 $('#title_3_ph').empty();
                 $('#verbal_3_ph').empty();
                 $('#profileLogosrc').empty();
-
                 var about_company = data.rows[0].about;
                 window.firm_name = data.rows[0].firm_name;
                 var title_1 = data.rows[0].verbal1_title;
@@ -62,7 +57,6 @@ $(document).ready(function () {
                 var verbal_3 = data.rows[0].verbal3;
                 var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
                 var logo_src = imageFolAddress + data.rows[0].logo;
-                                        
                 $('#header_company_name').append("<i class='fa fa-user'></i>" + window.firm_name);
                 $('#firm_name_ph').append(window.firm_name);
                 $('#about_firm_ph').append(about_company);
@@ -76,7 +70,6 @@ $(document).ready(function () {
             }
         }
     });
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -91,7 +84,6 @@ $(document).ready(function () {
 //            console.log(data);
             var i;
             $('#testimonials_ph').empty();
-
             for (i = 0; i < data.rows.length; i++) {
 
                 var appending =
@@ -118,13 +110,10 @@ $(document).ready(function () {
                         + "</div>";
 //                console.log(appending);
                 $('#testimonials_ph').append(appending);
-
             }
 
         }
     });
-
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -138,7 +127,6 @@ $(document).ready(function () {
         success: function (data) {
 
             $('#effect-2').empty();
-
             var i;
             if (data.length !== null) {
                 for (i = 0; i < data.length; i++) {
@@ -159,13 +147,11 @@ $(document).ready(function () {
                             + "</div>"
                             + "</figure>"
                             + "</li>";
-
                     $('#effect-2').append(referencesPHAppending);
                 }
             }
         }
     });
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -179,26 +165,90 @@ $(document).ready(function () {
         success: function (data) {
 //            console.log(data);
             $('#social_media_ph').empty();
-
             var i;
             for (i = 0; i < data.length; i++) {
                 var soc_appending =
                         "<li>"
                         + "<a id='"
                         + data[i].socialmedia
-                        + "' href='"
+                        + "' target='_blank' href='"
                         + data[i].firm_link
                         + "' data-original-title='"
                         + data[i].socialmedia
                         + "' class='rounded-x social_"
                         + data[i].socialmedia
                         + "'></a></li>";
-
                 $('#social_media_ph').append(soc_appending);
+            }
+        }
+    });
+    /*
+     * Address information service 
+     * For users with pk
+     */
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {url: address_info_service_url,
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $("#pk").val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+//            console.log(data);
+            $('#addresses_div').empty();
+            for (var i = 0; i < data.rows.length; i++) {
+                var borough_name;
+                var city_name;
+                if(data.rows[i].borough_name !== null){
+                    borough_name = data.rows[i].borough_name;
+                }else{
+                    borough_name = '';
+                }
+                if(data.rows[i].city_name !== null){
+                    city_name = data.rows[i].city_name;
+                }else{
+                    city_name = '';
+                }
+                var appending_address =
+                        "<li style='font-family:sans-serif'><i class='fa fa-home'></i>"
+                        + data.rows[i].firm_building_type
+                        + ": "
+                        + data.rows[i].address
+                        + " "
+                        + borough_name
+                        + " "
+                        + city_name
+                        + " "
+                        + data.rows[i].country_name
+                        + "</li>"
+                        + "<li><i class='fa fa-phone'></i>"
+                        + data.rows[i].tel
+                        + "</li>"
+                        + "<li><i class='fa fa-fax'></i>"
+                        + data.rows[i].fax
+                        + "</li></ul><hr>";
+
+                $('#addresses_div').append(appending_address);
+            }
+
+            if (data.rows[0].web_address !== '') {
+
+                var web_appender =
+                        "<li><a href='#'><i class='fa fa-envelope'></i>"
+                        + data.rows[0].email
+                        + "</a></li>"
+                        + "<li><a target='_blank' href='"
+                        + data.rows[0].web_address
+                        + "'><i class='fa fa-globe'></i>"
+                        + data.rows[0].web_address
+                        + "</a></li>";
+                $('#addresses_div').append(web_appender);
 
             }
         }
     });
-
-
 });

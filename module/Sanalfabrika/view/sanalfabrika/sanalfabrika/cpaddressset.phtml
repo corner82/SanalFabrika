@@ -430,7 +430,7 @@
                                      src="" class="img-circle" alt="User Image"/>
                             </div>
                             <h8 id='cons_name_ph'>
-                                
+
                             </h8>
                             <br/>
                             <small></small>
@@ -458,137 +458,142 @@
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
                     </div>
                 </div>
-                <div class="box-body">
-                    <form role="form">
-                        <!-- First Column Start -->
-                        <div class="col-lg-6">
-                            <div class="form-group">                                
-                                <label for="building_type_ph"><?php echo $this->translate('Address Type') ?></label>
-                                <div id="building_type_ph">
+
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#address" data-toggle="tab">Address</a></li>
+                        <li><a href="#soc_media" data-toggle="tab">Social Media</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="address">
+                            <form role="form">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title"><?php echo $this->translate('Address Information') ?></h3>                    
                                 </div>
-                            </div>
-                            <div class="form-group">                                
-                                <label for="company_country_address_ph"><?php echo $this->translate('Country') ?></label>
-                                <div id="company_country_address_ph">
-                                </div>
-                            </div>
-                            <div class="form-group" name="company_city_address_ph"  id="company_city_address_ph">
-                                <label><?php echo $this->translate('City') ?></label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-home"></i>
+                                <div class="box-body">
+                                    <!-- First Column Start -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group">                                
+                                            <label for="building_type_ph"><?php echo $this->translate('Building Type') ?></label>
+                                            <div id="building_type_ph">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">                                
+                                            <label for="company_country_address_ph"><?php echo $this->translate('Country') ?></label>
+                                            <div id="company_country_address_ph">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" name="company_city_address_ph"  id="company_city_address_ph">
+                                            <label><?php echo $this->translate('City') ?></label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-home"></i>
+                                                </div>
+                                                <input type="text" class="form-control validate[required,onlyLetterSp]">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <div class="form-group" id='city_dropdown'>
+                                            <label class="label"><?php echo $this->translate('City') ?></label>
+                                            <div id="company_city" >  </div> 
+                                        </div>
+                                        <div class="form-group" id='district_dropdown'>
+                                            <label class="label"><?php echo $this->translate('District') ?></label>
+                                            <div id="company_district" ></div> 
+                                        </div>
+                                        <div class="form-group" name="address_line_1"  id="address_line_1">
+                                            <label><?php echo $this->translate('Address Line 1') ?></label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-arrow-circle-right"></i>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div> 
+                                        <div class="form-group" name="address_line_2"  id="address_line_2">
+                                            <label><?php echo $this->translate('Address Line 2') ?></label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-arrow-circle-right"></i>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>                                             
+                                        <div class="form-group" name="po_box"  id="po_box">
+                                            <label><?php echo $this->translate('P.O. Box') ?></label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-envelope"></i>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div> 
                                     </div>
-                                    <input type="text" class="form-control validate[required,onlyLetterSp]">
-                                </div>
-                                <!-- /.input group -->
-                            </div>
-                            <div class="form-group" id='city_dropdown'>
-                                <label class="label"><?php echo $this->translate('City') ?></label>
-                                <div id="company_city" >  </div> 
-                            </div>
-                            <div class="form-group" id='district_dropdown'>
-                                <label class="label"><?php echo $this->translate('District') ?></label>
-                                <div id="company_district" ></div> 
-                            </div>
-                            <div class="form-group" name="address_line_1"  id="address_line_1">
-                                <label><?php echo $this->translate('Address Line 1') ?></label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-arrow-circle-right"></i>
+                                    <!-- First Column End -->
+
+                                    <!-- Second Column Start -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group" name="tel"  id="tel">
+                                            <label><?php echo $this->translate('Tel') ?></label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-phone"></i>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>  
+                                        <div class="form-group" name="fax"  id="fax">
+                                            <label><?php echo $this->translate('Fax') ?></label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-fax"></i>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>                                           
                                     </div>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                            </div> 
-                            <div class="form-group" name="address_line_2"  id="address_line_2">
-                                <label><?php echo $this->translate('Address Line 2') ?></label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-arrow-circle-right"></i>
+                                    <!-- Second Column End -->
+                                    <!-- General Information Footer Start -->
+                                    <div class="box-footer col-lg-12">
+                                        <button type="submit" class="btn btn-primary">
+                                            <?php echo $this->translate('Submit') ?>
+                                        </button>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <!-- General Information Footer End -->
                                 </div>
-                                <!-- /.input group -->
-                            </div>                                             
-                            <div class="form-group" name="po_box"  id="po_box">
-                                <label><?php echo $this->translate('P.O. Box') ?></label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                            </div> 
+                            </form>
                         </div>
-                        <!-- First Column End -->
-
-                        <!-- Second Column Start -->
-                        <div class="col-lg-6">                            
-                            <div class="form-group" name="email"  id="email">
-                                <label><?php echo $this->translate('Email') ?></label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-envelope-o"></i>
-                                    </div>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                            </div>  
-                            <div class="form-group" name="tel"  id="tel">
-                                <label><?php echo $this->translate('Tel') ?></label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                            </div>  
-                            <div class="form-group" name="fax"  id="fax">
-                                <label><?php echo $this->translate('Fax') ?></label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-fax"></i>
-                                    </div>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                            </div>
-
-                            <hr>
-
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="soc_media">
                             <div class="box-header with-border">
                                 <h3 class="box-title"><?php echo $this->translate('Social Media Information') ?></h3>                    
                             </div>
-                            <div id="social_media_ph">
+                            <div class="box-body">
+                                <div id="social_media_ph">
 
+                                </div>
+                                <div id="ava_med_ph" style="margin-top: 20px">
+
+                                </div>
+                                <div id="sel_med_ph" style="margin-bottom: 20px">
+
+                                </div>
                             </div>
-                            <div id="ava_med_ph" style="margin-top: 20px">
-
-                            </div>
-                            <div id="sel_med_ph" style="margin-bottom: 20px">
-
-                            </div>                                            
-                        </div>                                        
-                        <!-- Second Column End -->
-
-                        <!-- General Information Footer Start -->
-                        <div class="box-footer col-lg-12">
-
-                            <button type="submit" class="btn btn-primary">
-                                <?php echo $this->translate('Submit') ?>
-                            </button>
                         </div>
-                        <!-- General Information Footer End -->
-                    </form>
+                        <!-- /.tab-pane -->                        
+                    </div>
+                    <!-- /.tab-content -->
                 </div>
                 <!-- /.box-body -->
             </div>
             <!-- End of add new address -->
         </section>
     </div>
-
     <!-- end of company general information setting -->
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
@@ -598,7 +603,6 @@
     </div>
     <strong><?php echo $this->translate('Copyright') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a></strong> <?php echo $this->translate('All rights reserved.') ?>
 </footer>
-
 <!-- Control Sidebar -->      
 <aside class="control-sidebar control-sidebar-dark">                
     <!-- Create the tabs -->
@@ -971,4 +975,5 @@
      immediately after the control sidebar -->
 <div class='control-sidebar-bg'></div>
 </div><!-- ./wrapper -->
+
 
