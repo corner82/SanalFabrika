@@ -51,6 +51,7 @@ $('#tt_grid_dynamic').datagrid({
             {field:'id',title:'ID'},
             {field:'machine_tool_name',title:'Makina',sortable:true,width:300},
             {field:'machine_tool_name_eng',title:'İng. Makina',sortable:true, width:300},
+
             {field:'group_name',title:'Mak. Kategorisi', width:100},
             {field:'manufacturer_name',title:'Üretici', width:150},
             {field:'action',title:'Action',width:80,align:'center',
@@ -63,10 +64,19 @@ $('#tt_grid_dynamic').datagrid({
                     
                     //var d = '<a href="javascript:void(0)" onclick="deleteISScenario(this);">Delete</a>';
                     var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteMachUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachDialog('+row.id+', { machine_tool_name : \''+row.machine_tool_name+'\',\n\                                                                                                                                               );"><i class="fa fa-arrow-circle-up"></i></button>';
-                    return e+d+u;  
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachDialog('+row.id+', { machine_tool_name : \''+row.machine_tool_name+'\',\n\
+                                                                                                                                                      group_name : \''+row.group_name+'\',\n\
+                                                                                                                                                      machine_tool_name_eng : \''+row.machine_tool_name_eng+'\',\n\
+                                                                                                                                                      model : \''+row.attributes.model+'\',\n\
+                                                                                                                                                      model_year : \''+row.attributes.model_year+'\',\n\
+                                                                                                                                                      machine_code : \''+row.attributes.machine_code+'\',\n\
+                                                                                                                                                      machine_tool_grup_id : \''+row.attributes.machine_tool_grup_id+'\',\n\
+                                                                                                                                                      manufactuer_id : \''+row.attributes.manufactuer_id+'\',\n\
+                                                                                                                                                      manufacturer_name : \''+row.manufacturer_name+'\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
+                    return e+d+u;    
                 }
             },
+
         ]]   
 });
 $('#tt_grid_dynamic').datagrid('enableFilter');
