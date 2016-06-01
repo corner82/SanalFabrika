@@ -37,7 +37,7 @@ $('#tt_grid_dynamic').datagrid({
             {field:'machine_tool_name',title:'Makina',sortable:true,width:300},
             {field:'machine_tool_name_eng',title:'İng. Makina',sortable:true, width:300},
             {field:'group_name',title:'Mak. Kategorisi', width:200},
-            {field:'manufacturer_name',title:'Üretici', width:200},
+            {field:'manufacturer_name',title:'Üretici', width:200}
         ]]   
 });
 $('#tt_grid_dynamic').datagrid('enableFilter');

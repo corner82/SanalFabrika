@@ -560,7 +560,7 @@
                                 <div class="form-group">
                                     <label><?php echo $this->translate("Please enter a brief description about your company.") ?>
                                         <p class="help-block"><?php echo $this->translate("(No more than 3000 character...)") ?></p></label>
-                                    <textarea id="desc_text" class="form-control text-area" 
+                                    <textarea id="desc_text" class="form-control text-area validate[minSize[30] maxSize[3000]]" 
                                               style="max-width:100%;"  rows="6" maxlength="3000"
                                               placeholder="Please enter a brief description about your company here ..."></textarea>
                                     <div id="desc_rem_char_alert"></div>
@@ -568,7 +568,7 @@
                                 <div class="form-group">
                                     <label><?php echo $this->translate("Please enter a brief description in English about your company.") ?>
                                         <p class="help-block"><?php echo $this->translate("(No more than 3000 character...)") ?></p></label>
-                                    <textarea id="desc_text_en" class="form-control text-area" 
+                                    <textarea id="desc_text_en" class="form-control text-area validate[minSize[30] maxSize[3000]]" 
                                               style="max-width:100%" rows="6" maxlength="3000"
                                               placeholder="Please enter a brief description in English about your company here ..."></textarea>
                                     <div id="desc_en_rem_char_alert"></div>
@@ -590,16 +590,16 @@
                                 <div class="form-group" style="margin-top: 20px">
                                     <label><?php echo $this->translate("Your prefered text in first text-area.") ?>
                                         <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
-                                    <textarea id="verbal1_text" class="form-control text-area" 
-                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                    <textarea id="verbal1_text" class="form-control text-area validate[minSize[30] maxSize[2000]]" 
+                                              style="max-width:100%"  rows="3" minlength="30" maxlength="2000"
                                               placeholder="Enter your first text here please"></textarea>
                                     <div id="verb1_rem_char_alert"></div>
                                 </div>                                 
                                 <div class="form-group" style="margin-top: 20px">
                                     <label><?php echo $this->translate("Your prefered text in first text-area in English.") ?>
                                         <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
-                                    <textarea id="verbal1_text_en" class="form-control text-area" 
-                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                    <textarea id="verbal1_text_en" class="form-control text-area validate[minSize[30] maxSize[2000]]" 
+                                              style="max-width:100%"  rows="3" minlength="30" maxlength="2000"
                                               placeholder="Enter your first text here please in English"></textarea>
                                     <div id="verb1_en_rem_char_alert"></div>
                                 </div> 
@@ -614,16 +614,16 @@
                                 <div class="form-group" style="margin-top: 20px">
                                     <label><?php echo $this->translate("Your prefered text in second text-area.") ?>
                                         <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
-                                    <textarea id="verbal2_text" class="form-control text-area" 
-                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                    <textarea id="verbal2_text" class="form-control text-area validate[minSize[30] maxSize[2000]]" 
+                                              style="max-width:100%"  rows="3" minlength="30"  maxlength="2000"
                                               placeholder="Enter your second text here please"></textarea>
                                     <div id="verb2_rem_char_alert"></div>
                                 </div>                                 
                                 <div class="form-group" style="margin-top: 20px">
                                     <label><?php echo $this->translate("Your prefered text in second text-area in English.") ?>
                                         <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
-                                    <textarea id="verbal2_text_en" class="form-control text-area" 
-                                              style="max-width:100%"  rows="3" maxlength="2000" 
+                                    <textarea id="verbal2_text_en" class="form-control text-area validate[minSize[30] maxSize[2000]]" 
+                                              style="max-width:100%"  rows="3" minlength="30"  maxlength="2000" 
                                               placeholder="Enter your second text here please in English"></textarea>
                                     <div id="verb2_en_rem_char_alert"></div>
                                 </div>
@@ -638,16 +638,16 @@
                                 <div class="form-group" style="margin-top: 20px">
                                     <label><?php echo $this->translate("Your prefered text in third text-area.") ?>
                                         <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
-                                    <textarea id="verbal3_text" class="form-control text-area" 
-                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                    <textarea id="verbal3_text" class="form-control text-area validate[minSize[30] maxSize[2000]]" 
+                                              style="max-width:100%"  rows="3" minlength="30"  maxlength="2000"
                                               placeholder="Enter your third text here please"></textarea>
                                     <div id="verb3_rem_char_alert"></div>
                                 </div>                                 
                                 <div class="form-group" style="margin-top: 20px">
                                     <label><?php echo $this->translate("Your prefered text in third text-area in English.") ?>
                                         <p class="help-block"><?php echo $this->translate("(No more than 2000 character...)") ?></p></label>
-                                    <textarea id="verbal3_text_en" class="form-control text-area" 
-                                              style="max-width:100%"  rows="3" maxlength="2000"
+                                    <textarea id="verbal3_text_en" class="form-control text-area validate[minSize[30] maxSize[2000]]" 
+                                              style="max-width:100%" rows="3" minlength="30" maxlength="2000"
                                               placeholder="Enter your third text here please in English"></textarea>
                                     <div id="verb3_en_rem_char_alert"></div>
                                 </div>

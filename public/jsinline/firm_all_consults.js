@@ -15,7 +15,7 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
 
-            console.log(data);
+//            console.log(data);
             if (data.length !== 0) {
 
                 for (var i = 0; i < data.length; i++) {

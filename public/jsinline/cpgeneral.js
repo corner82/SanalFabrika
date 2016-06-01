@@ -44,7 +44,6 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
-
                 /*
                  * change coming foundation date from milliseconds to year/month/day
                  * if there is not submitted found_date, it comes back empty
@@ -62,7 +61,9 @@ $(document).ready(function () {
                     var day = '';
                 }
 
-
+                window.sel_count_id = data[0].country_id;
+                
+                console.log($('#company_country_ph li:has(.dd-option-value:contains(' + data[0].country_id + '))'));
                 var image_url = "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
@@ -93,15 +94,19 @@ $(document).ready(function () {
                 $('#third_text_title_en').val(data[0].verbal3_title_eng);
                 $('#verbal3_text').val(data[0].verbal3);
                 $('#verbal3_text_en').val(data[0].verbal3_eng);
-
-                window.verbal_id = data[0].verbal_id;
+//                $('#company_country_ph').ddslick('select', {'value': '91'});
+//                $('#company_country_ph').ddslick(data[0].country_id);
+//                $('#company_country_ph li:has(.dd-option-text:contains("value"))').index();
+//                $('#company_country_ph').ddslick('select', {index: $('#company_country_ph li:has(.dd-option-value:contains(' + window.sel_count_id + '))')});
+//                $('#company_country_ph').ddslick('select', {value: 91 });
+                window.verbal_id = data[0].id;
 
             } else {
-                console.error('"fillComboBox_syscountrys" servis datasÃ„Â± boÃ…Å¸tur!!');
+                console.error('"fill verbal service" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillComboBox_syscountrys" servis hatasÃ„Â±->' + textStatus);
+            console.error('"fill verbal service" servis hatasÃ„Â±->' + textStatus);
         }
     });
 
@@ -281,61 +286,119 @@ $(document).ready(function () {
 
 function send_general_info() {
 
-    if (window.verbal_id) {
+    if ($('#general_firm_form').validationEngine('validate')) {
 
-//        console.log('update');
+        if (window.verbal_id) {
+//  console.log('update');
+//  update url is used to update data
 
-    } else {
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data: {
+                    url: 'pkUpdate_infoFirmVerbal',
+                    pk: $("#pk").val(),
+                    npk: $("#selectedCompanyNpk").val(),
+                    lang_code: $('#langCode').val(),
+                    profile_public: 0,
+                    firm_name: $('#full_name_ph').val(),
+                    firm_name_eng: $('#full_name_en_ph').val(),
+                    firm_name_short: $('#short_name_ph').val(),
+                    firm_name_en_short: $('#short_name_en_ph').val(),
+                    firm_country: $('#').val(),
+                    about: $('#desc_text').val(),
+                    about_eng: $('#desc_text_en').val(),
+                    verbal1_title: $('#first_text_title').val(),
+                    verbal2_title: $('#second_text_title').val(),
+                    verbal3_title: $('#third_text_title').val(),
+                    verbal1_title_eng: $('#first_text_title_en').val(),
+                    verbal2_title_eng: $('#second_text_title_en').val(),
+                    verbal3_title_eng: $('#third_text_title_en').val(),
+                    verbal1: $('#verbal1_text').val(),
+                    verbal2: $('#verbal2_text').val(),
+                    verbal3: $('#verbal3_text').val(),
+                    verbal1_eng: $('#verbal1_text_en').val(),
+                    verbal2_eng: $('#verbal2_text_en').val(),
+                    verbal3_eng: $('#verbal3_text_en').val(),
+                    country_id: window.sel_count_id,
+                    tax_office: $('#tax_office').val(),
+                    tax_no: $('#tex_number').val(),
+                    foundation_yearx: window.okan,
+//                    duns_number: $('#tax_office').val(),
+                    web_address: $('#website').val(),
+//                    logo: $('#tax_office').val()
+                    id: window.verbal_id,
+                },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+                    sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
 
-//        console.log('insert');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('error');
+                    console.error(textStatus);
+                    dm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information did not saved!!! Please check fiels and try again...'));
 
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: {
-                url: 'pkInsert_infoFirmVerbal',
-                pk: $("#pk").val(),
-                npk: $("#selectedCompanyNpk").val(),
-                lang_code: $('#langCode').val(),
-                profile_public: 0,
-                firm_name_full: $('#full_name_ph').val(),
-                firm_name_en_full: $('#full_name_en_ph').val(),
-                firm_name_short: $('#short_name_ph').val(),
-                firm_name_en_short: $('#short_name_en_ph').val(),
-                firm_country: $('#').val(),
-                about: $('#desc_text').val(),
-                about_eng: $('#desc_text_en').val(),
-                verbal1_title: $('#first_text_title').val(),
-                verbal2_title: $('#second_text_title').val(),
-                verbal3_title: $('#third_text_title').val(),
-                verbal1_title_eng: $('#first_text_title_en').val(),
-                verbal2_title_eng: $('#second_text_title_en').val(),
-                verbal3_title_eng: $('#third_text_title_en').val(),
-                verbal1: $('#verbal1_text').val(),
-                verbal2: $('#verbal2_text').val(),
-                verbal3: $('#verbal3_text').val(),
-                verbal1_eng: $('#verbal1_text_en').val(),
-                verbal2_eng: $('#verbal2_text_en').val(),
-                verbal3_eng: $('#verbal3_text_en').val()
-            },
-            type: 'GET',
-            dataType: 'json',
-            success: function (data, textStatus, jqXHR) {
+                }
+            });
 
-                sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
+        } else {
 
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log('error');
-                console.error(textStatus);
-                dm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information did not saved!!! Please check fiels and try again...'));
+//  console.log('insert');
+//  insert url is used to insert data
 
-            }
-        });
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data: {
+                    url: 'pkInsert_infoFirmVerbal',
+                    pk: $("#pk").val(),
+                    npk: $("#selectedCompanyNpk").val(),
+                    lang_code: $('#langCode').val(),
+                    profile_public: 0,
+                    firm_name: $('#full_name_ph').val(),
+                    firm_name_eng: $('#full_name_en_ph').val(),
+                    firm_name_short: $('#short_name_ph').val(),
+                    firm_name_short_eng: $('#short_name_en_ph').val(),
+                    about: $('#desc_text').val(),
+                    about_eng: $('#desc_text_en').val(),
+                    verbal1_title: $('#first_text_title').val(),
+                    verbal2_title: $('#second_text_title').val(),
+                    verbal3_title: $('#third_text_title').val(),
+                    verbal1_title_eng: $('#first_text_title_en').val(),
+                    verbal2_title_eng: $('#second_text_title_en').val(),
+                    verbal3_title_eng: $('#third_text_title_en').val(),
+                    verbal1: $('#verbal1_text').val(),
+                    verbal2: $('#verbal2_text').val(),
+                    verbal3: $('#verbal3_text').val(),
+                    verbal1_eng: $('#verbal1_text_en').val(),
+                    verbal2_eng: $('#verbal2_text_en').val(),
+                    verbal3_eng: $('#verbal3_text_en').val(),
+                    country_id: window.sel_count_id,
+                    tax_office: $('#tax_office').val(),
+                    tax_no: $('#tex_number').val(),
+                    foundation_yearx: window.okan,
+//                    duns_number: $('#tax_office').val(),
+                    web_address: $('#website').val()
+//                    logo: $('#tax_office').val()
+                },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+                    console.log('here');
+                    sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('error');
+                    console.error(textStatus);
+                    dm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information did not saved!!! Please check fields and try again...'));
+
+                }
+            });
+        }
     }
 
 }
-
-window.okan;
 
 function milliseconds() {
     var input_date = $('#found_date').val();
@@ -344,45 +407,4 @@ function milliseconds() {
     window.okan = Math.round(window.date_value / 1000.0);
 //    console.log(window.date_value);
 //    console.log(okan);
-}
-
-function send_email_to_consult(element) {
-    var title_text = window.lang.translate('Message to Page Consultant') + " (" + $("#" + element.id).attr('page_consultant') + ")" ;
-    
-    BootstrapDialog.show({
-        title: title_text,
-        message: $('<textarea class="form-control" placeholder="' + window.lang.translate('Write your message to the consultant...') + '"></textarea>'),
-        buttons: [{
-                label: window.lang.translate('Send Message'),
-                cssClass: 'btn-primary',
-                hotkey: 13, // Enter.
-                action: function () {
-
-                    var email_address = $('#' + element.id).attr('email_address');
-//                    console.log(email_address);
-                    var data = {
-//                        name: $("#form_name").val(),
-//                        email: $("#form_email").val(),
-//                        message: $("#msg_text").val()
-                        name: 'name',
-                        email: 'bahram@ostimteknoloji.com.tr',
-                        message: 'hello'
-                    };
-
-                    $.ajax({
-                        type: "POST",
-                        url: "../../../../plugins/bahram/mail_sender.php",
-                        data: data,
-                        success: function () {
-                            $('.success').fadeIn(1000);
-                        }
-                    });
-
-                    return false;
-
-
-                    sm.successMessage('show', window.lang.translate('Email Sending'), window.lang.translate('Your message has been sent to the consultant. System consultant will repsond you as sson as possible.'));
-                }
-            }]
-    });
 }

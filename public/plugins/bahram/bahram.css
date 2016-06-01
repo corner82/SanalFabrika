@@ -511,3 +511,7 @@ datagrid-pager{
     width: 100% !important;
     height: auto;
 }
+
+.service-block-v3{
+    min-height: 300px;
+}
