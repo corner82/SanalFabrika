@@ -39,7 +39,7 @@
          * Default options.
          * @returns {null}
          */
-        options: {
+        options: {  
             overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
             overlayKey: ".overlay:first",
         },

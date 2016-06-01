@@ -167,13 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Makina Özellikleri Tanımlama İşlemleri
+                    Makina  Tanımlama İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
                     <li><a href="#"><i class="fa fa-certificate"></i> Makina İşlemleri</a></li>
-                    <li class="active">Makina Özellikleri Tanımlamaları</li>
+                    <li class="active">Tekil Makina Ekleme İşlemleri</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -188,7 +188,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Makina Özellikleri İşlemleri </h3>
+                                <h3 class="box-title"> Makina  İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -201,8 +201,8 @@
                                 
                             <div class="alert alert-info alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm makina özellikleri makina kategorilerine bağlı olarak sisteme eklenebilmektedir!</h4>
-                                Makina özelliği ekleyebilir , silebilir, güncelleyebilir ve kopyalayabilirsiniz....
+                                <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm makinalar, makina kategorilerine bağlı olarak sisteme eklenebilmektedir!</h4>
+                                Makina tanımlayabilir , silebilir, güncelleyebilirsiniz....
                             </div>    
                                 
                                 
@@ -210,15 +210,15 @@
               <div class="nav-tabs-custom" >
                 <ul id="mach_prop_tab_container" class="nav nav-tabs">
                   <li class="active" ><a href="#tab_mach_prop" id="tab_mach_prop_clicker" name="tab_mach_prop_clicker" data-toggle="tab">Makina Kategorisine göre makina özellikleri</a></li>
-                  <li><a href="#tab_mach_prop_update" id="tab_mach_prop_update_clicker" name="tab_mach_prop_update_clicker" data-toggle="tab" >Makina Özelliği Güncelle</a></li>
-                  <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                  <!--<li><a href="#tab_mach_prop_update" id="tab_mach_prop_update_clicker" name="tab_mach_prop_update_clicker" data-toggle="tab" >Makina Özelliği Güncelle</a></li>
+                  <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>-->
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_mach_prop">  
                     
                      <form id='machineForm' method="get" class="form-horizontal">     
                     
-                    <div id="roleFormBlock" class="box box-primary" style="padding-top: 20px;">                                     
+                    <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                     
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Kategori</label>
                             <div class="col-sm-10 " >
@@ -231,19 +231,6 @@
                                         <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
                                         </div>
                                     </div>                                                       
-                                </div>
-                            </div>
-                        </div>
-                        <div id="mach-prop-box" class="form-group box" style="border-top : 0px; box-shadow: none;">
-                            <label class="col-sm-2 control-label">Seçili Makina Kategorisi Özellikleri</label>
-                            <div class="col-sm-10">
-                                <div class="input-group">    
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-hand-o-right"></i>
-                                    </div>
-                                    <div style="margin-bottom: -10px;" class="tag-container">
-                                        <ul id="test-cabin" class="tag-box"></ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -298,7 +285,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar-check-o"></i>
                                     </div>
-                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="model_year" id="model_year" />
+                                    <input data-prompt-position="topLeft:70" class="form-control validate[required, custom[integer]]" type="text" name="model_year" id="model_year" />
                                 </div>
                             </div>
                         </div>
@@ -315,7 +302,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-10 col-sm-offset-2">
-                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertMachPropWrapper(event);"><i class="fa fa-save"></i>  Makina Kaydet </button>
+                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertMachWrapper(event);"><i class="fa fa-save"></i>  Makina Kaydet </button>
                                 <!--<button id="updateMachineCategory" class="btn btn-flat" type="submit" onclick="return updateMachineCategoryWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>-->
                                 <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetMachineForm();" ><i class="fa fa-remove"></i> Reset </button>
                             </div>
@@ -363,30 +350,16 @@
                                 </div><!--/. button div-->
                             </div><!--/. panel 1 header div-->
                             <!--Panel 1 contents-->
-                            <div class="box-body">
-                                <form id='unitForm' method="get" class="form-horizontal">     
-                                    <div class="alert alert-warning alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                        <h4><i class="icon fa fa-info"></i> Makina Listesi (Kategorik veya Tüm Makinalar)</h4>
-                                        Makina kategorisi ağaç yapısına tıklayarak, sadece kategori için makina listesini güncelletebilirsiniz...
-                                    </div>
-                                    <div id="roleFormBlock" class="box box-warning" style="padding-top: 20px;">
-                                         
-                                        <table  id="tt_grid_dynamic" title="Firma genel bilgileri " ></table>   
-                                        <!--<div class="form-group">
-                                            <label class="col-sm-2 control-label">Birimler</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <!--<input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="unit" id="unit" disabled="true"/>-->
-                                                    <!--<table  id="tt_grid_dynamic" title="Firma genel bilgileri " ></table>
-                                                </div>
-                                            </div>
-                                        </div>-->
-                                    </div> 
-                                </form>
+                            <div class="box-body">    
+                                <div class="alert alert-warning alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-info"></i> Makina Listesi (Kategorik veya Tüm Makinalar)</h4>
+                                    Makina kategorisi ağaç yapısına tıklayarak, sadece kategori için makina listesini güncelletebilirsiniz...
+                                </div>
+                                <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
+                                    <table  id="tt_grid_dynamic" title="Makinalar " ></table>   
+                                </div> 
+                                
                             </div><!-- /.box-body -->
                         </div><!--/. primary box div-->
                         
