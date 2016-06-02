@@ -536,7 +536,7 @@ BootstrapDialog.show({
                                                                  <div class="input-group-addon">\n\
                                                                      <i class="fa fa-hand-o-right"></i>\n\
                                                                  </div>\n\
-                                                                 <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.machine_code+'" name="machine_code_popup" id="machine_code_popup" />\n\
+                                                                 <input data-prompt-position="topLeft:70" class="form-control" type="text" value="'+row.machine_code+'" name="machine_code_popup" id="machine_code_popup" />\n\
                                                              </div>\n\
                                                          </div>\n\
                                                      </div>\n\
