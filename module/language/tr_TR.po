@@ -917,7 +917,7 @@ msgid "Company Profile"
 msgstr "Firma Profili"
 
 msgid "Notification"
-msgstr "İlişkiler ve Uyarılar"
+msgstr "Bilgilendirme"
 
 msgid "References"
 msgstr "Referanslar"
@@ -932,7 +932,8 @@ msgid "Contact Us"
 msgstr "Bize Ulaşın"
 
 msgid "A virtual enterprise (VE) is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
-msgstr ""
+msgstr "Sanal fabrika bilgisayar ve bilişim sistemleri teknolojilerinden kullanarak, farklı yeteneklere sahip firmaları daha yüksek kalite ve katma değerli ürünleri üreterek piyasa da bu firmaların rekabetçiliğini artırmayı amaçlayan geçici bir ortaklık yapısıdır. "
+
 
 msgid "Latest News about OSTIM VE"
 msgstr "OSTİM SF hakkında son haberler"
@@ -1101,7 +1102,10 @@ msgid "than last year"
 msgstr "son yıla göre"
 
 msgid "Company Performance Meters"
-msgstr "Firma Performans Değerleri"
+msgstr "Firma Göstergeleri"
+
+msgid "Overview"
+msgstr "Genel Bakış"
 
 msgid "Engineers"
 msgstr "Mühendis"
@@ -1119,13 +1123,13 @@ msgid "Company Meters"
 msgstr "Firma Değerleri"
 
 msgid "Company Quality Performance"
-msgstr "Firma Kalite Performansı"
+msgstr "Firma Kalite Değerleri"
 
 msgid "Last Year Increase Ratio"
-msgstr "Son bir yılda iyileşme oranı"
+msgstr "Son Bir Yıl İyileşme Oranı"
 
 msgid "Overall Performance"
-msgstr "Toplam performans değeri"
+msgstr "Toplam Performans Değeri"
 
 msgid "Available Quality Certificates and Standards"
 msgstr "Alınan Kalite Belgeleri ve Sertifikalar"
@@ -1182,7 +1186,7 @@ msgid "Registered Company Employees"
 msgstr "Kayıtlı firma çalışanları"
 
 msgid "Virtual Enterprise Clinets"
-msgstr "Sanal Fabrika Üyeleri"
+msgstr "Sanal Fabrika Üye Firmaları"
 
 msgid "Turkey"
 msgstr "Türkiye"
@@ -1245,19 +1249,19 @@ msgid "Production and Quality Control Engineer"
 msgstr "Üretim Ve Kalite Kontrol Mühendisi"
 
 msgid "Company info update period"
-msgstr "Firma Temel Bilgi Yenileme Sıklığı"
+msgstr "Bilgi Yenileme Oranı"
 
 msgid "Company profil completion rate"
-msgstr "Profil Tamamlanmışlık Oranı"
+msgstr "Profil Tamamlama Oranı"
 
 msgid "Machine data update period"
-msgstr "Makina Bilgisi Yenileme Sürekliliği"
+msgstr "Güncel Makine Parkı Bilgileri Oranı"
 
 msgid "Company technologies update period"
-msgstr "Firma Teknolojileri Bilgi Yenileme Sıklığı"
+msgstr "Güncel Teknoloji Bilgileri Oranı"
 
-msgid "Daily currency exchange rates"
-msgstr "Günlük Kur Bilgileri"
+msgid "Online exchange rates"
+msgstr "Güncel Kur Değerleri"
 
 msgid "Minutes"
 msgstr "Dakika"
@@ -1297,6 +1301,72 @@ msgstr "Toplam Çalışan Sayısı"
 
 msgid "Visited your project page"
 msgstr "Proje sayfasına bakmıştır"
+
+msgid "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
+msgstr "Sanal fabrika günümüzün çalkantılı ve rekabetçi global piyasalarında işbirliği yaparak güçlerini artırmaya yönelik geliştirilmiş olan bir sistemdir. Bu hedefe ulaşmak için OSTİM Sanal Fabirka yapısında aşağıdakı hizmetler sunulmaktadır."
+
+msgid "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
+msgstr "Sisteme kayıtlı olan firmalara özel profil sayfaları tahsis edilmektedir. Frimalar çalışmaları ve hizmetleri hakkında bu sayfalarda daha şeffaf ve açıklayıcı bilgiler paylaşabileceklerdir. Böylece hedef firmalara daha hızlı ve kolay bir şekilde ulaşılabilecektir."
+
+msgid "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
+msgstr "Özel kullanıcı profil sayfaları oluşturarak projeler için gerekli profesiyonel teknik, tasarımcı, araştırmacı, mühendis vb. elemanları daha hızlı bir şekilde bulunabilecektir."
+
+msgid "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
+msgstr "Projeler için en uygun partnerlerin seçilmesi için tarafsız ve güvenilir bir ihale sistemi yapısı geliştirilmiştir. Müşteri farklı ihale sistemleri arasından dilediği sistemi seçerek ihale sürecini başlatma isteğini sistem yöneticisine yönlendirebilir."
+
+msgid "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
+msgstr "Proje yönetimi bölümü, sistem yönetiisi, müşteri ve partnerlere proje süreçlerinin ilerilemesini gözetleme ve denetleme şansını vermektedir. Ayrıca sistem ve partnerlerin performansları bu yapı üzerinden değerlendirilebilir."
+
+msgid "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
+msgstr "Ortak tasarım, analiz ve simülasyonlar için Dassault Sistem'in CATIA V6 yazılımı sanal fabrika yapısında kullanılmaktadır. Böylece proje ortakları kendi hesapları üzerinde OSTİM sunucusuna bağlanıp ortak bir şekilde tasarım, analiz ve simülasyon işlemlerini prototipleme aşamasından önce gerçekleştirebilirler."
+
+msgid "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
+msgstr "Prototipleme amacıyla OSTİM'de bulunan 3B yazıcı kullanarak gerçek üretim aşamasına geçmeden ürün veya parçaların çalışması ve fonksyonları yazdırılarak kontrol edilebilir."
+
+msgid "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
+msgstr "Ostim Teknoloji, çalışmalarına 2004’te TÜBİTAK Üniversite-Sanayi Ortak Araştırma Merkezleri Programı çerçevesinde başlamıştır. 2007’den itibaren faaliyetlerini Anonim Şirket olarak yürütmektedir. Kurum - kuruluş , akademisyen ve işadamlarından oluşan 25 ortaklı bir yapıya sahiptir."
+
+msgid "New Consortiums"
+msgstr "Yeni İşbirlikleri"
+
+msgid "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
+msgstr "Bu sistem üzerinden yeni iş fırsatlarını yakalayıp kapasite doluluk oranını artırabilir veya projeleriniz için en uygun ortakları bulabilirsiniz."
+
+msgid "Automatic and Objective Negotiation Process"
+msgstr "Otomatik ve Tarafsız İhale Sistemi"
+
+msgid "Multiple negotation processes has been designed and based on customer preferences different negotiation process could be selected to choose the best possible partners for customers project."
+msgstr "Değişik ihale süreçleri hazırlanıp müşterinin istekleri ve talepleri doğrultusunda, ihale sistemlerinden birisi seçilip ve müşteri projeleri için en uygun ortakların bulunmasını sağlamaktadır."
+
+msgid "New Technologies Implementation"
+msgstr "Yeni Teknolojilerin Uygulanması"
+
+msgid "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
+msgstr "Üretilecek olan ürünlerin kalitesinin arttırılması ve gerçek ürün aşamasına geçmeden önce parça veya ürünün müşteri isteklerinin karşılamasını analiz ve denetlemek için 3B yazıcı ve tarama sistemleri ile ürünün prtotipi OSTİM Teknoloji A.Ş. bünyesinde bulunan imkanlar ile üretilebilir."
+
+msgid "OSTIM VIRTUAL ENTERPRISE OFFICE"
+msgstr "OSTİM SANAL FABRİKA OFİSİ"
+
+msgid "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
+msgstr "OSTIM SF sistemini geliştirmektedir. OSTIM sanal fabrika ofisi Ankara da OSTIM OSB yönetim binasında yer almaktadır. Bu ofis sanal fabrika sisteminin araçları, programları ve uygulamalarının geliştirilmesinden ve yönetiminden sorumludur."
+
+msgid "VE System Mission"
+msgstr "Sanal Fabrika Sistemi Misyonu"
+
+msgid "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
+msgstr "müşteri istekleri ve gereksinimlerini hızlı bir şekilde en uygun firmalara yönlendirmektir. Ayrıca bu sistem sayesinde firmalar yeni işleri alarak boş kapasitelerini daha verimli bir şekilde kullanabileceklerdir. Bu amaca ulaşmak için sistem çerçevesinde sunulan hizmetler:"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
 
 msgid ""
 msgstr ""

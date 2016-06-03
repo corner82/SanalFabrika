@@ -27,34 +27,34 @@ $(document).ready(function () {
      */
     
     if($('#langCode').val() === 'en'){
-        window.companyprofile = 'Company profile';
-        window.performance = 'Performance Meters';
-        window.products = 'Company Products';
+        window.companyprofile = 'Profile';
+        window.performance = 'Statistics and Meters';
+        window.products = 'Products';
         window.machine_list = 'Machines List';
-        window.members = 'Company Members';
-        window.projects = 'Company Projects';
+        window.members = 'Members';
+        window.projects = 'Projects';
         window.comments = 'Comments';
-        window.brief_history = 'Company History';
-        window.profile_setting = 'Profile Setting';
+        window.brief_history = 'History';
+        window.profile_setting = 'Profile Settings';
     } else if($('#langCode').val() === 'tr'){
-        window.companyprofile = 'Firma Profili';
-        window.performance = 'Performans Değerleri';
-        window.products = 'Firma Ürünleri';
+        window.companyprofile = 'Profil';
+        window.performance = 'Göstergeler';
+        window.products = 'Ürünler';
         window.machine_list = 'Makine Listesi';
-        window.members = 'Firma Çalışanları';
-        window.projects = 'Firma Projeleri';
+        window.members = 'Çalışanlar';
+        window.projects = 'Projeler';
         window.comments = 'Yorumlar';
-        window.brief_history = 'Firma Ticari Tarihçesi';
+        window.brief_history = 'Ticari Tarihçe';
         window.profile_setting = 'Profil Ayarları';
     } else if($('#langCode').val() === 'fa'){
         window.companyprofile = 'پروفایل شرکت';
         window.performance = 'معیارهای عملکرد';
-        window.products = 'محصولات شرکت';
+        window.products = 'محصولات ';
         window.machine_list = 'لیست ماشین ابزار';
-        window.members = 'کارکنان شرکت';
-        window.projects = 'پروژه های شرکت';
+        window.members = 'کارکنان ';
+        window.projects = 'پروژه ها ';
         window.comments = 'نظرات';
-        window.brief_history = 'تاریخچه تجاری شرکت';
+        window.brief_history = 'تاریخچه تجاری ';
         window.profile_setting = 'تنظیمات پروفایل';
     }
 

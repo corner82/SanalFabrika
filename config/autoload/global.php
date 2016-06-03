@@ -175,7 +175,7 @@ return array(
                                                                     'cpprodset',
                                                                     'cpmp',
                                                                     'cpmemberset',
-                                                                    'cpreference'
+                                                                    'cpreference', 'cmt'
                                                                     ),
                                      'login' => array('index'),)
                    ),

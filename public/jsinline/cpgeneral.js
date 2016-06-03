@@ -44,6 +44,7 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
+                
                 /*
                  * change coming foundation date from milliseconds to year/month/day
                  * if there is not submitted found_date, it comes back empty

@@ -99,7 +99,6 @@ function listOfCertificates() {
         $("#qualityDetaildDIV").addClass("active");
         $("#qualityDetaildDIV").slideDown("slow");
     }
-
 }
 
 function qualityHistory() {
@@ -111,7 +110,7 @@ function qualityHistory() {
         $("#qualityDetailsInsideDIV").empty();
     } else {
         window.i++;
-        $("#qualityDetailsInsideDIV").append('history ' + i + ' , ');
+//        $("#qualityDetailsInsideDIV").append('history ' + i + ' , ');
         $("#qualityDetaildDIV").addClass("active");
         $("#qualityDetaildDIV").slideDown("slow");
     }
@@ -157,7 +156,7 @@ function customerDetails() {
 
     } else {
 
-        $("#customerDetailsInsideDIV").append();
+//        $("#customerDetailsInsideDIV").append();
         $("#customerDetailsDIV").addClass("active");
         $("#customerDetailsDIV").slideDown("slow");
     }

@@ -23,6 +23,8 @@ $(document).ready(function () {
         var loging_value = window.lang.translate('Log in');
     }
     $('#loging_ph').append(loging_value);
+    
+    
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -34,7 +36,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data.rows[0]);
+            console.log(data.rows);
             if (data.rows) {
 //                console.log(data.rows[0]);
                 $('#firm_name_ph').empty();
@@ -57,6 +59,7 @@ $(document).ready(function () {
                 var verbal_3 = data.rows[0].verbal3;
                 var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
                 var logo_src = imageFolAddress + data.rows[0].logo;
+                console.log(logo_src);
                 $('#header_company_name').append("<i class='fa fa-user'></i>" + window.firm_name);
                 $('#firm_name_ph').append(window.firm_name);
                 $('#about_firm_ph').append(about_company);
@@ -114,6 +117,7 @@ $(document).ready(function () {
 
         }
     });
+    
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -152,6 +156,7 @@ $(document).ready(function () {
             }
         }
     });
+    
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -198,7 +203,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data);
+            console.log(data);
             $('#addresses_div').empty();
             for (var i = 0; i < data.rows.length; i++) {
                 var borough_name;

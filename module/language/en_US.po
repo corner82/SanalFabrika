@@ -1125,7 +1125,7 @@ msgstr ""
 msgid "Company technologies update period"
 msgstr ""
 
-msgid "Daily currency exchange rates"
+msgid "Online exchange rates"
 msgstr ""
 
 msgid "Minutes"
@@ -1164,7 +1164,58 @@ msgstr ""
 msgid "Total Employees"
 msgstr ""
 
-msgid ""
+msgid "Visited your project page"
+msgstr ""
+
+msgid "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
+msgstr ""
+
+msgid "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
+msgstr ""
+
+msgid "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
+msgstr ""
+
+msgid "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
+msgstr ""
+
+msgid "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
+msgstr ""
+
+msgid "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
+msgstr ""
+
+msgid "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
+msgstr ""
+
+msgid "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
+msgstr ""
+
+msgid "New Consortiums"
+msgstr ""
+
+msgid "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
+msgstr ""
+
+msgid "Automatic and Objective Negotiation Process"
+msgstr ""
+
+msgid "New Technologies Implementation"
+msgstr ""
+
+msgid "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
+msgstr ""
+
+msgid "OSTIM VIRTUAL ENTERPRISE OFFICE"
+msgstr ""
+
+msgid "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
+msgstr ""
+
+msgid "VE System Mission"
+msgstr ""
+
+msgid "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
 msgstr ""
 
 msgid ""
