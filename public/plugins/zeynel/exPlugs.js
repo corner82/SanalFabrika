@@ -438,20 +438,57 @@
         _create: function () {
            // this._trigger('tested');
             var self = this;
+            
+            
+            /**
+             * root node click event binding
+             */
+            this._on(this.element, {
+            'click.parent_li > span[data-action="root"]': function(event, self) { 
+                    //alert('onclick root');
+                    var element = $(event.target);
+                    var id = element.attr('id');
+                    //console.log(id);
+                    var self = this;
+                    self._loadSubNodes(id, element);  
+                }
+            });
+            
+            /**
+             * sub node click event binding
+             */
+            this._on(this.element, {
+            'click.parent_li > span.badge': function(event, self) { 
+                    //alert('onclick sub nodes');
+                    var element = $(event.target);
+                    var id = element.attr('id');
+                    //console.log(id);
+                    var self = this;
+                    if (element.hasClass('machine')) {
+                        alert('has class machine');
+                        self._trigger('getMachineProp', event, [self, element]);
+                        self._trigger('getMachineGenProp', event, [self, element]);
+                    } else {
+                        self._loadSubNodes(id, element);
+                    }
+                }
+            });
+            
+            
             /**
              * root node span click handler
              * @since 24/02/2016
              */
-            $(".tree2").on("click", "li.parent_li > span[data-action='root']", function (event) {
+           /* $(".tree2").on("click", "li.parent_li > span[data-action='root']", function (event) {
                 //alert('root action');
                 self._loadSubNodes($(this).attr('id'), $(this));
-            });
+            });*/
 
             /**
              * leaf (machine group ans machine) node span click event handler
              * @since 24/02/2016
              */
-            $(".tree2").on("click", "li.parent_li > span.badge", function (event) {
+            /*$(".tree2").on("click", "li.parent_li > span.badge", function (event) {
                 //alert('leaf action');
                 if ($(this).hasClass('machine')) {
                     self._trigger('getMachineProp', event, [self, $(this)]);
@@ -459,7 +496,7 @@
                 } else {
                     self._loadSubNodes($(this).attr('id'), $(this));
                 }
-            });
+            });*/
 
         },
         /**
@@ -470,6 +507,7 @@
          * @author Mustafa Zeynel Dağlı
          */
         _loadSubNodes: function (id, node) {
+            //alert('_loadSubNodes');
             self = this;
             var listItem = node.parent('li.parent_li');
             if (listItem.attr('data-lastnode') == 'true') {
