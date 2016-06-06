@@ -44,7 +44,7 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
-                
+                console.log(data);
                 /*
                  * change coming foundation date from milliseconds to year/month/day
                  * if there is not submitted found_date, it comes back empty
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 window.sel_count_id = data[0].country_id;
                 
                 console.log($('#company_country_ph li:has(.dd-option-value:contains(' + data[0].country_id + '))'));
-                var image_url = "https://"
+                window.image_url = "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
                         + data[0].firm_name_short
@@ -77,7 +77,7 @@ $(document).ready(function () {
                 $('#short_name_ph').val(data[0].firm_name_short);
                 $('#short_name_en_ph').val(data[0].firm_name_short_eng);
                 $('#website').val(data[0].web_address);
-                $('#company_logo').attr('src', image_url);
+                $('#company_logo').attr('src', window.image_url);
                 $('#found_date').val(year + '/' + month + '/' + day);
                 $('#tax_office').val(data[0].tax_office);
                 $('#tex_number').val(data[0].tax_no);
@@ -296,9 +296,9 @@ function send_general_info() {
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
-                    url: 'pkUpdate_infoFirmVerbal',
+                    url: 'pkcpkUpdate_infoFirmVerbal',
                     pk: $("#pk").val(),
-                    npk: $("#selectedCompanyNpk").val(),
+                    cpk: 'oWMvf6w5wbE4hQg',
                     lang_code: $('#langCode').val(),
                     profile_public: 0,
                     firm_name: $('#full_name_ph').val(),
@@ -351,9 +351,9 @@ function send_general_info() {
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
-                    url: 'pkInsert_infoFirmVerbal',
+                    url: 'pkcpkInsert_infoFirmVerbal',
                     pk: $("#pk").val(),
-                    npk: $("#selectedCompanyNpk").val(),
+                    cpk: 'oWMvf6w5wbE4hQg',
                     lang_code: $('#langCode').val(),
                     profile_public: 0,
                     firm_name: $('#full_name_ph').val(),

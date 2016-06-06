@@ -1350,12 +1350,223 @@ msgstr "OSTİM SANAL FABRİKA OFİSİ"
 msgid "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
 msgstr "OSTIM SF sistemini geliştirmektedir. OSTIM sanal fabrika ofisi Ankara da OSTIM OSB yönetim binasında yer almaktadır. Bu ofis sanal fabrika sisteminin araçları, programları ve uygulamalarının geliştirilmesinden ve yönetiminden sorumludur."
 
-msgid "VE System Mission"
-msgstr "Sanal Fabrika Sistemi Misyonu"
+msgid "VE SYSTEM MISSION"
+msgstr "SANAL FABRİKA SİSTEMİ MİSYONU"
 
 msgid "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
 msgstr "müşteri istekleri ve gereksinimlerini hızlı bir şekilde en uygun firmalara yönlendirmektir. Ayrıca bu sistem sayesinde firmalar yeni işleri alarak boş kapasitelerini daha verimli bir şekilde kullanabileceklerdir. Bu amaca ulaşmak için sistem çerçevesinde sunulan hizmetler:"
 
+
+msgid "Profile Pages"
+msgstr "Profil Sayfaları"
+
+msgid "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
+msgstr "OSTİM Sanal Fabrika kayıtlı kullanıcılar ve firmalar için profil sayfa açma imkanını sunarak, kendi yeteneklerini daha detaylı bir şekilde tanıtma şanısını vermektedir. Bu nedenle profil sayfalarını ziyaret eden müşteriler veya potansiyel partnerler firma veya şahıslar ile ilgili detaylı ve kapsamlı bir bilgi sahibi olabileceklerdir."
+
+msgid "Smart Macthcing"
+msgstr "Akıllı Eşleştirme"
+
+msgid "Objective Negotiation Platform"
+msgstr "Tarafsız İhale Yönetimi"
+
+msgid "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
+msgstr "Sistemde bulunan eşleştirme algoritmaları müşterinin istekleri doğrultusunda sistem'de kayıtlı veriler arasından en uygun kaynakları bulup müşteriye önermektedir."
+
+msgid "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
+msgstr "Farklı ihale yönetim sistemleri sanal fabirka sistemine tanıtılmıştır. Müşteri istekleri ve tercihleri doğrultusunda bu ihale yöneticilerden birisi seçilip ihale süreci yönetilir. Bütün ihale süreci otomatik olarak denetlenir ve ihale yönetiminde herhangi bir insan müdahelesi yoktur."
+
+msgid "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
+msgstr "OSTİM OSB'sinde bulunan tasarım, mühendislik ve üretim kapasitesini dünyaya açmayı hedeflemektedir. Bu sistem sayesinde müşterilerden gelen siparişler hızlı bir şekilde en uygun firmalara yönlendirilerek firmalardaki atıl kapasiteyi doldurup ve firmalarda üretim verimliliğini artıracaktır."
+
+msgid "OSTIM Virtual Enterprise"
+msgstr "OSTİM Sanal Fabrikası"
+
+msgid "OSTIM VIRTUAL ENTERPRISE TARGETS"
+msgstr "OSTİM SANAL FABRİKA HEDEFLERİ"
+
+msgid "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
+msgstr "OSTİM Organize Sanayi Bölge Müdürlüğü Yönetim Kurulu Başkanı"
+
+msgid "Chairman of OSTIM Technology A.Ş. Executive Board"
+msgstr "OSTİM Teknoloji A.Ş. Yönetim Kurulu Başkanı"
+
+msgid "Manager of OSTIM Organized Industrial Zone Management"
+msgstr "OSTİM Organize Sanayi Bölge Müdürlüğü Bölge Müdürü"
+
+msgid "OSTIM Organized Industrial Zone management provides various servises."
+msgstr "OSTİM OSB Yönetimi farklı hizmetler sunmaktadır."
+
+msgid "Some of these services are mentioned below"
+msgstr "Bu hizmetlerden bazıları aşağıda belirtilmiştir"
+
+msgid "Infrastrcuture Services"
+msgstr "Altyapı hizmetleri"
+
+msgid "Electric Management and Maitenance"
+msgstr "Elektrik İşletme ve Bakım"
+
+msgid "Environemnt and Security"
+msgstr "Çevre ve Güvenlik"
+
+msgid "Gas Management and Maintenance"
+msgstr "Doğal-gaz İşletme ve Bakım"
+
+msgid "Office and Work Permit"
+msgstr "İşyeri Açma ve Çalışma Ruhsatı"
+
+msgid "Town Planning and Infrastructure"
+msgstr "İmar ve Altyapı"
+
+msgid "IT and Computing Center"
+msgstr "Bilgi ve İşlem Teknolojileri"
+
+msgid "Customer Services"
+msgstr "Müşteri Hizmetleri"
+
+msgid "Financial Services"
+msgstr "Mali Hizmetler"
+
+msgid "Customer Relationship"
+msgstr "Müşteri İlişkileri"
+
+msgid "OSTIM Employment Office"
+msgstr "OSTİM İstihdam Ofisi"
+
+msgid "Fair and Organizations"
+msgstr "Fuar ve Organizasyon"
+
+msgid "Financial and Administrative Affairs"
+msgstr "Mali ve İdari İşler"
+
+msgid "Press and Public Relations"
+msgstr "Basın ve Halkla İlişkiler"
+
+msgid "Organizational Photo Gallery"
+msgstr "Kurumsal Foto Galerisi"
+
+msgid "Papers and Journals"
+msgstr "Yazılar ve Makaleler"
+
+msgid "Videos"
+msgstr "Tanıtım Videoları"
+
+msgid "Documents"
+msgstr "Dökümanlar"
+
+msgid "Indigenous Wind Turbine Project"
+msgstr "Milli Rüzgar Türbini"
+
+msgid "Indigenous Main Battle Tank Motor Project: TM-1150"
+msgstr "Güç Grubu Motor Geliştirme TM-150"
+
+msgid "Defense Cluster Project"
+msgstr "Savunma Kümesi Projesi"
+
+msgid "Railed Systems Cluster Project"
+msgstr "Rayli Sistemler Kümesi Projesi"
+
+msgid "Indigenous Subway Train Project"
+msgstr "Milli Metro Projesi"
+
+msgid "Read More"
+msgstr "Daha Fazla Bilgi"
+
+msgid "Renewable Energy Cluster Project"
+msgstr "Yenilenebilir Enerjiler Kümesi"
+
+msgid "OSTIM Technology Projects"
+msgstr "OSTİM Teknoloji Projeleri"
+
+msgid "OSTIM Technology R&D Center, collaborates researches and projects with the aim of developing high value added, high tech products under university and industry collaboration framework."
+msgstr "Ostim Teknoloji Araştırma Ve Geliştirme Merkezi, katma değeri yüksek, ileri teknoloji ürünleri üniversite sanayi işbirliği platformu çerçevesinde projelendirerek geliştirmeyi hedeflemektedir."
+
+msgid "VE integrates the capabiltities of 5,200 companies in OSTIM Organized Industrial Zone with more than 20,000 machine tools and 60,000 employees under one virtual company."
+msgstr "Sanal fabrika OSTİM OSB'sinde bulunan 5,200 firmanın 20,000'den fazla makine parkı ve 60,000'den fazla çalışanını tek bir çatı altında toplayarak, bu firmaların yetenekleri ve üretim kapastesini bütün dünyaya açmaktadır."
+
+msgid "Login Required"
+msgstr "Giriş Gereklidir"
+
+msgid "VE system services are provided under three main categories:"
+msgstr "Sanal Fabrika hizmetleri üç genel kategori altında sunulmaktadır:"
+
+msgid "Resource Discovery"
+msgstr "Kaynak Arama"
+
+msgid "Project Management"
+msgstr "Proje Yönetimi"
+
+msgid "Resource Definition"
+msgstr "Kaynak Tanımı"
+
+msgid "You may find your required human, information and physical (machinery, raw material and etc.) here"
+msgstr "Aranan insan kaynağı, bilgi ve fiziksel veriler (makine, hamm madde vb.)"
+
+msgid "VE Companies"
+msgstr "SF Firmaları"
+
+msgid "VE Machine Park"
+msgstr "SF Makine Parkı"
+
+msgid "VE Raw Materials"
+msgstr "SF Hamm Madde"
+
+msgid "VE Waste"
+msgstr "SF Atıklar"
+
+msgid "VE Human Resources"
+msgstr "SF İnsan Kaynağı"
+
+msgid "VE Products"
+msgstr "SF Ürünler"
+
+msgid "To manage existing projects or submit a new order you may use this section"
+msgstr "Halı hazırda bulunan projelerinizin yönetimi veya yeni bir siparişin girilmesi"
+
+msgid "Negotiation Management System"
+msgstr "İhale Yönetim Sistemi"
+
+msgid "Submit new Order"
+msgstr "Yeni Sipariş"
+
+msgid "Manage Your Project"
+msgstr "Proje Yönetim"
+
+msgid "View Project Pool"
+msgstr "Projeler Havuzu"
+
+msgid "You may define your available different resources here"
+msgstr "Kaynak Tanımalma Bölümü"
+
+msgid "Add Company"
+msgstr "Firma Ekle"
+
+msgid "Add User"
+msgstr "Kullanıcı Ekle"
+
+msgid "Add Machine Tool"
+msgstr "Makine Ekle"
+
+msgid "Add Product"
+msgstr "Ürün Ekle"
+
+msgid "Add Raw Material"
+msgstr "Hamm Madde Ekle"
+
+msgid "Add Waste"
+msgstr "Atık Ekle"
+
+msgid "VE Services"
+msgstr "SF Hizmetleri"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
 msgid ""
 msgstr ""
 
@@ -1370,3 +1581,49 @@ msgstr ""
 
 msgid ""
 msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

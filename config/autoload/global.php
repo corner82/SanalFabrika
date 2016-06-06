@@ -69,6 +69,7 @@ return array(
             'companyprofilesettings' => 'layout/companyprofilesettingsLayout.phtml',
             'companymtprofile' => 'layout/companymtprofileLayout.phtml',
             'clientspage' => 'layout/clientspageLayout.phtml',
+            'sf_machines' => 'layout/sf_machinesLayout.phtml',
             'cprofileset' => 'layout/cprofilesetLayout.phtml',
             'cpgeneralset' => 'layout/cpgeneralsetLayout.phtml',
             'cpaddressset' => 'layout/cpaddresssetLayout.phtml',
@@ -170,13 +171,15 @@ return array(
                                                                     'companyprofilesettings',
                                                                     'companymtprofile',
                                                                     'clientspage',
+                                                                    'sf_machines',
                                                                     'cprofileset',
                                                                     'cpgeneralset',
                                                                     'cpaddressset',
                                                                     'cpprodset',
                                                                     'cpmp',
                                                                     'cpmemberset',
-                                                                    'cpreference', 'cmt'
+                                                                    'cpreference', 
+                                                                    'cmt'
                                                                     ),
                                      'login' => array('index'),)
                    ),

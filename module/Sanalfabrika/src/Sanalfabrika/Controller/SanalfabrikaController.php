@@ -257,7 +257,7 @@ class SanalfabrikaController extends AbstractActionController {
 
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $sessionArr = $authManager->getStorage()->read();
-        $sessionArr['npk'] = $selectedCompanyNpk;
+        $sessionArr['npk'] = $selectedCompanyNpk; 
         $authManager->getStorage()->write(
                 $sessionArr
         );
@@ -644,6 +644,22 @@ class SanalfabrikaController extends AbstractActionController {
     }
 
     public function clientspageAction() {
+        $langCode = $this->getServiceLocator()
+                ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                ->get('servicePublicKeyReader');
+
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey
+        ));
+        return $view;
+    }
+    
+    public function sf_machinespageAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
