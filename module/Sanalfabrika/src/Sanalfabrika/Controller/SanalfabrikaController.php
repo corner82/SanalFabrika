@@ -659,7 +659,7 @@ class SanalfabrikaController extends AbstractActionController {
         return $view;
     }
     
-    public function sf_machinesAction() {
+    public function sfmachinesAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()

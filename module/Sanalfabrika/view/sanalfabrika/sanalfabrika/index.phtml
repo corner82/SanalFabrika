@@ -445,7 +445,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <p><?php echo $this->translate('You may find your required human, information and physical (machinery, raw material and etc.) here') ?></p>
                         <ul class="list-unstyled">
                             <li style="font-size: 12px">
-                                <a href="">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage'));?>">
                                     <?php echo $this->translate('VE Companies') ?>
 <!--                                    <span style="font-size: 9px" class="label label-danger pull-right">
                                     <?php echo $this->translate('Login Required') ?>
@@ -453,7 +453,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 </a>
                             </li>
                             <li style="font-size: 12px">
-                                <a href="">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines'));?>">
                                     <?php echo $this->translate('VE Machine Park') ?>
                                     <span style="font-size: 9px" class="label label-danger pull-right">
                                         <?php echo $this->translate('Login Required') ?>
@@ -540,12 +540,12 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <p><?php echo $this->translate('You may define your available different resources here') ?></p>
                         <ul class="list-unstyled">
                             <li style="font-size: 12px">
-                                <a href="">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration'));?>">
                                     <?php echo $this->translate('Add Company') ?>
                                 </a>
                             </li>
                             <li style="font-size: 12px">
-                                <a href="">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration'));?>">
                                     <?php echo $this->translate('Add User') ?>
                                 </a>
                             </li>

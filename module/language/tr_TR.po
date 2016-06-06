@@ -932,7 +932,7 @@ msgid "Contact Us"
 msgstr "Bize Ulaşın"
 
 msgid "A virtual enterprise (VE) is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
-msgstr "Sanal fabrika bilgisayar ve bilişim sistemleri teknolojilerinden kullanarak, farklı yeteneklere sahip firmaları daha yüksek kalite ve katma değerli ürünleri üreterek piyasa da bu firmaların rekabetçiliğini artırmayı amaçlayan geçici bir ortaklık yapısıdır. "
+msgstr "Sanal fabrika bilgisayar ve bilişim sistemleri teknolojilerini kullanarak, farklı yeteneklere sahip firmaları daha yüksek kalite ve katma değerli ürünleri üreterek piyasa da bu firmaların rekabetçiliğini artırmayı amaçlayan geçici bir ortaklık yapısıdır. "
 
 
 msgid "Latest News about OSTIM VE"
@@ -1558,14 +1558,17 @@ msgstr "Atık Ekle"
 msgid "VE Services"
 msgstr "SF Hizmetleri"
 
-msgid ""
-msgstr ""
+msgid "VE Machines List"
+msgstr "SF Makine Listesi"
 
-msgid ""
-msgstr ""
+msgid "Virtual Enterprise Machines List"
+msgstr "Sanal Fabrika Makine Listesi"
 
-msgid ""
-msgstr ""
+msgid "Machines List"
+msgstr "Makine Listesi"
+
+msgid "VE machine tools"
+msgstr "SF Makine Listesi"
 
 msgid ""
 msgstr ""

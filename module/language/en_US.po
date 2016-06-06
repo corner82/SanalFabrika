@@ -1412,6 +1412,23 @@ msgstr ""
 msgid "VE Services"
 msgstr ""
 
+msgid "VE Machines List"
+msgstr ""
+
+msgid "Virtual Enterprise Machines List"
+msgstr ""
+
+msgid "Machines List"
+msgstr ""
+
+msgstr "VE machine tools"
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
 msgid ""
 msgstr ""
 
@@ -1421,6 +1438,38 @@ msgstr ""
 msgid ""
 msgstr ""
 
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
 
 
 
