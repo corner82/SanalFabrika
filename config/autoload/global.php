@@ -30,7 +30,8 @@ return array(
             'acldefinition' => 'layout/acldefinitionLayout.phtml',
             'profile' => 'layout/profile.phtml',
             'confirm' => 'layout/confirm.phtml',
-            'machinetest' => 'layout/machinetest.phtml'
+            'machinetest' => 'layout/machinetest.phtml',
+            'imageupload' => 'layout/imageupload.phtml'
                         ),
         'Companies' => array(
             'companyregistration' => 'layout/companyregistrationLayout.phtml',
@@ -189,7 +190,8 @@ return array(
                                                             'profile',
                                                             'confirm',
                                                             'machinetest',
-                                                            'acldefinition'),
+                                                            'acldefinition',
+                                                            'imageupload'),
                                      'admin' => array('index'),
                                      'login' => array('index','logout'),
                                      'sanalfabrika' => array ('index',

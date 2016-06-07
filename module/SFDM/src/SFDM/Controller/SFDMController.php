@@ -96,18 +96,21 @@
         return $view;
      }
 
-     public function addAction()
+     public function imageuploadAction()
      {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
          
-     }
-
-     public function editAction()
-     {
-         
-     }
-
-     public function deleteAction()
-     {
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
      }
  }
 
