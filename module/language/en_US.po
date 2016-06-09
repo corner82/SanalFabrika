@@ -21,6 +21,9 @@ msgstr ""
 msgid "Virtual Enterprise Control Panel"
 msgstr ""
 
+msgid "Follow Development"
+msgstr "" 
+
 msgid "OSTIM"
 msgstr ""
 
@@ -1337,7 +1340,7 @@ msgstr ""
 msgid "VE integrates the capabiltities of 5,200 companies in OSTIM Organized Industrial Zone with more than 20,000 machine tools and 60,000 employees under one virtual company."
 msgstr ""
 
-msgid "Login Required"
+msgid "Members Only"
 msgstr ""
 
 msgid "VE system services are provided under three main categories:"

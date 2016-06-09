@@ -27,6 +27,10 @@ msgstr "Sanal Fabrika Denetim Masası"
 msgid "OSTIM"
 msgstr "OSTİM"
 
+
+msgid "Follow Development"
+msgstr "Geliştirme Takibi" 
+
 #: ../view/layout/sfdm.phtml:3
 msgid "OSTIM Technology A.Ş."
 msgstr "OSTİM Teknoloji A.Ş."
@@ -1350,7 +1354,7 @@ msgstr "OSTİM SANAL FABRİKA OFİSİ"
 msgid "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
 msgstr "OSTIM SF sistemini geliştirmektedir. OSTIM sanal fabrika ofisi Ankara da OSTIM OSB yönetim binasında yer almaktadır. Bu ofis sanal fabrika sisteminin araçları, programları ve uygulamalarının geliştirilmesinden ve yönetiminden sorumludur."
 
-msgid "VE SYSTEM MISSION"
+msgid "VE System Mission"
 msgstr "SANAL FABRİKA SİSTEMİ MİSYONU"
 
 msgid "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
@@ -1483,53 +1487,53 @@ msgstr "Ostim Teknoloji Araştırma Ve Geliştirme Merkezi, katma değeri yükse
 msgid "VE integrates the capabiltities of 5,200 companies in OSTIM Organized Industrial Zone with more than 20,000 machine tools and 60,000 employees under one virtual company."
 msgstr "Sanal fabrika OSTİM OSB'sinde bulunan 5,200 firmanın 20,000'den fazla makine parkı ve 60,000'den fazla çalışanını tek bir çatı altında toplayarak, bu firmaların yetenekleri ve üretim kapastesini bütün dünyaya açmaktadır."
 
-msgid "Login Required"
-msgstr "Giriş Gereklidir"
+msgid "Members Only"
+msgstr "Üyelik Gerekir"
 
 msgid "VE system services are provided under three main categories:"
 msgstr "Sanal Fabrika hizmetleri üç genel kategori altında sunulmaktadır:"
 
 msgid "Resource Discovery"
-msgstr "Kaynak Arama"
+msgstr "Üretim Gücümüz"
 
 msgid "Project Management"
-msgstr "Proje Yönetimi"
+msgstr "Projelerimiz"
 
 msgid "Resource Definition"
-msgstr "Kaynak Tanımı"
+msgstr "Tanımlamalar"
 
 msgid "You may find your required human, information and physical (machinery, raw material and etc.) here"
 msgstr "Aranan insan kaynağı, bilgi ve fiziksel veriler (makine, hamm madde vb.)"
 
 msgid "VE Companies"
-msgstr "SF Firmaları"
+msgstr "Sanal Fabrika Firmaları"
 
 msgid "VE Machine Park"
-msgstr "SF Makine Parkı"
+msgstr "Sanal Fabrika Makine Parkı"
 
 msgid "VE Raw Materials"
-msgstr "SF Hamm Madde"
+msgstr "Sanal Fabrika Hamm Madde"
 
 msgid "VE Waste"
-msgstr "SF Atıklar"
+msgstr "Sanal Fabrika Atıklar"
 
 msgid "VE Human Resources"
-msgstr "SF İnsan Kaynağı"
+msgstr "Sanal Fabrika İnsan Kaynağı"
 
 msgid "VE Products"
-msgstr "SF Ürünler"
+msgstr "Sanal Fabrika Ürünler"
 
 msgid "To manage existing projects or submit a new order you may use this section"
-msgstr "Halı hazırda bulunan projelerinizin yönetimi veya yeni bir siparişin girilmesi"
+msgstr "Mevcut projelerinizin yönetimi veya yeni bir siparişin girilmesi"
 
 msgid "Negotiation Management System"
 msgstr "İhale Yönetim Sistemi"
 
 msgid "Submit new Order"
-msgstr "Yeni Sipariş"
+msgstr "Yeni Talep"
 
 msgid "Manage Your Project"
-msgstr "Proje Yönetim"
+msgstr "Proje Yönetim ve Takip"
 
 msgid "View Project Pool"
 msgstr "Projeler Havuzu"
@@ -1538,7 +1542,7 @@ msgid "You may define your available different resources here"
 msgstr "Kaynak Tanımalma Bölümü"
 
 msgid "Add Company"
-msgstr "Firma Ekle"
+msgstr "Yeni Firma Girişi"
 
 msgid "Add User"
 msgstr "Kullanıcı Ekle"
@@ -1556,10 +1560,10 @@ msgid "Add Waste"
 msgstr "Atık Ekle"
 
 msgid "VE Services"
-msgstr "SF Hizmetleri"
+msgstr "Sanal Fabrika Hizmetleri"
 
 msgid "VE Machines List"
-msgstr "SF Makine Listesi"
+msgstr "Sanal Fabrika Makine Listesi"
 
 msgid "Virtual Enterprise Machines List"
 msgstr "Sanal Fabrika Makine Listesi"
@@ -1568,7 +1572,7 @@ msgid "Machines List"
 msgstr "Makine Listesi"
 
 msgid "VE machine tools"
-msgstr "SF Makine Listesi"
+msgstr "Sanal Fabrika Makine Listesi"
 
 msgid ""
 msgstr ""

@@ -278,22 +278,26 @@ function ulActivation(clicked) {
             $('#collapse_mach_cats').empty();
             var i;
             for (i = 0; i < data.length; i++) {
-
-                var id_name = data[i].group_name.replace(/\s+/, "_") + "_machine_link";
+                
                 var total_machines = 0;
                 var appending =
                         "<li id='"
-                        + id_name
-                        + "' group_id="
                         + data[i].machine_grup_id
-                        + " onclick=gotLink(this)>"
+                        + "' group_name='"
+                        + data[i].group_name
+//                        "<li id='"
+//                        + id_name
+//                        + "' group_id="
+//                        + data[i].machine_grup_id
+                        + "' onclick=gotLink(this)>"
                         + "<span class='badge rounded badge-red'>"
                         + data[i].machine_count
                         + "</span>"
                         + "<a href='#' onmouseover='' style='cursor: pointer;'>"
                         + "<i class='fa fa-chevron-circle-right'>"
                         + "</i>"
-                        + window.lang.translate(data[i].group_name)
+                        + data[i].group_name
+//                        + window.lang.translate(data[i].group_name)
                         + "</a>"
                         + "</li>";
 

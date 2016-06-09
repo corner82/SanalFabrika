@@ -400,7 +400,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
             <div class="row">
                 <div class="col-sm-3 col-xs-6">
                     <div class="counters">
-                        <span class="counter">500000</span>
+                        <span class="counter">500000</span> m<sup>2</sup>
                         <h4><?php echo $this->translate('Overall Manufacturing Area') ?> </h4>
                     </div>
                 </div>
@@ -412,13 +412,13 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 </div>
                 <div class="col-sm-3 col-xs-6">
                     <div class="counters">
-                        <span class="counter">50000</span>
+                        <span class="counter">60000</span>
                         <h4><?php echo $this->translate('Employees') ?>      </h4>
                     </div>
                 </div>
                 <div class="col-sm-3 col-xs-6">
                     <div class="counters">
-                        <span class="counter">2100</span>
+                        <span class="counter">2100</span> 
                         <h4><?php echo $this->translate('Machine Park Size') ?>    </h4>
                     </div>
                 </div>
@@ -430,7 +430,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
     <section id="services">
         <div class="container content-lg">
             <div class="title-v1">
-                <h2><?php echo $this->translate('VE SERVICES') ?><!--Our Services--></h2>
+                <h2><?php echo $this->translate('VE Services') ?><!--Our Services--></h2>
                 <p><?php echo $this->translate("VE system services are provided under three main categories:") ?> 
                     <strong><?php echo $this->translate('Resource Discovery') ?></strong>, 
                     <strong><?php echo $this->translate('Project Management') ?></strong> <?php echo $this->translate('and') ?> 
@@ -445,18 +445,15 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <p><?php echo $this->translate('You may find your required human, information and physical (machinery, raw material and etc.) here') ?></p>
                         <ul class="list-unstyled">
                             <li style="font-size: 12px">
-                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage'));?>">
-                                    <?php echo $this->translate('VE Companies') ?>
-<!--                                    <span style="font-size: 9px" class="label label-danger pull-right">
-                                    <?php echo $this->translate('Login Required') ?>
-                                    </span>-->
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage')); ?>">
+                                    <?php echo $this->translate('VE Companies') ?>                                    
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
-                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines'));?>">
+                            <li style="font-size: 12px;">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines')); ?>">
                                     <?php echo $this->translate('VE Machine Park') ?>
                                     <span style="font-size: 9px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('Login Required') ?>
+                                        <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
@@ -464,7 +461,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 <a href="">
                                     <?php echo $this->translate('VE Raw Materials') ?>
                                     <span style="font-size: 9px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('Login Required') ?>
+                                        <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
@@ -472,7 +469,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 <a href="">
                                     <?php echo $this->translate('VE Waste') ?>
                                     <span style="font-size: 9px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('Login Required') ?>
+                                        <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
@@ -480,7 +477,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 <a href="">
                                     <?php echo $this->translate('VE Human Resources') ?>
                                     <span style="font-size: 9px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('Login Required') ?>
+                                        <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
@@ -488,7 +485,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 <a href="">
                                     <?php echo $this->translate('VE Products') ?>
 <!--                                    <span style="font-size: 9px" class="label label-danger pull-right">
-                                    <?php echo $this->translate('Login Required') ?>
+                                    <?php echo $this->translate('Members Only') ?>
                                     </span>-->
                                 </a>
                             </li>
@@ -510,7 +507,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 <a href="">
                                     <?php echo $this->translate('Submit new Order') ?>
                                     <span style="font-size: 9px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('Login Required') ?>
+                                        <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
@@ -518,7 +515,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 <a href="">
                                     <?php echo $this->translate('Manage Your Project') ?>
                                     <span style="font-size: 9px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('Login Required') ?>
+                                        <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
@@ -526,7 +523,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 <a href="">
                                     <?php echo $this->translate('View Project Pool') ?>
                                     <span style="font-size: 9px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('Login Required') ?>
+                                        <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>                        
@@ -539,13 +536,13 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <h2 class="heading-sm"><?php echo $this->translate('Resource Definition') ?></h2>
                         <p><?php echo $this->translate('You may define your available different resources here') ?></p>
                         <ul class="list-unstyled">
+                            <!--                            <li style="font-size: 12px">
+                                                            <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration')); ?>">
+                            <?php echo $this->translate('Add Company') ?>
+                                                            </a>
+                                                        </li>-->
                             <li style="font-size: 12px">
-                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration'));?>">
-                                    <?php echo $this->translate('Add Company') ?>
-                                </a>
-                            </li>
-                            <li style="font-size: 12px">
-                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration'));?>">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration')); ?>">
                                     <?php echo $this->translate('Add User') ?>
                                 </a>
                             </li>

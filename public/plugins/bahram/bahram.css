@@ -515,3 +515,15 @@ datagrid-pager{
 .service-block-v3{
     min-height: 300px;
 }
+
+/*
+Bootstrap table Css
+*/
+
+.fixed-table-body {
+    height:auto
+}
+
+.glyphicon {
+        line-height: inherit;
+}
