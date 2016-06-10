@@ -321,7 +321,7 @@ function _init() {
                 else {
                     if ($("body").hasClass('sidebar-open')) {
                         $("body").removeClass('sidebar-open');
-                        $("body").removeClass('sidebar-collapse')
+                        $("body").removeClass('sidebar-collapse');
                     } else {
                         $("body").addClass('sidebar-open');
                     }

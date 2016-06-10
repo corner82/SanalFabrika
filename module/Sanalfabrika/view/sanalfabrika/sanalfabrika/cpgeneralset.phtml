@@ -1,6 +1,7 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
+<input id="cpk" type="hidden"  value="<?php echo $this->companyPublicKey; ?>"></input>
 <input id="selectedCompanyNpk" type="hidden"  value="<?php echo $this->selectedCompanyNpk; ?>"></input>
 <input id="selectedCompanyShN" type="hidden"  value="<?php echo $this->selectedCompanyShN; ?>"></input>
 
@@ -390,22 +391,19 @@
             <ol class="breadcrumb">
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                ?>">
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));?>">
                            <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
-                           ?>">
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));?>">
                            <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>
                 <li class="active">
                     <i class="fa fa-dashboard"></i>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgeneralset'));
-                           ?>">
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgeneralset'));?>">
                            <?php echo $this->translate('Company Profile Setting') ?>
                     </a>
                 </li>

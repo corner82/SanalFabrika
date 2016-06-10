@@ -14,7 +14,7 @@ $(document).ready(function () {
         dataType: 'json',
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
-
+            
 //            console.log(data);
             if (data.length !== 0) {
 

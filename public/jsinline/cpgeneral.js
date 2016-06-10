@@ -27,7 +27,6 @@ $(document).ready(function () {
     window.sel_comp_count_id;
     window.cityList;
     window.boroughList;
-
     /*
      * Fill form fields
      */
@@ -44,7 +43,7 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
-                console.log(data);
+//                console.log(data);
                 /*
                  * change coming foundation date from milliseconds to year/month/day
                  * if there is not submitted found_date, it comes back empty
@@ -64,12 +63,9 @@ $(document).ready(function () {
 
                 window.sel_count_id = data[0].country_id;
                 
-                console.log($('#company_country_ph li:has(.dd-option-value:contains(' + data[0].country_id + '))'));
                 window.image_url = "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
-                        + data[0].firm_name_short
-                        + "/Logos/"
                         + data[0].logo;
 
                 $('#full_name_ph').val(data[0].firm_name);
@@ -101,7 +97,7 @@ $(document).ready(function () {
 //                $('#company_country_ph').ddslick('select', {index: $('#company_country_ph li:has(.dd-option-value:contains(' + window.sel_count_id + '))')});
 //                $('#company_country_ph').ddslick('select', {value: 91 });
                 window.verbal_id = data[0].id;
-
+                
             } else {
                 console.error('"fill verbal service" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
@@ -116,7 +112,6 @@ $(document).ready(function () {
      * 
      * Check textarea remaining characters
      */
-
     var desc_text_max = 3000;
 //    var title_text_max = 150;
     var verbal_text_max = 2000;
@@ -178,17 +173,16 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
-            url: 'pkGetFirmVerbalConsultant_infoFirmVerbal',
+            url: 'pkcpkGetFirmVerbalConsultant_infoFirmVerbal',
             language_code: $("#langCode").val(),
             pk: $('#pk').val(),
-            npk: $('#selectedCompanyNpk').val()
+            cpk: $('#cpk').val()
         },
         type: 'GET',
         dataType: 'json',
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
-
                 var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
 
                 if (data[0].communications_no) {
@@ -216,10 +210,8 @@ $(document).ready(function () {
 
 
     /* 
-     * Warning messages
+     * Messages popups
      */
-
-
     var sm = $(window).successMessage();
     var dm = $(window).dangerMessage();
     var wm = $(window).warningMessage();
@@ -288,11 +280,9 @@ $(document).ready(function () {
 function send_general_info() {
 
     if ($('#general_firm_form').validationEngine('validate')) {
-
         if (window.verbal_id) {
 //  console.log('update');
 //  update url is used to update data
-
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
@@ -305,7 +295,6 @@ function send_general_info() {
                     firm_name_eng: $('#full_name_en_ph').val(),
                     firm_name_short: $('#short_name_ph').val(),
                     firm_name_en_short: $('#short_name_en_ph').val(),
-                    firm_country: $('#').val(),
                     about: $('#desc_text').val(),
                     about_eng: $('#desc_text_en').val(),
                     verbal1_title: $('#first_text_title').val(),
@@ -326,8 +315,7 @@ function send_general_info() {
                     foundation_yearx: window.okan,
 //                    duns_number: $('#tax_office').val(),
                     web_address: $('#website').val(),
-//                    logo: $('#tax_office').val()
-                    id: window.verbal_id,
+                    id: window.verbal_id
                 },
                 type: 'GET',
                 dataType: 'json',
@@ -338,8 +326,7 @@ function send_general_info() {
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log('error');
                     console.error(textStatus);
-                    dm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information did not saved!!! Please check fiels and try again...'));
-
+                    wm.warningMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information did not saved!!! Please check fiels and try again...'));
                 }
             });
 
@@ -398,7 +385,6 @@ function send_general_info() {
             });
         }
     }
-
 }
 
 function milliseconds() {

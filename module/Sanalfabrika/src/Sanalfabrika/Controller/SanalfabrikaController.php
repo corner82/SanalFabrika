@@ -231,6 +231,8 @@ class SanalfabrikaController extends AbstractActionController {
 //    }
 
     public function cpgeneralsetAction() {
+        
+        
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
@@ -249,7 +251,10 @@ class SanalfabrikaController extends AbstractActionController {
         $selectedCompanyNpk = $this->getServiceLocator()
                 ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
-                ->get('servicePublicKeyReader');
+                ->get('servicePublicKeyReader');   
+        $companyPublicKey = $this->getServiceLocator()
+                ->get('serviceCompanyPublicKeyGenerator');
+//        print_r($companyPublicKey);
 
 
         // Do this inside your Controller before you return your ViewModel
@@ -258,6 +263,7 @@ class SanalfabrikaController extends AbstractActionController {
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $sessionArr = $authManager->getStorage()->read();
         $sessionArr['npk'] = $selectedCompanyNpk; 
+        $sessionArr['cpk'] = $companyPublicKey;
         $authManager->getStorage()->write(
                 $sessionArr
         );
@@ -267,8 +273,10 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
             'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
-            'publicKey' => $publicKey
+            'publicKey' => $publicKey,
+            'companyPublicKey' => $companyPublicKey
         ));
+        
         return $view;
     }
 
@@ -706,6 +714,7 @@ class SanalfabrikaController extends AbstractActionController {
                      */
                     $publicKey = $this->getServiceLocator()->get('servicePublicKeyGenerator');
                     $npk = '';
+                    $companyPublicKey = '';
                     //print_r($publicKey);
 
                     /**
@@ -738,7 +747,8 @@ class SanalfabrikaController extends AbstractActionController {
                                 'ip_address' => $this->getRequest()->getServer('REMOTE_ADDR'),
                                 'user_agent' => $request->getServer('HTTP_USER_AGENT'),
                                 'pk' => $publicKey,
-                                'npk' => $npk)
+                                'npk' => $npk,
+                                'cpk' => $companyPublicKey)
                     );
 
 
