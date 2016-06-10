@@ -230,31 +230,20 @@ class SanalfabrikaController extends AbstractActionController {
 //        return $view;
 //    }
 
-    public function cpgeneralsetAction() {
-        
-        
+    public function cpgeneralsetAction() {              
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
         $selectedCompanyShN = $this->getEvent()
                         ->getRouteMatch()->getParam('selectedCompanyShN');
-        /*
-         * Get value from url but it doesn't write value to url due to redirecting from 
-         * admin menu management therefore it has been changed to ge value from session
-         * This page is only accessible by firm owner therefore there is definitely 
-         * a user session with a pk value therefore it is reasonable to get npk value 
-         * from session....
-         */
-//        $selectedCompanyNpk = $this->getEvent()
-//                ->getRouteMatch()->getParam('selectedCompanyNpk');
+
         $selectedCompanyNpk = $this->getServiceLocator()
                 ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
                 ->get('servicePublicKeyReader');   
         $companyPublicKey = $this->getServiceLocator()
                 ->get('serviceCompanyPublicKeyGenerator');
-//        print_r($companyPublicKey);
 
 
         // Do this inside your Controller before you return your ViewModel
@@ -290,15 +279,17 @@ class SanalfabrikaController extends AbstractActionController {
         $selectedCompanyNpk = $this->getServiceLocator()
                 ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
-                ->get('servicePublicKeyReader');
-
-
+                ->get('servicePublicKeyReader');   
+        $companyPublicKey = $this->getServiceLocator()
+                ->get('serviceCompanyPublicKeyGenerator');
+        
         // Do this inside your Controller before you return your ViewModel
         $this->layout()->setVariable('test', $langCode);
-
+        
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $sessionArr = $authManager->getStorage()->read();
-        $sessionArr['npk'] = $selectedCompanyNpk;
+        $sessionArr['npk'] = $selectedCompanyNpk; 
+//        $sessionArr['cpk'] = $companyPublicKey;
         $authManager->getStorage()->write(
                 $sessionArr
         );
@@ -308,8 +299,10 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
             'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
-            'publicKey' => $publicKey
+            'publicKey' => $publicKey,
+            'companyPublicKey' => $companyPublicKey
         ));
+        
         return $view;
     }
 

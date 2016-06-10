@@ -11,18 +11,14 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-
-
     /*
      * Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
      */
 
     $.fn.leftMenuFunction();
-
     $('#general_firm_form').validationEngine({promptPosition: "topLeft:100%,0"});
 //Datemask dd/mm/yyyy
     $("#found_date").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
-
     window.sel_count_id;
     window.sel_comp_count_id;
     window.cityList;
@@ -62,12 +58,10 @@ $(document).ready(function () {
                 }
 
                 window.sel_count_id = data[0].country_id;
-                
                 window.image_url = "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
                         + data[0].logo;
-
                 $('#full_name_ph').val(data[0].firm_name);
                 $('#full_name_en_ph').val(data[0].firm_name_eng);
                 $('#short_name_ph').val(data[0].firm_name_short);
@@ -97,7 +91,6 @@ $(document).ready(function () {
 //                $('#company_country_ph').ddslick('select', {index: $('#company_country_ph li:has(.dd-option-value:contains(' + window.sel_count_id + '))')});
 //                $('#company_country_ph').ddslick('select', {value: 91 });
                 window.verbal_id = data[0].id;
-                
             } else {
                 console.error('"fill verbal service" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
@@ -106,8 +99,6 @@ $(document).ready(function () {
             console.error('"fill verbal service" servis hatasÃ„Â±->' + textStatus);
         }
     });
-
-
     /*
      * 
      * Check textarea remaining characters
@@ -115,57 +106,40 @@ $(document).ready(function () {
     var desc_text_max = 3000;
 //    var title_text_max = 150;
     var verbal_text_max = 2000;
-
     $('#desc_rem_char_alert').html(desc_text_max + ' characters remaining');
     $('#desc_en_rem_char_alert').html(desc_text_max + ' characters remaining');
-
     $('#verb1_rem_char_alert').html(verbal_text_max + ' characters remaining');
     $('#verb1_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
-
     $('#verb2_rem_char_alert').html(verbal_text_max + ' characters remaining');
     $('#verb2_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
-
     $('#verb2_rem_char_alert').html(verbal_text_max + ' characters remaining');
     $('#verb2_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
-
     $('.text-area').keyup(function () {
         var desc_text_length = $('#desc_text').val().length;
         var desc_en_text_length = $('#desc_text_en').val().length;
-
         var verb1_text_length = $('#verbal1_text').val().length;
         var verb1_en_text_length = $('#verbal1_text_en').val().length;
-
         var verb2_text_length = $('#verbal2_text').val().length;
         var verb2_en_text_length = $('#verbal2_text_en').val().length;
-
         var verb3_text_length = $('#verbal3_text').val().length;
         var verb3_en_text_length = $('#verbal3_text_en').val().length;
-
         var desc_text_remaining = desc_text_max - desc_text_length;
         var desc_text_en_remaining = desc_text_max - desc_en_text_length;
-
         var verb1_text_remaining = verbal_text_max - verb1_text_length;
         var verb1_text_en_remaining = verbal_text_max - verb1_en_text_length;
-
         var verb2_text_remaining = verbal_text_max - verb2_text_length;
         var verb2_text_en_remaining = verbal_text_max - verb2_en_text_length;
-
         var verb3_text_remaining = verbal_text_max - verb3_text_length;
         var verb3_text_en_remaining = verbal_text_max - verb3_en_text_length;
-
         $('#desc_rem_char_alert').html(desc_text_remaining + ' characters remaining');
         $('#desc_en_rem_char_alert').html(desc_text_en_remaining + ' characters remaining');
-
         $('#verb1_rem_char_alert').html(verb1_text_remaining + ' characters remaining');
         $('#verb1_en_rem_char_alert').html(verb1_text_en_remaining + ' characters remaining');
-
         $('#verb2_rem_char_alert').html(verb2_text_remaining + ' characters remaining');
         $('#verb2_en_rem_char_alert').html(verb2_text_en_remaining + ' characters remaining');
-
         $('#verb3_rem_char_alert').html(verb3_text_remaining + ' characters remaining');
         $('#verb3_en_rem_char_alert').html(verb3_text_en_remaining + ' characters remaining');
     });
-
     /*
      * Page consultant for box-header
      */
@@ -184,21 +158,23 @@ $(document).ready(function () {
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
                 var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
-
                 if (data[0].communications_no) {
                     var tel_number = data[0].communications_no;
                 } else {
                     var tel_number = '';
                 }
-
+                
+                $('#consultant_div').css('display', 'block');
+                $('#consultant_div').css('visibility', 'visible');
                 $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
                 $('#consultant_div').attr('email_address', data[0].auth_email);
                 $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
                 $('#cons_image_ph').attr('src', cons_image_url);
                 $('#cons_name_ph').empty();
                 $('#cons_name_ph').append(data[0].name + " " + data[0].surname);
-
             } else {
+                $('#consultant_div').css('display', 'none');
+                $('#consultant_div').css('visibility', 'hidden');
                 console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
         },
@@ -206,9 +182,6 @@ $(document).ready(function () {
             console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
         }
     });
-
-
-
     /* 
      * Messages popups
      */
@@ -217,7 +190,6 @@ $(document).ready(function () {
     var wm = $(window).warningMessage();
     var wcm = $(window).warningComplexMessage({denyButtonLabel: window.lang.translate('Cancel'),
         actionButtonLabel: window.lang.translate('Confirm')});
-
     /*
      * Get countries list for address 
      */
@@ -273,10 +245,7 @@ $(document).ready(function () {
             console.error('"fillComboBox_syscountrys" servis hatasÃ„Â±->' + textStatus);
         }
     });
-
-
 });
-
 function send_general_info() {
 
     if ($('#general_firm_form').validationEngine('validate')) {
@@ -288,7 +257,7 @@ function send_general_info() {
                 data: {
                     url: 'pkcpkUpdate_infoFirmVerbal',
                     pk: $("#pk").val(),
-                    cpk: 'oWMvf6w5wbE4hQg',
+                    cpk: $("#cpk").val(),
                     lang_code: $('#langCode').val(),
                     profile_public: 0,
                     firm_name: $('#full_name_ph').val(),
@@ -321,7 +290,6 @@ function send_general_info() {
                 dataType: 'json',
                 success: function (data, textStatus, jqXHR) {
                     sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
-
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log('error');
@@ -329,7 +297,6 @@ function send_general_info() {
                     wm.warningMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information did not saved!!! Please check fiels and try again...'));
                 }
             });
-
         } else {
 
 //  console.log('insert');
@@ -340,7 +307,7 @@ function send_general_info() {
                 data: {
                     url: 'pkcpkInsert_infoFirmVerbal',
                     pk: $("#pk").val(),
-                    cpk: 'oWMvf6w5wbE4hQg',
+                    cpk: $("#cpk").val(),
                     lang_code: $('#langCode').val(),
                     profile_public: 0,
                     firm_name: $('#full_name_ph').val(),
@@ -374,17 +341,53 @@ function send_general_info() {
                 success: function (data, textStatus, jqXHR) {
                     console.log('here');
                     sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
-
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log('error');
                     console.error(textStatus);
                     dm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information did not saved!!! Please check fields and try again...'));
-
                 }
             });
         }
     }
+}
+
+function reset_verbal_info() {
+    wcm.warningComplexMessage('show', 'Are you sure?',
+            'You are going to delete all verbal information. Do you want to continue?');
+
+    wcm.warningComplexMessage({
+        onConfirm: function () {
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data: {
+                    url: 'pkcpkDeletedAct_infoFirmVerbal',
+                    id: window.verbal_id,
+                    pk: $('#pk').val(),
+                    cpk: $('#cpk').val()
+                },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+                    if (data.length !== 0) {
+
+                        sm.successMessage('show', window.lang.translate('Delete operation'), window.lang.translate('All verbal information erased successfully'))
+
+                    } else {
+                        console.error('"pkcpkDeletedAct_infoFirmVerbal" servis datasÃ„Â± boÃ…Å¸tur!!');
+                        wm.warningMessage('show', window.lang.translate('Delete operation'), window.lang.translate('Unable to remove verbal information'))
+
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error('"pkcpkDeletedAct_infoFirmVerbal" servis hatasÃ„Â±->' + textStatus);
+                    wm.warningMessage('show', window.lang.translate('Delete operation'), window.lang.translate('Unable to remove verbal information'))
+
+                }
+            });
+        }
+    });
+
 }
 
 function milliseconds() {

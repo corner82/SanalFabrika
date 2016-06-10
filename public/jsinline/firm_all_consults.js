@@ -5,10 +5,10 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
-            url: 'pkGetAllFirmCons_sysOsbConsultants',
+            url: 'pkcpkGetAllFirmCons_sysOsbConsultants',
             language_code: $("#langCode").val(),
             pk: $('#pk').val(),
-            npk: $('#selectedCompanyNpk').val()
+            cpk: $('#cpk').val()
         },
         type: 'GET',
         dataType: 'json',

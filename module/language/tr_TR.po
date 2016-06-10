@@ -1574,8 +1574,8 @@ msgstr "Makine Listesi"
 msgid "VE machine tools"
 msgstr "Sanal Fabrika Makine Listesi"
 
-msgid ""
-msgstr ""
+msgid "Reset all verbal information"
+msgstr "Bütün Sözel Verileri Temizle"
 
 msgid ""
 msgstr ""

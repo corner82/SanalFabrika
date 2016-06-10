@@ -24,43 +24,47 @@ $(document).ready(function () {
     /*
      * Page consultant for box-header
      */
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'pkGetFirmVerbalConsultant_infoFirmVerbal',
-            language_code: $("#langCode").val(),
-            pk: $('#pk').val(),
-            npk: $('#selectedCompanyNpk').val()
-        },
-        type: 'GET',
-        dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            if (data.length !== 0) {
-
-                var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
-
-                if (data[0].communications_no) {
-                    var tel_number = data[0].communications_no;
-                } else {
-                    var tel_number = '';
-                }
-
-                $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
-                $('#consultant_div').attr('email_address', data[0].auth_email);
-                $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
-                $('#cons_image_ph').attr('src', cons_image_url);
-                $('#cons_name_ph').empty();
-                $('#cons_name_ph').append(data[0].name + " " + data[0].surname);
-
-            } else {
-                console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
-        }
-    });
+//    $.ajax({
+//        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//        data: {
+//            url: '',
+//            language_code: $("#langCode").val(),
+//            pk: $('#pk').val(),
+//            npk: $('#selectedCompanyNpk').val()
+//        },
+//        type: 'GET',
+//        dataType: 'json',
+//        //data: 'rowIndex='+rowData.id,
+//        success: function (data, textStatus, jqXHR) {
+//            if (data.length !== 0) {
+//
+//                var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
+//
+//                if (data[0].communications_no) {
+//                    var tel_number = data[0].communications_no;
+//                } else {
+//                    var tel_number = '';
+//                }
+//                
+//                $('#consultant_div').css('display', 'block');
+//                $('#consultant_div').css('visibility', 'visible');
+//                $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
+//                $('#consultant_div').attr('email_address', data[0].auth_email);
+//                $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
+//                $('#cons_image_ph').attr('src', cons_image_url);
+//                $('#cons_name_ph').empty();
+//                $('#cons_name_ph').append(data[0].name + " " + data[0].surname);
+//
+//            } else {
+//            $('#consultant_div').css('display', 'none');
+//                  $('#consultant_div').css('visibility', 'hidden');
+//                console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
+//            }
+//        },
+//        error: function (jqXHR, textStatus, errorThrown) {
+//            console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
+//        }
+//    });
 
     /*
      * Bootstrap modals variables
@@ -73,7 +77,6 @@ $(document).ready(function () {
     var wm = $(window).warningMessage();
     var wcm = $(window).warningComplexMessage({denyButtonLabel: window.lang.translate('Cancel'),
         actionButtonLabel: window.lang.translate('Confirm')});
-
 
     $('#reg_address_table').datagrid({
         onDblClickRow: function (index, row) {
@@ -874,25 +877,40 @@ function deleterow(target) {
 }
 
 function saverow(target) {
+
     $('#reg_address_table').datagrid('endEdit', getRowIndex(target));
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',         
-        data: {
-            url: '',
-            pk: $("#pk").val(),
-            npk: $("#selectedCompanyNpk").val(),
-            language_code: $("#langCode").val()
-        },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-            console.log('Updated', data);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"update function error" servis hatasÃ„Â±->' + textStatus);
-        }
-    });
+//    $.ajax({
+//        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+//        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',         
+//        data: {
+//            url: 'pkcpkUpdate_infoFirmAddress',
+//            pk: $("#pk").val(),
+//            cpk: $("#cpk").val(),
+//            language_code: $("#langCode").val(),
+//            id: 16,
+//            profile_public: 0,
+//            firm_building_type_id: 2,
+//            address: '',
+//            borough_id: 111,
+//            city_id: 64,
+//            country_id: 91,
+//            osb_id: 5,
+//            tel: ' ',
+//            fax: '',
+//            email: ''
+//        },
+//        method: "GET",
+//        dataType: "json",
+//        success: function (data) {
+//            console.log('Updated', data);
+//            wm.warningMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Update failed'));
+//
+//        },
+//        error: function (jqXHR, textStatus, errorThrown) {
+//            console.error('"update function error" servis hatasÃ„Â±->' + textStatus);
+//            wm.warningMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Update failed'));
+//        }
+//    });
     sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
 }
 
@@ -901,7 +919,7 @@ function cancelrow(target) {
 }
 
 function submitNewAddress() {
-    
+
     if (!$('#new_address_form').validationEngine()) {
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',

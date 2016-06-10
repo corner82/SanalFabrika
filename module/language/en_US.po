@@ -1426,7 +1426,7 @@ msgstr ""
 
 msgstr "VE machine tools"
 
-msgid ""
+msgid "Reset all verbal information"
 msgstr ""
 
 msgid ""
