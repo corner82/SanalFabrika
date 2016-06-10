@@ -4,7 +4,6 @@ $(document).ready(function () {
      * multilanguage plugin 
      * @type Lang
      */
-
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
@@ -74,25 +73,6 @@ $(document).ready(function () {
     var wm = $(window).warningMessage();
     var wcm = $(window).warningComplexMessage({denyButtonLabel: window.lang.translate('Cancel'),
         actionButtonLabel: window.lang.translate('Confirm')});
-
-
-    window.countires = [{
-            "country_id": 1,
-            "country_name": "country_1"
-        }, {
-            "country_id": 2,
-            "country_name": "country_2"
-        }, {
-            "country_id": 3,
-            "country_name": "country_3"
-        }, {
-            "country_id": 4,
-            "country_name": "country_4"
-        }, {
-            "country_id": 5,
-            "country_name": "country_5"
-        }];
-
 
 
     $('#reg_address_table').datagrid({
@@ -232,14 +212,10 @@ $(document).ready(function () {
         success: function (data, textStatus, jqXHR) {
 
             if (data.length !== 0) {
-                console.log(data.length);
-
-                window.countries_data = [];                
+                window.countries_data = [];
                 for (var i = 0; i < data.length; i++) {
                     window.countries_data.push({'id': data[i].value, 'country': data[i].text});
                 }
-                console.log(window.countries_data);
-                
                 $('#company_country_ph').ddslick({
                     data: data,
                     width: '100%',
@@ -694,7 +670,6 @@ var wcm = $(window).warningComplexMessage({denyButtonLabel: window.lang.translat
 /*
  * Change social media shape to edit content of url
  */
-
 function changecontent(element) {
     window.selected_soc_med_id = $('#' + element.id).attr('selected_soc_id');
 //    console.log(window.selected_soc_med_id);
@@ -826,7 +801,6 @@ function goto_social(element) {
  * removes selected social media link
  */
 function remove_social(element) {
-
 //    var selected = element.id.replace('_remove_btn', '');
 //    var selected = element.id.substring(0, element.id.indexOf("_remove_btn"));
     var parent_grp_btn_id = element.id.replace('_remove_btn_', '_btn_group_');
@@ -868,40 +842,93 @@ function getRowIndex(target) {
     var tr = $(target).closest('tr.datagrid-row');
     return parseInt(tr.attr('datagrid-row-index'));
 }
+
 function editrow(target) {
     $('#reg_address_table').datagrid('beginEdit', getRowIndex(target));
 }
-function deleterow(target) {
 
+function deleterow(target) {
     wcm.warningComplexMessage({onConfirm: function (event, data) {
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',         
+                data: {
+                    url: '',
+                    pk: $("#pk").val(),
+                    npk: $("#selectedCompanyNpk").val(),
+                    language_code: $("#langCode").val()
+                },
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    console.log('deleted', data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error('"delete function error" servis hatasÃ„Â±->' + textStatus);
+                }
+            });
             $('#reg_address_table').datagrid('deleteRow', getRowIndex(target));
         }
     });
     wcm.warningComplexMessage('show', window.lang.translate('Are you sure?'), window.lang.translate('Are You Sure?'));
 }
+
 function saverow(target) {
     $('#reg_address_table').datagrid('endEdit', getRowIndex(target));
-
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',         
+        data: {
+            url: '',
+            pk: $("#pk").val(),
+            npk: $("#selectedCompanyNpk").val(),
+            language_code: $("#langCode").val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            console.log('Updated', data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"update function error" servis hatasÃ„Â±->' + textStatus);
+        }
+    });
     sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
 }
+
 function cancelrow(target) {
     $('#reg_address_table').datagrid('cancelEdit', getRowIndex(target));
 }
-function insert() {
-    var row = $('#reg_address_table').datagrid('getSelected');
-    if (row) {
-        var index = $('#reg_address_table').datagrid('getRowIndex', row);
+
+function submitNewAddress() {
+    
+    if (!$('#new_address_form').validationEngine()) {
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',         
+            data: {
+                url: 'pkInsert_infoFirmAddress',
+                pk: $("#pk").val(),
+                npk: $("#selectedCompanyNpk").val(),
+                language_code: $("#langCode").val()
+            },
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+                console.log('deleted', data);
+                sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information submitted successfully'));
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                event.preventDefault();
+                console.error('"delete function error" servis hatasÃ„Â±->' + textStatus);
+                wm.warningMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Submittion failed...'));
+            }
+        });
     } else {
-        index = 0;
+        event.preventDefault();
+        wm.warningMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Fill required places first please...'));
     }
-    $('#reg_address_table').datagrid('insertRow', {
-        index: index,
-        row: {
-            status: 'P'
-        }
-    });
-    $('#reg_address_table').datagrid('selectRow', index);
-    $('#reg_address_table').datagrid('beginEdit', index);
 }
 
 

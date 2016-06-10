@@ -111,6 +111,9 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                     </li>
                     <li class="page-scroll">
                         <a href="#ostimServices"><?php echo $this->translate('OSTIM Services') ?></a>
+                    </li>                    
+                    <li class="page-scroll">
+                        <a href="#sfTeam"><?php echo $this->translate('VE Team') ?></a>
                     </li>
                     <!--                    <li class="page-scroll">
                                             <a href="#news">Haberler</a>
@@ -395,31 +398,31 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
     </div>
     <!-- End Testimonials -->
 
-    <div class="parallax-counter parallaxBg">
+    <div class="parallax-counter parallaxBg" id="parallax-counter-ostim">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-xs-6">
                     <div class="counters">
-                        <span class="counter">500000</span> m<sup>2</sup>
-                        <h4><?php echo $this->translate('Overall Manufacturing Area') ?> </h4>
+                        <span class="counter">500000</span> <span id="counter_unit">m<sup>2</sup></span>
+                        <h4 class="yellow-text"><?php echo $this->translate('Overall Manufacturing Area') ?> </h4>
                     </div>
                 </div>
                 <div class="col-sm-3 col-xs-6">
                     <div class="counters">
                         <span class="counter">5200</span>
-                        <h4><?php echo $this->translate('Overall Enterprise Number') ?>  </h4>
+                        <h4 class="yellow-text"><?php echo $this->translate('Overall Enterprise Number') ?>  </h4>
                     </div>
                 </div>
                 <div class="col-sm-3 col-xs-6">
                     <div class="counters">
                         <span class="counter">60000</span>
-                        <h4><?php echo $this->translate('Employees') ?>      </h4>
+                        <h4 class="yellow-text"><?php echo $this->translate('Employees') ?>      </h4>
                     </div>
                 </div>
                 <div class="col-sm-3 col-xs-6">
                     <div class="counters">
                         <span class="counter">2100</span> 
-                        <h4><?php echo $this->translate('Machine Park Size') ?>    </h4>
+                        <h4 class="yellow-text"><?php echo $this->translate('Machine Park Size') ?>    </h4>
                     </div>
                 </div>
             </div>
@@ -444,44 +447,44 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <h2 class="heading-md"><?php echo $this->translate('Resource Discovery') ?></h2>
                         <p><?php echo $this->translate('You may find your required human, information and physical (machinery, raw material and etc.) here') ?></p>
                         <ul class="list-unstyled">
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage')); ?>">
                                     <?php echo $this->translate('VE Companies') ?>                                    
                                 </a>
                             </li>
-                            <li style="font-size: 12px;">
+                            <li style="font-size: 11px;">
                                 <a href="<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines')); ?>">
-                                    <?php echo $this->translate('VE Machine Park') ?>
-                                    <span style="font-size: 9px" class="label label-danger pull-right">
+                                    <?php echo $this->translate('VE Machine Park') ?>                                    
+                                    <span style="font-size: 8px" class="label label-danger pull-right">
                                         <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('VE Raw Materials') ?>
-                                    <span style="font-size: 9px" class="label label-danger pull-right">
+                                    <span style="font-size: 8px" class="label label-danger pull-right">
                                         <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('VE Waste') ?>
-                                    <span style="font-size: 9px" class="label label-danger pull-right">
+                                    <span style="font-size: 8px" class="label label-danger pull-right">
                                         <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('VE Human Resources') ?>
-                                    <span style="font-size: 9px" class="label label-danger pull-right">
+                                    <span style="font-size: 8px" class="label label-danger pull-right">
                                         <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('VE Products') ?>
 <!--                                    <span style="font-size: 9px" class="label label-danger pull-right">
@@ -498,31 +501,31 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <h2 class="heading-sm"><?php echo $this->translate('Project Management') ?></h2>
                         <p><?php echo $this->translate('To manage existing projects or submit a new order you may use this section') ?></p>
                         <ul class="list-unstyled">
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('Negotiation Management System') ?>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('Submit new Order') ?>
-                                    <span style="font-size: 9px" class="label label-danger pull-right">
+                                    <span style="font-size: 8px" class="label label-danger pull-right">
                                         <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('Manage Your Project') ?>
-                                    <span style="font-size: 9px" class="label label-danger pull-right">
+                                    <span style="font-size: 8px" class="label label-danger pull-right">
                                         <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('View Project Pool') ?>
-                                    <span style="font-size: 9px" class="label label-danger pull-right">
+                                    <span style="font-size: 8px" class="label label-danger pull-right">
                                         <?php echo $this->translate('Members Only') ?>
                                     </span>
                                 </a>
@@ -541,12 +544,12 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             <?php echo $this->translate('Add Company') ?>
                                                             </a>
                                                         </li>-->
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration')); ?>">
                                     <?php echo $this->translate('Add User') ?>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('Add Machine Tool') ?>
                                 </a>
@@ -556,12 +559,12 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                     <?php echo $this->translate('Add Product') ?>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('Add Raw Material') ?>
                                 </a>
                             </li>
-                            <li style="font-size: 12px">
+                            <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('Add Waste') ?>
                                 </a>
@@ -714,70 +717,71 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
     <!-- header integrator  end-->
 
     <!-- our team  -->
-    <!--    <div class="team-v1 bg-grey content-lg">
+    <section id='sfTeam'>
+    <div class="team-v1 bg-grey content-lg">
             <div class="container">
                 <div class="title-v1">
                     <h2><?php echo $this->translate('VE Team') ?>     </h2>
-                    <p>We <strong>meet</strong> and get to know you. You tell us and we listen. <br>
-                        We build your website to realise your vision and we <strong>deliver</strong> the ready product.</p>
+                    <p>Academic researches and platform development studies started on 2012 in Middle East Technical University. Research phase finalized on 2015 and dissemination phase started afterward. VE platform for business use in OSTIM organized zone started since 2015 by <strong>OSTIM Virtual Enterprise Team</strong>. </p>
                 </div>
     
                 <ul class="list-unstyled row">
                     <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
                         <div class="team-img">
-                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/team/img1-md.jpg') ?>" alt="">
+                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/sfSystem/Team/bahram.jpg') ?>" alt="">
                             <ul>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>-->
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>-->
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>-->
                             </ul>
                         </div>
-                        <h3>John Brown</h3>
-                        <h4>/ Technical Director</h4>
-                        <p>Technical Director mi porta gravida at eget metus id elit mi egetine...</p>
+                        <h3>Bahram Lotfi Sadigh</h3>
+                        <h4>/ <?php echo $this->translate('Mechanical Engineer')?></h4>
+                        <p><?php echo $this->translate('Finished his PhD research on virtual enterprise issue and started to coordinate activities to develop VE commercial software.')?></p>
                     </li>
                     <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
                         <div class="team-img">
-                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/team/img2-md.jpg') ?>" alt="">
+                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/sfSystem/Team/zeynel.jpg') ?>" alt="">
                             <ul>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>-->
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>-->
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>-->
                             </ul>
                         </div>
-                        <h3>Tina Krueger</h3>
-                        <h4>/ Lead Designer</h4>
-                        <p>Lead Designer mi porta gravida at eget metus id elit mi egetine...</p>
-                    </li>
-                    <li class="col-sm-3 col-xs-6">
+                        <h3>Mustafa Zeynel Dağlı</h3>
+                        <h4>/ <?php echo $this->translate('Code Developer')?></h4>
+                        <p><?php echo $this->translate('Code developer')?></p>
+                    </li>                    
+                    <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
                         <div class="team-img">
-                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/team/img3-md.jpg') ?>" alt="">
+                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/sfSystem/Team/okan.jpg') ?>" alt="">
                             <ul>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>-->
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>-->
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>-->
                             </ul>
                         </div>
-                        <h3>David Case</h3>
-                        <h4>/ Web Developer</h4>
-                        <p>Web Developer in Unify agency porta gravida at eget metus id elit...</p>
-                    </li>
-                    <li class="col-sm-3 col-xs-6">
+                        <h3>Okan Ciran</h3>
+                        <h4>/ <?php echo $this->translate('Database Specialist')?></h4>
+                        <p><?php echo $this->translate('Database Specialist')?></p>
+                    </li>                    
+                    <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
                         <div class="team-img">
-                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/team/img5-md.jpg') ?>" alt="">
+                            <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/sfSystem/Team/durali.jpg') ?>" alt="">
                             <ul>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>-->
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-facebook"></i></a></li>-->
+                                <!--<li><a href="#"><i class="icon-custom icon-sm rounded-x fa fa-google-plus"></i></a></li>-->
                             </ul>
                         </div>
-                        <h3>Kathy Reyes</h3>
-                        <h4>/ Creative Designer</h4>
-                        <p>Former Designer in Twitter non mi porta gravida at elit mi egetine...</p>
+                        <h3>Durali Çiçek</h3>
+                        <h4>/ <?php echo $this->translate('Software Enginner')?></h4>
+                        <p><?php echo $this->translate('Social Media Specialist')?></p>
                     </li>
                 </ul>
             </div>
-        </div>-->
+        </div>
+    </section>
     <!-- our team  end-->
 
 </section>

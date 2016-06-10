@@ -466,7 +466,7 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="address">
-                            <form role="form">
+                            <form role="form" id='new_address_form'>
                                 <div class="box-header with-border">
                                     <h3 class="box-title"><?php echo $this->translate('Address Information') ?></h3>                    
                                 </div>
@@ -512,7 +512,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-arrow-circle-right"></i>
                                                 </div>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control validate[required,onlyLetterSp]">
                                             </div>
                                             <!-- /.input group -->
                                         </div> 
@@ -532,7 +532,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-phone"></i>
                                                 </div>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control validate[required,onlyLetterSp]">
                                             </div>
                                             <!-- /.input group -->
                                         </div>  
@@ -560,7 +560,7 @@
                                     <!-- Second Column End -->
                                     <!-- General Information Footer Start -->
                                     <div class="box-footer col-lg-12">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary" onclick="submitNewAddress()">
                                             <?php echo $this->translate('Submit') ?>
                                         </button>
                                     </div>
@@ -974,6 +974,6 @@
 <!-- Add the sidebar's background. This div must be placed
      immediately after the control sidebar -->
 <div class='control-sidebar-bg'></div>
-</div><!-- ./wrapper -->
+</div> <!--./wrapper -->
 
 

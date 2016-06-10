@@ -395,7 +395,7 @@ msgstr "İşimiz"
 
 #: ../view/layout/sfdm.phtml:25
 msgid "VE Team"
-msgstr "SF Takımı"
+msgstr "Sanal Fabrika Takımı"
 
 #: ../view/layout/sfdm.phtml:25
 msgid "Overall Manufacturing Area"

@@ -22,15 +22,13 @@ $(document).ready(function () {
     $('#loging_ph').append(loging_value);
 
 
-
-
-
     $("#pagination_content").empty();
     //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {url: list_service_url,
+        data: {
+            url: list_service_url,
             pk: $('#pk').val(),
             language_code: $("#langCode").val(),
             page: 1,
@@ -54,7 +52,7 @@ $(document).ready(function () {
                 window.totalnumberofpages = numberofpages;
             }
             for (i = 0; i < window.companyperpage; i++) {
-                $('#selectedCompanyNpk').val(data.rows[i].pk);
+                $('#selectedCompanyNpk').val(data.rows[i].npk);
                 var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
                 $('#selectedCompanyShN').val(rep_firm_short_name);
                 var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
@@ -70,7 +68,7 @@ $(document).ready(function () {
                         + "class = 'img-responsive hover-effect' alt = '' / >"
                         + "</div>"
                         + "<div class = 'col-md-10' id='"
-                        + data.rows[i].pk
+                        + data.rows[i].npk
                         + "'>"
                         + "<a href='"
                         + companyProfileLink
