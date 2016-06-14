@@ -78,7 +78,7 @@ return array(
             'cpmemberset' => 'layout/cpmembersetLayout.phtml',
             'cpmp' => 'layout/cpmpLayout.phtml',
             'cpreference' => 'layout/cpreferenceLayout.phtml',
-            'projectRegistration' => 'layout/projectRegistrationLayout.phtml'
+            'projreg' => 'layout/projregLayout.phtml'
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
@@ -147,7 +147,8 @@ return array(
             'cpprodset',
             'cpmp',
             'cpmemberset',
-            'cpreference'
+            'cpreference',
+            'projreg'
         ),
 
     ),
@@ -181,7 +182,8 @@ return array(
                                                                     'cpmp',
                                                                     'cpmemberset',
                                                                     'cpreference', 
-                                                                    'cmt'
+                                                                    'cmt',
+                                                                    'projreg'
                                                                     ),
                                      'login' => array('index'),)
                    ),
@@ -206,7 +208,8 @@ return array(
                                                               'cpprodset',
                                                               'cpmp',
                                                               'cpmemberset',
-                                                              'cpreference'
+                                                              'cpreference',
+                                                              'projreg'
                                                               )),
                    ),
         'supervisor' => array(
@@ -237,7 +240,8 @@ return array(
                                                                     'cpprodset',
                                                                     'cpmp',
                                                                     'cpmemberset',
-                                                                    'cpreference'
+                                                                    'cpreference',
+                                                                    'projreg'
                                                                     ))
                    ),
         

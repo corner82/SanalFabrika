@@ -676,7 +676,7 @@ class SanalfabrikaController extends AbstractActionController {
         return $view;
     }
     
-    public function projectRegistration(){
+    public function projregAction(){
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
