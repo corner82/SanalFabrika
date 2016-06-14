@@ -77,7 +77,8 @@ return array(
             'cpprodset' => 'layout/cpprodsetLayout.phtml',
             'cpmemberset' => 'layout/cpmembersetLayout.phtml',
             'cpmp' => 'layout/cpmpLayout.phtml',
-            'cpreference' => 'layout/cpreferenceLayout.phtml'
+            'cpreference' => 'layout/cpreferenceLayout.phtml',
+            'projectRegistration' => 'layout/projectRegistrationLayout.phtml'
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',

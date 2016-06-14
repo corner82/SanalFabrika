@@ -163,7 +163,7 @@ $(document).ready(function () {
                 } else {
                     var tel_number = '';
                 }
-                
+
                 $('#consultant_div').css('display', 'block');
                 $('#consultant_div').css('visibility', 'visible');
                 $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
@@ -180,6 +180,9 @@ $(document).ready(function () {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
+
+            $('#consultant_div').css('display', 'none');
+            $('#consultant_div').css('visibility', 'hidden');
         }
     });
     /* 

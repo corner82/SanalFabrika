@@ -1203,7 +1203,264 @@ msgstr "تعداد کارکنان"
 msgid "Visited your project page"
 msgstr "صفحه پروژه را زیارت کرد"
 
-msgid ""
+
+msgid "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
+msgstr ""
+
+msgid "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
+msgstr ""
+
+msgid "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
+msgstr ""
+
+msgid "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
+msgstr ""
+
+msgid "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
+msgstr ""
+
+msgid "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
+msgstr ""
+
+msgid "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
+msgstr ""
+
+msgid "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
+msgstr ""
+
+msgid "New Consortiums"
+msgstr ""
+
+msgid "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
+msgstr ""
+
+msgid "Automatic and Objective Negotiation Process"
+msgstr ""
+
+msgid "New Technologies Implementation"
+msgstr ""
+
+msgid "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
+msgstr ""
+
+msgid "OSTIM VIRTUAL ENTERPRISE OFFICE"
+msgstr ""
+
+msgid "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
+msgstr ""
+
+msgid "VE System Mission"
+msgstr ""
+
+msgid "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
+msgstr ""
+
+msgid "Profile Pages"
+msgstr ""
+
+msgid "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
+msgstr ""
+
+msgid "Smart Macthcing"
+msgstr ""
+
+msgid "Objective Negotiation Platform"
+msgstr ""
+
+msgid "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
+msgstr ""
+
+msgid "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
+msgstr ""
+
+msgid "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
+msgstr ""
+
+msgid "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
+msgstr ""
+
+msgid "Chairman of OSTIM Technology A.Ş. Executive Board"
+msgstr ""
+
+msgid "Manager of OSTIM Organized Industrial Zone Management"
+msgstr ""
+
+msgid "OSTIM Organized Industrial Zone management provides various servises."
+msgstr ""
+
+msgid "Some of these services are mentioned below"
+msgstr ""
+
+msgid "Infrastrcuture Services"
+msgstr ""
+
+msgid "Electric Management and Maitenance"
+msgstr ""
+
+msgid "Environemnt and Security"
+msgstr ""
+
+msgid "Gas Management and Maintenance"
+msgstr ""
+
+msgid "Office and Work Permit"
+msgstr ""
+
+msgid "Town Planning and Infrastructure"
+msgstr ""
+
+msgid "IT and Computing Center"
+
+msgid "Customer Services"
+msgstr ""
+
+msgid "Financial Services"
+msgstr ""
+
+msgid "Customer Relationship"
+msgstr ""
+
+msgid "OSTIM Employment Office"
+msgstr ""
+
+msgid "Fair and Organizations"
+msgstr ""
+
+msgid "Financial and Administrative Affairs"
+msgstr ""
+
+msgid "Press and Public Relations"
+msgstr ""
+
+msgid "Organizational Photo Gallery"
+msgstr ""
+
+msgid "Papers and Journals"
+msgstr ""
+
+msgid "Videos"
+msgstr ""
+
+msgid "Documents"
+msgstr ""
+
+msgid "Indigenous Wind Turbine Project"
+msgstr ""
+
+msgid "Indigenous Main Battle Tank Motor Project: TM-1150"
+msgstr ""
+
+msgid "Defense Cluster Project"
+msgstr ""
+
+msgid "Railed Systems Cluster Project"
+msgstr ""
+
+msgid "Indigenous Subway Train Project"
+msgstr ""
+
+msgid "Read More"
+msgstr ""
+
+msgid "Renewable Energy Cluster Project"
+msgstr ""
+
+msgid "OSTIM Technology Projects"
+msgstr ""
+
+msgid "OSTIM Technology R&D Center, collaborates researches and projects with the aim of developing high value added, high tech products under university and industry collaboration framework."
+msgstr ""
+
+msgid "VE integrates the capabiltities of 5,200 companies in OSTIM Organized Industrial Zone with more than 20,000 machine tools and 60,000 employees under one virtual company."
+msgstr ""
+
+msgid "Members Only"
+msgstr ""
+
+msgid "VE system services are provided under three main categories:"
+msgstr ""
+
+msgid "Resource Discovery"
+msgstr ""
+
+msgid "Project Management"
+msgstr ""
+
+msgid "Resource Definition"
+msgstr ""
+
+msgid "You may find your required human, information and physical (machinery, raw material and etc.) here"
+msgstr ""
+
+msgid "VE Companies"
+msgstr ""
+
+msgid "VE Machine Park"
+msgstr ""
+
+msgid "VE Raw Materials"
+msgstr ""
+
+msgid "VE Waste"
+msgstr ""
+
+msgid "VE Human Resources"
+msgstr ""
+
+msgid "VE Products"
+msgstr ""
+
+msgid "To manage existing projects or submit a new order you may use this section"
+msgstr ""
+
+msgid "Negotiation Management System"
+msgstr ""
+
+msgid "Submit new Order"
+msgstr ""
+
+msgid "Manage Your Project"
+msgstr ""
+
+msgid "View Project Pool"
+msgstr ""
+
+msgid "You may define your available different resources here"
+msgstr ""
+
+msgid "Add Company"
+msgstr ""
+
+msgid "Add User"
+msgstr ""
+
+msgid "Add Machine Tool"
+msgstr ""
+
+msgid "Add Product"
+msgstr ""
+
+msgid "Add Raw Material"
+msgstr ""
+
+msgid "Add Waste"
+msgstr ""
+
+msgid "VE Services"
+msgstr ""
+
+msgid "VE Machines List"
+msgstr ""
+
+msgid "Virtual Enterprise Machines List"
+msgstr ""
+
+msgid "Machines List"
+msgstr ""
+
+msgstr "VE machine tools"
+
+msgid "Reset all verbal information"
 msgstr ""
 
 msgid ""
@@ -1229,6 +1486,29 @@ msgstr ""
 
 msgid ""
 msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+
 
 
 

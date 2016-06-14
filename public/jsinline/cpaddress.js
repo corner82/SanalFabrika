@@ -105,22 +105,23 @@ $(document).ready(function () {
         remoteSort: true,
         multiSort: false,
         columns: [[
-                {field: 'firm_id', title: 'Company Id', width: 80}, //                    
+                {field: 'id', title: 'id', width: 80, hidden: true}, // 
+                {field: 'firm_id', title: 'Company Id', width: 80, hidden: true}, //                    
                 {field: 'firm_name', title: 'Company Name', width: 180}, //  
                 {field: 'firm_building_type', title: 'Building Type', width: 80}, //                    
 //                {field: 'firm_building_name', title: 'Building Name', width: 80, align: 'left', editor: {type: 'text', options: {precision: 1}}},
-                {field: 'country_name', title: 'Country', width: 80, align: 'left',
-                    editor: {
-                        type: 'combobox',
-                        options: {
-                            valueField: 'id',
-                            textField: 'country',
-                            data: window.countries_data,
-                            required: true
-                        }
-                    }
+                {field: 'country_name', title: 'Country', width: 80, align: 'left'
+//                    ,editor: {
+//                        type: 'combobox',
+//                        options: {
+//                            valueField: 'id',
+//                            textField: 'country',
+//                            data: window.countries_data,
+//                            required: true
+//                        }
+//                    }
                 },
-                {field: 'city_name', title: 'City', width: 80, align: 'center', editor: 'text'},
+                {field: 'city_name', title: 'City', width: 80, align: 'center'},
                 {field: 'borough_name', title: 'District', width: 80, align: 'center', editor: 'text'},
                 {field: 'address', title: 'Address', width: 250, align: 'left', editor: {type: 'text', options: {precision: 1}}},
                 {field: 'osb_name', title: 'Organized Industrial Zone', width: 80, align: 'left', editor: 'text'},
@@ -848,6 +849,7 @@ function getRowIndex(target) {
 
 function editrow(target) {
     $('#reg_address_table').datagrid('beginEdit', getRowIndex(target));
+
 }
 
 function deleterow(target) {
@@ -878,7 +880,20 @@ function deleterow(target) {
 
 function saverow(target) {
 
+
     $('#reg_address_table').datagrid('endEdit', getRowIndex(target));
+//    console.log(target.closest('tr'));
+
+    var rows = $('#reg_address_table').datagrid('getRows');
+    console.log($('#reg_address_table').datagrid('endEdit', i));
+    $.each(rows, function (i, target) {
+        $('#reg_address_table').datagrid('endEdit', i);
+        console.log(i);
+    });
+
+
+//    console.log($('#reg_address_table').datagrid('getRowIndex'));
+
 //    $.ajax({
 //        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',         
@@ -887,7 +902,7 @@ function saverow(target) {
 //            pk: $("#pk").val(),
 //            cpk: $("#cpk").val(),
 //            language_code: $("#langCode").val(),
-//            id: 16,
+////            id:$('#reg_address_table').datagrid('getRows')[getRowIndex(target)].id ,
 //            profile_public: 0,
 //            firm_building_type_id: 2,
 //            address: '',
@@ -903,7 +918,7 @@ function saverow(target) {
 //        dataType: "json",
 //        success: function (data) {
 //            console.log('Updated', data);
-//            wm.warningMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Update failed'));
+//            sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
 //
 //        },
 //        error: function (jqXHR, textStatus, errorThrown) {
@@ -911,7 +926,7 @@ function saverow(target) {
 //            wm.warningMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Update failed'));
 //        }
 //    });
-    sm.successMessage('show', window.lang.translate('Saving operation'), window.lang.translate('Information saved successfully'));
+
 }
 
 function cancelrow(target) {

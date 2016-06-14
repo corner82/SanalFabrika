@@ -675,6 +675,23 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
+    
+    public function projectRegistration(){
+        $langCode = $this->getServiceLocator()
+                ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                ->get('servicePublicKeyReader');
+
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey
+        ));
+        return $view;
+    }
+    
 
     /** this function called by indexAction to reduce complexity of function */
     protected function authenticate($form = null, $viewModel = null) {
