@@ -683,6 +683,8 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslatorUrlRegulator');
         $publicKey = $this->getServiceLocator()
                 ->get('servicePublicKeyReader');
+        // Do this inside your Controller before you return your ViewModel
+        $this->layout()->setVariable('test', $langCode);
 
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
