@@ -148,22 +148,23 @@ $(document).ready(function () {
         $('#sidebar-nav-1').empty();
         $('#sidebar-nav-1').append(
                 profilelink
-                + productslink
+//                + productslink
                 + mtslink
                 + memberslink
 //                + commentslink
-                + historylink);
+//                + historylink
+                );
     } else {
         $('#sidebar-nav-1').empty();
         $('#sidebar-nav-1').append(
                 profilelink
                 + performancelink
-                + productslink
+//                + productslink
                 + mtslink
                 + memberslink
 //                + projectslink
 //                + commentslink
-                + historylink
+//                + historylink
                 + settingslink);
     }
 

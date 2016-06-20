@@ -138,29 +138,31 @@ function gotLink(clicked) {
         search: true,
         showRefresh: true,
         showToggle: true,
-        showColumns: true,
-//                detailView: true,
-//                showPaginationSwitch: true,
+//        showColumns: true,
+//        detailView: true,
+//        showPaginationSwitch: true,
         idField: "id",
         showFooter: false,
-//                responseHandler:"responseHandler",
+//        responseHandler:"responseHandler",
         pageList: '[10, 25, 50, 100, ALL]',
         undefinedText: '',
-//                detailFormatter:
-//                        function (index, row, element) {
-//                            alert(row.id);
-//                        },
+//        detailFormatter:
+//          function (index, row, element) {
+//              alert(row.id);
+//          },
         columns: [
             {
                 field: 'id',
                 title: window.lang.translate('Id'),
-                sortable: true
+                sortable: true,
+                visible: false
 
             },
             {
                 field: 'machine_id',
                 title: window.lang.translate('Machine Id'),
-                sortable: true
+                sortable: true,
+                visible: false
             },
             {
                 field: 'machine_tool_names',
@@ -191,8 +193,7 @@ function gotLink(clicked) {
                 field: 'picture',
                 title: window.lang.translate('picture'),
                 sortable: true,
-                visibility: 'hidden',
-                display: 'none'
+                visible: false
             }]
     });
 }
@@ -437,320 +438,7 @@ $('#machines_table').on('click-row.bs.table', function (e, row, $element) {
 
     }
 
-//window.colors = ["color-one", "color-two", "color-three", "color-four", "color-five", "color-six", "color-seven"];
-//var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
-
-
-
-
 });
-//function gotLink(clicked_Id) {
-//
-//    window.target_machine_id = clicked_Id.id.toString().replace('_link', '');
-//    window.machine_group_id = $(clicked_Id).attr('group_id');
-//
-//    $('#companymtprofile').addClass('.active');
-//    if ($('#table_place_holder').css('visibility', 'hidden')) {
-//        $('#table_place_holder').css('visibility', 'visible');
-//        $('#table_place_holder').css('display', 'block');
-//        $('#machine_details_DIV').empty();
-//        $('#selectedMachineNamePH').empty();
-//        $('#machine_details_DIV').css('visibility', 'hidden');
-//        $('#machine_details_DIV').css('display', 'none');
-//        $('#selected_machine_divider').css('visibility', 'hidden');
-//        $('#selected_machine_divider').css('display', 'none');
-//    }
-//
-//    $.ajax({
-//        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-//        data: {
-//            url: 'pkFillUsersFirmMachinesNpk_infoFirmMachineTool',
-//            language_code: $("#langCode").val(),
-//            npk: $('#selectedCompanyNpk').val(),
-//            pk: $(pk).val(),
-//            machine_grup_id: window.machine_group_id
-//        },
-//        method: "GET",
-//        dataType: "json",
-//        success: function (data) {
-//
-//            var dataSet = [];
-//
-//            var appending_list =
-//                    "<div class='left-inner'>"
-//                    + "<div class='row'>"
-//                    + "<div id='"
-//                    + window.target_machine_id
-//                    + "'>"
-//                    + "<table id='"
-//                    + window.target_machine_id
-//                    + "_table'"
-//                    + " class='table table-hover table-striped table-condensed'"
-//                    + " cellspacing='0' style='font-size: 12px'>"
-//                    + " </table>"
-//                    + " </div>"
-//                    + " </div>"
-//                    + " </div>";
-//
-//            $('#sel_mach_cat_list_div').empty();
-//            $('#sel_mach_cat_list_div').append(appending_list);
-//            $('#tab_header').empty();
-//            var header = clicked_Id.id.toString().replace('_link', '');
-//            header = header.replace('_machine', '');
-//            header = header.replace('_', ' ');
-//            $('#tab_header').append(header + ' ' + window.lang.translate("Machines List"));
-//
-//            for (var j = 0; j < data.rows.length; j++) {
-//                dataSet.push(
-//                        [
-//                            data.rows[j].manufacturer_name,
-//                            data.rows[j].machine_tool_names,
-//                            data.rows[j].total,
-//                            data.rows[j].model_year,
-//                            data.rows[j].series
-//                        ]);
-//            }
-//
-//            $('#' + window.target_machine_id + "_table").DataTable({
-//                data: dataSet,
-//                fixedColumns: true,
-//                scrollX: true,
-//                select: {
-//                    style: 'single'
-//                },
-//                columns: [
-//                    {title: window.lang.translate("Manufacturer")},
-//                    {title: window.lang.translate("Name")},
-//                    {title: window.lang.translate("Number")},
-//                    {title: window.lang.translate("Year")},
-//                    {title: window.lang.translate("Series")}
-//                ]
-//            });
-//
-//
-//            $('html, body').animate({
-//                scrollTop: $("#sel_mach_cat_list_div").offset().top
-//            }, 1000);
-//
-//            window.table = $('#' + window.target_machine_id + "_table").DataTable();
-//            $('#' + window.target_machine_id + "_table" + ' tbody').on('click', 'tr', function () {
-//                if ($(this).hasClass('selected')) {
-//                    $(this).removeClass('selected');
-//                }
-//                else {
-//                    window.table.$('tr.selected').removeClass('selected');
-//                    $(this).addClass('selected');
-//                }
-//
-//                var selectedRowIndex = $(this)[0]._DT_RowIndex;
-////                console.log(selectedRowIndex);
-////                console.log(data.rows[selectedRowIndex].picture);
-////                this.style.color = '#72c02c';
-//                var d = window.table.row(this).data();
-//                /*
-//                 * 
-//                 * @type type
-//                 * ajxa request to get product properties should be added here...
-//                 * for now a properties array is created...
-//                 */
-//
-//
-//                var properties = [
-//                    {key: 'Brand', value: d[0]},
-//                    {key: 'Name', value: d[1]},
-//                    {key: 'Number', value: d[2]},
-//                    {key: 'Model', value: d[3]},
-//                    {key: 'Series', value: d[4]}
-//                ];
-//
-//                if ($('#machine_details_DIV').css('visibility') === 'hidden') {
-//
-//                    $('#machine_details_DIV').empty();
-//                    $('#selectedMachineNamePH').empty();
-//
-//                    var appending =
-//                            "<div class='funny-boxes funny-boxes-top-sea'>"
-//                            + "<div class='row'>"
-//                            + "<div class='left-inner'>"
-//                            + "<div class='progression'>"
-//                            + "<h3>"
-//                            + window.lang.translate('Machine Details')
-//                            + "</h3>"
-//                            + "<div class='row'>"
-//                            + "<a href="
-//                            + "https://" + window.location.hostname
-//                            + "/onyuz/standard/assets/img/sfClients/EMGE/"
-//                            + data.rows[selectedRowIndex].picture
-//                            + ">"
-//                            + "<img class='mach_sample' src="
-//                            + " https://" + window.location.hostname
-//                            + "/onyuz/standard/assets/img/sfClients/EMGE/"
-//                            + data.rows[selectedRowIndex].picture
-//                            + " alt=''>"
-//                            + "</a>"
-//                            + "</div>"
-//                            + "<div class='row'>"
-//                            + "<div class='panel panel-profile no-bg'>"
-//                            + "<div class='panel-heading overflow-h'>"
-//                            + "<h2 class='panel-title heading-sm pull-left'>"
-//                            + "<i class='fa fa-pencil'>"
-//                            + "</i>"
-//                            + d[0] + ' ' + d[1]
-//                            + "</h2>"
-//                            + "<a href='#'>"
-//                            + "<i class='fa fa-cog pull-right'></i>"
-//                            + "</a>"
-//                            + "</div>"
-//                            + "<div id='scrollbar' id='mach_det_prop' "
-//                            + "class='panel-body no-padding mCustomScrollbar' "
-//                            + "data-mcs-theme='minimal-dark'>"
-//                            + "</div>"
-//                            + "</div>"
-//                            + "</div>"
-//                            + "</div>"
-//                            + "</div>";
-//
-////                    console.log(appending);
-//
-//                    $('#machine_details_DIV').append(appending);
-//
-//                    var appending2;
-//                    window.colors = ["color-one", "color-two", "color-three", "color-four", "color-five", "color-six", "color-seven"];
-//
-//                    $.each(properties, function (key, value) {
-//                        var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
-//
-//                        appending2 =
-//                                "<div class='profile-post "
-//                                + picked_color
-//                                + "'>"
-//                                + "<span class='profile-post-numb' style='width:200px;font-size:12px'>"
-//                                + properties[key].key
-//                                + "</span>"
-//                                + "<div class='profile-post-in'>"
-//                                + "<h3 class='heading-xs'>"
-//                                + properties[key].value
-//                                + "</h3>"
-//                                + "<p></p>"
-//                                + "</div>"
-//                                + "</div>";
-//
-//                        $('#scrollbar').append(appending2);
-//                    });
-//                    $('#selected_machine_divider').css('visibility', 'visible');
-//                    $('#selected_machine_divider').css('display', 'block');
-//                    $('#machine_details_DIV').css('visibility', 'visible');
-//                    $('#machine_details_DIV').css('display', 'block');
-//                    $('#machine_details_DIV').slideDown('slow');
-//                    $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
-//                } else {
-//                    if ($('#machine_details_DIV').attr('lastIndex').toString() === selectedRowIndex.toString()) {
-//
-//                        $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
-//                        $('#machine_details_DIV').slideUp('Slow');
-//                        $('#machine_details_DIV').css('visibility', 'hidden');
-//                        $('#machine_details_DIV').css('display', 'none');
-//                        $('#selected_machine_divider').css('visibility', 'hidden');
-//                        $('#selected_machine_divider').css('display', 'none');
-//
-//                    } else {
-//
-//                        $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
-//                        $('#machine_details_DIV').slideUp('Slow');
-//                        $('#machine_details_DIV').css('visibility', 'hidden');
-//                        $('#machine_details_DIV').css('display', 'none');
-//                        $('#machine_details_DIV').empty();
-//                        $('#selected_machine_divider').css('visibility', 'hidden');
-//                        $('#selected_machine_divider').css('display', 'none');
-//                        $('#selectedMachineNamePH').empty();
-//
-//                        var appending =
-//                                "<div class='funny-boxes funny-boxes-top-sea'>"
-//                                + "<div class='row'>"
-//                                + "<div class='left-inner'>"
-//                                + "<div class='progression'>"
-//                                + "<h3>"
-//                                + window.lang.translate('Machine Details')
-//                                + "</h3>"
-//                                + "<div class='row'>"
-//                                + "<a href="
-//                                + "https://" + window.location.hostname
-//                                + "/onyuz/standard/assets/img/sfClients/EMGE/"
-//                                + data.rows[selectedRowIndex].picture
-//                                + ">"
-//                                + "<img class='mach_sample' src="
-//                                + " https://" + window.location.hostname
-//                                + "/onyuz/standard/assets/img/sfClients/EMGE/"
-//                                + data.rows[selectedRowIndex].picture
-//                                + " alt=''>"
-//                                + "</a>"
-//                                + "</div>"
-//                                + "<div class='row'>"
-//                                + "<div class='panel panel-profile no-bg'>"
-//                                + "<div class='panel-heading overflow-h'>"
-//                                + "<h2 class='panel-title heading-sm pull-left'>"
-//                                + "<i class='fa fa-pencil'>"
-//                                + "</i>"
-//                                + d[0] + ' ' + d[1]
-//                                + "</h2>"
-//                                + "<a href='#'>"
-//                                + "<i class='fa fa-cog pull-right'></i>"
-//                                + "</a>"
-//                                + "</div>"
-//                                + "<div id='scrollbar' id='mach_det_prop' "
-//                                + "class='panel-body no-padding mCustomScrollbar' "
-//                                + "data-mcs-theme='minimal-dark'>"
-//                                + "</div>"
-//                                + "</div>"
-//                                + "</div>"
-//                                + "</div>"
-//                                + "</div>";
-//
-//                        $('#machine_details_DIV').append(appending);
-//
-//                        var appending2;
-//
-//                        $.each(properties, function (key, value) {
-//                            var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
-//                            appending2 =
-//                                    "<div class='profile-post "
-//                                    + picked_color
-//                                    + "'>"
-//                                    + "<span class='profile-post-numb' style='width:200px;font-size:12px'>"
-//                                    + properties[key].key
-//                                    + "</span>"
-//                                    + "<div class='profile-post-in'>"
-//                                    + "<h3 class='heading-xs'>"
-//                                    + properties[key].value
-//                                    + "</h3>"
-//                                    + "<p></p>"
-//                                    + "</div>"
-//                                    + "</div>";
-//
-//                            $('#scrollbar').append(appending2);
-//
-//                        });
-//                        $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
-//                        $('#selected_machine_divider').css('visibility', 'visible');
-//                        $('#selected_machine_divider').css('display', 'block');
-//                        $('#machine_details_DIV').css('visibility', 'visible');
-//                        $('#machine_details_DIV').css('display', 'block');
-//                        $('#machine_details_DIV').slideDown('slow');
-//                    }
-//                }
-//
-//                if ($('#machine_details_DIV').css('visibility') === 'visible') {
-//                    $('html, body').animate({
-//                        scrollTop: $("#machine_details_DIV").offset().top
-//                    }, 1000);
-//                }
-//            });
-//        }
-//    });
-//
-//
-//}
 
 
 
