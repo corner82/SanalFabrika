@@ -3,9 +3,19 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 
-    <input id="requestUriRegulated" type="hidden" value="<?php echo $this->requestUriRegulated; ?>"></input>
-    <input id="langCode" type="hidden" value="<?php echo $this->langCode; ?>"></input> 
-    <input id="pktemp" type="hidden" value=""></input>
+    <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
+    <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input> 
+    <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
+    <input id="lastInsertId" type="hidden"  value=""></input>
+    <!--checks if first tab is completed and submitted successfully.-->
+    <input id="checkGeneralForm" type="hidden" value="0"></input>
+    <!--checks if second tab is completed and submitted successfully.-->
+    <input id="checkAddressForm" type="hidden" value="0"></input>
+    <!--checks if third tab is completed and submitted successfully.-->
+    <input id="checkCommunicationForm" type="hidden" value="0"></input>
+    <!--checks if forth tab is completed and submitted successfully.-->
+    <input id="checkCompanyForm" type="hidden" value="0"></input>
+
 
     <body>
         <!--=== Style Switcher ===-->    
@@ -141,7 +151,7 @@
                                 <li class="topbar-devider"></li>   
                                 <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
                                 <li class="topbar-devider"></li>   
-                                <li><a href="login"><?php echo $this->translate('Login') ?></a></li>     
+                                <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><span id="loging_ph"></span></a></li>   
                             </ul>
                         </div>
                         <!-- End Topbar -->
@@ -203,7 +213,7 @@
         <div class="breadcrumbs">
             <!--<div style='background: #FAF8F0;' class="container">--> 
             <div style='background: #E0EDDF;' class="container">
-                <h1 class="pull-left"><i class="fa fa-quote-left"></i><?php echo $this->translate('New Project Submission') ?></h1>
+                <h1 class="pull-left"><i class="fa fa-quote-left"></i><?php echo $this->translate('Registration') ?></h1>
                 <ul class="pull-right breadcrumb">                        
                     <li>
                         <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
@@ -211,7 +221,7 @@
                                <?php echo $this->translate('Home') ?>
                         </a>
                     </li>
-                    <li class="active"><?php echo $this->translate('New Project Submission') ?></li>
+                    <li class="active"><?php echo $this->translate('Registration') ?></li>
                 </ul>
             </div>
         </div><!--/breadcrumbs-->
@@ -224,23 +234,23 @@
                 <div class="row">
                     <div class="col-md-3 col-xs-6 md-margin-bottom-50">
                         <i class="icon-cup"></i>
-                        <span class="counter">100</span>
-                        <h4><?php echo $this->translate("SUBMITTED PROJECTS") ?></h4>
+                        <span class="counter">265</span>
+                        <h4><?php echo $this->translate("USERS") ?></h4>
                     </div>
                     <div class="col-md-3 col-xs-6 md-margin-bottom-50">
                         <i class="icon-clock"></i>
-                        <span class="counter">40</span>
-                        <h4><?php echo $this->translate("FINISHED PROJECTS") ?></h4>
+                        <span class="counter">5957</span>
+                        <h4><?php echo $this->translate("PROJECTS") ?></h4>
                     </div>
                     <div class="col-md-3 col-xs-6">
                         <i class="icon-emoticon-smile"></i>
-                        <span class="counter">22</span>
-                        <h4><?php echo $this->translate("AWAITING PROJECTS") ?></h4>
+                        <span class="counter">3495</span>
+                        <h4><?php echo $this->translate("TEAM MEMBERS") ?></h4>
                     </div>
                     <div class="col-md-3 col-xs-6">
                         <i class="icon-bulb"></i>
-                        <span class="counter">38</span>
-                        <h4><?php echo $this->translate("PROJECTS UNDER PROGRESS") ?></h4>
+                        <span class="counter">576</span>
+                        <h4><?php echo $this->translate("AWARDS") ?></h4>
                     </div>
                 </div><!--/end row-->
             </div><!--/end container-->
@@ -449,30 +459,43 @@
                         <ul id="primaryTabs" class="nav nav-tabs">                                
                             <!-- To disable tabs first it is needed to change tab class to disabled
                             then remove href attribute value due to deactivate tab transition on click event..-->
-                            <li id="project_owner_info" class="active">
-                                <a href="#project_owner_info_tab" data-toggle="tab">
-                                    <?php echo $this->translate('Project Owner Information') ?>
+                            <li id="userGeneralInfoTab" class="active">
+                                <a href="#userGeneralInfo" data-toggle="tab">
+                                    <?php echo $this->translate('General Information') ?>
                                 </a>
                             </li>
-                            <li id="project_general_info">
-                                <a href="#project_general_info_tab" data-toggle="tab">
+                            <li id="userAddressInfoTab"  onclick="checkUGI()">
+                                <a href="#userAddressInfo" data-toggle="tab">
+                                    <?php echo $this->translate('Address Information') ?>
+                                </a>
+                            </li>
+                            <li id="userCommunicationInfoTab" onclick="checkUAI()">
+                                <a href="#userCommunicationInfo" data-toggle="tab">
+                                    <?php echo $this->translate('Communication Information') ?>
+                                </a>
+                            </li>
+                            <li id="companyInfoTab"  onclick="checkCI()">
+                                <a href="#projectInfo" data-toggle="tab">
                                     <?php echo $this->translate('Project Information') ?>
-                                </a>
-                            </li>
-                            <li id="extra_info">
-                                <a href="#extra_info_tab" data-toggle="tab">
-                                    <?php echo $this->translate('Extra Information') ?>
                                 </a>
                             </li>
                         </ul> 
                         <div id="tabsContentsSection" class="tab-content box">
                             <!-- User General Info  -->
-                            <div class="tab-pane fade in active" id="project_owner_info_tab">
-                                <form id="project_owner_info_form" class="sky-form">
+                            <div class="tab-pane fade in active" id="userGeneralInfo">
+                                <form id="userGeneralInfoForm" class="sky-form">
                                     <header>
                                         <div class='headline'>
-                                            <h2><?php echo $this->translate('Project Owner Information') ?></h2>
+                                            <h2><?php echo $this->translate('General Information') ?></h2>
                                         </div>
+                                        <fieldset>
+                                            <button type="submit" id="find_user" 
+                                                    class="btn-u btn-u-dark-blue col-md-12" 
+                                                    onclick="find_user_popup()"
+                                                    style="margin-bottom: 20px"> 
+                                                        <?php echo $this->translate('Find Registered Users') ?>
+                                            </button>
+                                        </fieldset>
                                     </header>
                                     <fieldset>
                                         <div class="row">
@@ -484,7 +507,8 @@
                                                     </div>
                                                     <input type="text" name="userFirstName" 
                                                            id="userFirstName" required="true"
-                                                           class="form-control validate[required,custom[onlyLetterSp]]">
+                                                           class="form-control validate[required,custom[onlyLetterSp]]"
+                                                           onchange="taskProgressPerTabs()">
                                                 </div>
                                             </section>
                                             <section>
@@ -495,40 +519,8 @@
                                                     </div>
                                                     <input type="text" name="userLastName" 
                                                            id="userLastName" required="true"
-                                                           class="form-control validate[required,custom[onlyLetterSp]]">
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <label class="label"><?php echo $this->translate('Birth Date') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-users"></i>
-                                                    </div>
-                                                    <input type="date" name="birth_date" 
-                                                           id="birth_date" required="true"
-                                                           class="form-control validate[required,custom[onlyLetterSp]]">
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <label class="label"><?php echo $this->translate('Birth Place') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-users"></i>
-                                                    </div>
-                                                    <input type="text" name="birth_place" 
-                                                           id="birth_place" required="true"
-                                                           class="form-control validate[required,custom[onlyLetterSp]]">
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <label class="label"><?php echo $this->translate('ID Number') ?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-users"></i>
-                                                    </div>
-                                                    <input type="text" name="id_number" 
-                                                           id="id_number" required="true"
-                                                           class="form-control validate[required,custom[onlyNumberSp]]">
+                                                           class="form-control validate[required,custom[onlyLetterSp]]"
+                                                           onchange="taskProgressPerTabs()">
                                                 </div>
                                             </section>
                                             <section>
@@ -538,25 +530,109 @@
                                                         <i class="fa fa-envelope"></i>
                                                     </div>
                                                     <input class="form-control validate[required,custom[email]]" 
-                                                           type="email" name="useremail" id="useremail">
+                                                           type="email" name="useremail" id="useremail" 
+                                                           onchange="taskProgressPerTabs();
+                                                                   checkUserName()">
                                                 </div>
                                             </section>
                                             <section>
-                                                <label class="label"><?php echo $this->translate('Communication Type') ?></label>
-                                                <div id='communicationTypes'>                                                        
-                                                </div>
-                                            </section>
-                                            <section>
-                                                <label class="label"><?php echo $this->translate('Phone Number') ?></label>
+                                                <label class="label"><?php echo $this->translate('Prefered Username') ?></label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-phone"></i>
+                                                        <i class="fa fa-barcode"></i>
                                                     </div>
-                                                    <input type="phone" name="phone_number"
-                                                           id="phone_number" required="true"
-                                                           class="form-control validate[required,custom[onlyNumberSp]] ">
+                                                    <input disabled='disabled' type="text" name="preferedUsername" 
+                                                           id="preferedUsername" required="true"
+                                                           class="form-control validate[required,custom[sfUserName]] disabled "
+                                                           onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>                                            
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-lock"></i>
+                                                    </div>
+                                                    <input type="password" name="userPreferedPassword" 
+                                                           id="userPreferedPassword" required="true"
+                                                           class="form-control validate[required,minSize[8],maxSize[20]]"
+                                                           onchange="taskProgressPerTabs()">
                                                 </div>
                                             </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Repeat Password') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-key"></i>
+                                                    </div>
+                                                    <input type="password" name="repeatedUserPreferedPassword" 
+                                                           id="repeatedUserPreferedPassword" required="true"
+                                                           class="form-control validate[required,equals[userPreferedPassword]] text-input">
+                                                </div>
+                                            </section>                                                
+                                            <section> 
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="showPassword" 
+                                                           id="showPassword">
+                                                    <i></i><?php echo $this->translate('Show my password') ?> 
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
+                                                <div id="userPreferedLanguage" />                                                     
+                                                <i></i>
+                                            </section>                                                  
+                                        </div>
+                                        <div class="row"> 
+                                            <label class="checkbox">
+                                                <input required="true" type="checkbox" checked="true" name="makePublicProfile" 
+                                                       id="makePublicProfile" onchange="changePublicProfile()">
+                                                <i></i><?php echo $this->translate('Make my profile public') ?>
+                                            </label> 
+                                        </div>
+                                        <footer>
+                                            <div id="userButtons">
+                                                <button type="submit" id="userGeneralInfoFormSubmit" 
+                                                        class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()"> 
+                                                            <?php echo $this->translate('Submit') ?>
+                                                </button>
+                                                <button type="button" id="userGeneralInfoFormReset" 
+                                                        class="btn-u" onclick="resetForm()">
+                                                            <?php echo $this->translate('Reset') ?>
+                                                </button>
+                                            </div>
+                                        </footer>
+                                    </fieldset>
+                                </form>         
+                            </div>
+                            <!--// End User General Info  -->
+                            <!-- User Address Info  -->
+                            <div class="tab-pane fade box" id="userAddressInfo" >
+                                <form id="userAddressInfoForm" class="sky-form">
+                                    <header>
+                                        <div class='headline'>
+                                            <?php echo $this->translate('Address Information') ?>
+                                        </div>
+                                    </header>
+                                    <fieldset>
+                                        <div class="row">
+                                            <section>
+                                                <button type="button" class="btn-u btn-green col-md-12" 
+                                                        id="showAllAddresses_btn" 
+                                                        data-toggle="modal" 
+                                                        data-target="#addressModal">
+                                                            <?php echo $this->translate('Show all my registered addresses') ?>
+                                                </button> 
+                                            </section>                                               
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Address type') ?></label>
+                                                <div id="addressTypesCombo" />
+                                            </section>
+                                        </div>
+                                        <div class="row">
                                             <section>
                                                 <label class="label"><?php echo $this->translate('Country') ?></label>
                                                 <div id="usercountry" />
@@ -570,7 +646,8 @@
                                                         </div>
                                                         <input type="text" name="userCityName" 
                                                                id="userCityName"
-                                                               class="form-control validate[required,onlyLetterSp]">
+                                                               class="form-control validate[required,onlyLetterSp]"
+                                                               onchange="taskProgressPerTabs()">
                                                     </div> 
                                                 </div>
                                             </section>
@@ -605,7 +682,8 @@
                                                     </div>
                                                     <input type="text" name="userAddress2" 
                                                            id="userAddress2"
-                                                           class="form-control validate[sfAddress]">
+                                                           class="form-control validate[sfAddress]"
+                                                           onchange="taskProgressPerTabs()">
                                                 </div> 
                                             </section>                                                 
                                             <section>
@@ -615,7 +693,8 @@
                                                         <i class="fa fa-home"></i>
                                                     </div>
                                                     <input type="text" name="userPostalCode" id="userPostalCode"
-                                                           class="form-control validate[custom[onlyLetterNumber]">
+                                                           class="form-control validate[custom[onlyLetterNumber]"
+                                                           onchange="taskProgressPerTabs()">
                                                 </div>
                                             </section>                                                                                                
                                             <section>
@@ -625,47 +704,22 @@
                                                     <textarea rows="4" name="addressDescription" id="addressDescription"></textarea>
                                                 </label>
                                             </section>
-                                            <section>
-                                                <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
-                                                <div id="userPreferedLanguage" />                                                     
-                                                <i></i>
-                                            </section>                                                  
                                         </div>
                                         <footer>
-                                            <div id="userButtons">
-                                                <button type="submit" id="project_owner_info_submit" 
-                                                        class="btn-u btn-u-dark-blue" onclick=""> 
-                                                            <?php echo $this->translate('Submit') ?>
-                                                </button>
-                                                <button type="button" id="project_owner_info_reset" 
-                                                        class="btn-u" onclick="resetForm()">
-                                                            <?php echo $this->translate('Reset') ?>
-                                                </button>
-                                            </div>
+                                            <label class="checkbox">
+                                                <input required="true" type="checkbox" checked="true" name="makePublicAddress" 
+                                                       id="makePublicAddress" onchange="changePublicAddress()">
+                                                <i></i><?php echo $this->translate('Make my address information public') ?>
+                                            </label> 
                                         </footer>
-                                    </fieldset>
-                                </form>         
-                            </div>
-                            <!--// End User General Info  -->
-                            <!-- User Address Info  -->
-                            <div class="tab-pane fade box" id="project_general_info_tab" >
-                                <form id="project_general_info_form" class="sky-form">
-                                    <header>
-                                        <div class='headline'>
-                                            <?php echo $this->translate('Project General Information') ?>
-                                        </div>
-                                    </header>
-                                    <fieldset>
-
-
                                         <footer>
                                             <div id="userButtons">
-                                                <button type="submit" id="project_general_info_submit" 
+                                                <button type="submit" id="userAddressInfoFormSubmit" 
                                                         class="btn-u btn-u-dark-blue" 
-                                                        onclick="project_general_info_submit()">
-                                                            <?php echo $this->translate('Submit') ?>                                                                
+                                                        onclick="submitUserAddressInfoForm()">  
+                                                            <?php echo $this->translate('Submit') ?>                                                              
                                                 </button>
-                                                <button type="button" id="project_general_info_reset" 
+                                                <button type="button" id="userAddressInfoFormReset" 
                                                         class="btn-u" 
                                                         onclick="resetForm()">
                                                             <?php echo $this->translate('Reset') ?>
@@ -677,32 +731,156 @@
                             </div>
                             <!--// End User Address Info  -->
                             <!-- User Communication Info  -->
-                            <div class="tab-pane fade" id="extra_info_tab">
-                                <form id="extra_info_form" class="sky-form">
+                            <div class="tab-pane fade" id="userCommunicationInfo">
+                                <form id="userCommunicationInfoForm" class="sky-form">
                                     <header>
                                         <div class='headline'>
-                                            <?php echo $this->translate('Extra Information') ?>
+                                            <?php echo $this->translate('Communication Information') ?>
                                         </div>
                                     </header>
                                     <fieldset>
-
-
-                                        <footer>
+                                        <div class='row'>                                                
+                                            <section>
+                                                <button type="button" class="btn-u btn-green col-md-12" 
+                                                        id="showAllContacts_btn" 
+                                                        data-toggle="modal" 
+                                                        data-target="#contactsModal">
+                                                            <?php echo $this->translate('Show all my registered contact Information') ?>
+                                                </button> 
+                                            </section> 
+                                        </div> 
+                                        <hr>                                           
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Communication Type') ?></label>
+                                                <div id='communicationTypes'>                                                        
+                                                </div>
+                                            </section> 
+                                            <section>
+                                                <label class="checkbox">
+                                                    <input required="true" type="checkbox" checked="true" name="makePublicCommunication" 
+                                                           id="makePublicCommunication" onchange="changePublicCommunication()">
+                                                    <i></i><?php echo $this->translate('Make my contact information public') ?>
+                                                </label> 
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Description') ?></label>
+                                                <label class="textarea">
+                                                    <i class="icon-prepend fa fa-comment"></i>
+                                                    <textarea rows="4" name="contactDescription" id="contactDescription"></textarea>
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="defaultContactNumber" id="defaultContactNumber">
+                                                    <i></i><?php echo $this->translate('Set this number as your default contact number') ?> 
+                                                </label>
+                                            </section>       
+                                            <section>                                                                
+                                                <label class="label"><?php echo $this->translate('Contact Number') ?></label>                                                                
+                                                <div class="input-group">                                                                    
+                                                    <input type="phone" class="form-control validation[custom[onlyNumberSp]]" 
+                                                           name="contactNumber" id="contactNumber" onchange="taskProgressPerTabs()">                                                                    
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-u" type="button" id="submitContactNumber" onclick="submitUserContactNumber()"><?php echo $this->translate('Submit Number') ?></button>
+                                                    </span>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row"> 
+                                            <label class="checkbox">
+                                                <input required="true" type="checkbox" 
+                                                       name="terms" id="terms" onchange="activateButtons(), taskProgressPerTabs()">
+                                                <i></i><?php echo $this->translate('I agree with the Terms and Conditions') ?>
+                                            </label> 
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row">
                                             <div id="userButtons">
-                                                <button type="submit" id="extra_info_submit" 
-                                                        class="btn-u btn-u-dark-blue" onclick=""> 
+                                                <button type="button" id="userCommunicationInfoFormFinalize" 
+                                                        class="btn-u btn-u-dark-blue disabled"  
+                                                        onclick="completeUserSubmissionProcess()">
+                                                            <?php echo $this->translate('Complete User Submission Process') ?>
+                                                </button>
+                                                <button type="submit" id="userCommunicationInfoFormSubmit" 
+                                                        class="btn-u btn-u-default disabled"  
+                                                        onclick="submitUserInfoForm()">
                                                             <?php echo $this->translate('Submit') ?>
                                                 </button>
-                                                <button type="button" id="extra_info_reset" 
+                                                <button type="button" id="userCommunicationInfoFormReset" 
                                                         class="btn-u" onclick="resetForm()">
                                                             <?php echo $this->translate('Reset') ?>
                                                 </button>
                                             </div>
-                                        </footer>
+                                        </div>
                                     </fieldset> 
                                 </form>   
                             </div>
                             <!--// End User Communication Info  -->
+                            <!-- Company Info Form -->
+                            <div class="tab-pane fade" id="projectInfo">
+                                <form id="projectInfoForm" class="sky-form">
+                                    <header>
+                                        <div class='headline'>
+                                            <?php echo $this->translate('Project Information') ?>
+                                        </div>
+                                    </header>
+                                    <fieldset>
+                                        <div class="row">
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Project Name') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-users"></i>
+                                                    </div>
+                                                    <input type="text" id="project_name" required="true"
+                                                           class="form-control validate[required,custom[onlyLetterSp]]">
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Project Category') ?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-users"></i>
+                                                    </div>
+                                                    <input type="text" id="project_name" required="true"
+                                                           class="form-control validate[required,custom[onlyLetterSp]]">
+                                                </div>
+                                            </section>
+                                            <label>
+                                                <?php echo $this->translate('Customer Specific Requestes') ?>
+                                            </label>
+                                            <section>
+                                                <div class="row" id="cust_proj_spec_req">
+
+                                                </div>
+                                            </section>
+                                            <section>
+                                                <label class="label"><?php echo $this->translate('Description') ?></label>
+                                                <label class="textarea">
+                                                    <i class="icon-prepend fa fa-comment"></i>
+                                                    <textarea rows="4" name="projectDescription" id="projectDescription"></textarea>
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label class="checkbox">
+                                                    <input required="true" type="checkbox" checked="true" name="makePublicProject" 
+                                                           id="makePublicProject" onchange="makePublicProject()">
+                                                    <i></i><?php echo $this->translate('Keep project information public') ?>
+                                                </label> 
+                                            </section>   
+                                        </div>                                     
+                                        <footer>
+                                            <button id='projectInfoSubmissionBtn' type="submit" class="btn-u btn-u-default" onclick="projectInfoSubmission()"><?php echo $this->translate('Submit') ?></button>
+                                            <button id='projectInfoCancelBtn' type="button" class="btn-u" onclick="window.history.back();"><?php echo $this->translate('Back') ?></button>
+                                        </footer>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!-- End Company Info Forms -->
                         </div>
                     </div>
                     <!-- End Tabs-->

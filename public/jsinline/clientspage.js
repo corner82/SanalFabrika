@@ -18,7 +18,6 @@ $(document).ready(function () {
         var list_service_url = 'fillCompanyListsGuest_infoFirmProfile';
         var loging_value = window.lang.translate('Log in');
     }
-
     $('#loging_ph').append(loging_value);
 
 
