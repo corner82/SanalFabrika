@@ -439,6 +439,21 @@
            // this._trigger('tested');
             var self = this;
             
+            /**
+             * when <i> tag inside node <span> was clicked,
+             * because of id not found, false data was retreiving,
+             * bug fixed
+             * @author Mustafa Zeynel Dağlı
+             * @since 20/06/2016
+             */
+            this._on(this.element, {
+            'click.parent_li > span > i': function(event, self) { 
+                    //alert('i onclick');
+                    return false;
+                     
+                }
+            });
+            
             
             /**
              * root node click event binding
@@ -473,30 +488,8 @@
                     }
                 }
             });
-            
-            
-            /**
-             * root node span click handler
-             * @since 24/02/2016
-             */
-           /* $(".tree2").on("click", "li.parent_li > span[data-action='root']", function (event) {
-                //alert('root action');
-                self._loadSubNodes($(this).attr('id'), $(this));
-            });*/
 
-            /**
-             * leaf (machine group ans machine) node span click event handler
-             * @since 24/02/2016
-             */
-            /*$(".tree2").on("click", "li.parent_li > span.badge", function (event) {
-                //alert('leaf action');
-                if ($(this).hasClass('machine')) {
-                    self._trigger('getMachineProp', event, [self, $(this)]);
-                    self._trigger('getMachineGenProp', event, [self, $(this)]);
-                } else {
-                    self._loadSubNodes($(this).attr('id'), $(this));
-                }
-            });*/
+
 
         },
         /**
