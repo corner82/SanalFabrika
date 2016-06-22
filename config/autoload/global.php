@@ -78,7 +78,9 @@ return array(
             'cpmemberset' => 'layout/cpmembersetLayout.phtml',
             'cpmp' => 'layout/cpmpLayout.phtml',
             'cpreference' => 'layout/cpreferenceLayout.phtml',
-            'projreg' => 'layout/projregLayout.phtml'
+            'projreg' => 'layout/projregLayout.phtml',
+            'uprofset' => 'layout/uprofsetLayout.phtml',
+            'projpool' => 'layout/projpoolLayout.phtml'
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
@@ -148,7 +150,9 @@ return array(
             'cpmp',
             'cpmemberset',
             'cpreference',
-            'projreg'
+            'projreg',
+            'uprofset',
+            'projpool'
         ),
 
     ),
@@ -183,7 +187,9 @@ return array(
                                                                     'cpmemberset',
                                                                     'cpreference', 
                                                                     'cmt',
-                                                                    'projreg'
+                                                                    'projreg',
+                                                                    'uprofset',
+                                                                    'projpool'
                                                                     ),
                                      'login' => array('index'),)
                    ),
@@ -209,7 +215,9 @@ return array(
                                                               'cpmp',
                                                               'cpmemberset',
                                                               'cpreference',
-                                                              'projreg'
+                                                              'projreg',
+                                                              'uprofset',
+                                                              'projpool'
                                                               )),
                    ),
         'supervisor' => array(
@@ -241,7 +249,9 @@ return array(
                                                                     'cpmp',
                                                                     'cpmemberset',
                                                                     'cpreference',
-                                                                    'projreg'
+                                                                    'projreg',
+                                                                    'uprofset',
+                                                                    'projpool'
                                                                     ))
                    ),
         

@@ -27,23 +27,21 @@ $(document).ready(function () {
 
     if ($('#langCode').val() === 'en') {
         window.userprofile = 'Profile';
-        window.connections = 'Connection';
+//        window.connections = 'Connection';
         window.profile_setting = 'Profile Settings';
     } else if ($('#langCode').val() === 'tr') {
         window.userprofile = 'Profil';
-        window.connections = 'İlişkiler';
+//        window.connections = 'İlişkiler';
         window.profile_setting = 'Profil Ayarları';
     } else if ($('#langCode').val() === 'fa') {
         window.userprofile = 'پروفایل شرکت';
-        window.connections = 'ارتباطات';
+//        window.connections = 'ارتباطات';
         window.profile_setting = 'تنظیمات پروفایل';
     }
 
     /*
      * appendings left menu
      */
-
-
     var profilelink =
             "<li id='userprofile' class='list-group-item' onclick=changeMenu(this)>"
             + "<a href='#' onmouseover='' style='cursor: pointer;'>"
@@ -52,16 +50,16 @@ $(document).ready(function () {
             + window.userprofile
             + "</a>";
     +"</li>";
-    var connectionslink =
-            "<li id='userconnprof' class='list-group-item' onclick=changeMenu(this)>"
-            + "<a href='#' target='' onmouseover='' style='cursor: pointer;'>"
-            + "<i class='fa fa-bar-chart-o'>"
-            + "</i>"
-            + window.connections
-            + "</a>";
-    +"</li>";
+//    var connectionslink =
+//            "<li id='userconnprof' class='list-group-item' onclick=changeMenu(this)>"
+//            + "<a href='#' target='' onmouseover='' style='cursor: pointer;'>"
+//            + "<i class='fa fa-bar-chart-o'>"
+//            + "</i>"
+//            + window.connections
+//            + "</a>";
+//    +"</li>";
     var settingslink =
-            "<li id='cpgeneralset' class='list-group-item' onclick=changeMenu(this)>"
+            "<li id='uprofset' class='list-group-item' onclick=changeMenu(this)>"
             + "<a href='#' onmouseover='' style='cursor: pointer;'>"
             + "<i class='fa fa-bar-chart-o'>"
             + "</i>"
@@ -93,12 +91,7 @@ $(document).ready(function () {
      * Check active link
      */
 //    string.indexOf(substring)
-    var pagenpk = currentLink.replace('https://' + userprofilerootLink, '');
-    if (pagenpk.indexOf("#")) {
-        pagenpk = pagenpk.substring(0, pagenpk.indexOf('#'));
-    }
-    var page = pagenpk.replace('/' + npk, '');
-
+    
     $('.li').on('click', function () {
         $('.active').removeClass('active');
         $('.' + $(this).attr('class')).addClass('active');
@@ -119,8 +112,6 @@ $(document).ready(function () {
 
     $('#' + active_action).siblings().removeClass('active');
     $('#' + active_action).addClass('active');
-
-
 });
 
 
@@ -141,29 +132,5 @@ function changeMenu(clicked_link) {
 
     var newURL = window.location.href.replace(action, clicked_link.id);
     window.location.replace(newURL);
-
-}
-
-function ulActivation(clicked) {
-    if (!$('#companymtprofile').hasClass('.active')) {
-
-        $('#companymtprofile').siblings().removeClass('active');
-        $('#companymtprofile').addClass('.active');
-
-        var divided = $('#requestUriRegulated').val().split('/');
-        var action;
-
-        if (divided[1] === '--dil--') {
-            action = divided[4];
-        } else {
-            action = divided[3];
-        }
-
-        $(clicked).siblings().removeClass('active');
-        $(clicked).addClass('active');
-
-        var newURL = window.location.href.replace(action, clicked.id);
-        window.location.replace(newURL);
-    }
 
 }
