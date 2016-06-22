@@ -487,66 +487,7 @@ $(document).ready(function () {
                                          'Makina özelliğini tüm kategorilerden Öğesini silmek üzeresiniz, birim silme işlemi geri alınamaz!! ');
    }
    
-   /**
-    * wrapper class for pop up and delete machine property from specific
-    * machine category
-    * @param {integer} nodeID
-    * @returns {null}
-    * @author Mustafa Zeynel Dağlı
-    * @since 04/04/2016
-    */
-   window.deleteMachPropDialog= function(id, element){
-       var nodeID = nodeID;
-       wcm.warningComplexMessage({onConfirm : function(event, data) {
-           deleteMachProp(id, element);
-       }
-       });
-       wcm.warningComplexMessage('show', 'Makina Özelliğini Kategoriden Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                         'Makina özelliğini kategoriden  silmek üzeresiniz, makina özelliği silme işlemi geri alınamaz!! ');
-   }
-   
-   /**
-    * delete machine property from a specific machine category
-    * @param {type} id
-    * @param {type} element
-    * @param {type} machine_group_id
-    * @returns {undefined}
-    * @since 03/05/2016
-    */
-   window.deleteMachProp = function(id, element) {
-       var loader = $("#loading-image-crud-popup").loadImager();  
-       loader.loadImager('appendImage');
-       var ajPopUpDelete = $(window).ajaxCall({
-                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                        data : {
-                            url:'pkDeletePropertyMachineGroup_sysMachineToolPropertyDefinition' ,
-                            property_id : id,
-                            machine_grup_id : element.attr('data-machine_grup_id'),
-                            pk : $("#pk").val()
-                        }
-       });
-       ajPopUpDelete.ajaxCall ({
-                onError : function (event, textStatus, errorThrown) {  
-                    dm.dangerMessage('resetOnShown');  
-                    dm.dangerMessage('show', 'Makina Özelliği Silme İşlemi Başarısız...',
-                                              'Makina özelliği silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-                    console.error('"pkDeletePropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
-                },
-                onSuccess : function (event, data) {
-                    sm.successMessage({ 
-                        onShown : function() {
-                            loader.loadImager('removeLoadImage');
-                            element.remove();
-                        }
-                    });
-                    sm.successMessage('show', 'Makina Özelliği Silme İşleminiz Başarılı...',
-                                              'Makina özelliğini silme işleminiz başarılı...')
-                },                                   
-        });
-        ajPopUpDelete.ajaxCall('call');
-   }
-   
-   /**
+    /**
     * delete machine property from all kategories
     * @param {type} id
     * @param {type} element
@@ -561,8 +502,9 @@ $(document).ready(function () {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysMachineToolPropertyDefinition' ,
-                    id : id,
+                    url:'pkDeletePropertyMachineGroup_sysMachineToolPropertyDefinition' ,
+                    property_id : id,
+                    machine_group_id : machine_group_id,
                     pk : $("#pk").val()
                 }
     });
@@ -586,6 +528,71 @@ $(document).ready(function () {
     });
     ajDeleteAll.ajaxCall('call');
    }
+   
+   /**
+    * wrapper class for pop up and delete machine property from specific
+    * machine category
+    * @param {integer} nodeID
+    * @returns {null}
+    * @author Mustafa Zeynel Dağlı
+    * @since 04/04/2016
+    */
+   window.deleteMachPropDialog= function(id, machine_grup_id, element){
+       var nodeID = nodeID;
+       wcm.warningComplexMessage({onConfirm : function(event, data) {
+           deleteMachProp(id, machine_grup_id, element);
+       }
+       });
+       wcm.warningComplexMessage('show', 'Makina Özelliğini Kategoriden Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                         'Makina özelliğini kategoriden  silmek üzeresiniz, makina özelliği silme işlemi geri alınamaz!! ');
+   }
+   
+   /**
+    * delete machine property from a specific machine category
+    * @param {type} id
+    * @param {type} element
+    * @param {type} machine_group_id
+    * @returns {undefined}
+    * @since 03/05/2016
+    */
+   window.deleteMachProp = function(id, machine_grup_id, element) {
+       var loader = $("#loading-image-crud-popup").loadImager();  
+       loader.loadImager('appendImage');
+       //var ajPopUpDelete = $(window).ajaxCall({
+       var ajPopUpDelete = $("#loading-image-crud-popup").ajaxCall({
+                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data : {
+                            url:'pkDeletePropertyMachineGroup_sysMachineToolPropertyDefinition' ,
+                            property_id : id,
+                            machine_grup_id : machine_grup_id,
+                            pk : $("#pk").val()
+                        }
+       });
+       ajPopUpDelete.ajaxCall ({
+                onError : function (event, textStatus, errorThrown) {  
+                    dm.dangerMessage('resetOnShown');  
+                    dm.dangerMessage('show', 'Makina Özelliği Silme İşlemi Başarısız...',
+                                              'Makina özelliği silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+                    console.error('"pkDeletePropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
+                },
+                onSuccess : function (event, data) {
+                    sm.successMessage({ 
+                        onShown : function() {
+                            loader.loadImager('removeLoadImage');
+                            window.tagBuilderPopup.tagCabin('removeTag', element);
+                            window.tagBuilderPopupNot.tagCabin('addTagManually', id, 
+                                                                        element.text(),
+                                                                        {machine_grup_id : machine_grup_id,});
+                        }
+                    });
+                    sm.successMessage('show', 'Makina Özelliği Silme İşleminiz Başarılı...',
+                                              'Makina özelliğini silme işleminiz başarılı...')
+                },                                   
+        });
+        ajPopUpDelete.ajaxCall('call');
+   }
+   
+  
    
    
    /**
@@ -686,6 +693,19 @@ $(document).ready(function () {
                                                             </div>\n\
                                                         </div>\n\
                                                         <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Kategoride Olmayan Özellikler</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div style="margin-bottom: -10px;" class="tag-container-popup-not">\n\
+                                                                        <ul id="test-cabin-popup-not" class="tag-box"></ul>\n\
+                                                                    </div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
                                                             <label class="col-sm-2 control-label">Makina Özelliği</label>\n\
                                                             <div class="col-sm-10">\n\
                                                                 <div class="input-group">\n\
@@ -726,7 +746,7 @@ $(document).ready(function () {
         onshown : function () {
            $("#machPropFormInsertPopup").validationEngine();
             
-           var ajPopUpMachProp = $(window).ajaxCallWidget({
+           var ajPopUpMachProp = $('#test-cabin-popup').ajaxCallWidget({
                             proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                             data : {
                                 url:'pkFillMachineGroupPropertyDefinitions_sysMachineToolPropertyDefinition' ,
@@ -748,7 +768,7 @@ $(document).ready(function () {
                  },
                  onSuccess : function (event, data) {  
                     //alert('on success');
-                    var tagBuilderPopup = $('#test-cabin-popup').tagCabin({
+                    window.tagBuilderPopup = $('#test-cabin-popup').tagCabin({
                            tagCopy      : false,
                            tagDeletable : true,  
                            tagBox       : $('.tag-container-popup').find('ul'),
@@ -758,15 +778,59 @@ $(document).ready(function () {
                        onTagRemoved : function(event, data) {
                            var elementData = data.element;
                            var id = data.id;
-                           window.deleteMachPropDialog(id, elementData);
+                           window.deleteMachPropDialog(id, nodeID, elementData);
                            
                        }
                     });
-                   
                    tagBuilderPopup.tagCabin('addTags', data);
                  },
            }) 
            ajPopUpMachProp.ajaxCallWidget('call');
+           
+           
+           var ajPopUpMachPropNot = $("#loading-image-crud-popup").ajaxCallWidget({
+                            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                            data : {
+                                url:'pkFillMachineGroupNotInPropertyDefinitions_sysMachineToolPropertyDefinition' ,
+                                language_code : $('#langCode').val(),
+                                machine_grup_id : nodeID,
+                                pk : $("#pk").val()
+                            }
+           })
+           ajPopUpMachPropNot.ajaxCallWidget ({
+                 onError : function (event, textStatus, errorThrown) {
+                     dm.dangerMessage({
+                         onShown : function () {
+                            var loader = $("#loading-image-crud-popup").loadImager();
+                            loader.loadImager('appendImage');
+                         }
+                     });
+                     dm.dangerMessage('show', 'Kategoriye Ait Makina Özellikleri Yüklenememiştir...',
+                                              'Kategoriye ait makina özellikleri yüklenememiştir,msistem yöneticisi ile temasa geçiniz...');
+                 },
+                 onSuccess : function (event, data) {  
+                    //alert('on success');
+                    window.tagBuilderPopupNot = $('#test-cabin-popup-not').tagCabin({
+                           tagCopy      : true,
+                           tagDeletable : false,  
+                           tagBox       : $('.tag-container-popup-not').find('ul'),
+                           dataMapper   : {attributes : Array('machine_grup_id')} 
+                   });
+                   tagBuilderPopupNot.tagCabin({ 
+                       onTagCopied : function(event, data) {
+                           var elementData = data.element;
+                           var id = data.id;
+                           console.warn(elementData.text());
+                           var tagText = elementData.text();
+                           window.addMachProp(id, nodeID, elementData);
+                           //window.deleteMachPropDialog(id, elementData);
+                           
+                       }
+                    });
+                   tagBuilderPopupNot.tagCabin('addTags', data);
+                 },
+           }) 
+           ajPopUpMachPropNot.ajaxCallWidget('call');
 
            $('#tt_tree_menu_popup').tree({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
@@ -808,6 +872,90 @@ $(document).ready(function () {
     return false;
    }
    
+   
+   /**
+    * add machine property item to mach category
+    * @param {type} nodeID
+    * @param {type} nodeName
+    * @returns {undefined}
+    * @author Mustafa Zeynel Dağlı
+    * @since 22/06/2016
+    */
+   window.addMachProp = function (property_id, machine_grup_id, tag) {
+       console.warn(property_id);
+       console.warn(machine_grup_id);
+       console.warn(tagBuilderPopupNot);
+       console.warn();
+       
+       var property_id = property_id;
+       var machine_grup_id = machine_grup_id;
+       var tagText = tagText;
+       var loader = $("#loading-image-crud-popup").loadImager();
+       loader.loadImager('appendImage');
+
+       var aj = $(window).ajaxCall({
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
+            data : {
+                url:'pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition' ,
+                property_id : property_id,
+                machine_grup_id : machine_grup_id,
+                pk : $("#pk").val()
+            }
+       })
+       aj.ajaxCall ({  
+             onError : function (event, textStatus, errorThrown) {   
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
+                                          'Tanımlanmış Özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+                 console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                 console.log(data);
+                 var data = data;
+                sm.successMessage({
+                    onShown: function( event, data ) {
+                        window.tagBuilderPopup.tagCabin('addTagManually', property_id, 
+                                                                        tag.text(),
+                                                                        {machine_grup_id : machine_grup_id});
+                        window.tagBuilderPopupNot.tagCabin('removeTag', tag);                                                
+                        loader.loadImager('removeLoadImage');
+                        
+                    }
+                });
+                sm.successMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarılı...', 
+                                          'Tanımlanmış özellik ekleme İşlemini gerçekleştirdiniz... ',
+                                          data);
+                
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage('resetOnShown');
+                 dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
+                                          'Tanımlanmış özellik Eekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                 console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis datası boştur!!');
+             },
+             onErrorMessage : function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
+                                        'Tanımlanmış özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                console.error('"pkUpdateMakeActiveOrPassive_sysUnits" servis hatası->'+textStatus);
+             },
+             onError23503 : function (event, data) {
+             },
+             onError23505 : function (event, data) {
+                 dm.dangerMessage({
+                    onShown : function(event, data) {
+                        //$('#machPropFormInsertPopup')[0].reset();
+                        loader.loadImager('removeLoadImage');
+                    }
+                 });
+                 dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
+                                          'Özellik daha önce eklenmiştir, yeni bir özellik deneyiniz... ');
+             }
+       }) 
+       aj.ajaxCall('call');
+   }
+   
+   
    /**
     * insert machine property item
     * @param {type} nodeID
@@ -838,16 +986,16 @@ $(document).ready(function () {
         var jsonMachineGroupID = JSON.stringify(objmachineGroupID);
         
         var aj = $(window).ajaxCall({
-                        proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
-                        data : {
-                            url:'pkInsert_sysMachineToolPropertyDefinition' ,
-                            language_code : language_code,
-                            property_name : property_name,
-                            property_name_eng : property_name_eng,
-                            unit_grup_id : jsonUnitGroupID,
-                            machine_grup_id : jsonMachineGroupID,
-                            pk : $("#pk").val()
-                        }
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
+            data : {
+                url:'pkInsert_sysMachineToolPropertyDefinition' ,
+                language_code : language_code,
+                property_name : property_name,
+                property_name_eng : property_name_eng,
+                unit_grup_id : jsonUnitGroupID,
+                machine_grup_id : jsonMachineGroupID,
+                pk : $("#pk").val()
+            }
        })
        aj.ajaxCall ({  
              onError : function (event, textStatus, errorThrown) {   

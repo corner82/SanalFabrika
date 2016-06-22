@@ -39,6 +39,41 @@
         },
         
         /**
+         * read tags text
+         * @param {type} tag
+         * @returns {unresolved}
+         * @since 22/06/2016
+         */
+        readTagText : function(tag) {
+            return tag.text();
+        },
+        
+        /**
+         * read tag id
+         * @param {type} tag
+         * @returns {unresolved}
+         * @since 22/06/2016
+         */
+        readTagID : function(tag, attr) {
+            if(typeof attr === 'undefined') {
+                return tag.attr('data-attribute');
+            } else {
+                return tag.attr(attr);
+            }
+            
+        },
+        
+       /**
+        * remove indivigual tag item due to tag dom object
+        * @returns {Boolean}
+        * @since 22/06/2016
+        */
+        removeTag : function(tag) {
+            tag.remove();
+            return true;
+        },
+        
+        /**
          * find and remove specific tags due to given value
          * @param {type} value
          * @param {type} tagAttribute
@@ -141,6 +176,7 @@
             var infoArrayManual = infoArrayManual;
             var dataArr = $.parseJSON(data);
             var infoArray = {};
+            //console.warn(self.options.tagBox);
             $.each(dataArr, function(key, row) {
                 if(typeof self.options.dataMapper!= "undefined") { 
                     $.each(self.options.dataMapper, function(index, item) {
@@ -151,7 +187,6 @@
                             if(typeof row[index][item2]!= "undefined") { 
                                 infoArray['data-'+item2] = row[index][item2]; 
                             }
-
                         })                    
                     })
                     //console.warn(infoArray);
