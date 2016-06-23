@@ -91,6 +91,7 @@ return array(
                           'prodtypes'  => 'layout/prodtypes.phtml',
                           'machattr'  => 'layout/machattr.phtml',
                           'uniquemachprop' => 'layout/uniquemachprop.phtml',
+                          'machpropdef' => 'layout/machpropdef.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -234,7 +235,8 @@ return array(
                                                             'unt',
                                                             'prodtypes',
                                                             'machattr',
-                                                            'uniquemachprop'),
+                                                            'uniquemachprop',
+                                                            'machpropdef'),
                                            )
                    ),
         
