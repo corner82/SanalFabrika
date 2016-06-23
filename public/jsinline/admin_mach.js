@@ -49,11 +49,10 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'machine_tool_name',title:'Makina',sortable:true,width:300},
-            {field:'machine_tool_name_eng',title:'İng. Makina',sortable:true, width:300},
-
             {field:'group_name',title:'Mak. Kategorisi', width:100},
             {field:'manufacturer_name',title:'Üretici', width:150},
+            {field:'machine_tool_name',title:'Makina',sortable:true,width:300},
+            {field:'machine_tool_name_eng',title:'İng. Makina',sortable:true, width:300},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
