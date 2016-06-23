@@ -386,7 +386,8 @@ window.deleteMachUltimately = function(id, index) {
             sm.successMessage({ 
                 onShown : function() {
                     loaderGridBlock.loadImager('removeLoadImage');
-                    $('#tt_grid_dynamic').datagrid('deleteRow', index);
+                    //$('#tt_grid_dynamic').datagrid('deleteRow', index);
+                    $('#tt_grid_dynamic').datagrid('reload');
                     
                 }
             });
