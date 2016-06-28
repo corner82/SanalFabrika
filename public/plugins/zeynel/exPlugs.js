@@ -480,7 +480,7 @@
                     //console.log(id);
                     var self = this;
                     if (element.hasClass('machine')) {
-                        alert('has class machine');
+                        //alert('has class machine');
                         self._trigger('getMachineProp', event, [self, element]);
                         self._trigger('getMachineGenProp', event, [self, element]);
                     } else {

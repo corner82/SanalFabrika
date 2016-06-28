@@ -7,7 +7,7 @@ $(document).ready(function () {
  * @author Mustafa Zeynel Dağlı
  * @since 04/04/2016
  */
-/*$.extend($.fn.tree.methods,{
+$.extend($.fn.tree.methods,{
         unselect:function(jq,target){
                 return jq.each(function(){
                         var opts = $(this).tree('options');
@@ -17,7 +17,7 @@ $(document).ready(function () {
                         }
                 });
         }
-});  */
+});  
     
     
 var treeMachine = $('.tree2').machineTree();
@@ -29,8 +29,8 @@ var treeMachine = $('.tree2').machineTree();
     
     treeMachine.machineTree({
         getMachineProp : function(event, tree, node) {
-            alert('getMachineProp triggerred');
-            alert(node.parent('li.parent_li').parent('ul').prev().attr('id'));
+            //alert('getMachineProp triggerred');
+            //alert(node.parent('li.parent_li').parent('ul').prev().attr('id'));
             var machineGroupID = node.parent('li.parent_li').parent('ul').prev().attr('id');
             var machineID = node.attr('id');
             
@@ -39,30 +39,15 @@ var treeMachine = $('.tree2').machineTree();
            }, 900, 'swing');
             
             $('#tt_tree_menu2').tree({  
-                checkbox : true,  
+                checkbox : false,  
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillMachineGroupProperties_sysMachineToolPropertyDefinition&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val()+'&machine_grup_id='+machineGroupID+'&machine_id='+machineID,
             });
             
             $('#machID').val(machineID);
             $('#machName').val(node.text());
-            //console.warn($('#machName').val());
-            //$('#tt_tree_menu2').tree('reload');
-            
-            //alert(node.parent('li.parent_li').parent('span.badge').attr('id'));
-            //console.warn(node.parent('li.parent_li').parent('span.badge'));
-            /*console.log(tree.options.url);
-            console.log(node.attr('id'));*/
-            
-            /*tree.options.alpacaFormCreator = $('#selectedMTInformation').machinePropertyFormCreater();
-            tree.options.alpacaFormCreator.machinePropertyFormCreater('option', 'machineID', node.attr('id'));
-            tree.options.alpacaFormCreator.machinePropertyFormCreater('setMachinePropertyForm');*/
         }
     });
    
- 
-   
-
-
 
 /**
  * Machine datagrid is being filled
@@ -96,11 +81,10 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'machine_tool_name',title:'Makina',sortable:true,width:300},
-            {field:'machine_tool_name_eng',title:'İng. Makina',sortable:true, width:300},
-
             {field:'group_name',title:'Mak. Kategorisi', width:100},
             {field:'manufacturer_name',title:'Üretici', width:150},
+            {field:'machine_tool_name',title:'Makina',sortable:true,width:300},
+            {field:'machine_tool_name_eng',title:'İng. Makina',sortable:true, width:300},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
@@ -129,8 +113,6 @@ $('#tt_grid_dynamic').datagrid({
 $('#tt_grid_dynamic').datagrid('enableFilter');
 
 
-
-
 /**
  * multilanguage plugin 
  * @type Lang
@@ -157,7 +139,7 @@ var selectedNode;
 * this imager goes to #loading-image div in html.
 * imager will be removed on roles tree onLoadSuccess method.
 */
-var loader = $("#loading-image").loadImager();
+//var loader = $("#loading-image").loadImager();
 
 var sm  = $(window).successMessage();
 var dm  = $(window).dangerMessage();
@@ -181,24 +163,9 @@ $("#mach-prod-box").loadImager('appendImage');
  * machine insert form validation engine attached to work
  * @since 16/05/2016
  */
-$('#machineForm').validationEngine();
+//$('#machineForm').validationEngine();
 
- /**
-* reset button function for machine insert form
-* property insert
-* for 'insert' and 'update' form buttons
-* @returns null
-* @author Mustafa Zeynel Dağlı  
-* @since 16/05/2016
-*/
-window.resetMachineForm = function () {
-   $('#machineForm').validationEngine('hide');
-   return false;
-}
-                                            
-
-
-   
+  
 /*
 * 
 * machine category tree
@@ -213,37 +180,24 @@ $('#tt_tree_menu2').tree({
     cascadeCheck: false,
     lines: true,
     onLoadSuccess: function (node, data) {
-         loader.loadImager('removeLoadImage');
+         //loader.loadImager('removeLoadImage');
     },
     onSelect : function(node) {
-        var self = $(this);
-        if(!self.tree('isLeaf', node.target)) {  
-            wm.warningMessage( {
-                onShown : function (event ,data ) {
-                   self.tree('unselect', node.target); 
-                }
-            });
-            wm.warningMessage('show','Alt Kategori Seçiniz',
-                                     'Lütfen alt kategori seçiniz...');
-        }
     },
-    onCheck: function (node, checked) {
-     },
+    
     formatter: function (node) {
+        //console.log(node);
          var s = node.text;
          var propertyID = node.id;
          var parent = $(this).tree('getParent', node.target);
-         if(node.state == 'open') {
-             /*s += '&nbsp;\n\
-                 <i class="fa fa-level-down" title="Kategoriye makina özelliği ekle" onclick="insertMachPropDialog('+id+', \''+node.text+'\')"></i>';*/
-             //return s;
-         }
-         //console.warn(node);
-         //console.warn(node.attributes.active);
-         //alert($('#machID').val());
+         
          if(node.attributes.active == true) {
              s += '&nbsp;\n\
-                 <i class="fa fa-level-down" title="Kategoriye makina özelliği ekle" onclick="insertIndMachPropDialog('+propertyID+', \''+node.text+'\')"></i>';
+                 <i class="fa fa-level-down" title="Özelliği güncelle" onclick="updateMachPropDialog('+propertyID+', { machine_grup_id : \''+node.attributes.machine_grup_id+'\',\n\
+                                                                                                                        property_name : \''+node.text+'\',\n\
+                                                                                                                        unit_id : \''+node.attributes.unit_id+'\',\n\
+                                                                                                                        machine_tool_id : \''+node.attributes.machine_tool_id+'\',\n\
+                                                                                                                        property_value :  \''+node.attributes.property_value+'\'})"></i>';
              s += '&nbsp;\n\
                  <i class="fa fa-fw fa-check-square-o" title="özellik sil" onclick="deleteIndMachPropUltimatelyDialog('+propertyID+', '+$('#machID').val()+')"></i>';
          } else if(node.attributes.active == false) {
@@ -253,6 +207,249 @@ $('#tt_tree_menu2').tree({
          return s;
      }
 });
+
+/**
+ * wrapper for indivigual machine property update process
+ * @param {type} nodeID
+ * @param {type} nodeName
+ * @returns {Boolean}
+ * @author Mustafa Zeynel Dağlı
+ * @since 27/06/2016
+ */
+window.updateMachPropDialog = function (propertyID, row) {
+//console.log(row);  
+var row = row;
+var machName = $('#machName').val();
+BootstrapDialog.show({  
+     title: ' "'+machName+'" makinasında,  "'+ row.property_name + '" özelliğini güncellemektesiniz...',
+     message: function (dialogRef) {
+                 var dialogRef = dialogRef;
+                 var $message = $(' <div class="row">\n\
+                                         <div class="col-md-12">\n\
+                                             <div id="loading-image-update-popup" class="box box-primary">\n\
+                                                 <form id="machPropUpdateFormPopup" method="get" class="form-horizontal">\n\
+                                                 <div class="hr-line-dashed"></div>\n\
+                                                    <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birim Değeri</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group" style="margin-top: 20px;">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input  data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="property_value_popup_update" id="property_value_popup_update" />\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                     <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Birimler</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div id="loading-image-unit" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                        <div id="dropdownUnitsUpdatePopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                     <div class="hr-line-dashed"></div>\n\
+                                                     <div class="form-group">\n\
+                                                         <div class="col-sm-10 col-sm-offset-2">\n\
+                                                         <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateMachPropWrapper(event, '+propertyID+', { machine_grup_id : \''+row.machine_grup_id+'\',\n\
+                                                                                                                                                                                            property_name : \''+row.text+'\',\n\
+                                                                                                                                                                                            unit_id : \''+row.unit_id+'\',\n\
+                                                                                                                                                                                            machine_tool_id : \''+row.machine_tool_id+'\',\n\
+                                                                                                                                                                                            property_value :  \''+row.property_value+'\'});">\n\
+                                                            <i class="fa fa-save"></i> Kaydet </button>\n\
+                                                         <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
+                                                             <i class="fa fa-remove"></i> Reset </button>-->\n\
+                                                     </div>\n\
+                                                 </div>\n\
+                                             </form>\n\
+                                         </div>\n\
+                                     </div>\n\
+                                 </div>');
+                 return $message;
+             },
+     type: BootstrapDialog.TYPE_PRIMARY,
+     onshown : function () {         
+        $('#machine_tool_group_id_popup').val(''+row.machine_tool_grup_id+'');
+
+        $('#machPropUpdateFormPopup').validationEngine();
+        $('#property_value_popup_update').val(row.property_value);
+         
+        var ajaxMacPropUpdateUnitsPopup = $(window).ajaxCallWidget({
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    data: { url:'pkFillPropertyUnits_sysMachineToolProperties' ,
+                            language_code : 'tr',
+                            pk : $("#pk").val(),
+                            property_id : propertyID 
+                    }
+       })
+        ajaxMacPropUpdateUnitsPopup.ajaxCallWidget ({
+            onError : function (event, textStatus,errorThrown) {
+                dm.dangerMessage({
+                   onShown : function() {
+                       //$('#mach-prod-box').loadImager('removeLoadImage'); 
+                   }
+                });
+                dm.dangerMessage('show', 'Makina Üreticisi Bulunamamıştır...',
+                                         'Makina üreticisi firma bulunamamıştır...');
+            },
+            onSuccess : function (event, data) {
+                var data = $.parseJSON(data);
+                    //$('#mach-prod-box').loadImager('removeLoadImage');
+                    $('#dropdownUnitsUpdatePopup').ddslick({
+                            height : 200,
+                            data : data, 
+                            width:'98%',
+                            search : true,
+                            //imagePosition:"right",
+                            onSelected: function(selectedData){
+                                if(selectedData.selectedData.value>0) {
+                                    /*$('#tt_tree_menu').tree({
+                                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                                    });*/
+                             }
+                         }   
+                    });  
+                    $('#dropdownUnitsUpdatePopup').ddslick('selectByValue', 
+                                                {index: ''+row.unit_id+'' ,
+                                                 /*text : ''+row.manufacturer_name+''*/}
+                                                );
+                },
+                onErrorDataNull : function (event, data) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#mach-prod-box').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'Birim Bulunamamıştır...',
+                                              'Birim değerleri bulunamamıştır...');
+                 },
+            }) 
+        ajaxMacPropUpdateUnitsPopup.ajaxCallWidget('call');
+     },
+     onhide : function() {
+     },
+ });
+ return false;
+}
+
+/**
+ * update indivigual machine property item
+ * @returns {Boolean}
+ * @author Mustafa Zeynel Dağlı
+ * @since 27/06/2016
+ */
+window.updateMachPropWrapper = function (e, id, row) {
+ e.preventDefault();
+ var id = id;
+ if ($("#machPropUpdateFormPopup").validationEngine('validate')) {
+        var ddData = $('#dropdownUnitsUpdatePopup').data('ddslick');
+        if(ddData.selectedData.value>0) {
+            updateMachProp(id, { machine_grup_id : row.machine_grup_id,
+                                property_name : row.text,
+                                unit_id : row.unit_id,
+                                machine_tool_id : row.machine_tool_id,
+                                property_value :  row.property_value });
+        } else {
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Birim Seçiniz', 'Lütfen birim seçiniz!')
+        }
+        return false;
+ 
+ }
+ return false;
+}
+
+/**
+ * update indivigual machine property item
+ * @returns {undefined}
+ * @author Mustafa Zeynel Dağlı
+ * @since 27/06/2016
+ */
+window.updateMachProp = function (property_id, row) {
+    console.log(row);
+     var loader = $('#loading-image-update-popup').loadImager();
+     loader.loadImager('appendImage');
+     
+     var property_value = $('#property_value_popup_update').val();
+     var ddData = $('#dropdownUnitsUpdatePopup').data('ddslick');
+     var unit_id = ddData.selectedData.value;
+     var machine_tool_id = row.machine_tool_id;
+     var property_id = property_id;
+     
+     var aj = $(window).ajaxCall({
+                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                     data : {
+                         url:'pkUpdate_sysMachineToolProperties' ,
+                         language_code : $('#langCode').val(),
+                         machine_tool_id : machine_tool_id,
+                         property_id : property_id,
+                         property_value : property_value,
+                         unit_id : unit_id,
+                         pk : $("#pk").val()
+                     }
+    })
+    aj.ajaxCall ({
+          onError : function (event, textStatus, errorThrown) {
+             dm.dangerMessage('resetOnShown');
+             dm.dangerMessage('show', 'Tekil Makina Özelliği Güncelleme İşlemi Başarısız...', 
+                                           'Tekil makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysMachineTools" servis hatası->'+textStatus);
+          },
+          onSuccess : function (event, data) {
+             var data = data;
+             sm.successMessage({
+                 onShown: function( event, data ) {
+                     loader.loadImager('removeLoadImage');
+                 }
+             });
+             sm.successMessage('show', 'Tekil Makina Özelliği Güncelleme İşlemi Başarılı...', 
+                                       'Tekil makina güncelleme işlemini gerçekleştirdiniz... ',
+                                       data);
+            selectedTreeItem = $('#tt_tree_menu2').tree('find', property_id);
+            var clickedNode = selectedTreeItem;
+            $('#tt_tree_menu2').tree('remove', selectedTreeItem.target);
+            $('#tt_tree_menu2').tree('append', {
+                    data: [{
+                        attributes:{machine_grup_id: clickedNode.attributes.machine_grup_id, 
+                                    property_name_eng: clickedNode.attributes.property_name_eng, 
+                                    active: true,
+                                    unit_id : unit_id,
+                                    machine_tool_id : clickedNode.attributes.machine_tool_id,
+                                    property_value : property_value},
+                        id: clickedNode.id,
+                        text: clickedNode.text,
+                        checked: clickedNode.checked,
+                        state : 'open',
+                    }]
+            });
+          },
+          onErrorDataNull : function (event, data) {
+             dm.dangerMessage('resetOnShown');
+             dm.dangerMessage('show', 'Tekil Makina Özelliği Güncelleme İşlemi Başarısız...', 
+                                      'Tekil makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysMachineTools" servis datası boştur!!');
+          },
+          onErrorMessage : function (event, data) {
+             dm.dangerMessage('resetOnShown');
+             dm.dangerMessage('show', 'Tekil Makina Özelliği Güncelleme İşlemi Başarısız...', 
+                                      'Tekil makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+          },
+          onError23503 : function (event, data) {
+          },
+          onError23505 : function (event, data) {
+            dm.dangerMessage('resetOnShown');
+            dm.dangerMessage('show', 'Tekil Makina Özelliği Güncelleme İşlemi Başarısız...', 
+                                      'Tekil makina özelliği daha önce sisteme girilmiştir, Lütfen farklı bir özellik değeri veya birim giriniz... ');
+          }
+    }) 
+    aj.ajaxCall('call');
+}
+
+
+
 
  /**
     * wrapper for machine property insert process
@@ -456,8 +653,24 @@ $('#tt_tree_menu2').tree({
                         loader.loadImager('removeLoadImage');
                         //dialogRef.close();
                         BootstrapDialog.closeAll();
-                        $('#tt_tree_menu2').tree('reload');
                         
+                        selectedTreeItem = $('#tt_tree_menu2').tree('find', property_id);
+                        var clickedNode = selectedTreeItem;
+                        $('#tt_tree_menu2').tree('remove', selectedTreeItem.target);
+                        $('#tt_tree_menu2').tree('append', {
+                                data: [{
+                                    attributes:{machine_grup_id: clickedNode.attributes.machine_grup_id, 
+                                                property_name_eng: clickedNode.attributes.property_name_eng, 
+                                                active: true,
+                                                unit_id : clickedNode.attributes.unit_id,
+                                                machine_tool_id : clickedNode.attributes.machine_tool_id,
+                                                property_value : clickedNode.attributes.property_value},
+                                    id: clickedNode.id,
+                                    text: clickedNode.text,
+                                    checked: clickedNode.checked,
+                                    state : 'open',
+                                }]
+                        });
                     }
                 });
                 sm.successMessage('show', 'Makina Özelliği Kayıt İşlemi Başarılı...', 
@@ -492,10 +705,7 @@ $('#tt_tree_menu2').tree({
        }) 
        aj.ajaxCall('call');
    }
-
-
-
-      
+    
 /**
  * set machine due to machine categories
  * @param {type} node
@@ -559,10 +769,7 @@ window.getAllMachinesToDatagrid = function(node, treeObj) {
 
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
-
-//Validation forms binded...
-jQuery("#machineForm").validationEngine();
-    
+   
 /**
  * wrapper class for pop up and delete indiviqual machine property
  * @param {integer} nodeID
@@ -574,11 +781,11 @@ window.deleteIndMachPropUltimatelyDialog= function(nodeID, index){
     var nodeID = nodeID;
     var index = index;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        //deleteIndMachPropUltimately(nodeID, index);
+        deleteIndMachPropUltimately(nodeID, index);
     }
     });
-    wcm.warningComplexMessage('show', 'Makina Özelliği Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'Makina özelliği  silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'Tekil Makina Özelliği Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'Tekil makina özelliği  silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
    
 /**
@@ -592,69 +799,58 @@ window.deleteIndMachPropUltimatelyDialog= function(nodeID, index){
 window.deleteIndMachPropUltimately = function(id, index) {
    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
     loaderGridBlock.loadImager('appendImage');
+    var machine_id = $('#machID').val(); 
 
     var id = id;
     var index = index;
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysMachineTools' ,
-                    id : id,
+                    url:'pkDeletePropertyMachine_sysMachineToolProperties' ,
+                    property_id : id,
+                    machine_id : machine_id,
                     pk : $("#pk").val()
                 }
     });
     ajDeleteAll.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'Makina Özelliği Silme İşlemi Başarısız...',
-                                      'Makina özelliği silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-            console.error('"pkDelete_sysMachineTools" servis hatası->'+data.errorInfo);
+            dm.dangerMessage('show', 'Tekil Makina Özelliği Silme İşlemi Başarısız...',
+                                      'Tekil makina özelliği silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDeletePropertyMachine_sysMachineToolProperties" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
             sm.successMessage({ 
                 onShown : function() {
                     loaderGridBlock.loadImager('removeLoadImage');
-                    $('#tt_grid_dynamic').datagrid('deleteRow', index);
+                    //$('#tt_grid_dynamic').datagrid('deleteRow', index);
+                    
+                    selectedTreeItem = $('#tt_tree_menu2').tree('find', id);
+                    var clickedNode = selectedTreeItem;
+                    $('#tt_tree_menu2').tree('remove', selectedTreeItem.target);
+                    $('#tt_tree_menu2').tree('append', {
+                            data: [{
+                                attributes:{machine_grup_id: clickedNode.attributes.machine_grup_id, 
+                                            property_name_eng: clickedNode.attributes.property_name_eng, 
+                                            active: false,
+                                            unit_id : clickedNode.attributes.unit_id,
+                                            machine_tool_id : clickedNode.attributes.machine_tool_id,
+                                            property_value : clickedNode.attributes.property_value},
+                                id: clickedNode.id,
+                                text: clickedNode.text,
+                                checked: clickedNode.checked,
+                                state : 'open',
+                            }]
+                    });
                     
                 }
             });
-            sm.successMessage('show', 'Makina  Silme İşleminiz Başarılı...',
-                                      'Makina  silme işleminiz başarılı...')
+            sm.successMessage('show', 'Tekil Makina Özelliği Silme İşleminiz Başarılı...',
+                                      'Tekil makina özelliği silme işleminiz başarılı...')
         },                                   
     });
     ajDeleteAll.ajaxCall('call');
 }
-   
- 
-/**
- * insert unit item
- * @returns {Boolean}
- * @author Mustafa Zeynel Dağlı
- * @since 04/04/2016
- */
-window.insertMachWrapper = function (e) {
- e.preventDefault();
- var ddData = $('#dropdownProducers').data('ddslick');
- /*var nodeID = nodeID;
- var nodeName = nodeName;*/
-
- if ($("#machineForm").validationEngine('validate')) {
-     if($('#tt_tree_menu2').tree('getSelected') == null) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Makina Kategorisi Seçiniz', 'Lütfen makina kategorisi seçiniz!');
-         return false;
-     }
-
-     if(!ddData.selectedData.value > 0) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Makina Üreticisi Seçiniz', 'Lütfen makina üreticisi seçiniz!');
-         return false;
-     }
-     insertMach();
- }
- return false;
-}
-   
    
    
 /**
@@ -663,7 +859,7 @@ window.insertMachWrapper = function (e) {
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 20/05/2016
+ * @since 27/06/2016
  */
 window.updateMachDialog = function (id, row) {
 console.log(row);
@@ -895,10 +1091,10 @@ BootstrapDialog.show({
 }
 
 /**
- * update unit item
+ * update machine item
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 23/05/2016
+ * @since 27/06/2016
  */
 window.updateMachWrapper = function (e, id) {
  e.preventDefault();
@@ -925,10 +1121,10 @@ window.updateMachWrapper = function (e, id) {
 }
 
 /**
- * update unit item
+ * update machine item
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 23/05/2016
+ * @since 27/06/2016
  */
 window.updateMach = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
@@ -994,113 +1190,7 @@ window.updateMach = function (id) {
     }) 
     aj.ajaxCall('call');
 }
-   
-/**
- * insert machine 
- * @param {type} nodeID
- * @param {type} nodeName
- * @returns {undefined}
- * @author Mustafa Zeynel Dağlı
- * @since 20/05/2016
- */
-window.insertMach = function (nodeID, nodeName) {
-     var loaderInsertBlock = $("#loading-image-crud").loadImager();
-     loaderInsertBlock.loadImager('appendImage');
-
-     var machine_code = $('#machine_code').val();
-     var model_year = $('#model_year').val();     
-     var model = $('#model').val();
-
-     var ddData = $('#dropdownProducers').data('ddslick')
-     var manufactuer_id = ddData.selectedData.value;
-
-     var machine_tool_name_eng = $('#machine_tool_name_eng').val();
-     var machine_tool_name = $('#machine_tool_name').val();
-     var machine_code = $('#machine_code').val();
-
-     var selectedTreeItem = $('#tt_tree_menu2').tree('getSelected');
-     var machine_tool_grup_id = selectedTreeItem.id;
-
-     var aj = $(window).ajaxCall({
-                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
-                     data : {
-                         url:'pkInsert_sysMachineTools' ,
-                         machine_code : machine_code,
-                         model_year : model_year,
-                         model : model,
-                         manufactuer_id : manufactuer_id,
-                         machine_tool_name_eng : machine_tool_name_eng,
-                         machine_tool_name : machine_tool_name,
-                         machine_tool_grup_id : machine_tool_grup_id,
-                         machine_code : machine_code,
-                         pk : $("#pk").val()
-                     }
-    })
-    aj.ajaxCall ({  
-          onError : function (event, textStatus, errorThrown) {   
-              dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Makina Ekleme İşlemi Başarısız...', 
-                                       'Makina ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysMachineTools" servis hatası->'+textStatus);
-          },
-          onSuccess : function (event, data) {
-              console.log(data);
-              var data = data;
-             sm.successMessage({
-                 onShown: function( event, data ) {
-                     $('#machineForm')[0].reset();
-                     $('#dropdownProducers').ddslick('select', {index: '0' });
-                     //var nodeSelected = $('#tt_tree_menu2').tree('find', machine_tool_grup_id); 
-                     var nodeSelected = $('#tt_tree_menu2').tree('getSelected');
-                     $('tt_tree_menu2').tree('unselect', nodeSelected); 
-
-                     loaderInsertBlock.loadImager('removeLoadImage');
-                     $('#tt_grid_dynamic').datagrid({
-                         queryParams: {
-                                 pk: $('#pk').val(),
-                                 subject: 'datagrid',
-                                 url : 'pkGetMachineTools_sysMachineTools',
-                                 sort : 'id',
-                                 order : 'desc',
-                         },
-                     });
-                     $('#tt_grid_dynamic').datagrid('enableFilter');
-                     $('#tt_grid_dynamic').datagrid('reload');
-                 }
-             });
-             sm.successMessage('show', 'Makina Kayıt İşlemi Başarılı...', 
-                                       'Makina kayıt işlemini gerçekleştirdiniz... ',
-                                       data);
-
-          },
-          onErrorDataNull : function (event, data) {
-              dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...', 
-                                       'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysMachineTools" servis datası boştur!!');
-          },
-          onErrorMessage : function (event, data) {
-             dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...', 
-                                     'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysMachineTools" servis hatası->'+data.errorInfo);
-          },
-          onError23503 : function (event, data) {
-          },
-          onError23505 : function (event, data) {
-              dm.dangerMessage({
-                 onShown : function(event, data) {
-                     $('#machineForm')[0].reset();
-                     loaderInsertBlock.loadImager('removeLoadImage');
-                 }
-              });
-              dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile makina kaydı yapılmıştır, yeni bir makina ismi deneyiniz... ');
-          }
-    }) 
-    aj.ajaxCall('call');
-}
-   
+     
 
 /**
  * active/passive machine
@@ -1122,10 +1212,10 @@ wcm.warningComplexMessage('show', 'Makina Aktif/Pasif İşlemi Gerçekleştirmek
 }
 
 /**
- * update unit item
+ * update machine item active or passive
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 05/04/2016
+ * @since 27/06/2016
  */
 window.activePassiveMachine = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
@@ -1192,6 +1282,70 @@ window.activePassiveMachine = function (id, domElement) {
           }
     }) 
     aj.ajaxCall('call');
+}
+
+/**
+ * wrapper class for pop up and delete machine ultimately
+ * @param {integer} nodeID
+ * @returns {null}
+ * @author Mustafa Zeynel Dağlı
+ * @since 27/06/2016
+ */
+window.deleteMachUltimatelyDialog= function(id, index){
+    var nodeID = nodeID;
+    var id = id;
+    var index = index;
+    wcm.warningComplexMessage({onConfirm : function(event, data) {
+        deleteMachUltimately(id, index);
+    }
+    });
+    wcm.warningComplexMessage('show', 'Makina Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'Makina  silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+}
+   
+/**
+* delete machine 
+* @param {type} id
+* @param {type} element
+* @param {type} machine_group_id
+* @returns {undefined}
+* @since 27/06/2016
+*/
+window.deleteMachUltimately = function(id, index) {
+   var loaderGridBlock = $("#loading-image-grid-container").loadImager();
+    loaderGridBlock.loadImager('appendImage');
+
+    var id = id;
+    var index = index;
+    var ajDeleteAll = $(window).ajaxCall({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data : {
+                    url:'pkDelete_sysMachineTools' ,
+                    id : id,
+                    pk : $("#pk").val()
+                }
+    });
+    ajDeleteAll.ajaxCall ({
+        onError : function (event, data) {  
+            dm.dangerMessage('resetOnShown');  
+            dm.dangerMessage('show', 'Makina Silme İşlemi Başarısız...',
+                                      'Makina özelliği silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDelete_sysMachineTools" servis hatası->'+data.errorInfo);
+        },
+        onSuccess : function (event, data) {
+            sm.successMessage({ 
+                onShown : function() {
+                    loaderGridBlock.loadImager('removeLoadImage');
+                    //$('#tt_grid_dynamic').datagrid('deleteRow', index);
+                    $('#tt_grid_dynamic').datagrid('reload');
+                    
+                }
+            });
+            sm.successMessage('show', 'Makina  Silme İşleminiz Başarılı...',
+                                      'Makina  silme işleminiz başarılı...')
+        },                                   
+    });
+    ajDeleteAll.ajaxCall('call');
 }
 
    
