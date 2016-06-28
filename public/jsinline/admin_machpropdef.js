@@ -63,7 +63,9 @@ $('#tt_grid_dynamic').datagrid({
                         var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveMachinePropWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
                     var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteMachPropUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachPropDialog('+row.id+', { machine_tool_name : \''+row.machine_tool_name+'\',\n\                                                                                                                   manufacturer_name : \''+row.manufacturer_name+'\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachPropDialog('+row.id+', { property_name : \''+row.property_name+'\',\n\                                                                                                                   \n\
+                                                                                                                                                                        property_name_eng : \''+row.property_name_eng+'\',\n\
+                                                                                                                                                                        unit_grup_id : '+row.unit_grup_id+'} );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
             },
@@ -324,23 +326,24 @@ window.insertMachPropWrapper = function (e) {
    
    
 /**
- * wrapper for machine update process
+ * wrapper for machine property update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 20/05/2016
+ * @since 24/06/2016
  */
 window.updateMachPropDialog = function (id, row) {
-console.log(row);
+    window.gridReloadController = false;
+//console.log(row);
 BootstrapDialog.show({  
-     title: '"'+ row.machine_tool_name + '" makinasını güncellemektesiniz...',
+     title: '"'+ row.property_name + '" makina özelliğini güncellemektesiniz...',
      message: function (dialogRef) {
                  var dialogRef = dialogRef;
                  var $message = $(' <div class="row">\n\
                                          <div class="col-md-12">\n\
                                              <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                 <form id="machFormPopup" method="get" class="form-horizontal">\n\
+                                                 <form id="machPropFormPopup" method="get" class="form-horizontal">\n\
                                                  <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                  <div class="hr-line-dashed"></div>\n\
                                                      <div class="form-group" style="padding-top: 10px;" >\n\
@@ -362,24 +365,13 @@ BootstrapDialog.show({
                                                                      <i class="fa fa-hand-o-right"></i>\n\
                                                                  </div>\n\
                                                                  <div  class="tag-container-popup">\n\
-                                                                     <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.group_name+'" name="group_name_popup" id="group_name_popup" disabled="true"  />\n\
+                                                                     <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.property_name+'" name="property_name_popup" id="property_name_popup"   />\n\
                                                                  </div>\n\
                                                              </div>\n\
                                                          </div>\n\
                                                      </div>\n\
                                                      <div class="form-group">\n\
                                                          <label class="col-sm-2 control-label">İng. Makina Özelliği</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.property_name+'" name="property_name_popup" id="property_name_popup" />\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
-                                                     <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">İngilizce Makina Adı</label>\n\
                                                          <div class="col-sm-10">\n\
                                                              <div class="input-group">\n\
                                                                  <div class="input-group-addon">\n\
@@ -393,7 +385,7 @@ BootstrapDialog.show({
                                                      <div class="form-group">\n\
                                                          <div class="col-sm-10 col-sm-offset-2">\n\
                                                          <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateMachWrapper(event, '+id+');">\n\
-                                                             <i class="fa fa-save"></i> Kaydet </button>\n\
+                                                             <i class="fa fa-save"></i> Güncelle </button>\n\
                                                          <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
                                                              <i class="fa fa-remove"></i> Reset </button>-->\n\
                                                      </div>\n\
@@ -406,110 +398,39 @@ BootstrapDialog.show({
              },
      type: BootstrapDialog.TYPE_PRIMARY,
      onshown : function () {         
-        $('#machine_tool_group_id_popup').val(''+row.machine_tool_grup_id+'');
-        
-        //alert($("input[name=machine_tool_group_id]:hidden").val());
-        $('#machFormPopup').validationEngine();
+        $('#machPropFormPopup').validationEngine();
         $('#tt_tree_menu2_popup').tree({  
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillJustMachineToolGroupsBootstrap_sysMachineToolGroups&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
             method: 'get',
             animate: true,
             checkbox: false,
             cascadeCheck: false,
             lines: true,
             onLoadSuccess: function (node, data) {
-                 //loader.loadImager('removeLoadImage');
+                //loader.loadImager('removeLoadImage');
+                var node = $('#tt_tree_menu2_popup').tree('find', parseInt(row.unit_grup_id));
+                $('#tt_tree_menu2_popup').tree('select', node.target);
             },
             onSelect : function(node) {
                 var self = $(this);
-                if(!self.tree('isLeaf', node.target)) {
+                if(self.tree('isLeaf', node.target)) {
                     wm.warningMessage( {
                         onShown : function (event ,data ) {
-                           self.tree('unselect', node.target); 
+                           var parent = self.tree('getParent', node.target);
+                           self.tree('select', parent.target);
                         }
                     });
-                    wm.warningMessage('show','Alt Kategori Seçiniz',
-                                             'Lütfen alt kategori seçiniz...');
-                } else {
-                    $('#group_name_popup').val(node.text);
-                    $('#machine_tool_group_id_popup').val(''+node.id+'');
-                }
+                    wm.warningMessage('show','Ana Kategori Birim Seçiniz',
+                                             'Lütfen birimi  ana kategoriden seçiniz...');
+                } 
             },
-            onCheck: function (node, checked) {
-                 var self = $(this);
-                 if(checked) {
-                     if(!self.tree('isLeaf', node.target)) {
-                         wm.warningMessage( {
-                             onShown : function (event ,data ) {
-                                self.tree('uncheck', node.target); 
-                             }
-                         });
-                         wm.warningMessage('show','Alt Kategori Seçiniz',
-                                                  'Lütfen alt kategori seçiniz...');
-
-                     } else {
-                         window.getMachineDueCategories(node, self);
-                     }
-                 } else if(checked == false){
-                     if(self.tree('isLeaf', node.target) && node.state=='open') { 
-                         window.getAllMachinePropsToDatagrid(node, self);
-                     }
-                 }
-             },
         });
-         
-        var ajaxMacProducersPopup = $(window).ajaxCallWidget({
-            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillManufacturerList_sysManufacturer' ,
-                            language_code : 'tr',
-                            pk : $("#pk").val() 
-                    }
-       })
-        ajaxMacProducersPopup.ajaxCallWidget ({
-            onError : function (event, textStatus,errorThrown) {
-                dm.dangerMessage({
-                   onShown : function() {
-                       //$('#mach-prod-box').loadImager('removeLoadImage'); 
-                   }
-                });
-                dm.dangerMessage('show', 'Makina Üreticisi Bulunamamıştır...',
-                                         'Makina üreticisi firma bulunamamıştır...');
-            },
-            onSuccess : function (event, data) {
-                var data = $.parseJSON(data);
-                    //$('#mach-prod-box').loadImager('removeLoadImage');
-                    $('#dropdownProducersPopup').ddslick({
-                            height : 200,
-                            data : data, 
-                            width:'98%',
-                            search : true,
-                            //imagePosition:"right",
-                            onSelected: function(selectedData){
-                                if(selectedData.selectedData.value>0) {
-                                    /*$('#tt_tree_menu').tree({
-                                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                                    });*/
-                             }
-                         }   
-                    });  
-                    $('#dropdownProducersPopup').ddslick('selectByValue', 
-                                                {index: ''+row.manufactuer_id+'' ,
-                                                text : ''+row.manufacturer_name+''}
-                                                );
-                },
-                onErrorDataNull : function (event, data) {
-                     dm.dangerMessage({
-                        onShown : function() {
-                            $('#mach-prod-box').loadImager('removeLoadImage'); 
-                        }
-                     });
-                     dm.dangerMessage('show', 'Makina Üreticisi Bulunamamıştır...',
-                                              'Makina üreticisi firma bulunamamıştır...');
-                 },
-            }) 
-            ajaxMacProducersPopup.ajaxCallWidget('call');
      },
      onhide : function() {
+         if(window.gridReloadController == true) {
+             $('#tt_grid_dynamic').datagrid('reload');
+         }
+         
      },
  });
  return false;
@@ -524,23 +445,15 @@ BootstrapDialog.show({
 window.updateMachWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#machFormPopup").validationEngine('validate')) {
-     /*selectedTreeItem = $('#tt_tree_menu2_popup').tree('getSelected');
+ if ($("#machPropFormPopup").validationEngine('validate')) {
+     selectedTreeItem = $('#tt_tree_menu2_popup').tree('getSelected');
      if(selectedTreeItem == null) {
          wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Makina Kategorisi Seçiniz', 'Lütfen Makina Kategorisi Seçiniz!')
+         wm.warningMessage('show', 'Birim Seçiniz', 'Lütfen birim kategorisi seçiniz!');
          return false;
-     }*/
-
-        var ddData = $('#dropdownProducersPopup').data('ddslick');
-        if(ddData.selectedData.value>0) {
-            updateMach(id);
-        } else {
-            wm.warningMessage('resetOnShown');
-            wm.warningMessage('show', 'Üretici Firma Seçiniz', 'Lütfen üretici firma seçiniz!')
-        }
-        return false;
-        updateMach(id);
+     }   
+    updateMach(id);
+    return false;
  }
  return false;
 }
@@ -549,42 +462,33 @@ window.updateMachWrapper = function (e, id) {
  * update unit item
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 23/05/2016
+ * @since 23/06/2016
  */
 window.updateMach = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
-     var machine_tool_group_id_popup = $('#machine_tool_group_id_popup').val();
-     var machine_tool_name = $('#machine_tool_name_popup').val();
-     var machine_tool_name_eng = $('#machine_tool_name_eng_popup').val();
-     var ddData = $('#dropdownProducersPopup').data('ddslick');
-     var manufactuer_id = ddData.selectedData.value;
-     var model = $('#model_popup').val();
-     var model_year = $('#model_year_popup').val();
-     var machine_code = $('#machine_code_popup').val();
+     
+     selectedTreeItem = $('#tt_tree_menu2_popup').tree('getSelected');
+     var unit_grup_id = selectedTreeItem.id;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysMachineTools' ,
+                         url:'pkUpdate_sysMachineToolPropertyDefinition' ,
                          language_code : $('#langCode').val(),
-                         machine_tool_grup_id : machine_tool_group_id_popup,
-                         machine_tool_name : machine_tool_name,
-                         machine_tool_name_eng : machine_tool_name_eng,
-                         manufactuer_id : manufactuer_id,
-                         model : model,
-                         model_year : model_year,
                          id : id,
-                         machine_code : machine_code,
+                         property_name : $('#property_name_popup').val(),
+                         property_name_eng : $('#property_name_eng_popup').val(),
+                         unit_grup_id : unit_grup_id,
                          pk : $("#pk").val()
                      }
     })
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Güncelleme İşlemi Başarısız...', 
-                                           'Makina güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysMachineTools" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Makina Özelliği Güncelleme İşlemi Başarısız...', 
+                                      'Makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -593,20 +497,21 @@ window.updateMach = function (id) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'Makina Güncelleme İşlemi Başarılı...', 
-                                       'Makina güncelleme işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Makina Özelliği Güncelleme İşlemi Başarılı...', 
+                                       'Makina özelliği güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
+             window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Güncelleme İşlemi Başarısız...', 
-                                      'Makina güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysMachineTools" servis datası boştur!!');
+             dm.dangerMessage('show', 'Makina Özelliği Güncelleme İşlemi Başarısız...', 
+                                      'Makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysMachineToolPropertyDefinition" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Güncelleme İşlemi Başarısız...', 
-                                      'Makina güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Makina Özelliği Güncelleme İşlemi Başarısız...', 
+                                      'Makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
