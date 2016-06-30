@@ -5,10 +5,78 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-//    console.log($('#selectedCompanyNpk').val());
+    lang.change($('#langCode').val());
+    $('#header_company_name').empty();
+    $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
+    $('#loging_ph').empty();
+    if ($('#pk').val()) {
+        var loging_value = window.lang.translate('Log out');
+    } else {
+        var loging_value = window.lang.translate('Log in');
+    }
+    $('#loging_ph').append(loging_value);
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {
+            url: 'pkFillFirmMachineGroupsCounts_infoFirmMachineTool',
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $('#pk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
 
+            $('#collapse_mach_cats').empty();
+            $('#filters-container').empty();
+            $('#filters-container').append(
+                    "<div data-filter='*' class='cbp-filter-item-active cbp-filter-item'>"
+                    + window.lang.translate('All')
+                    + "</div> |");
+            var i;
+            window.total_machines = parseFloat(0);
+            $('#companymtprofile').attr('tot_mach_count', window.total_machines);
+            for (i = 0; i < data.length; i++) {
 
+                var appending =
+                        "<li id='"
+                        + data[i].machine_grup_id
+                        + "' group_name='"
+                        + data[i].group_name
+                        + "' onclick=gotLink(this)>"
+                        + "<span class='badge rounded badge-red'>"
+                        + data[i].machine_count
+                        + "</span>"
+                        + "<a href='#' onmouseover='' style='cursor: pointer;'>"
+                        + "<i class='fa fa-chevron-circle-right'>"
+                        + "</i>"
+                        + window.lang.translate(data[i].group_name)
+                        + "</a>"
+                        + "</li>";
+                $('#collapse_mach_cats').append(appending);
+                var appending2 =
+                        "<div data-filter='."
+                        + data[i].group_name
+                        + "' class='cbp-filter-item'>"
+                        + window.lang.translate(data[i].group_name)
+                        + "</div> |";
+                $('#filters-container').append(appending2);
+                window.total_machines += parseFloat(data[i].machine_count);
+            }
 
+            /*
+             * here total number of machines are populated
+             * 
+             * for getting number of cncs, unavailable and special machines machine attributes 
+             * must be controled from service
+             */
+
+            $('#companymtprofile').attr('tot_mach_count', window.total_machines);
+            $('#total_machs').empty();
+            $('#total_machs').append(window.total_machines);
+        }
+    });
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -21,16 +89,14 @@ $(document).ready(function () {
         success: function (data) {
 //            console.log(data);
 
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
-                                
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
             window.logosrc = imageFolAddress + data[0].logo;
-            
             $('#profileLogosrc').attr('src', window.logosrc);
             $('#logoPlace1').attr('src', window.logosrc);
         }
     });
+    $('#total_machs').append();
 });
-
 /*
  * 
  * here this function manages data table of machines on click event of company
@@ -39,159 +105,120 @@ $(document).ready(function () {
  * @Since: 2016.4.7
  */
 
-
-function gotLink(clicked_Id) {
-
-    window.target_machine_id = clicked_Id.id.toString().replace('_link', '');
-    window.target_table = target_machine_id + "_table";
-    window.target_data = target_machine_id + "_data";
-    window.machine_map = new Object();
+function gotLink(clicked) {
 
     $('#companymtprofile').addClass('.active');
-
     if ($('#table_place_holder').css('visibility', 'hidden')) {
         $('#table_place_holder').css('visibility', 'visible');
         $('#table_place_holder').css('display', 'block');
-
-
         $('#machine_details_DIV').empty();
         $('#selectedMachineNamePH').empty();
-
         $('#machine_details_DIV').css('visibility', 'hidden');
         $('#machine_details_DIV').css('display', 'none');
-
         $('#selected_machine_divider').css('visibility', 'hidden');
         $('#selected_machine_divider').css('display', 'none');
     }
 
-
-    machine_map['cnc_machine_data'] =
-            [
-                ["Mazak", "VariAxis II", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/Mazak_VariAxisII.jpg"],
-                ["Mazak", "INTEGREX j-200 (500U)", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/Mazak_INTEGREX-j-200-(500U).jpg"],
-                ["EMCO", "TURN CNC with C axes", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/EMCO_TURNCNCwithCaxes.jpg"],
-                ["YANG", "CNC Turning Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/YANG_CNCTurningLathe.jpg"],
-                ["TSUGAMI", "CNC Automatic Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/TSUGAMI_CNCAutomaticLathe.jpg"]
-            ];
-    machine_map['turning_machine_data'] =
-            [
-                ["METAL SUPER 2000", "Turning Lathe Universal", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
-                ["TEZSAN TOS", "Turning Lathe Universal", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
-                ["MEUSER", "Turning Lathe Universal", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
-                ["ROVELVER 20", "Turning Lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
-                ["SCHAUBLIN ROVELVER", "102N Turning Lathe", "2", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
-                ["EMCO Mailer ", "maximat V13 Turning lathe", "1", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
-                ["BECHLER", "Automat Turning Lathe", "2", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"],
-                ["STROHM SLIDING", "Turning Lathe", "4", "2000", "Yes", "../../../../onyuz/standard/assets/img/sfClients/EMGE/Machines/image_not_found.png"]
-            ];
-    machine_map['milling_machine_data'] =
-            [
-                ["UMF RUHLA", "NC Mold Milling Machine", "1", "2000", "Yes", "#"],
-                ["TAKSAN", "Universal Milling Machine", "1", "2000", "Yes", "#"]
-            ];
-    machine_map['drilling_machine_data'] =
-            [
-                ["LUS-SAN", "Drilling Machine", "2", "2000", "Yes", "#"],
-                ["BILMAKSAN", "Drilling Machine", "1", "2000", "Yes", "#"],
-                ["TOS", "Drilling Machine", "1", "2000", "Yes", "#"],
-                ["MITAS", "Drilling Machine", "1", "2000", "Yes", "#"],
-                ["ACIERA", "Drilling and Tapping Machine", "1", "2000", "Yes", "#"]
-            ];
-    machine_map['grinding_machine_data'] =
-            [
-                ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes", "#"],
-                ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes", "#"],
-                ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes", "#"]
-            ];
-    machine_map['uswelding_machine_data'] =
-            [
-                ["BRANSON", "2000 Ultrasonic Welding Machine", "2", "2000", "Yes", "#"],
-                ["BRANSON", "900 Ultrasonic Welding Machine", "1", "2000", "Yes", "#"],
-                ["MAXWIDE", "Ultrasonic Welding Machine", "1", "2000", "Yes", "#"]
-            ];
-    machine_map['edm_machine_data'] =
-            [
-                ["CHARMILE", "D20 EDM", "1", "2000", "Yes", "#"],
-                ["SODICK", "AG600 L CNC WIRE EDM", "1", "2000", "Yes", "#"],
-                ["SODICK", "AQ750LH CNC WIRE EDM", "1", "2000", "Yes", "#"],
-                ["OSCAR", "MAX CNC SINK EDM", "1", "2000", "2000", "Yes", "#"]
-            ];
-            
-    var appending_list = "<div class='left-inner'>"
-            + "<div class='row'>"
-            + "<div id='"
-            + window.target_machine_id
-            + "'>"
-            + "<table id='"
-            + window.target_machine_id
-            + "_table'"
-            + " class='table table-hover table-striped table-condensed'"
-            + " cellspacing='0' style='font-size: 12px'>"
-            + " </table>"
-            + " </div>"
-            + " </div>"
-            + " </div>";
-    $('#sel_mach_cat_list_div').empty();
-    $('#sel_mach_cat_list_div').append(appending_list);
-    $('#' + window.target_table).DataTable({
-        data: window.machine_map[target_data],
-        fixedColumns: true,
-        scrollX: true,
-        select: {
-            style: 'single'
+    $('#tab_header').empty();
+    $('#tab_header').append($('#' + clicked.id).attr('group_name'));
+    $('#machines_table').bootstrapTable("destroy");
+    $('#machines_table').bootstrapTable({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        queryParams: {
+            url: 'pkFillUsersFirmMachinesNpk_infoFirmMachineTool',
+            language_code: $("#langCode").val(),
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $('#pk').val(),
+            machine_grup_id: clicked.id
         },
+        toolbar: '#toolbar',
+//                data: data.rows,
+//                total: data.rows.length,
+        pagination: true,
+        search: true,
+        showRefresh: true,
+        showToggle: true,
+//        showColumns: true,
+//        detailView: true,
+//        showPaginationSwitch: true,
+        idField: "id",
+        showFooter: false,
+//        responseHandler:"responseHandler",
+        pageList: '[10, 25, 50, 100, ALL]',
+        undefinedText: '',
+//        detailFormatter:
+//          function (index, row, element) {
+//              alert(row.id);
+//          },
         columns: [
-            {title: window.lang.translate("Manufacturer")},
-            {title: window.lang.translate("Series")},
-            {title: window.lang.translate("Number")},
-            {title: window.lang.translate("Model")},
-            {title: window.lang.translate("Owner")}
-        ]
+            {
+                field: 'id',
+                title: window.lang.translate('Id'),
+                sortable: true,
+                visible: false
+
+            },
+            {
+                field: 'machine_id',
+                title: window.lang.translate('Machine Id'),
+                sortable: true,
+                visible: false
+            },
+            {
+                field: 'machine_tool_names',
+                title: window.lang.translate('Machine Name'),
+                sortable: true
+            },
+            {
+                field: 'manufacturer_name',
+                title: window.lang.translate('Manufacturer Name'),
+                sortable: true
+            },
+            {
+                field: 'model',
+                title: window.lang.translate('Model'),
+                sortable: true
+            },
+            {
+                field: 'model_year',
+                title: window.lang.translate('Model Year'),
+                sortable: true
+            },
+            {
+                field: 'total',
+                title: window.lang.translate('Number'),
+                sortable: true
+            },
+            {
+                field: 'picture',
+                title: window.lang.translate('picture'),
+                sortable: true,
+                visible: false
+            }]
     });
+}
 
-    $('html, body').animate({
-        scrollTop: $("#sel_mach_cat_list_div").offset().top
-    }, 1000);
+$('#machines_table').on('click-row.bs.table', function (e, row, $element) {
 
- window.table = $('#' + window.target_table).DataTable();
-    $('#' + window.target_table + ' tbody').on('click', 'tr', function () {
+    if ($('#machine_details_DIV').css('display') === 'block') {
 
-//    window.table = $('#sel_Cat_Mach_table').DataTable();
-//    $('#sel_Cat_Mach_table tbody').on('click', 'tr', function () {
+        if ($('#machine_details_DIV').attr('lastIndex') === row.machine_id) {
 
-        if ($(this).hasClass('selected')) {
-            $(this).removeClass('selected');
-        }
-        else {
-            window.table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
+            $('#selected_machine_divider').css('visibility', 'hidden');
+            $('#selected_machine_divider').css('display', 'none');
 
-        var selectedRowIndex = $(this)[0]._DT_RowIndex;
-//        this.style.color = '#72c02c';
-        var d = window.table.row(this).data();
-        /*
-         * 
-         * @type type
-         * ajxa request to get product properties should be added here...
-         * for now a properties array is created...
-         */
+            $('#machine_details_DIV').css('visibility', 'hidden');
+            $('#machine_details_DIV').css('display', 'none');
 
-
-        var properties = [
-            {key: 'Brand', value: d[0]},
-            {key: 'Series', value: d[1]},
-            {key: 'Number', value: d[2]},
-            {key: 'Model', value: d[3]},
-            {key: 'Owner', value: d[4]}
-        ];
-        if ($('#machine_details_DIV').css('visibility') === 'hidden') {
+        } else {
 
             $('#machine_details_DIV').empty();
+            $('#machine_details_DIV').attr('lastIndex', row.machine_id);
+
             $('#selectedMachineNamePH').empty();
+            $('#selectedMachineNamePH').append(row.machine_tool_names);
 
             var appending =
-//                    "<hr>"
                     "<div class='funny-boxes funny-boxes-top-sea'>"
                     + "<div class='row'>"
                     + "<div class='left-inner'>"
@@ -201,159 +228,219 @@ function gotLink(clicked_Id) {
                     + "</h3>"
                     + "<div class='row'>"
                     + "<a href="
-                    + d[5]
+                    + "https://" + window.location.hostname
+                    + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                    + row.picture
                     + ">"
                     + "<img class='mach_sample' src="
-                    + d[5]
+                    + " https://" + window.location.hostname
+                    + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                    + row.picture
                     + " alt=''>"
                     + "</a>"
                     + "</div>"
-
                     + "<div class='row'>"
-                    + "<table id='machinePropertiesTable' "
-                    + "class='table table-hover table-striped table-condensed' "
-                    + "cellspacing='0' style='font-size: 12px'>"
-
-                    + "<tr>"
-                    + "<td>"
-                    + d[0]
-                    + "</td>"
-                    + "<td>"
-                    + d[1]
-                    + "</td>"
-                    + "</tr>"
-
-                    + "</table>"
+                    + "<div class='panel panel-profile no-bg'>"
+                    + "<div class='panel-heading overflow-h'>"
+                    + "<h2 class='panel-title heading-sm pull-left'>"
+                    + "<i class='fa fa-pencil'>"
+                    + "</i>"
+                    + row.manufacturer_name
+                    + " "
+                    + row.machine_tool_names
+                    + " "
+                    + window.lang.translate('detailed properties')
+                    + "</h2>"
+                    + "<a href='#'>"
+                    + "<i class='fa fa-cog pull-right'></i>"
+                    + "</a>"
+                    + "</div>"
+                    + "<div id='scrollbar' id='mach_det_prop' "
+                    + "class='panel-body no-padding mCustomScrollbar' "
+                    + "data-mcs-theme='minimal-dark'>"
+                    + "</div>"
                     + "</div>"
                     + "</div>"
                     + "</div>"
                     + "</div>";
 
+
             $('#machine_details_DIV').append(appending);
-            $('#sel_mach_manuf').append(d[0]);
-            $('#sel_mach_series').append(d[1]);
-            $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
 
-            var appending2;
-            $.each(properties, function (key, vlaue) {
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+                data: {
+                    url: 'pkGetMachineProperities_sysMachineTools',
+                    language_code: $("#langCode").val(),
+//                    npk: $('#selectedCompanyNpk').val(),
+                    pk: $('#pk').val(),
+                    machine_id: row.machine_id
+                },
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    window.colors = ["color-one", "color-two", "color-three", "color-four", "color-five", "color-six", "color-seven"];
 
-                appending2 = "<tr>"
-                        + "<td>"
-                        + properties[key].key
-                        + "</td>"
-                        + "<td>"
-                        + properties[key].value
-                        + "</td>"
-                        + "</tr>";
-                $('#machinePropertiesTable').append(appending2);
+                    for (var i = 0; i < data.length; i++) {
+                        var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
+
+                        var appending2 =
+                                "<div class='profile-post "
+                                + picked_color
+                                + "'>"
+                                + "<span class='profile-post-numb' style='width:200px;font-size:12px'>"
+                                + data[i].property_name
+                                + "</span>"
+                                + "<div class='profile-post-in'>"
+                                + "<div class='col-md-6'>"
+                                + "<h3 class='heading-xs'>"
+                                + data[i].property_value
+                                + "</h3>"
+                                + "</div>"
+                                + "<div class='col-md-6'>"
+                                + "<h3 class='heading-xs'>"
+                                + data[i].unitcode
+                                + "</h3>"
+                                + "</div>"
+                                + "<p></p>"
+                                + "</div>"
+                                + "</div>";
+
+                        $('#scrollbar').append(appending2);
+
+                    }
+                }
             });
-
-            $('#selected_machine_divider').css('visibility', 'visible');
-            $('#selected_machine_divider').css('display', 'block');
 
             $('#machine_details_DIV').css('visibility', 'visible');
             $('#machine_details_DIV').css('display', 'block');
 
-            $('#machine_details_DIV').slideDown('slow');
-            $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
-
-        } else {
-            if ($('#machine_details_DIV').attr('lastIndex').toString() === selectedRowIndex.toString()) {
-
-                $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
-                $('#machine_details_DIV').slideUp('Slow');
-
-                $('#machine_details_DIV').css('visibility', 'hidden');
-                $('#machine_details_DIV').css('display', 'none');
-
-                $('#selected_machine_divider').css('visibility', 'hidden');
-                $('#selected_machine_divider').css('display', 'none');
-
-            } else {
-
-                $('#machine_details_DIV').attr('lastIndex', selectedRowIndex);
-                $('#machine_details_DIV').slideUp('Slow');
-
-                $('#machine_details_DIV').css('visibility', 'hidden');
-                $('#machine_details_DIV').css('display', 'none');
-                $('#machine_details_DIV').empty();
-
-                $('#selected_machine_divider').css('visibility', 'hidden');
-                $('#selected_machine_divider').css('display', 'none');
-                $('#selectedMachineNamePH').empty();
-
-                var appending =
-//                        "<hr>"
-                        "<div class='funny-boxes funny-boxes-top-sea'>"
-                        + "<div class='row'>"
-                        + "<div class='left-inner'>"
-                        + "<div class='progression'>"
-                        + "<h3>"
-                        + window.lang.translate('Machine Details')
-                        + "</h3>"
-                        + "<div class='row'>"
-                        + "<a href="
-                        + d[5]
-                        + ">"
-                        + "<img class='mach_sample' src="
-                        + d[5]
-                        + " alt=''>"
-                        + "</a>"
-                        + "</div>"
-
-                        + "<div class='row'>"
-                        + "<table id=machinePropertiesTable "
-                        + "class='table table-hover table-striped table-condensed' "
-                        + "cellspacing='0' style='font-size: 12px'>"
-
-                        + "<tr>"
-                        + "<td>"
-                        + d[0]
-                        + "</td>"
-                        + "<td>"
-                        + d[1]
-                        + "</td>"
-                        + "</tr>"
-
-                        + "</table>"
-                        + "</div>"
-                        + "</div>"
-                        + "</div>"
-                        + "</div>";
-
-                $('#machine_details_DIV').append(appending);
-                var appending2;
-                $.each(properties, function (key, vlaue) {
-
-                    appending2 = "<tr>"
-                            + "<td>"
-                            + properties[key].key
-                            + "</td>"
-                            + "<td>"
-                            + properties[key].value
-                            + "</td>"
-                            + "</tr>";
-                    $('#machinePropertiesTable').append(appending2);
-                });
-
-                $('#selectedMachineNamePH').append(d[0] + '- ' + d[1]);
-                $('#selected_machine_divider').css('visibility', 'visible');
-                $('#selected_machine_divider').css('display', 'block');
-
-                $('#machine_details_DIV').css('visibility', 'visible');
-                $('#machine_details_DIV').css('display', 'block');
-
-                $('#machine_details_DIV').slideDown('slow');
+            if ($('#machine_details_DIV').css('visibility') === 'visible') {
+                $('html, body').animate({
+                    scrollTop: $("#machine_details_DIV").offset().top
+                }, 1000);
             }
         }
+    } else {
+
+        $('#machine_details_DIV').empty();
+        $('#machine_details_DIV').attr('lastIndex', row.machine_id);
+
+        $('#selectedMachineNamePH').empty();
+        $('#selectedMachineNamePH').append(row.machine_tool_names);
+
+        $('#selected_machine_divider').css('visibility', 'visible');
+        $('#selected_machine_divider').css('display', 'block');
+
+        var appending =
+                "<div class='funny-boxes funny-boxes-top-sea'>"
+                + "<div class='row'>"
+                + "<div class='left-inner'>"
+                + "<div class='progression'>"
+                + "<h3>"
+                + window.lang.translate('Machine Details')
+                + "</h3>"
+                + "<div class='row'>"
+                + "<a href="
+                + "https://" + window.location.hostname
+                + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                + row.picture
+                + ">"
+                + "<img class='mach_sample' src="
+                + " https://" + window.location.hostname
+                + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                + row.picture
+                + " alt=''>"
+                + "</a>"
+                + "</div>"
+                + "<div class='row'>"
+                + "<div class='panel panel-profile no-bg'>"
+                + "<div class='panel-heading overflow-h'>"
+                + "<h2 class='panel-title heading-sm pull-left'>"
+                + "<i class='fa fa-pencil'>"
+                + "</i>"
+                + row.manufacturer_name
+                + " "
+                + row.machine_tool_names
+                + " "
+                + window.lang.translate('detailed properties')
+                + "</h2>"
+                + "<a href='#'>"
+                + "<i class='fa fa-cog pull-right'></i>"
+                + "</a>"
+                + "</div>"
+                + "<div id='scrollbar' id='mach_det_prop' "
+                + "class='panel-body no-padding mCustomScrollbar' "
+                + "data-mcs-theme='minimal-dark'>"
+                + "</div>"
+                + "</div>"
+                + "</div>"
+                + "</div>"
+                + "</div>";
+
+
+        $('#machine_details_DIV').append(appending);
+
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+            data: {
+                url: 'pkGetMachineProperities_sysMachineTools',
+                language_code: $("#langCode").val(),
+//                    npk: $('#selectedCompanyNpk').val(),
+                pk: $('#pk').val(),
+                machine_id: row.machine_id
+            },
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+                window.colors = ["color-one", "color-two", "color-three", "color-four", "color-five", "color-six", "color-seven"];
+
+                for (var i = 0; i < data.length; i++) {
+                    var picked_color = window.colors[Math.floor(Math.random() * window.colors.length)];
+
+                    var appending2 =
+                            "<div class='profile-post "
+                            + picked_color
+                            + "'>"
+                            + "<span class='profile-post-numb' style='width:200px;font-size:12px'>"
+                            + data[i].property_name
+                            + "</span>"
+                            + "<div class='profile-post-in'>"
+                            + "<div class='col-md-6'>"
+                            + "<h3 class='heading-xs'>"
+                            + data[i].property_value
+                            + "</h3>"
+                            + "</div>"
+                            + "<div class='col-md-6'>"
+                            + "<h3 class='heading-xs'>"
+                            + data[i].unitcode
+                            + "</h3>"
+                            + "</div>"
+                            + "<p></p>"
+                            + "</div>"
+                            + "</div>";
+
+                    $('#scrollbar').append(appending2);
+                }
+            }
+        });
+
+        $('#machine_details_DIV').css('visibility', 'visible');
+        $('#machine_details_DIV').css('display', 'block');
 
         if ($('#machine_details_DIV').css('visibility') === 'visible') {
             $('html, body').animate({
                 scrollTop: $("#machine_details_DIV").offset().top
             }, 1000);
         }
-    });
-}
+
+    }
+
+});
+
+
 
 
 

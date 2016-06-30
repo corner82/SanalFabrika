@@ -3,6 +3,7 @@
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
 <input id="selectedCompanyNpk" type="hidden"  value="<?php echo $this->selectedCompanyNpk; ?>"></input>
+<input id="selectedCompanyShN" type="hidden"  value="<?php echo $this->selectedCompanyShN; ?>"></input>
 
 
 <!--=== Style Switcher ===-->    
@@ -103,7 +104,7 @@
                     <li class="topbar-devider"></li>   
                     <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><?php echo $this->translate('Log out') ?></a></li>   
+                    <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><span id="loging_ph"></span></a></li>   
                 </ul>
             </div>
             <!-- End Topbar -->
@@ -166,7 +167,7 @@
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
         <div style='background: #E0EDDF;' class="container">
-            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
+            <h1 id="header_company_name"  class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
@@ -183,7 +184,7 @@
                 </li>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'companyprofile', 'id' => $selectedCompanyNpk)); ?>">
+                            array('action' => 'companyprofile', 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk)); ?>">
                         <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>

@@ -1,11 +1,34 @@
 $(document).ready(function () {
 
+    window.lang = new Lang();
+    lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
+    lang.init({
+        defaultLang: 'en'
+    });
+
+    lang.change($('#langCode').val());
+
+//    console.log($('#pk').val());
+    $('#loging_ph').empty();
+
+    if ($('#pk').val()) {
+        var list_service_url = 'pkFillCompanyLists_infoFirmProfile';
+        var loging_value = window.lang.translate('Log out');
+    } else {
+        var list_service_url = 'fillCompanyListsGuest_infoFirmProfile';
+        var loging_value = window.lang.translate('Log in');
+    }
+    $('#loging_ph').append(loging_value);
+
+
     $("#pagination_content").empty();
     //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {url: 'fillCompanyListsGuest_infoFirmProfile',
+        data: {
+            url: list_service_url,
+            pk: $('#pk').val(),
             language_code: $("#langCode").val(),
             page: 1,
             rows: 10,
@@ -28,21 +51,23 @@ $(document).ready(function () {
                 window.totalnumberofpages = numberofpages;
             }
             for (i = 0; i < window.companyperpage; i++) {
-                $('#selectedCompanyNpk').val(data.rows[i].pk);
-                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyNpk').val());
+                $('#selectedCompanyNpk').val(data.rows[i].npk);
+                var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
+                $('#selectedCompanyShN').val(rep_firm_short_name);
+                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
 
                 var appending_html =
                         "<!-- Clients Block-->"
-//                                    + "<a href='#'>"
+//                        + "<a href='#'>"
                         + "<div class='row clients-page'>"
                         + "<div class = 'col-md-2'>"
-                        + "<img src='/onyuz/standard/assets/img/sfClients/logos/"
+                        + "<img src='/onyuz/standard/assets/img/sfClients/"
                         + data.rows[i].logo
                         + "' "
                         + "class = 'img-responsive hover-effect' alt = '' / >"
                         + "</div>"
                         + "<div class = 'col-md-10' id='"
-                        + data.rows[i].pk
+                        + data.rows[i].npk
                         + "'>"
                         + "<a href='"
                         + companyProfileLink
@@ -65,7 +90,7 @@ $(document).ready(function () {
                         + "</li>"
                         + "<li>"
                         + "<i class = 'fa fa-briefcase color-green'> </i>"
-                        //                            + data[i].sectors
+//                        + data[i].sectors
                         + "</li>"
                         + "</ul>"
                         + "<p>"

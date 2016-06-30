@@ -424,3 +424,106 @@ Parallax backgound override
 .parallax-counter-v3 {
     background: url(../../onyuz/assets/img/ostim/DSC_5954_smaller.jpg) 50% 0 fixed !important;
 }
+
+.parallax-counter {
+    padding: 30px 0;
+    background: url(../../onyuz/standard/assets/img/bg/background-pattern-5-filtered.jpg) repeat fixed;
+}
+
+/*
+image edit button css
+*/
+
+
+a.hovertext {
+    position: relative;
+    width: 100%;
+    text-decoration: none !important;
+    text-align: center;
+}
+a.hovertext:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    alignment-adjust: central;
+    padding: 0.5em 20px;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    text-decoration: none !important;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+}
+a.hovertext:hover:after, a.hovertext:focus:after {
+    opacity: 0.5;
+}
+
+
+
+#logo_ph > input
+{
+    display: none;
+}
+
+#file_input{
+    display: none;
+}
+
+
+
+
+.panel-title{
+    width: 100% !important;
+    height: auto;
+}
+
+.panel-header{
+    width: 100% !important;
+    height: auto;
+}
+
+.panel-tool{
+    width: 100% !important;
+    height: auto;
+}
+
+.datagrid-wrap{
+    width: 100% !important;
+    height: auto;
+}
+
+.datagrid-row{
+    width: 100% !important;
+    height: auto;
+}
+
+.datagrid-view{
+    width: 100% !important;
+    height: auto;
+}
+
+
+datagrid-pager{
+    width: 100% !important;
+    height: auto;
+}
+
+.service-block-v3{
+    min-height: 300px;
+}
+
+/*
+Bootstrap table Css
+*/
+
+.fixed-table-body {
+    height:auto
+}
+
+.glyphicon {
+        line-height: inherit;
+}

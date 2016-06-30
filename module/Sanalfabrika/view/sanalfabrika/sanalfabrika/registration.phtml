@@ -825,14 +825,18 @@
                                                 <label class="label"><?php echo $this->translate('Company Name') ?></label>
                                                 <label class="input">
                                                     <i class="icon-prepend fa fa-empire"></i>
-                                                    <input required="true" type="text" name="companyName" id="companyName">
+                                                    <input required='true' type="text" style="padding-left: 50px"
+                                                           class="form-control validate[minSize[6],maxSize[150]]" 
+                                                           name="companyName" id="companyName">
                                                 </label>
                                             </section>
                                             <section>
                                                 <label class="label"><?php echo $this->translate('Company Short Name') ?></label>
                                                 <label class="input">
                                                     <i class="icon-prepend fa fa-empire"></i>
-                                                    <input type="text" name="companyShortName" id="companyShortName">
+                                                    <input required='true' type="text" style="padding-left: 50px"
+                                                           class="form-control validate[required,minSize[2],maxSize[30]]" 
+                                                           name="companyShortName" id="companyShortName">
                                                 </label>
                                             </section>
                                             <section>
@@ -870,7 +874,7 @@
                                                 <label class="input">
                                                     <i class="icon-prepend fa fa-barcode"></i>
                                                     <input type="DUNS" class="form-control validation[custom[onlyNumberSp]]" 
-                                                           name="companyDUNSNumber" id="companyDUNSNumber">
+                                                          name="companyDUNSNumber" id="companyDUNSNumber">
                                                 </label>
                                             </section>
                                             <section>

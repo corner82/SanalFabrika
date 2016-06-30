@@ -167,12 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Kullanıcı Menüsü İşlemleri
+                    Makina  Tanımlama İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <!--<li class="active">Firma İşlemleri</li>-->
+                    <li><a href="#"><i class="fa fa-certificate"></i> Makina İşlemleri</a></li>
+                    <li class="active">Tekil Makina Ekleme İşlemleri</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -180,146 +181,158 @@
                 <!-- Small boxes (Stat box) -->
                 <!--first collapsible panel row -->
                 <div class="row">
-                    <!--first collapsible panel width, single column-->
-                    <div class="col-md-12">
+                    
+                    <!--Makina giriş bölümü -->
+                    <div class="col-lg-12">
                         <!--arrange first panel color to blue by assigning primary class-->
-                        <div class="box box-primary">
+                        <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Kullanıcı tiplerine göre menüler </h3>                                                    
+                                <h3 class="box-title"> Makina  İşlemleri </h3>
+                                
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
                                     <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                                 </div><!--/. button div-->
                             </div><!--/. panel 1 header div-->
                             <!--Panel 1 contents-->
-                            <div class="box-body">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <form id='menuForm' method="get" class="form-horizontal">  
-
-                                            <!-- Search roles box -->
-                                            <!--                                            <div class="form-group">
-                                                                                            <label class="col-sm-2 control-label"><?php echo $this->translate('Search Roles') ?></label>
-                                                                                            <div class="col-sm-10">
-                                                                                                <div class="input-group margin">
-                                                                                                    <div class="input-group-addon">
-                                                                                                        <i class="fa fa-hand-o-right"></i>
-                                                                                                    </div>
-                                                                                                    <input class="form-control validate[not-required,custom[onlyLetterNumber]]" type="text" name="searchRole" id="searchRole">                                                        
-                                                                                                    <span class="input-group-btn">
-                                                                                                        <button class="btn btn-info btn-flat" type="button" onclick="searchForRoles()"><?php echo $this->translate('Go') ?></button>
-                                                                                                    </span>
-                                                                                                </div> /input-group 
-                                                                                            </div>
-                                                                                        </div>//form group-->
-
-                                            <div class="hr-line-dashed"></div>
-
-                                            <!--Easyui tree  div start-->
-                                            <div id="roleFormBlock" class="box box-primary" style="padding-top: 20px;">                                             
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Menü</label>
-                                                    <div class="col-sm-10">
-                                                        <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-code-fork"></i>
-                                                            </div>
-                                                            <div class="inner">
-                                                                <div id="loading-image">
-                                                                <ul id="tt_tree_menu" class="easyui-tree" ></ul> 
-                                                                </div>
-                                                            </div>                                                       
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>  
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Kullanıcı Rolleri</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group"> 
-                                                      <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                                      <div id="dropdownRoles" ></div>
-                                                    </div>
-                                                </div>
-                                              </div>
-                                            
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Menü</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input class="form-control validate[required]" type="text" name="menu_name" id="menu_name" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">İngilizce Menü</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input class="form-control validate[required]" type="text" name="menu_name_eng" id="menu_name_eng" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Url</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input class="form-control validate[required]" type="text" name="url" id="url" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">Menü İkon</label>
-                                                <div class="col-sm-10">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-hand-o-right"></i>
-                                                        </div>
-                                                        <input value="fa-circle-o" class="form-control validate[required]" type="text" name="icon_class" id="icon_class" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            <div class="hr-line-dashed"></div>
-                                            <div class="form-group">
-                                                <div class="col-sm-10 col-sm-offset-2">
-                                                    <button id="insertMenu" class="btn btn-primary" type="submit" onclick="return insertMenuRootWrapper(event);"><i class="fa fa-save"></i>  Ana Kategoriye Menü Kaydet </button>
-                                                    <button id="updateMenu" class="btn btn-flat" type="submit" onclick="return updateMenuWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>
-                                                    <button id="resetForm" class="btn btn-flat" type="reset" onclick="regulateButtons();" ><i class="fa fa-remove"></i> Reset </button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                            <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
+                                <div class="alert alert-info alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm makinalar, makina kategorilerine bağlı olarak sisteme eklenebilmektedir!</h4>
+                                    Makina tanımlayabilir , silebilir, güncelleyebilirsiniz....
                                 </div>  
+                                <!--Makina ekleme formu -->
+                                <form id='machineForm' method="get" class="form-horizontal">     
+                                    <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                     
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Kategori</label>
+                                            <div class="col-sm-10 " >
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-code-fork"></i>
+                                                    </div>
+                                                    <div class="inner test-tree" style='overflow:auto;'>    
+                                                        <div id="loading-image" class='scrollbar-inner'>
+                                                        <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
+                                                        </div>
+                                                    </div>                                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Makina Adı</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="machine_tool_name" id="machine_tool_name" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">İngilizce Makina Adı</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="machine_tool_name_eng" id="machine_tool_name_eng" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Üretici Firma</label>
+                                            <div class="col-sm-10">
+                                                <div id="mach-prod-box" class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-copyright"></i>
+                                                    </div>
+                                                    <div id="dropdownProducers" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Model</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-barcode"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="model" id="model" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Model Yılı</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar-check-o"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required, custom[integer]]" type="text" name="model_year" id="model_year" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Makina Kodu</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-flag"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control" type="text" name="machine_code" id="machine_code" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-10 col-sm-offset-2">
+                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertMachWrapper(event);"><i class="fa fa-save"></i>  Makina Kaydet </button>
+                                                <!--<button id="updateMachineCategory" class="btn btn-flat" type="submit" onclick="return updateMachineCategoryWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>-->
+                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetMachineForm();" ><i class="fa fa-remove"></i> Reset </button>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </form>  
                             </div><!-- /.box-body -->
                         </div><!--/. primary box div-->
                     </div><!--/. first panel single column div -->
+                    
+                    <!--Makina listeleme bölümü -->
+                    <div class="col-lg-12">
+                        <div id="loading-image-grid-container" class="box box-warning"> 
+                            <!--First panel Header-->
+                            <div class="box-header with-border">                                                    
+                                <h3 class="box-title"> Makinalar Listesi</h3>
+                                
+                                <!--Panel 1 collapse button-->
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                                </div><!--/. button div-->
+                            </div><!--/. panel 1 header div-->
+                            <!--Panel 1 contents-->
+                            <div class="box-body">    
+                                <div class="alert alert-warning alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-info"></i> Makina Listesi (Kategorik veya Tüm Makinalar)</h4>
+                                    Makina kategorisi ağaç yapısına tıklayarak, sadece kategori için makina listesini güncelletebilirsiniz...
+                                </div>
+                                <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
+                                    <table  id="tt_grid_dynamic" title="Makinalar " ></table>   
+                                </div> 
+                                
+                            </div><!-- /.box-body -->
+                        </div><!--/. primary box div--> 
+                    </div>  
                 </div><!-- / first panel row-->
-
-                
-
             </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b><?php echo $this->translate('Version') ?></b> 1.0
             </div>
-            <strong><?php echo $this->translate('Copyright') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a>.</strong> <?php echo $this->translate('All rights reserved.') ?>
+            <strong><?php echo $this->translate('Copyright') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a></strong> <?php echo $this->translate('All rights reserved.') ?>
         </footer>
 
         <!-- Control Sidebar -->      
@@ -489,5 +502,5 @@
              immediately after the control sidebar -->
         <div class='control-sidebar-bg'></div>
     </div><!-- ./wrapper -->
-
+    
 </body>

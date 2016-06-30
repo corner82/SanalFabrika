@@ -216,15 +216,21 @@
 
     /*
      * paginator widget 
-     * 
+     * @author: Bahram Lotfi Sadigh
+     * @Since: 2016.03.20
      */
+
+    if ($('#pk').val()) {
+        window.list_service_url = 'pkFillCompanyLists_infoFirmProfile';
+    } else {
+        window.list_service_url = 'fillCompanyListsGuest_infoFirmProfile';
+    }
 
     $.widget("sanalfabrika.paginator", {
         /**
          * Default options.
          * @returns {null}
          */
-
         options: {
             total: 50,
             page: 1,
@@ -274,7 +280,8 @@
                 $.ajax({
                     url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                     //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-                    data: {url: 'fillCompanyListsGuest_infoFirmProfile',
+                    data: {url: window.list_service_url,
+                        pk: $('#pk').val(),
                         language_code: $("#langCode").val(),
                         page: num,
                         rows: window.companyperpage,
@@ -295,7 +302,7 @@
 //                                    + "<a href='#'>"
                                     + "<div class='row clients-page'>"
                                     + "<div class = 'col-md-2'>"
-                                    + "<img src='/onyuz/standard/assets/img/sfClients/logos/"
+                                    + "<img src='/onyuz/standard/assets/img/sfClients/"
                                     + data.rows[i].logo
                                     + "' "
                                     + "class = 'img-responsive hover-effect' alt = '' / >"
@@ -338,12 +345,12 @@
                             var newappend = $(appending_html);
                             $(newappend).appendTo($("#pagination_content"));
                         }
-                        $("html, body").animate({scrollTop: $(".header").offset().top}, "slow");
-                        event.preventDefault();
+//                        
                     }
                 });
+                $("html, body").animate({scrollTop: $(".header").offset().top}, "slow");
+                event.preventDefault();
             });
         }
     });
 }(jQuery));
-

@@ -39,7 +39,7 @@
          * Default options.
          * @returns {null}
          */
-        options: {
+        options: {  
             overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
             overlayKey: ".overlay:first",
         },
@@ -99,6 +99,7 @@
              *  
              */
             var self = this;
+            //console.log(self.options.data);
             $(this.options.domObjectKey).each(function (key, value) {
                 if (typeof self.options.data[key] != 'undefined') {
                     var test = self.options.domObjectKeyDataLabel;
@@ -230,7 +231,7 @@
         },
         _create: function () {
         },
-        show : function(title, message) {
+        show : function(title, message, data) {
             var self = this;
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_WARNING,
@@ -249,7 +250,7 @@
                     cssClass: 'btn-success',
                     action: function(dialogItself){
                         dialogItself.close();
-                        self._trigger('onConfirm');
+                        self._trigger('onConfirm', event, {data : data});
                     }
                 }]
             });
@@ -275,14 +276,14 @@
         },
         _create: function () {
         },
-        show : function(title, message) {
+        show : function(title, message, data) {
             var self = this;
             BootstrapDialog.show({
                 title: title,
                 message: message,
                 type: BootstrapDialog.TYPE_WARNING,
             });
-            self._trigger('onShown');
+            self._trigger('onShown', event, {data : data});
         },
         resetOnShown : function() {
             this.options.onShown = function () {
@@ -310,7 +311,7 @@
             this._super();
         },
         
-        show : function(title, message) {
+        show : function(title, message, data) {
             var self = this;
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_SUCCESS,
@@ -322,7 +323,7 @@
                     cssClass: 'btn-success',
                     action: function(dialogItself){
                         dialogItself.close();
-                        self._trigger('onShown');                        
+                        self._trigger('onShown', event, {data : data});                        
                     }
                 }]
             });
@@ -348,7 +349,7 @@
         },
         _create: function () {
         },
-        show : function(title, message) {
+        show : function(title, message, data) {
             var self = this;
             BootstrapDialog.show({
                 type: BootstrapDialog.TYPE_DANGER,
@@ -360,7 +361,7 @@
                     cssClass: 'btn-danger',
                     action: function(dialogItself){
                         dialogItself.close();
-                        self._trigger('onShown');
+                        self._trigger('onShown', event, {data : data});
                     }
                 }]
             });  
@@ -437,28 +438,58 @@
         _create: function () {
            // this._trigger('tested');
             var self = this;
+            
             /**
-             * root node span click handler
-             * @since 24/02/2016
+             * when <i> tag inside node <span> was clicked,
+             * because of id not found, false data was retreiving,
+             * bug fixed
+             * @author Mustafa Zeynel Dağlı
+             * @since 20/06/2016
              */
-            $(".tree2").on("click", "li.parent_li > span[data-action='root']", function (event) {
-                //alert('root action');
-                self._loadSubNodes($(this).attr('id'), $(this));
-            });
-
-            /**
-             * leaf (machine group ans machine) node span click event handler
-             * @since 24/02/2016
-             */
-            $(".tree2").on("click", "li.parent_li > span.badge", function (event) {
-                //alert('leaf action');
-                if ($(this).hasClass('machine')) {
-                    self._trigger('getMachineProp', event, [self, $(this)]);
-                    self._trigger('getMachineGenProp', event, [self, $(this)]);
-                } else {
-                    self._loadSubNodes($(this).attr('id'), $(this));
+            this._on(this.element, {
+            'click.parent_li > span > i': function(event, self) { 
+                    //alert('i onclick');
+                    return false;
+                     
                 }
             });
+            
+            
+            /**
+             * root node click event binding
+             */
+            this._on(this.element, {
+            'click.parent_li > span[data-action="root"]': function(event, self) { 
+                    //alert('onclick root');
+                    var element = $(event.target);
+                    var id = element.attr('id');
+                    //console.log(id);
+                    var self = this;
+                    self._loadSubNodes(id, element);  
+                }
+            });
+            
+            /**
+             * sub node click event binding
+             */
+            this._on(this.element, {
+            'click.parent_li > span.badge': function(event, self) { 
+                    //alert('onclick sub nodes');
+                    var element = $(event.target);
+                    var id = element.attr('id');
+                    //console.log(id);
+                    var self = this;
+                    if (element.hasClass('machine')) {
+                        //alert('has class machine');
+                        self._trigger('getMachineProp', event, [self, element]);
+                        self._trigger('getMachineGenProp', event, [self, element]);
+                    } else {
+                        self._loadSubNodes(id, element);
+                    }
+                }
+            });
+
+
 
         },
         /**
@@ -469,6 +500,7 @@
          * @author Mustafa Zeynel Dağlı
          */
         _loadSubNodes: function (id, node) {
+            //alert('_loadSubNodes');
             self = this;
             var listItem = node.parent('li.parent_li');
             if (listItem.attr('data-lastnode') == 'true') {
@@ -725,10 +757,7 @@
             //this._trigger('tested');
         }
     });
-    
-    
-    
-    
+
     /**
      * set alpaca form due to machine tree selected machine item
      * @author Mustafa Zeynel Dağlı
@@ -883,23 +912,22 @@
                 success: function (data, textStatus, jqXHR) {
                     if(data.length!==0) {
                         if(data.found) {
-                            self._trigger('onSuccess',  data);
-                            
+                            self._trigger('onSuccess', event, data);
                         }else {
                             if(data.errorInfo == 23505) {
-                                self._trigger('onError23505');
+                                self._trigger('onError23505', event, data); 
                             } else if(data.errorInfo == 23503) {
-                                self._trigger('onError23503');
+                                self._trigger('onError23503', event, data);
                             } else {
-                                self._trigger('onErrorMessage');
-                            }
+                                self._trigger('onErrorMessage', event, data);
+                            } 
                         }
                     } else {
-                        self._trigger('onErrorDataNull');
+                        self._trigger('onErrorDataNull');   
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    self._trigger('onError');  
+                    self._trigger('onError', event, textStatus, errorThrown);  
                 }
             });
         },
@@ -947,25 +975,36 @@
                 type: this.options.type,
                 dataType: this.options.dataType,
                 success: function (data, textStatus, jqXHR) {
-                    var data = data;
+                    //console.log(data);
+                    /*var arr = $.makeArray(data);
+                    console.log(arr);
+                    console.log(arr.length);
+                    console.log(arr[0]);*/
+                    var jsonString = JSON.stringify(data);
+                    //console.log(jsonString);
+
                     if(data.length!==0) {
-                        self._trigger('onSuccess', event,  data);
+                        if(data.found) {
+                            self._trigger('onSuccess', event, jsonString);
+                        } else if(data.errorInfo == 23505) {
+                            self._trigger('onError23505', event, jsonString);
+                        } else if(data.errorInfo == 23503) {
+                            self._trigger('onError23503', event, jsonString);
+                        } else {
+                            self._trigger('onSuccess', event,  jsonString);
+                        }
+                        
                     } else {
                         self._trigger('onErrorDataNull');
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    self._trigger('onError');  
+                    self._trigger('onError', event, textStatus, errorThrown);  
                 }
             });
         },
        
     });
-
-
-
-
-
 
 }(jQuery));
 

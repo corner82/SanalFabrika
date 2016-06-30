@@ -6,6 +6,8 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
+    lang.change($('#langCode').val());
+
     var $first_lev_cat_list = $("#first_lev_cat_list");
     for (i = 0; i < window.category_map['main_options'].length; i++) {
         $first_lev_cat_list.append(

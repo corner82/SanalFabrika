@@ -913,7 +913,7 @@ $(document).ready(function () {
                                 cssClass: 'btn-success',
                                 action: function(dialogItself){
                                     dialogItself.close();
-                                    $('#menuForm')[0].reset();
+                                    $('#machineCategoryForm')[0].reset();
                                     loader.loadImager('removeLoadImage');
                                 }
                             }]

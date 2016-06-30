@@ -101,6 +101,30 @@
      }
      
      /**
+      * machine property  admin crud operations
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 23/06/2016
+      */
+     public function machpropdefAction()
+     {
+        $langCode = $this->getServiceLocator()
+                         ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                                    ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                          ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode'            => $langCode,
+            'publicKey'           => $publicKey,
+        ));
+        return $view;
+         
+     }
+     
+     /**
       * machine  admin operations
       * @return ViewModel
       * @author Mustafa Zeynel Dağlı
@@ -148,18 +172,80 @@
          
      }
      
+     /**
+      * system units definitions admin panel
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 04/05/2016
+      */
+     public function prodtypesAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+         
+     }
+     
+     /**
+      * system machine attributes definitions admin panel
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 21/04/2016
+      */
+     public function machattrAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+         
+     }
+     
+     
+     
+     /**
+      * unique machine property admin operations
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 03/06/2016
+      */
+     public function uniquemachpropAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+         
+     }
      
 
-     public function addAction()
-     {
-     }
-
-     public function editAction()
-     {
-     }
-
-     public function deleteAction()
-     {
-     }
  }
 

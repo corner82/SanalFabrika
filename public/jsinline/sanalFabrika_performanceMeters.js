@@ -7,9 +7,21 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
 
-    console.log($('#selectedCompanyNpk').val());
+    lang.change($('#langCode').val());
+//    console.log($('#selectedCompanyNpk').val());
 
-    
+    $('#header_company_name').empty();
+    $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
+
+    $('#loging_ph').empty();
+
+    if ($('#pk').val()) {
+        var loging_value = window.lang.translate('Log out');
+    } else {
+        var loging_value = window.lang.translate('Log in');
+    }
+    $('#loging_ph').append(loging_value);
+
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -21,14 +33,14 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            console.log(data);
-            
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
-                                
+//            console.log(data);
+
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+
             window.logosrc = imageFolAddress + data[0].logo;
-            
-            $('#profileLogosrc').attr('src', window.logosrc);        
-            
+
+            $('#profileLogosrc').attr('src', window.logosrc);
+
             var total_employees = data[0].number_of_employees;
             $('#number_of_employees').append(total_employees);
             document.getElementById('employee_per_bar').style.width = '100%';
@@ -56,30 +68,49 @@ $(document).ready(function () {
 
 function listOfCertificates() {
 
-    console.log('Available Certificates');
+//    console.log('Available Certificates');
     if ($("#qualityDetaildDIV").hasClass('active')) {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
         $("#qualityDetailsInsideDIV").empty();
     } else {
-        window.i++;
-        $("#qualityDetailsInsideDIV").append('Certificates ' + i + ' , ');
+        var appending =
+                "<hr>"
+                + "<div class='col-xs-3'>"
+                + "<img style='width:100px; height: 100px' "
+                + "src='../../../../onyuz/standard/assets/img/sfClients/Images/Certificates/ISO_9001.jpg'"
+                + "alt=''>"
+                + "</div>"
+                + "<div class='col-xs-9'>"
+                + "<header>"
+                + "<h3>"
+                + window.lang.translate('ISO 9001')
+                + "</h3>"
+                + "</header>"
+                + "<div>"
+                + "<p>"
+                + window.lang.translate('EMGE has ISO 9001 Quality Standard')
+                + "</p>"
+                + "</div>"
+                + "</div>"
+                + "<hr>";
+
+        $("#qualityDetailsInsideDIV").append(appending);
         $("#qualityDetaildDIV").addClass("active");
         $("#qualityDetaildDIV").slideDown("slow");
     }
-
 }
 
 function qualityHistory() {
 
-    console.log('Qulaity History');
+//    console.log('Qulaity History');
     if ($("#qualityDetaildDIV").hasClass('active')) {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
         $("#qualityDetailsInsideDIV").empty();
     } else {
         window.i++;
-        $("#qualityDetailsInsideDIV").append('history ' + i + ' , ');
+//        $("#qualityDetailsInsideDIV").append('history ' + i + ' , ');
         $("#qualityDetaildDIV").addClass("active");
         $("#qualityDetaildDIV").slideDown("slow");
     }
@@ -125,7 +156,7 @@ function customerDetails() {
 
     } else {
 
-        $("#customerDetailsInsideDIV").append();
+//        $("#customerDetailsInsideDIV").append();
         $("#customerDetailsDIV").addClass("active");
         $("#customerDetailsDIV").slideDown("slow");
     }
