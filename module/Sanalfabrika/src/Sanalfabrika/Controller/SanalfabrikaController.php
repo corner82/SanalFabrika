@@ -485,6 +485,14 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceNpkReader');
             }
         
+        /**
+         * @author Mustafa Zeynel Dağlı
+         * @since 12/07/2016
+         * acl class test in view layer
+         */
+        /*$acl = $this->getServiceLocator()
+                    ->get('serviceAclRolePagesCreator');*/
+        
 
         /*
          * write npk to session
@@ -502,7 +510,13 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
             'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
-            'publicKey' => $publicKey
+            'publicKey' => $publicKey,
+            /**
+             * @author Mustafa Zeynel Dağlı
+             * @since 12/07/2016
+             * acl class test in view layer
+             */
+            //'acl' => $acl
         ));
         return $view;
     }
