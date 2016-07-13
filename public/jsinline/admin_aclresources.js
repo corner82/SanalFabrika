@@ -18,19 +18,18 @@ $.extend($.fn.tree.methods,{
 });
 
 /**
- * Machine datagrid is being filled
- * @since 16/05/2016
+ * ACL resources datagrid is being filled
+ * @since 13/07/2016
  */
 $('#tt_grid_dynamic').datagrid({
     onDblClickRow : function (index, row) {
         
     },  
     url : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-    //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillPropertieslist_sysMachineToolPropertyDefinition',
+            url : 'pkFillPropertieslist_sysAclResources',
             sort : 'id',
             order : 'desc',
             /*machine_groups_id : null,
@@ -42,7 +41,6 @@ $('#tt_grid_dynamic').datagrid({
     collapsible:true,
     method:'get',
     idField:'id',
-    //toolbar:'#tb5',
     //fit:true,
     //fitColumns : true,
     remoteFilter: true,
@@ -51,21 +49,19 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'property_name',title:'Makina Özelliği',sortable:true,width:300},
-            {field:'property_name_eng',title:'İng. Makina Özel.',sortable:true, width:300},
-
-            {field:'unitcode',title:'Birim Grubu', width:200},
+            {field:'name',title:'Resource',sortable:true,width:300},
+            {field:'parent_name',title:'Bağlı Resource',sortable:true,width:300},
+            {field:'description',title:'Açıklama',sortable:true, width:300},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveMachinePropWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLResourcesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveMachinePropWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLResourcesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteMachPropUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachPropDialog('+row.id+', { property_name : \''+row.property_name+'\',\n\                                                                                                                   \n\
-                                                                                                                                                                        property_name_eng : \''+row.property_name_eng+'\',\n\
-                                                                                                                                                                        unit_grup_id : '+row.unit_grup_id+'} );"><i class="fa fa-arrow-circle-up"></i></button>';
+                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLResourceUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateACLResourceDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
+                                                                                                                                                                           description : \''+row.description+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
             },
@@ -126,7 +122,7 @@ $("#mach-prod-box").loadImager('appendImage');
  * machine insert form validation engine attached to work
  * @since 16/05/2016
  */
-$('#machinePropForm').validationEngine();
+$('#aclResourcesForm').validationEngine();
 
  /**
 * reset button function for machine property insert form
@@ -137,7 +133,7 @@ $('#machinePropForm').validationEngine();
 * @since 23/06/2016
 */
 window.resetMachinePropForm = function () {
-   $('#machinePropForm').validationEngine('hide');
+   $('#aclResourcesForm').validationEngine('hide');
    return false;
 }
                                             
@@ -149,7 +145,7 @@ window.resetMachinePropForm = function () {
 * 23/06/2016
 */
 $('#tt_tree_menu2').tree({  
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillResourcesTree_sysAclResources&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
     method: 'get',
     animate: true,
     checkbox: false,
@@ -159,80 +155,10 @@ $('#tt_tree_menu2').tree({
          loader.loadImager('removeLoadImage');
     },
     onSelect: function(node) {
-        var self = $(this);
-        if(self.tree('isLeaf', node.target)) {
-            wm.warningMessage( {
-                onShown : function (event ,data ) {
-                   var parent = self.tree('getParent', node.target);
-                   self.tree('select', parent.target);
-                }
-            });
-            wm.warningMessage('show','Ana Kategori Birim Seçiniz',
-                                     'Lütfen birimi  ana kategoriden seçiniz...');
-
-        } 
+         
     },
 });
       
-/**
- * set machine due to machine categories
- * @param {type} node
- * @param {type} treeObj
- * @param {type} tagBuilder
- * @returns {undefined}
- * @since 17/05/2016
- */
-window.getMachineDueCategories = function(node, treeObj) {
-    //alert('getMachineDueCategories');
-    var nodeID = node.id;
-    var checkedArray = [];
-    var checked = treeObj.tree('getChecked');
-    if(checked.length >0) {
-        $.each(checked, function(index, item) {
-            checkedArray.push(parseInt(item.id));
-        });
-        var objChecked = $.extend({}, checkedArray);
-        var json=JSON.stringify(objChecked);
-        //console.log(json);;
-        //console.log(JSON.parse(json)); 
-
-        //$('#tt_grid_dynamic').datagrid('disableFilter');
-        $('#tt_grid_dynamic').datagrid({  
-            queryParams: {
-                    pk: $('#pk').val(),
-                    subject: 'datagrid',
-                    url : 'pkFillPropertieslist_sysMachineToolPropertyDefinition',
-                    machine_groups_id : json,
-                    //filterRules:[{"field":"machine_tool_name","op":"contains","value":"e"}]
-            },
-        });
-        $('#tt_grid_dynamic').datagrid('enableFilter');
-    } 
-}
-
-/**
- * get all machines properties and fill to datagrid
- * @param {type} node
- * @param {type} treeObj
- * @returns {undefined}
- * @since 23/06/2016
- */
-window.getAllMachinePropsToDatagrid = function(node, treeObj) {
-    var nodeID = node.id;
-    var checkedArray = [];
-    var checked = treeObj.tree('getChecked');
-    if(checked.length == 0) {
-        $('#tt_grid_dynamic').datagrid({  
-            queryParams: {
-                    pk: $('#pk').val(),
-                    subject: 'datagrid',
-                    url : 'pkFillPropertieslist_sysMachineToolPropertyDefinition',
-            },
-        });
-        $('#tt_grid_dynamic').datagrid('enableFilter');
-    } 
-}
-    
 
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
@@ -241,32 +167,32 @@ $.fn.leftMenuFunction();
 jQuery("#machinePropForm").validationEngine();
     
 /**
- * wrapper class for pop up and delete machine property ultimately
+ * wrapper class for pop up and delete ACL resource ultimately
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
- * @since 23/06/2016
+ * @since 13/07/2016
  */
-window.deleteMachPropUltimatelyDialog= function(id, index){
+window.deleteACLResourceUltimatelyDialog= function(id, index){
     var id = id;
     var index = index;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteMachPropUltimately(id, index);
+        deleteACLResourceUltimately(id, index);
     }
     });
-    wcm.warningComplexMessage('show', 'Makina Özellik Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'Makina Özelliği silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'ACL Resource (Kaynak) Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'ACL Resource (Kaynak) silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
    
 /**
-* delete machine property
+* delete ACL resource
 * @param {type} id
 * @param {type} element
 * @param {type} machine_group_id
 * @returns {undefined}
-* @since 23/06/2016
+* @since 13/07/2016
 */
-window.deleteMachPropUltimately = function(id, index) {
+window.deleteACLResourceUltimately = function(id, index) {
    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
     loaderGridBlock.loadImager('appendImage');
 
@@ -275,7 +201,7 @@ window.deleteMachPropUltimately = function(id, index) {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysMachineToolPropertyDefinition' ,
+                    url:'pkDelete_sysAclResources' ,
                     id : id,
                     pk : $("#pk").val()
                 }
@@ -283,21 +209,25 @@ window.deleteMachPropUltimately = function(id, index) {
     ajDeleteAll.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'Makina Özelliği Silme İşlemi Başarısız...',
-                                     'Makina özelliği silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-            console.error('"pkDelete_sysMachineToolPropertyDefinition" servis hatası->'+data.errorInfo);
+            dm.dangerMessage('show', 'ACL Resource (Kaynak) Silme İşlemi Başarısız...',
+                                     'ACL Resource (Kaynak) silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDelete_sysAclResources" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
             sm.successMessage({ 
                 onShown : function() {
-                    console.warn(index);
+                    //console.warn(index);
                     loaderGridBlock.loadImager('removeLoadImage');
+                    
+                    var node = $('#tt_tree_menu2').tree('find', id);
+                    $('#tt_tree_menu2').tree('remove', node.target);
+                    
                     $('#tt_grid_dynamic').datagrid('reload');
                     //$('#tt_grid_dynamic').datagrid('deleteRow', index);
                 }
             });
-            sm.successMessage('show', 'Makina Özelliği Silme İşleminiz Başarılı...',
-                                      'Makina Özelliği silme işleminiz başarılı...')
+            sm.successMessage('show', 'ACL Resource (Kaynak) Silme İşleminiz Başarılı...',
+                                      'ACL Resource (Kaynak) silme işleminiz başarılı...')
         },                                   
     });
     ajDeleteAll.ajaxCall('call');
@@ -305,20 +235,15 @@ window.deleteMachPropUltimately = function(id, index) {
    
  
 /**
- * insert machine property item
+ * insert ACL resource
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 23/06/2016
+ * @since 13/07/2016
  */
-window.insertMachPropWrapper = function (e) {
+window.insertACLResourcesWrapper = function (e) {
  e.preventDefault();
- if ($("#machinePropForm").validationEngine('validate')) {
-     if($('#tt_tree_menu2').tree('getSelected') == null) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Birim Seçiniz', 'Lütfen birim kategorisi seçiniz!');
-         return false;
-     }
-     insertMachProp();
+ if ($("#aclResourcesForm").validationEngine('validate')) {
+     insertACLResource();
  }
  return false;
 }
@@ -326,169 +251,123 @@ window.insertMachPropWrapper = function (e) {
    
    
 /**
- * wrapper for machine property update process
+ * wrapper for ACL resource update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 24/06/2016
+ * @since 13/07/2016
  */
-window.updateMachPropDialog = function (id, row) {
+window.updateACLResourceDialog = function (id, row) {
     window.gridReloadController = false;
-//console.log(row);
-BootstrapDialog.show({  
-     title: '"'+ row.property_name + '" makina özelliğini güncellemektesiniz...',
-     message: function (dialogRef) {
-                 var dialogRef = dialogRef;
-                 var $message = $(' <div class="row">\n\
-                                         <div class="col-md-12">\n\
-                                             <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                 <form id="machPropFormPopup" method="get" class="form-horizontal">\n\
-                                                 <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
-                                                 <div class="hr-line-dashed"></div>\n\
-                                                     <div class="form-group" style="padding-top: 10px;" >\n\
-                                                         <label class="col-sm-2 control-label">Birim Sistemi</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <ul id="tt_tree_menu2_popup" class="easyui-tree" ></ul>\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
-                                                     <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">Makina Özelliği</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <div  class="tag-container-popup">\n\
-                                                                     <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.property_name+'" name="property_name_popup" id="property_name_popup"   />\n\
-                                                                 </div>\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
-                                                     <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">İng. Makina Özelliği</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.property_name_eng+'" name="property_name_eng_popup" id="property_name_eng_popup" />\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
+    //console.log(row);
+    BootstrapDialog.show({  
+         title: '"'+ row.name + '" ACL kaynağını güncellemektesiniz...',
+         message: function (dialogRef) {
+                     var dialogRef = dialogRef;
+                     var $message = $(' <div class="row">\n\
+                                             <div class="col-md-12">\n\
+                                                 <div id="loading-image-crud-popup" class="box box-primary">\n\
+                                                     <form id="aclResourceFormPopup" method="get" class="form-horizontal">\n\
+                                                     <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
-                                                     <div class="form-group">\n\
-                                                         <div class="col-sm-10 col-sm-offset-2">\n\
-                                                         <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateMachWrapper(event, '+id+');">\n\
-                                                             <i class="fa fa-save"></i> Güncelle </button>\n\
-                                                         <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
-                                                             <i class="fa fa-remove"></i> Reset </button>-->\n\
+                                                         <div class="form-group" style="margin-top: 20px;">\n\
+                                                             <label class="col-sm-2 control-label">Resource (Kaynak)</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <div  class="tag-container-popup">\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.name+'" name="name_popup" id="name_popup"   />\n\
+                                                                     </div>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group">\n\
+                                                             <label class="col-sm-2 control-label">Açıklama</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description_popup" id="description_popup" placeholder="Açıklama ...">'+row.description+'</textarea>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="hr-line-dashed"></div>\n\
+                                                         <div class="form-group">\n\
+                                                             <div class="col-sm-10 col-sm-offset-2">\n\
+                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateACLResourceWrapper(event, '+id+');">\n\
+                                                                 <i class="fa fa-save"></i> Güncelle </button>\n\
+                                                             <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
+                                                                 <i class="fa fa-remove"></i> Reset </button>-->\n\
+                                                         </div>\n\
                                                      </div>\n\
-                                                 </div>\n\
-                                             </form>\n\
+                                                 </form>\n\
+                                             </div>\n\
                                          </div>\n\
-                                     </div>\n\
-                                 </div>');
-                 return $message;
-             },
-     type: BootstrapDialog.TYPE_PRIMARY,
-     onshown : function () {         
-        $('#machPropFormPopup').validationEngine();
-        $('#tt_tree_menu2_popup').tree({  
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillUnitsTree_sysUnits&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
-            method: 'get',
-            animate: true,
-            checkbox: false,
-            cascadeCheck: false,
-            lines: true,
-            onLoadSuccess: function (node, data) {
-                //loader.loadImager('removeLoadImage');
-                var node = $('#tt_tree_menu2_popup').tree('find', parseInt(row.unit_grup_id));
-                $('#tt_tree_menu2_popup').tree('select', node.target);
-            },
-            onSelect : function(node) {
-                var self = $(this);
-                if(self.tree('isLeaf', node.target)) {
-                    wm.warningMessage( {
-                        onShown : function (event ,data ) {
-                           var parent = self.tree('getParent', node.target);
-                           self.tree('select', parent.target);
-                        }
-                    });
-                    wm.warningMessage('show','Ana Kategori Birim Seçiniz',
-                                             'Lütfen birimi  ana kategoriden seçiniz...');
-                } 
-            },
-        });
-     },
-     onhide : function() {
-         if(window.gridReloadController == true) {
-             $('#tt_grid_dynamic').datagrid('reload');
-         }
-         
-     },
- });
- return false;
+                                     </div>');
+                     return $message;
+                 },
+         type: BootstrapDialog.TYPE_PRIMARY,
+         onshown : function () {         
+            $('#aclResourceFormPopup').validationEngine();
+         },
+         onhide : function() {
+             if(window.gridReloadController == true) {
+                 $('#tt_grid_dynamic').datagrid('reload');
+             }
+
+         },
+     });
+     return false;
 }
 
 /**
- * update unit item
+ * update ACL resource wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 23/05/2016
+ * @since 13/07/2016
  */
-window.updateMachWrapper = function (e, id) {
+window.updateACLResourceWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#machPropFormPopup").validationEngine('validate')) {
-     selectedTreeItem = $('#tt_tree_menu2_popup').tree('getSelected');
-     if(selectedTreeItem == null) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Birim Seçiniz', 'Lütfen birim kategorisi seçiniz!');
-         return false;
-     }   
-    updateMach(id);
+ if ($("#aclResourceFormPopup").validationEngine('validate')) {   
+    updateACLResource(id);
     return false;
  }
  return false;
 }
 
 /**
- * update unit item
+ * update ACL resource
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 23/06/2016
+ * @since 13/07/2016
  */
-window.updateMach = function (id) {
+window.updateACLResource = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      
-     selectedTreeItem = $('#tt_tree_menu2_popup').tree('getSelected');
-     var unit_grup_id = selectedTreeItem.id;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysMachineToolPropertyDefinition' ,
-                         language_code : $('#langCode').val(),
+                         url:'pkUpdate_sysAclResources' ,
                          id : id,
-                         property_name : $('#property_name_popup').val(),
-                         property_name_eng : $('#property_name_eng_popup').val(),
-                         unit_grup_id : unit_grup_id,
+                         name : $('#name_popup').val(),
+                         description : $('#description_popup').val(),
+                         parent : 0,
                          pk : $("#pk").val()
                      }
     })
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Güncelleme İşlemi Başarısız...', 
-                                      'Makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
+                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclResources" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -497,21 +376,21 @@ window.updateMach = function (id) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'Makina Özelliği Güncelleme İşlemi Başarılı...', 
-                                       'Makina özelliği güncelleme işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarılı...', 
+                                       'ACL Resource (Kaynak) güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
              window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Güncelleme İşlemi Başarısız...', 
-                                      'Makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysMachineToolPropertyDefinition" servis datası boştur!!');
+             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
+                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclResources" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Güncelleme İşlemi Başarısız...', 
-                                      'Makina özelliği güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
+                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
@@ -522,60 +401,59 @@ window.updateMach = function (id) {
 }
    
 /**
- * insert machine property
- * @param {type} nodeID
- * @param {type} nodeName
+ * insert ACL resource
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 23/06/2016
+ * @since 13/07/2016
  */
-window.insertMachProp = function () {
+window.insertACLResource = function () {
      var loaderInsertBlock = $("#loading-image-crud").loadImager();
      loaderInsertBlock.loadImager('appendImage');
      
-     var selectedTreeItem = $('#tt_tree_menu2').tree('getSelected');
-     //var unit_grup_id = selectedTreeItem.id;
+     var name = $('#name').val();
+     var description = $('#description').val();
      
-      var unitGroupIDArray = [];
-      unitGroupIDArray.push(parseInt(selectedTreeItem.id));
-    
-     var objunitGroupID = $.extend({}, unitGroupIDArray);
-     var jsonUnitGroupID = JSON.stringify(objunitGroupID);
-
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
-                         url:'pkInsert_sysMachineToolPropertyDefinition' ,
-                         property_name : $('#property_name').val(),
-                         property_name_eng : $('#property_name_eng').val(),
-                         unit_grup_id : jsonUnitGroupID,
+                         url:'pkInsert_sysAclResources' ,
+                         name : name,
+                         description : description,
+                         parent : 0,
                          pk : $("#pk").val()
                      }
     })
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Makina Ekleme İşlemi Başarısız...', 
-                                       'Makina ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
+              dm.dangerMessage('show', 'ACL Resource (Kaynak) Ekleme İşlemi Başarısız...', 
+                                       'ACL resource (kaynak) ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkInsert_sysAclResources" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
-              //console.log(data);
+              console.log(data);
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
-                     $('#machinePropForm')[0].reset();
-                     $('#dropdownProducers').ddslick('select', {index: '0' });
-                     //var nodeSelected = $('#tt_tree_menu2').tree('find', machine_tool_grup_id); 
-                     var nodeSelected = $('#tt_tree_menu2').tree('getSelected');
-                     $('tt_tree_menu2').tree('unselect', nodeSelected); 
+                     $('#aclResourcesForm')[0].reset();  
+                     
+                     $('#tt_tree_menu2').tree('append', {
+                        data: [{
+                                attributes:{ active: 0 },
+                                active: 0,
+                                id: data.lastInsertId,
+                                text: name,
+                                checked: false,
+                                state : 'open',
+                            },]
+                    });
 
                      loaderInsertBlock.loadImager('removeLoadImage');
                      $('#tt_grid_dynamic').datagrid({
                          queryParams: {
                                  pk: $('#pk').val(),
                                  subject: 'datagrid',
-                                 url : 'pkFillPropertieslist_sysMachineToolPropertyDefinition',
+                                 url : 'pkFillPropertieslist_sysAclResources',
                                  sort : 'id',
                                  order : 'desc',
                          },
@@ -584,22 +462,22 @@ window.insertMachProp = function () {
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
              });
-             sm.successMessage('show', 'Makina Özelliği Kayıt İşlemi Başarılı...', 
-                                       'Makina özelliği kayıt işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarılı...', 
+                                       'ACL resource (kaynak) kayıt işlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Makina Özelliği Kayıt İşlemi Başarısız...', 
-                                       'Makina özelliği kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysMachineToolPropertyDefinition" servis datası boştur!!');
+              dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
+                                       'ACL resource (kaynak) kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkInsert_sysAclResources" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Kayıt İşlemi Başarısız...', 
-                                     'Makina özelliği kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysMachineTools" servis hatası->'+data.errorInfo);
+             dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
+                                     'ACL resource (kaynak) kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkInsert_sysAclResources" servis hatası->'+data.errorInfo);
           },
           onError23503 : function (event, data) {
           },
@@ -610,8 +488,8 @@ window.insertMachProp = function () {
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'Makina Özelliği Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile makina özelliği kaydı yapılmıştır, yeni bir makina özelliği deneyiniz... ');
+              dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
+                                       'Aynı isim ile ACL resource (kaynak) kaydı yapılmıştır, yeni bir ACL resource (kaynak) deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
@@ -619,31 +497,31 @@ window.insertMachProp = function () {
    
 
 /**
- * active/passive machine property
+ * active/passive ACL resource
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 23/06/2016
+ * @since 13/07/2016
  */
-window.activePassiveMachinePropWrapper = function (e, id) {
+window.activePassiveACLResourcesWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  var domElement = e.target;
  wcm.warningComplexMessage({onConfirm : function(event, data) {
-        activePassiveMachine(id, domElement);
+        activePassiveACLResource(id, domElement);
     }
     });
-wcm.warningComplexMessage('show', 'Makina Özelliği Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                  'Makina özelliği aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
+wcm.warningComplexMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                  'ACL resource (kaynak) aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
  return false;
 }
 
 /**
- * active or passive mach property item
+ * active or passive ACL resource
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 23/06/2016
+ * @since 13/07/2016
  */
-window.activePassiveMachine = function (id, domElement) {
+window.activePassiveACLResource = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
     loader.loadImager('appendImage');
     var id = id;
@@ -652,7 +530,7 @@ window.activePassiveMachine = function (id, domElement) {
     var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdateMakeActiveOrPassive_sysMachineToolPropertyDefinition' ,
+                         url:'pkUpdateMakeActiveOrPassive_sysAclResources' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -660,9 +538,9 @@ window.activePassiveMachine = function (id, domElement) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Aktif/Pasif İşlemi Başarısız...', 
-                                      'Makina özelliği aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL resource (kaynak) aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysAclResources" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -671,8 +549,8 @@ window.activePassiveMachine = function (id, domElement) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'Makina Özelliği Aktif/Pasif İşlemi Başarılı...', 
-                                       'Makina özelliği aktif/pasif işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarılı...', 
+                                       'ACL resource (kaynak) aktif/pasif işlemini gerçekleştirdiniz... ',
                                        data);
             if($(domElement).hasClass("fa-minus-circle")){
                 $(domElement).removeClass("fa-minus-circle");
@@ -692,14 +570,14 @@ window.activePassiveMachine = function (id, domElement) {
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Aktif/Pasif İşlemi Başarısız...', 
-                                      'Makina özelliği aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysMachineToolPropertyDefinition" servis datası boştur!!');
+             dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL resource (kaynak) aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysAclResources" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Aktif/Pasif İşlemi Başarısız...', 
-                                      'Makina özelliği aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL resource (kaynak) aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
