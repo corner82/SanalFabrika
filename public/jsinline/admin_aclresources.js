@@ -106,18 +106,6 @@ var wm  = $(window).warningMessage();
 var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
- 
- /*
-* 
-* @type @call;$@call;loadImager
-* @Since 16/05/2016
-* @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for machine 
-* producers dropdown. Loading image will be removed when dropdown filled data.
-*/
-$("#mach-prod-box").loadImager();
-$("#mach-prod-box").loadImager('appendImage');
-
 /**
  * machine insert form validation engine attached to work
  * @since 16/05/2016
