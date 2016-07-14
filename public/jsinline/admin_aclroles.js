@@ -97,6 +97,11 @@ var loader = $("#loading-image").loadImager();
 $("#mach-prod-box").loadImager();
 $("#mach-prod-box").loadImager('appendImage');
 
+/**
+ * ACL resource dropdown prepared
+ * @type @call;$@call;ajaxCallWidget
+ * @since 14/07/2016
+ */
 var ajaxACLResources = $(window).ajaxCallWidget({
     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: { url:'pkFillResourcesDdList_sysAclResources' ,
