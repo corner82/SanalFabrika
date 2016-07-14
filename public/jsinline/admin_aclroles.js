@@ -220,8 +220,6 @@ $('#tt_tree_menu2').tree({
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
 
-//Validation forms binded...
-jQuery("#machinePropForm").validationEngine();
     
 /**
  * wrapper class for pop up and delete ACL role ultimately
