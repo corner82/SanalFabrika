@@ -184,12 +184,10 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
 $('#aclRoleForm').validationEngine();
 
  /**
-* reset button function for machine property insert form
-* property insert
-* for 'insert' and 'update' form buttons
+* reset button function for ACL role insert form
 * @returns null
 * @author Mustafa Zeynel Dağlı  
-* @since 23/06/2016
+* @since 14/07/2016
 */
 window.resetACLRolesForm = function () {
    $('#aclRoleForm').validationEngine('hide');
@@ -199,9 +197,9 @@ window.resetACLRolesForm = function () {
    
 /*
 * 
-* units category tree
+* ACL roles tree
 * Mustafa Zeynel Dağlı
-* 23/06/2016
+* 14/07/2016
 */
 $('#tt_tree_menu2').tree({  
     url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillRolesTree_sysAclRoles&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
