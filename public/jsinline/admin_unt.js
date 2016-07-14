@@ -607,7 +607,7 @@ $(document).ready(function () {
                                                 <div id="loading-image-crud-popup" class="box box-primary">\n\
                                                     <form id="unitFormInsert" method="get" class="form-horizontal">\n\
                                                     <div class="hr-line-dashed"></div>\n\
-                                                        <div class="form-group">\n\
+                                                        <div class="form-group" style="margin-top:20px;">\n\
                                                             <label class="col-sm-2 control-label">Birim Sistemi</label>\n\
                                                             <div class="col-sm-10">\n\
                                                                 <div class="input-group">\n\
@@ -717,13 +717,12 @@ $(document).ready(function () {
                  console.error('"pkGetUnitSystems_sysUnitSystems" servis hatası->'+textStatus);
              },
              onSuccess : function (event, data) {
-                 var dataArray = jQuery.makeArray( arguments );
-                 dataArray.shift();
-                 //console.warn(dataArray);
-                 var data = data;
+                 console.log(data);
+                 var data = $.parseJSON(data);
+                 
                  $('#dropdownUnitSystemsPopup').ddslick({
                         height : 200,
-                        data : dataArray, 
+                        data : data, 
                         width:'100%',
                         selectText: "Select your preferred social network",
                         //showSelectedHTML : false,
