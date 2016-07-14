@@ -94,6 +94,7 @@ return array(
                           'machpropdef' => 'layout/machpropdef.phtml',
                           'aclresources' => 'layout/aclresources.phtml',
                           'aclroles' => 'layout/aclroles.phtml',
+                          'aclprivileges' => 'layout/aclprivileges.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -240,7 +241,8 @@ return array(
                                                             'uniquemachprop',
                                                             'machpropdef',
                                                             'aclresources',
-                                                            'aclroles'),
+                                                            'aclroles',
+                                                            'aclprivileges'),
                                            )
                    ),
         
