@@ -18,8 +18,8 @@ $.extend($.fn.tree.methods,{
 });
 
 /**
- * ACL roles datagrid is being filled
- * @since 13/07/2016
+ * ACL privileges datagrid is being filled
+ * @since 14/07/2016
  */
 $('#tt_grid_dynamic').datagrid({
     onDblClickRow : function (index, row) {
@@ -29,7 +29,7 @@ $('#tt_grid_dynamic').datagrid({
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillRolesPropertiesList_sysAclRoles',
+            url : 'pkFillPrivilegesList_sysAclPrivilege',
             sort : 'id',
             order : 'desc',
             /*machine_groups_id : null,
@@ -49,24 +49,22 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'name_tr',title:'Rol',sortable:true,width:200},
-            {field:'name',title:'Rol Eng.',sortable:true,width:200},
-            {field:'parent_name',title:'Bağlı Rol',sortable:true,width:100},
-            {field:'inherited_name',title:'Kök Rol',sortable:true,width:100},
-            {field:'resource_name',title:'ACL Resource',sortable:true,width:100},
+            {field:'name',title:'Yetki',sortable:true,width:300},
+            {field:'name_eng',title:'Yetki Eng.',sortable:true,width:300},
+            {field:'resource_name',title:'ACL Resource',sortable:true,width:200},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLRolesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLPrivilegesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLRolesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLPrivilegesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLRoleUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateACLRoleDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
+                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLPrivilegeUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateACLPrivilegeDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
                                                                                                                                                                        description : \''+row.description+'\',\n\
                                                                                                                                                                        resource_id : '+row.resource_id+',\n\
                                                                                                                                                                        resource_name : \''+row.resource_name+'\',\n\
-                                                                                                                                                                       name_tr : \''+row.name_tr+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
+                                                                                                                                                                       name_eng : \''+row.name_eng+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
             },
@@ -97,6 +95,11 @@ var loader = $("#loading-image").loadImager();
 $("#mach-prod-box").loadImager();
 $("#mach-prod-box").loadImager('appendImage');
 
+/**
+ * ACL resource dropdown prepared
+ * @type @call;$@call;ajaxCallWidget
+ * @since 14/07/2016
+ */
 var ajaxACLResources = $(window).ajaxCallWidget({
     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: { url:'pkFillResourcesDdList_sysAclResources' ,
@@ -173,30 +176,28 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
 /**
- * machine insert form validation engine attached to work
- * @since 16/05/2016
+ * ACL privilege insert form validation engine attached to work
+ * @since 14/07/2016
  */
-$('#aclRoleForm').validationEngine();
+$('#aclPrivilegeForm').validationEngine();
 
  /**
-* reset button function for machine property insert form
-* property insert
-* for 'insert' and 'update' form buttons
+* reset button function for ACL privilege insert form
 * @returns null
 * @author Mustafa Zeynel Dağlı  
-* @since 23/06/2016
+* @since 14/07/2016
 */
-window.resetACLRolesForm = function () {
-   $('#aclRoleForm').validationEngine('hide');
+window.resetACLPrivilegesForm = function () {
+   $('#aclPrivilegeForm').validationEngine('hide');
    return false;
 }
                                             
    
 /*
 * 
-* units category tree
+* ACL privileges tree
 * Mustafa Zeynel Dağlı
-* 23/06/2016
+* 14/07/2016
 */
 $('#tt_tree_menu2').tree({  
     url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillRolesTree_sysAclRoles&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
@@ -217,36 +218,34 @@ $('#tt_tree_menu2').tree({
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
 
-//Validation forms binded...
-jQuery("#machinePropForm").validationEngine();
     
 /**
- * wrapper class for pop up and delete ACL role ultimately
+ * wrapper class for pop up and delete ACL privilege ultimately
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 14/07/2016
  */
-window.deleteACLRoleUltimatelyDialog= function(id, index){
+window.deleteACLPrivilegeUltimatelyDialog= function(id, index){
     var id = id;
     var index = index;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteACLRoleUltimately(id, index);
+        deleteACLPrivilegeUltimately(id, index);
     }
     });
-    wcm.warningComplexMessage('show', 'ACL Rol Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'ACL rol (Kaynak) silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'ACL Yetki Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'ACL yetki silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
    
 /**
-* delete ACL role
+* delete ACL privilege
 * @param {type} id
 * @param {type} element
 * @param {type} machine_group_id
 * @returns {undefined}
-* @since 13/07/2016
+* @since 14/07/2016
 */
-window.deleteACLRoleUltimately = function(id, index) {
+window.deleteACLPrivilegeUltimately = function(id, index) {
    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
     loaderGridBlock.loadImager('appendImage');
 
@@ -255,7 +254,7 @@ window.deleteACLRoleUltimately = function(id, index) {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysAclRoles' ,
+                    url:'pkDelete_sysAclPrivilege' ,
                     id : id,
                     pk : $("#pk").val()
                 }
@@ -263,9 +262,9 @@ window.deleteACLRoleUltimately = function(id, index) {
     ajDeleteAll.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'ACL Rol  Silme İşlemi Başarısız...',
-                                     'ACL rol  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-            console.error('"pkDelete_sysAclResources" servis hatası->'+data.errorInfo);
+            dm.dangerMessage('show', 'ACL Yetki  Silme İşlemi Başarısız...',
+                                     'ACL yetki  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDelete_sysAclPrivilege" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
             sm.successMessage({ 
@@ -273,15 +272,15 @@ window.deleteACLRoleUltimately = function(id, index) {
                     //console.warn(index);
                     loaderGridBlock.loadImager('removeLoadImage');
                     
-                    var node = $('#tt_tree_menu2').tree('find', id);
-                    $('#tt_tree_menu2').tree('remove', node.target);
+                    /*var node = $('#tt_tree_menu2').tree('find', id);
+                    $('#tt_tree_menu2').tree('remove', node.target);*/
                     
                     $('#tt_grid_dynamic').datagrid('reload');
                     //$('#tt_grid_dynamic').datagrid('deleteRow', index);
                 }
             });
-            sm.successMessage('show', 'ACL Rol Silme İşleminiz Başarılı...',
-                                      'ACL rol  silme işleminiz başarılı...')
+            sm.successMessage('show', 'ACL Yetki Silme İşleminiz Başarılı...',
+                                      'ACL yetki  silme işleminiz başarılı...')
         },                                   
     });
     ajDeleteAll.ajaxCall('call');
@@ -289,23 +288,23 @@ window.deleteACLRoleUltimately = function(id, index) {
    
  
 /**
- * insert ACL role
+ * insert ACL privilege
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 14/07/2016
  */
-window.insertACLRolesWrapper = function (e) {
+window.insertACLPrivilegesWrapper = function (e) {
  e.preventDefault();
  var ddData = $('#dropdownACLResources').data('ddslick');
  
- if ($("#aclRoleForm").validationEngine('validate')) {
+ if ($("#aclPrivilegeForm").validationEngine('validate')) {
      
      if(!ddData.selectedData.value > 0) {
          wm.warningMessage('resetOnShown');
          wm.warningMessage('show', 'ACL Resource (Kaynak) Seçiniz', 'Lütfen ACL resource (kaynak) seçiniz!');
          return false;
      }
-     insertACLRol();
+     insertACLPrivilege();
  }
  return false;
 }
@@ -313,28 +312,28 @@ window.insertACLRolesWrapper = function (e) {
    
    
 /**
- * wrapper for ACL role update process
+ * wrapper for ACL privilege update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 14/07/2016
  */
-window.updateACLRoleDialog = function (id, row) {
+window.updateACLPrivilegeDialog = function (id, row) {
     window.gridReloadController = false;
     //console.log(row);
     BootstrapDialog.show({  
-         title: '"'+ row.name + '" ACL rolünü güncellemektesiniz...',
+         title: '"'+ row.name + '" ACL yetkisini güncellemektesiniz...',
          message: function (dialogRef) {
                      var dialogRef = dialogRef;
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                     <form id="aclRoleFormPopup" method="get" class="form-horizontal">\n\
+                                                     <form id="aclPrivilegeFormPopup" method="get" class="form-horizontal">\n\
                                                      <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Rol Eng.</label>\n\
+                                                             <label class="col-sm-2 control-label">Yetki</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
@@ -347,14 +346,14 @@ window.updateACLRoleDialog = function (id, row) {
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Rol</label>\n\
+                                                             <label class="col-sm-2 control-label">Yetki Eng.</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
                                                                      </div>\n\
                                                                      <div  class="tag-container-popup">\n\
-                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.name_tr+'" name="name_tr_popup" id="name_tr_popup"   />\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.name_eng+'" name="name_eng_popup" id="name_eng_popup"   />\n\
                                                                      </div>\n\
                                                                  </div>\n\
                                                              </div>\n\
@@ -384,7 +383,7 @@ window.updateACLRoleDialog = function (id, row) {
                                                          <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group">\n\
                                                              <div class="col-sm-10 col-sm-offset-2">\n\
-                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateACLRoleWrapper(event, '+id+');">\n\
+                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateACLPrivilegeWrapper(event, '+id+');">\n\
                                                                  <i class="fa fa-save"></i> Güncelle </button>\n\
                                                              <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
                                                                  <i class="fa fa-remove"></i> Reset </button>-->\n\
@@ -398,7 +397,7 @@ window.updateACLRoleDialog = function (id, row) {
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
          onshown : function () {         
-            $('#aclRoleFormPopup').validationEngine();
+            $('#aclPrivilegeFormPopup').validationEngine();
              
             $("#mach-prod-box-popup").loadImager();
             $("#mach-prod-box-popup").loadImager('appendImage');
@@ -466,19 +465,19 @@ window.updateACLRoleDialog = function (id, row) {
 }
 
 /**
- * update ACL role wrapper
+ * update ACL privilege wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 14/07/2016
  */
-window.updateACLRoleWrapper = function (e, id) {
+window.updateACLPrivilegeWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#aclRoleFormPopup").validationEngine('validate')) {
+ if ($("#aclPrivilegeFormPopup").validationEngine('validate')) {
      
      var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
     if(ddData.selectedData.value>0) {
-        updateACLRole(id);
+        updateACLPrivilege(id);
     } else {
         wm.warningMessage('resetOnShown');
         wm.warningMessage('show', 'ACL Resource Seçiniz', 'Lütfen ACL resource seçiniz!')
@@ -489,12 +488,12 @@ window.updateACLRoleWrapper = function (e, id) {
 }
 
 /**
- * update ACL role
+ * update ACL privilege
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 14/07/2016
  */
-window.updateACLRole = function (id) {
+window.updateACLPrivilege = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      
@@ -504,13 +503,11 @@ window.updateACLRole = function (id) {
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysAclRoles' ,
+                         url:'pkUpdate_sysAclPrivilege' ,
                          id : id,
                          name : $('#name_popup').val(),
-                         name_tr : $('#name_tr_popup').val(),
+                         name_eng : $('#name_eng_popup').val(),
                          description : $('#description_popup').val(),
-                         parent_id: 0,
-                         inherited_id: 0,
                          resource_id : resource_id,
                          pk : $("#pk").val()
                      }
@@ -518,9 +515,9 @@ window.updateACLRole = function (id) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Rol Güncelleme İşlemi Başarısız...', 
-                                      'ACL rol güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclRoles" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
+                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclPrivilege" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -529,21 +526,21 @@ window.updateACLRole = function (id) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Rol Güncelleme İşlemi Başarılı...', 
-                                       'ACL rol güncelleme işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Yetki Güncelleme İşlemi Başarılı...', 
+                                       'ACL yetki güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
              window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Rol Güncelleme İşlemi Başarısız...', 
-                                      'ACL rol güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclRoles" servis datası boştur!!');
+             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
+                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclPrivilege" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Rol Güncelleme İşlemi Başarısız...', 
-                                      'ACL rol güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
+                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
@@ -554,17 +551,17 @@ window.updateACLRole = function (id) {
 }
    
 /**
- * insert ACL rol
+ * insert ACL privilege
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 14/07/2016
  */
-window.insertACLRol = function () {
+window.insertACLPrivilege = function () {
      var loaderInsertBlock = $("#loading-image-crud").loadImager();
      loaderInsertBlock.loadImager('appendImage');
      
      var name = $('#name').val();
-     var name_tr = $('#name_tr').val();
+     var name_eng = $('#name_eng').val();
      var description = $('#description').val();
      
      var ddData = $('#dropdownACLResources').data('ddslick')
@@ -573,12 +570,10 @@ window.insertACLRol = function () {
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
-                         url:'pkInsert_sysAclRoles' ,
+                         url:'pkInsert_sysAclPrivilege' ,
                          name : name,
-                         name_tr : name_tr,
+                         name_eng : name_eng,
                          description : description,
-                         parent : 0,
-                         inherited_id : 0,
                          resource_id : resource_id,
                          pk : $("#pk").val()
                      }
@@ -586,18 +581,18 @@ window.insertACLRol = function () {
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Rol  Ekleme İşlemi Başarısız...', 
-                                       'ACL rol ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysAclRoles" servis hatası->'+textStatus);
+              dm.dangerMessage('show', 'ACL Yetki  Ekleme İşlemi Başarısız...', 
+                                       'ACL yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkInsert_sysAclPrivilege" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
               console.log(data);
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
-                     $('#aclRoleForm')[0].reset();  
+                     $('#aclPrivilegeForm')[0].reset();  
                      
-                     $('#tt_tree_menu2').tree('append', {
+                     /*$('#tt_tree_menu2').tree('append', {
                         data: [{
                                 attributes:{ active: 0 },
                                 id: data.lastInsertId,
@@ -605,14 +600,14 @@ window.insertACLRol = function () {
                                 checked: false,
                                 state : 'open',
                             },]
-                    });
+                    });*/
 
                      loaderInsertBlock.loadImager('removeLoadImage');
                      $('#tt_grid_dynamic').datagrid({
                          queryParams: {
                                  pk: $('#pk').val(),
                                  subject: 'datagrid',
-                                 url : 'pkFillRolesPropertiesList_sysAclRoles',
+                                 url : 'pkFillPrivilegesList_sysAclPrivilege',
                                  sort : 'id',
                                  order : 'desc',
                          },
@@ -621,21 +616,21 @@ window.insertACLRol = function () {
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
              });
-             sm.successMessage('show', 'ACL Rol Kayıt İşlemi Başarılı...', 
-                                       'ACL rol kayıt işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Yetki Kayıt İşlemi Başarılı...', 
+                                       'ACL yetki kayıt işlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Rol Kayıt İşlemi Başarısız...', 
-                                       'ACL rol  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysAclRoles" servis datası boştur!!');
+              dm.dangerMessage('show', 'ACL Yetki Kayıt İşlemi Başarısız...', 
+                                       'ACL yetki  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkInsert_sysAclPrivilege" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Rol  Kayıt İşlemi Başarısız...', 
-                                     'ACL rol  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'ACL Yetki  Kayıt İşlemi Başarısız...', 
+                                     'ACL yetki  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkInsert_sysAclRoles" servis hatası->'+data.errorInfo);
           },
           onError23503 : function (event, data) {
@@ -643,12 +638,12 @@ window.insertACLRol = function () {
           onError23505 : function (event, data) {
               dm.dangerMessage({
                  onShown : function(event, data) {
-                     $('#aclRoleForm')[0].reset();
+                     $('#aclPrivilegeForm')[0].reset();
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'ACL Rol Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile ACL rol  kaydı yapılmıştır, yeni bir ACL rol deneyiniz... ');
+              dm.dangerMessage('show', 'ACL Yetki Kayıt İşlemi Başarısız...', 
+                                       'Aynı isim ile ACL yetki  kaydı yapılmıştır, yeni bir ACL yetki deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
@@ -656,31 +651,31 @@ window.insertACLRol = function () {
    
 
 /**
- * active/passive ACL rol
+ * active/passive ACL privilege
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 14/07/2016
  */
-window.activePassiveACLRolesWrapper = function (e, id) {
+window.activePassiveACLPrivilegesWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  var domElement = e.target;
  wcm.warningComplexMessage({onConfirm : function(event, data) {
-        activePassiveACLRole(id, domElement);
+        activePassiveACLPrivilege(id, domElement);
     }
     });
-wcm.warningComplexMessage('show', 'ACL Rol Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                  'ACL rol aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
+wcm.warningComplexMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                  'ACL yetki aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
  return false;
 }
 
 /**
- * active or passive ACL rol
+ * active or passive ACL privilege
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 14/07/2016
  */
-window.activePassiveACLRole = function (id, domElement) {
+window.activePassiveACLPrivilege = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
     loader.loadImager('appendImage');
     var id = id;
@@ -689,7 +684,7 @@ window.activePassiveACLRole = function (id, domElement) {
     var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdateMakeActiveOrPassive_sysAclRoles' ,
+                         url:'pkUpdateMakeActiveOrPassive_sysAclPrivilege' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -697,9 +692,9 @@ window.activePassiveACLRole = function (id, domElement) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Rol Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL rol aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclRoles" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL yetki aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -708,8 +703,8 @@ window.activePassiveACLRole = function (id, domElement) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Rol Aktif/Pasif İşlemi Başarılı...', 
-                                       'ACL rol aktif/pasif işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarılı...', 
+                                       'ACL yetki aktif/pasif işlemini gerçekleştirdiniz... ',
                                        data);
             if($(domElement).hasClass("fa-minus-circle")){
                 $(domElement).removeClass("fa-minus-circle");
@@ -729,14 +724,14 @@ window.activePassiveACLRole = function (id, domElement) {
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Rol Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL rol aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclRoles" servis datası boştur!!');
+             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL yetki aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Rol Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL rol aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL yetki aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
