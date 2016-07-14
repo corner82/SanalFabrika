@@ -18,7 +18,7 @@ $.extend($.fn.tree.methods,{
 });
 
 /**
- * ACL resources datagrid is being filled
+ * ACL roles datagrid is being filled
  * @since 13/07/2016
  */
 $('#tt_grid_dynamic').datagrid({
@@ -29,7 +29,7 @@ $('#tt_grid_dynamic').datagrid({
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillPropertieslist_sysAclResources',
+            url : 'pkFillRolesPropertiesList_sysAclRoles',
             sort : 'id',
             order : 'desc',
             /*machine_groups_id : null,
@@ -49,19 +49,24 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'name',title:'Resource',sortable:true,width:300},
-            {field:'parent_name',title:'Bağlı Resource',sortable:true,width:300},
-            {field:'description',title:'Açıklama',sortable:true, width:300},
+            {field:'name_tr',title:'Rol',sortable:true,width:200},
+            {field:'name',title:'Rol Eng.',sortable:true,width:200},
+            {field:'parent_name',title:'Bağlı Rol',sortable:true,width:100},
+            {field:'inherited_name',title:'Kök Rol',sortable:true,width:100},
+            {field:'resource_name',title:'ACL Resource',sortable:true,width:100},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLResourcesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLRolesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLResourcesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLRolesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLResourceUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateACLResourceDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
-                                                                                                                                                                           description : \''+row.description+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
+                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLRoleUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateACLRoleDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
+                                                                                                                                                                       description : \''+row.description+'\',\n\
+                                                                                                                                                                       resource_id : '+row.resource_id+',\n\
+                                                                                                                                                                       resource_name : \''+row.resource_name+'\',\n\
+                                                                                                                                                                       name_tr : \''+row.name_tr+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
             },
@@ -70,6 +75,76 @@ $('#tt_grid_dynamic').datagrid({
 $('#tt_grid_dynamic').datagrid('enableFilter');
 
 
+/*
+* 
+* @type @call;$@call;loadImager
+* @Since 16/05/2016
+* @Author Mustafa Zeynel Dagli
+* @Purpose this variable is to create loader image for roles tree 
+* this imager goes to #loading-image div in html.
+* imager will be removed on roles tree onLoadSuccess method.
+*/
+var loader = $("#loading-image").loadImager();
+
+ /*
+* 
+* @type @call;$@call;loadImager
+* @Since 14/07/2016
+* @Author Mustafa Zeynel Dagli
+* @Purpose this variable is to create loader image for ACL 
+* resources dropdown. Loading image will be removed when dropdown filled data.
+*/
+$("#mach-prod-box").loadImager();
+$("#mach-prod-box").loadImager('appendImage');
+
+var ajaxACLResources = $(window).ajaxCallWidget({
+    proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'pkFillResourcesDdList_sysAclResources' ,
+                    pk : $("#pk").val() 
+            }
+   })
+ajaxACLResources.ajaxCallWidget ({
+     onError : function (event, textStatus,errorThrown) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#mach-prod-box').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
+                                  'ACL resource (kaynak)  bulunamamıştır...');
+     },
+     onSuccess : function (event, data) {
+         var data = $.parseJSON(data);
+         $('#mach-prod-box').loadImager('removeLoadImage');
+         $('#dropdownACLResources').ddslick({
+            height : 200,
+            data : data, 
+            width:'98%',
+            selectText: "Select your preferred social network",
+            //showSelectedHTML : false,
+            defaultSelectedIndex: 3,
+            search : true,
+            //imagePosition:"right",
+            onSelected: function(selectedData){
+                if(selectedData.selectedData.value>0) {
+                    /*$('#tt_tree_menu').tree({
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                    });*/
+                }
+            }   
+        });   
+     },
+     onErrorDataNull : function (event, data) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#mach-prod-box').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
+                                  'ACL resource (kaynak)  bulunamamıştır...');
+     },
+}) 
+ajaxACLResources.ajaxCallWidget('call');
 
 
 /**
@@ -89,16 +164,7 @@ lang.change($('#ln').val());
  */
 var selectedNode;
 
-/*
-* 
-* @type @call;$@call;loadImager
-* @Since 16/05/2016
-* @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for roles tree 
-* this imager goes to #loading-image div in html.
-* imager will be removed on roles tree onLoadSuccess method.
-*/
-var loader = $("#loading-image").loadImager();
+
 
 var sm  = $(window).successMessage();
 var dm  = $(window).dangerMessage();
@@ -106,23 +172,11 @@ var wm  = $(window).warningMessage();
 var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
- 
- /*
-* 
-* @type @call;$@call;loadImager
-* @Since 16/05/2016
-* @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for machine 
-* producers dropdown. Loading image will be removed when dropdown filled data.
-*/
-$("#mach-prod-box").loadImager();
-$("#mach-prod-box").loadImager('appendImage');
-
 /**
  * machine insert form validation engine attached to work
  * @since 16/05/2016
  */
-$('#aclResourcesForm').validationEngine();
+$('#aclRoleForm').validationEngine();
 
  /**
 * reset button function for machine property insert form
@@ -132,8 +186,8 @@ $('#aclResourcesForm').validationEngine();
 * @author Mustafa Zeynel Dağlı  
 * @since 23/06/2016
 */
-window.resetMachinePropForm = function () {
-   $('#aclResourcesForm').validationEngine('hide');
+window.resetACLRolesForm = function () {
+   $('#aclRoleForm').validationEngine('hide');
    return false;
 }
                                             
@@ -145,7 +199,7 @@ window.resetMachinePropForm = function () {
 * 23/06/2016
 */
 $('#tt_tree_menu2').tree({  
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillResourcesTree_sysAclResources&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillRolesTree_sysAclRoles&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
     method: 'get',
     animate: true,
     checkbox: false,
@@ -167,32 +221,32 @@ $.fn.leftMenuFunction();
 jQuery("#machinePropForm").validationEngine();
     
 /**
- * wrapper class for pop up and delete ACL resource ultimately
+ * wrapper class for pop up and delete ACL role ultimately
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.deleteACLResourceUltimatelyDialog= function(id, index){
+window.deleteACLRoleUltimatelyDialog= function(id, index){
     var id = id;
     var index = index;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteACLResourceUltimately(id, index);
+        deleteACLRoleUltimately(id, index);
     }
     });
-    wcm.warningComplexMessage('show', 'ACL Resource (Kaynak) Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'ACL Resource (Kaynak) silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'ACL Rol Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'ACL rol (Kaynak) silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
    
 /**
-* delete ACL resource
+* delete ACL role
 * @param {type} id
 * @param {type} element
 * @param {type} machine_group_id
 * @returns {undefined}
 * @since 13/07/2016
 */
-window.deleteACLResourceUltimately = function(id, index) {
+window.deleteACLRoleUltimately = function(id, index) {
    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
     loaderGridBlock.loadImager('appendImage');
 
@@ -201,7 +255,7 @@ window.deleteACLResourceUltimately = function(id, index) {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysAclResources' ,
+                    url:'pkDelete_sysAclRoles' ,
                     id : id,
                     pk : $("#pk").val()
                 }
@@ -209,8 +263,8 @@ window.deleteACLResourceUltimately = function(id, index) {
     ajDeleteAll.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'ACL Resource (Kaynak) Silme İşlemi Başarısız...',
-                                     'ACL Resource (Kaynak) silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            dm.dangerMessage('show', 'ACL Rol  Silme İşlemi Başarısız...',
+                                     'ACL rol  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
             console.error('"pkDelete_sysAclResources" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
@@ -226,8 +280,8 @@ window.deleteACLResourceUltimately = function(id, index) {
                     //$('#tt_grid_dynamic').datagrid('deleteRow', index);
                 }
             });
-            sm.successMessage('show', 'ACL Resource (Kaynak) Silme İşleminiz Başarılı...',
-                                      'ACL Resource (Kaynak) silme işleminiz başarılı...')
+            sm.successMessage('show', 'ACL Rol Silme İşleminiz Başarılı...',
+                                      'ACL rol  silme işleminiz başarılı...')
         },                                   
     });
     ajDeleteAll.ajaxCall('call');
@@ -235,15 +289,23 @@ window.deleteACLResourceUltimately = function(id, index) {
    
  
 /**
- * insert ACL resource
+ * insert ACL role
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.insertACLResourcesWrapper = function (e) {
+window.insertACLRolesWrapper = function (e) {
  e.preventDefault();
- if ($("#aclResourcesForm").validationEngine('validate')) {
-     insertACLResource();
+ var ddData = $('#dropdownACLResources').data('ddslick');
+ 
+ if ($("#aclRoleForm").validationEngine('validate')) {
+     
+     if(!ddData.selectedData.value > 0) {
+         wm.warningMessage('resetOnShown');
+         wm.warningMessage('show', 'ACL Resource (Kaynak) Seçiniz', 'Lütfen ACL resource (kaynak) seçiniz!');
+         return false;
+     }
+     insertACLRol();
  }
  return false;
 }
@@ -251,28 +313,28 @@ window.insertACLResourcesWrapper = function (e) {
    
    
 /**
- * wrapper for ACL resource update process
+ * wrapper for ACL role update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.updateACLResourceDialog = function (id, row) {
+window.updateACLRoleDialog = function (id, row) {
     window.gridReloadController = false;
     //console.log(row);
     BootstrapDialog.show({  
-         title: '"'+ row.name + '" ACL kaynağını güncellemektesiniz...',
+         title: '"'+ row.name + '" ACL rolünü güncellemektesiniz...',
          message: function (dialogRef) {
                      var dialogRef = dialogRef;
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                     <form id="aclResourceFormPopup" method="get" class="form-horizontal">\n\
+                                                     <form id="aclRoleFormPopup" method="get" class="form-horizontal">\n\
                                                      <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Resource (Kaynak)</label>\n\
+                                                             <label class="col-sm-2 control-label">Rol Eng.</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
@@ -284,9 +346,33 @@ window.updateACLResourceDialog = function (id, row) {
                                                                  </div>\n\
                                                              </div>\n\
                                                          </div>\n\
+                                                         <div class="form-group" style="margin-top: 20px;">\n\
+                                                             <label class="col-sm-2 control-label">Rol</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <div  class="tag-container-popup">\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.name_tr+'" name="name_tr_popup" id="name_tr_popup"   />\n\
+                                                                     </div>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group">\n\
+                                                         <label class="col-sm-2 control-label">ACL Resource</label>\n\
+                                                         <div class="col-sm-10">\n\
+                                                             <div class="input-group">\n\
+                                                                 <div class="input-group-addon">\n\
+                                                                     <i class="fa fa-hand-o-right"></i>\n\
+                                                                 </div>\n\
+                                                                 <div id="dropdownACLResourcesPopup" ></div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                     </div>\n\
                                                          <div class="form-group">\n\
                                                              <label class="col-sm-2 control-label">Açıklama</label>\n\
-                                                             <div class="col-sm-10">\n\
+                                                             <div id="mach-prod-box-popup" class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
@@ -298,7 +384,7 @@ window.updateACLResourceDialog = function (id, row) {
                                                          <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group">\n\
                                                              <div class="col-sm-10 col-sm-offset-2">\n\
-                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateACLResourceWrapper(event, '+id+');">\n\
+                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateACLRoleWrapper(event, '+id+');">\n\
                                                                  <i class="fa fa-save"></i> Güncelle </button>\n\
                                                              <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
                                                                  <i class="fa fa-remove"></i> Reset </button>-->\n\
@@ -312,7 +398,62 @@ window.updateACLResourceDialog = function (id, row) {
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
          onshown : function () {         
-            $('#aclResourceFormPopup').validationEngine();
+            $('#aclRoleFormPopup').validationEngine();
+             
+            $("#mach-prod-box-popup").loadImager();
+            $("#mach-prod-box-popup").loadImager('appendImage');
+            
+            var ajaxACLResourcesPopup = $(window).ajaxCallWidget({
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    data: { url:'pkFillResourcesDdList_sysAclResources' ,
+                            pk : $("#pk").val() 
+                    }
+       })
+        ajaxACLResourcesPopup.ajaxCallWidget ({
+            onError : function (event, textStatus,errorThrown) {
+                dm.dangerMessage({
+                   onShown : function() {
+                       //$('#mach-prod-box').loadImager('removeLoadImage'); 
+                   }
+                });
+                dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
+                                         'ACL resource (kaynak) bulunamamıştır...');
+            },
+            onSuccess : function (event, data) {
+                var data = $.parseJSON(data);
+                    $('#mach-prod-box-popup').loadImager('removeLoadImage');
+                    $('#dropdownACLResourcesPopup').ddslick({
+                            height : 200,
+                            data : data, 
+                            width:'98%',
+                            search : true,
+                            //imagePosition:"right",
+                            onSelected: function(selectedData){
+                                if(selectedData.selectedData.value>0) {
+                                    /*$('#tt_tree_menu').tree({
+                                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                                    });*/
+                             }
+                         }   
+                    });  
+                    $('#dropdownACLResourcesPopup').ddslick('selectByValue', 
+                                                {index: ''+row.resource_id+'' ,
+                                                 text : ''+row.resource_name+''}
+                                                );
+                },
+                onErrorDataNull : function (event, data) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
+                                              'ACL resource (kaynak) bulunamamıştır...');
+                 },
+            }) 
+            ajaxACLResourcesPopup.ajaxCallWidget('call');
+            
+            
          },
          onhide : function() {
              if(window.gridReloadController == true) {
@@ -325,49 +466,61 @@ window.updateACLResourceDialog = function (id, row) {
 }
 
 /**
- * update ACL resource wrapper
+ * update ACL role wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.updateACLResourceWrapper = function (e, id) {
+window.updateACLRoleWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#aclResourceFormPopup").validationEngine('validate')) {   
-    updateACLResource(id);
+ if ($("#aclRoleFormPopup").validationEngine('validate')) {
+     
+     var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
+    if(ddData.selectedData.value>0) {
+        updateACLRole(id);
+    } else {
+        wm.warningMessage('resetOnShown');
+        wm.warningMessage('show', 'ACL Resource Seçiniz', 'Lütfen ACL resource seçiniz!')
+    }
     return false;
  }
  return false;
 }
 
 /**
- * update ACL resource
+ * update ACL role
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.updateACLResource = function (id) {
+window.updateACLRole = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      
+     var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
+     var resource_id = ddData.selectedData.value;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysAclResources' ,
+                         url:'pkUpdate_sysAclRoles' ,
                          id : id,
                          name : $('#name_popup').val(),
+                         name_tr : $('#name_tr_popup').val(),
                          description : $('#description_popup').val(),
-                         parent : 0,
+                         parent_id: 0,
+                         inherited_id: 0,
+                         resource_id : resource_id,
                          pk : $("#pk").val()
                      }
     })
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
-                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclResources" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'ACL Rol Güncelleme İşlemi Başarısız...', 
+                                      'ACL rol güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclRoles" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -376,21 +529,21 @@ window.updateACLResource = function (id) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarılı...', 
-                                       'ACL Resource (Kaynak) güncelleme işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Rol Güncelleme İşlemi Başarılı...', 
+                                       'ACL rol güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
              window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
-                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclResources" servis datası boştur!!');
+             dm.dangerMessage('show', 'ACL Rol Güncelleme İşlemi Başarısız...', 
+                                      'ACL rol güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclRoles" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
-                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'ACL Rol Güncelleme İşlemi Başarısız...', 
+                                      'ACL rol güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
@@ -401,46 +554,52 @@ window.updateACLResource = function (id) {
 }
    
 /**
- * insert ACL resource
+ * insert ACL rol
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.insertACLResource = function () {
+window.insertACLRol = function () {
      var loaderInsertBlock = $("#loading-image-crud").loadImager();
      loaderInsertBlock.loadImager('appendImage');
      
      var name = $('#name').val();
+     var name_tr = $('#name_tr').val();
      var description = $('#description').val();
+     
+     var ddData = $('#dropdownACLResources').data('ddslick')
+     var resource_id = ddData.selectedData.value;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
-                         url:'pkInsert_sysAclResources' ,
+                         url:'pkInsert_sysAclRoles' ,
                          name : name,
+                         name_tr : name_tr,
                          description : description,
                          parent : 0,
+                         inherited_id : 0,
+                         resource_id : resource_id,
                          pk : $("#pk").val()
                      }
     })
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Resource (Kaynak) Ekleme İşlemi Başarısız...', 
-                                       'ACL resource (kaynak) ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysAclResources" servis hatası->'+textStatus);
+              dm.dangerMessage('show', 'ACL Rol  Ekleme İşlemi Başarısız...', 
+                                       'ACL rol ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkInsert_sysAclRoles" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
               console.log(data);
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
-                     $('#aclResourcesForm')[0].reset();  
+                     $('#aclRoleForm')[0].reset();  
                      
                      $('#tt_tree_menu2').tree('append', {
                         data: [{
                                 attributes:{ active: 0 },
-                                active: 0,
                                 id: data.lastInsertId,
                                 text: name,
                                 checked: false,
@@ -453,7 +612,7 @@ window.insertACLResource = function () {
                          queryParams: {
                                  pk: $('#pk').val(),
                                  subject: 'datagrid',
-                                 url : 'pkFillPropertieslist_sysAclResources',
+                                 url : 'pkFillRolesPropertiesList_sysAclRoles',
                                  sort : 'id',
                                  order : 'desc',
                          },
@@ -462,34 +621,34 @@ window.insertACLResource = function () {
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
              });
-             sm.successMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarılı...', 
-                                       'ACL resource (kaynak) kayıt işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Rol Kayıt İşlemi Başarılı...', 
+                                       'ACL rol kayıt işlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
-                                       'ACL resource (kaynak) kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysAclResources" servis datası boştur!!');
+              dm.dangerMessage('show', 'ACL Rol Kayıt İşlemi Başarısız...', 
+                                       'ACL rol  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkInsert_sysAclRoles" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
-                                     'ACL resource (kaynak) kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysAclResources" servis hatası->'+data.errorInfo);
+             dm.dangerMessage('show', 'ACL Rol  Kayıt İşlemi Başarısız...', 
+                                     'ACL rol  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkInsert_sysAclRoles" servis hatası->'+data.errorInfo);
           },
           onError23503 : function (event, data) {
           },
           onError23505 : function (event, data) {
               dm.dangerMessage({
                  onShown : function(event, data) {
-                     $('#machinePropForm')[0].reset();
+                     $('#aclRoleForm')[0].reset();
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile ACL resource (kaynak) kaydı yapılmıştır, yeni bir ACL resource (kaynak) deneyiniz... ');
+              dm.dangerMessage('show', 'ACL Rol Kayıt İşlemi Başarısız...', 
+                                       'Aynı isim ile ACL rol  kaydı yapılmıştır, yeni bir ACL rol deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
@@ -497,31 +656,31 @@ window.insertACLResource = function () {
    
 
 /**
- * active/passive ACL resource
+ * active/passive ACL rol
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.activePassiveACLResourcesWrapper = function (e, id) {
+window.activePassiveACLRolesWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  var domElement = e.target;
  wcm.warningComplexMessage({onConfirm : function(event, data) {
-        activePassiveACLResource(id, domElement);
+        activePassiveACLRole(id, domElement);
     }
     });
-wcm.warningComplexMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                  'ACL resource (kaynak) aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
+wcm.warningComplexMessage('show', 'ACL Rol Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                  'ACL rol aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
  return false;
 }
 
 /**
- * active or passive ACL resource
+ * active or passive ACL rol
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.activePassiveACLResource = function (id, domElement) {
+window.activePassiveACLRole = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
     loader.loadImager('appendImage');
     var id = id;
@@ -530,7 +689,7 @@ window.activePassiveACLResource = function (id, domElement) {
     var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdateMakeActiveOrPassive_sysAclResources' ,
+                         url:'pkUpdateMakeActiveOrPassive_sysAclRoles' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -538,9 +697,9 @@ window.activePassiveACLResource = function (id, domElement) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL resource (kaynak) aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclResources" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'ACL Rol Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL rol aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysAclRoles" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -549,8 +708,8 @@ window.activePassiveACLResource = function (id, domElement) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarılı...', 
-                                       'ACL resource (kaynak) aktif/pasif işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'ACL Rol Aktif/Pasif İşlemi Başarılı...', 
+                                       'ACL rol aktif/pasif işlemini gerçekleştirdiniz... ',
                                        data);
             if($(domElement).hasClass("fa-minus-circle")){
                 $(domElement).removeClass("fa-minus-circle");
@@ -570,14 +729,14 @@ window.activePassiveACLResource = function (id, domElement) {
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL resource (kaynak) aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclResources" servis datası boştur!!');
+             dm.dangerMessage('show', 'ACL Rol Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL rol aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysAclRoles" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL resource (kaynak) aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'ACL Rol Aktif/Pasif İşlemi Başarısız...', 
+                                      'ACL rol aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
