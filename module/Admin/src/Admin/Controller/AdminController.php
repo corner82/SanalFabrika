@@ -318,6 +318,30 @@
          
      }
      
+     /**
+      * assign role and privileges due to ACL resources action page for ACL operations
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 15/07/2016
+      */
+     public function aclroleprivilegeAction()
+     {
+        $langCode = $this->getServiceLocator()
+                         ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                                    ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                          ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode'            => $langCode,
+            'publicKey'           => $publicKey,
+        ));
+        return $view;
+         
+     }
+     
 
  }
 
