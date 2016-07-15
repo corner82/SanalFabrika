@@ -34,16 +34,13 @@ lang.change($('#ln').val());
  */
 var selectedNode;
     
-/*
-* 
-* @type @call;$@call;loadImager
-* @Since 2016.01.16
-* @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for roles tree 
-* this imager goes to #loading-image div in html.
-* imager will be removed on roles tree onLoadSuccess method.
-*/
-var loader = $("#loading-image").loadImager();
+/**
+ * loader image for resource and rol tree loading process
+ * @type @call;$@call;loadImager
+ * @author Mustafa Zeynel Dağlı
+ * @since 15/07/2016
+ */
+var loader_resource = $("#loading-image-resource").loadImager();
 
 var sm  = $(window).successMessage();
 var dm  = $(window).dangerMessage();
@@ -53,300 +50,239 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
     
 /*
 * 
-* machine category tree
+* ACL resource and rol tree
 * Mustafa Zeynel Dağlı
-* 25/04/2016
+* 15/07/2016
 */
 $('#tt_tree_menu2').tree({  
-   url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillJustMachineToolGroupsBootstrap_sysMachineToolGroups&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+   url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillResourceGroups_sysAclResources&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
    method: 'get',
    animate: true,
-   checkbox: true,
+   checkbox: false,
    cascadeCheck: false,
    lines: true,
    onLoadSuccess: function (node, data) {
-        loader.loadImager('removeLoadImage');
+        loader_resource.loadImager('removeLoadImage');
    },
    onClick: function (node) {
         selectedRoot = $(this).tree('getRoot', node.target);
         selectedItem = $(this).tree('getData', node.target);
     },
-   onCheck: function (node, checked) {
+   onSelect : function(node) {
        var self = $(this);
+       var tagBuilderNot;
        var tagBuilder = $('#test-cabin').tagCabin({
-                tagCopy         : true,
-                tagDeletable    : false,
-                tagDeletableAll : true, 
+                tagCopy         : false,
+                tagDeletable    : true,
+                tagDeletableAll : false, 
                 tagBox          : $('.tag-container').find('ul'),
-                dataMapper      : {attributes : Array('machine_grup_id')}
+                dataMapper      : {attributes : Array('role_id', 'resource_id', 'privilege_id')}
 
         }); 
         tagBuilder.tagCabin({
-            onTagCopied : function(event, data) {
-                console.log(data.id);
-                console.log(data);
-                window.cloneMachPropDialog(data.id, data.element.text());
+            onTagRemoved : function(event, data) {
+                var self = $(this);
+                var elementData = data.element;
+                console.log(elementData);
+                var id = data.id;
+                console.log(id);
+                console.log(elementData.attr('data-attribute'));
+                console.log(elementData.attr('data-resource_id'));
+                console.log(elementData.attr('data-privilege_id'));
+                console.log(elementData.attr('data-role_id'));
+                //self.tagCabin()
+                window.deleteRolePrivilege(id, elementData, tagBuilderNot);
+
             }
         });
-        if(checked) {
-            if(!self.tree('isLeaf', node.target)) {
-                wm.warningMessage( {
-                    onShown : function (event ,data ) {
-                       self.tree('uncheck', node.target); 
-                    }
-                });
-                wm.warningMessage('show','Alt Kategori Seçiniz',
-                                         'Lütfen alt kategori seçiniz...');
+        
+        
+        tagBuilderNot = $('#test-cabin-not').tagCabin({
+                tagCopy         : true,
+                tagDeletable    : false,
+                tagDeletableAll : false, 
+                tagBox          : $('.tag-container-not').find('ul'),
+                dataMapper      : {attributes : Array('role_id', 'resource_id', 'privilege_id')}
 
-            } else {
-                window.getMachineProp(node, self, tagBuilder);
-            }
-        } else if(checked == false){
-            if(self.tree('isLeaf', node.target) && node.state=='open') {
-                window.clearMachineProp(node, tagBuilder);
-            }
-        }
-    },
-   formatter: function (node) {
-        var s = node.text;
-        var id = node.id;
-        var parent = $(this).tree('getParent', node.target);
-        if(node.state == 'open') {
-            s += '&nbsp;\n\
-                <i class="fa fa-level-down" title="Kategoriye makina özelliği ekle" onclick="insertMachPropDialog('+id+', \''+node.text+'\')"></i>';
-            return s;
-        }
-        return s;
-    }
-});
-    
-/**
-* wrapper for machine property clone process
-* @param {type} nodeID
-* @param {type} nodeName
-* @returns {Boolean}
-* @author Mustafa Zeynel Dağlı
-* @since 03/05/2016
-*/
-window.cloneMachPropDialog = function (nodeID, nodeName) {
-var nodeID = nodeID;
-var nodeName = nodeName;
-BootstrapDialog.show({  
-    title: '"'+ nodeName + '" makina özelliğini yeni makina katmanlarına eklemektesiniz...',
-    message: function (dialogRef) {
-                var dialogRef = dialogRef;
-                var $message = $(' <div class="row">\n\
-                                        <div class="col-md-12">\n\
-                                            <div id="loading-image-clone-popup" class="box box-primary">\n\
-                                                <form id="machPropFormInsertPopup" method="get" class="form-horizontal">\n\
-                                                <div class="hr-line-dashed"></div>\n\
-                                                    <div class="form-group" style="padding-top: 10px;" >\n\
-                                                        <label class="col-sm-2 control-label">Makina Kategorileri</label>\n\
-                                                        <div class="col-sm-10">\n\
-                                                            <div class="input-group">\n\
-                                                                <div class="input-group-addon">\n\
-                                                                    <i class="fa fa-hand-o-right"></i>\n\
-                                                                </div>\n\
-                                                                <ul id="tt_tree_menu_popup_clone" class="easyui-tree" ></ul>\n\
-                                                            </div>\n\
-                                                        </div>\n\
-                                                    </div>\n\
-                                                    <div class="hr-line-dashed"></div>\n\
-                                                    <div class="form-group">\n\
-                                                        <div class="col-sm-10 col-sm-offset-2">\n\
-                                                        <button id="cloneMachPropPopUp" class="btn btn-primary" type="submit" onclick="return cloneMachPropWrapper(event, '+nodeID+', \''+nodeName+'\');">\n\
-                                                            <i class="fa  fa-copy"></i> Kopyala </button>\n\
-                                                        <button id="resetForm" onclick="regulateButtonsPopupClone();" class="btn btn-flat" type="reset" " >\n\
-                                                            <i class="fa fa-remove"></i> Reset </button>\n\
-                                                    </div>\n\
-                                                </div>\n\
-                                            </form>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>');
-                return $message;
-            },
-    type: BootstrapDialog.TYPE_PRIMARY,
-    onshown : function () {
-        var loader = $('#loading-image-clone-popup').loadImager();
-        loader.loadImager('appendImage');
-       $("#machPropFormInsertPopup").validationEngine();
-
-
-       $('#tt_tree_menu_popup_clone').tree({  
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillJustMachineToolGroupsNotInProperty_sysMachineToolGroups&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val()+ '&property_id='+nodeID,
-            method: 'get',
-            animate: true,
-            checkbox: true,
-            cascadeCheck: false,
-            lines: true,
-            onLoadSuccess: function (node, data) {
-                 loader.loadImager('removeLoadImage');
-            },
-            onClick: function (node) {
-                 selectedRoot = $(this).tree('getRoot', node.target);
-                 selectedItem = $(this).tree('getData', node.target);
-             },
-            onCheck: function (node, checked) {
+        });
+        tagBuilderNot.tagCabin({
+            onTagCopied : function(event, data) {
                 var self = $(this);
-                var tagBuilder = $('#test-cabin').tagCabin({
-                         tagCopy         : true,
-                         tagDeletable    : false,
-                         tagDeletableAll : true, 
-                         tagBox          : $('.tag-container').find('ul'),
-                         dataMapper      : {attributes : Array('machine_grup_id')}
+                console.log(data.id);
+                console.log(data);
+                window.assignRolePrivilege(data.id, data.element, tagBuilder);
+            }
+        });
+        
+        
+        if(!self.tree('isLeaf', node.target)) {
+            wm.warningMessage( {
+                onShown : function (event ,data ) {
+                   self.tree('uncheck', node.target); 
+                }
+            });
+            wm.warningMessage('show','ACL Rol Seçiniz',
+                                     'ACL resource (kaynak) seçtiniz, Lütfen rol seçiniz...');
 
-                 }); 
-                 tagBuilder.tagCabin({
-                     onTagCopied : function(event, data) {
-                         console.log(data.id);
-                         console.log(data);
-                         window.cloneMachPropDialog(data.id, data.element.text());
-                     }
-                 });
-                 if(checked) {
-                     if(!self.tree('isLeaf', node.target)) {
-                         wm.warningMessage( {
-                             onShown : function (event ,data ) {
-                                self.tree('uncheck', node.target); 
-                             }
-                         });
-                         wm.warningMessage('show','Alt Kategori Seçiniz',
-                                                  'Lütfen alt kategori seçiniz...');
-
-                     } else {
-                         //window.getMachineProp(node, self, tagBuilder);
-                     }
-                 } else if(checked == false){
-                     if(self.tree('isLeaf', node.target) && node.state=='open') {
-                         window.clearMachineProp(node, tagBuilder);
-                     }
-                 }
-             },
-            formatter: function (node) {
-                 var s = node.text;
-                 var id = node.id;
-                 var parent = $(this).tree('getParent', node.target);
-
-                 return s;
-             }
-         });
-
-
-
-    },
-    onhide : function() {
-    },
+        } else {
+            window.clearRolePrivilege(node, tagBuilder);
+            window.getRolePrivileges(node, self, tagBuilder);
+            window.clearRolePrivilege(node, tagBuilderNot);
+            window.getRolePrivilegesNotAssigned(node, self, tagBuilderNot);
+        }
+        
+   },
 });
-return false;
-}
 
 /**
-* insert unit item
-* @returns {Boolean}
-* @author Mustafa Zeynel Dağlı
-* @since 04/04/2016
-*/
-window.cloneMachPropWrapper = function (e, nodeID, nodeName) {
-e.preventDefault();
-var nodeID = nodeID;
-var nodeName = nodeName;
-console.log($('#tt_tree_menu_popup_clone').tree('getChecked'));
-if($('#tt_tree_menu_popup_clone').tree('getChecked').length === 0) {
-    wm.warningMessage('resetOnShown');
-    wm.warningMessage('show', 'Makina Kategorisi Seçiniz', 'Lütfen makina kategorisi Seçiniz!');
-    return false;
-}
-cloneMachProp(nodeID, nodeName);
-
-return false;
-}
-   
-/**
- * clone machine property item to different machine categories
+ * assign privilege to role
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 03/05/2016
+ * @since 15/07/2016
  */
-window.cloneMachProp = function (nodeID, nodeName) {
-     var loader = $("#loading-image-clone-popup").loadImager();
-     loader.loadImager('appendImage');
+window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
+    var tag = tag;
+    var tagBuilder = tagBuilder;
+    var loader = $("#rolePrivilegeBlock").loadImager();
+    loader.loadImager('appendImage');
+    
+    console.log(tag.attr('data-attribute'));
+    console.log(tag.text());
+    console.log(tag.attr('data-resource_id'));
+    console.log(tag.attr('data-privilege_id'));
+    console.log(tag.attr('data-role_id'));
+    var role_id = tag.attr('data-role_id');
+    var privilege_id = tag.attr('data-privilege_id');
+    var resource_id = tag.attr('data-resource_id');
 
-     language_code = $('#langCode').val();
-     checkedTreeItems = $('#tt_tree_menu_popup_clone').tree('getChecked');
-
-     var machineGroupIDArray = [];
-     $.each(checkedTreeItems, function(key, item) {
-         machineGroupIDArray.push(parseInt(item.id));
-     })
-     var objmachineGroupID = $.extend({}, machineGroupIDArray);
-     var jsonMachineGroupID = JSON.stringify(objmachineGroupID);
-
-
-     var unitGrupIDArray = [];
-     unitGrupIDArray.push(nodeID);
-     var objUnitGroupID = $.extend({}, unitGrupIDArray);
-     var jsonUnitGroupID = JSON.stringify(objUnitGroupID);
-
-     var aj = $(window).ajaxCall({
-                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
-                     data : {
-                         url:'pkInsert_sysMachineToolPropertyDefinition' ,
-                         language_code : language_code,
-                         unit_grup_id : jsonUnitGroupID,
-                         machine_grup_id : jsonMachineGroupID,
-                         pk : $("#pk").val()
-                     }
+    var aj = $(window).ajaxCall({
+         proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
+         data : {
+             url:'pkTransferRolesPrivilege_sysAclRrp' ,
+             role_id : role_id,
+             resource_id : resource_id,
+             privilege_id : privilege_id,
+             pk : $("#pk").val()
+         }
     })
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Kopyalama İşlemi Başarısız...', 
-                                       'Makina özelliği kopyalama işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
+              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
+                                       'Tanımlanmış Özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
-              console.log(data);
               var data = data;
-             sm.successMessage({
-                 onShown: function( event, data ) {
-                     regulateButtonsPopupClone()();
-                     loader.loadImager('removeLoadImage');
-
-                 }
-             });
-             sm.successMessage('show', 'Makina Özelliği Kopyalama İşlemi Başarılı...', 
-                                       'Makina özelliği kopyalama işlemini gerçekleştirdiniz... ',
+              console.log(data);
+              console.warn(data.lastInsertId);
+              var id = data.lastInsertId;
+             tagBuilder.tagCabin('addTagManuallyDataAttr', id, 
+                                                            tag.text(),
+                                                            {role_id : role_id,
+                                                             resource_id : resource_id,
+                                                             privilege_id : privilege_id });
+            tag.remove();                                               
+            loader.loadImager('removeLoadImage');
+            
+             sm.successMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarılı...', 
+                                       'Tanımlanmış özellik ekleme İşlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Makina Özelliği Kopyalama İşlemi Başarısız...', 
-                                       'Makina özelliği kopyalama işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysMachineToolPropertyDefinition" servis datası boştur!!');
+              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
+                                       'Tanımlanmış özellik Eekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Kopyalama İşlemi Başarısız...', 
-                                     'Makina özelliği kopyalama işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
+                                     'Tanımlanmış özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
           },
+          onError23503 : function (event, data) {
+          },
+          onError23505 : function (event, data) {
+              dm.dangerMessage({
+                 onShown : function(event, data) {
+                     //$('#machPropFormInsertPopup')[0].reset();
+                     loader.loadImager('removeLoadImage');
+                 }
+              });
+              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
+                                       'Özellik daha önce eklenmiştir, yeni bir özellik deneyiniz... ');
+          }
     }) 
     aj.ajaxCall('call');
+}
+
+/**
+ * delete privilege from a specific role
+ * @param {type} id
+ * @param {type} element
+ * @param {type} machine_group_id
+ * @returns {undefined}
+ * @since 15/07/2016
+ */
+window.deleteRolePrivilege = function(id, tag, tagBuilder) {
+    var tag = tag;
+    var tagBuilder = tagBuilder;
+    var id = id;
+    var loader = $("#rolePrivilegeBlock").loadImager();
+    loader.loadImager('appendImage');
+    
+    console.log(tag.attr('data-attribute'));
+    console.log(tag.text());
+    console.log(tag.attr('data-resource_id'));
+    console.log(tag.attr('data-privilege_id'));
+    console.log(tag.attr('data-role_id'));
+    var role_id = tag.attr('data-role_id');
+    var privilege_id = tag.attr('data-privilege_id');
+    var resource_id = tag.attr('data-resource_id');
+
+    var ajPopUpDelete = $(window).ajaxCall({
+                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                     data : {
+                         url:'pkDelete_sysAclRrp' ,
+                         id : id,
+                         pk : $("#pk").val()
+                     }
+    });
+    ajPopUpDelete.ajaxCall ({
+             onError : function (event, textStatus, errorThrown) {  
+                 dm.dangerMessage('resetOnShown');  
+                 dm.dangerMessage('show', 'Rol Yetki Silme İşlemi Başarısız...',
+                                           'Rol yetkisi silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+                 console.error('"pkDelete_sysAclRrp" servis hatası->'+textStatus);
+             },
+             onSuccess : function (event, data) {
+                 tagBuilder.tagCabin('addTagManuallyDataAttr',  0, 
+                                                        tag.text(),
+                                                        {role_id : role_id,
+                                                         resource_id : resource_id,
+                                                         privilege_id : privilege_id });
+                     tag.remove();                                               
+                     loader.loadImager('removeLoadImage');
+                 sm.successMessage('show', 'Rol Yetki Silme İşleminiz Başarılı...',
+                                           'Rol yetki silme işleminiz başarılı...')
+             },                                   
+     });
+     ajPopUpDelete.ajaxCall('call');
 }
     
     
 /**
- * clear machine properties from interface
+ * clear role privileges from interface
  * @param {type} node
  * @param {type} tagBuilder
  * @returns {undefined}
- * @since 03/05/2016
+ * @since 15/07/2016
  */
-window.clearMachineProp = function(node, tagBuilder) {
+window.clearRolePrivilege = function(node, tagBuilder) {
     var nodeID = node.id;
     $('#mach-prop-box').loadImager();
     $('#mach-prop-box').loadImager('appendImage');
@@ -355,30 +291,30 @@ window.clearMachineProp = function(node, tagBuilder) {
             $('#mach-prop-box').loadImager('removeLoadImage');   
         }
     });
-    tagBuilder.tagCabin('removeSpecificTags', nodeID, 'data-machine_grup_id');
+    tagBuilder.tagCabin('removeAllTags');
 }
     
 /**
- * set machine property tags
+ * set ACL role privileges tags
  * @param {type} node
  * @param {type} treeObj
  * @param {type} tagBuilder
  * @returns {undefined}
- * @since 03/05/2016
+ * @since 15/07/2016
  */
-window.getMachineProp = function(node, treeObj, tagBuilder) {
+window.getRolePrivileges = function(node, treeObj, tagBuilder) {
 
     var nodeID = node.id;
     $('#mach-prop-box').loadImager();
     $('#mach-prop-box').loadImager('appendImage');
 
-    if(tagBuilder.tagCabin('findSpecificTags', nodeID, 'data-machine_grup_id')) {
-        var ajaxMacProp = $(window).ajaxCallWidget({
+    if(tagBuilder.tagCabin('findSpecificTags', nodeID, 'data-role_id')) {
+        var ajaxMacProp = $('#test-cabin').ajaxCallWidget({
             proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                     data : {
-                        url:'pkFillMachineGroupPropertyDefinitions_sysMachineToolPropertyDefinition' ,
+                        url:'pkFillPrivilegesOfRoles_sysAclPrivilege' ,
                         language_code : $('#langCode').val(),
-                        machine_grup_id : nodeID,
+                        role_id : nodeID,
                         pk : $("#pk").val()
                     }
            })
@@ -387,11 +323,11 @@ window.getMachineProp = function(node, treeObj, tagBuilder) {
                  dm.dangerMessage({
                     onShown : function() {
                         $('#mach-prop-box').loadImager('removeLoadImage'); 
-                        treeObj.tree('uncheck', node.target);
+                        //treeObj.tree('uncheck', node.target);
                     }
                  });
-                 dm.dangerMessage('show', 'Makina Kategori Özelliği Yüklenememiştir...',
-                                          'Makina kategori özellikleri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
+                 dm.dangerMessage('show', 'Rol Yetkileri Yüklenememiştir...',
+                                          'Rol Yetkileri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
              },
              onSuccess : function (event, data) {
 
@@ -405,11 +341,9 @@ window.getMachineProp = function(node, treeObj, tagBuilder) {
                     {onTagRemovedUltimately :function(event, data) {
                         var element = data.element;
                         var id = data.id;
-                        console.log(id);
-                        var machine_group_id = element.attr('data-machine_grup_id');
-                        console.log(machine_group_id);
+                        var role_id = element.attr('data-role_id');
 
-                        window.deleteMachPropUltimatelyDialog(id, element, machine_group_id);
+                        window.deleteRolePrivilegeUltimatelyDialog(id, element, role_id);
                         return false;
                     }
                  });
@@ -422,232 +356,118 @@ window.getMachineProp = function(node, treeObj, tagBuilder) {
                  dm.dangerMessage({
                     onShown : function() {
                         $('#mach-prop-box').loadImager('removeLoadImage'); 
-                        treeObj.tree('uncheck', node.target);
+                        //treeObj.tree('uncheck', node.target);
                     }
                  });
-                 dm.dangerMessage('show', 'Kategoride Özellik Bulunamamıştır...',
-                                          'Seçtiğiniz makina kategorisine ait makina özellik kaydı bulunamamıştır...');
+                 dm.dangerMessage('show', 'Role Bağlı Yetki Bulunamamıştır...',
+                                          'Seçtiğiniz role bağlı yetki kaydı bulunamamıştır...');
 
              },
        }) 
        ajaxMacProp.ajaxCallWidget('call');
     } else {
         wm.warningMessage('resetOnShown');
-        wm.warningMessage('show', 'Özellikler Seçilmiştir!!!'
-                                , 'Seçili makina kategorisi özellikleri yüklenmiş durumdadır...');
+        wm.warningMessage('show', 'Yetkiler Seçilmiştir!!!'
+                                , 'Seçili rol yetkileri yüklenmiş durumdadır...');
         $('#mach-prop-box').loadImager('removeLoadImage');
     }
 }
-    
+ 
+ 
+/**
+ * set ACL resource privileges tags not assigned to role
+ * @param {type} node
+ * @param {type} treeObj
+ * @param {type} tagBuilder
+ * @returns {undefined}
+ * @since 15/07/2016
+ */
+window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
+
+    var nodeID = node.id;
+    $('#mach-prop-box-not').loadImager();
+    $('#mach-prop-box-not').loadImager('appendImage');
+
+    if(tagBuilder.tagCabin('findSpecificTags', nodeID, 'data-role_id')) {
+        var ajaxMacPropNot = $('#test-cabin-not').ajaxCallWidget({
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    data : {
+                        url:'pkFillNotInPrivilegesOfRoles_sysAclPrivilege' ,
+                        language_code : $('#langCode').val(),
+                        role_id : nodeID,
+                        pk : $("#pk").val()
+                    }
+           })
+        ajaxMacPropNot.ajaxCallWidget ({
+             onError : function (event, textStatus,errorThrown) {
+                 dm.dangerMessage({
+                    onShown : function() {
+                        $('#mach-prop-box-not').loadImager('removeLoadImage'); 
+                        //treeObj.tree('uncheck', node.target);
+                    }
+                 });
+                 dm.dangerMessage('show', 'Resource Yetkileri Yüklenememiştir...',
+                                          'Resource Yetkileri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
+             },
+             onSuccess : function (event, data) {
+
+                 tagBuilder.tagCabin(
+                    {tagsFound :function(event, item) { 
+                     //console.log($(item).attr('data-attribute'));
+                     //console.log($(item).attr('data-tree-item'));
+                    }  
+                 });
+                 
+                 //console.log(data);
+                 tagBuilder.tagCabin('addTags', data);
+                 $('#mach-prop-box-not').loadImager('removeLoadImage');
+
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage({
+                    onShown : function() {
+                        $('#mach-prop-box-not').loadImager('removeLoadImage'); 
+                        //treeObj.tree('uncheck', node.target);
+                    }
+                 });
+                 dm.dangerMessage('show', 'Resource (Kaynak) Bağlı Yetki Bulunamamıştır...',
+                                          'Seçtiğiniz kaynağa bağlı yetki kaydı bulunamamıştır...');
+
+             },
+       }) 
+       ajaxMacPropNot.ajaxCallWidget('call');
+    } else {
+        wm.warningMessage('resetOnShown');
+        wm.warningMessage('show', 'Yetkiler Seçilmiştir!!!'
+                                , 'Seçili resource (kaynak) yetkileri yüklenmiş durumdadır...');
+        $('#mach-prop-box-not').loadImager('removeLoadImage');
+    }
+}
 
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
-
-//Validation forms binded...
-jQuery("#unitForm").validationEngine();
-    
-   
-                                            
-//$('#mach_prop_tab_container a[href="#tab_mach_prop_update"]').tab('show');
-    
+ 
 /**
- * machine property update  tab click
- * @author Mustafa Zeynel Dağlı
- * @since 21/04/2016
- */
-$('#mach_prop_tab_container #tab_mach_prop_update_clicker').click(function (e) {
-    if(!$('#tab_mach_prop_update').hasClass('active')) {
-        wm.warningMessage({ 
-            onShown : function(event, data) {
-                $('#tab_mach_prop_update').loadImager();
-                $('#tab_mach_prop_update').loadImager('appendImage');
-                //$('#tab_image_loader').loadImager('removeLoadImage');  
-            }
-        });
-        wm.warningMessage('show', 'Metrik Sistem Seçiniz', 'Lütfen Metrik sistem Seçiniz!');
-    }
-    e.preventDefault();
- })
-    
-
-/**
- * wrapper class for pop up and delete machine property ultimately
+ * wrapper class for pop up and delete privilege from 
+ * specific role
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
- * @since 04/04/2016
+ * @since 15/07/2016
  */
-window.deleteMachPropUltimatelyDialog= function(id, element, machine_group_id){
+window.deleteRolePrivilegeDialog= function(id, tag, tagBuilder){
     var nodeID = nodeID;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteMachPropUltimately(id, element, machine_group_id);
+        deleteRolePrivilege(id, tag, tagBuilder);
     }
     });
-    wcm.warningComplexMessage('show', 'Makina Özelliğini Tüm Kategorilerden Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'Makina özelliğini tüm kategorilerden Öğesini silmek üzeresiniz, birim silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'Rol Yetkisi Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'Rol yetkisini  silmek üzeresiniz, yetki silme işlemi geri alınamaz!! ');
 }
    
-/**
-* delete machine property from all kategories
-* @param {type} id
-* @param {type} element
-* @param {type} machine_group_id
-* @returns {undefined}
-* @since 03/05/2016
-*/
-window.deleteMachPropUltimately = function(id, element, machine_group_id) {
-   $('#mach-prop-box').loadImager();
-   $('#mach-prop-box').loadImager('appendImage');
 
-var ajDeleteAll = $(window).ajaxCall({
-            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data : {
-                url:'pkDeletePropertyMachineGroup_sysMachineToolPropertyDefinition' ,
-                property_id : id,
-                machine_group_id : machine_group_id,
-                pk : $("#pk").val()
-            }
-});
-ajDeleteAll.ajaxCall ({
-    onError : function (event, textStatus, errorThrown) {  
-        dm.dangerMessage('resetOnShown');  
-        dm.dangerMessage('show', 'Makina Özelliği Silme İşlemi Başarısız...',
-                                  'Makina özelliği silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-        console.error('"pkDelete_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
-    },
-    onSuccess : function (event, data) {
-        sm.successMessage({ 
-            onShown : function() {
-                $('#mach-prop-box').loadImager('removeLoadImage');
-                element.remove();
-            }
-        });
-        sm.successMessage('show', 'Makina Özelliği Silme İşleminiz Başarılı...',
-                                  'Makina özelliğini silme işleminiz başarılı...')
-    },                                   
-});
-ajDeleteAll.ajaxCall('call');
-}
-   
-/**
- * wrapper class for pop up and delete machine property from specific
- * machine category
- * @param {integer} nodeID
- * @returns {null}
- * @author Mustafa Zeynel Dağlı
- * @since 04/04/2016
- */
-window.deleteMachPropDialog= function(id, machine_grup_id, element){
-    var nodeID = nodeID;
-    wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteMachProp(id, machine_grup_id, element);
-    }
-    });
-    wcm.warningComplexMessage('show', 'Makina Özelliğini Kategoriden Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'Makina özelliğini kategoriden  silmek üzeresiniz, makina özelliği silme işlemi geri alınamaz!! ');
-}
-   
-/**
- * delete machine property from a specific machine category
- * @param {type} id
- * @param {type} element
- * @param {type} machine_group_id
- * @returns {undefined}
- * @since 03/05/2016
- */
-window.deleteMachProp = function(id, machine_grup_id, element) {
-    var loader = $("#loading-image-crud-popup").loadImager();  
-    loader.loadImager('appendImage');
-    //var ajPopUpDelete = $(window).ajaxCall({
-    var ajPopUpDelete = $("#loading-image-crud-popup").ajaxCall({
-                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                     data : {
-                         url:'pkDeletePropertyMachineGroup_sysMachineToolPropertyDefinition' ,
-                         property_id : id,
-                         machine_grup_id : machine_grup_id,
-                         pk : $("#pk").val()
-                     }
-    });
-    ajPopUpDelete.ajaxCall ({
-             onError : function (event, textStatus, errorThrown) {  
-                 dm.dangerMessage('resetOnShown');  
-                 dm.dangerMessage('show', 'Makina Özelliği Silme İşlemi Başarısız...',
-                                           'Makina özelliği silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-                 console.error('"pkDeletePropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
-             },
-             onSuccess : function (event, data) {
-                 sm.successMessage({ 
-                     onShown : function() {
-                         loader.loadImager('removeLoadImage');
-                         window.tagBuilderPopup.tagCabin('removeTag', element);
-                         window.tagBuilderPopupNot.tagCabin('addTagManually', id, 
-                                                                     element.text(),
-                                                                     {machine_grup_id : machine_grup_id,});
-                     }
-                 });
-                 sm.successMessage('show', 'Makina Özelliği Silme İşleminiz Başarılı...',
-                                           'Makina özelliğini silme işleminiz başarılı...')
-             },                                   
-     });
-     ajPopUpDelete.ajaxCall('call');
-}
    
   
-   
-   
-/**
- * reset button function for popup insert window for machine
- * property insert
- * for 'insert' and 'update' form buttons
- * @returns null
- * @author Mustafa Zeynel Dağlı
- * @since 28/04/2016
- */
-window.regulateButtonsPopupInsert = function () {
-    $('#machPropFormInsertPopup').validationEngine('hide');
-    return false;
-}
-   
-/**
- * reset button function for popup clone window for machine
- * property insert
- * for 'insert' and 'update' form buttons
- * @returns null
- * @author Mustafa Zeynel Dağlı
- * @since 03/05/2016
- */
-window.regulateButtonsPopupClone = function () {
-    var selectedItems = $('#tt_tree_menu_popup_clone').tree('getChecked');
-    $.each(selectedItems, function(key, item) {
-        $('#tt_tree_menu_popup_clone').tree('uncheck', item.target);
-    });
-    return false;
-}
-
-/**
- * insert unit item
- * @returns {Boolean}
- * @author Mustafa Zeynel Dağlı
- * @since 04/04/2016
- */
-window.insertMachPropWrapper = function (e, nodeID, nodeName) {
- e.preventDefault();
- var nodeID = nodeID;
- var nodeName = nodeName;
-
- if ($("#machPropFormInsertPopup").validationEngine('validate')) {
-     if($('#tt_tree_menu_popup').tree('getSelected') == null) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Birim Seçiniz', 'Lütfen birim kategorisi Seçiniz!');
-         return false;
-     }
-     insertMachProp(nodeID, nodeName);
- }
- return false;
-}
-   
-   
-   
 /**
  * wrapper for machine property insert process
  * @param {type} nodeID
@@ -751,7 +571,7 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
                          data : {
                              url:'pkFillMachineGroupPropertyDefinitions_sysMachineToolPropertyDefinition' ,
                              language_code : $('#langCode').val(),
-                             machine_grup_id : nodeID,
+                             role_id : nodeID,
                              pk : $("#pk").val()
                          }
         })
@@ -772,13 +592,13 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
                         tagCopy      : false,
                         tagDeletable : true,  
                         tagBox       : $('.tag-container-popup').find('ul'),
-                        dataMapper   : {attributes : Array('machine_grup_id')} 
+                        dataMapper   : {attributes : Array('role_id')} 
                 });
                 tagBuilderPopup.tagCabin({ 
                     onTagRemoved : function(event, data) {
                         var elementData = data.element;
                         var id = data.id;
-                        window.deleteMachPropDialog(id, nodeID, elementData);
+                        window.deleteRolePrivilegeDialog(id, nodeID, elementData);
 
                     }
                  });
@@ -793,7 +613,7 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
                          data : {
                              url:'pkFillMachineGroupNotInPropertyDefinitions_sysMachineToolPropertyDefinition' ,
                              language_code : $('#langCode').val(),
-                             machine_grup_id : nodeID,
+                             role_id : nodeID,
                              pk : $("#pk").val()
                          }
         })
@@ -814,7 +634,7 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
                         tagCopy      : true,
                         tagDeletable : false,  
                         tagBox       : $('.tag-container-popup-not').find('ul'),
-                        dataMapper   : {attributes : Array('machine_grup_id')} 
+                        dataMapper   : {attributes : Array('role_id')} 
                 });
                 tagBuilderPopupNot.tagCabin({ 
                     onTagCopied : function(event, data) {
@@ -822,8 +642,8 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
                         var id = data.id;
                         console.warn(elementData.text());
                         var tagText = elementData.text();
-                        window.addMachProp(id, nodeID, elementData);
-                        //window.deleteMachPropDialog(id, elementData);
+                        window.addRolePrivilege(id, nodeID, elementData);
+                        //window.deleteRolePrivilegeDialog(id, elementData);
 
                     }
                  });
@@ -874,18 +694,18 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
    
    
 /**
- * add machine property item to mach category
+ * add privilege to role
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 22/06/2016
+ * @since 15/07/2016
  */
-window.addMachProp = function (property_id, machine_grup_id, tag) {
+window.addRolePrivilege = function (property_id, role_id, tag) {
     var property_id = property_id;
-    var machine_grup_id = machine_grup_id;
+    var role_id = role_id;
     var tagText = tagText;
-    var loader = $("#loading-image-crud-popup").loadImager();
+    var loader = $("#lrolePrivilegeBlock").loadImager();
     loader.loadImager('appendImage');
 
     var aj = $(window).ajaxCall({
@@ -893,15 +713,15 @@ window.addMachProp = function (property_id, machine_grup_id, tag) {
          data : {
              url:'pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition' ,
              property_id : property_id,
-             machine_grup_id : machine_grup_id,
+             role_id : role_id,
              pk : $("#pk").val()
          }
     })
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Tanımlanmış Özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              dm.dangerMessage('show', 'Role Yetki Ekleme İşlemi Başarısız...', 
+                                       'Role yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
               console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
@@ -910,27 +730,27 @@ window.addMachProp = function (property_id, machine_grup_id, tag) {
                  onShown: function( event, data ) {
                      window.tagBuilderPopup.tagCabin('addTagManually', property_id, 
                                                                      tag.text(),
-                                                                     {machine_grup_id : machine_grup_id});
+                                                                     {role_id : role_id});
                      window.tagBuilderPopupNot.tagCabin('removeTag', tag);                                                
                      loader.loadImager('removeLoadImage');
 
                  }
              });
-             sm.successMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarılı...', 
-                                       'Tanımlanmış özellik ekleme İşlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Role Yetki Ekleme İşlemi Başarılı...', 
+                                       'Role yetki ekleme İşlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Tanımlanmış özellik Eekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              dm.dangerMessage('show', 'Role Yetki Ekleme İşlemi Başarısız...', 
+                                       'Role Yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
               console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                     'Tanımlanmış özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Role Yetki Ekleme İşlemi Başarısız...', 
+                                     'Role yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
           },
           onError23503 : function (event, data) {
@@ -942,114 +762,14 @@ window.addMachProp = function (property_id, machine_grup_id, tag) {
                      loader.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Özellik daha önce eklenmiştir, yeni bir özellik deneyiniz... ');
+              dm.dangerMessage('show', 'Role Yetki Ekleme İşlemi Başarısız...', 
+                                       'Yetki daha önce eklenmiştir, yeni bir yetki deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
 }
    
    
-/**
- * insert machine property item
- * @param {type} nodeID
- * @param {type} nodeName
- * @returns {undefined}
- * @author Mustafa Zeynel Dağlı
- * @since 29/04/2016
- */
-window.insertMachProp = function (nodeID, nodeName) {
-     var loader = $("#loading-image-crud-popup").loadImager();
-     loader.loadImager('appendImage');
-     property_name = $('#property_name_popup').val();
-     property_name_eng = $('#property_name_eng_popup').val();     
-     language_code = $('#langCode').val();
-     selectedTreeItem = $('#tt_tree_menu_popup').tree('getSelected')
 
-     var unitGrupIDArray = [];
-     unitGrupIDArray.push(selectedTreeItem.id);
-     var objUnitGroupID = $.extend({}, unitGrupIDArray);
-     //console.log(objTest);
-     var jsonUnitGroupID = JSON.stringify(objUnitGroupID);
-
-     machineGroupID = nodeID;
-     var machineGroupIDArray = [];
-     machineGroupIDArray.push(machineGroupID);
-     var objmachineGroupID = $.extend({}, machineGroupIDArray);
-     //console.log(objTest);
-     var jsonMachineGroupID = JSON.stringify(objmachineGroupID);
-
-     var aj = $(window).ajaxCall({
-         proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
-         data : {
-             url:'pkInsert_sysMachineToolPropertyDefinition' ,
-             language_code : language_code,
-             property_name : property_name,
-             property_name_eng : property_name_eng,
-             unit_grup_id : jsonUnitGroupID,
-             machine_grup_id : jsonMachineGroupID,
-             pk : $("#pk").val()
-         }
-    })
-    aj.ajaxCall ({  
-          onError : function (event, textStatus, errorThrown) {   
-              dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Birim Aktifleştirme İşlemi Başarısız...', 
-                                       'Birim aktifleştirme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
-          },
-          onSuccess : function (event, data) {
-              console.log(data);
-              var data = data;
-             sm.successMessage({
-                 onShown: function( event, data ) {
-                     console.log(data);
-                     $('#machPropFormInsertPopup')[0].reset();
-                     regulateButtonsPopupInsert();
-                     var tagBuilderInsertPopup = $('#test-cabin-popup').tagCabin({
-                             tagCopy      : false,
-                             tagDeletable : true,     
-                             tagBox       : $('.tag-container-popup').find('ul'),  
-                             dataMapper   : {attributes : Array('machine_grup_id')} 
-                     });
-                     tagBuilderInsertPopup.tagCabin('addTagManually', data.lastInsertId, 
-                                                                     property_name,
-                                                                     {machine_grup_id : nodeID});
-                     loader.loadImager('removeLoadImage');
-
-                 }
-             });
-             sm.successMessage('show', 'Birim Kayıt İşlemi Başarılı...', 
-                                       'Birim kayıt işlemini gerçekleştirdiniz... ',
-                                       data);
-
-          },
-          onErrorDataNull : function (event, data) {
-              dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Birim Kayıt İşlemi Başarısız...', 
-                                       'Birim kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysMachineToolPropertyDefinition" servis datası boştur!!');
-          },
-          onErrorMessage : function (event, data) {
-             dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Özelliği Kayıt İşlemi Başarısız...', 
-                                     'Makina özelliği kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
-          },
-          onError23503 : function (event, data) {
-          },
-          onError23505 : function (event, data) {
-              dm.dangerMessage({
-                 onShown : function(event, data) {
-                     $('#machPropFormInsertPopup')[0].reset();
-                     loader.loadImager('removeLoadImage');
-                 }
-              });
-              dm.dangerMessage('show', 'Makina Özelliği Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile birim kaydı yapılmıştır, yeni bir isim deneyiniz... ');
-          }
-    }) 
-    aj.ajaxCall('call');
-}
     
 });

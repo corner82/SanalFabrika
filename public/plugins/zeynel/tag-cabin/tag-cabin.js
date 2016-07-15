@@ -33,8 +33,18 @@
             items = self.findTags();
         },
         
-        removeTag : function() {
+        /**
+         * remove all tags
+         * @returns {undefined}
+         * @since 15/07/2016
+         */
+        removeAllTags : function() {
             var self = this;
+            $(self.options.tagBox).find('li').remove();
+        },
+        
+        removeTag : function() {
+            var self = this;  
             //self.findTag()
         },
         
@@ -61,6 +71,14 @@
                 return tag.attr(attr);
             }
             
+        },
+        
+        /**
+         * read specific attribute value
+         * @since 15/07/2016
+         */
+        readTagAttr : function (tag, attr) {
+            return tag.attr(attr);
         },
         
        /**
@@ -148,6 +166,42 @@
                 $.each(infoArray, function(key, item) {
                     //console.error(key+'--'+item);
                     tagCustom += ' '+key+'="'+item+'" ';  
+                })
+            }
+            
+            if(self.options.tagCopy) {
+               icons += self.options.copyTag;
+            }
+            
+            if(self.options.tagDeletableAll) {
+               icons += self.options.closeAllTag;
+            }
+            
+            if(self.options.tagDeletable) {
+                icons += self.options.closeTag;       
+            }
+            self.options.tagBox.append('<li class="tags" data-attribute="'+id+'"  '+tagCustom+' >'+tag+icons+'</li>');
+        },
+        
+        /**
+         * public function to add tag individually with data atrribıtes
+         * @param {type} id
+         * @param {type} tag
+         * @param {type} infoArray
+         * @param {type} infoArrayManual
+         * @returns {undefined}
+         * @since 15/07/2016
+         */
+        addTagManuallyDataAttr : function(id, tag, infoArray) {
+            var self = this;
+            var tag = tag;
+            var icons = '';
+            var tagCustom = '';
+            
+            if(typeof infoArray!= "undefined") {
+                $.each(infoArray, function(key, item) {
+                    //console.error(key+'--'+item);
+                    tagCustom += ' data-'+key+'="'+item+'" ';  
                 })
             }
             
