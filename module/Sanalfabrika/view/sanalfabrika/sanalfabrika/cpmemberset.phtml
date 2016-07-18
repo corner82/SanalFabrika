@@ -389,15 +389,14 @@
             <ol class="breadcrumb">
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                ?>">
-                           <?php echo $this->translate('Home') ?>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index')); ?>">
+                        <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
                 <li>
                     <i class="fa fa-home"></i>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
-                           ?>">
+                        ?>">
                            <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>
@@ -434,113 +433,272 @@
                     </div>
                     <div class="box-tools pull-right">                        
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                        <!--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>-->
                     </div>
                 </div>
 
                 <div class="box-body" style="display: block;">
                     <div class="box-body">
-                        <table id="reg_members_table"></table>
+                        <table id="reg_members_table" title=<?php echo $this->translate('Registered Company Personnel') ?>></table>
                     </div>
-                </div>
+                </div> 
             </div>
 
             <!-- company general information setting box -->
             <div class="box box-primary">                
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?php echo $this->translate('Company Members Settings') ?></h3>
+                    <h3 class="box-title"><?php echo $this->translate('New Personel Submission') ?></h3>
 
                     <div class="box-tools pull-right">                        
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                        <!--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>-->
                     </div>
                 </div>
 
                 <div class="box-body" style="display: block;">
                     <div class="box-body">
-                        <form role="form" id='communication_form'>
-                            <!-- First Column Start -->
-                            <div class="col-lg-6">
-                                <label for="member_name_ph" style="margin-top: 20px"><?php echo $this->translate('First Name') ?></label>
-                                <div class="input-group">                                    
-                                    <div class="input-group-addon">                                        
-                                        <i class="icon-prepend fa fa-flag-o"></i>
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li id='gen_info_tab_btn' class="active">
+                                    <a href="#gen_info_tab" data-toggle="tab" aria-expanded="true">
+                                        <?php echo $this->translate('Personnel General Information') ?>
+                                    </a>
+                                </li>
+                                <li id='edu_info_tab_btn'>
+                                    <!--<li id='edu_info_tab_btn' class='disabled' >-->
+                                    <!--<a id='edu_tab_toggle' aria-expanded="false">-->
+                                    <a id='edu_tab_toggle' href="#edu_info_tab" data-toggle="tab" aria-expanded="false">
+                                        <?php echo $this->translate('Personnel Education Information') ?>                                    
+                                    </a>
+                                </li>
+                                <li id='lang_info_tab_btn'>
+                                    <!--<li id='lang_info_tab_btn' class='disabled' >-->
+                                    <!--<a id='lang_tab_toggle'aria-expanded="false">-->
+                                    <a id='lang_tab_toggle' href="#lang_info_tab" data-toggle="tab" aria-expanded="false">
+                                        <?php echo $this->translate('Personnel Language Information') ?>                                    
+                                    </a>
+                                </li> 
+                                <li id='cert_info_tab_btn'>
+                                    <!--<li id='cert_info_tab_btn' class='disabled' >-->
+                                    <!--<a id='cert_tab_toggle'aria-expanded="false">-->
+                                    <a id='cert_tab_toggle' href="#cert_info_tab" data-toggle="tab"  aria-expanded="false">
+                                        <?php echo $this->translate('Personnel Certificate Information') ?>                                    
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="gen_info_tab" personnel_id=''>
+                                    <div class="box-body">
+                                        <form id='personel_gen_info'>
+                                            <div class="col-md-3"></div>
+                                            <!-- Middle Column Start -->
+                                            <div class="col-lg-6">
+                                                <label for="ptitle" style="margin-top: 20px"><?php echo $this->translate('Title') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control validate[required, maxSize[30]]" 
+                                                           id="ptitle" placeholder="Enter title here please">
+                                                </div>
+                                                <label for="ptitle_eng" style="margin-top: 20px"><?php echo $this->translate('Title (English)') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control validate[maxSize[30]]" 
+                                                           id="ptitle_eng" placeholder="Enter title in english here please">
+                                                </div>
+                                                <label for="pname" style="margin-top: 20px"><?php echo $this->translate('First Name') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control validate[required, maxSize[200]]" 
+                                                           id="pname" placeholder="Enter first name here please">
+                                                </div>
+                                                <label for="plast" style="margin-top: 20px"><?php echo $this->translate('Last Name') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control validate[required, maxSize[200]]" 
+                                                           id="plast" placeholder="Enter last name here please">
+                                                </div>
+                                                <label for="ppos" style="margin-top: 20px"><?php echo $this->translate('Position') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control validate[required, maxSize[200]]" 
+                                                           id="ppos" placeholder="Enter member position here please">
+                                                </div>
+                                                <label for="ppos_eng" style="margin-top: 20px"><?php echo $this->translate('Position (English)') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control validate[maxSize[200]]" 
+                                                           id="ppos_eng" placeholder="Enter member position in english here please">
+                                                </div>
+                                                <br/>
+                                                <div class="form-group">                                
+                                                    <label for="psex"><?php echo $this->translate('Sex') ?></label>
+                                                    <div id="psex">
+                                                    </div>
+                                                </div>
+                                                <br/>
+                                            </div>
+                                            <!-- Middle Column End -->
+                                            <div class="col-md-3"></div>
+
+                                            <!-- General Information Footer Start -->
+                                            <div class="box-footer col-lg-12">
+                                                <button type="button" class="btn btn-primary" onclick='send_personel_general_info()'>
+                                                    <?php echo $this->translate('Continue') ?>
+                                                </button>
+                                            </div>
+                                            <!-- General Information Footer End -->
+                                        </form>
                                     </div>
-                                    <input type="text" class="form-control validate[required, maxSize[500]]" 
-                                           id="member_name_ph" placeholder="Enter first name here please">
                                 </div>
-                                <label for="member_last_name_ph" style="margin-top: 20px"><?php echo $this->translate('Last Name') ?></label>
-                                <div class="input-group">                                    
-                                    <div class="input-group-addon">                                        
-                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="edu_info_tab">
+                                    <div class="box-body">
+                                        <div id='member_reg_grads_ph'>
+                                            <table id="member_reg_grads"></table>
+                                            <hr>
+                                        </div>
+                                        <form role="form" id='personel_edu_info'>
+                                            <div class="col-md-3"></div>
+                                            <!-- Middle Column Start -->
+                                            <div class="col-lg-6">                                                
+                                                <br/>
+                                                <label for="member_diploma_ph" style="margin-top: 20px"><?php echo $this->translate('Diploma') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control validate[required, maxSize[200]]" 
+                                                           id="member_diploma_ph" placeholder="Enter diploma name in english here please">
+                                                </div>                                                                                                                                              
+                                                <br/>
+                                                <div class="form-group">                                
+                                                    <label for="member_university_country_ph"><?php echo $this->translate('Country of Graduation') ?></label>
+                                                    <div id="member_university_country_ph">
+                                                    </div>
+                                                </div>                                                                                               
+                                                <br/>
+                                                <div class="form-group">                                
+                                                    <label for="member_university_ph"><?php echo $this->translate('University or Institute') ?></label>
+                                                    <div id="member_university_ph">
+                                                    </div>
+                                                </div>
+                                                <label for="grad_date_ph" style="margin-top: 20px"><?php echo $this->translate('Graduation Date') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="date" class="form-control" id="grad_date_ph">
+                                                </div>
+                                                <br/>
+                                            </div>
+                                            <!-- Middle Column End -->
+                                            <div class="col-md-3"></div>
+
+                                            <!-- Education Information Footer Start -->
+                                            <div class="box-footer col-lg-12"> 
+                                                <button type="button" class="btn btn-default" onclick='add_new_personnel_grad()'>
+                                                    <?php echo $this->translate('Add') ?>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary" onclick='send_personel_edu_info()'>
+                                                    <?php echo $this->translate('Continue') ?>
+                                                </button>
+                                            </div>
+                                            <!-- Education Information Footer End -->
+                                        </form>
                                     </div>
-                                    <input type="text" class="form-control validate[required, maxSize[500]]" 
-                                           id="member_last_name_ph" placeholder="Enter last name here please">
                                 </div>
-                                <label for="member_position_ph" style="margin-top: 20px"><?php echo $this->translate('Position') ?></label>
-                                <div class="input-group">                                    
-                                    <div class="input-group-addon">                                        
-                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="lang_info_tab">
+                                    <div class="box-body">
+                                        <div id='member_reg_lang_ph'>
+                                            <table id="member_reg_langs"></table>
+                                            <hr>
+                                        </div>
+                                        <form role="form" id='personel_lang_info'>
+                                            <div class="col-md-3"></div>
+                                            <!-- Middle Column Start -->
+                                            <div class="col-lg-6">
+                                                <label for="member_language_ph" style="margin-top: 20px"><?php echo $this->translate('Language') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control" 
+                                                           id="member_language_ph" placeholder="Enter member language here please">
+                                                </div>
+                                                <br/>
+                                            </div>
+                                            <!-- Middle Column End -->
+                                            <div class="col-md-3"></div>
+
+                                            <!-- Language Information Footer Start -->
+                                            <div class="box-footer col-lg-12">
+                                                <button type="button" class="btn btn-default" onclick='add_new_personnel_lang()'>
+                                                    <?php echo $this->translate('Add') ?>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary" onclick='send_personel_lang_info()'>
+                                                    <?php echo $this->translate('Continue') ?>
+                                                </button>
+                                            </div>
+                                            <!-- Language Information Footer End -->
+                                        </form>
                                     </div>
-                                    <input type="text" class="form-control validate[required, maxSize[500]]" 
-                                           id="member_position_ph" placeholder="Enter member position here please">
                                 </div>
-                                <label for="member_email_ph" style="margin-top: 20px"><?php echo $this->translate('Email Address') ?></label>
-                                <div class="input-group">                                    
-                                    <div class="input-group-addon">                                        
-                                        <i class="icon-prepend fa fa-flag-o"></i>                                    
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="cert_info_tab">
+                                    <div class="box-body"> 
+                                        <div id='member_reg_certs_ph'>
+                                            <table id="member_reg_certs"></table>
+                                            <hr>
+                                        </div>
+                                        <form role="form" id='personel_cert_info'>
+                                            <div class="col-md-3"></div>
+                                            <!-- Middle Column Start -->
+                                            <div class="col-lg-6">
+                                                <label for="member_certificate_ph" style="margin-top: 20px"><?php echo $this->translate('Certificate') ?></label>
+                                                <div class="input-group">                                    
+                                                    <div class="input-group-addon">                                        
+                                                        <i class="icon-prepend fa fa-flag-o"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control" 
+                                                           id="member_certificate_ph" placeholder="Enter member certificate here please">
+                                                </div>
+                                                <br/>
+                                            </div>
+                                            <!-- Middle Column End -->
+                                            <div class="col-md-3"></div>
+
+                                            <!-- Certificate Information Footer Start -->
+                                            <div class="box-footer col-lg-12">                                                
+                                                <button type="button" class="btn btn-primary" onclick='send_personel_cert_info()'>
+                                                    <?php echo $this->translate('Submit') ?>
+                                                </button>
+                                            </div>
+                                            <!-- Certificate Information Footer End -->
+                                        </form>
                                     </div>
-                                    <input type="email" class="form-control validate[required,custom[email]]]" 
-                                           id="member_email_ph" placeholder="Enter member email here please">
-                                </div> 
-                                <label for="member_pref_pass" style="margin-top: 20px"><?php echo $this->translate('Password') ?></label>
-                                <div class="input-group">                                    
-                                    <div class="input-group-addon">                                        
-                                        <i class="icon-prepend fa fa-flag-o"></i>                                    
-                                    </div>
-                                    <input type="password" class="form-control validate[required, minSize[8], maxSize[20]]" 
-                                           id="member_pref_pass" placeholder="Enter password">
                                 </div>
-                                <label for="member_pref_pass_rep" style="margin-top: 20px"><?php echo $this->translate('Repeat Password') ?></label>
-                                <div class="input-group">                                    
-                                    <div class="input-group-addon">                                        
-                                        <i class="icon-prepend fa fa-flag-o"></i>                                    
-                                    </div>
-                                    <input type="password" class="form-control validate[required, minSize[8], maxSize[20]]" 
-                                           id="member_pref_pass_rep" placeholder="Repeat password">
-                                </div>
+                                <!-- /.tab-pane -->
                             </div>
-
-                            <!-- First Column End -->
-
-                            <!-- Second Column Start -->
-                            <div class="col-lg-6">
-                                <div class="form-group"> 
-                                    <label for="communicationTypes" style="margin-top: 20px">
-                                        <?php echo $this->translate('Communication Types') ?>
-                                    </label>
-                                    <div id="communicationTypes"></div>
-                                    <div id="added_comm_type"></div>
-                                    <div id="sel_comm_type"></div>
-
-                                </div>
-                            </div>
-                            <!-- Second Column End -->
-
-                            <!-- General Information Footer Start -->
-                            <div class="box-footer col-lg-12">
-                                <button type="submit" class="btn btn-primary" onclick='send_general_info()'>
-                                    <?php echo $this->translate('Submit') ?>
-                                </button>
-                            </div>
-                            <!-- General Information Footer End -->
-                        </form>
+                            <!-- /.tab-content -->
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
     <!-- end of company general information setting -->
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
@@ -856,7 +1014,6 @@
 
         </div><!--/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü-->
 
-
         <!--<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
         <!-- Settings tab content -->
         <div class="tab-pane" id="control-sidebar-settings-tab">            
@@ -918,7 +1075,8 @@
             </form>
         </div><!-- /.tab-pane -->
     </div>
-</aside><!-- /.control-sidebar -->
+</aside>
+<!-- /.control-sidebar -->
 <!-- Add the sidebar's background. This div must be placed
      immediately after the control sidebar -->
 <div class='control-sidebar-bg'></div>

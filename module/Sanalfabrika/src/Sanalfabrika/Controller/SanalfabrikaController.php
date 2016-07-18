@@ -490,8 +490,8 @@ class SanalfabrikaController extends AbstractActionController {
          * @since 12/07/2016
          * acl class test in view layer
          */
-        /*$acl = $this->getServiceLocator()
-                    ->get('serviceAclRolePagesCreator');*/
+//        $acl = $this->getServiceLocator()
+//                    ->get('serviceAclRolePagesCreator');
         
 
         /*
@@ -516,7 +516,7 @@ class SanalfabrikaController extends AbstractActionController {
              * @since 12/07/2016
              * acl class test in view layer
              */
-            //'acl' => $acl
+//            'acl' => $acl
         ));
         return $view;
     }
