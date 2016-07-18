@@ -123,6 +123,8 @@ return array(
             'servicePageLogRabbitMQ' => 'Utill\MQ\Factory\FactoryServicePageLog',
             'serviceLoginLogRabbitMQ' => 'Utill\MQ\Factory\FactoryServiceLoginLog',
             'serviceLogoutLogRabbitMQ' => 'Utill\MQ\Factory\FactoryServiceLogoutLog',
+            'serviceAclPrivilegeFinder' => 'Custom\Services\Acl\FactoryServiceACLPrivilegeFinder', 
+            'serviceAclPrivilegeCreator' => 'Custom\Services\Acl\FactoryServiceACLPrivilegeCreator',
         ],  
         
     ),
