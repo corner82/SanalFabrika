@@ -23,7 +23,7 @@ class FactoryServiceACLRolePagesCreator  implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $serviceLocator) {
         
-        //print_r('--factoryservicerolecreater'); 
+        //print_r('--factoryserviceprivilegecreater'); 
         
         $config = $serviceLocator->get('config');
         $acl = new Acl();

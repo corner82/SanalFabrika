@@ -118,6 +118,17 @@
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $authManager->getStorage()->clear();
         
+        $sessionManager = $this->getServiceLocator()
+                               ->get('SessionManagerDefault');
+        
+        /**
+         * ACL object destroyed when log out
+         * @author Mustafa Zeynel Dağlı
+         * @since 18/07/2016
+         */
+        $sessionManager->getStorage()->clear('__ACL');
+        $sessionManager->getStorage()->setMetadata('__ACL','');
+        
         /**
         * user log out action logged by rabbitMQ messaging
         * @author Mustafa Zeynel Dağlı

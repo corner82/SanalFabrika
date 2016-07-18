@@ -46,6 +46,9 @@ namespace SFDM;
         // acl for page restrictiones attaching to dispatch
         $eventManager->attach('dispatch', array($this, 'aclCreater'));
         
+        // acl privileges dıe to role of authenticated user attaching to dispatch
+        $eventManager->attach('dispatch', array($this, 'privilegeCreater'));
+        
         /**
          * page entry log 
          * @author Mustafa Zeynel Dağlı
@@ -155,6 +158,18 @@ namespace SFDM;
             ->get('servicePageLogRabbitMQ');
     }
 
+    
+    /**
+     * ACL privilege creator for specific role
+     * @author Mustafa Zeynel Dağlı
+     * @since 18/07/2016
+     */
+    public function privilegeCreater(MvcEvent $e) {
+        //print_r('--dispatch event privilege creater--');
+        $privilegesResult = $e->getApplication()->getServiceManager()->get('serviceAclPrivilegeCreator');
+        
+    }
+    
     public function aclCreater(MvcEvent $e) {
         //print_r('--dispatch event acl creater--');
         $roleResult = $e->getApplication()
