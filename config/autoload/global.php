@@ -271,6 +271,10 @@ return array(
                          'parent' => 'new user',
                          //'action' => array('sanalfabrika' => array ('index'))
                    ),
+        'company apprentice' => array(
+                         'parent' => 'new user',
+                         //'action' => array('sanalfabrika' => array ('index'))
+                   ),
         'firm owner' => array(
                          'parent' => 'firm user',
                          //'action' => array('sanalfabrika' => array ('index'))
