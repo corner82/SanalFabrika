@@ -136,7 +136,7 @@ class SanalfabrikaController extends AbstractActionController {
         $this->authenticate(null, $view);
         return $view;
     }
-    
+
     public function uprofsetAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
@@ -257,7 +257,7 @@ class SanalfabrikaController extends AbstractActionController {
 //        return $view;
 //    }
 
-    public function cpgeneralsetAction() {              
+    public function cpgeneralsetAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
@@ -268,7 +268,7 @@ class SanalfabrikaController extends AbstractActionController {
         $selectedCompanyNpk = $this->getServiceLocator()
                 ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
-                ->get('servicePublicKeyReader');   
+                ->get('servicePublicKeyReader');
         $companyPublicKey = $this->getServiceLocator()
                 ->get('serviceCompanyPublicKeyGenerator');
 
@@ -278,7 +278,7 @@ class SanalfabrikaController extends AbstractActionController {
 
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $sessionArr = $authManager->getStorage()->read();
-        $sessionArr['npk'] = $selectedCompanyNpk; 
+        $sessionArr['npk'] = $selectedCompanyNpk;
         $sessionArr['cpk'] = $companyPublicKey;
         $authManager->getStorage()->write(
                 $sessionArr
@@ -292,7 +292,7 @@ class SanalfabrikaController extends AbstractActionController {
             'publicKey' => $publicKey,
             'companyPublicKey' => $companyPublicKey
         ));
-        
+
         return $view;
     }
 
@@ -306,16 +306,16 @@ class SanalfabrikaController extends AbstractActionController {
         $selectedCompanyNpk = $this->getServiceLocator()
                 ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
-                ->get('servicePublicKeyReader');   
+                ->get('servicePublicKeyReader');
         $companyPublicKey = $this->getServiceLocator()
                 ->get('serviceCompanyPublicKeyGenerator');
-        
+
         // Do this inside your Controller before you return your ViewModel
         $this->layout()->setVariable('test', $langCode);
-        
+
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
         $sessionArr = $authManager->getStorage()->read();
-        $sessionArr['npk'] = $selectedCompanyNpk; 
+        $sessionArr['npk'] = $selectedCompanyNpk;
 //        $sessionArr['cpk'] = $companyPublicKey;
         $authManager->getStorage()->write(
                 $sessionArr
@@ -329,7 +329,7 @@ class SanalfabrikaController extends AbstractActionController {
             'publicKey' => $publicKey,
             'companyPublicKey' => $companyPublicKey
         ));
-        
+
         return $view;
     }
 
@@ -478,13 +478,15 @@ class SanalfabrikaController extends AbstractActionController {
         /*
          * get npk from url
          */
-            $selectedCompanyNpk = $this->getEvent()
-                            ->getRouteMatch()->getParam('selectedCompanyNpk');
-            if($selectedCompanyNpk == NULL){
-                $selectedCompanyNpk = $this->getServiceLocator()
-                ->get('serviceNpkReader');
-            }
-        
+        $selectedCompanyNpk = $this->getEvent()
+                        ->getRouteMatch()->getParam('selectedCompanyNpk');
+        if ($selectedCompanyNpk == NULL) {
+            $selectedCompanyNpk = $this->getServiceLocator()
+                    ->get('serviceNpkReader');
+        }
+        $acl = $this->getServiceLocator()
+                ->get('serviceAclPrivilegeFinder');
+
         /**
          * @author Mustafa Zeynel Dağlı
          * @since 12/07/2016
@@ -492,7 +494,7 @@ class SanalfabrikaController extends AbstractActionController {
          */
 //        $acl = $this->getServiceLocator()
 //                    ->get('serviceAclRolePagesCreator');
-        
+
 
         /*
          * write npk to session
@@ -511,12 +513,12 @@ class SanalfabrikaController extends AbstractActionController {
             'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
             'publicKey' => $publicKey,
-            /**
-             * @author Mustafa Zeynel Dağlı
-             * @since 12/07/2016
-             * acl class test in view layer
-             */
-//            'acl' => $acl
+                /**
+                 * @author Mustafa Zeynel Dağlı
+                 * @since 12/07/2016
+                 * acl class test in view layer
+                 */
+            'acl' => $acl
         ));
         return $view;
     }
@@ -700,7 +702,7 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
+
     public function sfmachinesAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
@@ -716,8 +718,8 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
-    public function projregAction(){
+
+    public function projregAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
@@ -734,8 +736,8 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
-    
-    public function projpoolAction(){
+
+    public function projpoolAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()

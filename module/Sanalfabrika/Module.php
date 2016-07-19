@@ -8,7 +8,7 @@ use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Zend\Session\SessionManager;
 use Zend\Session\Container;
-use Zend\ModuleManager\Feature\ViewHelperProviderInterface; 
+use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface, ViewHelperProviderInterface {
 
@@ -47,15 +47,15 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Vi
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function getViewHelperConfig()
-    {
+    public function getViewHelperConfig() {
         return array(
             'factories' => array(
                 'test_helper' => function($sm) {
-                    $helper = new View\Helper\Testhelper ;
+                    $helper = new View\Helper\Testhelper;
                     return $helper;
                 }
             )
-        );   
-   }
+        );
+    }
+
 }

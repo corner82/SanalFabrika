@@ -412,7 +412,6 @@
 
         <!-- Main content -->
         <section class="content">
-
             <div class="box box-primary">                
                 <div class="box-header with-border">
                     <h3 class="box-title"><?php echo $this->translate('Registered Members') ?></h3>
@@ -436,13 +435,45 @@
                         <!--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>-->
                     </div>
                 </div>
-
                 <div class="box-body" style="display: block;">
                     <div class="box-body">
                         <table id="reg_members_table" title=<?php echo $this->translate('Registered Company Personnel') ?>></table>
                     </div>
                 </div> 
             </div>
+
+            <!-- hidden diploma grids placeholder -->
+            <div class="box box-primary" id="diploma_grid_ph" style="visibility:visible; display:block">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo $this->translate('Diplomas') ?></h3>                    
+                    <div class="box-body">
+                        <table id="diploma_grid" title=<?php echo $this->translate('Personnel Diploma') ?>></table>
+                    </div>
+                </div>
+            </div>
+            <!--/ hidden diploma grids placeholder -->
+
+            <!-- hidden langs grids placeholder -->
+            <div class="box box-primary" id="langs_grid_ph" style="visibility:visible; display:block">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo $this->translate('Languages') ?></h3>                    
+                    <div class="box-body">
+                        <table id="lang_grid" title=<?php echo $this->translate('Personnel Languages') ?>></table>
+                    </div>
+                </div>
+            </div>
+            <!--/ hidden langs grids placeholder -->
+
+            <!-- hidden certs grids placeholder -->
+            <div class="box box-primary" id="cert_grid_ph" style="visibility:visible; display:block">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo $this->translate('Certificate') ?></h3>                    
+                    <div class="box-body">
+                        <table id="cert_grid" title=<?php echo $this->translate('Personnel Certificate') ?>></table>
+                    </div>
+                </div>
+            </div>
+            <!--/ hidden certs grids placeholder -->
 
             <!-- company general information setting box -->
             <div class="box box-primary">                
