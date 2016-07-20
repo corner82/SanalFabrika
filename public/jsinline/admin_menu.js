@@ -28,6 +28,50 @@ $(document).ready(function () {
     });
     lang.change($('#ln').val());
     
+    /**
+     * menu types  select box filling
+     * @author Mustafa Zeynel Dağlı
+     * @since 19/07/2016
+     */
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: { url:'pkFillComboBoxRoles_sysAclRoles' ,
+                language_code : 'tr',
+                main_group : 2,
+                pk : $("#pk").val()}, 
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+            if(data.length!==0) {
+                $('#dropdownMenuTypes').ddslick({
+                    height : 200,
+                    //data : data, 
+                    data : [{"text":"Admin Yönetim","value":1,"selected":false,"description":"Admin Yönetim"},{"text":"Firma Yönetim","value":2,"selected":false,"description":"Firma Yönetim"},{"text":"Firma Profil","value":3,"selected":false,"description":"Firma Profil"}],
+                    width:'98%',
+                    //selectText: "Select your preferred social network",
+                    imagePosition:"right",
+                    onSelected: function(selectedData){
+                        if(selectedData.selectedData.value>0) {
+                            /*$('#tt_tree_menu').tree({
+                                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                            });*/
+                            
+                            
+                            
+                        }
+                    }   
+                });
+            } else {
+                console.error('"pkFillComboBoxRoles_sysAclRoles" servis datası boştur!!');
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {           
+            console.error('"pkFillComboBoxRoles_sysAclRoles" servis hatası->'+textStatus);
+        }
+    });
+    
+    
+    
     var selectedNode;
     /**
      * user roles  select box filling
@@ -51,131 +95,98 @@ $(document).ready(function () {
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
                     onSelected: function(selectedData){
-                        if(selectedData.selectedData.value>0) {
-                            /*$('#tt_tree_menu').tree({
-                                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                            });*/
-                            
-                            
-                             /*
-                            * 
-                            * @type @call;$@call;tree
-                            * Menu tree
-                            * Mustafa Zeynel Dağlı
-                            * 29/03/2016
-                            */
+                        
+                        var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
+                        menu_types_id = ddDataMenuTypes.selectedData.value;
+                        if(ddDataMenuTypes.selectedData.value>0) {
+                                if(selectedData.selectedData.value>0) {
+                                     /*
+                                    * 
+                                    * @type @call;$@call;tree
+                                    * Menu tree
+                                    * Mustafa Zeynel Dağlı
+                                    * 29/03/2016
+                                    */
 
-                           $('#tt_tree_menu').tree({
-                               url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                               method: 'get',
-                               animate: true,
-                               checkbox: true,
-                               cascadeCheck: false,
-                               lines: true,
-                               onBeforeCheck : function (node) {        
-                               },
-                               onDblClick: function (node) {
-                                   
-                                /*var checked = $('#tt_tree_menu').tree('getChecked');
-                                    console.log(node);
-                                    $.each(checked , function(index, element) {
-                                        console.log(element);
-                                        if(node.id!=element.id) {
+                                   $('#tt_tree_menu').tree({
+                                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val()+'&menu_types_id='+menu_types_id,
+                                    method: 'get',
+                                    animate: true,
+                                    checkbox: true,
+                                    cascadeCheck: false,
+                                    lines: true,
+                                    onAfterEdit: function (node) {
 
-                                            $('#tt_tree_menu').tree('uncheck', element.target); 
+                                        id = editNode.id;
+                                        root = $(this).tree('getRoot', node.target);
+                                        if (editNode.text === '') {
+
+                                            testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
+                                            testBlockuiRoleNameChangeNull.blockuiWrapper('show');
+
+                                            editNode.text = beforeEditTextValue;
+
+                                            $('#tt_tree_menu').tree('update', {
+                                                target: node.target,
+                                                text: beforeEditTextValue
+                                            });
+
+                                        } else {
+
+                                            testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
+                                                showOverlay: true
+                                            });
+                                            testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
+                                            active = editNode.attributes.active;
                                         }
+                                        },
+                                     onLoadSuccess: function (node, data) {
+                                         loader.loadImager('removeLoadImage');
+                                     },
+                                     onClick: function (node) {
+                                         selectedNode = node;
+                                         selectedRoot = $(this).tree('getRoot', node.target);
+                                         selectedItem = $(this).tree('getData', node.target);
+                                         //console.log(selectedItem);
+                                         $('#menu_name').val(selectedItem.text);
+                                         $('#menu_name_eng').val(selectedItem.attributes.text_eng);
+                                         $('#url').val(selectedItem.attributes.url);
+                                         $('#icon_class').val(selectedItem.attributes.icon_class);
+                                         $('#updateMenu').attr('disabled', false);
+                                         $('#insertMenu').attr('disabled', true);
 
-                                })*/
-                                      
-                                /*editNode = $(this).tree('getData', node.target);
-                                beforeEditTextValue = $(this).tree('getData', node.target).text;
-                                parent = $(this).tree('getParent', node.target);
+                                     },
+                                     formatter: function (node) {
+                                         var s = node.text;
+                                         var id = node.id;
+                                         if (node.attributes.active == 0) {
+                                             s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
+                                                  <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveMenuDialog('+id+');"></i>&nbsp;&nbsp;\n\
+                                                 <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMenuDialog('+id+', \''+node.text+'\')"></i>';
+                                             return s;
 
-                                if (parent == null) {
-                                    parentId = 0;
-                                } else {
-                                    parentId = parent.id;
-                                }
-
-                                $(this).tree('beginEdit', node.target);*/
-                               },
-                               onAfterEdit: function (node) {
-
-                                   id = editNode.id;
-                                   root = $(this).tree('getRoot', node.target);
-                                   if (editNode.text === '') {
-
-                                       testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
-                                       testBlockuiRoleNameChangeNull.blockuiWrapper('show');
-
-                                       editNode.text = beforeEditTextValue;
-
-                                       $('#tt_tree_menu').tree('update', {
-                                           target: node.target,
-                                           text: beforeEditTextValue
-                                       });
-
-                                   } else {
-
-                                       testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
-                                           showOverlay: true
-                                       });
-                                       testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
-                                       active = editNode.attributes.active;
-                                   }
-                                   },
-                                onLoadSuccess: function (node, data) {
-                                    loader.loadImager('removeLoadImage');
-                                },
-                                onClick: function (node) {
-                                    selectedNode = node;
-                                    selectedRoot = $(this).tree('getRoot', node.target);
-                                    selectedItem = $(this).tree('getData', node.target);
-                                    //console.log(selectedItem);
-                                    $('#menu_name').val(selectedItem.text);
-                                    $('#menu_name_eng').val(selectedItem.attributes.text_eng);
-                                    $('#url').val(selectedItem.attributes.url);
-                                    $('#icon_class').val(selectedItem.attributes.icon_class);
-                                    $('#updateMenu').attr('disabled', false);
-                                    $('#insertMenu').attr('disabled', true);
-
-                                },
-                                onCheck: function (node) {
-                              
-                                },
-                                formatter: function (node) {
-                                    var s = node.text;
-                                    var id = node.id;
-                                    if (node.attributes.active == 0) {
-                                        s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                                             <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveMenuDialog('+id+');"></i>&nbsp;&nbsp;\n\
-                                            <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMenuDialog('+id+', \''+node.text+'\')"></i>';
-                                        return s;
-
-                                    } else if (node.attributes.active == 1) {
-                                        s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                                        <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeMenuDialog('+id+');"></i>';
-                                        s = "<font color = '#B6B6B4'>" + s + "</font>"
-                                        //buda koşullu kullanım için örnek satır    
-                                        /*if (node.children) {
-                                            s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
-                                        }*/
-                                        return s;
-                                    }
-                                }
+                                         } else if (node.attributes.active == 1) {
+                                             s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
+                                             <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeMenuDialog('+id+');"></i>';
+                                             s = "<font color = '#B6B6B4'>" + s + "</font>"
+                                             //buda koşullu kullanım için örnek satır    
+                                             /*if (node.children) {
+                                                 s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
+                                             }*/
+                                             return s;
+                                         }
+                                     }
+                                 });
+                            }
+                        } else {
+                            BootstrapDialog.show({
+                                title: 'Menü Tipi Seçiniz',
+                                message: 'Lütfen Menü Tipi Seçiniz!',
+                                type: BootstrapDialog.TYPE_WARNING,
                             });
                         }
-                        //console.log(selectedData.selectedData.value);
-                       /* if(selectedData.selectedData.value==6) {
-                            $('#dropdownOperationsToolsContainer').loadImager();
-                            $('#dropdownOperationsToolsContainer').loadImager('appendImage');
-                            window.getOperationTypeTools();
-                        } else {
-                            $('#dropdownOperationsToolsContainer').loadImager();
-                            $('#dropdownOperationsToolsContainer').loadImager('appendImage');
-                            $('#dropdownOperationsTools').ddslick('destroy');
-                            window.getOperationTypeToolsPleaseSelect();
-                        }*/
+                        
+                        
                     }   
                 });
             } else {
@@ -839,14 +850,24 @@ $(document).ready(function () {
 
     if ($("#menuForm").validationEngine('validate')) {
         var ddData = $('#dropdownRoles').data('ddslick');
-        if(ddData.selectedData.value>0) {
+        var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
+        if(ddData.selectedData.value>0 && ddDataMenuTypes.selectedData.value>0) {
             insertMenuRoot();
         } else {
-            BootstrapDialog.show({
-                title: 'Rol Seçiniz',
-                message: 'Lütfen Kullanıcı Rolü Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-            });
+            if(!ddData.selectedData.value>0) {
+                BootstrapDialog.show({
+                    title: 'Rol Seçiniz',
+                    message: 'Lütfen Kullanıcı Rolü Seçiniz!',
+                    type: BootstrapDialog.TYPE_WARNING,
+                });
+            } else if(!ddDataMenuTypes.selectedData.value>0) {
+                BootstrapDialog.show({
+                    title: 'Menü Tipi Seçiniz',
+                    message: 'Lütfen Menü Tipi Seçiniz!',
+                    type: BootstrapDialog.TYPE_WARNING,
+                });
+            }
+            
         }
     }
     return false;
@@ -862,6 +883,8 @@ $(document).ready(function () {
         language_code = $('#langCode').val();
         var ddData = $('#dropdownRoles').data('ddslick');
         role_id = ddData.selectedData.value;
+        var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
+        menu_types_id = ddDataMenuTypes.selectedData.value;
         //console.log(ddData);
         
        $.ajax({
@@ -871,6 +894,7 @@ $(document).ready(function () {
                    icon_class : icon_class,
                    menu_name_eng : menu_name_eng,
                    menu_name : menu_name,
+                   menu_types_id : menu_types_id,
                    urlx : url,
                    parent : 0,
                    role_id : role_id,
@@ -902,6 +926,7 @@ $(document).ready(function () {
                                                 text_eng: menu_name_eng, 
                                                 active: 0, 
                                                 url: url, 
+                                                menu_types_id : menu_types_id,
                                                 icon_class: icon_class},
                                     id: data.lastInsertId,
                                     text: menu_name,
@@ -946,7 +971,9 @@ $(document).ready(function () {
    window.updateMenuWrapper = function (e) {
     e.preventDefault();
     if ($("#menuForm").validationEngine('validate')) {
+
         var ddData = $('#dropdownRoles').data('ddslick');
+        var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
         
         selectedTreeItem = $('#tt_tree_menu').tree('getSelected');
         if(selectedTreeItem == null) {
@@ -958,15 +985,23 @@ $(document).ready(function () {
             return false;
         }
         
-        if(ddData.selectedData.value>0) {
+        if(ddData.selectedData.value>0 && ddDataMenuTypes.selectedData.value>0) {
             //alert(ddData.selectedData.text);
             updateMenu();
         } else {
-            BootstrapDialog.show({
-                title: 'Rol Seçiniz',
-                message: 'Lütfen Kullanıcı Rolü Seçiniz!',
-                type: BootstrapDialog.TYPE_WARNING,
-            });
+            if(!ddData.selectedData.value>0) {
+                BootstrapDialog.show({
+                    title: 'Rol Seçiniz',
+                    message: 'Lütfen Kullanıcı Rolü Seçiniz!',
+                    type: BootstrapDialog.TYPE_WARNING,
+                });
+            } else if(!ddDataMenuTypes.selectedData.value>0) {
+                BootstrapDialog.show({
+                    title: 'Menü Tipi Seçiniz',
+                    message: 'Lütfen Menü Tipi Seçiniz!',
+                    type: BootstrapDialog.TYPE_WARNING,
+                });
+            }
         }
     }
     return false;
@@ -984,6 +1019,8 @@ $(document).ready(function () {
         console.log(selectedTreeItem);
         var ddData = $('#dropdownRoles').data('ddslick');
         role_id = ddData.selectedData.value;
+        var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
+        menu_types_id = ddDataMenuTypes.selectedData.value;
         console.log(ddData);
         id = selectedTreeItem.id;
         
@@ -994,6 +1031,7 @@ $(document).ready(function () {
                    icon_class : icon_class,
                    menu_name_eng : menu_name_eng,
                    menu_name : menu_name,
+                   menu_types_id : menu_types_id,
                    urlx : url,
                    id : id,
                    role_id : role_id,
