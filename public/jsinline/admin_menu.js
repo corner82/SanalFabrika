@@ -28,6 +28,89 @@ $(document).ready(function () {
     });
     lang.change($('#ln').val());
     
+    
+/*
+* 
+* @type @call;$@call;tree
+* Menu tree
+* Mustafa Zeynel Dağlı
+* 29/03/2016
+*/
+
+$('#tt_tree_menu').tree({
+//url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val()+'&menu_types_id='+menu_types_id,
+method: 'get',
+animate: true,
+checkbox: true,
+cascadeCheck: false,
+lines: true,
+onAfterEdit: function (node) {
+
+    id = editNode.id;
+    root = $(this).tree('getRoot', node.target);
+    if (editNode.text === '') {
+
+        testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
+        testBlockuiRoleNameChangeNull.blockuiWrapper('show');
+
+        editNode.text = beforeEditTextValue;
+
+        $('#tt_tree_menu').tree('update', {
+            target: node.target,
+            text: beforeEditTextValue
+        });
+
+    } else {
+
+        testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
+            showOverlay: true
+        });
+        testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
+        active = editNode.attributes.active;
+    }
+    },
+ onLoadSuccess: function (node, data) {
+     if(data.length>0) {
+        loader.loadImager('removeLoadImage'); 
+     }
+ },
+ onClick: function (node) {
+     selectedNode = node;
+     selectedRoot = $(this).tree('getRoot', node.target);
+     selectedItem = $(this).tree('getData', node.target);
+     //console.log(selectedItem);
+     $('#menu_name').val(selectedItem.text);
+     $('#menu_name_eng').val(selectedItem.attributes.text_eng);
+     $('#url').val(selectedItem.attributes.url);
+     $('#icon_class').val(selectedItem.attributes.icon_class);
+     $('#updateMenu').attr('disabled', false);
+     $('#insertMenu').attr('disabled', true);
+
+ },
+ formatter: function (node) {
+     var s = node.text;
+     var id = node.id;
+     if (node.attributes.active == 0) {
+         s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
+              <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveMenuDialog('+id+');"></i>&nbsp;&nbsp;\n\
+             <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMenuDialog('+id+', \''+node.text+'\')"></i>';
+         return s;
+
+     } else if (node.attributes.active == 1) {
+         s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
+         <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeMenuDialog('+id+');"></i>';
+         s = "<font color = '#B6B6B4'>" + s + "</font>"
+         //buda koşullu kullanım için örnek satır    
+         /*if (node.children) {
+             s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
+         }*/
+         return s;
+     }
+ }
+});
+    
+    
+    
     /**
      * menu types  select box filling
      * @author Mustafa Zeynel Dağlı
@@ -35,9 +118,8 @@ $(document).ready(function () {
      */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkFillComboBoxRoles_sysAclRoles' ,
+        data: { url:'pkFillMenuTypeList_sysMenuTypes' ,
                 language_code : 'tr',
-                main_group : 2,
                 pk : $("#pk").val()}, 
         type: 'GET',
         dataType: 'json',
@@ -45,34 +127,51 @@ $(document).ready(function () {
             if(data.length!==0) {
                 $('#dropdownMenuTypes').ddslick({
                     height : 200,
-                    //data : data, 
-                    data : [{"text":"Admin Yönetim","value":1,"selected":false,"description":"Admin Yönetim"},{"text":"Firma Yönetim","value":2,"selected":false,"description":"Firma Yönetim"},{"text":"Firma Profil","value":3,"selected":false,"description":"Firma Profil"}],
+                    data : data, 
+                    //data : [{"text":"Admin Yönetim","value":1,"selected":false,"description":"Admin Yönetim"},{"text":"Firma Yönetim","value":2,"selected":false,"description":"Firma Yönetim"},{"text":"Firma Profil","value":3,"selected":false,"description":"Firma Profil"}],
                     width:'98%',
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
-                    onSelected: function(selectedData){
-                        if(selectedData.selectedData.value>0) {
-                            /*$('#tt_tree_menu').tree({
-                                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                            });*/
-                            
-                            
-                            
+                    onItemClicked : function(target) {
+                        console.log(target.value);
+                        $("#loading-image").loadImager();
+                        $("#loading-image").loadImager('appendImage');
+                        if(target.value>0){
+                            var ddDataMenuTypes = $('#dropdownRoles').data('ddslick');
+                            menu_types_id = ddDataMenuTypes.selectedData.value;
+                            if(ddDataMenuTypes.selectedData.value>0) {
+                               
+                                $('#tt_tree_menu').tree({ 
+                                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+target.value+'&language_code='+$("#langCode").val()+'&menu_types_id='+menu_types_id,
+                                });
+                            } else {
+                                BootstrapDialog.show({
+                                    title: 'Lütfen Rol Seçiniz',
+                                    message: 'Lütfen rol seçiniz!',
+                                    type: BootstrapDialog.TYPE_WARNING,
+                                });
+                            }
+                        } else {
+                            BootstrapDialog.show({
+                                title: 'Lütfen Menü Tipi Seçiniz',
+                                message: 'Lütfen menü tipi seçiniz!',
+                                type: BootstrapDialog.TYPE_WARNING,
+                            });
                         }
-                    }   
+                        
+                    },   
                 });
             } else {
-                console.error('"pkFillComboBoxRoles_sysAclRoles" servis datası boştur!!');
+                console.error('"pkFillMenuTypeList_sysMenuTypes" servis datası boştur!!');
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {           
-            console.error('"pkFillComboBoxRoles_sysAclRoles" servis hatası->'+textStatus);
+            console.error('"pkFillMenuTypeList_sysMenuTypes" servis hatası->'+textStatus);
         }
     });
-    
-    
-    
+
     var selectedNode;
+
     /**
      * user roles  select box filling
      * @author Mustafa Zeynel Dağlı
@@ -92,101 +191,37 @@ $(document).ready(function () {
                     height : 200,
                     data : data, 
                     width:'98%',
+                    search : true,
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
-                    onSelected: function(selectedData){
-                        
-                        var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
-                        menu_types_id = ddDataMenuTypes.selectedData.value;
-                        if(ddDataMenuTypes.selectedData.value>0) {
-                                if(selectedData.selectedData.value>0) {
-                                     /*
-                                    * 
-                                    * @type @call;$@call;tree
-                                    * Menu tree
-                                    * Mustafa Zeynel Dağlı
-                                    * 29/03/2016
-                                    */
-
-                                   $('#tt_tree_menu').tree({
-                                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val()+'&menu_types_id='+menu_types_id,
-                                    method: 'get',
-                                    animate: true,
-                                    checkbox: true,
-                                    cascadeCheck: false,
-                                    lines: true,
-                                    onAfterEdit: function (node) {
-
-                                        id = editNode.id;
-                                        root = $(this).tree('getRoot', node.target);
-                                        if (editNode.text === '') {
-
-                                            testBlockuiRoleNameChangeNull.blockuiWrapper('option', 'fadeOut', 700);
-                                            testBlockuiRoleNameChangeNull.blockuiWrapper('show');
-
-                                            editNode.text = beforeEditTextValue;
-
-                                            $('#tt_tree_menu').tree('update', {
-                                                target: node.target,
-                                                text: beforeEditTextValue
-                                            });
-
-                                        } else {
-
-                                            testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('option', {
-                                                showOverlay: true
-                                            });
-                                            testBlockuiRoleNameChangeApproval.blockuiApprovalWrapper('show');
-                                            active = editNode.attributes.active;
-                                        }
-                                        },
-                                     onLoadSuccess: function (node, data) {
-                                         loader.loadImager('removeLoadImage');
-                                     },
-                                     onClick: function (node) {
-                                         selectedNode = node;
-                                         selectedRoot = $(this).tree('getRoot', node.target);
-                                         selectedItem = $(this).tree('getData', node.target);
-                                         //console.log(selectedItem);
-                                         $('#menu_name').val(selectedItem.text);
-                                         $('#menu_name_eng').val(selectedItem.attributes.text_eng);
-                                         $('#url').val(selectedItem.attributes.url);
-                                         $('#icon_class').val(selectedItem.attributes.icon_class);
-                                         $('#updateMenu').attr('disabled', false);
-                                         $('#insertMenu').attr('disabled', true);
-
-                                     },
-                                     formatter: function (node) {
-                                         var s = node.text;
-                                         var id = node.id;
-                                         if (node.attributes.active == 0) {
-                                             s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                                                  <i class="fa fa-fw fa-ban" title="pasif yap" onclick="passiveMenuDialog('+id+');"></i>&nbsp;&nbsp;\n\
-                                                 <i class="fa fa-level-down" title="alt kırılıma menü ekle" onclick="insertMenuDialog('+id+', \''+node.text+'\')"></i>';
-                                             return s;
-
-                                         } else if (node.attributes.active == 1) {
-                                             s += '&nbsp;<i class="fa fa-fw fa-trash-o" title="menü sil" onclick="deleteMenuDialog('+id+')"></i>&nbsp;\n\
-                                             <i class="fa fa-fw fa-check-square-o" title="aktif yap" onclick="activeMenuDialog('+id+');"></i>';
-                                             s = "<font color = '#B6B6B4'>" + s + "</font>"
-                                             //buda koşullu kullanım için örnek satır    
-                                             /*if (node.children) {
-                                                 s += '&nbsp;<a href=<span style=\'color:blue\'>(' + node.children.length + ')</span>';
-                                             }*/
-                                             return s;
-                                         }
-                                     }
-                                 });
+                    onItemClicked : function(target) {
+                        console.log(target.value);
+                        $("#loading-image").loadImager();
+                        $("#loading-image").loadImager('appendImage');
+                        if(target.value>0){
+                            var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
+                            menu_types_id = ddDataMenuTypes.selectedData.value;
+                            if(ddDataMenuTypes.selectedData.value>0) {
+                                $('#tt_tree_menu').tree({ 
+                                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+target.value+'&language_code='+$("#langCode").val()+'&menu_types_id='+menu_types_id,
+                                });
+                            } else {
+                                BootstrapDialog.show({
+                                    title: 'Lütfen Menü Tipi Seçiniz',
+                                    message: 'Lütfen menü tipi seçiniz!',
+                                    type: BootstrapDialog.TYPE_WARNING,
+                                });
                             }
                         } else {
                             BootstrapDialog.show({
-                                title: 'Menü Tipi Seçiniz',
-                                message: 'Lütfen Menü Tipi Seçiniz!',
+                                title: 'Lütfen Rol Seçiniz',
+                                message: 'Lütfen rol seçiniz!',
                                 type: BootstrapDialog.TYPE_WARNING,
                             });
                         }
                         
-                        
+                    },
+                    onSelected: function(selectedData){
                     }   
                 });
             } else {
@@ -761,6 +796,8 @@ $(document).ready(function () {
         var ddData = $('#dropdownRoles').data('ddslick');
         role_id = ddData.selectedData.value;
         selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+        var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
+        menu_types_id = ddDataMenuTypes.selectedData.value;
         //console.log(ddData);
         parent = nodeID;
        $.ajax({
@@ -773,6 +810,7 @@ $(document).ready(function () {
                    urlx : url,
                    parent : parent,
                    role_id : role_id,
+                   menu_types_id : menu_types_id,
                    pk : $("#pk").val()},  
            type: 'GET',
            dataType: 'json',
