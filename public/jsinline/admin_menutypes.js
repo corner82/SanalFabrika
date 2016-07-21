@@ -1,25 +1,10 @@
 $(document).ready(function () {
 
-/**
- * easyui tree extend for 'unselect' event
- * @author Mustafa Zeynel Dağlı
- * @since 04/04/2016
- */
-$.extend($.fn.tree.methods,{
-        unselect:function(jq,target){
-                return jq.each(function(){
-                        var opts = $(this).tree('options');
-                        $(target).removeClass('tree-node-selected');
-                        if (opts.onUnselect){
-                                opts.onUnselect.call(this, $(this).tree('getNode',target));
-                        }
-                });
-        }
-});
+
 
 /**
- * Machine datagrid is being filled
- * @since 16/05/2016
+ * Menu type datagrid is being filled
+ * @since 21/07/2016
  */
 $('#tt_grid_dynamic').datagrid({
     onDblClickRow : function (index, row) {
@@ -56,14 +41,14 @@ $('#tt_grid_dynamic').datagrid({
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveMachineWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveMenuTypeWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveMachineWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveMenuTypeWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
                     
                     //var d = '<a href="javascript:void(0)" onclick="deleteISScenario(this);">Delete</a>';
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteMachUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachDialog('+row.id+', { machine_tool_name : \''+row.machine_tool_name+'\',\n\
+                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteMenuTypeUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMenuTypeDialog('+row.id+', { machine_tool_name : \''+row.machine_tool_name+'\',\n\
                                                                                                                                                       group_name : \''+row.group_name+'\',\n\
                                                                                                                                                       machine_tool_name_eng : \''+row.machine_tool_name_eng+'\',\n\
                                                                                                                                                       model : \''+row.attributes.model+'\',\n\
@@ -118,200 +103,38 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
  
- /*
-* 
-* @type @call;$@call;loadImager
-* @Since 16/05/2016
-* @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for machine 
-* producers dropdown. Loading image will be removed when dropdown filled data.
-*/
-$("#mach-prod-box").loadImager();
-$("#mach-prod-box").loadImager('appendImage');
+
 
 /**
- * machine insert form validation engine attached to work
- * @since 16/05/2016
+ * menu  insert form validation engine attached to work
+ * @since 21/07/2016
  */
-$('#machineForm').validationEngine();
+$('#menuTypesForm').validationEngine();
 
  /**
-* reset button function for machine insert form
+* reset button function for menu type insert form
 * property insert
 * for 'insert' and 'update' form buttons
 * @returns null
 * @author Mustafa Zeynel Dağlı  
-* @since 16/05/2016
+* @since 21/07/2016
 */
-window.resetMachineForm = function () {
-   $('#machineForm').validationEngine('hide');
+window.resetMenuTypesForm = function () {
+   $('#menuTypesForm').validationEngine('hide');
    return false;
 }
                                             
-/**
- * machine producers dropdown ajax call
- * @type @call;$@call;ajaxCallWidget
- * @since 16/05/2016
- */
-var ajaxMacProducers = $(window).ajaxCallWidget({
-    proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: { url:'pkFillManufacturerList_sysManufacturer' ,
-                    language_code : 'tr',
-                    pk : $("#pk").val() 
-            }
-   })
-ajaxMacProducers.ajaxCallWidget ({
-     onError : function (event, textStatus,errorThrown) {
-         dm.dangerMessage({
-            onShown : function() {
-                $('#mach-prod-box').loadImager('removeLoadImage'); 
-            }
-         });
-         dm.dangerMessage('show', 'Makina Üreticisi Bulunamamıştır...',
-                                  'Makina üreticisi firma bulunamamıştır...');
-     },
-     onSuccess : function (event, data) {
-         var data = $.parseJSON(data);
-         $('#mach-prod-box').loadImager('removeLoadImage');
-         $('#dropdownProducers').ddslick({
-            height : 200,
-            data : data, 
-            width:'98%',
-            selectText: "Select your preferred social network",
-            //showSelectedHTML : false,
-            defaultSelectedIndex: 3,
-            search : true,
-            //imagePosition:"right",
-            onSelected: function(selectedData){
-                if(selectedData.selectedData.value>0) {
-                    /*$('#tt_tree_menu').tree({
-                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                    });*/
-                }
-            }   
-        });   
-     },
-     onErrorDataNull : function (event, data) {
-         dm.dangerMessage({
-            onShown : function() {
-                $('#mach-prod-box').loadImager('removeLoadImage'); 
-            }
-         });
-         dm.dangerMessage('show', 'Makina Üreticisi Bulunamamıştır...',
-                                  'Makina üreticisi firma bulunamamıştır...');
-     },
-}) 
-ajaxMacProducers.ajaxCallWidget('call');
 
-   
-/*
-* 
-* machine category tree
-* Mustafa Zeynel Dağlı
-* 25/04/2016
-*/
-$('#tt_tree_menu2').tree({  
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillJustMachineToolGroupsBootstrap_sysMachineToolGroups&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
-    method: 'get',
-    animate: true,
-    checkbox: false,
-    cascadeCheck: false,
-    lines: true,
-    onLoadSuccess: function (node, data) {
-         loader.loadImager('removeLoadImage');
-    },
-    onSelect : function(node) {
-        var self = $(this);
-        if(!self.tree('isLeaf', node.target)) {
-            wm.warningMessage( {
-                onShown : function (event ,data ) {
-                   self.tree('unselect', node.target); 
-                }
-            });
-            wm.warningMessage('show','Alt Kategori Seçiniz',
-                                     'Lütfen alt kategori seçiniz...');
-        }
-    },
-    onCheck: function (node, checked) {
-         var self = $(this);
-         if(checked) {
-             if(!self.tree('isLeaf', node.target)) {
-                 wm.warningMessage( {
-                     onShown : function (event ,data ) {
-                        self.tree('uncheck', node.target); 
-                     }
-                 });
-                 wm.warningMessage('show','Alt Kategori Seçiniz',
-                                          'Lütfen alt kategori seçiniz...');
-
-             } else {
-                 window.getMachineDueCategories(node, self);
-             }
-         } else if(checked == false){
-             if(self.tree('isLeaf', node.target) && node.state=='open') {
-                 //window.getMachineDueCategories(node, self);  
-                 window.getAllMachinesToDatagrid(node, self);
-             }
-         }
-     },
-    formatter: function (node) {
-         var s = node.text;
-         var id = node.id;
-         var parent = $(this).tree('getParent', node.target);
-         if(node.state == 'open') {
-             s += '&nbsp;\n\
-                 <i class="fa fa-level-down" title="Kategoriye makina özelliği ekle" onclick="insertMachPropDialog('+id+', \''+node.text+'\')"></i>';
-             return s;
-         }
-         return s;
-     }
-});
-      
-/**
- * set machine due to machine categories
- * @param {type} node
- * @param {type} treeObj
- * @param {type} tagBuilder
- * @returns {undefined}
- * @since 17/05/2016
- */
-window.getMachineDueCategories = function(node, treeObj) {
-    //alert('getMachineDueCategories');
-    var nodeID = node.id;
-    var checkedArray = [];
-    var checked = treeObj.tree('getChecked');
-    if(checked.length >0) {
-        $.each(checked, function(index, item) {
-            checkedArray.push(parseInt(item.id));
-        });
-        var objChecked = $.extend({}, checkedArray);
-        var json=JSON.stringify(objChecked);
-        //console.log(json);;
-        //console.log(JSON.parse(json)); 
-
-        //$('#tt_grid_dynamic').datagrid('disableFilter');
-        $('#tt_grid_dynamic').datagrid({  
-            queryParams: {
-                    pk: $('#pk').val(),
-                    subject: 'datagrid',
-                    url : 'pkGetMachineTools_sysMachineTools',
-                    machine_groups_id : json,
-                    //filterRules:[{"field":"machine_tool_name","op":"contains","value":"e"}]
-            },
-        });
-        $('#tt_grid_dynamic').datagrid('enableFilter');
-    } 
-}
 
 /**
- * get all machines and fill to datagrid
+ * get all menu types and fill to datagrid
  * @param {type} node
  * @param {type} treeObj
  * @returns {undefined}
- * @since 20/05/2016
+ * @since 21/07/2016
  */
-window.getAllMachinesToDatagrid = function(node, treeObj) {
-    //alert('getAllMachinesToDatagrid');
+window.getAllMenuTypesToDatagrid = function(node, treeObj) {
+    //alert('getAllMenuTypesToDatagrid');
     var nodeID = node.id;
     var checkedArray = [];
     var checked = treeObj.tree('getChecked');
@@ -331,17 +154,15 @@ window.getAllMachinesToDatagrid = function(node, treeObj) {
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
 
-//Validation forms binded...
-jQuery("#machineForm").validationEngine();
     
 /**
- * wrapper class for pop up and delete machine ultimately
+ * wrapper class for pop up and delete menu type ultimately
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
  * @since 20/05/2016
  */
-window.deleteMachUltimatelyDialog= function(id, index){
+window.deleteMenuTypeUltimatelyDialog= function(id, index){
     var nodeID = nodeID;
     var id = id;
     var index = index;
@@ -400,30 +221,20 @@ window.deleteMachUltimately = function(id, index) {
    
  
 /**
- * insert unit item
+ * insert menu item
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 04/04/2016
+ * @since 21/07/2016
  */
-window.insertMachWrapper = function (e) {
+window.insertMenuTypesWrapper = function (e) {
  e.preventDefault();
- var ddData = $('#dropdownProducers').data('ddslick');
- /*var nodeID = nodeID;
- var nodeName = nodeName;*/
 
- if ($("#machineForm").validationEngine('validate')) {
-     if($('#tt_tree_menu2').tree('getSelected') == null) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Makina Kategorisi Seçiniz', 'Lütfen makina kategorisi seçiniz!');
-         return false;
-     }
 
-     if(!ddData.selectedData.value > 0) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Makina Üreticisi Seçiniz', 'Lütfen makina üreticisi seçiniz!');
-         return false;
-     }
-     insertMach();
+ if ($("#menuTypesForm").validationEngine('validate')) {
+     
+
+     
+     insertMenuType();
  }
  return false;
 }
@@ -431,23 +242,23 @@ window.insertMachWrapper = function (e) {
    
    
 /**
- * wrapper for machine update process
+ * wrapper for menu type update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 20/05/2016
+ * @since 21/07/2016
  */
-window.updateMachDialog = function (id, row) {
-console.log(row);
+window.updateMenuTypeDialog = function (id, row) {
+//console.log(row);
 BootstrapDialog.show({  
-     title: '"'+ row.machine_tool_name + '" makinasını güncellemektesiniz...',
+     title: '"'+ row.machine_tool_name + '" menü tipini güncellemektesiniz...',
      message: function (dialogRef) {
                  var dialogRef = dialogRef;
                  var $message = $(' <div class="row">\n\
                                          <div class="col-md-12">\n\
                                              <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                 <form id="machFormPopup" method="get" class="form-horizontal">\n\
+                                                 <form id="menuTypesFormPopup" method="get" class="form-horizontal">\n\
                                                  <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                  <div class="hr-line-dashed"></div>\n\
                                                      <div class="form-group" style="padding-top: 10px;" >\n\
@@ -543,7 +354,7 @@ BootstrapDialog.show({
                                                      <div class="hr-line-dashed"></div>\n\
                                                      <div class="form-group">\n\
                                                          <div class="col-sm-10 col-sm-offset-2">\n\
-                                                         <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateMachWrapper(event, '+id+');">\n\
+                                                         <button id="insertMenuTypePopUp" class="btn btn-primary" type="submit" onclick="return updateMenuTypeWrapper(event, '+id+');">\n\
                                                              <i class="fa fa-save"></i> Kaydet </button>\n\
                                                          <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
                                                              <i class="fa fa-remove"></i> Reset </button>-->\n\
@@ -604,7 +415,7 @@ BootstrapDialog.show({
                  } else if(checked == false){
                      if(self.tree('isLeaf', node.target) && node.state=='open') {
                          //window.getMachineDueCategories(node, self);  
-                         window.getAllMachinesToDatagrid(node, self);
+                         window.getAllMenuTypesToDatagrid(node, self);
                      }
                  }
              },
@@ -668,42 +479,28 @@ BootstrapDialog.show({
 }
 
 /**
- * update unit item
+ * update menu type
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 23/05/2016
+ * @since 21/07/2016
  */
-window.updateMachWrapper = function (e, id) {
+window.updateMenuTypeWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#machFormPopup").validationEngine('validate')) {
-     /*selectedTreeItem = $('#tt_tree_menu2_popup').tree('getSelected');
-     if(selectedTreeItem == null) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Makina Kategorisi Seçiniz', 'Lütfen Makina Kategorisi Seçiniz!')
-         return false;
-     }*/
+ if ($("#menuTypesFormPopup").validationEngine('validate')) {
 
-        var ddData = $('#dropdownProducersPopup').data('ddslick');
-        if(ddData.selectedData.value>0) {
-            updateMach(id);
-        } else {
-            wm.warningMessage('resetOnShown');
-            wm.warningMessage('show', 'Üretici Firma Seçiniz', 'Lütfen üretici firma seçiniz!')
-        }
-        return false;
-        updateMach(id);
+    updateMenuType(id);
  }
  return false;
 }
 
 /**
- * update unit item
+ * update menu type
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 23/05/2016
+ * @since 21/07/2016
  */
-window.updateMach = function (id) {
+window.updateMenuType = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      var machine_tool_group_id_popup = $('#machine_tool_group_id_popup').val();
@@ -769,14 +566,14 @@ window.updateMach = function (id) {
 }
    
 /**
- * insert machine 
+ * insert menu type
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 20/05/2016
+ * @since 21/07/2016
  */
-window.insertMach = function (nodeID, nodeName) {
+window.insertMenuType = function (nodeID, nodeName) {
      var loaderInsertBlock = $("#loading-image-crud").loadImager();
      loaderInsertBlock.loadImager('appendImage');
 
@@ -812,8 +609,8 @@ window.insertMach = function (nodeID, nodeName) {
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Makina Ekleme İşlemi Başarısız...', 
-                                       'Makina ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              dm.dangerMessage('show', 'Menü Tipi Ekleme İşlemi Başarısız...', 
+                                       'Menü tipi ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
               console.error('"pkInsert_sysMachineTools" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
@@ -841,21 +638,21 @@ window.insertMach = function (nodeID, nodeName) {
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
              });
-             sm.successMessage('show', 'Makina Kayıt İşlemi Başarılı...', 
-                                       'Makina kayıt işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Menü Tipi Kayıt İşlemi Başarılı...', 
+                                       'Menü tipi kayıt işlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...', 
-                                       'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              dm.dangerMessage('show', 'Menü Tipi Kayıt İşlemi Başarısız...', 
+                                       'Menü tipi kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
               console.error('"pkInsert_sysMachineTools" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...', 
-                                     'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Menü Tipi Kayıt İşlemi Başarısız...', 
+                                     'Menü tipi kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkInsert_sysMachineTools" servis hatası->'+data.errorInfo);
           },
           onError23503 : function (event, data) {
@@ -867,8 +664,8 @@ window.insertMach = function (nodeID, nodeName) {
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile makina kaydı yapılmıştır, yeni bir makina ismi deneyiniz... ');
+              dm.dangerMessage('show', 'Menü Tipi Kayıt İşlemi Başarısız...', 
+                                       'Aynı isim ile menü tipi kaydı yapılmıştır, yeni bir menü tipi ismi deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
@@ -876,31 +673,31 @@ window.insertMach = function (nodeID, nodeName) {
    
 
 /**
- * active/passive machine
+ * active/passive menu type
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 20/05/2016
+ * @since 21/07/2016
  */
-window.activePassiveMachineWrapper = function (e, id) {
+window.activePassiveMenuTypeWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  var domElement = e.target;
  wcm.warningComplexMessage({onConfirm : function(event, data) {
-        activePassiveMachine(id, domElement);
+        activePassiveMenuType(id, domElement);
     }
     });
-wcm.warningComplexMessage('show', 'Makina Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                  'Makina aktif/pasif işlemi gerçekleştirmek  üzeresiniz, silme işlemi geri alınamaz!! ');
+wcm.warningComplexMessage('show', 'Menü Tipi Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                  'Meni tipi aktif/pasif işlemi gerçekleştirmek  üzeresiniz.... ');
  return false;
 }
 
 /**
- * update unit item
+ * update menu type
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 05/04/2016
+ * @since 21/07/2016
  */
-window.activePassiveMachine = function (id, domElement) {
+window.activePassiveMenuType = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
     loader.loadImager('appendImage');
     var id = id;
@@ -918,8 +715,8 @@ window.activePassiveMachine = function (id, domElement) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Aktif/Pasif İşlemi Başarısız...', 
-                                      'Makina aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Menü Tip Aktif/Pasif İşlemi Başarısız...', 
+                                      'Menü tip aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkUpdateMakeActiveOrPassive_sysMachineTools" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
@@ -929,8 +726,8 @@ window.activePassiveMachine = function (id, domElement) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'Makina Aktif/Pasif İşlemi Başarılı...', 
-                                       'Makina aktif/pasif işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Menü Tip Aktif/Pasif İşlemi Başarılı...', 
+                                       'Menü tip aktif/pasif işlemini gerçekleştirdiniz... ',
                                        data);
             if($(domElement).hasClass("fa-minus-circle")){
                 $(domElement).removeClass("fa-minus-circle");
@@ -950,14 +747,14 @@ window.activePassiveMachine = function (id, domElement) {
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Aktif/Pasif İşlemi Başarısız...', 
-                                      'Makina aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Menü Tip Aktif/Pasif İşlemi Başarısız...', 
+                                      'Menü tip aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkUpdateMakeActiveOrPassive_sysMachineTools" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Makina Aktif/Pasif İşlemi Başarısız...', 
-                                      'Makina aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Menü Tip Aktif/Pasif İşlemi Başarısız...', 
+                                      'Menü tip aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
