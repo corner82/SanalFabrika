@@ -9,7 +9,7 @@
             k = h.closest("li"),
             l = c.settings,
             m = c.settings.data[b];
-        console.warn(h);
+        //console.warn(h);
         a.find(".dd-option").removeClass("dd-option-selected");
         h.addClass("dd-option-selected");
         c.selectedIndex = b;
@@ -158,7 +158,21 @@
                                     </div>\n\
                                 </div>\n\
                             </div>',
-            onSelected: function() {}
+            onSelected: function() {},
+            /**
+             * Selected item double click callback function
+             * @returns {undefined}
+             * @author Mustafa Zeynel Dağlı
+             * @since 21/07/2016
+             */
+            onDoubleClicked: function() {},
+            /**
+             * Selected item click callback function declared
+             * @returns {undefined}
+             * @author Mustafa Zeynel Dağlı
+             * @since 21/07/2016
+             */
+            onItemClicked : function() {},
         };
         
         /*d = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"> </span></div>',
@@ -254,6 +268,9 @@
                 }
                 c.find(".dd-select").on("click.ddslick", function() {
                     h(c);
+                    if (typeof l.onDoubleClicked == "function") {
+                        l.onDoubleClicked.call(this, c)
+                    }
                 });
                 
                 /**
@@ -262,6 +279,14 @@
                  * @since 18/05/2016
                  */
                 c.find(".dd-select").on("dblclick.ddslick", function() {
+                    alert('test double click');
+                    console.warn(b.onDoubleClicked);
+                    console.log(c.data.settings);
+                    l = c.settings;
+                    if (typeof b.onDoubleClicked == "function") {
+                        alert('if double click');
+                        b.onDoubleClicked.call(this, c)
+                    }
                     
                     //c.find(".dd-selected-text").text('Arama yapmak için tıklayınız...');
                     //c.find(".dd-selected-text").hide();
@@ -337,6 +362,17 @@
                 
                         
                 c.find(".dd-option").on("click.ddslick", function() {
+                    clickedIndex = a(this).closest("li").index()
+                    
+                    /**
+                     * Selected item click callback function
+                     * @author Mustafa Zeynel Dağlı
+                     * @since 21/07/2016
+                     */
+                    if (typeof b.onItemClicked == "function") {
+                        //alert('click event');
+                        b.onItemClicked.call($(this), b.data[clickedIndex])
+                    }
                     g(c, a(this).closest("li").index())
                 });
                 if (b.clickOffToClose) {
