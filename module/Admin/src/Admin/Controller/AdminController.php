@@ -366,6 +366,30 @@
          
      }
      
+     /**
+      * action for menu types CRUD operations
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 21/07/2016
+      */
+     public function menutypesAction()
+     {
+        $langCode = $this->getServiceLocator()
+                         ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                                    ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                          ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode'            => $langCode,
+            'publicKey'           => $publicKey,
+        ));
+        return $view;
+         
+     }
+     
 
  }
 
