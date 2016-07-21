@@ -178,19 +178,19 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
 /**
- * machine insert form validation engine attached to work
- * @since 16/05/2016
+ * ACL services insert form validation engine attached to work
+ * @since 19/07/2016
  */
-$('#aclRoleForm').validationEngine();
+$('#aclServiceForm').validationEngine();
 
  /**
-* reset button function for ACL role insert form
+* reset button function for ACL services insert form
 * @returns null
 * @author Mustafa Zeynel Dağlı  
-* @since 14/07/2016
+* @since 19/07/2016
 */
-window.resetACLRolesForm = function () {
-   $('#aclRoleForm').validationEngine('hide');
+window.resetACLServicesForm = function () {
+   $('#aclServiceForm').validationEngine('hide');
    return false;
 }
                                             
@@ -295,11 +295,11 @@ window.deleteACLRoleUltimately = function(id, index) {
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.insertACLRolesWrapper = function (e) {
+window.insertACLServicesWrapper = function (e) {
  e.preventDefault();
  var ddData = $('#dropdownACLResources').data('ddslick');
  
- if ($("#aclRoleForm").validationEngine('validate')) {
+ if ($("#aclServiceForm").validationEngine('validate')) {
      
      if(!ddData.selectedData.value > 0) {
          wm.warningMessage('resetOnShown');
@@ -331,7 +331,7 @@ window.updateACLRoleDialog = function (id, row) {
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                     <form id="aclRoleFormPopup" method="get" class="form-horizontal">\n\
+                                                     <form id="aclServiceFormPopup" method="get" class="form-horizontal">\n\
                                                      <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
@@ -399,7 +399,7 @@ window.updateACLRoleDialog = function (id, row) {
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
          onshown : function () {         
-            $('#aclRoleFormPopup').validationEngine();
+            $('#aclServiceFormPopup').validationEngine();
              
             $("#mach-prod-box-popup").loadImager();
             $("#mach-prod-box-popup").loadImager('appendImage');
@@ -475,7 +475,7 @@ window.updateACLRoleDialog = function (id, row) {
 window.updateACLRoleWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#aclRoleFormPopup").validationEngine('validate')) {
+ if ($("#aclServiceFormPopup").validationEngine('validate')) {
      
      var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
     if(ddData.selectedData.value>0) {
@@ -596,7 +596,7 @@ window.insertACLRol = function () {
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
-                     $('#aclRoleForm')[0].reset();  
+                     $('#aclServiceForm')[0].reset();  
                      
                      $('#tt_tree_menu2').tree('append', {
                         data: [{
@@ -644,7 +644,7 @@ window.insertACLRol = function () {
           onError23505 : function (event, data) {
               dm.dangerMessage({
                  onShown : function(event, data) {
-                     $('#aclRoleForm')[0].reset();
+                     $('#aclServiceForm')[0].reset();
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
