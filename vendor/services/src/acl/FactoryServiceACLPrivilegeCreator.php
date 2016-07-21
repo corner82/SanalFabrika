@@ -27,11 +27,13 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
         $sessionManager = $serviceLocator->get('SessionManagerDefault');
         //print_r($sessionManager->getStorage()->getMetadata());  
         $aclSession = $sessionManager->getStorage()->getMetadata('__ACL');
-        
+        $aclResources = $sessionManager->getStorage()->getMetadata('__RES');
+        //print_r($aclResources);
         
         if($aclSession!= NULL) {
             $sessionData = $sessionManager->getStorage()->getMetadata();
             //print_r('--ACL object bulundu--');
+            //print_r($sessionData['__ZY']['role']);
             $role = new Role($sessionData['__ZY']['role']);
             $acl = unserialize(base64_decode($sessionData['__ACL']));
             /*echo $acl->isAllowed($role, 'adminİşlemleri', 'prvrrrabc') ?
@@ -52,16 +54,20 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
                 $acl = new Acl();
                 $role = new Role($sessionData['__ZY']['role']);
                 $acl->addRole($role);
+                $resourceArray;
                 foreach ($privileges['resultSet'] as $key => $value) {
                     //print_r($value);
                     if(!$acl->hasResource($value['resource_name'])) {
                         $acl->addResource(new Resource($value['resource_name']));
+                        $resourceArray[] = $value['resource_name'];
                     }
                     $acl->allow($role, $value['resource_name'], $value['privilege_name']);
                 }
                 //print_r($privileges);
+                //print_r($resourceArray);
+                $sessionManager->getStorage()->setMetadata('__RES',$resourceArray[0]);
                 $sessionManager->getStorage()->setMetadata('__ACL',base64_encode(serialize($acl)));
-
+                
                 /*echo $acl->isAllowed($role, 'adminİşlemleri', 'prvrrrabc') ?
                     "allowed" : "denied";
                 echo $acl->isAllowed($role, 'adminİşlemleri', 'prvrrrabc  ') ?

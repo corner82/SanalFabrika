@@ -126,8 +126,16 @@
          * @author Mustafa Zeynel Dağlı
          * @since 18/07/2016
          */
-        $sessionManager->getStorage()->clear('__ACL');
+        //$sessionManager->getStorage()->clear('__ACL');
         $sessionManager->getStorage()->setMetadata('__ACL','');
+        
+        /**
+         * ACL resource array destroyed when log out
+         * @author Mustafa Zeynel Dağlı
+         * @since 19/07/2016
+         */
+        //$sessionManager->getStorage()->clear('__ACL');
+        $sessionManager->getStorage()->setMetadata('__RES','');
         
         /**
         * user log out action logged by rabbitMQ messaging
