@@ -455,10 +455,10 @@ function _init() {
             /*
              * catches page object event with undefined id
              */
-            
-            
-            
-            
+
+
+
+
 
         } else {
 
@@ -487,7 +487,8 @@ function _init() {
                             parent: clickedObject_query_id,
                             url: 'pkGetLeftMenu_leftnavigation',
                             pk: $("#pk").val(),
-                            language_code: $("#langCode").val()
+                            language_code: $("#langCode").val(),
+//                            menu_types_id: 1
                                     /*
                                      * clicked object id is being added to the query
                                      * to get the related object submenu
@@ -1004,7 +1005,7 @@ function _init() {
             }
         });
     };
-    
+
 
     /**
      * load imager widget for loading operations
@@ -1060,8 +1061,8 @@ function _init() {
             });
         }
     });
-    
-    
+
+
     $.widget("sanalfabrika.blockuiApprovalWrapper", {
         /**
          * Default options.
@@ -1071,13 +1072,13 @@ function _init() {
             message: '#growlUI-nameChangeApproval',
             backgroundColor: 'ecf0f5',
             showOverlay: false,
-            top : '40%',
+            top: '40%',
             left: '40%',
             right: '60%',
             width: '350px',
             border: 'none',
             padding: '5px',
-            border_radius : '10px',
+            border_radius: '10px',
             opacity: .6,
             color: '#fff',
         },
@@ -1115,16 +1116,16 @@ function _init() {
                 }
             });
         },
-        hide : function () {
+        hide: function () {
             $.unblockUI();
         },
-        find : function() {
+        find: function () {
             this.element.find('.btn-danger:first').remove();
         }
     });
-    
-    
-    
+
+
+
     $.widget("sanalfabrika.blockuiCentered", {
         /**
          * Default options.
@@ -1135,12 +1136,12 @@ function _init() {
             backgroundColor: 'ecf0f5',
             showOverlay: false,
             /*top : '50px',
-            left: '50px',
-            right: '50px',*/
+             left: '50px',
+             right: '50px',*/
             width: '350px',
             border: 'none',
             padding: '5px',
-            border_radius : '10px',
+            border_radius: '10px',
             opacity: .6,
             color: '#fff',
         },
@@ -1155,18 +1156,18 @@ function _init() {
          * public method to remove loading image when necessary
          * @returns {null}
          */
-        show : function () {
+        show: function () {
             //this.element.find(this.options.overlayKey).remove();
             $.blockUI({
                 message: $(this.element),
-                fadeIn: 700,  
+                fadeIn: 700,
                 showOverlay: this.options.showOverlay,
                 centerX: true,
                 css: {
                     width: this.options.width,
                     /*top: this.options.top,
-                    left: this.options.left,
-                    right: this.options.right,*/
+                     left: this.options.left,
+                     right: this.options.right,*/
                     border: this.options.border,
                     padding: this.options.padding,
                     backgroundColor: '#' + this.options.backgroundColor,
@@ -1178,14 +1179,14 @@ function _init() {
                 }
             });
         },
-        hide : function () {
+        hide: function () {
             //this.element.find(this.options.overlayKey).remove();
             $(this.element).unblock();
         }
-        
+
     });
-    
-    
+
+
     $.widget("sanalfabrika.blockElement", {
         /**
          * Default options.
@@ -1198,7 +1199,7 @@ function _init() {
             width: '350px',
             border: 'none',
             padding: '5px',
-            border_radius : '10px',
+            border_radius: '10px',
             opacity: .6,
             color: '#fff',
         },
@@ -1216,7 +1217,7 @@ function _init() {
         show: function () {
             //this.element.find(this.options.overlayKey).remove();
             $(this.element).block({
-                message: this.options.message, 
+                message: this.options.message,
                 showOverlay: this.options.showOverlay,
                 css: {
                     width: this.options.width,
@@ -1231,13 +1232,13 @@ function _init() {
                 }
             });
         },
-        hide : function () {
+        hide: function () {
             $(this.element).unblock();
         }
     });
-    
-    
-     $.widget("sanalfabrika.test", {
+
+
+    $.widget("sanalfabrika.test", {
         /**
          * Default options.
          * @returns {null}
@@ -1247,12 +1248,12 @@ function _init() {
             backgroundColor: 'ecf0f5',
             showOverlay: false,
             /*top : '50px',
-            left: '50px',
-            right: '50px',*/
+             left: '50px',
+             right: '50px',*/
             width: '350px',
             border: 'none',
             padding: '5px',
-            border_radius : '10px',
+            border_radius: '10px',
             opacity: .6,
             color: '#fff',
         },
@@ -1267,17 +1268,17 @@ function _init() {
          * public method to remove loading image when necessary
          * @returns {null}
          */
-        show : function () {
-            
+        show: function () {
+
         },
-        hide : function (element) {
+        hide: function (element) {
             //this.element.find(this.options.overlayKey).remove();
             //element.blockuiApprovalWrapper('hide');
         }
-        
+
     });
-    
-    
+
+
 
 }(jQuery));
 

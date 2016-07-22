@@ -4,7 +4,7 @@ $(document).ready(function () {
      * multilanguage plugin 
      * @type Lang
      */
-
+    
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
@@ -214,13 +214,11 @@ $(document).ready(function () {
 
         $('#' + active_action).siblings().removeClass('active');
         $('#' + active_action).addClass('active');
-
     }
 });
 
 
 function changeMenu(clicked_link) {
-
     var divided = $('#requestUriRegulated').val().split('/');
     var action;
 
@@ -240,8 +238,6 @@ function changeMenu(clicked_link) {
 }
 
 function ulActivation(clicked) {
-
-
     if (!$('#companymtprofile').hasClass('.active')) {
 
         $('#companymtprofile').siblings().removeClass('active');

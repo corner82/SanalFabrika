@@ -361,7 +361,8 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
             'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
-            'publicKey' => $publicKey
+            'publicKey' => $publicKey,
+            'companyPublicKey' => $companyPublicKey
         ));
         return $view;
     }
@@ -377,6 +378,9 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
                 ->get('servicePublicKeyReader');
+        $companyPublicKey = $this->getServiceLocator()
+                ->get('serviceCompanyPublicKeyGenerator');
+
 
 
         // Do this inside your Controller before you return your ViewModel
@@ -394,7 +398,8 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
             'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
-            'publicKey' => $publicKey
+            'publicKey' => $publicKey,
+            'companyPublicKey' => $companyPublicKey
         ));
         return $view;
     }
@@ -410,6 +415,9 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
                 ->get('servicePublicKeyReader');
+        $companyPublicKey = $this->getServiceLocator()
+                ->get('serviceCompanyPublicKeyGenerator');
+
 
 
         // Do this inside your Controller before you return your ViewModel
@@ -428,7 +436,8 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
             'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
-            'publicKey' => $publicKey
+            'publicKey' => $publicKey,
+            'companyPublicKey' => $companyPublicKey
         ));
         return $view;
     }
@@ -444,6 +453,9 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceNpkReader');
         $publicKey = $this->getServiceLocator()
                 ->get('servicePublicKeyReader');
+        $companyPublicKey = $this->getServiceLocator()
+                ->get('serviceCompanyPublicKeyGenerator');
+
 
 
         // Do this inside your Controller before you return your ViewModel
@@ -461,7 +473,8 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
             'selectedCompanyShN' => $selectedCompanyShN,
             'selectedCompanyNpk' => $selectedCompanyNpk,
-            'publicKey' => $publicKey
+            'publicKey' => $publicKey,
+            'companyPublicKey' => $companyPublicKey
         ));
         return $view;
     }

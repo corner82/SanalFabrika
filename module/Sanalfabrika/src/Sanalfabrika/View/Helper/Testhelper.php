@@ -3,22 +3,41 @@
 namespace Sanalfabrika\View\Helper;
 
 use Zend\View\Helper\AbstractHelper;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorInterface as ServiceLocatorInterface;
 
-class Testhelper extends AbstractHelper {
+class Testhelper extends AbstractHelper implements ServiceLocatorAwareInterface {
 
-    public function __invoke($acl) {
-        $arr = $acl['resultSet'];
-        $values = array_values($arr);
-            
-        for ($x = 0; $x < count($values); $x++) {
-            if($values[$x]['resource_name'] == 'firmaİşlemleri'){
-//                print_r('This user has access to resource firmaIslemleri and these privileges are assigned:');
-                print_r('-------' . $values[$x]['privilege_name']);
-            }else{
-                print_r('This user has not access to resource firmaIslemleri');               
-            }
-                
+    public $serviceLocator;
+
+    public function __invoke() {
+
+        $serviceLocator = $this->getServiceLocator();
+        $sessionManager = $serviceLocator->getServiceLocator()
+                ->get('SessionManagerDefault');
+        $sessionData = $sessionManager->getStorage()->getMetadata();
+        
+        $unserializedacl = unserialize(base64_decode($sessionData['__ACL']));
+        $role = $sessionManager->getStorage()->getMetadata()['__ZY']['role'];
+//        $resource = $sessionManager->getStorage()->getMetadata()['__ZY']['role'];
+        
+        if ($role !== null) {
+            $firmaOwnerAllowance = $unserializedacl->isAllowed($role, 'firmaİşlemleri', 'firmakullanıcısıekleme') ?
+                    "allowed" : "denied";
+            return ($firmaOwnerAllowance);
+        }else{
+            print_r('hata');
         }
     }
 
-}
+        function getServiceLocator() {
+            return $this->serviceLocator;
+        }
+
+        function setServiceLocator(ServiceLocatorInterface $serviceLocator) {
+            $this->serviceLocator = $serviceLocator;
+            return $this;
+        }
+
+    }
+    

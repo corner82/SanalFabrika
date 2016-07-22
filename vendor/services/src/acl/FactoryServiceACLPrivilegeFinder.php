@@ -27,7 +27,7 @@ class FactoryServiceACLPrivilegeFinder  implements FactoryInterface{
         
         $sessionManager = $serviceLocator->get('SessionManagerDefault');
         $sessionData = $sessionManager->getStorage()->getMetadata();
-        //print_r($sessionData);
+//        print_r($sessionData);
         //print_r($sessionData['__ZY']);
         //print_r($sessionData['__ZY']['roleID']);
         $role_id = $sessionData['__ZY']['roleID'];

@@ -11,7 +11,8 @@
                 parent: 0,
                 pk: $("#pk").val(),
                 url: 'pkGetLeftMenu_leftnavigation',
-                language_code: $("#langCode").val()
+                language_code: $("#langCode").val(),
+//                menu_types_id:
             },
             method: "GET",
             async: false,
