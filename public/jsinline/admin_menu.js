@@ -130,6 +130,7 @@ onAfterEdit: function (node) {
                     data : data, 
                     //data : [{"text":"Admin Yönetim","value":1,"selected":false,"description":"Admin Yönetim"},{"text":"Firma Yönetim","value":2,"selected":false,"description":"Firma Yönetim"},{"text":"Firma Profil","value":3,"selected":false,"description":"Firma Profil"}],
                     width:'98%',
+                    search : true,
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
                     onItemClicked : function(target) {
@@ -406,6 +407,12 @@ onAfterEdit: function (node) {
        var loader = $("#loading-image-crud").loadImager();
        loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       var ddData = $('#dropdownRoles').data('ddslick');
+       role_id = ddData.selectedData.value;
+       selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
+       menu_types_id = ddDataMenuTypes.selectedData.value;
+       
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkUpdateMakeActiveOrPassive_leftnavigation' ,
@@ -447,6 +454,8 @@ onAfterEdit: function (node) {
                                                 text_eng: node.attributes.text_eng, 
                                                 active: 1, 
                                                 url: node.attributes.url, 
+                                                menu_types_id : menu_types_id,
+                                                role_id : role_id,
                                                 icon_class: node.attributes.icon_class},
                                     id: node.id,
                                     text: node.text,
@@ -553,6 +562,13 @@ onAfterEdit: function (node) {
        var loader = $("#loading-image-crud").loadImager();
        loader.loadImager('appendImage');
        selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       
+       var ddData = $('#dropdownRoles').data('ddslick');
+       role_id = ddData.selectedData.value;
+       selectedTreeItem = $('#tt_tree_menu').tree('find', nodeID);
+       var ddDataMenuTypes = $('#dropdownMenuTypes').data('ddslick');
+       menu_types_id = ddDataMenuTypes.selectedData.value;
+       
        $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkUpdateMakeActiveOrPassive_leftnavigation' ,
@@ -594,6 +610,8 @@ onAfterEdit: function (node) {
                                             text_eng: node.attributes.text_eng, 
                                             active: 0, 
                                             url: node.attributes.url, 
+                                            menu_types_id : menu_types_id,
+                                            role_id : role_id,
                                             icon_class: node.attributes.icon_class},
                                 id: node.id,
                                 text: node.text,
@@ -841,6 +859,8 @@ onAfterEdit: function (node) {
                                                 text_eng: menu_name_eng, 
                                                 active: 0, 
                                                 url: url, 
+                                                menu_types_id : menu_types_id,
+                                                role_id : role_id,
                                                 icon_class: icon_class},
                                     id: data.lastInsertId,
                                     text: menu_name,
