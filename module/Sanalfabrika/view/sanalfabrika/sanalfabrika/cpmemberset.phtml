@@ -444,36 +444,36 @@
             </div>
 
             <!-- hidden diploma grids placeholder -->
-            <div class="box box-primary" id="diploma_grid_ph" style="visibility:hidden; display:none">
+<!--            <div class="box box-primary" id="diploma_grid_ph" style="visibility:hidden; display:none">
                 <div class="box-header with-border">
                     <h3 class="box-title"><?php echo $this->translate('Diplomas') ?></h3>                    
                     <div class="box-body">
                         <table id="diploma_grid" title=<?php echo $this->translate('Personnel Diploma') ?>></table>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!--/ hidden diploma grids placeholder -->
 
             <!-- hidden langs grids placeholder -->
-            <div class="box box-primary" id="langs_grid_ph" style="visibility:hidden; display:none">
+<!--            <div class="box box-primary" id="langs_grid_ph" style="visibility:hidden; display:none">
                 <div class="box-header with-border">
                     <h3 class="box-title"><?php echo $this->translate('Languages') ?></h3>                    
                     <div class="box-body">
                         <table id="lang_grid" title=<?php echo $this->translate('Personnel Languages') ?>></table>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!--/ hidden langs grids placeholder -->
 
             <!-- hidden certs grids placeholder -->
-            <div class="box box-primary" id="cert_grid_ph" style="visibility:hidden; display:none">
+<!--            <div class="box box-primary" id="cert_grid_ph" style="visibility:hidden; display:none">
                 <div class="box-header with-border">
                     <h3 class="box-title"><?php echo $this->translate('Certificate') ?></h3>                    
                     <div class="box-body">
                         <table id="cert_grid" title=<?php echo $this->translate('Personnel Certificate') ?>></table>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!--/ hidden certs grids placeholder -->
 
             <!-- company general information setting box -->
@@ -496,27 +496,27 @@
                                         <?php echo $this->translate('Personnel General Information') ?>
                                     </a>
                                 </li>
-                                <li id='edu_info_tab_btn'>
-                                    <!--<li id='edu_info_tab_btn' class='disabled' >-->
-                                    <!--<a id='edu_tab_toggle' aria-expanded="false">-->
+<!--                                <li id='edu_info_tab_btn'>
+                                    <li id='edu_info_tab_btn' class='disabled' >
+                                    <a id='edu_tab_toggle' aria-expanded="false">
                                     <a id='edu_tab_toggle' href="#edu_info_tab" data-toggle="tab" aria-expanded="false">
                                         <?php echo $this->translate('Personnel Education Information') ?>                                    
                                     </a>
                                 </li>
                                 <li id='lang_info_tab_btn'>
-                                    <!--<li id='lang_info_tab_btn' class='disabled' >-->
-                                    <!--<a id='lang_tab_toggle'aria-expanded="false">-->
+                                    <li id='lang_info_tab_btn' class='disabled' >
+                                    <a id='lang_tab_toggle'aria-expanded="false">
                                     <a id='lang_tab_toggle' href="#lang_info_tab" data-toggle="tab" aria-expanded="false">
                                         <?php echo $this->translate('Personnel Language Information') ?>                                    
                                     </a>
                                 </li> 
                                 <li id='cert_info_tab_btn'>
-                                    <!--<li id='cert_info_tab_btn' class='disabled' >-->
-                                    <!--<a id='cert_tab_toggle'aria-expanded="false">-->
+                                    <li id='cert_info_tab_btn' class='disabled' >
+                                    <a id='cert_tab_toggle'aria-expanded="false">
                                     <a id='cert_tab_toggle' href="#cert_info_tab" data-toggle="tab"  aria-expanded="false">
                                         <?php echo $this->translate('Personnel Certificate Information') ?>                                    
                                     </a>
-                                </li>
+                                </li>-->
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="gen_info_tab" personnel_id=''>
@@ -595,7 +595,8 @@
                                     </div>
                                 </div>
                                 <!-- /.tab-pane -->
-                                <div class="tab-pane" id="edu_info_tab">
+                                <!-- Education information is closed -->
+<!--                                <div class="tab-pane" id="edu_info_tab">
                                     <div class="box-body">
                                         <div id='member_reg_grads_ph'>
                                             <table id="member_reg_grads"></table>
@@ -603,7 +604,7 @@
                                         </div>
                                         <form role="form" id='personel_edu_info'>
                                             <div class="col-md-3"></div>
-                                            <!-- Middle Column Start -->
+                                             Middle Column Start 
                                             <div class="col-lg-6">                                                
                                                 <br/>
                                                 <label for="member_diploma_ph" style="margin-top: 20px"><?php echo $this->translate('Diploma') ?></label>
@@ -635,10 +636,10 @@
                                                 </div>
                                                 <br/>
                                             </div>
-                                            <!-- Middle Column End -->
+                                             Middle Column End 
                                             <div class="col-md-3"></div>
 
-                                            <!-- Education Information Footer Start -->
+                                             Education Information Footer Start 
                                             <div class="box-footer col-lg-12"> 
                                                 <button type="button" class="btn btn-default" onclick='add_new_personnel_grad()'>
                                                     <?php echo $this->translate('Add New Diploma') ?>
@@ -647,12 +648,13 @@
                                                     <?php echo $this->translate('Continue') ?>
                                                 </button>
                                             </div>
-                                            <!-- Education Information Footer End -->
+                                             Education Information Footer End 
                                         </form>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- /.tab-pane -->
-                                <div class="tab-pane" id="lang_info_tab">
+                                <!-- Language information is closed -->
+<!--                                <div class="tab-pane" id="lang_info_tab">
                                     <div class="box-body">
                                         <div id='member_reg_lang_ph'>
                                             <table id="member_reg_langs"></table>
@@ -660,7 +662,7 @@
                                         </div>
                                         <form role="form" id='personel_lang_info'>
                                             <div class="col-md-3"></div>
-                                            <!-- Middle Column Start -->
+                                             Middle Column Start 
                                             <div class="col-lg-6">
                                                 <label for="member_language_ph" style="margin-top: 20px"><?php echo $this->translate('Language') ?></label>
                                                 <div class="input-group">                                    
@@ -672,10 +674,10 @@
                                                 </div>
                                                 <br/>
                                             </div>
-                                            <!-- Middle Column End -->
+                                             Middle Column End 
                                             <div class="col-md-3"></div>
 
-                                            <!-- Language Information Footer Start -->
+                                             Language Information Footer Start 
                                             <div class="box-footer col-lg-12">
                                                 <button type="button" class="btn btn-default" onclick='add_new_personnel_lang()'>
                                                     <?php echo $this->translate('Add') ?>
@@ -684,12 +686,13 @@
                                                     <?php echo $this->translate('Continue') ?>
                                                 </button>
                                             </div>
-                                            <!-- Language Information Footer End -->
+                                             Language Information Footer End 
                                         </form>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- /.tab-pane -->
-                                <div class="tab-pane" id="cert_info_tab">
+                                <!-- Certificate information is closed -->
+<!--                                <div class="tab-pane" id="cert_info_tab">
                                     <div class="box-body"> 
                                         <div id='member_reg_certs_ph'>
                                             <table id="member_reg_certs"></table>
@@ -697,7 +700,7 @@
                                         </div>
                                         <form role="form" id='personel_cert_info'>
                                             <div class="col-md-3"></div>
-                                            <!-- Middle Column Start -->
+                                             Middle Column Start 
                                             <div class="col-lg-6">
                                                 <label for="member_certificate_ph" style="margin-top: 20px"><?php echo $this->translate('Certificate') ?></label>
                                                 <div class="input-group">                                    
@@ -709,19 +712,19 @@
                                                 </div>
                                                 <br/>
                                             </div>
-                                            <!-- Middle Column End -->
+                                             Middle Column End 
                                             <div class="col-md-3"></div>
 
-                                            <!-- Certificate Information Footer Start -->
+                                             Certificate Information Footer Start 
                                             <div class="box-footer col-lg-12">                                                
                                                 <button type="button" class="btn btn-primary" onclick='send_personel_cert_info()'>
                                                     <?php echo $this->translate('Submit') ?>
                                                 </button>
                                             </div>
-                                            <!-- Certificate Information Footer End -->
+                                             Certificate Information Footer End 
                                         </form>
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- /.tab-pane -->
                             </div>
                             <!-- /.tab-content -->

@@ -205,9 +205,9 @@ $(document).ready(function () {
             $('#cert_grid_ph').css('visibility', 'visible');
             $('#cert_grid_ph').css('display', 'block');
 
-            loadDiplomaGrid(row.id);
-            loadLangGrid(row.id);
-            loadCertGrid(row.id);
+//            loadDiplomaGrid(row.id);
+//            loadLangGrid(row.id);
+//            loadCertGrid(row.id);
 
         },
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -740,16 +740,6 @@ $(document).ready(function () {
         aj.ajaxCall('call');
         $('#reg_members_table').datagrid('reload');
     };
-
-
-
-    $.extend($.fn.datagrid.defaults.editors, {
-        text: {
-            destroy: function (target) {
-                $(target).remove();
-            }
-        }
-    });
 
 });
 
@@ -1405,7 +1395,6 @@ function updatePersonnelDiploma() {
     aj.ajaxCall('call');
     $('#diploma_grid').datagrid('reload');
 }
-
 
 function addPersonnelDiploma(){
         
