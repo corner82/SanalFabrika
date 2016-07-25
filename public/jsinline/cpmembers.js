@@ -10,7 +10,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-    
+
     /*
      * Left menuyu olusturmak icin Ã§aÄŸÄ±rÄ±lan fonksiyon...
      */
@@ -181,7 +181,7 @@ $(document).ready(function () {
     /*
      * form validation
      */
-    $("#personel_gen_info").validationEngine();
+    $("#personnel_gen_info").validationEngine();
 
     /*
      * Bootstrap modals variables
@@ -256,9 +256,9 @@ $(document).ready(function () {
                                         + row.name
                                         + '\',  lastname : \''
                                         + row.surname
-                                        + '\',  personel_title : \''
+                                        + '\',  personnel_title : \''
                                         + row.title
-                                        + '\',  personel_title_eng : \''
+                                        + '\',  personnel_title_eng : \''
                                         + row.title_eng
                                         + '\', position : \''
                                         + row.positions
@@ -285,8 +285,8 @@ $(document).ready(function () {
                 activePassivePersonnel(id, domElement);
             }
         });
-        wcm.warningComplexMessage('show', window.lang.translate('You are going to activate/passivate your company personel!'),
-                window.lang.translate('You are going to activate/passivate your company personel!'));
+        wcm.warningComplexMessage('show', window.lang.translate('You are going to activate/passivate your company personnel!'),
+                window.lang.translate('You are going to activate/passivate your company personnel!'));
         return false;
     };
 
@@ -376,8 +376,8 @@ $(document).ready(function () {
                 deletePersonnelUltimately(id, index);
             }
         });
-        wcm.warningComplexMessage('show', window.lang.translate('You are going to remove your company personel!'),
-                window.lang.translate('You are going to remove your company personel! You will be unable to undo this action'));
+        wcm.warningComplexMessage('show', window.lang.translate('You are going to remove your company personnel!'),
+                window.lang.translate('You are going to remove your company personnel! You will be unable to undo this action'));
     };
 
     /**
@@ -408,7 +408,7 @@ $(document).ready(function () {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', window.lang.translate('Unsuccessful personnel remove action!'),
                         window.lang.translate('Unsuccessful personnel remove action! Please contact system administrator'));
-                console.error('"personel silme servisi" servis hatası->' + data.errorInfo);
+                console.error('"personnel silme servisi" servis hatası->' + data.errorInfo);
             },
             onSuccess: function (event, data) {
                 sm.successMessage({
@@ -463,7 +463,7 @@ $(document).ready(function () {
                         '</h4>' +
                         '</div>' +
                         '<div class="box-body" id="popup_loader">' +
-                        '<form id="personel_gen_info_edit">' +
+                        '<form id="personnel_gen_info_edit">' +
                         '<label for="ptitle" style="margin-top: 20px">' +
                         window.lang.translate("Title") +
                         '</label>' +
@@ -472,7 +472,7 @@ $(document).ready(function () {
                         '<i class="icon-prepend fa fa-flag-o"></i>' +
                         '</div>' +
                         '<input type="text" class="form-control validate[required, maxSize[30]]" ' +
-                        'id="ptitle_edit" value="' + row.personel_title + '">' +
+                        'id="ptitle_edit" value="' + row.personnel_title + '">' +
                         '</div>' +
                         '<label for="ptitle_edit_eng" style="margin-top: 20px">' +
                         window.lang.translate("Title (English)") +
@@ -482,7 +482,7 @@ $(document).ready(function () {
                         '<i class="icon-prepend fa fa-flag-o"></i>' +
                         '</div>' +
                         '<input type="text" class="form-control validate[required, maxSize[30]]"' +
-                        'id="ptitle_edit_eng" value="' + row.personel_title_eng + '">' +
+                        'id="ptitle_edit_eng" value="' + row.personnel_title_eng + '">' +
                         '</div>' +
                         '<label for="pname_edit" style="margin-top: 20px">' +
                         window.lang.translate("First Name") +
@@ -552,7 +552,7 @@ $(document).ready(function () {
 //                                        '</div>' +
 //                                        '<div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">' +
 //                                            '<div class="box-body">' +
-//                                                '<form id="personel_lang_info_edit">' +
+//                                                '<form id="personnel_lang_info_edit">' +
 //                                                    '<label for="member_language_ph_edit" style="margin-top: 20px">' +
 //                                                        window.lang.translate("Language") +
 //                                                    '</label>' +
@@ -584,7 +584,7 @@ $(document).ready(function () {
 //                                        '</div>' +
 //                                        '<div id="collapseFour" class="panel-collapse collapse" aria-expanded="false">' +
 //                                            '<div class="box-body">' +
-//                                                '<form id="personel_cert_info_edit">' +
+//                                                '<form id="personnel_cert_info_edit">' +
 //                                                    '<label for="member_certificate_ph_edit" style="margin-top: 20px">' +
 //                                                        window.lang.translate("Certificate") +
 //                                                    '</label>' +
@@ -664,7 +664,7 @@ $(document).ready(function () {
     };
 
     /**
-     * update personel general information
+     * update personnel general information
      * @author Bahram Lotfi Sadigh
      * @since 21/07/2016
      */
@@ -741,7 +741,58 @@ $(document).ready(function () {
         $('#reg_members_table').datagrid('reload');
     };
 
+
+
+    $.extend($.fn.datagrid.defaults.editors, {
+        text: {
+            destroy: function (target) {
+                $(target).remove();
+            }
+        }
+    });
+
 });
+
+
+/*
+ * Changes Date String to Milliseconds
+ * @param {type} date
+ * @returns {Number|Window.date_on_milliseconds}
+ * @author: Bahram Lotfi Sadigh
+ * 
+ */
+function milliseconds(date) {
+    var input_date = date;
+    var entered_date = new Date(input_date);
+    window.date_value = entered_date.getTime();
+    window.date_on_milliseconds = Math.round(window.date_value / 1000.0);
+//    console.log(window.date_value);
+//    console.log(okan);
+    return window.date_on_milliseconds;
+}
+
+/*
+ * Change Milliseconds to string
+ * @param {type} date
+ * @returns {date String}
+ * @author: Bahram Lotfi Sadigh
+ */
+function milli_to_date(date) {
+    if (date) {
+        var new_date = new Date(date * 1000);
+        var year = new_date.getFullYear().toString();
+        var month = (new_date.getMonth() + 1).toString();
+        var day = new_date.getDate().toString();
+
+    } else {
+        var year = '';
+        var month = '';
+        var day = '';
+    }
+    var st_date = (day < 10 ? ('0' + day) : day) + '/' + (month < 10 ? ('0' + month) : month) + '/' + year;
+
+    return st_date;
+}
 
 var sm = $(window).successMessage();
 var dm = $(window).dangerMessage();
@@ -749,9 +800,9 @@ var wm = $(window).warningMessage();
 var wcm = $(window).warningComplexMessage({denyButtonLabel: window.lang.translate('Cancel'),
     actionButtonLabel: window.lang.translate('Confirm')});
 
-function send_personel_general_info() {
+function send_personnel_general_info() {
 
-    if ($('#personel_gen_info').validationEngine('validate')) {
+    if ($('#personnel_gen_info').validationEngine('validate')) {
 
 
         /*
@@ -888,10 +939,10 @@ function add_new_personnel_lang() {
     $('#cert_info_tab_btn').removeClass('disabled');
 }
 
-function send_personel_cert_info() {
+function send_personnel_cert_info() {
 
-//    $('#personel_gen_info').reset();
-    $('#personel_gen_info')[0].reset();
+//    $('#personnel_gen_info').reset();
+    $('#personnel_gen_info')[0].reset();
     $('#cert_info_tab').removeClass('active');
     $('#gen_info_tab').addClass('active');
     $('#cert_info_tab_btn').removeClass('active');
@@ -922,8 +973,8 @@ function loadDiplomaGrid(id) {
             pk: $('#pk').val(),
             subject: 'datagrid',
             url: 'pkFillFirmWorkingPersonalEducationListGrid_infoFirmWorkingPersonnelEducation',
-//            sort: 'id',
-//            order: 'id',
+            sort: 'id',
+            order: 'id',
             working_personnel_id: id
         },
         width: '100%',
@@ -947,8 +998,14 @@ function loadDiplomaGrid(id) {
                         {field: 'country_id', title: 'Country ID', sortable: true, width: 80, hidden: true},
                         {field: 'country_name', title: 'Country', sortable: true, width: 80},
                         {field: 'university_id', title: 'University ID', sortable: true, width: 80, hidden: true},
-                        {field: 'university_name', title: 'University', sortable: true, width: 80},
-                        {field: 'graduation_date', title: 'Graduation Date', sortable: true, width: 80},
+                        {field: 'university_name', title: 'University', sortable: true, width: 180},
+                        {field: 'graduation_date', title: 'Graduation Date', formatter: function (val) {
+                                if (val !== null) {
+                                    return milli_to_date(val);
+                                } else {
+                                    return null;
+                                }
+                            }, sortable: true, width: 80},
                         {field: 'actions', title: 'Actions', width: 80, align: 'center',
                             formatter: function (value, row, index) {
 //                                if (row.attributes.active === 0) {
@@ -975,8 +1032,8 @@ function loadDiplomaGrid(id) {
                                         + row.university_name
                                         + '\', graduation_date : \''
                                         + row.graduation_date
-                                        + '\', working_personel_id : \''
-                                        + row.working_personel_id
+                                        + '\', working_personnel_id : \''
+                                        + row.working_personnel_id
                                         + '\'} '
                                         + ');"><i class="fa fa-arrow-circle-up"></i></button>';
 //                                return e + d + u;
@@ -985,6 +1042,8 @@ function loadDiplomaGrid(id) {
                         }
                     ]]
     });
+
+    $('#diploma_grid').datagrid('reload');
     $('#diploma_grid').datagrid('enableFilter');
 }
 
@@ -1009,14 +1068,14 @@ function deletePersonnelDiplomaDialog(id, index) {
             dm.dangerMessage('resetOnShown');
             dm.dangerMessage('show', window.lang.translate('Unsuccessful personnel diploma remove action!'),
                     window.lang.translate('Unsuccessful personnel diploma remove action! Please contact system administrator'));
-            console.error('"personel diploma silme servisi" servis hatası->' + data.errorInfo);
+            console.error('"personnel diploma silme servisi" servis hatası->' + data.errorInfo);
         },
         onSuccess: function (event, data) {
             sm.successMessage({
                 onShown: function () {
                     //console.warn(index);
                     loaderGridBlock.loadImager('removeLoadImage');
-                    
+
                     $('#diploma_grid').datagrid('reload');
                 }
             });
@@ -1028,8 +1087,10 @@ function deletePersonnelDiplomaDialog(id, index) {
 }
 
 function updatePersonnelDiplomaDialog(id, row) {
+
     window.gridReloadController = false;
-    window.working_personel_id = row.working_personel_id;
+    window.working_personnel_id = row.working_personnel_id;
+    window.sel_diploma_id = id;
     BootstrapDialog.show({
         title: '"' + +'"' + window.lang.translate('You are going to update personnel diploma information'),
         message: function (dialogRef) {
@@ -1043,7 +1104,7 @@ function updatePersonnelDiplomaDialog(id, row) {
                             '</h4>' +
                             '</div>' +
                             '<div class="box-body">' +
-                            '<form id="personel_edu_info_edit">' +
+                            '<form id="personnel_edu_info_edit">' +
                             '<label for="member_diploma_ph_edit" style="margin-top: 20px">' +
                             window.lang.translate("Diploma") +
                             '</label>' +
@@ -1088,6 +1149,57 @@ function updatePersonnelDiplomaDialog(id, row) {
                             '</form>' +
                             '</div>' +
                             '<!-- /.box-body -->' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="panel box box-primary">' +
+                            '<div class="box-header with-border">' +
+                            '<h4 class="box-title">' +
+                            window.lang.translate('Add New Diploma') +
+                            '</h4>' +
+                            '</div>' +
+                            '<div class="box-body">' +
+                            '<form role="form" id="add_personel_edu_info">' +
+                            '<!-- Middle Column Start -->' +
+                            '<div">' +
+                            '<br/>' +
+                            '<label for="add_member_diploma_ph_edit" style="margin-top: 20px">' + window.lang.translate("Diploma") + '</label>' +
+                            '<div class="input-group"> ' +
+                            '<div class="input-group-addon">' +
+                            '<i class="icon-prepend fa fa-flag-o"></i>' +
+                            '</div>' +
+                            '<input type="text" class="form-control validate[required, maxSize[200]]"' +
+                            'id="add_member_diploma_ph_edit" placeholder="Enter diploma name in english here please">' +
+                            '</div>' +
+                            '<br/>' +
+                            '<div class="form-group">' +
+                            '<label for="add_member_university_country_ph_edit">' + window.lang.translate("Country of Graduation") + '</label>' +
+                            '<div id="add_member_university_country_ph_edit">' +
+                            '</div>' +
+                            '</div>' +
+                            '<br/>' +
+                            '<div class="form-group">' +
+                            '<label for="add_member_university_ph_edit">' + window.lang.translate("University or Institute") + '</label>' +
+                            '<div id="add_member_university_ph_edit">' +
+                            '</div>' +
+                            '</div>' +
+                            '<label for="add_grad_date_ph" style="margin-top: 20px">' + window.lang.translate("Graduation Date") + '</label>' +
+                            '<div class="input-group">' +
+                            '<div class="input-group-addon">' +
+                            '<i class="icon-prepend fa fa-flag-o"></i>' +
+                            '</div>' +
+                            '<input type="date" class="form-control" id="add_grad_date_ph">' +
+                            '</div>' +
+                            '<br/>' +
+                            '</div>' +
+                            '<!-- Middle Column End -->' +
+                            '<!-- Education Information Footer End -->' +
+                            '</form>' +
+                            '<br/>' +
+                            '<div class="box-footer col-lg-12">' +
+                            '<button type="button" class="btn btn-primary" onclick="addPersonnelDiploma()">' +
+                            window.lang.translate("Add Education Information") +
+                            '</button>' +
+                            '</div>' +
                             '</div>');
 
             /*
@@ -1109,8 +1221,23 @@ function updatePersonnelDiplomaDialog(id, row) {
                             if (data[i].value == row.country_id) {
                                 var index = i;
                             }
-                        }
+                        }                        
+                        $('#add_member_university_country_ph_edit').ddslick('destroy');
+                        $('#add_member_university_country_ph_edit').ddslick({
+                            data: data,
+                            width: '100%',
+                            height: '500%',
+                            background: false,
+                            selectText: window.lang.translate("Please select a country from list..."),
+                            imagePosition: 'right',
+                            onSelected: function (selectedData) {
+                                window.sel_add_country_edit = selectedData.selectedData.value;
+                            }
+                        });
+                        $('#add_member_university_country_ph_edit').ddslick('select', {index: index});
 
+
+                        $('#member_university_country_ph_edit').ddslick('destroy');
                         $('#member_university_country_ph_edit').ddslick({
                             data: data,
                             width: '100%',
@@ -1158,6 +1285,21 @@ function updatePersonnelDiplomaDialog(id, row) {
                             }
                         }
                         //                console.log(data);
+                        
+                        $('#add_member_university_ph_edit').ddslick('destroy');
+                        $('#add_member_university_ph_edit').ddslick({
+                            data: data,
+                            width: '100%',
+                            height: '500%',
+                            background: false,
+                            selectText: window.lang.translate("Please select a university from list..."),
+                            imagePosition: 'right',
+                            onSelected: function (selectedData) {
+                                window.sel_add_university_edit = selectedData.selectedData.value;
+                            }
+                        });
+                        $('#ad_member_university_ph_edit').ddslick('select', {index: index});
+                        
                         $('#member_university_ph_edit').ddslick('destroy');
                         $('#member_university_ph_edit').ddslick({
                             data: data,
@@ -1186,9 +1328,16 @@ function updatePersonnelDiplomaDialog(id, row) {
     return false;
 }
 
-function updatePersonnelDiploma(id) {
+function updatePersonnelDiploma() {
+
     var loader = $('#popup_loader').loadImager();
     loader.loadImager('appendImage');
+//   var diploma_id = id;
+    if ($('#grad_date_ph_edit').val() !== null) {
+        var date_on_milliseconds = milliseconds($('#grad_date_ph_edit').val());
+    } else {
+        var date_on_milliseconds = null;
+    }
 
     var aj = $(window).ajaxCall({
         proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -1198,12 +1347,12 @@ function updatePersonnelDiploma(id) {
             url: 'pkcpkUpdate_infoFirmWorkingPersonnelEducation',
             language_code: $("#langCode").val(),
             profile_public: 0,
-            working_personel_id: window.working_personel_id,
+            working_personnel_id: window.working_personnel_id,
             diploma_name: $('#diploma_name_edit').val(),
             country_id: window.sel_country_edit,
             university_id: window.sel_university_edit,
-            graduation_date: $('#grad_date_ph_edit').val(),
-            id: id
+            id: window.sel_diploma_id,
+            graduation_date: date_on_milliseconds
         }
     });
     aj.ajaxCall({
@@ -1257,306 +1406,36 @@ function updatePersonnelDiploma(id) {
     $('#diploma_grid').datagrid('reload');
 }
 
-function loadLangGrid(id) {
-    $('#langs_grid').datagrid({
-        onDblClickRow: function (index, row) {
 
-        },
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        queryParams: {
-            pk: $('#pk').val(),
-            subject: 'datagrid',
-            url: 'pkFillFirmWorkingPersonalEducationListGrid_infoFirmWorkingPersonnelEducation',
-//            sort: 'id',
-//            order: 'id',
-            working_personnel_id: id
-        },
-        width: '100%',
-        singleSelect: true,
-        pagination: true,
-        collapsible: true,
-        method: 'get',
-        idField: 'id',
-        //fit:true,
-        //fitColumns : true,
-        remoteFilter: true,
-        remoteSort: true,
-        multiSort: false,
-        columns:
-                [[
-//                        {field: 'id', title: 'ID', sortable: true, width: 30},
-//                        {field: 'name', title: 'Name', sortable: true, width: 150},
-//                        {field: 'diploma_name', title: 'Diploma', sortable: true, width: 150},
-//                        {field: 'working_personnel_id', title: 'Personnel ID', sortable: true, width: 150, hidden: true},
-//                        {field: 'profile_public', title: 'Position English', sortable: true, width: 150, hidden: true},
-//                        {field: 'country_id', title: 'Country ID', sortable: true, width: 80, hidden: true},
-//                        {field: 'country_name', title: 'Country', sortable: true, width: 80},
-//                        {field: 'university_id', title: 'University ID', sortable: true, width: 80, hidden: true},
-//                        {field: 'university_name', title: 'University', sortable: true, width: 80},
-//                        {field: 'graduation_date', title: 'Graduation Date', sortable: true, width: 80},
-//                        {field: 'actions', title: 'Actions', width: 80, align: 'center',
-//                            formatter: function (value, row, index) {
-////                                if (row.attributes.active === 0) {
-////                                    var e = '<button style="padding : 2px 4px;" title="Make Passive"  class="btn btn-primary" type="button" onclick="return (event, ' + row.id + ');"><i class="fa fa-minus-circle"></i></button>';
-////                                } else {
-////                                    var e = '<button style="padding : 2px 4px;" title="Make Active"  class="btn btn-warning" type="button" onclick="return (event, ' + row.id + ');"><i class="fa fa-plus-circle"></i></button>';
-////                                }
-//                                var d = '<button style="padding : 2px 4px;" title="Delete"  class="btn btn-danger" type="button" onclick="return  deletePersonnelDiplomaDialog(' + row.id + ', ' + index + ');"><i class="fa fa-eraser"></i></button>';
-//                                var u = '<button style="padding : 2px 4px;" title="Edit"  class="btn btn-info" type="button" onclick="return updatePersonnelDiplomaDialog('
-//                                        + row.id
-//                                        + ', {  name : \''
-//                                        + row.name
-//                                        + '\', diploma: \''
-//                                        + row.diploma_name
-//                                        + '\',  profile_public : \''
-//                                        + row.profile_public
-//                                        + '\',  country_id : \''
-//                                        + row.country_id
-//                                        + '\',  country_name : \''
-//                                        + row.country_name
-//                                        + '\', university_id : \''
-//                                        + row.university_id
-//                                        + '\', university_name : \''
-//                                        + row.university_name
-//                                        + '\', graduation_date : \''
-//                                        + row.graduation_date
-//                                        + '\', working_personel_id : \''
-//                                        + row.working_personel_id
-//                                        + '\'} '
-//                                        + ');"><i class="fa fa-arrow-circle-up"></i></button>';
-////                                return e + d + u;
-//                                return d + u;
-//                            }
-//                        }
-                    ]]
-    });
-    $('#langs_grid').datagrid('enableFilter');
-}
-
-function deletePersonnelLangDialog(id, index) {
-
-    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
-    loaderGridBlock.loadImager('appendImage');
-
-    var id = id;
-    var index = index;
-    var ajDeleteAll = $(window).ajaxCall({
-        proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'pkcpkDeletedAct_infoFirmWorkingPersonnelEducation',
-            id: id,
-            pk: $("#pk").val(),
-            cpk: $("#cpk").val()
-        }
-    });
-    ajDeleteAll.ajaxCall({
-        onError: function (event, data) {
-            dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', window.lang.translate('Unsuccessful personnel diploma remove action!'),
-                    window.lang.translate('Unsuccessful personnel diploma remove action! Please contact system administrator'));
-            console.error('"personel diploma silme servisi" servis hatası->' + data.errorInfo);
-        },
-        onSuccess: function (event, data) {
-            sm.successMessage({
-                onShown: function () {
-                    //console.warn(index);
-                    loaderGridBlock.loadImager('removeLoadImage');
-                    
-                    $('#diploma_grid').datagrid('reload');
-                }
-            });
-            sm.successMessage('show', window.lang.translate('Successful personnel diploma remove action!'),
-                    window.lang.translate('Successful personnel diploma remove action!'));
-        }
-    });
-    ajDeleteAll.ajaxCall('call');
-}
-
-function updatePersonnelLangDialog(id, row) {
-    window.gridReloadController = false;
-    window.working_personel_id = row.working_personel_id;
-    BootstrapDialog.show({
-        title: '"' + +'"' + window.lang.translate('You are going to update personnel diploma information'),
-        message: function (dialogRef) {
-            var dialogRef = dialogRef;
-            var $message =
-                    $('<!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->' +
-                            '<div class="panel box box-primary" id="popup_loader">' +
-                            '<div class="box-header with-border">' +
-                            '<h4 class="box-title">' +
-                            window.lang.translate('Education Information') +
-                            '</h4>' +
-                            '</div>' +
-                            '<div class="box-body">' +
-                            '<form id="personel_edu_info_edit">' +
-                            '<label for="member_diploma_ph_edit" style="margin-top: 20px">' +
-                            window.lang.translate("Diploma") +
-                            '</label>' +
-                            '<div class="input-group">' +
-                            '<div class="input-group-addon">' +
-                            '<i class="icon-prepend fa fa-flag-o"></i>' +
-                            '</div>' +
-                            '<input type="text" class="form-control validate[required, maxSize[200]]"' +
-                            'id="member_diploma_ph_edit" value="' + row.diploma + '">' +
-                            '</div>' +
-                            '<br/>' +
-                            '<div class="form-group">' +
-                            '<label for="member_university_country_ph_edit">' +
-                            window.lang.translate("Country of Graduation") +
-                            '</label>' +
-                            '<div id="member_university_country_ph_edit">' +
-                            '</div>' +
-                            '</div>' +
-                            '<br/>' +
-                            '<div class="form-group">' +
-                            '<label for="member_university_ph_edit">' +
-                            window.lang.translate("University or Institute") +
-                            '</label>' +
-                            '<div id="member_university_ph_edit">' +
-                            '</div>' +
-                            '</div>' +
-                            '<label for="grad_date_ph_edit" style="margin-top: 20px">' +
-                            window.lang.translate("Graduation Date") +
-                            '</label>' +
-                            '<div class="input-group">' +
-                            '<div class="input-group-addon">' +
-                            '<i class="icon-prepend fa fa-flag-o"></i>' +
-                            '</div>' +
-                            '<input type="date" class="form-control" id="grad_date_ph_edit">' +
-                            '</div>' +
-                            '<br/>' +
-                            '<div class="box-footer col-lg-12">' +
-                            '<button type="button" class="btn btn-primary" onclick="updatePersonnelDiploma()">' +
-                            window.lang.translate("Update Education Information") +
-                            '</button>' +
-                            '</div>' +
-                            '</form>' +
-                            '</div>' +
-                            '<!-- /.box-body -->' +
-                            '</div>');
-
-            /*
-             * Countries
-             */
-            $.ajax({
-                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                data: {
-                    url: 'fillComboBox_syscountrys',
-                    language_code: $("#langCode").val(),
-                    component_type: 'ddslick'
-                },
-                type: 'GET',
-                dataType: 'json',
-                //data: 'rowIndex='+rowData.id,
-                success: function (data, textStatus, jqXHR) {
-                    if (data.length !== 0) {
-                        for (var i = 0; i < data.length; i++) {
-                            if (data[i].value == row.country_id) {
-                                var index = i;
-                            }
-                        }
-
-                        $('#member_university_country_ph_edit').ddslick({
-                            data: data,
-                            width: '100%',
-                            height: '500%',
-                            background: false,
-                            selectText: window.lang.translate("Please select a country from list..."),
-                            imagePosition: 'right',
-                            onSelected: function (selectedData) {
-                                window.sel_country_edit = selectedData.selectedData.value;
-                            }
-                        });
-                        $('#member_university_country_ph_edit').ddslick('select', {index: index});
-
-                    } else {
-                        console.error('"fillComboBox_syscountrys" servis datasÄ± boÅŸtur!!');
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.error('"fillComboBox_syscountrys" servis hatasÄ±->' + textStatus);
-                }
-            });
-
-            /*
-             * Universities
-             */
-            $.ajax({
-                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                data: {
-                    url: 'pkFillUniversityDdList_sysUniversities',
-                    language_code: $("#langCode").val(),
-                    component_type: 'ddslick',
-                    pk: $('#pk').val(),
-                    country_id: 91
-                },
-                type: 'GET',
-                dataType: 'json',
-                //data: 'rowIndex='+rowData.id,
-                success: function (data, textStatus, jqXHR) {
-                    if (data.length !== 0) {
-                        if (data.length !== 0) {
-                            for (var i = 0; i < data.length; i++) {
-                                if (data[i].value == row.university_id) {
-                                    var index = i;
-                                }
-                            }
-                        }
-                        //                console.log(data);
-                        $('#member_university_ph_edit').ddslick('destroy');
-                        $('#member_university_ph_edit').ddslick({
-                            data: data,
-                            width: '100%',
-                            height: '500%',
-                            background: false,
-                            selectText: window.lang.translate("Please select a university from list..."),
-                            imagePosition: 'right',
-                            onSelected: function (selectedData) {
-                                window.sel_university_edit = selectedData.selectedData.value;
-                            }
-                        });
-                        $('#member_university_ph_edit').ddslick('select', {index: index});
-
-                    } else {
-                        console.error('list of universities servis datasÃ„Â± boÃ…Å¸tur!!');
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.error('list of universities servis hatasÃ„Â±->' + textStatus);
-                }
-            });
-            return $message;
-        }
-    });
-    return false;
-}
-
-function updatePersonnelLang(id) {
-    var loader = $('#popup_loader').loadImager();
-    loader.loadImager('appendImage');
-
+function addPersonnelDiploma(){
+        
+    if ($('#add_grad_date_ph').val() !== null) {
+        var date_on_milliseconds = milliseconds($('#add_grad_date_ph').val());
+    } else {
+        var date_on_milliseconds = null;
+    }    
+        
     var aj = $(window).ajaxCall({
         proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             pk: $("#pk").val(),
             cpk: $("#cpk").val(),
-            url: 'pkcpkUpdate_infoFirmWorkingPersonnelEducation',
+            url: 'pkcpkInsert_infoFirmWorkingPersonnelEducation',
             language_code: $("#langCode").val(),
+            working_personnel_id: window.working_personnel_id,
             profile_public: 0,
-            working_personel_id: window.working_personel_id,
-            diploma_name: $('#diploma_name_edit').val(),
-            country_id: window.sel_country_edit,
-            university_id: window.sel_university_edit,
-            graduation_date: $('#grad_date_ph_edit').val(),
-            id: id
+            diploma_name: $('#add_member_diploma_ph_edit').val(),
+            country_id: window.sel_add_country_edit,
+            university_id: window.sel_add_university_edit,
+            graduation_date: date_on_milliseconds
         }
     });
     aj.ajaxCall({
         onError: function (event, textStatus, errorThrown) {
             dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', 'Personel Diplomasi Bilgi Güncelleme İşlemi Başarısız...',
-                    'Personel Diplomasi Bilgi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-            console.error('"Personel Diplomasi Bilgi güncelleme" servis hatası->' + textStatus);
+            dm.dangerMessage('show', 'Personel Diplomasi Ekleme İşlemi Başarısız...',
+                    'Personel Diplomasi Ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+            console.error('"Personel Diplomasi Ekleme" servis hatası->' + textStatus);
         },
         onSuccess: function (event, data) {
             var data = data;
@@ -1565,44 +1444,39 @@ function updatePersonnelLang(id) {
                     loader.loadImager('removeLoadImage');
                 }
             });
-            sm.successMessage('show', 'Personel Diplomasi Bilgi Güncelleme İşlemi Başarılı...',
-                    'Personel Diplomasi Bilgi güncelleme işlemini gerçekleştirdiniz... ',
+            sm.successMessage('show', 'Personel Diplomasi Ekleme İşlemi Başarılı...',
+                    'Personel Diplomasi Ekleme işlemini gerçekleştirdiniz... ',
                     data);
 //                window.gridReloadController = true;
             $('#diploma_grid').datagrid('reload');
         },
         onErrorDataNull: function (event, data) {
             dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', 'Personel Diplomasi Bilgi Güncelleme İşlemi Başarısız...',
-                    'Personel Diplomasi Bilgi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-            console.error('"Personel Diplomasi Bilgi güncelleme" servis datası boştur!!');
+            dm.dangerMessage('show', 'Personel Diplomasi Ekleme İşlemi Başarısız...',
+                    'Personel Diplomasi Ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+            console.error('"Personel Diplomasi Ekleme" servis datası boştur!!');
             loader.loadImager('removeLoadImage');
         },
         onErrorMessage: function (event, data) {
             dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', 'Personel Diplomasi Bilgi güncelleme İşlemi Başarısız...',
-                    'Personel Diplomasi Bilgi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+            dm.dangerMessage('show', 'Personel Diplomasi Ekleme İşlemi Başarısız...',
+                    'Personel Diplomasi Ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
             loader.loadImager('removeLoadImage');
         },
         onError23503: function (event, data) {
             dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', 'Personel Diplomasi Bilgi güncelleme İşlemi Başarısız... (Error 23503)',
-                    'Personel Diplomasi Bilgi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+            dm.dangerMessage('show', 'Personel Diplomasi Ekleme İşlemi Başarısız... (Error 23503)',
+                    'Personel Diplomasi Ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
             loader.loadImager('removeLoadImage');
 
         },
         onError23505: function (event, data) {
             dm.dangerMessage('resetOnShown');
-            dm.dangerMessage('show', 'Personel Diplomasi Bilgi güncelleme İşlemi Başarısız... (Error 23505)',
-                    'Personel Diplomasi Bilgi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+            dm.dangerMessage('show', 'Personel Diplomasi Ekleme İşlemi Başarısız... (Error 23505)',
+                    'Personel Diplomasi Ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
             loader.loadImager('removeLoadImage');
         }
     });
     aj.ajaxCall('call');
     $('#diploma_grid').datagrid('reload');
 }
-
-function loadCertGrid() {
-
-}
-
