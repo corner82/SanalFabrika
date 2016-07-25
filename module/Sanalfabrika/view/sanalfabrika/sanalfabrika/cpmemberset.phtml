@@ -1,6 +1,7 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
+<input id="cpk" type="hidden"  value="<?php echo $this->companyPublicKey; ?>"></input>
 <input id="selectedCompanyNpk" type="hidden"  value="<?php echo $this->selectedCompanyNpk; ?>"></input>
 <input id="selectedCompanyShN" type="hidden"  value="<?php echo $this->selectedCompanyShN; ?>"></input>
 
@@ -443,7 +444,7 @@
             </div>
 
             <!-- hidden diploma grids placeholder -->
-            <div class="box box-primary" id="diploma_grid_ph" style="visibility:visible; display:block">
+            <div class="box box-primary" id="diploma_grid_ph" style="visibility:hidden; display:none">
                 <div class="box-header with-border">
                     <h3 class="box-title"><?php echo $this->translate('Diplomas') ?></h3>                    
                     <div class="box-body">
@@ -454,7 +455,7 @@
             <!--/ hidden diploma grids placeholder -->
 
             <!-- hidden langs grids placeholder -->
-            <div class="box box-primary" id="langs_grid_ph" style="visibility:visible; display:block">
+            <div class="box box-primary" id="langs_grid_ph" style="visibility:hidden; display:none">
                 <div class="box-header with-border">
                     <h3 class="box-title"><?php echo $this->translate('Languages') ?></h3>                    
                     <div class="box-body">
@@ -465,7 +466,7 @@
             <!--/ hidden langs grids placeholder -->
 
             <!-- hidden certs grids placeholder -->
-            <div class="box box-primary" id="cert_grid_ph" style="visibility:visible; display:block">
+            <div class="box box-primary" id="cert_grid_ph" style="visibility:hidden; display:none">
                 <div class="box-header with-border">
                     <h3 class="box-title"><?php echo $this->translate('Certificate') ?></h3>                    
                     <div class="box-body">
@@ -486,7 +487,7 @@
                     </div>
                 </div>
 
-                <div class="box-body" style="display: block;">
+                <div class="box-body" style="display: block; margin-bottom: 150px">
                     <div class="box-body">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
@@ -640,7 +641,7 @@
                                             <!-- Education Information Footer Start -->
                                             <div class="box-footer col-lg-12"> 
                                                 <button type="button" class="btn btn-default" onclick='add_new_personnel_grad()'>
-                                                    <?php echo $this->translate('Add') ?>
+                                                    <?php echo $this->translate('Add New Diploma') ?>
                                                 </button>
                                                 <button type="submit" class="btn btn-primary" onclick='send_personel_edu_info()'>
                                                     <?php echo $this->translate('Continue') ?>

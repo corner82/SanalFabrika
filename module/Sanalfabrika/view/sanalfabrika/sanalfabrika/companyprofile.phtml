@@ -5,8 +5,8 @@
 <input id="selectedCompanyNpk" type="hidden"  value="<?php echo $this->selectedCompanyNpk; ?>"></input>
 <input id="selectedCompanyShN" type="hidden"  value="<?php echo $this->selectedCompanyShN; ?>"></input>
 <?php // print_r($this->acl->getRoles()); ?>
-<?php // print_r($this->test_helper("me","e")); ?>
-<?php print_r($this->test_helper($this->acl)); ?>
+<?php // print_r($this->test_helper($this->acl)); ?>
+<?php // print_r($this->test_helper()); ?>
 
 <!--=== Style Switcher ===-->    
 <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
@@ -197,18 +197,27 @@
                 <img class="img-responsive profile-img margin-bottom-20" id="profileLogosrc"
                      src="" alt="">
 
-                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                </ul>     
+                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1"></ul>
+                <?php
+//                if ($this->test_helper($this->firmaOwnerAllowance) == 'allowed') {
+//                    echo '<ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+//                </ul>';
+//                } else {
+//                    echo 'sorry';
+//                }
+//                
+                ?>
+
 
                 <div class="panel-heading-v2 overflow-h">
                     <h2 class="heading-xs pull-left">
                         <i class="fa fa-bar-chart-o"></i> 
-                        <?php echo $this->translate('Company info update period') ?>
+<?php echo $this->translate('Company info update period') ?>
                     </h2>
                     <!--<a href="#"><i class="fa fa-cog pull-right"></i></a>-->
                 </div>
                 <h3 class="heading-xs">
-                    <?php echo $this->translate('Company profil completion rate') ?>
+<?php echo $this->translate('Company profil completion rate') ?>
                     <span class="pull-right">92%</span>
                 </h3>
                 <div class="progress progress-u progress-xxs">
@@ -218,7 +227,7 @@
                     </div>
                 </div>
                 <h3 class="heading-xs">
-                    <?php echo $this->translate('Machine data update period') ?>
+<?php echo $this->translate('Machine data update period') ?>
                     <span class="pull-right">85%</span>
                 </h3>
                 <div class="progress progress-u progress-xxs">
@@ -247,7 +256,7 @@
                               background-repeat:no-repeat;padding-left:5px;">
                             <a href="https://www.exchangeratewidget.com/" 
                                style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
-                                   <?php echo $this->translate('Online exchange rates') ?>
+<?php echo $this->translate('Online exchange rates') ?>
                             </a>
                         </span>
                     </div>
@@ -260,7 +269,7 @@
                 <!--Notification-->
                 <div class="panel-heading-v2 overflow-h" style="margin-top: 20px">
                     <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> 
-                        <?php echo $this->translate('Notification') ?></h2>
+<?php echo $this->translate('Notification') ?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
                 <div class="margin-bottom-20">
@@ -327,7 +336,7 @@
                         <div class="service-block-v3 service-block-aviation" >
                             <i class="icon-plane"></i>
                             <span class="service-heading">
-                                <?php echo $this->translate('Projects in progress') ?>
+<?php echo $this->translate('Projects in progress') ?>
                             </span>
                             <span class="counter">12</span>
 
@@ -357,7 +366,7 @@
                         <div class="service-block-v3 service-block-renewable">
                             <i class="icon-energy"></i>
                             <span class="service-heading">
-                                <?php echo $this->translate('Total machine tools number') ?>
+<?php echo $this->translate('Total machine tools number') ?>
                             </span>
                             <span class="counter">12</span>
 
@@ -441,7 +450,7 @@
 
                 <!-- testemonials block-->
                 <div class="row" id="testimonials_ph">
-                    
+
                 </div>
                 <!-- testemonials block end-->
 
@@ -509,13 +518,13 @@
                                     <li><a href="#"><i class="fa fa-fax"></i></a></li>
                                     <li><a href="#"><i class="fa fa-globe"></i></a></li>
                                 </ul>
-                                
+
                                 <div class="headline">
                                     <h2><?php echo $this->translate('Social Media') ?></h2>
                                 </div>                                 
 
                                 <ul class="social-icons" id="social_media_ph">
-                                    
+
                                 </ul>
 
                                 <!-- Business Hours -->
@@ -625,7 +634,7 @@
                             Turkey <br />
                             <?php echo $this->translate('Phone') ?> :  +90 312 385 50 90 <br />
                             <?php echo $this->translate('Fax') ?>:    +90 312 354 58 98 <br />
-                            <?php echo $this->translate('Email') ?>:  <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
+<?php echo $this->translate('Email') ?>:  <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
                         </address>
                     </div><!--/col-md-3-->
                     <!-- End Address -->
