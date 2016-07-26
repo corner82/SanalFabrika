@@ -202,29 +202,7 @@ function getSubmenu(clicked) {
 
                     $(newappend).appendTo($('#' + clicked.id + '_ul'));
 
-                    /*
-                     * Bu bölüm ana menü url kontrolunu yapmaktadır. 
-                     * url menu iteminin url ile eşleşiyorsa o şıkkı 
-                     * açacaktır ve sayfa yüklendiğinde açık 
-                     * gözükecektir.
-                     */
-//                        for (var c = 4; c < currentPathArray.length; c++) {
-//
-//                            var currentPath = window.location.hostname
-//                                    + $("#requestUriRegulated").val()
-//                                    .replace('--dil--', $("#langCode").val());
-//
-//                            var currentPathArray = currentPath.split('/');
-//                            var clickedLinkURLArray = data[i].url.split('/');
-//
-//                            if (currentPathArray[c] === 'sanalfabrika') {
-//                                for (var d = 4; d < clickedLinkURLArray.length; d++) {
-//                                    if (clickedLinkURLArray[d] === 'sanalfabrika') {
-//                                        currentPathArray[c + 1].replace(clickedLinkURLArray[d + 1]);
-//                                    }
-//                                }
-//                            }
-//                        }
+//                        
 
                     /*
                      * Click fonksiyonu yeni append edilen şıkka eklenir
