@@ -100,6 +100,7 @@ return array(
                           'menutypes' => 'layout/menutypes.phtml',
                           'modules' => 'layout/modules.phtml',
                           'actions' => 'layout/actions.phtml',
+                          'actionmenus' => 'layout/actionmenus.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -252,7 +253,8 @@ return array(
                                                             'aclprivilegeservices',         
                                                             'menutypes',
                                                             'modules',
-                                                            'actions'),
+                                                            'actions',
+                                                            'actionmenus'),
                                            )
                    ),
         
