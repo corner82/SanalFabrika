@@ -11,7 +11,7 @@
             pk: $("#pk").val(),
             url: 'pkGetLeftMenu_leftnavigation',
             language_code: $("#langCode").val(),
-//            menu_types_id:2
+            menu_types_id: 3
         },
         method: "GET",
         async: false,
@@ -20,7 +20,7 @@
             /*
              * Bu değişkenler url kontrol için kullanılmaktadır.
              */
-            console.log(data);
+
             if (data.lenth !== null) {
                 $('#sidebar-nav-1').empty();
 
@@ -29,16 +29,26 @@
 //            var urlArraySize = currentPathArray.length;
 
                 // Ana menü değişkenleri
+                var currentPath = window.location.hostname
+                        + $("#requestUriRegulated").val()
+                        .replace('--dil--', $("#langCode").val());
+                var currentPathArray = currentPath.split('/');
 
                 var len = data.length;
                 var i = 0;
                 for (i; i < len; i++) {
 
                     if (data[i].collapse === 0) {
+                        for (var c = 0; c < currentPathArray.length; c++) {
+                            if (currentPathArray[c] === 'sanalfabrika') {
+                                var changing = currentPathArray[c + 1];
+                            }
+                        }
+                        var newurl = currentPath.replace(changing, data[i].url);
 
                         var appending_html = "<li id='" +
-                                data[i].id + "' class='list-group-item' onclick=activateLink(this)><a href='" +
-                                data[i].url + "' style='cursor: pointer; '>" + 
+                                data[i].id + "' class='list-group-item' onclick=activateLink(this)><a href='https://" +
+                                newurl + "' style='cursor: pointer; '>" +
 //                                "<i class='fa " +
 //                                data[i].icon_class + "'>" + 
                                 "<span>" +
@@ -47,18 +57,24 @@
                         var newappend = $(appending_html);
 
                     } else {
-
+                        for (var c = 0; c < currentPathArray.length; c++) {
+                            if (currentPathArray[c] === 'sanalfabrika') {
+                                var changing = currentPathArray[c + 1];
+                            }
+                        }
+                        var newurl = currentPath.replace(changing, data[i].url);
+                        
                         var appending_html = "<li id='" + "" +
                                 data[i].id + "' tot_mach_count='' class='list-group-item list-toggle' onclick=getSubmenu(this)> \n\
                                                 <a id='" +
                                 data[i].id + "_a' class='accordion-toggle collapsed' data-toggle='collapse' data-parent='#sidebar-nav' \n\
                                                 href='" +
-                                data[i].url + "' aria-expanded='false'>" + 
+                                newurl + "' aria-expanded='false'>" +
 //                                "<i class='fa " +
 //                                data[i].icon_class + "'></i>" + 
                                 "<span>" +
                                 data[i].menu_name + "</span>\n\
-                                                     </a><ul id='" + 
+                                                     </a><ul id='" +
                                 data[i].id + "_ul' class='collapse'>\n\
                                                      </ul></li>";
 
@@ -67,29 +83,7 @@
 
                     $(newappend).appendTo($("#sidebar-nav-1"));
 
-                    /*
-                     * Bu bölüm ana menü url kontrolunu yapmaktadır. 
-                     * url menu iteminin url ile eşleşiyorsa o şıkkı 
-                     * açacaktır ve sayfa yüklendiğinde açık 
-                     * gözükecektir.
-                     */
-//                        for (var c = 4; c < currentPathArray.length; c++) {
-//
-//                            var currentPath = window.location.hostname
-//                                    + $("#requestUriRegulated").val()
-//                                    .replace('--dil--', $("#langCode").val());
-//
-//                            var currentPathArray = currentPath.split('/');
-//                            var clickedLinkURLArray = data[i].url.split('/');
-//
-//                            if (currentPathArray[c] === 'sanalfabrika') {
-//                                for (var d = 4; d < clickedLinkURLArray.length; d++) {
-//                                    if (clickedLinkURLArray[d] === 'sanalfabrika') {
-//                                        currentPathArray[c + 1].replace(clickedLinkURLArray[d + 1]);
-//                                    }
-//                                }
-//                            }
-//                        }
+
 
                     /*
                      * Click fonksiyonu yeni append edilen şıkka eklenir
@@ -136,7 +130,7 @@ function getSubmenu(clicked) {
         $('#' + clicked.id + '_ul').removeClass('collapse');
         $('#' + clicked.id + '_ul').addClass('collapse in');
     }
-    
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -145,7 +139,7 @@ function getSubmenu(clicked) {
             pk: $("#pk").val(),
             url: 'pkGetLeftMenu_leftnavigation',
             language_code: $("#langCode").val(),
-//            menu_types_id:2
+            menu_types_id: 3
         },
         method: "GET",
         async: false,
@@ -156,16 +150,24 @@ function getSubmenu(clicked) {
                 $('#' + clicked.id + '_ul').empty();
 
                 // Ana menü değişkenleri
-
+                var currentPath = window.location.hostname
+                        + $("#requestUriRegulated").val()
+                        .replace('--dil--', $("#langCode").val());
+                var currentPathArray = currentPath.split('/');
                 var len = data.length;
                 var i = 0;
                 for (i; i < len; i++) {
 
                     if (data[i].collapse === 0) {
-
+                        for (var c = 0; c < currentPathArray.length; c++) {
+                            if (currentPathArray[c] === 'sanalfabrika') {
+                                var changing = currentPathArray[c + 1];
+                            }
+                        }
+                        var newurl = currentPath.replace(changing, data[i].url);
                         var appending_html = "<li id='" +
                                 data[i].id + "' class='list-group-item' onclick=activateLink(this)><a href='" +
-                                data[i].url + "' style='cursor: pointer;'>" + 
+                                data[i].url + "' style='cursor: pointer;'>" +
 //                                "<i class='fa " +
 //                                data[i].icon_class + "'>" + 
                                 "<span>" +
@@ -174,18 +176,24 @@ function getSubmenu(clicked) {
                         var newappend = $(appending_html);
 
                     } else {
+                        for (var c = 0; c < currentPathArray.length; c++) {
+                            if (currentPathArray[c] === 'sanalfabrika') {
+                                var changing = currentPathArray[c + 1];
+                            }
+                        }
+                        var newurl = currentPath.replace(changing, data[i].url);
 
                         var appending_html = "<li id='" + "" +
                                 data[i].id + "' tot_mach_count='' class='list-group-item list-toggle' onclick=getSubmenu(this)> \n\
                                                 <a id='" +
                                 data[i].id + "_a' class='accordion-toggle collapsed' data-toggle='collapse' data-parent='#sidebar-nav' \n\
                                                 href='" +
-                                data[i].url + "' aria-expanded='false'>" + 
+                                newurl + "' aria-expanded='false'>" +
 //                                "<i class='fa " +
 //                                data[i].icon_class + "'></i>" + 
                                 "<span>" +
                                 data[i].menu_name + "</span>\n\
-                                                     </a><ul id='" + 
+                                                     </a><ul id='" +
                                 data[i].id + "_ul' class='collapse'>\n\
                                                      </ul></li>";
 
@@ -234,6 +242,6 @@ function getSubmenu(clicked) {
             }
         }
     });
-    
-    
+
+
 }
