@@ -164,7 +164,13 @@ window.deleteModuleUltimately = function(id, index) {
             });
             sm.successMessage('show', 'Zend Modul Silme İşleminiz Başarılı...',
                                       'Zend modul silme işleminiz başarılı...')
-        },                                   
+        },  
+        onError23503 : function (event, data) {
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz!', 'Modüle bağlı Action tanımlandığı için silme işlemi\n\
+                               gerçekleştiremezsiniz, önce modül ile ilişkili Action silinmelidir!');
+            loaderGridBlock.loadImager('removeLoadImage');
+        },
     });
     ajDeleteAll.ajaxCall('call');
 }
