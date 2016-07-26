@@ -98,6 +98,7 @@ return array(
                           'aclroleprivilege' => 'layout/aclroleprivilege.phtml',
                           'aclprivilegeservices' => 'layout/aclprivilegeservices.phtml',
                           'menutypes' => 'layout/menutypes.phtml',
+                          'modules' => 'layout/modules.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -248,7 +249,8 @@ return array(
                                                             'aclprivileges',
                                                             'aclroleprivilege',
                                                             'aclprivilegeservices',         
-                                                            'menutypes'),
+                                                            'menutypes',
+                                                            'modules'),
                                            )
                    ),
         
