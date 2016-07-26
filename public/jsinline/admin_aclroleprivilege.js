@@ -431,7 +431,7 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
                     }
                  });
                  dm.dangerMessage('show', 'Resource (Kaynak) Bağlı Yetki Bulunamamıştır...',
-                                          'Seçtiğiniz kaynağa bağlı yetki kaydı bulunamamıştır...');
+                                          'Seçtiğiniz rol için atanmamış yetki kaydı bulunamamıştır...');
 
              },
        }) 
