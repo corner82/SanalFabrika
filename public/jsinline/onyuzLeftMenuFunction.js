@@ -25,9 +25,6 @@
                 $('#sidebar-nav-1').empty();
 
 
-//            var langIndex = currentPathArray.indexOf($("#langCode").val());
-//            var urlArraySize = currentPathArray.length;
-
                 // Ana menü değişkenleri
                 var currentPath = window.location.hostname
                         + $("#requestUriRegulated").val()
