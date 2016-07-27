@@ -202,7 +202,47 @@ window.deleteActionUltimatelyDialog= function(id, index){
     wcm.warningComplexMessage('show', 'Zend Action Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
                                       'Zend action silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
-   
+ 
+ /**
+  * delete action with related data upon user approval
+  * @param {type} id
+  * @param {type} index
+  * @returns {undefined}
+  * @author Mustafa Zeynel Dağlı
+  * @since 27/07/2016
+  */
+ window.deleteActionUltimatelyWithRelatedData = function (id, index) {
+      var ajDeleteAllWithRelatedData = $(window).ajaxCall({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data : {
+                    url:'pkDeleteAct_sysAclActions' ,
+                    id : id,
+                    pk : $("#pk").val()
+                }
+    });
+    ajDeleteAllWithRelatedData.ajaxCall ({
+        onError : function (event, data) {  
+            dm.dangerMessage('resetOnShown');  
+            dm.dangerMessage('show', 'Zend Action  Silme İşlemi Başarısız...',
+                                     'Zend action  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDelete_sysAclActions" servis hatası->'+data.errorInfo);
+        },
+        onSuccess : function (event, data) {
+            sm.successMessage({ 
+                onShown : function() {
+                    //console.warn(index);
+                    $('#tt_grid_dynamic').datagrid('reload');
+                }
+            });
+            sm.successMessage('show', 'Zend Action Silme İşleminiz Başarılı...',
+                                      'Zend action ilgili tüm datalarla beraber silinmiştir,  silme işleminiz başarılı...')
+        }, 
+       
+    });
+    ajDeleteAllWithRelatedData.ajaxCall('call');
+ }
+ 
+ 
 /**
 * delete Zend Module-Action
 * @param {type} id
@@ -242,7 +282,22 @@ window.deleteActionUltimately = function(id, index) {
             });
             sm.successMessage('show', 'Zend Action Silme İşleminiz Başarılı...',
                                       'Zend action  silme işleminiz başarılı...')
-        },                                   
+        }, 
+        onError23503 : function (event, data) {
+            wcm.warningComplexMessage('resetOnShown');
+            wcm.warningComplexMessage({onConfirm : function(event, data) {
+                deleteActionUltimatelyWithRelatedData(id, index);
+            }
+            });
+            wcm.warningComplexMessage('show', 'Silme İşlemine Devam Etmek İstiyormusunuz?', 
+                                              'Action  bağlı Menü Tipi tanımlandığı için silme işlemi bağlı veriyide etkileyecektir.\n\
+                                  Yinede silme işlemine devam etmek istiyormusunuz? ');
+            
+            /*wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz!', 'Action  bağlı Menü Tipi tanımlandığı için silme işlemi\n\
+                               gerçekleştiremezsiniz, önce Action ile ilişkili Menü Tipi silinmelidir!');*/
+            loaderGridBlock.loadImager('removeLoadImage');
+        }
     });
     ajDeleteAll.ajaxCall('call');
 }
@@ -565,8 +620,6 @@ window.insertAction = function () {
              dm.dangerMessage('show', 'Zend Action  Kayıt İşlemi Başarısız...', 
                                      'Zend action  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkInsert_sysAclRoles" servis hatası->'+data.errorInfo);
-          },
-          onError23503 : function (event, data) {
           },
           onError23505 : function (event, data) {
               dm.dangerMessage({
