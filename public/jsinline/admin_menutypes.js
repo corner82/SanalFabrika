@@ -235,7 +235,7 @@ window.insertMenuTypesWrapper = function (e) {
  * @since 21/07/2016
  */
 window.updateMenuTypeDialog = function (id, row) {
-//console.log(row);
+window.gridReloadController = false;
 BootstrapDialog.show({  
      title: '"'+ row.name + '" menü tipini güncellemektesiniz...',
      message: function (dialogRef) {
@@ -310,6 +310,9 @@ BootstrapDialog.show({
         $('#menuTypesFormPopup').validationEngine();
      },
      onhide : function() {
+        if(window.gridReloadController == true) {
+           $('#tt_grid_dynamic').datagrid('reload');
+        }
      },
  });
  return false;
@@ -376,6 +379,7 @@ window.updateMenuType = function (id) {
              sm.successMessage('show', 'Menü Tip Güncelleme İşlemi Başarılı...', 
                                        'Menü tip güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
+             window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
