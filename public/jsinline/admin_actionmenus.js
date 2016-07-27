@@ -14,8 +14,8 @@ $('#tt_grid_dynamic').datagrid({
             pk: $('#pk').val(),
             subject: 'datagrid',
             url : 'pkFillMenuTypesActionLeftList_sysAclMenuTypesActions',
-            sort : 'id',
-            order : 'desc',
+            //sort : 'module_name',
+            //order : 'desc',
             /*machine_groups_id : null,
             filterRules:null*/
     },
@@ -31,7 +31,7 @@ $('#tt_grid_dynamic').datagrid({
     remoteSort:true,
     multiSort:false,
     rowStyler: function(index,row){
-        if (row.resource_name == 'Firma İşlemleri'){
+        if (row.menu_types_id == null){
             return 'background-color:#d2d6de;color:#444;font-weight:bold;';
         }
     },
@@ -40,18 +40,35 @@ $('#tt_grid_dynamic').datagrid({
             {field:'id',title:'ID'},
             {field:'module_name',title:'Modül',sortable:true,width:150},
             {field:'action_name',title:'Action',sortable:true,width:150},
-            {field:'menu_type_name',title:'Menü Tipi',sortable:true,width:200},
+            {field:'menu_type_name',title:'Menü Tipi',sortable:true,width:200,align : 'center',
+                formatter:function(value,row,index){
+                    var u ;
+                    if(row.menu_types_id == null) {
+                        u = '<i title="Menü Tipi Belirlenmemiştir" class="fa fa-minus-square"></i>';
+                    } else {
+                        u = row.menu_type_name;
+                    }
+                    return u;    
+                },
+                styler:function(value,row,index){
+                    if(row.menu_types_id == null) {
+                        return 'background-color:#ffee00;color:red;';
+                    }     
+                },
+            },
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
-                    if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLPrivilegesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                    if(row.menu_types_id == null) {
+                        var u = '<button style="padding : 2px 4px;" title="Menü Tipi Belirle"  class="btn btn-warning" type="button" onclick="return insertMenuTypeActionDialog('+row.id+', { action_id : \''+row.action_id+'\',\n\
+                                                                                                                                                                                     action_name : \''+row.action_name+'\'} );"><i class="fa fa-code-fork"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLPrivilegesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var u = '<button style="padding : 2px 4px;" title="Menü Tipi Belirle"  class="btn btn-info" type="button" onclick="return updateMenuTypeActionDialog('+row.id+', { action_id : \''+row.action_id+'\',\n\
+                                                                                                                                                                                            module_id : \''+row.module_id+'\',\n\
+                                                                                                                                                                                            menu_types_id : \''+row.menu_types_id+'\',\n\
+                                                                                                                                                                                            action_name : \''+row.action_name+'\',\n\
+                                                                                                                                                                                            menu_type_name : \''+row.menu_type_name+'\',  } );"><i class="fa fa-arrow-circle-o-up"></i></button>';
                     }
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLPrivilegeUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMenuTypeActionDialog('+row.id+', { name : \''+row.name+'\',\n\
-                                                                                                                                                name_eng : \''+row.name_eng+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
-                    return e+d+u;    
+                    return u;    
                 }
             },
         ]]   
@@ -90,36 +107,36 @@ $.fn.leftMenuFunction();
  * @since 26/07/2016
  */
 window.insertMenuTypeActionDialog = function (id, row) {
-    window.gridReloadController = false;
+    window.gridReloadControllerInsert = false;
     //console.log(row);
     BootstrapDialog.show({  
-         title: '"'+ row.name + '" Action için menü tipi atamaktasınız...',
+         title: '"'+ row.action_name + '" Action için menü tipi atamaktasınız...',
          message: function (dialogRef) {
                      var dialogRef = dialogRef;
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                     <form id="aclPrivilegeFormPopup" method="get" class="form-horizontal">\n\
+                                                     <form id="actionsFormPopup" method="get" class="form-horizontal">\n\
                                                      <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">Menü Tipi</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                            <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <div id="dropdownMenuTypesInsertPopup" ></div>\n\
+                                                            <label class="col-sm-2 control-label">Menü Tipi</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group" id="mach-prod-box-popup-insert">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownMenuTypesInsertPopup" ></div>\n\
+                                                                </div>\n\
                                                             </div>\n\
-                                                          </div>\n\
                                                         </div>\n\
                                                          <div class="hr-line-dashed"></div>\n\
-                                                         <div class="form-group">\n\
-                                                             <div class="col-sm-10 col-sm-offset-2">\n\
-                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return insertMenuTypeActionWrapper(event, '+id+');">\n\
-                                                                 <i class="fa fa-save"></i> Kaydet </button>\n\
-                                                         </div>\n\
-                                                     </div>\n\
+                                                            <div class="form-group">\n\
+                                                                <div class="col-sm-10 col-sm-offset-2">\n\
+                                                                <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return insertMenuTypeActionWrapper(event, '+row.action_id+');">\n\
+                                                                    <i class="fa fa-save"></i> Güncelle </button>\n\
+                                                            </div>\n\
+                                                        </div>\n\
                                                  </form>\n\
                                              </div>\n\
                                          </div>\n\
@@ -128,14 +145,13 @@ window.insertMenuTypeActionDialog = function (id, row) {
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
          onshown : function () {         
-            $('#aclPrivilegeFormPopup').validationEngine();
              
-            $("#mach-prod-box-popup").loadImager();
-            $("#mach-prod-box-popup").loadImager('appendImage');
+            $("#mach-prod-box-popup-insert").loadImager();
+            $("#mach-prod-box-popup-insert").loadImager('appendImage');
             
             var ajaxACLResourcesPopup = $(window).ajaxCallWidget({
             proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillResourcesDdList_sysAclResources' ,
+                    data: { url:'pkFillMenuTypeList_sysMenuTypes' ,
                             pk : $("#pk").val() 
                     }
        })
@@ -146,12 +162,12 @@ window.insertMenuTypeActionDialog = function (id, row) {
                        //$('#mach-prod-box').loadImager('removeLoadImage'); 
                    }
                 });
-                dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                         'ACL resource (kaynak) bulunamamıştır...');
+                dm.dangerMessage('show', 'Menü Tip Bulunamamıştır...',
+                                         'Menü tip bulunamamıştır...');
             },
             onSuccess : function (event, data) {
                 var data = $.parseJSON(data);
-                    $('#mach-prod-box-popup').loadImager('removeLoadImage');
+                    $('#mach-prod-box-popup-insert').loadImager('removeLoadImage');
                     $('#dropdownMenuTypesInsertPopup').ddslick({
                             height : 200,
                             data : data, 
@@ -166,10 +182,6 @@ window.insertMenuTypeActionDialog = function (id, row) {
                              }
                          }   
                     });  
-                    /*$('#dropdownMenuTypesPopup').ddslick('selectByValue', 
-                                                {index: ''+row.resource_id+'' ,
-                                                 text : ''+row.resource_name+''}
-                                                );*/
                 },
                 onErrorDataNull : function (event, data) {
                      dm.dangerMessage({
@@ -177,16 +189,14 @@ window.insertMenuTypeActionDialog = function (id, row) {
                             //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
                         }
                      });
-                     dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                              'ACL resource (kaynak) bulunamamıştır...');
+                     dm.dangerMessage('show', 'Menü Tip Bulunamamıştır...',
+                                              'Menü tip bulunamamıştır...');
                  },
             }) 
             ajaxACLResourcesPopup.ajaxCallWidget('call');
-            
-            
          },
          onhide : function() {
-             if(window.gridReloadController == true) {
+             if(window.gridReloadControllerInsert == true) {
                  $('#tt_grid_dynamic').datagrid('reload');
              }
 
@@ -224,18 +234,18 @@ window.insertMenuTypeActionWrapper = function (e, id) {
  * @since 26/07/2016
  */
 window.insertActionMenuType = function (id) {
-     var loader = $('#loading-image-crud-popup').loadImager();
+     var loader = $('#loading-image-crud-popup-insert').loadImager();
      loader.loadImager('appendImage');
      
      var ddData = $('#dropdownMenuTypesInsertPopup').data('ddslick');
-     var menu_type_id = ddData.selectedData.value;
+     var menu_types_id = ddData.selectedData.value;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysAclPrivilege' ,
-                         id : id,
-                         menu_type_id : menu_type_id,
+                         url:'pkInsert_sysAclMenuTypesActions' ,
+                         action_id : id,
+                         menu_types_id : menu_types_id,
                          pk : $("#pk").val()
                      }
     })
@@ -244,7 +254,7 @@ window.insertActionMenuType = function (id) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Action / Menü Tip Ekleme İşlemi Başarısız...', 
                                       'Action / Menü Tip ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis hatası->'+textStatus);
+             console.error('"pkInsert_sysAclMenuTypesActions" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -256,13 +266,13 @@ window.insertActionMenuType = function (id) {
              sm.successMessage('show', 'Action / Menü Tip Ekleme İşlemi Başarılı...', 
                                        'Action / Menü Tip ekleme işlemini gerçekleştirdiniz... ',
                                        data);
-             window.gridReloadController = true;
+             window.gridReloadControllerInsert = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Action / Menü Tip Ekleme İşlemi Başarısız...', 
                                       'Action / Menü Tip ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis datası boştur!!');
+             console.error('"pkInsert_sysAclMenuTypesActions" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
@@ -289,44 +299,33 @@ window.updateMenuTypeActionDialog = function (id, row) {
     window.gridReloadController = false;
     //console.log(row);
     BootstrapDialog.show({  
-         title: '"'+ row.name + '" ACL yetkisini güncellemektesiniz...',
+         title: '"'+ row.action_name + '" Action üzerinde güncelleme yapmaktasınız...',
          message: function (dialogRef) {
                      var dialogRef = dialogRef;
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
+                                                     <form id="actionsFormPopup" method="get" class="form-horizontal">\n\
+                                                     <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">Menü Tipi</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <div id="dropdownMenuTypesPopup" ></div>\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
-                                                         <div class="form-group">\n\
-                                                             <label class="col-sm-2 control-label">Açıklama</label>\n\
-                                                             <div id="mach-prod-box-popup" class="col-sm-10">\n\
-                                                                 <div class="input-group">\n\
-                                                                     <div class="input-group-addon">\n\
-                                                                         <i class="fa fa-hand-o-right"></i>\n\
-                                                                     </div>\n\
-                                                                     <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description_popup" id="description_popup" placeholder="Açıklama ...">'+row.description+'</textarea>\n\
-                                                                 </div>\n\
-                                                             </div>\n\
-                                                         </div>\n\
+                                                            <label class="col-sm-2 control-label">Menü Tipi</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group" id="mach-prod-box-popup">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownMenuTypesPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
                                                          <div class="hr-line-dashed"></div>\n\
-                                                         <div class="form-group">\n\
-                                                             <div class="col-sm-10 col-sm-offset-2">\n\
-                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateMenuTypeActionWrapper(event, '+id+');">\n\
-                                                                 <i class="fa fa-save"></i> Güncelle </button>\n\
-                                                             <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
-                                                                 <i class="fa fa-remove"></i> Reset </button>-->\n\
-                                                         </div>\n\
-                                                     </div>\n\
+                                                            <div class="form-group">\n\
+                                                                <div class="col-sm-10 col-sm-offset-2">\n\
+                                                                <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateMenuTypeActionWrapper(event, '+id+', '+row.action_id+');">\n\
+                                                                    <i class="fa fa-save"></i> Güncelle </button>\n\
+                                                            </div>\n\
+                                                        </div>\n\
                                                  </form>\n\
                                              </div>\n\
                                          </div>\n\
@@ -335,14 +334,13 @@ window.updateMenuTypeActionDialog = function (id, row) {
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
          onshown : function () {         
-            $('#aclPrivilegeFormPopup').validationEngine();
              
             $("#mach-prod-box-popup").loadImager();
             $("#mach-prod-box-popup").loadImager('appendImage');
             
             var ajaxACLResourcesPopup = $(window).ajaxCallWidget({
             proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillResourcesDdList_sysAclResources' ,
+                    data: { url:'pkFillMenuTypeList_sysMenuTypes' ,
                             pk : $("#pk").val() 
                     }
        })
@@ -353,8 +351,8 @@ window.updateMenuTypeActionDialog = function (id, row) {
                        //$('#mach-prod-box').loadImager('removeLoadImage'); 
                    }
                 });
-                dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                         'ACL resource (kaynak) bulunamamıştır...');
+                dm.dangerMessage('show', 'Menü Tip Bulunamamıştır...',
+                                         'Menü tip bulunamamıştır...');
             },
             onSuccess : function (event, data) {
                 var data = $.parseJSON(data);
@@ -374,8 +372,8 @@ window.updateMenuTypeActionDialog = function (id, row) {
                          }   
                     });  
                     $('#dropdownMenuTypesPopup').ddslick('selectByValue', 
-                                                {index: ''+row.resource_id+'' ,
-                                                 text : ''+row.resource_name+''}
+                                                {index: ''+row.menu_types_id+'' ,
+                                                 text : ''+row.menu_type_name+''}
                                                 );
                 },
                 onErrorDataNull : function (event, data) {
@@ -384,78 +382,78 @@ window.updateMenuTypeActionDialog = function (id, row) {
                             //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
                         }
                      });
-                     dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                              'ACL resource (kaynak) bulunamamıştır...');
+                     dm.dangerMessage('show', 'Menü Tipi Bulunamamıştır...',
+                                              'Menü tipi bulunamamıştır...');
                  },
             }) 
             ajaxACLResourcesPopup.ajaxCallWidget('call');
-            
-            
          },
          onhide : function() {
              if(window.gridReloadController == true) {
                  $('#tt_grid_dynamic').datagrid('reload');
              }
-
          },
      });
      return false;
 }
 
 /**
- * update ACL privilege wrapper
+ * update Action / Menu Type wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 27/07/2016
  */
-window.updateMenuTypeActionWrapper = function (e, id) {
+window.updateMenuTypeActionWrapper = function (e, id, action_id) {
  e.preventDefault();
  var id = id;
- if ($("#aclPrivilegeFormPopup").validationEngine('validate')) {
-     
-     var ddData = $('#dropdownMenuTypesPopup').data('ddslick');
-    if(ddData.selectedData.value>0) {
-        updateActionMenuType(id);
-    } else {
-        wm.warningMessage('resetOnShown');
-        wm.warningMessage('show', 'ACL Resource Seçiniz', 'Lütfen ACL resource seçiniz!')
-    }
-    return false;
- }
- return false;
+ var row = row;
+   
+var ddData = $('#dropdownMenuTypesPopup').data('ddslick');
+if(ddData.selectedData.value>0) {
+   updateActionMenuType(id, action_id);
+   return false;
+} else {
+   wm.warningMessage('resetOnShown');
+   wm.warningMessage('show', 'Menü Tip Seçiniz', 'Lütfen menü tip seçiniz!')
+}
+return false;
+
 }
 
 /**
- * update ACL privilege
+ * update Action / Menu Type
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 27/07/2016
  */
-window.updateActionMenuType = function (id) {
+window.updateActionMenuType = function (id, action_id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      
+     console.warn(id);
+     console.warn(action_id);
+     
      var ddData = $('#dropdownMenuTypesPopup').data('ddslick');
-     var resource_id = ddData.selectedData.value;
+     var menu_types_id = ddData.selectedData.value;
+     
+     var action_id = action_id;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysAclPrivilege' ,
+                         url:'pkUpdate_sysAclMenuTypesActions' ,
+                         action_id : action_id,
+                         menu_types_id : menu_types_id,
                          id : id,
-                         name : $('#name_popup').val(),
-                         name_eng : $('#name_eng_popup').val(),
-                         description : $('#description_popup').val(),
-                         resource_id : resource_id,
                          pk : $("#pk").val()
                      }
     })
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Action / Menü Tipi Güncelleme İşlemi Başarısız...', 
+                                      'Action / Menü Tipi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclMenuTypesActions" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -464,21 +462,21 @@ window.updateActionMenuType = function (id) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Yetki Güncelleme İşlemi Başarılı...', 
-                                       'ACL yetki güncelleme işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Action / Menü Tipi Güncelleme İşlemi Başarılı...', 
+                                       'Action / Menü Tipi güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
              window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis datası boştur!!');
+             dm.dangerMessage('show', 'Action / Menü Tipi Güncelleme İşlemi Başarısız...', 
+                                      'Action / Menü Tipi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclMenuTypesActions" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Action / Menü Tipi Güncelleme İşlemi Başarısız...', 
+                                      'Action / Menü Tipi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
