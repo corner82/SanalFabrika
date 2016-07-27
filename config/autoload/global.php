@@ -101,6 +101,7 @@ return array(
                           'modules' => 'layout/modules.phtml',
                           'actions' => 'layout/actions.phtml',
                           'actionmenus' => 'layout/actionmenus.phtml',
+                          'services' => 'layout/services.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -254,7 +255,8 @@ return array(
                                                             'menutypes',
                                                             'modules',
                                                             'actions',
-                                                            'actionmenus'),
+                                                            'actionmenus',
+                                                            'services'),
                                            )
                    ),
         
