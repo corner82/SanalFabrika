@@ -167,13 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Rest Servis İşlemleri
+                    Rest Servis Grup İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
                     <li><a href="#"><i class="fa fa-certificate"></i> Rest Servis İşl.</a></li>
-                    <li class="active">Servis İşl.</li>
+                    <li class="active">Servis Grup İşl.</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -188,7 +188,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Rest Servis Tanımlama  İşlemleri </h3>
+                                <h3 class="box-title"> Rest Servis Grup Tanımlama  İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -199,30 +199,19 @@
                             <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
                                 <div class="alert alert-info alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Sistemde Rest Servis olarak kullanılan tüm servis uç nokataları eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
+                                    <h4><i class="icon fa fa-info"></i> Sisteme  servis grubu eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
                                 </div>  
                                 <!--Makina ekleme formu -->
-                                <form id='serviceForm' method="get" class="form-horizontal">     
+                                <form id='serviceGroupForm' method="get" class="form-horizontal">     
                                     <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                       
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Servis Adı</label>
+                                            <label class="col-sm-2 control-label">Servis Grubu</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-hand-o-right"></i>
                                                     </div>
                                                     <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="name" id="name" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Servis Tipi</label>
-                                            <div class="col-sm-10">
-                                                <div id="mach-prod-box" class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-copyright"></i>
-                                                    </div>
-                                                    <div id="dropdownServiceTypes" ></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -239,8 +228,8 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertServicesWrapper(event);"><i class="fa fa-save"></i>  Servis Kaydet </button>
-                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetServicesForm();" ><i class="fa fa-remove"></i> Reset </button>
+                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertServiceGroupsWrapper(event);"><i class="fa fa-save"></i>  Servis Grubu Kaydet </button>
+                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetServiceGroupsForm();" ><i class="fa fa-remove"></i> Reset </button>
                                             </div>
                                         </div>
                                     </div> 
@@ -254,7 +243,7 @@
                         <div id="loading-image-grid-container" class="box box-warning"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Rest Service Listesi</h3>
+                                <h3 class="box-title"> Rest Service Grup Listesi</h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -265,11 +254,11 @@
                             <div class="box-body">    
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Sistemde Kayıtlı Restful Servis Listesi </h4>
-                                    Servisleri  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirisiniz...
+                                    <h4><i class="icon fa fa-info"></i> Servis Grupları Listesi </h4>
+                                    Servis gruplarını  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirsiniz...
                                 </div>
                                 <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
-                                    <table  id="tt_grid_dynamic" title="Rest servisler  " ></table>   
+                                    <table  id="tt_grid_dynamic" title="Rest Servis Grupları  " ></table>   
                                 </div> 
                                 
                             </div><!-- /.box-body -->
