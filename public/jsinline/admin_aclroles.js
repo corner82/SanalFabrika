@@ -211,9 +211,12 @@ $('#tt_tree_menu2').tree({
     onLoadSuccess: function (node, data) {
          loader.loadImager('removeLoadImage');
     },
-    onSelect: function(node) {
-         
-    },
+    formatter: function (node) {
+        var s = node.text;
+        var id = node.id;
+        s += '  ('+node.attributes.name_tr+')';
+        return s;
+    }
 });
       
 
@@ -592,21 +595,20 @@ window.insertACLRol = function () {
               console.error('"pkInsert_sysAclRoles" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
-              console.log(data);
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
                      $('#aclRoleForm')[0].reset();  
-                     
-                     $('#tt_tree_menu2').tree('append', {
+                     $('#tt_tree_menu2').tree('reload');
+                     /*$('#tt_tree_menu2').tree('append', {
                         data: [{
-                                attributes:{ active: 0 },
+                                attributes:{ active: 0, name_tr : name_tr },
                                 id: data.lastInsertId,
                                 text: name,
                                 checked: false,
                                 state : 'open',
                             },]
-                    });
+                    });*/
 
                      loaderInsertBlock.loadImager('removeLoadImage');
                      $('#tt_grid_dynamic').datagrid({
