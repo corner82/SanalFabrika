@@ -561,7 +561,6 @@ window.insertService = function () {
               console.error('"pkInsert_sysAclRestservices" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
-              console.log(data);
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
