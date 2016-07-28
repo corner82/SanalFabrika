@@ -341,7 +341,7 @@ window.updateServiceDialog = function (id, row) {
                                                          <div class="form-group">\n\
                                                          <label class="col-sm-2 control-label">Servis Tipleri</label>\n\
                                                          <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
+                                                             <div class="input-group" id="mach-prod-box-popup">\n\
                                                                  <div class="input-group-addon">\n\
                                                                      <i class="fa fa-hand-o-right"></i>\n\
                                                                  </div>\n\
@@ -352,7 +352,7 @@ window.updateServiceDialog = function (id, row) {
                                                          <div class="form-group">\n\
                                                              <label class="col-sm-2 control-label">Açıklama</label>\n\
                                                              <div  class="col-sm-10">\n\
-                                                                 <div class="input-group" id="mach-prod-box-popup">\n\
+                                                                 <div class="input-group" >\n\
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
                                                                      </div>\n\
