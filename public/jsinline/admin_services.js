@@ -656,7 +656,7 @@ window.activePassiveService = function (id, domElement) {
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Rest Servis Aktif/Pasif İşlemi Başarısız...', 
-                                      'Rest servis aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+                                      'Rest servis aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkUpdateMakeActiveOrPassive_sysAclRestservices" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
@@ -688,7 +688,7 @@ window.activePassiveService = function (id, domElement) {
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Rest Servis Aktif/Pasif İşlemi Başarısız...', 
-                                      'Rest servis aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                                      'Rest servis aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkUpdateMakeActiveOrPassive_sysAclRestservices" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
