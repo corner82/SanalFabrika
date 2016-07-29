@@ -40,7 +40,7 @@
          * @returns {null}
          */
         options: {  
-            overlay: $("<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>"),
+            overlay: "<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>",
             overlayKey: ".overlay:first",
         },
         /**
@@ -48,17 +48,21 @@
          * @returns {null}
          */
         _create: function () {
-            this.element.append(this.options.overlay);
+            var self = this;
+            //self.element.append(self.options.overlay);
         },
         /**
          * public method to remove loading image when necessary
          * @returns {null}
          */
         removeLoadImage: function () {
-            this.element.find(this.options.overlayKey).remove();
+            var self = this;
+            self.element.find(self.options.overlayKey).remove();
         },
         appendImage: function () {
-            this.element.append(this.options.overlay);
+            var self = this;
+            console.log(self.element);
+            self.element.append(self.options.overlay);
         }
     });
 
