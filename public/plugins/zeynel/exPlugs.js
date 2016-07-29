@@ -61,7 +61,6 @@
         },
         appendImage: function () {
             var self = this;
-            console.log(self.element);
             self.element.append(self.options.overlay);
         }
     });
