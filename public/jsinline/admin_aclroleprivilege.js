@@ -83,13 +83,8 @@ $('#tt_tree_menu2').tree({
             onTagRemoved : function(event, data) {
                 var self = $(this);
                 var elementData = data.element;
-                console.log(elementData);
+                //console.log(elementData);
                 var id = data.id;
-                console.log(id);
-                console.log(elementData.attr('data-attribute'));
-                console.log(elementData.attr('data-resource_id'));
-                console.log(elementData.attr('data-privilege_id'));
-                console.log(elementData.attr('data-role_id'));
                 //self.tagCabin()
                 window.deleteRolePrivilege(id, elementData, tagBuilderNot);
 
@@ -108,8 +103,6 @@ $('#tt_tree_menu2').tree({
         tagBuilderNot.tagCabin({
             onTagCopied : function(event, data) {
                 var self = $(this);
-                console.log(data.id);
-                console.log(data);
                 window.assignRolePrivilege(data.id, data.element, tagBuilder);
             }
         });
@@ -303,11 +296,8 @@ window.clearRolePrivilege = function(node, tagBuilder) {
  */
 window.clearRolePrivilegeNotAssigned = function(node, tagBuilderNot) {
     var nodeID = node.id;
-    /*$('#mach-prop-box').loadImager();
-    $('#mach-prop-box').loadImager('appendImage');*/
     tagBuilderNot.tagCabin({
-        onSpecificTagsRemoved : function(event) {
-            //$('#mach-prop-box').loadImager('removeLoadImage');   
+        onSpecificTagsRemoved : function(event) {  
         }
     });
     tagBuilderNot.tagCabin('removeAllTags');
@@ -349,11 +339,9 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
                                           'Rol Yetkileri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
              },
              onSuccess : function (event, data) {
-                 $('#mach-prop-box').loadImager('removeLoadImage'); 
+                 //$('#mach-prop-box').loadImager('removeLoadImage'); 
                  tagBuilder.tagCabin(
                     {tagsFound :function(event, item) { 
-                     //console.log($(item).attr('data-attribute'));
-                     //console.log($(item).attr('data-tree-item'));
                     }  
                  });
                  tagBuilder.tagCabin(
@@ -368,7 +356,7 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
                  });
                  //console.log(data);
                  tagBuilder.tagCabin('addTags', data);
-                 //$('#mach-prop-box').loadImager('removeLoadImage');
+                 $('#mach-prop-box').loadImager('removeLoadImage');
 
              },
              onErrorDataNull : function (event, data) {
