@@ -284,14 +284,33 @@ window.deleteRolePrivilege = function(id, tag, tagBuilder) {
  */
 window.clearRolePrivilege = function(node, tagBuilder) {
     var nodeID = node.id;
-    $('#mach-prop-box').loadImager();
-    $('#mach-prop-box').loadImager('appendImage');
+    /*$('#mach-prop-box').loadImager();
+    $('#mach-prop-box').loadImager('appendImage');*/
     tagBuilder.tagCabin({
         onSpecificTagsRemoved : function(event) {
-            $('#mach-prop-box').loadImager('removeLoadImage');   
+            //$('#mach-prop-box').loadImager('removeLoadImage');   
         }
     });
     tagBuilder.tagCabin('removeAllTags');
+}
+
+/**
+ * clear role privileges not assigned from interface
+ * @param {type} node
+ * @param {type} tagBuilder
+ * @returns {undefined}
+ * @since 28/07/2016
+ */
+window.clearRolePrivilegeNotAssigned = function(node, tagBuilderNot) {
+    var nodeID = node.id;
+    /*$('#mach-prop-box').loadImager();
+    $('#mach-prop-box').loadImager('appendImage');*/
+    tagBuilderNot.tagCabin({
+        onSpecificTagsRemoved : function(event) {
+            //$('#mach-prop-box').loadImager('removeLoadImage');   
+        }
+    });
+    tagBuilderNot.tagCabin('removeAllTags');
 }
     
 /**
@@ -330,7 +349,7 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
                                           'Rol Yetkileri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
              },
              onSuccess : function (event, data) {
-
+                 $('#mach-prop-box').loadImager('removeLoadImage'); 
                  tagBuilder.tagCabin(
                     {tagsFound :function(event, item) { 
                      //console.log($(item).attr('data-attribute'));
@@ -349,7 +368,7 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
                  });
                  //console.log(data);
                  tagBuilder.tagCabin('addTags', data);
-                 $('#mach-prop-box').loadImager('removeLoadImage');
+                 //$('#mach-prop-box').loadImager('removeLoadImage');
 
              },
              onErrorDataNull : function (event, data) {
@@ -410,7 +429,7 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
                                           'Resource Yetkileri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
              },
              onSuccess : function (event, data) {
-
+                 $('#mach-prop-box-not').loadImager('removeLoadImage');
                  tagBuilder.tagCabin(
                     {tagsFound :function(event, item) { 
                      //console.log($(item).attr('data-attribute'));
@@ -420,7 +439,7 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
                  
                  //console.log(data);
                  tagBuilder.tagCabin('addTags', data);
-                 $('#mach-prop-box-not').loadImager('removeLoadImage');
+                 
 
              },
              onErrorDataNull : function (event, data) {
