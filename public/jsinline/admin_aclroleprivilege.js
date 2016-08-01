@@ -169,8 +169,6 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
           },
           onSuccess : function (event, data) {
               var data = data;
-              console.log(data);
-              console.warn(data.lastInsertId);
               var id = data.lastInsertId;
              tagBuilder.tagCabin('addTagManuallyDataAttr', id, 
                                                             tag.text(),
