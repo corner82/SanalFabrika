@@ -172,10 +172,59 @@ window.deleteAssignmentTypeUltimately = function(id, index) {
             });
             sm.successMessage('show', 'Atama Tipi Silme İşleminiz Başarılı...',
                                       'Atama tipi  silme işleminiz başarılı...')
-        },                                   
+        },  
+        onError23503 : function (event, data) {
+            wcm.warningComplexMessage('resetOnShown');
+            wcm.warningComplexMessage({onConfirm : function(event, data) {
+                deleteAssignmentTypeUltimatelyBruteForce(id, index);
+            }
+            });
+            wcm.warningComplexMessage('show', 'Silme İşlemine Devam Etmek İstiyor musunuz?', 
+                                              'Atama Tipine  bağlı veri tanımlandığı için silme işlemi bağlı veriyide etkileyecektir.\n\
+                                  Yinede silme işlemine devam etmek istiyormusunuz? ');
+            loaderGridBlock.loadImager('removeLoadImage');
+        }
     });
     ajDeleteAll.ajaxCall('call');
 }
+
+ /**
+  * Assignment Type is being deleted with related data (brute delete)
+  * @param {type} id
+  * @param {type} index
+  * @returns {undefined}
+  * @author Mustafa Zeynel Dağlı
+  * @since 01/08/2016
+  */
+ window.deleteAssignmentTypeUltimatelyBruteForce = function(id, index) {
+     var ajDeleteAllWithRelatedData = $(window).ajaxCall({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data : {
+                    url:'pkDeleteAct_sysAssignDefinition' ,
+                    id : id,
+                    pk : $("#pk").val()
+                }
+    });
+    ajDeleteAllWithRelatedData.ajaxCall ({
+        onError : function (event, data) {  
+            dm.dangerMessage('resetOnShown');  
+            dm.dangerMessage('show', 'Atama Tipi Silme İşlemi Başarısız...',
+                                     'Atama tipi silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDeleteAct_sysAssignDefinition" servis hatası->'+data.errorInfo);
+        },
+        onSuccess : function (event, data) {
+            sm.successMessage({ 
+                onShown : function() {
+                    //console.warn(index);
+                    $('#tt_grid_dynamic').datagrid('reload');
+                }
+            });
+            sm.successMessage('show', 'Atama Tipi Ve ilgili Data Silme İşleminiz Başarılı...',
+                                      'Atama tipi  silme işleminiz sildiğiniz veri ile ilgili datalarla beraber silinmiştir...')
+        },  
+    });
+    ajDeleteAllWithRelatedData.ajaxCall('call');
+ }
    
  
 /**
