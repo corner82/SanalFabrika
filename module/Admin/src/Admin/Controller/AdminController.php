@@ -510,6 +510,31 @@
          
      }
      
+     /**
+      * admin action for assignment types definitios 
+      * for consultant assignment operations
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 01/08/2016
+      */
+     public function assigndefAction()
+     {
+        $langCode = $this->getServiceLocator()
+                         ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                                    ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                          ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode'            => $langCode,
+            'publicKey'           => $publicKey,
+        ));
+        return $view;
+         
+     }
+     
 
  }
 

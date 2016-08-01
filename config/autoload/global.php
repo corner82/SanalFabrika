@@ -103,6 +103,7 @@ return array(
                           'actionmenus' => 'layout/actionmenus.phtml',
                           'services' => 'layout/services.phtml',
                           'servicegroups' => 'layout/servicegroups.phtml',
+                          'assigndef' => 'layout/assigndef.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -258,7 +259,8 @@ return array(
                                                             'actions',
                                                             'actionmenus',
                                                             'services',
-                                                            'servicegroups'),
+                                                            'servicegroups',
+                                                            'assigndef'),
                                            )
                    ),
         
