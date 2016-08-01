@@ -29,7 +29,7 @@ $('#tt_grid_dynamic').datagrid({
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillPrivilegesList_sysAclPrivilege',
+            url : 'pkFillAssignDefinitionList_sysAssignDefinition',
             sort : 'id',
             order : 'desc',
             /*machine_groups_id : null,
@@ -49,9 +49,8 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'name',title:'Yetki',sortable:true,width:300},
-            {field:'name_eng',title:'Yetki Eng.',sortable:true,width:300},
-            {field:'resource_name',title:'ACL Resource',sortable:true,width:200},
+            {field:'name',title:'Atama Tipi',sortable:true,width:300},
+            {field:'description',title:'Açıklama',sortable:true,width:200},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
@@ -62,9 +61,7 @@ $('#tt_grid_dynamic').datagrid({
                     var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteAssignmentTypeUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
                     var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateAssignmentTypeDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
                                                                                                                                                                        description : \''+row.description+'\',\n\
-                                                                                                                                                                       resource_id : '+row.resource_id+',\n\
-                                                                                                                                                                       resource_name : \''+row.resource_name+'\',\n\
-                                                                                                                                                                       name_eng : \''+row.name_eng+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
+                                                                                                                                                                       } );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
             },
@@ -154,7 +151,7 @@ window.deleteAssignmentTypeUltimately = function(id, index) {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysAclPrivilege' ,
+                    url:'pkDelete_sysAssignDefinition' ,
                     id : id,
                     pk : $("#pk").val()
                 }
@@ -164,7 +161,7 @@ window.deleteAssignmentTypeUltimately = function(id, index) {
             dm.dangerMessage('resetOnShown');  
             dm.dangerMessage('show', 'Atama Tipi  Silme İşlemi Başarısız...',
                                      'Atama tipi  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-            console.error('"pkDelete_sysAclPrivilege" servis hatası->'+data.errorInfo);
+            console.error('"pkDelete_sysAssignDefinition" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
             sm.successMessage({ 
@@ -298,7 +295,7 @@ window.updateAssignmnenType = function (id) {
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysAclPrivilege' ,
+                         url:'pkUpdate_sysAssignDefinition' ,
                          id : id,
                          name : $('#name_popup').val(),
                          description : $('#description_popup').val(),
@@ -310,7 +307,7 @@ window.updateAssignmnenType = function (id) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Atama Tipi Güncelleme İşlemi Başarısız...', 
                                       'Atama tipi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis hatası->'+textStatus);
+             console.error('"pkUpdate_sysAssignDefinition" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -328,7 +325,7 @@ window.updateAssignmnenType = function (id) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Atama Tipi Güncelleme İşlemi Başarısız...', 
                                       'Atama tipi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis datası boştur!!');
+             console.error('"pkUpdate_sysAssignDefinition" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
@@ -359,7 +356,7 @@ window.insertAssignmentType = function () {
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
-                         url:'pkInsert_sysAclPrivilege' ,
+                         url:'pkInsert_sysAssignDefinition' ,
                          name : name,
                          description : description,
                          pk : $("#pk").val()
@@ -370,7 +367,7 @@ window.insertAssignmentType = function () {
               dm.dangerMessage('resetOnShown');
               dm.dangerMessage('show', 'Atama Tipi  Ekleme İşlemi Başarısız...', 
                                        'Atama tipi ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysAclPrivilege" servis hatası->'+textStatus);
+              console.error('"pkInsert_sysAssignDefinition" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
               console.log(data);
@@ -384,7 +381,7 @@ window.insertAssignmentType = function () {
                          queryParams: {
                                  pk: $('#pk').val(),
                                  subject: 'datagrid',
-                                 url : 'pkFillPrivilegesList_sysAclPrivilege',
+                                 url : 'pkFillAssignDefinitionList_sysAssignDefinition',
                                  sort : 'id',
                                  order : 'desc',
                          },
@@ -402,13 +399,13 @@ window.insertAssignmentType = function () {
               dm.dangerMessage('resetOnShown');
               dm.dangerMessage('show', 'Atama Tipi Kayıt İşlemi Başarısız...', 
                                        'Atama tipi  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysAclPrivilege" servis datası boştur!!');
+              console.error('"pkInsert_sysAssignDefinition" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Atama Tipi  Kayıt İşlemi Başarısız...', 
                                      'Atama tipi  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysAclRoles" servis hatası->'+data.errorInfo);
+             console.error('"pkInsert_sysAssignDefinition" servis hatası->'+data.errorInfo);
           },
           onError23503 : function (event, data) {
           },
@@ -461,7 +458,7 @@ window.activePassiveAssignmentType = function (id, domElement) {
     var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdateMakeActiveOrPassive_sysAclPrivilege' ,
+                         url:'pkUpdateMakeActiveOrPassive_sysAssignDefinition' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -471,7 +468,7 @@ window.activePassiveAssignmentType = function (id, domElement) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Atama Tipi Aktif/Pasif İşlemi Başarısız...', 
                                       'Atama tipi aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis hatası->'+textStatus);
+             console.error('"pkUpdateMakeActiveOrPassive_sysAssignDefinition" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -503,7 +500,7 @@ window.activePassiveAssignmentType = function (id, domElement) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Atama Tipi Aktif/Pasif İşlemi Başarısız...', 
                                       'Atama tipi aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis datası boştur!!');
+             console.error('"pkUpdateMakeActiveOrPassive_sysAssignDefinition" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
