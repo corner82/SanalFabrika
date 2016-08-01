@@ -28,11 +28,6 @@ lang.init({
 });
 lang.change($('#ln').val());
     
-/**
- * !! Important , do not delete
- * @type node
- */
-var selectedNode;
     
 /**
  * loader image for resource and rol tree loading process
