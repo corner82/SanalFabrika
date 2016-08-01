@@ -167,13 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Atama Tipleri Tanımlama İşlemleri
+                    ACL Role / Yetki Atama İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li><a href="#"><i class="fa fa-certificate"></i> Danışman Atama İşl.</a></li>
-                    <li class="active">Atama Tanımlamaları</li>
+                    <li><a href="#"><i class="fa fa-certificate"></i> Rol ve Yetki işl.</a></li>
+                    <li class="active">Rol ve Yetki Atama</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -182,13 +182,15 @@
                 <!--first collapsible panel row -->
                 <div class="row">
                     
-                    <!--Makina giriş bölümü -->
+                    
+                    
+                    <!--first collapsible panel width, single column-->
                     <div class="col-lg-12">
                         <!--arrange first panel color to blue by assigning primary class-->
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Atama Tipi Tanımlama  İşlemleri </h3>
+                                <h3 class="box-title"> ACL Role ve Yetki İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -197,74 +199,102 @@
                             </div><!--/. panel 1 header div-->
                             <!--Panel 1 contents-->
                             <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
-                                <div class="alert alert-info alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Sistemde atama tipleri işlemleri için kullanılacak  veri eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
-                                </div>  
-                                <!--Makina ekleme formu -->
-                                <form id='assignmentTypeForm' method="get" class="form-horizontal">     
-                                    <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                       
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Atama Tipi</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="name" id="name" />
-                                                </div>
-                                            </div>
+                                
+                                
+                            <div class="alert alert-info alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm rol ve yetkilerin ataması yapılabilir!</h4>
+                                Öncelikle ACL resource (kaynak) ağaç yapısından kaynak seçip rol ağacını doldurmalısınız, rol ağacından rol seçerek adımlara devam ediniz.
+                            </div>    
+                                
+                                
+            <!-- Custom Tabs -->
+              <div class="nav-tabs-custom" >
+                <ul id="mach_prop_tab_container" class="nav nav-tabs">
+                  <li class="active" ><a href="#tab_mach_prop" id="tab_mach_prop_clicker" name="tab_mach_prop_clicker" data-toggle="tab">İşlem yapmak için ACL resource (kaynak) ve rol seçmelilsiniz</a></li>
+                  <!--<li><a href="#tab_mach_prop_update" id="tab_mach_prop_update_clicker" name="tab_mach_prop_update_clicker" data-toggle="tab" >Makina Özelliği Güncelle</a></li>
+                  <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>-->
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_mach_prop">  
+                    
+                     <form id='unitForm' method="get" class="form-horizontal">     
+                    
+                    <div id="rolePrivilegeBlock" class="box box-primary" style="padding-top: 20px;">                                     
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ACL Resource (Kaynak)</label>
+                            <div class="col-sm-10 " >
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-code-fork"></i>
+                                    </div>
+                                    <div class="inner test-tree" style='overflow:auto;'>    
+                                        <div id="loading-image-resource" class='scrollbar-inner'>
+                                        <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
                                         </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Açıklama</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description" id="description" placeholder="Açıklama ..."></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertAssignmentTypeWrapper(event);"><i class="fa fa-save"></i>  Atama Tipi Kaydet </button>
-                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetAssignmentTypesForm();" ><i class="fa fa-remove"></i> Reset </button>
-                                            </div>
-                                        </div>
-                                    </div> 
-                                </form>  
+                                    </div>                                                       
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="form-group box" style="border-top : 0px; box-shadow: none;">
+                            <label class="col-sm-2 control-label">Atanmış Yetkiler</label>
+                            <div class="col-sm-10">
+                                <div class="input-group" id="mach-prop-box">    
+                                    <div class="input-group-addon" >
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <div style="margin-bottom: -10px;" class="tag-container">
+                                        <ul id="test-cabin" class="tag-box"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="form-group box" style="border-top : 0px; box-shadow: none;">
+                            <label class="col-sm-2 control-label">Atanmamış Yetkiler</label>
+                            <div class="col-sm-10">
+                                <div class="input-group" id="mach-prop-box-not">    
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-hand-o-right"></i>
+                                    </div>
+                                    <div style="margin-bottom: -10px;" class="tag-container-not">
+                                        <ul id="test-cabin-not" class="tag-box"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                    </div> 
+                </form>  
+    
+                  </div><!-- /.tab-pane -->
+                  <!--<div class="tab-pane box" id="tab_mach_prop_update" >
+ 
+                   
+                    The European languages are members of the same family. Their separate existence is a myth.
+                    For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                    in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                    new common language would be desirable: one could refuse to pay expensive translators. To
+                    achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                    words. If several languages coalesce, the grammar of the resulting language is more simple
+                    and regular than that of the individual languages.   
+                   
+                  </div>--><!-- /.tab-pane -->
+                  
+                </div><!-- /.tab-content -->
+              </div><!-- nav-tabs-custom -->
+                                
+                                
+                                
+                                
                             </div><!-- /.box-body -->
                         </div><!--/. primary box div-->
                     </div><!--/. first panel single column div -->
-                    
-                    <!--Makina listeleme bölümü -->
-                    <div class="col-lg-12">
-                        <div id="loading-image-grid-container" class="box box-warning"> 
-                            <!--First panel Header-->
-                            <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Atama Tip Listesi</h3>
-                                
-                                <!--Panel 1 collapse button-->
-                                <div class="box-tools pull-right">
-                                    <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                                </div><!--/. button div-->
-                            </div><!--/. panel 1 header div-->
-                            <!--Panel 1 contents-->
-                            <div class="box-body">    
-                                <div class="alert alert-warning alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Atama Tipleri Listesi </h4>
-                                    Atama tiplerini  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirsiniz...
-                                </div>
-                                <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
-                                    <table  id="tt_grid_dynamic" title="Atama Tipleri  " ></table>   
-                                </div> 
-                                
-                            </div><!-- /.box-body -->
-                        </div><!--/. primary box div--> 
-                    </div>  
                 </div><!-- / first panel row-->
+
+                
+
             </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
         <footer class="main-footer">
@@ -441,5 +471,5 @@
              immediately after the control sidebar -->
         <div class='control-sidebar-bg'></div>
     </div><!-- ./wrapper -->
-    
+
 </body>
