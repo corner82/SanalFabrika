@@ -36,6 +36,7 @@ lang.change($('#ln').val());
  * @since 15/07/2016
  */
 var loader_resource = $("#loading-image-resource").loadImager();
+loader_resource.loadImager('appendImage');
 
 var sm  = $(window).successMessage();
 var dm  = $(window).dangerMessage();
