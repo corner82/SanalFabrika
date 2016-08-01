@@ -167,13 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    ACL Role / Yetki Atama İşlemleri
+                    Atama Tipi / Rol  Atama İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li><a href="#"><i class="fa fa-certificate"></i> Rol ve Yetki işl.</a></li>
-                    <li class="active">Rol ve Yetki Atama</li>
+                    <li><a href="#"><i class="fa fa-certificate"></i> Danışman Atama işl.</a></li>
+                    <li class="active">Atama / Rol İşl.</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -190,7 +190,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> ACL Role ve Yetki İşlemleri </h3>
+                                <h3 class="box-title"> Atama Tipi ve Rol İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -203,15 +203,15 @@
                                 
                             <div class="alert alert-info alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm rol ve yetkilerin ataması yapılabilir!</h4>
-                                Öncelikle ACL resource (kaynak) ağaç yapısından kaynak seçip rol ağacını doldurmalısınız, rol ağacından rol seçerek adımlara devam ediniz.
+                                <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm atama tipleri ve rollerin bağlantısı yapılabilir!</h4>
+                                Öncelikle rol ağaç yapısından, rol'e bağlı olan ve olmayan atama tiplerini doldurmalısınız.
                             </div>    
                                 
                                 
             <!-- Custom Tabs -->
               <div class="nav-tabs-custom" >
                 <ul id="mach_prop_tab_container" class="nav nav-tabs">
-                  <li class="active" ><a href="#tab_mach_prop" id="tab_mach_prop_clicker" name="tab_mach_prop_clicker" data-toggle="tab">İşlem yapmak için ACL resource (kaynak) ve rol seçmelilsiniz</a></li>
+                  <li class="active" ><a href="#tab_mach_prop" id="tab_mach_prop_clicker" name="tab_mach_prop_clicker" data-toggle="tab">İşlem yapmak için  rol seçmelisiniz</a></li>
                   <!--<li><a href="#tab_mach_prop_update" id="tab_mach_prop_update_clicker" name="tab_mach_prop_update_clicker" data-toggle="tab" >Makina Özelliği Güncelle</a></li>
                   <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>-->
                 </ul>
@@ -220,9 +220,9 @@
                     
                      <form id='unitForm' method="get" class="form-horizontal">     
                     
-                    <div id="rolePrivilegeBlock" class="box box-primary" style="padding-top: 20px;">                                     
+                    <div id="assignTypeRoleBlock" class="box box-primary" style="padding-top: 20px;">                                     
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">ACL Resource (Kaynak)</label>
+                            <label class="col-sm-2 control-label">Rol</label>
                             <div class="col-sm-10 " >
                                 <div class="input-group">
                                     <div class="input-group-addon">
@@ -237,7 +237,7 @@
                             </div>
                         </div>
                         <div  class="form-group box" style="border-top : 0px; box-shadow: none;">
-                            <label class="col-sm-2 control-label">Atanmış Yetkiler</label>
+                            <label class="col-sm-2 control-label">Atama Tipleri (Seçili Rol İle İlişkilendirilmiş)</label>
                             <div class="col-sm-10">
                                 <div class="input-group" id="mach-prop-box">    
                                     <div class="input-group-addon" >
@@ -250,7 +250,7 @@
                             </div>
                         </div>
                         <div  class="form-group box" style="border-top : 0px; box-shadow: none;">
-                            <label class="col-sm-2 control-label">Atanmamış Yetkiler</label>
+                            <label class="col-sm-2 control-label">Atama Tipleri (Seçili Rol İle İlişkilendirilmemiş)</label>
                             <div class="col-sm-10">
                                 <div class="input-group" id="mach-prop-box-not">    
                                     <div class="input-group-addon">
