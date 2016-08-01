@@ -134,7 +134,8 @@ onAfterEdit: function (node) {
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
                     onItemClicked : function(target) {
-                        console.log(target.value);
+                        //console.log(target.value);
+                        loader.loadImager('removeLoadImage');
                         $("#loading-image").loadImager();
                         $("#loading-image").loadImager('appendImage');
                         if(target.value>0){
@@ -196,7 +197,8 @@ onAfterEdit: function (node) {
                     //selectText: "Select your preferred social network",
                     imagePosition:"right",
                     onItemClicked : function(target) {
-                        console.log(target.value);
+                        //console.log(target.value);
+                        loader.loadImager('removeLoadImage');
                         $("#loading-image").loadImager();
                         $("#loading-image").loadImager('appendImage');
                         if(target.value>0){
@@ -252,6 +254,7 @@ onAfterEdit: function (node) {
      * imager will be removed on roles tree onLoadSuccess method.
      */
     var loader = $("#loading-image").loadImager();
+    loader.loadImager('appendImage');
 
     //$('#menuForm').submit(newRoleSubmission);
     
