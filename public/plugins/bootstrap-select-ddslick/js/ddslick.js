@@ -78,8 +78,15 @@
         if (typeof l.onSelected == "function") {
             l.onSelected.call(this, c)
         }
+    }
+    
+    function getSelectedValues (b) {
+        //console.log('tag cabin id-->'+b.id);
+        if(typeof $('#'+b.id+'').tagCabin() === 'object') {
+            var values = $('#'+b.id+'').tagCabin('getAllTagsValues', 'data-attribute');
+        }
         
-        
+        return values;
     }
 
     function h(b) {
@@ -173,6 +180,37 @@
              * @since 21/07/2016
              */
             onItemClicked : function() {},
+            /**
+             * multiselect property
+             * @author Mustafa Zeynel Dağlı
+             * @since 02/08/2016
+             */
+            multiSelect : false,
+            /**
+             * multi select tags class name
+             * @author Mustafa Zeynel Dağlı
+             * @since 02/08/2016
+             */
+            multiSelectTagID : 'test-cabin',
+            /**
+             * multi select html template
+             * @author Mustafa Zeynel Dağlı
+             * @since 02/08/2016
+             */
+            multiSelectTemplate : '<div  class="form-group" style="margin-bottom:0px;margin-left:-4px;margin-top:10px;" >\n\
+                                <div class="col-sm-10">\n\
+                                    <div class="input-group">\n\
+                                        <div class="input-group-addon">\n\
+                                            <i class="fa   fa-check"></i>\n\
+                                        </div>\n\
+                                        <!--<div style="margin-bottom: -10px;" class="tag-container multi-select"></div>-->\n\
+                                        <div style="margin-bottom: -10px;" class="tag-container">\n\
+                                            <ul id="{multiSelectTagID}" class="tag-box"></ul>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>\n\
+                            </div>',
+            
         };
         
         /*d = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"> </span></div>',
@@ -211,22 +249,50 @@
                 c.replaceWith(l);
                 c = l;
                 
+                var searchTemplate = '';
                 //console.error(b);
                 /**
-                * set search eşements due to options
+                * set search elements due to options
                 * @author Zeynel Dağlı
                 * @since 18/05/2016
                 */
                 if(b.search) {
-                    var template = b.searchTemplate;
-                    b.searchTemplate = template.replace("{searchTextClass}", b.searchTextClass);
+                    searchTemplate = b.searchTemplate;
+                    searchTemplate = searchTemplate.replace("{searchTextClass}", b.searchTextClass);
+                }
+                
+                var multiSelectTemplate = '';
+                /**
+                * set multi select elements due to options
+                * @author Zeynel Dağlı
+                * @since 02/08/2016
+                */
+                if(b.multiSelect) {
+                    var multiSelectTemplate = b.multiSelectTemplate;
+                    multiSelectTemplate = multiSelectTemplate.replace("{multiSelectTagID}", b.multiSelectTagID);
                     
-                    d = '<div class="dd-select">\n\
-                    '+b.searchTemplate+'\n\
+                }
+                
+                /**
+                 * multiselect and search elements added
+                 */
+                d = '<div class="dd-select">\n\
+                    '+searchTemplate+'\n\
+                    '+multiSelectTemplate+'\n\
                     <input class="dd-selected-value" type="hidden" />\n\
                     <a class="dd-selected"></a>\n\
                     <span class="dd-pointer dd-pointer-down"> </span>\n\
                 </div>';
+                
+                if(b.multiSelect) {
+                    var tagBuilder = $('#'+b.multiSelectTagID+'').tagCabin({
+                                    tagCopy         : false,
+                                    tagDeletable    : true,
+                                    tagDeletableAll : false, 
+                                    tagBox          : $('.tag-container').find('ul'),
+                                    dataMapper      : {attributes : Array('role_id', 'resource_id', 'privilege_id')}
+
+                    });
                 }
                 
                 c.addClass("dd-container").append(d).append(e);
@@ -360,9 +426,47 @@
                 });*/
                 
                 
-                        
+                /**
+                 * list item <li> click event handler
+                 */        
                 c.find(".dd-option").on("click.ddslick", function() {
-                    clickedIndex = a(this).closest("li").index()
+                    clickedIndex = a(this).closest("li").index();
+                    //console.log($(this).parent().parent().closest('.form-group').find('.multi-search').val());
+                    
+                    /**
+                     * if object is multiselect then tagcabin class activated
+                     * @author Mustafa Zeynel Dağlı
+                     * @since 02/08/2016
+                     */
+                    if(b.multiSelect) {
+                        var clickedItem = b.data[clickedIndex];
+                        
+                        var tagBuilder = $('#'+b.multiSelectTagID+'').tagCabin({
+                                    tagCopy         : false,
+                                    tagDeletable    : true,
+                                    tagDeletableAll : false, 
+                                    tagBox          : $('.tag-container').find('ul'),
+                                    dataMapper      : {attributes : Array('role_id', 'resource_id', 'privilege_id')}
+
+                    });
+                        
+                        $('#'+b.multiSelectTagID+'').tagCabin({ 
+                            onTagRemoved : function(event, data) {
+                                var elementData = data.element;
+                                tagBuilder.tagCabin('removeTag', elementData);
+                            }
+                         });
+
+                        if($('#'+b.multiSelectTagID+'').tagCabin('findSpecificTags', clickedItem.value, 'data-attribute')) {
+                            $('#'+b.multiSelectTagID+'').tagCabin('addTagManuallyDataAttr', 
+                                                            clickedItem.value, 
+                                                            clickedItem.text
+                                                            /*{services_group_id : 1,
+                                                             rrp_id : 2,
+                                                             restservices_id : 3,
+                                                             description : ''}*/);
+                        }
+                    }
                     
                     /**
                      * Selected item click callback function
@@ -392,6 +496,18 @@
             if (b.index) g(a(this), b.index)
         })
     };
+    
+    /**
+     * wrapper for multiselected tgs values for 'getSelectedValues' function
+     * @param {type} b
+     * @returns {ddslick_L1.b@call;each}
+     * @author Mustafa Zeynel Dağlı
+     * @since 02/08/2016
+     */
+    b.selectedValues = function(b) {
+        return getSelectedValues(b);
+        
+    }
     /**
      * for select by value functionality added code
      * @param {type} b
@@ -401,8 +517,6 @@
      */
     b.selectByValue = function(b) {
         return this.each(function() {
-            //console.warn(b);
-            //console.warn(a(this));
             selectItemByValue(a(this), b.index);
         })
     };
