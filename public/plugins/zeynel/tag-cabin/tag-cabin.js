@@ -148,6 +148,26 @@
         },
         
         /**
+         * get  tags specific  atrribute values
+         * @param {type} value
+         * @param {type} tagAttribute
+         * @returns {tag-cabin_L3.tag-cabinAnonym$0.getAllTagsValues.tagValues}
+         * @author Mustafa Zeynel Dağlı
+         * @since 02/08/2016
+         */
+        getAllTagsValues : function( tagAttribute) {
+            var self = this;
+            var listItems = $(self.options.tagBox).find('li'); 
+            var controlor = true;
+            var tagValues = [];
+            $.each(listItems, function(key, item) {
+                tagValues.push($(item).attr(tagAttribute));
+                
+            })
+            return tagValues;
+        },
+        
+        /**
          * public function to add tag individually 
          * @param {type} id
          * @param {type} tag
