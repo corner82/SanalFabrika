@@ -130,6 +130,8 @@ ajaxACLResources.ajaxCallWidget ({
             //showSelectedHTML : false,
             defaultSelectedIndex: 3,
             search : true,
+            multiSelect : true,
+            //multiSelectTagID : 'deneme',
             //imagePosition:"right",
             onSelected: function(selectedData){
                 if(selectedData.selectedData.value>0) {
@@ -302,15 +304,27 @@ window.deleteACLRoleUltimately = function(id, index) {
 window.insertACLRolesWrapper = function (e) {
  e.preventDefault();
  var ddData = $('#dropdownACLResources').data('ddslick');
+ console.log(ddData['settings']['multiSelectTagID']);
+ console.log(ddData.settings.multiSelectTagID);
+ var multiSelectedValues = $('#dropdownACLResources').ddslick('selectedValues',
+                                                                {id: ''+ddData.settings.multiSelectTagID+'' 
+                                                                });
+ console.log(multiSelectedValues);
  
  if ($("#aclRoleForm").validationEngine('validate')) {
      
-     if(!ddData.selectedData.value > 0) {
+     if(multiSelectedValues.length == 0) {
          wm.warningMessage('resetOnShown');
          wm.warningMessage('show', 'ACL Resource (Kaynak) Seçiniz', 'Lütfen ACL resource (kaynak) seçiniz!');
          return false;
      }
-     insertACLRol();
+     
+     /*if(!ddData.selectedData.value > 0) {
+         wm.warningMessage('resetOnShown');
+         wm.warningMessage('show', 'ACL Resource (Kaynak) Seçiniz', 'Lütfen ACL resource (kaynak) seçiniz!');
+         return false;
+     }*/
+     //insertACLRol();
  }
  return false;
 }
