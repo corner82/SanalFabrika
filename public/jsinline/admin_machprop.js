@@ -745,6 +745,44 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
      type: BootstrapDialog.TYPE_PRIMARY,
      onshown : function () {
         $("#machPropFormInsertPopup").validationEngine();
+        
+        /**
+         * makinada bulunan özellik tagları
+         */
+        window.tagBuilderPopup = $('#test-cabin-popup').tagCabin({
+                        tagCopy      : false,
+                        tagDeletable : true,  
+                        tagBox       : $('.tag-container-popup').find('ul'),
+                        dataMapper   : {attributes : Array('machine_grup_id')} 
+        });
+        tagBuilderPopup.tagCabin({ 
+            onTagRemoved : function(event, data) {
+                var elementData = data.element;
+                var id = data.id;
+                window.deleteMachPropDialog(id, nodeID, elementData);
+
+            }
+         });
+         
+         /**
+          * makinaya atanmamış özellik tagları
+          */
+         window.tagBuilderPopupNot = $('#test-cabin-popup-not').tagCabin({
+                        tagCopy      : true,
+                        tagDeletable : false,  
+                        tagBox       : $('.tag-container-popup-not').find('ul'),
+                        dataMapper   : {attributes : Array('machine_grup_id')} 
+        });
+        tagBuilderPopupNot.tagCabin({ 
+            onTagCopied : function(event, data) {
+                var elementData = data.element;
+                var id = data.id;
+                var tagText = elementData.text();
+                window.addMachProp(id, nodeID, elementData);
+                //window.deleteMachPropDialog(id, elementData);
+
+            }
+         });
 
         var ajPopUpMachProp = $('#test-cabin-popup').ajaxCallWidget({
                          proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -768,20 +806,7 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
               },
               onSuccess : function (event, data) {  
                  //alert('on success');
-                 window.tagBuilderPopup = $('#test-cabin-popup').tagCabin({
-                        tagCopy      : false,
-                        tagDeletable : true,  
-                        tagBox       : $('.tag-container-popup').find('ul'),
-                        dataMapper   : {attributes : Array('machine_grup_id')} 
-                });
-                tagBuilderPopup.tagCabin({ 
-                    onTagRemoved : function(event, data) {
-                        var elementData = data.element;
-                        var id = data.id;
-                        window.deleteMachPropDialog(id, nodeID, elementData);
-
-                    }
-                 });
+                 
                 tagBuilderPopup.tagCabin('addTags', data);
               },
         }) 
@@ -810,23 +835,7 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
               },
               onSuccess : function (event, data) {  
                  //alert('on success');
-                 window.tagBuilderPopupNot = $('#test-cabin-popup-not').tagCabin({
-                        tagCopy      : true,
-                        tagDeletable : false,  
-                        tagBox       : $('.tag-container-popup-not').find('ul'),
-                        dataMapper   : {attributes : Array('machine_grup_id')} 
-                });
-                tagBuilderPopupNot.tagCabin({ 
-                    onTagCopied : function(event, data) {
-                        var elementData = data.element;
-                        var id = data.id;
-                        console.warn(elementData.text());
-                        var tagText = elementData.text();
-                        window.addMachProp(id, nodeID, elementData);
-                        //window.deleteMachPropDialog(id, elementData);
-
-                    }
-                 });
+                 
                 tagBuilderPopupNot.tagCabin('addTags', data);
               },
         }) 
@@ -908,12 +917,11 @@ window.addMachProp = function (property_id, machine_grup_id, tag) {
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
-                     window.tagBuilderPopup.tagCabin('addTagManually', property_id, 
-                                                                     tag.text(),
-                                                                     {machine_grup_id : machine_grup_id});
-                     window.tagBuilderPopupNot.tagCabin('removeTag', tag);                                                
-                     loader.loadImager('removeLoadImage');
-
+                    window.tagBuilderPopup.tagCabin('addTagManually', property_id, 
+                                                                tag.text(),
+                                                                {machine_grup_id : machine_grup_id});
+                   window.tagBuilderPopupNot.tagCabin('removeTag', tag);                                                
+                   loader.loadImager('removeLoadImage');
                  }
              });
              sm.successMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarılı...', 
