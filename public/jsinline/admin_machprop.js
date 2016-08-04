@@ -405,9 +405,7 @@ window.getMachineProp = function(node, treeObj, tagBuilder) {
                     {onTagRemovedUltimately :function(event, data) {
                         var element = data.element;
                         var id = data.id;
-                        console.log(id);
                         var machine_group_id = element.attr('data-machine_grup_id');
-                        console.log(machine_group_id);
 
                         window.deleteMachPropUltimatelyDialog(id, element, machine_group_id);
                         return false;
@@ -779,7 +777,6 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
                 var id = data.id;
                 var tagText = elementData.text();
                 window.addMachProp(id, nodeID, elementData);
-                //window.deleteMachPropDialog(id, elementData);
 
             }
          });
@@ -805,8 +802,6 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
                                            'Kategoriye ait makina özellikleri yüklenememiştir,msistem yöneticisi ile temasa geçiniz...');
               },
               onSuccess : function (event, data) {  
-                 //alert('on success');
-                 
                 tagBuilderPopup.tagCabin('addTags', data);
               },
         }) 
@@ -834,8 +829,6 @@ window.insertMachPropDialog = function (nodeID, nodeName) {
                                            'Kategoriye ait makina özellikleri yüklenememiştir,msistem yöneticisi ile temasa geçiniz...');
               },
               onSuccess : function (event, data) {  
-                 //alert('on success');
-                 
                 tagBuilderPopupNot.tagCabin('addTags', data);
               },
         }) 
@@ -977,14 +970,12 @@ window.insertMachProp = function (nodeID, nodeName) {
      var unitGrupIDArray = [];
      unitGrupIDArray.push(selectedTreeItem.id);
      var objUnitGroupID = $.extend({}, unitGrupIDArray);
-     //console.log(objTest);
      var jsonUnitGroupID = JSON.stringify(objUnitGroupID);
 
      machineGroupID = nodeID;
      var machineGroupIDArray = [];
      machineGroupIDArray.push(machineGroupID);
      var objmachineGroupID = $.extend({}, machineGroupIDArray);
-     //console.log(objTest);
      var jsonMachineGroupID = JSON.stringify(objmachineGroupID);
 
      var aj = $(window).ajaxCall({
@@ -1007,8 +998,7 @@ window.insertMachProp = function (nodeID, nodeName) {
               console.error('"pkInsert_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
-              console.log(data);
-              var data = data;
+             var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
                      console.log(data);
