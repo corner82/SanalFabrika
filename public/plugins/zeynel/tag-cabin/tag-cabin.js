@@ -161,7 +161,7 @@
             var controlor = true;
             var tagValues = [];
             $.each(listItems, function(key, item) {
-                tagValues.push($(item).attr(tagAttribute));
+                tagValues.push(parseInt($(item).attr(tagAttribute)));
                 
             })
             return tagValues;
@@ -220,7 +220,6 @@
             
             if(typeof infoArray!= "undefined") {
                 $.each(infoArray, function(key, item) {
-                    //console.error(key+'--'+item);
                     tagCustom += ' data-'+key+'="'+item+'" ';  
                 })
             }

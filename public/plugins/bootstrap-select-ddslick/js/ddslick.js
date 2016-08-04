@@ -29,6 +29,62 @@
     }
     
     /**
+     * get selected items for multiselect dropbox , triggered by function 'selectedValues'
+     * @param {type} b
+     * @returns {unresolved}
+     * @author Mustafa Zeynel Dağlı
+     * @since 04/08/2016
+     */
+    function getSelectedValues (b) {
+        //console.log('tag cabin id-->'+b.id);
+        if(typeof $('#'+b.id+'').tagCabin() === 'object') {
+            var values = $('#'+b.id+'').tagCabin('getAllTagsValues', 'data-attribute');
+        }
+        
+        return values;
+    }
+    
+    /**
+     * add already selected item tags for multi select dropdowm function, triggered by 'selectByMultiValues' function
+     * @param {type} a
+     * @param {type} b
+     * @param {type} tags
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     * @since 04/08/2016
+     */
+    function selectItemsByMultiValues (a, b, tags, selectedItems) {
+        /*console.log(tags);
+        console.log(b);*/
+        //console.log(selectedItems);
+        $('#'+b.id+'').tagCabin({
+                                    tagCopy         : false,
+                                    tagDeletable    : true,
+                                    tagDeletableAll : false, 
+                                    tagBox          : $('.'+b.tagBox+'').find('ul'),
+                                    //dataMapper      : {attributes : Array('role_id', 'resource_id', 'privilege_id')}
+                                    
+                    });
+        $('#'+b.id+'').tagCabin({ 
+                            onTagRemoved : function(event, data) {
+                                var elementData = data.element;
+                                $('#'+b.id+'').tagCabin('removeTag', elementData);
+                            }
+                         });
+        $.each(tags , function(key, value) {
+            /*console.log(key);
+            console.log(value);*/
+            if($.inArray(value.value, selectedItems) >= 0 ) {
+                $('#'+b.id+'').tagCabin('addTagManuallyDataAttr', 
+                                                            value.value, 
+                                                            value.text
+                                                            );
+            }
+        })
+        
+    }
+    
+    /**
      * select by value function triggered by 'selectByValue' event described
      * @param {type} a
      * @param {type} b
@@ -80,15 +136,6 @@
         }
     }
     
-    function getSelectedValues (b) {
-        //console.log('tag cabin id-->'+b.id);
-        if(typeof $('#'+b.id+'').tagCabin() === 'object') {
-            var values = $('#'+b.id+'').tagCabin('getAllTagsValues', 'data-attribute');
-        }
-        
-        return values;
-    }
-
     function h(b) {
         var c = b.find(".dd-select"),
             d = c.siblings(".dd-options"),
@@ -180,6 +227,9 @@
              * @since 21/07/2016
              */
             onItemClicked : function() {},
+            tagBuilder : null,
+            
+            tagBox     : null,
             /**
              * multiselect property
              * @author Mustafa Zeynel Dağlı
@@ -204,7 +254,7 @@
                                             <i class="fa   fa-check"></i>\n\
                                         </div>\n\
                                         <!--<div style="margin-bottom: -10px;" class="tag-container multi-select"></div>-->\n\
-                                        <div style="margin-bottom: -10px;" class="tag-container">\n\
+                                        <div style="margin-bottom: -10px;" class="{tagBox}">\n\
                                             <ul id="{multiSelectTagID}" class="tag-box"></ul>\n\
                                         </div>\n\
                                     </div>\n\
@@ -270,6 +320,7 @@
                 if(b.multiSelect) {
                     var multiSelectTemplate = b.multiSelectTemplate;
                     multiSelectTemplate = multiSelectTemplate.replace("{multiSelectTagID}", b.multiSelectTagID);
+                    multiSelectTemplate = multiSelectTemplate.replace("{tagBox}", b.tagBox);
                     
                 }
                 
@@ -283,17 +334,6 @@
                     <a class="dd-selected"></a>\n\
                     <span class="dd-pointer dd-pointer-down"> </span>\n\
                 </div>';
-                
-                if(b.multiSelect) {
-                    var tagBuilder = $('#'+b.multiSelectTagID+'').tagCabin({
-                                    tagCopy         : false,
-                                    tagDeletable    : true,
-                                    tagDeletableAll : false, 
-                                    tagBox          : $('.tag-container').find('ul'),
-                                    dataMapper      : {attributes : Array('role_id', 'resource_id', 'privilege_id')}
-
-                    });
-                }
                 
                 c.addClass("dd-container").append(d).append(e);
                 var i = c.find(".dd-select"),
@@ -396,21 +436,7 @@
                  * @since 18/05/2016
                  */
                 c.find(".dd-select ."+b.searchTextClass+"").focus(function() {
-                    //console.error(b);
-                    //c.open();
-                    //a.open();
-                    //b.open();
-                    /*var searchText = $(this).val();
-                    if(searchText == '') {
-                        c.find(".dd-options>li").show();
-                    }
-
-                    h(c);*/
-                    /*return this.each(function() {
-                        var b = a(this),
-                            c = b.data("ddslick");
-                        if (c) h(b)
-                    })*/
+                    
 
                 });
                 
@@ -421,9 +447,9 @@
                  * @author Zeynel Dağlı
                  * @since 18/05/2016
                  */
-                /*c.find(".dd-select").on("focus.ddslick", function() {
-                    c.find(".dd-options>li").show();
-                });*/
+                c.find(".dd-select").on("focus.ddslick", function() {
+                    //c.find(".dd-options>li").show();
+                });
                 
                 
                 /**
@@ -445,8 +471,8 @@
                                     tagCopy         : false,
                                     tagDeletable    : true,
                                     tagDeletableAll : false, 
-                                    tagBox          : $('.tag-container').find('ul'),
-                                    dataMapper      : {attributes : Array('role_id', 'resource_id', 'privilege_id')}
+                                    tagBox          : $('.'+b.tagBox+'').find('ul'),
+                                    //dataMapper      : {attributes : Array('role_id', 'resource_id', 'privilege_id')}
 
                     });
                         
@@ -461,10 +487,7 @@
                             $('#'+b.multiSelectTagID+'').tagCabin('addTagManuallyDataAttr', 
                                                             clickedItem.value, 
                                                             clickedItem.text
-                                                            /*{services_group_id : 1,
-                                                             rrp_id : 2,
-                                                             restservices_id : 3,
-                                                             description : ''}*/);
+                                                            );
                         }
                     }
                     
@@ -498,7 +521,7 @@
     };
     
     /**
-     * wrapper for multiselected tgs values for 'getSelectedValues' function
+     * wrapper for multiselected tags values for 'getSelectedValues' function
      * @param {type} b
      * @returns {ddslick_L1.b@call;each}
      * @author Mustafa Zeynel Dağlı
@@ -507,7 +530,20 @@
     b.selectedValues = function(b) {
         return getSelectedValues(b);
         
-    }
+    };
+    
+    /**
+     * add tags for multiselect dropbox
+     * @param {type} b
+     * @param {type} tags
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     * @since 04/08/2016
+     */
+    b.selectByMultiValues = function(b, tags, selectedItems) {
+        selectItemsByMultiValues(this, b, tags, selectedItems);
+    };
+    
     /**
      * for select by value functionality added code
      * @param {type} b
