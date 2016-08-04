@@ -52,8 +52,8 @@ $('#tt_grid_dynamic').datagrid({
             {field:'name_tr',title:'Rol',sortable:true,width:200},
             {field:'name',title:'Rol Eng.',sortable:true,width:200},
             {field:'parent_name',title:'Bağlı Rol',sortable:true,width:100},
-            {field:'inherited_name',title:'Kök Rol',sortable:true,width:100},
-            {field:'resource_name',title:'ACL Resource',sortable:true,width:100},
+             {field:'inherited_name',title:'Kök Rol',sortable:true,width:100},
+            //{field:'resource_name',title:'ACL Resource',sortable:true,width:100},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
@@ -66,7 +66,8 @@ $('#tt_grid_dynamic').datagrid({
                                                                                                                                                                        description : \''+row.description+'\',\n\
                                                                                                                                                                        resource_id : '+row.resource_id+',\n\
                                                                                                                                                                        resource_name : \''+row.resource_name+'\',\n\
-                                                                                                                                                                       name_tr : \''+row.name_tr+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
+                                                                                                                                                                       name_tr : \''+row.name_tr+'\',\n\
+                                                                                                                                                                       multiSelect : '+row.resource_ids+'} );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
             },
@@ -131,6 +132,7 @@ ajaxACLResources.ajaxCallWidget ({
             defaultSelectedIndex: 3,
             search : true,
             multiSelect : true,
+            tagBox : 'tag-container',
             //multiSelectTagID : 'deneme',
             //imagePosition:"right",
             onSelected: function(selectedData){
@@ -304,12 +306,9 @@ window.deleteACLRoleUltimately = function(id, index) {
 window.insertACLRolesWrapper = function (e) {
  e.preventDefault();
  var ddData = $('#dropdownACLResources').data('ddslick');
- console.log(ddData['settings']['multiSelectTagID']);
- console.log(ddData.settings.multiSelectTagID);
  var multiSelectedValues = $('#dropdownACLResources').ddslick('selectedValues',
                                                                 {id: ''+ddData.settings.multiSelectTagID+'' 
                                                                 });
- console.log(multiSelectedValues);
  
  if ($("#aclRoleForm").validationEngine('validate')) {
      
@@ -318,13 +317,8 @@ window.insertACLRolesWrapper = function (e) {
          wm.warningMessage('show', 'ACL Resource (Kaynak) Seçiniz', 'Lütfen ACL resource (kaynak) seçiniz!');
          return false;
      }
-     
-     /*if(!ddData.selectedData.value > 0) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'ACL Resource (Kaynak) Seçiniz', 'Lütfen ACL resource (kaynak) seçiniz!');
-         return false;
-     }*/
-     //insertACLRol();
+     insertACLRole();
+     return false;
  }
  return false;
 }
@@ -416,62 +410,67 @@ window.updateACLRoleDialog = function (id, row) {
                      return $message;
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
-         onshown : function () {         
+         onshown : function () { 
             $('#aclRoleFormPopup').validationEngine();
              
             $("#mach-prod-box-popup").loadImager();
             $("#mach-prod-box-popup").loadImager('appendImage');
-            
+            var ddData;
             var ajaxACLResourcesPopup = $(window).ajaxCallWidget({
-            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillResourcesDdList_sysAclResources' ,
-                            pk : $("#pk").val() 
-                    }
-       })
-        ajaxACLResourcesPopup.ajaxCallWidget ({
-            onError : function (event, textStatus,errorThrown) {
-                dm.dangerMessage({
-                   onShown : function() {
-                       //$('#mach-prod-box').loadImager('removeLoadImage'); 
-                   }
-                });
-                dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                         'ACL resource (kaynak) bulunamamıştır...');
-            },
-            onSuccess : function (event, data) {
-                var data = $.parseJSON(data);
-                    $('#mach-prod-box-popup').loadImager('removeLoadImage');
-                    $('#dropdownACLResourcesPopup').ddslick({
-                            height : 200,
-                            data : data, 
-                            width:'98%',
-                            search : true,
-                            //imagePosition:"right",
-                            onSelected: function(selectedData){
-                                if(selectedData.selectedData.value>0) {
-                                    /*$('#tt_tree_menu').tree({
-                                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                                    });*/
-                             }
-                         }   
-                    });  
-                    $('#dropdownACLResourcesPopup').ddslick('selectByValue', 
-                                                {index: ''+row.resource_id+'' ,
-                                                 text : ''+row.resource_name+''}
-                                                );
-                },
-                onErrorDataNull : function (event, data) {
-                     dm.dangerMessage({
-                        onShown : function() {
-                            //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'pkFillResourcesDdList_sysAclResources' ,
+                                pk : $("#pk").val() 
                         }
-                     });
-                     dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                              'ACL resource (kaynak) bulunamamıştır...');
-                 },
-            }) 
-            ajaxACLResourcesPopup.ajaxCallWidget('call');
-            
+           })
+            ajaxACLResourcesPopup.ajaxCallWidget ({
+                onError : function (event, textStatus,errorThrown) {
+                    dm.dangerMessage({
+                       onShown : function() {
+                           //$('#mach-prod-box').loadImager('removeLoadImage'); 
+                       }
+                    });
+                    dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
+                                             'ACL resource (kaynak) bulunamamıştır...');
+                },
+                onSuccess : function (event, data) {
+                    var data = $.parseJSON(data);
+                        $('#mach-prod-box-popup').loadImager('removeLoadImage');
+                        $('#dropdownACLResourcesPopup').ddslick({
+                                height : 200,
+                                data : data, 
+                                width:'98%',
+                                search : true,
+                                multiSelect : true,
+                                multiSelectTagID : 'deneme',
+                                tagBox : 'tag-container-pop',
+                                //imagePosition:"right",
+                                onSelected: function(selectedData){
+                                    if(selectedData.selectedData.value>0) {
+                                 }
+                             }   
+                        }); 
+                        
+                        ddData = $('#dropdownACLResourcesPopup').data('ddslick');
+                        var resources ='[{"id" : "23", "text" : "test"}, {"id" :"34", "text" : "test2"}]';
+                        
+                        $('#dropdownACLResourcesPopup').ddslick('selectByMultiValues', 
+                                                    {id: ''+ddData.settings.multiSelectTagID+'',
+                                                    tagBox : ''+ddData.settings.tagBox+''},
+                                                     data,
+                                                     row.multiSelect
+                                                    );
+                    },
+                    onErrorDataNull : function (event, data) {
+                         dm.dangerMessage({
+                            onShown : function() {
+                                //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+                            }
+                         });
+                         dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
+                                                  'ACL resource (kaynak) bulunamamıştır...');
+                     },
+                }) 
+                ajaxACLResourcesPopup.ajaxCallWidget('call');
             
          },
          onhide : function() {
@@ -493,18 +492,25 @@ window.updateACLRoleDialog = function (id, row) {
 window.updateACLRoleWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
+ 
+ var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
+ var multiSelectedValues = $('#dropdownACLResourcesPopup').ddslick('selectedValues',
+                                                                {id: ''+ddData.settings.multiSelectTagID+'' 
+                                                                });
+ 
  if ($("#aclRoleFormPopup").validationEngine('validate')) {
      
-     var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
-    if(ddData.selectedData.value>0) {
+     if(multiSelectedValues.length == 0) { 
+         wm.warningMessage('resetOnShown');
+         wm.warningMessage('show', 'ACL Resource Seçiniz', 'Lütfen ACL resource seçiniz!')
+         return false;
+    }
         updateACLRole(id);
-    } else {
-        wm.warningMessage('resetOnShown');
-        wm.warningMessage('show', 'ACL Resource Seçiniz', 'Lütfen ACL resource seçiniz!')
+        return false;
+
+        
     }
     return false;
- }
- return false;
 }
 
 /**
@@ -518,7 +524,12 @@ window.updateACLRole = function (id) {
      loader.loadImager('appendImage');
      
      var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
-     var resource_id = ddData.selectedData.value;
+     var multiSelectedValues = $('#dropdownACLResourcesPopup').ddslick('selectedValues',
+                                                                {id: ''+ddData.settings.multiSelectTagID+'' 
+                                                                });
+     var resourcesID = $.extend({}, multiSelectedValues);
+     var jsonResourcesID = JSON.stringify(resourcesID);
+     console.log(jsonResourcesID);
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -530,7 +541,7 @@ window.updateACLRole = function (id) {
                          description : $('#description_popup').val(),
                          parent_id: 0,
                          inherited_id: 0,
-                         resource_id : resource_id,
+                         resource_id : jsonResourcesID,
                          pk : $("#pk").val()
                      }
     })
@@ -578,7 +589,7 @@ window.updateACLRole = function (id) {
  * @author Mustafa Zeynel Dağlı
  * @since 13/07/2016
  */
-window.insertACLRol = function () {
+window.insertACLRole = function () {
      var loaderInsertBlock = $("#loading-image-crud").loadImager();
      loaderInsertBlock.loadImager('appendImage');
      
@@ -589,6 +600,15 @@ window.insertACLRol = function () {
      var ddData = $('#dropdownACLResources').data('ddslick')
      var resource_id = ddData.selectedData.value;
      
+     
+     var ddData = $('#dropdownACLResources').data('ddslick');
+     var multiSelectedValues = $('#dropdownACLResources').ddslick('selectedValues',
+                                                                {id: ''+ddData.settings.multiSelectTagID+'' 
+                                                                });
+     var resourcesID = $.extend({}, multiSelectedValues);
+     var jsonResourcesID = JSON.stringify(resourcesID);
+     //console.log(jsonResourcesID);
+     
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
@@ -598,7 +618,7 @@ window.insertACLRol = function () {
                          description : description,
                          parent : 0,
                          inherited_id : 0,
-                         resource_id : resource_id,
+                         resource_id : jsonResourcesID,
                          pk : $("#pk").val()
                      }
     })
