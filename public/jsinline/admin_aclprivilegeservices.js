@@ -168,10 +168,17 @@ $('#tt_tree_menu2').tree({
          loader.loadImager('removeLoadImage');
     },
     formatter: function (node) {
+        /*if($('#tt_tree_menu2').tree('isLeaf', node.target)) {
+            var resourceNode = $('#tt_tree_menu2').tree('getParent', node.target);
+            var resource_id = resourceNode.id;
+            console.log(resource_id);
+        }*/
+        
         var s = node.text;
         var id = node.id;
+        
         if (node.attributes.root == 'false') {
-            s += '&nbsp;<i class="fa fa-level-down" title="Role bağlı yetkileri tabloya doldur" onclick="fillPrivilegeDatagrid('+id+');"></i>';
+            s += '&nbsp;<i class="fa fa-level-down" title="Role bağlı yetkileri tabloya doldur" onclick="fillPrivilegeDatagrid('+id+', '+node.resource_id+');"></i>';
             return s;
 
         } 
@@ -187,7 +194,7 @@ $('#tt_tree_menu2').tree({
  * @author Mustafa Zeynel Dağlı
  * @since 28/07/2016
  */
-window.fillPrivilegeDatagrid = function(id) {
+window.fillPrivilegeDatagrid = function(id, resource_id) {
     var loaderInsertBlock = $("#loading-image-crud").loadImager();
     loaderInsertBlock.loadImager('appendImage');
     
@@ -201,6 +208,7 @@ window.fillPrivilegeDatagrid = function(id) {
             sort : 'id',
             order : 'desc',
             role_id : id,
+            resource_id: resource_id,
         }, 
         onLoadSuccess : function(data) {
             loaderInsertBlock.loadImager('removeLoadImage');
@@ -286,7 +294,16 @@ window.privilegeServiceAttachDialog = function (id, row) {
                                                     'role_id',
                                                     'privilege_id',
                                                     'services_group_id')} 
-        });
+            });
+        
+            window.tagBuilderPopup.tagCabin({ 
+                onTagRemoved : function(event, data) {
+                    var elementData = data.element;
+                    var id = data.id;
+                    window.deleteServicePrivilegeDialog(id, elementData);
+
+                }
+             });
             
             var nonAttachedTreeLoadImage = $("#nonAttachedTree").loadImager();
             nonAttachedTreeLoadImage.loadImager('appendImage');
@@ -318,14 +335,7 @@ window.privilegeServiceAttachDialog = function (id, row) {
                      attachedTagsLoadImage.loadImager('removeLoadImage');
                      
                     
-                    window.tagBuilderPopup.tagCabin({ 
-                        onTagRemoved : function(event, data) {
-                            var elementData = data.element;
-                            var id = data.id;
-                            window.deleteServicePrivilegeDialog(id, elementData);
-
-                        }
-                     });
+                    
                     window.tagBuilderPopup.tagCabin('addTags', data);
                   },
                   onErrorDataNull : function (event) {
@@ -380,9 +390,6 @@ window.privilegeServiceAttachDialog = function (id, row) {
  * @since 29/07/2016
  */
 window.deleteServicePrivilegeDialog= function(id, element){
-    //console.log(element);
-    console.log(element.text());
-    console.log(element.attr('data-attribute'));
     var id = id;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
         deleteServicePrivilege(id, element);
@@ -424,11 +431,9 @@ window.deleteServicePrivilege = function(id, element) {
                      onShown : function() {
                          loader.loadImager('removeLoadImage');
                          parentNode = $('#tt_tree_services_popup').tree('find', element.attr('data-services_group_id'));
-                         console.log(parentNode);
                          $('#tt_tree_services_popup').tree('select', parentNode.target);
                          $('#tt_tree_services_popup').tree('expand', parentNode.target);
                          //$('#tt_tree_services_popup').tree('collapseAll');
-                         console.log('success end');
                          
                          $('#tt_tree_services_popup').tree('append', {
                             parent: parentNode.target,
