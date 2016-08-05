@@ -310,6 +310,10 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
     var nodeID = node.id;
     $('#mach-prop-box').loadImager();
     $('#mach-prop-box').loadImager('appendImage');
+    
+    var resourceNode = $('#tt_tree_menu2').tree('getParent', node.target);
+    var resource_id = resourceNode.id;
+    //console.log(resourceNode);
 
     if(tagBuilder.tagCabin('findSpecificTags', nodeID, 'data-role_id')) {
         var ajaxMacProp = $('#test-cabin').ajaxCallWidget({
@@ -318,6 +322,7 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
                         url:'pkFillPrivilegesOfRoles_sysAclPrivilege' ,
                         language_code : $('#langCode').val(),
                         role_id : nodeID,
+                        resource_id : resource_id,
                         pk : $("#pk").val()
                     }
            })
@@ -333,7 +338,6 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
                                           'Rol Yetkileri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
              },
              onSuccess : function (event, data) {
-                 //$('#mach-prop-box').loadImager('removeLoadImage'); 
                  tagBuilder.tagCabin(
                     {tagsFound :function(event, item) { 
                     }  
@@ -362,7 +366,7 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
                  });
                  dm.dangerMessage('show', 'Role Bağlı Yetki Bulunamamıştır...',
                                           'Seçtiğiniz role bağlı yetki kaydı bulunamamıştır...');
-
+                 $('#mach-prop-box').loadImager('removeLoadImage');
              },
        }) 
        ajaxMacProp.ajaxCallWidget('call');
@@ -388,6 +392,9 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
     var nodeID = node.id;
     $('#mach-prop-box-not').loadImager();
     $('#mach-prop-box-not').loadImager('appendImage');
+    
+    var resourceNode = $('#tt_tree_menu2').tree('getParent', node.target);
+    var resource_id = resourceNode.id;
 
     if(tagBuilder.tagCabin('findSpecificTags', nodeID, 'data-role_id')) {
         var ajaxMacPropNot = $('#test-cabin-not').ajaxCallWidget({
@@ -396,6 +403,7 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
                         url:'pkFillNotInPrivilegesOfRoles_sysAclPrivilege' ,
                         language_code : $('#langCode').val(),
                         role_id : nodeID,
+                        resource_id : resource_id,
                         pk : $("#pk").val()
                     }
            })
@@ -433,6 +441,7 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
                  });
                  dm.dangerMessage('show', 'Resource (Kaynak) Bağlı Yetki Bulunamamıştır...',
                                           'Seçtiğiniz rol için atanmamış yetki kaydı bulunamamıştır...');
+                $('#mach-prop-box-not').loadImager('removeLoadImage');
 
              },
        }) 
