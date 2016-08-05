@@ -134,6 +134,7 @@ $('#tt_grid_dynamic').datagrid('enableFilter');
 * imager will be removed on resource / roles tree onLoadSuccess method.
 */
 var loader = $("#loading-image").loadImager();
+loader.loadImager('appendImage');
 
 /**
  * multilanguage plugin 
