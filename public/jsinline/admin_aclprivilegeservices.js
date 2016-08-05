@@ -168,12 +168,6 @@ $('#tt_tree_menu2').tree({
          loader.loadImager('removeLoadImage');
     },
     formatter: function (node) {
-        /*if($('#tt_tree_menu2').tree('isLeaf', node.target)) {
-            var resourceNode = $('#tt_tree_menu2').tree('getParent', node.target);
-            var resource_id = resourceNode.id;
-            console.log(resource_id);
-        }*/
-        
         var s = node.text;
         var id = node.id;
         
