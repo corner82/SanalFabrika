@@ -80,7 +80,8 @@ return array(
             'cpreference' => 'layout/cpreferenceLayout.phtml',
             'projreg' => 'layout/projregLayout.phtml',
             'uprofset' => 'layout/uprofsetLayout.phtml',
-            'projpool' => 'layout/projpoolLayout.phtml'
+            'projpool' => 'layout/projpoolLayout.phtml',
+            'signupconfirmation' => 'layout/signupconfirmationLayout.phtml'
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
@@ -206,7 +207,8 @@ return array(
                                                                     'cmt',
                                                                     'projreg',
                                                                     'uprofset',
-                                                                    'projpool'
+                                                                    'projpool',
+                                                                    'signupconfirmation'
                                                                     ),
                                      'login' => array('index'),)
                    ),
@@ -234,7 +236,8 @@ return array(
                                                               'cpreference',
                                                               'projreg',
                                                               'uprofset',
-                                                              'projpool'
+                                                              'projpool',
+                                                              'signupconfirmation'
                                                               )),
                    ),
         'supervisor' => array(
