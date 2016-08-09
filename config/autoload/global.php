@@ -106,6 +106,7 @@ return array(
                           'assigndef' => 'layout/assigndef.phtml',
                           'assignrole' => 'layout/assignrole.phtml',
                           'operationdef' => 'layout/operationdef.phtml',
+                          'consultants' => 'layout/consultants.phtml',
             
                         ),
         'Error' => array(
@@ -265,7 +266,8 @@ return array(
                                                             'servicegroups',
                                                             'assigndef',
                                                             'assignrole',
-                                                            'operationdef'),
+                                                            'operationdef',
+                                                            'consultants'),
                                            )
                    ),
         
