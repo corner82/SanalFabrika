@@ -451,7 +451,7 @@ window.updateACLRoleDialog = function (id, row) {
                         }); 
                         
                         ddData = $('#dropdownACLResourcesPopup').data('ddslick');
-                        var resources ='[{"id" : "23", "text" : "test"}, {"id" :"34", "text" : "test2"}]';
+                        //var resources ='[{"id" : "23", "text" : "test"}, {"id" :"34", "text" : "test2"}]';
                         
                         $('#dropdownACLResourcesPopup').ddslick('selectByMultiValues', 
                                                     {id: ''+ddData.settings.multiSelectTagID+'',
