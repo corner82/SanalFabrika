@@ -388,7 +388,7 @@ window.deleteServicePrivilege = function(id, element) {
                                            'Yetki / Servis  silme işleminiz başarılı...')
              },  
              onError23503 : function (event, data) {
-                wm.warningMessage()('resetOnShown');
+                wm.warningMessage('resetOnShown');
                 wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz !', 
                                             'Servise bağlı bir operasyon tanımlanmıştır, veri bütünlüğünün bozulmaması için\n\
                                             öncelikle servisin bağlı olduğu operasyonun silinmesi gerekmektedir');
