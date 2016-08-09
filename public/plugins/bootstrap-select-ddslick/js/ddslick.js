@@ -374,9 +374,9 @@
                 }
                 c.find(".dd-select").on("click.ddslick", function() {
                     h(c);
-                    if (typeof l.onDoubleClicked == "function") {
-                        l.onDoubleClicked.call(this, c)
-                    }
+                    /*if (typeof l.onDoubleClicked == "function") {
+                        //l.onDoubleClicked.call(this, c)
+                    }*/
                 });
                 
                 /**
@@ -385,12 +385,10 @@
                  * @since 18/05/2016
                  */
                 c.find(".dd-select").on("dblclick.ddslick", function() {
-                    alert('test double click');
-                    console.warn(b.onDoubleClicked);
-                    console.log(c.data.settings);
+                    /*console.warn(b.onDoubleClicked);
+                    console.log(c.data.settings);*/
                     l = c.settings;
                     if (typeof b.onDoubleClicked == "function") {
-                        alert('if double click');
                         b.onDoubleClicked.call(this, c)
                     }
                     
