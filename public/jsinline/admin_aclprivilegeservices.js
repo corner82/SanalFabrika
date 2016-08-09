@@ -6,15 +6,15 @@ $(document).ready(function () {
  * @since 04/04/2016
  */
 $.extend($.fn.tree.methods,{
-        unselect:function(jq,target){
-                return jq.each(function(){
-                        var opts = $(this).tree('options');
-                        $(target).removeClass('tree-node-selected');
-                        if (opts.onUnselect){
-                                opts.onUnselect.call(this, $(this).tree('getNode',target));
-                        }
-                });
-        }
+    unselect:function(jq,target){
+        return jq.each(function(){
+            var opts = $(this).tree('options');
+            $(target).removeClass('tree-node-selected');
+            if (opts.onUnselect){
+                    opts.onUnselect.call(this, $(this).tree('getNode',target));
+            }
+        });
+    }
 });
 
 /**
@@ -386,7 +386,14 @@ window.deleteServicePrivilege = function(id, element) {
                  });
                  sm.successMessage('show', 'Yetki / Servis Silme İşleminiz Başarılı...',
                                            'Yetki / Servis  silme işleminiz başarılı...')
-             },                                   
+             },  
+             onError23503 : function (event, data) {
+                wm.warningMessage()('resetOnShown');
+                wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz !', 
+                                            'Servise bağlı bir operasyon tanımlanmıştır, veri bütünlüğünün bozulmaması için\n\
+                                            öncelikle servisin bağlı olduğu operasyonun silinmesi gerekmektedir');
+                loader.loadImager('removeLoadImage');
+            }
      });
      ajPopUpDelete.ajaxCall('call');
 }
