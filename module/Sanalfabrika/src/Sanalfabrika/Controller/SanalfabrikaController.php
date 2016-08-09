@@ -70,6 +70,27 @@ class SanalfabrikaController extends AbstractActionController {
         $this->authenticate(null, $view);
         return $view;
     }
+    
+    public function signupconfirmationAction() {
+        $langCode = $this->getServiceLocator()
+                ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                ->get('serviceTranslatorUrlRegulator');
+        /*
+          $tabActivationController = $this->success last insert Id from okan first insert call
+         * then based on this id i have to update data
+         */
+
+        // Do this inside your Controller before you return your ViewModel
+        $this->layout()->setVariable('test', $langCode);
+
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+        ));
+//        $this->authenticate(null, $view);
+        return $view;
+    }
 
     public function cmtAction() {
         $langCode = $this->getServiceLocator()
