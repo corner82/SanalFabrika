@@ -167,13 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Zend MVC Modül-Action İşlemleri
+                    Danışman Tanımlama İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li><a href="#"><i class="fa fa-certificate"></i> Modül / Action İşl.</a></li>
-                    <li class="active">Action İşl.</li>
+                    <li><a href="#"><i class="fa fa-certificate"></i> Danışman Atama İşl.</a></li>
+                    <li class="active">Danışman Tanımlama</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -188,7 +188,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Zend MVC Action  İşlemleri </h3>
+                                <h3 class="box-title"> Danışman Tanımlama, Düzenleme  İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -199,47 +199,91 @@
                             <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
                                 <div class="alert alert-info alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Sisteme Zend MVC Action eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
+                                    <h4><i class="icon fa fa-info"></i> Sisteme Danışman eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
                                 </div>  
                                 <!--Makina ekleme formu -->
-                                <form id='actionsForm' method="get" class="form-horizontal">     
+                                <form id='consultantsForm' method="get" class="form-horizontal">     
                                     <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                       
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Action</label>
+                                            <label class="col-sm-2 control-label">Ad</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-hand-o-right"></i>
                                                     </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="name" id="name" />
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[onlyLetterSp]]" type="text" name="name" id="name" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Zend Modül</label>
+                                            <label class="col-sm-2 control-label">Soyad</label>
                                             <div class="col-sm-10">
-                                                <div id="mach-prod-box" class="input-group">    
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[onlyLetterSp]]" type="text" name="surname" id="surname" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">E-Posta (Kullanıcı adı olarak da kullanılacaktır)</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[email]]" type="text" name="username" id="username" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Rol</label>
+                                            <div class="col-sm-10">
+                                                <div id="roles-loading-image" class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-copyright"></i>
                                                     </div>
-                                                    <div id="dropdownModules" ></div>
+                                                    <div id="dropdownConsultantRoles" ></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Açıklama</label>
+                                            <label class="col-sm-2 control-label">Ana Dili</label>
                                             <div class="col-sm-10">
-                                                <div class="input-group">    
+                                                <div id="native-language-loading-image" class="input-group">    
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
+                                                        <i class="fa fa-copyright"></i>
                                                     </div>
-                                                    <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description" id="description" placeholder="Açıklama ..."></textarea>
+                                                    <div id="dropdownMainLanguage" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Yabancı Diller</label>
+                                            <div class="col-sm-10">
+                                                <div id="languages-loading-image" class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-copyright"></i>
+                                                    </div>
+                                                    <div id="dropdownLanguages" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">OSB</label>
+                                            <div class="col-sm-10">
+                                                <div id="osb-loading-image" class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-copyright"></i>
+                                                    </div>
+                                                    <div id="dropdownOSB" ></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertActionsWrapper(event);"><i class="fa fa-save"></i>  Action Kaydet </button>
+                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertConsultantWrapper(event);"><i class="fa fa-save"></i>  Danışman Kaydet </button>
                                                 <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetActionsForm();" ><i class="fa fa-remove"></i> Reset </button>
                                             </div>
                                         </div>
@@ -254,7 +298,7 @@
                         <div id="loading-image-grid-container" class="box box-warning"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Zend MVC Modül-Action Listesi</h3>
+                                <h3 class="box-title"> Danışman Listesi</h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -265,11 +309,11 @@
                             <div class="box-body">    
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Zend MVC Action Listesi </h4>
-                                    Zend Modül-Action  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirsiniz...
+                                    <h4><i class="icon fa fa-info"></i> Sistem Danışmanları Listesi </h4>
+                                    Sistemdeki danışmanları  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirsiniz...
                                 </div>
                                 <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
-                                    <table  id="tt_grid_dynamic" title="Modul-Action  " ></table>   
+                                    <table  id="tt_grid_dynamic" title="Danışmanlar" ></table>   
                                 </div> 
                                 
                             </div><!-- /.box-body -->

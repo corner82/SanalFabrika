@@ -18,8 +18,8 @@ $.extend($.fn.tree.methods,{
 });
 
 /**
- * ACL privileges datagrid is being filled
- * @since 14/07/2016
+ * Consultants datagrid is being filled
+ * @since 09/08/2016
  */
 $('#tt_grid_dynamic').datagrid({
     onDblClickRow : function (index, row) {
@@ -29,7 +29,7 @@ $('#tt_grid_dynamic').datagrid({
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillActionList_sysAclActions',
+            url : 'pkFillOsbConsultantListGrid_sysOsbConsultants',
             sort : 'id',
             order : 'desc',
             /*machine_groups_id : null,
@@ -49,66 +49,96 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'name',title:'Action',sortable:true,width:300},
-            {field:'module_name',title:'Modül',sortable:true,width:300},
-            {field:'description',title:'Açıklama',sortable:true,width:200},
+            {field:'name',title:'Ad',sortable:true,width:150},
+            {field:'surname',title:'Soyad',sortable:true,width:150},
+            {field:'username',title:'Kullanıcı',sortable:true,width:150},
+            {field:'role_name_tr',title:'Rol',sortable:true,width:150},
+            {field:'preferred_language_name',title:'Ana Dil',sortable:true,width:100},
+            {field:'osb_name',title:'OSB',sortable:true,width:100},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveActionsWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveConsultantsWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveActionsWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveConsultantsWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteActionUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateActionDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
-                                                                                                                                                                       description : \''+row.description+'\',\n\
-                                                                                                                                                                       module_id : '+row.module_id+',\n\
-                                                                                                                                                                       module_name : \''+row.module_name+'\',\n\
+                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteConsultantUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateConsultantDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
+                                                                                                                                                                       surname : \''+row.surname+'\',\n\
+                                                                                                                                                                       username : \''+row.username+'\',\n\
+                                                                                                                                                                       osb_id : '+row.osb_id+',\n\
+                                                                                                                                                                       role_id : '+row.role_id+',\n\
+                                                                                                                                                                       preferred_language : '+row.preferred_language+',\n\
+                                                                                                                                                                       preferred_language_json : '+row.preferred_language_json+'\n\
                                                                                                                                                                        } );"><i class="fa fa-arrow-circle-up"></i></button>';
-                    return e+d+u;    
+                    return e+d+u; 
+                    //return e+d;
                 }
             },
         ]]   
 });
 $('#tt_grid_dynamic').datagrid('enableFilter');
 
-
- /*
+/*
 * 
 * @type @call;$@call;loadImager
-* @Since 26/07/2016
+* @Since 09/08/2016
 * @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for Zend Modules
+* @Purpose this variable is to create loader image for Consultant roles
 *  dropdown. Loading image will be removed when dropdown filled data.
 */
-$("#mach-prod-box").loadImager();
-$("#mach-prod-box").loadImager('appendImage');
+$("#roles-loading-image").loadImager();
+$("#roles-loading-image").loadImager('appendImage');
 
 /**
- * Zend Modules dropdown prepared
- * @type @call;$@call;ajaxCallWidget
- * @since 26/07/2016
+ * native language dropdown loading iamge
+ * @author Mustafa Zeynel Dağlı
+ * @since 09/08/2016
  */
-var ajaxACLResources = $(window).ajaxCallWidget({
+$("#native-language-loading-image").loadImager();
+$("#native-language-loading-image").loadImager('appendImage');
+
+/**
+ * multilanguage drop down loading image
+ * @author Mustafa Zeynel Dağlı
+ * @since 09/08/2016
+ */
+$("#languages-loading-image").loadImager();
+$("#languages-loading-image").loadImager('appendImage');
+
+/**
+ * industrial site  drop down loading image
+ * @author Mustafa Zeynel Dağlı
+ * @since 09/08/2016
+ */
+$("#osb-loading-image").loadImager();
+$("#osb-loading-image").loadImager('appendImage');
+
+/**
+ * Consultant roles dropdown prepared
+ * @type @call;$@call;ajaxCallWidget
+ * @since 09/08/2016
+ */
+var ajaxConsultantRoles = $('#roles-loading-image').ajaxCallWidget({
     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: { url:'pkFillModulesDdList_sysAclModules' ,
+            data: { url:'pkFillConsultantRolesDdlist_sysAclRoles' ,
                     pk : $("#pk").val() 
             }
    })
-ajaxACLResources.ajaxCallWidget ({
+ajaxConsultantRoles.ajaxCallWidget ({
      onError : function (event, textStatus,errorThrown) {
          dm.dangerMessage({
             onShown : function() {
-                $('#mach-prod-box').loadImager('removeLoadImage'); 
+                $('#roles-loading-image').loadImager('removeLoadImage'); 
             }
          });
-         dm.dangerMessage('show', 'Zend Modül  Bulunamamıştır...',
-                                  'Sistemde kayıtlı Zend modül  bulunamamıştır...');
+         dm.dangerMessage('show', 'Danışman Rolü  Bulunamamıştır...',
+                                  'Sistemde kayıtlı danışman rolü  bulunamamıştır...');
      },
      onSuccess : function (event, data) {
          var data = $.parseJSON(data);
-         $('#mach-prod-box').loadImager('removeLoadImage');
-         $('#dropdownModules').ddslick({
+         $('#roles-loading-image').loadImager('removeLoadImage');
+         $('#dropdownConsultantRoles').ddslick({
             height : 200,
             data : data, 
             width:'98%',
@@ -129,15 +159,152 @@ ajaxACLResources.ajaxCallWidget ({
      onErrorDataNull : function (event, data) {
          dm.dangerMessage({
             onShown : function() {
-                $('#mach-prod-box').loadImager('removeLoadImage'); 
+                $('#roles-loading-image').loadImager('removeLoadImage'); 
             }
          });
-         dm.dangerMessage('show', 'Zend Modül Bulunamamıştır...',
-                                  'Zend modül  bulunamamıştır...');
+         dm.dangerMessage('show', 'Danışman Rolü Bulunamamıştır...',
+                                  'Danışman rolü  bulunamamıştır...');
      },
 }) 
-ajaxACLResources.ajaxCallWidget('call');
+ajaxConsultantRoles.ajaxCallWidget('call');
 
+/**
+ * langauge dropdowns prepared
+ * @type @call;$@call;ajaxCallWidget
+ * @author Mustafa Zeynel Dağlı
+ * @since 09/08/2016
+ */
+var ajaxLanguage = $('#native-language-loading-image').ajaxCallWidget({
+    proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'pkFillLanguageDdList_syslanguage' ,
+                    pk : $("#pk").val(),
+                    language_code : $("#langCode").val(),
+            }
+   })
+ajaxLanguage.ajaxCallWidget ({
+     onError : function (event, textStatus,errorThrown) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#languages-loading-image').loadImager('removeLoadImage');
+                $('#native-language-loading-image').loadImager('removeLoadImage');
+            }
+         });
+         dm.dangerMessage('show', 'Danışman Rolü  Bulunamamıştır...',
+                                  'Sistemde kayıtlı danışman rolü  bulunamamıştır...');
+     },
+     onSuccess : function (event, data) {
+         var data = $.parseJSON(data);
+         $('#languages-loading-image').loadImager('removeLoadImage');
+         $('#native-language-loading-image').loadImager('removeLoadImage');
+         
+         $('#dropdownMainLanguage').ddslick({
+            height : 200,
+            data : data, 
+            width:'98%',
+            selectText: "Select your preferred social network",
+            //showSelectedHTML : false,
+            defaultSelectedIndex: 3,
+            search : true,
+            //imagePosition:"right",
+            onSelected: function(selectedData){
+                if(selectedData.selectedData.value>0) {
+                    /*$('#tt_tree_menu').tree({
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                    });*/
+                }
+            }   
+        }); 
+        
+        $('#dropdownLanguages').ddslick({
+            height : 200,
+            data : data, 
+            width:'98%',
+            selectText: "Select your preferred social network",
+            //showSelectedHTML : false,
+            defaultSelectedIndex: 3,
+            search : true,
+            multiSelect : true,
+            multiSelectTagID : 'languages',
+            tagBox : 'tag-container',
+            //imagePosition:"right",
+            onSelected: function(selectedData){
+                if(selectedData.selectedData.value>0) {
+                    /*$('#tt_tree_menu').tree({
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                    });*/
+                }
+            }   
+        });
+     },
+     onErrorDataNull : function (event, data) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#languages-loading-image').loadImager('removeLoadImage');
+                $('#native-language-loading-image').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'Yabancı Diller Bulunamamıştır...',
+                                  'Yabancı diller  bulunamamıştır...');
+     },
+}) 
+ajaxLanguage.ajaxCallWidget('call');
+
+/**
+ * industrial site dropdown prepared
+ * @type @call;$@call;ajaxCallWidget|@call;$@call;ajaxCallWidget|@call;$@call;ajaxCallWidget
+ * @author Mustafa Zeynel Dağlı
+ * @since 09/08/2016
+ */
+var ajaxOSB = $('#osb-loading-image').ajaxCallWidget({
+    proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'pkFillOsbDdlist_sysOsb' ,
+                    pk : $("#pk").val(),
+                    language_code : $("#langCode").val(),
+            }
+   })
+ajaxOSB.ajaxCallWidget ({
+     onError : function (event, textStatus,errorThrown) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#osb-loading-image').loadImager('removeLoadImage');
+            }
+         });
+         dm.dangerMessage('show', 'Organize Sanayi Bölgesi  Bulunamamıştır...',
+                                  'Sistemde kayıtlı organize sanayi bölgesi  bulunamamıştır...');
+     },
+     onSuccess : function (event, data) {
+         var data = $.parseJSON(data);
+         $('#osb-loading-image').loadImager('removeLoadImage');
+          
+        $('#dropdownOSB').ddslick({
+            height : 200,
+            data : data, 
+            width:'98%',
+            selectText: "Select your preferred social network",
+            //showSelectedHTML : false,
+            defaultSelectedIndex: 3,
+            search : false,
+            //imagePosition:"right",
+            onSelected: function(selectedData){
+                if(selectedData.selectedData.value>0) {
+                    /*$('#tt_tree_menu').tree({
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                    });*/
+                }
+            }   
+        });
+     },
+     onErrorDataNull : function (event, data) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#osb-loading-image').loadImager('removeLoadImage');
+            }
+         });
+         dm.dangerMessage('show', 'Organize Sanayi Bölgesi Bulunamamıştır...',
+                                  'Organize Sanayi Bölgesi  bulunamamıştır...');
+     },
+}) 
+ajaxOSB.ajaxCallWidget('call');
 
 /**
  * multilanguage plugin 
@@ -156,8 +323,6 @@ lang.change($('#ln').val());
  */
 var selectedNode;
 
-
-
 var sm  = $(window).successMessage();
 var dm  = $(window).dangerMessage();
 var wm  = $(window).warningMessage();
@@ -165,19 +330,19 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
 /**
- * Zend Module-Action insert form validation engine attached to work
- * @since 26/07/2016
+ * Consultants insert form validation engine attached to work
+ * @since 09/08/2016
  */
-$('#actionsForm').validationEngine();
+$('#consultantsForm').validationEngine();
 
  /**
-* reset button function for Zned Module-Action insert form
+* reset button function for consultants insert form
 * @returns null
 * @author Mustafa Zeynel Dağlı  
-* @since 26/07/2016
+* @since 09/08/2016
 */
 window.resetActionsForm = function () {
-   $('#actionsForm').validationEngine('hide');
+   $('#consultantsForm').validationEngine('hide');
    return false;
 }
 
@@ -186,21 +351,21 @@ $.fn.leftMenuFunction();
 
     
 /**
- * wrapper class for pop up and delete Zend Module-Action ultimately
+ * wrapper class for pop up and delete Consultant ultimately
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
- * @since 26/07/2016
+ * @since 09/08/2016
  */
-window.deleteActionUltimatelyDialog= function(id, index){
+window.deleteConsultantUltimatelyDialog= function(id, index){
     var id = id;
     var index = index;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteActionUltimately(id, index);
+        deleteConsultantUltimately(id, index);
     }
     });
-    wcm.warningComplexMessage('show', 'Zend Action Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'Zend action silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'Danışman Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'Danışman silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
  
  /**
@@ -209,9 +374,9 @@ window.deleteActionUltimatelyDialog= function(id, index){
   * @param {type} index
   * @returns {undefined}
   * @author Mustafa Zeynel Dağlı
-  * @since 27/07/2016
+  * @since 09/08/2016
   */
- window.deleteActionUltimatelyWithRelatedData = function (id, index) {
+ window.deleteConsultantUltimatelyWithRelatedData = function (id, index) {
       var ajDeleteAllWithRelatedData = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
@@ -223,8 +388,8 @@ window.deleteActionUltimatelyDialog= function(id, index){
     ajDeleteAllWithRelatedData.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'Zend Action  Silme İşlemi Başarısız...',
-                                     'Zend action  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            dm.dangerMessage('show', 'Danışman  Silme İşlemi Başarısız...',
+                                     'Danışman  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
             console.error('"pkDelete_sysAclActions" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
@@ -234,8 +399,8 @@ window.deleteActionUltimatelyDialog= function(id, index){
                     $('#tt_grid_dynamic').datagrid('reload');
                 }
             });
-            sm.successMessage('show', 'Zend Action Silme İşleminiz Başarılı...',
-                                      'Zend action ilgili tüm datalarla beraber silinmiştir,  silme işleminiz başarılı...')
+            sm.successMessage('show', 'Danışman Silme İşleminiz Başarılı...',
+                                      'DAnışman ilgili tüm datalarla beraber silinmiştir,  silme işleminiz başarılı...')
         }, 
        
     });
@@ -244,14 +409,14 @@ window.deleteActionUltimatelyDialog= function(id, index){
  
  
 /**
-* delete Zend Module-Action
+* delete Consultant
 * @param {type} id
 * @param {type} element
 * @param {type} machine_group_id
 * @returns {undefined}
-* @since 26/07/2016
+* @since 09/08/2016
 */
-window.deleteActionUltimately = function(id, index) {
+window.deleteConsultantUltimately = function(id, index) {
    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
     loaderGridBlock.loadImager('appendImage');
 
@@ -260,7 +425,7 @@ window.deleteActionUltimately = function(id, index) {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysAclActions' ,
+                    url:'pkDelete_sysOsbConsultants' ,
                     id : id,
                     pk : $("#pk").val()
                 }
@@ -268,9 +433,9 @@ window.deleteActionUltimately = function(id, index) {
     ajDeleteAll.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'Zend Action  Silme İşlemi Başarısız...',
-                                     'Zend action  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-            console.error('"pkDelete_sysAclActions" servis hatası->'+data.errorInfo);
+            dm.dangerMessage('show', 'Danışman  Silme İşlemi Başarısız...',
+                                     'Danışman  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDelete_sysOsbConsultants" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
             sm.successMessage({ 
@@ -280,17 +445,17 @@ window.deleteActionUltimately = function(id, index) {
                     $('#tt_grid_dynamic').datagrid('reload');
                 }
             });
-            sm.successMessage('show', 'Zend Action Silme İşleminiz Başarılı...',
-                                      'Zend action  silme işleminiz başarılı...')
+            sm.successMessage('show', 'Danışman Silme İşleminiz Başarılı...',
+                                      'Danışman  silme işleminiz başarılı...')
         }, 
         onError23503 : function (event, data) {
             wcm.warningComplexMessage('resetOnShown');
             wcm.warningComplexMessage({onConfirm : function(event, data) {
-                deleteActionUltimatelyWithRelatedData(id, index);
+                deleteConsultantUltimatelyWithRelatedData(id, index);
             }
             });
             wcm.warningComplexMessage('show', 'Silme İşlemine Devam Etmek İstiyormusunuz?', 
-                                              'Action  bağlı Menü Tipi tanımlandığı için silme işlemi bağlı veriyide etkileyecektir.\n\
+                                              'Danışmana  bağlı işler ve firmalar tanımlandığı için silme işlemi bağlı veriyide etkileyecektir.\n\
                                   Yinede silme işlemine devam etmek istiyormusunuz? ');
             
             /*wm.warningMessage('resetOnShown');
@@ -304,23 +469,43 @@ window.deleteActionUltimately = function(id, index) {
    
  
 /**
- * insert Zend Module-Action
+ * insert Consultant wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 26/07/2016
+ * @since 09/08/2016
  */
-window.insertActionsWrapper = function (e) {
+window.insertConsultantWrapper = function (e) {
  e.preventDefault();
- var ddData = $('#dropdownModules').data('ddslick');
+
  
- if ($("#actionsForm").validationEngine('validate')) {
+ if ($("#consultantsForm").validationEngine('validate')) {
      
-     if(!ddData.selectedData.value > 0) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'Zend MVC Modül Seçiniz', 'Lütfen modül seçiniz!');
-         return false;
-     }
-     insertAction();
+    var ddDataRoles = $('#dropdownConsultantRoles').data('ddslick');
+    var ddDataNativeLanguage = $('#dropdownMainLanguage').data('ddslick');
+    var ddDataLanguagesSettings = $('#dropdownLanguages').data('ddslick');
+    var ddDataLanguages = $('#dropdownLanguages').ddslick('selectedValues',
+                                                                {id: ''+ddDataLanguagesSettings.settings.multiSelectTagID+'' 
+                                                                });
+     
+    if(!ddDataRoles.selectedData.value > 0) {
+        wm.warningMessage('resetOnShown');
+        wm.warningMessage('show', 'Danışman Rolü Seçiniz', 'Lütfen danışman rolü seçiniz!');
+        return false;
+    }
+    
+    if(!ddDataNativeLanguage.selectedData.value > 0) {
+        wm.warningMessage('resetOnShown');
+        wm.warningMessage('show', 'Ana Dil Seçiniz', 'Lütfen danışman ana dili seçiniz!');
+        return false;
+    }
+    
+    if(ddDataLanguages.length == 0) {
+        wm.warningMessage('resetOnShown');
+        wm.warningMessage('show', 'Danışman Yabancı Dillerini Seçiniz', 'Lütfen danışman yabancı dillerini seçiniz!');
+        return false;
+    }
+    insertConsultant();
+    return false;
  }
  return false;
 }
@@ -328,65 +513,113 @@ window.insertActionsWrapper = function (e) {
    
    
 /**
- * wrapper for Zend Module-Action update process
+ * wrapper for Consultant update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 26/07/2016
+ * @since 09/08/2016
  */
-window.updateActionDialog = function (id, row) {
+window.updateConsultantDialog = function (id, row) {
     window.gridReloadController = false;
     //console.log(row);
     BootstrapDialog.show({  
-         title: '"'+ row.name + '" Zend Module-Action güncellemektesiniz...',
+         title: '"'+ row.name + ' '+row.surname+'" Adlı Danışmanı güncellemektesiniz...',
          message: function (dialogRef) {
                      var dialogRef = dialogRef;
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                     <form id="actionsFormPopup" method="get" class="form-horizontal">\n\
+                                                     <form id="consultantsFormPopup" method="get" class="form-horizontal">\n\
                                                      <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Action</label>\n\
+                                                             <label class="col-sm-2 control-label">Ad</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
                                                                      </div>\n\
                                                                      <div  class="tag-container-popup">\n\
-                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.name+'" name="name_popup" id="name_popup"   />\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[onlyLetterSp]]" type="text" value="'+row.name+'" name="name_popup" id="name_popup"   />\n\
                                                                      </div>\n\
                                                                  </div>\n\
                                                              </div>\n\
                                                          </div>\n\
-                                                         <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">ACL Resource</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <div id="dropdownModulesPopup" ></div>\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
-                                                         <div class="form-group">\n\
-                                                             <label class="col-sm-2 control-label">Açıklama</label>\n\
-                                                             <div id="mach-prod-box-popup" class="col-sm-10">\n\
+                                                         <div class="form-group" style="margin-top: 20px;">\n\
+                                                             <label class="col-sm-2 control-label">Soyad</label>\n\
+                                                             <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
                                                                      </div>\n\
-                                                                     <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description_popup" id="description_popup" placeholder="Açıklama ...">'+row.description+'</textarea>\n\
+                                                                     <div  class="tag-container-popup">\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[onlyLetterSp]]" type="text" value="'+row.surname+'" name="surname_popup" id="surname_popup"   />\n\
+                                                                     </div>\n\
                                                                  </div>\n\
                                                              </div>\n\
                                                          </div>\n\
+                                                         <div class="form-group" style="margin-top: 20px;">\n\
+                                                             <label class="col-sm-2 control-label">E-Posta(Kullanıcı Adı)</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <div  class="tag-container-popup">\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[email]]" type="text" value="'+row.username+'" name="username_popup" id="username_popup"   />\n\
+                                                                     </div>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Rol</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div id="roles-loading-image-popup" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownConsultantRolesPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Ana Dili</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div id="native-language-loading-image-popup" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownMainLanguagePopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Yabancı Diller</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div id="languages-loading-image-popup" class="input-group">\n\
+                                                                    <div  class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownLanguagesPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">OSB</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div id="osb-loading-image-popup" class="input-group">\n\
+                                                                    <div  class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownOSBPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
                                                          <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group">\n\
                                                              <div class="col-sm-10 col-sm-offset-2">\n\
-                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateActionWrapper(event, '+id+');">\n\
+                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateConsultantWrapper(event, '+id+');">\n\
                                                                  <i class="fa fa-save"></i> Güncelle </button>\n\
                                                          </div>\n\
                                                      </div>\n\
@@ -398,34 +631,46 @@ window.updateActionDialog = function (id, row) {
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
          onshown : function () {         
-            $('#actionsFormPopup').validationEngine();
+            $('#consultantsFormPopup').validationEngine();
              
-            $("#mach-prod-box-popup").loadImager();
-            $("#mach-prod-box-popup").loadImager('appendImage');
+            $("#roles-loading-image-popup").loadImager();
+            $("#roles-loading-image-popup").loadImager('appendImage');
+
+            $("#native-language-loading-image-popup").loadImager();
+            $("#native-language-loading-image-popup").loadImager('appendImage');
+
+            $("#languages-loading-image-popup").loadImager();
+            $("#languages-loading-image-popup").loadImager('appendImage');
             
-            var ajaxACLResourcesPopup = $(window).ajaxCallWidget({
+            $("#osb-loading-image-popup").loadImager();
+            $("#osb-loading-image-popup").loadImager('appendImage');
+            
+            var ajaxConsultantRolesPopup = $('#roles-loading-image-popup').ajaxCallWidget({
             proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillModulesDdList_sysAclModules' ,
+                    data: { url:'pkFillConsultantRolesDdlist_sysAclRoles' ,
                             pk : $("#pk").val() 
                     }
-       })
-        ajaxACLResourcesPopup.ajaxCallWidget ({
-            onError : function (event, textStatus,errorThrown) {
-                dm.dangerMessage({
-                   onShown : function() {
-                       //$('#mach-prod-box').loadImager('removeLoadImage'); 
-                   }
-                });
-                dm.dangerMessage('show', 'Zend Modül Bulunamamıştır...',
-                                         'Zend modül bulunamamıştır...');
-            },
-            onSuccess : function (event, data) {
-                var data = $.parseJSON(data);
-                    $('#mach-prod-box-popup').loadImager('removeLoadImage');
-                    $('#dropdownModulesPopup').ddslick({
+            })
+            ajaxConsultantRolesPopup.ajaxCallWidget ({
+                 onError : function (event, textStatus,errorThrown) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#roles-loading-image').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'Danışman Rolü  Bulunamamıştır...',
+                                              'Sistemde kayıtlı danışman rolü  bulunamamıştır...');
+                 },
+                 onSuccess : function (event, data) {
+                     var data = $.parseJSON(data);
+                     $('#roles-loading-image-popup').loadImager('removeLoadImage');
+                     $('#dropdownConsultantRolesPopup').ddslick({
                             height : 200,
                             data : data, 
                             width:'98%',
+                            selectText: "Select your preferred social network",
+                            //showSelectedHTML : false,
+                            defaultSelectedIndex: 3,
                             search : true,
                             //imagePosition:"right",
                             onSelected: function(selectedData){
@@ -433,27 +678,167 @@ window.updateActionDialog = function (id, row) {
                                     /*$('#tt_tree_menu').tree({
                                         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
                                     });*/
-                             }
-                         }   
-                    });  
-                    $('#dropdownModulesPopup').ddslick('selectByValue', 
-                                                {index: ''+row.module_id+'' ,
-                                                 text : ''+row.module_name+''}
+                                }
+                            }   
+                        });
+                    $('#dropdownConsultantRolesPopup').ddslick('selectByValue', 
+                                                {index: ''+row.role_id+'' }
                                                 );
-                },
-                onErrorDataNull : function (event, data) {
+                 },
+                 onErrorDataNull : function (event, data) {
                      dm.dangerMessage({
                         onShown : function() {
-                            //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+                            $('#roles-loading-image-popup').loadImager('removeLoadImage'); 
                         }
                      });
-                     dm.dangerMessage('show', 'Zend Modül Bulunamamıştır...',
-                                              'Zend modül bulunamamıştır...');
+                     dm.dangerMessage('show', 'Danışman Rolü Bulunamamıştır...',
+                                              'Danışman rolü  bulunamamıştır...');
                  },
             }) 
-            ajaxACLResourcesPopup.ajaxCallWidget('call');
+            ajaxConsultantRolesPopup.ajaxCallWidget('call');
             
+            var ajaxLanguagePopup = $('#native-language-loading-image-popup').ajaxCallWidget({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'pkFillLanguageDdList_syslanguage' ,
+                                pk : $("#pk").val(),
+                                language_code : $("#langCode").val(),
+                        }
+               })
+            ajaxLanguagePopup.ajaxCallWidget ({
+                 onError : function (event, textStatus,errorThrown) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#languages-loading-image-popup').loadImager('removeLoadImage');
+                            $('#native-language-loading-image-popup').loadImager('removeLoadImage');
+                        }
+                     });
+                     dm.dangerMessage('show', 'Yabancı Dil  Bulunamamıştır...',
+                                              'Sistemde kayıtlı yabancı dil  bulunamamıştır...');
+                 },
+                 onSuccess : function (event, data) {
+                     var data = $.parseJSON(data);
+                     $('#languages-loading-image-popup').loadImager('removeLoadImage');
+                     $('#native-language-loading-image-popup').loadImager('removeLoadImage');
+
+                     $('#dropdownMainLanguagePopup').ddslick({
+                        height : 200,
+                        data : data, 
+                        width:'98%',
+                        selectText: "Select your preferred social network",
+                        //showSelectedHTML : false,
+                        defaultSelectedIndex: 3,
+                        search : true,
+                        //imagePosition:"right",
+                        onSelected: function(selectedData){
+                            if(selectedData.selectedData.value>0) {
+                                /*$('#tt_tree_menu').tree({
+                                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                                });*/
+                            }
+                        }   
+                    }); 
+                    $('#dropdownMainLanguagePopup').ddslick('selectByValue', 
+                                                {index: ''+row.preferred_language+'' }
+                                                );
+
+                    $('#dropdownLanguagesPopup').ddslick({
+                        height : 200,
+                        data : data, 
+                        width:'98%',
+                        selectText: "Select your preferred social network",
+                        //showSelectedHTML : false,
+                        defaultSelectedIndex: 3,
+                        search : true,
+                        multiSelect : true,
+                        multiSelectTagID : 'languagesPopup',
+                        tagBox : 'tag-container-popup',
+                        //imagePosition:"right",
+                        onSelected: function(selectedData){
+                            if(selectedData.selectedData.value>0) {
+                                /*$('#tt_tree_menu').tree({
+                                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                                });*/
+                            }
+                        }   
+                    });
+                    ddDataLanguages = $('#dropdownLanguagesPopup').data('ddslick');
+                    $('#dropdownLanguagesPopup').ddslick('selectByMultiValues', 
+                                                {id: ''+ddDataLanguages.settings.multiSelectTagID+'',
+                                                tagBox : ''+ddDataLanguages.settings.tagBox+''},
+                                                 data,
+                                                 row.preferred_language_json
+                                                );
+                    
+                    
+                 },
+                 onErrorDataNull : function (event, data) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#languages-loading-image-popup').loadImager('removeLoadImage');
+                            $('#native-language-loading-image-popup').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'Yabancı Diller Bulunamamıştır...',
+                                              'Yabancı diller  bulunamamıştır...');
+                 },
+            }) 
+            ajaxLanguagePopup.ajaxCallWidget('call');
             
+            var ajaxOSBPopup = $('#osb-loading-image-popup').ajaxCallWidget({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'pkFillOsbDdlist_sysOsb' ,
+                                pk : $("#pk").val(),
+                                language_code : $("#langCode").val(),
+                        }
+               })
+            ajaxOSBPopup.ajaxCallWidget ({
+                 onError : function (event, textStatus,errorThrown) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#osb-loading-image-popup').loadImager('removeLoadImage');
+                        }
+                     });
+                     dm.dangerMessage('show', 'Organize Sanayi Bölgesi  Bulunamamıştır...',
+                                              'Sistemde kayıtlı organize sanayi bölgesi  bulunamamıştır...');
+                 },
+                 onSuccess : function (event, data) {
+                     var data = $.parseJSON(data);
+                     $('#osb-loading-image-popup').loadImager('removeLoadImage');
+
+                    $('#dropdownOSBPopup').ddslick({
+                        height : 200,
+                        data : data, 
+                        width:'98%',
+                        selectText: "Select your preferred social network",
+                        //showSelectedHTML : false,
+                        defaultSelectedIndex: 3,
+                        search : false,
+                        //imagePosition:"right",
+                        onSelected: function(selectedData){
+                            if(selectedData.selectedData.value>0) {
+                                /*$('#tt_tree_menu').tree({
+                                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                                });*/
+                            }
+                        }   
+                    });
+                   $('#dropdownOSBPopup').ddslick('selectByValue', 
+                                                {index: ''+row.osb_id+'' }
+                                                );
+                 },
+                 onErrorDataNull : function (event, data) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#osb-loading-image-popup').loadImager('removeLoadImage');
+                        }
+                     });
+                     dm.dangerMessage('show', 'Organize Sanayi Bölgesi Bulunamamıştır...',
+                                              'Organize Sanayi Bölgesi  bulunamamıştır...');
+                 },
+            }) 
+            ajaxOSBPopup.ajaxCallWidget('call');
+            
+
          },
          onhide : function() {
              if(window.gridReloadController == true) {
@@ -466,49 +851,91 @@ window.updateActionDialog = function (id, row) {
 }
 
 /**
- * update Zend Module-Action wrapper
+ * update Consultant wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 26/07/2016
+ * @since 09/08/2016
  */
-window.updateActionWrapper = function (e, id) {
+window.updateConsultantWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#actionsFormPopup").validationEngine('validate')) {
+ if ($("#consultantsFormPopup").validationEngine('validate')) {
      
-     var ddData = $('#dropdownModulesPopup').data('ddslick');
-    if(ddData.selectedData.value>0) {
-        updateAction(id);
-    } else {
+     var ddData = $('#dropdownConsultantRolesPopup').data('ddslick');
+     
+    var ddDataRolesPopup = $('#dropdownConsultantRolesPopup').data('ddslick');
+    var ddDataNativeLanguagePopup = $('#dropdownMainLanguagePopup').data('ddslick');
+    var ddDataLanguagesSettingsPopup = $('#dropdownLanguagesPopup').data('ddslick');
+    var ddDataLanguagesPopup = $('#dropdownLanguagesPopup').ddslick('selectedValues',
+                                                                {id: ''+ddDataLanguagesSettingsPopup.settings.multiSelectTagID+'' 
+                                                                });
+     
+    if(!ddDataRolesPopup.selectedData.value > 0) {
         wm.warningMessage('resetOnShown');
-        wm.warningMessage('show', 'ZEND Modül Seçiniz', 'Lütfen Zend modül seçiniz!')
+        wm.warningMessage('show', 'Danışman Rolü Seçiniz', 'Lütfen danışman rolü seçiniz!');
+        return false;
     }
+    
+    if(!ddDataNativeLanguagePopup.selectedData.value > 0) {
+        wm.warningMessage('resetOnShown');
+        wm.warningMessage('show', 'Ana Dil Seçiniz', 'Lütfen danışman ana dili seçiniz!');
+        return false;
+    }
+    
+    if(ddDataLanguagesPopup.length == 0) {
+        wm.warningMessage('resetOnShown');
+        wm.warningMessage('show', 'Danışman Yabancı Dillerini Seçiniz', 'Lütfen danışman yabancı dillerini seçiniz!');
+        return false;
+    }
+     
+    //updateConsultant(id);
     return false;
  }
  return false;
 }
 
 /**
- * update Zend Module-Action
+ * update Consultant
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 26/07/2016
+ * @since 09/08/2016
  */
-window.updateAction = function (id) {
+window.updateConsultant = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      
-     var ddData = $('#dropdownModulesPopup').data('ddslick');
-     var module_id = ddData.selectedData.value;
+    var name = $('#name_popup').val();
+    var surname = $('#surname_popup').val();
+    var username = $('#username_popup').val();
+     
+    var ddDataRoles = $('#dropdownConsultantRolesPopup').data('ddslick')
+    var role_id = ddDataRoles.selectedData.value;
+     
+    var ddDataNativeLanguage = $('#dropdownMainLanguagePopup').data('ddslick')
+    var preferred_language = ddDataNativeLanguage.selectedData.value;
+     
+    var ddDataLanguages = $('#dropdownLanguagesPopup').data('ddslick');
+    var multiSelectedLanguages = $('#dropdownLanguagesPopup').ddslick('selectedValues',
+                                                                {id: ''+ddDataLanguages.settings.multiSelectTagID+'' 
+                                                                });
+    var languagesID = $.extend({}, multiSelectedLanguages);
+    var preferred_language_json = JSON.stringify(languagesID);
+     
+    var ddDataOSB = $('#dropdownOSBPopup').data('ddslick')
+    var osb_id= ddDataOSB.selectedData.value;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
                          url:'pkUpdate_sysAclActions' ,
                          id : id,
-                         name : $('#name_popup').val(),
-                         description : $('#description_popup').val(),
-                         module_id : module_id,
+                         preferred_language  : preferred_language ,
+                         role_id : role_id,
+                         username : username,
+                         name : name,
+                         surname : surname,
+                         preferred_language_json : preferred_language_json,
+                         osb_id : osb_id,
                          pk : $("#pk").val()
                      }
     })
@@ -551,51 +978,69 @@ window.updateAction = function (id) {
 }
    
 /**
- * insert Zend Module-Action
+ * insert Consultant
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 26/07/2016
+ * @since 09/08/2016
  */
-window.insertAction = function () {
-     var loaderInsertBlock = $("#loading-image-crud").loadImager();
-     loaderInsertBlock.loadImager('appendImage');
+window.insertConsultant = function () {
+    var loaderInsertBlock = $("#loading-image-crud").loadImager();
+    loaderInsertBlock.loadImager('appendImage');
      
-     var name = $('#name').val();
-     var description = $('#description').val();
+    var name = $('#name').val();
+    var surname = $('#surname').val();
+    var username = $('#username').val();
      
-     var ddData = $('#dropdownModules').data('ddslick')
-     var module_id = ddData.selectedData.value;
+    var ddDataRoles = $('#dropdownConsultantRoles').data('ddslick')
+    var role_id = ddDataRoles.selectedData.value;
+     
+    var ddDataNativeLanguage = $('#dropdownMainLanguage').data('ddslick')
+    var preferred_language = ddDataNativeLanguage.selectedData.value;
+     
+    var ddDataLanguages = $('#dropdownLanguages').data('ddslick');
+    var multiSelectedLanguages = $('#dropdownLanguages').ddslick('selectedValues',
+                                                                {id: ''+ddDataLanguages.settings.multiSelectTagID+'' 
+                                                                });
+    var languagesID = $.extend({}, multiSelectedLanguages);
+    var preferred_language_json = JSON.stringify(languagesID);
+     
+    var ddDataOSB = $('#dropdownOSB').data('ddslick')
+    var osb_id= ddDataOSB.selectedData.value;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
-                         url:'pkInsert_sysAclActions' ,
+                         url:'pkInsertConsultant_infoUsers' ,
+                         preferred_language  : preferred_language ,
+                         role_id : role_id,
+                         username : username,
                          name : name,
-                         description : description,
-                         module_id : module_id,
+                         surname : surname,
+                         osb_id : osb_id,
+                         preferred_language_json : preferred_language_json,
                          pk : $("#pk").val()
                      }
     })
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Zend Action  Ekleme İşlemi Başarısız...', 
-                                       'Zend Action ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysAclPrivilege" servis hatası->'+textStatus);
+              dm.dangerMessage('show', 'Danışman  Ekleme İşlemi Başarısız...', 
+                                       'Danışman ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkInsertConsultant_infoUsers" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
               console.log(data);
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
-                     $('#actionsForm')[0].reset();  
+                     $('#consultantsForm')[0].reset();  
 
                      loaderInsertBlock.loadImager('removeLoadImage');
                      $('#tt_grid_dynamic').datagrid({
                          queryParams: {
                                  pk: $('#pk').val(),
                                  subject: 'datagrid',
-                                 url : 'pkFillActionList_sysAclActions',
+                                 url : 'pkFillOsbConsultantListGrid_sysOsbConsultants',
                                  sort : 'id',
                                  order : 'desc',
                          },
@@ -604,32 +1049,32 @@ window.insertAction = function () {
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
              });
-             sm.successMessage('show', 'Zend Action Kayıt İşlemi Başarılı...', 
-                                       'Zend cction kayıt işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Danışman Kayıt İşlemi Başarılı...', 
+                                       'Danışman kayıt işlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Zend Action Kayıt İşlemi Başarısız...', 
-                                       'Zend action  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysAclPrivilege" servis datası boştur!!');
+              dm.dangerMessage('show', 'Danışman Kayıt İşlemi Başarısız...', 
+                                       'Danışman  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkInsertConsultant_infoUsers" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Zend Action  Kayıt İşlemi Başarısız...', 
-                                     'Zend action  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysAclRoles" servis hatası->'+data.errorInfo);
+             dm.dangerMessage('show', 'Danışman  Kayıt İşlemi Başarısız...', 
+                                     'Danışman  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkInsertConsultant_infoUsers" servis hatası->'+data.errorInfo);
           },
           onError23505 : function (event, data) {
               dm.dangerMessage({
                  onShown : function(event, data) {
-                     $('#actionsForm')[0].reset();
+                     $('#consultantsForm')[0].reset();
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'Zend Action Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile Zend action  kaydı yapılmıştır, yeni bir action deneyiniz... ');
+              dm.dangerMessage('show', 'Danışman Kayıt İşlemi Başarısız...', 
+                                       'Aynı isim ile danışman  kaydı yapılmıştır, yeni bir danışman deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
@@ -637,31 +1082,31 @@ window.insertAction = function () {
    
 
 /**
- * active/passive Zend Module-Action
+ * active/passive Consultant
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 26/07/2016
+ * @since 09/08/2016
  */
-window.activePassiveActionsWrapper = function (e, id) {
+window.activePassiveConsultantsWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  var domElement = e.target;
  wcm.warningComplexMessage({onConfirm : function(event, data) {
-        activePassiveAction(id, domElement);
+        activePassiveConsultant(id, domElement);
     }
     });
-wcm.warningComplexMessage('show', 'Zend Action Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                  'Zend action aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
+wcm.warningComplexMessage('show', 'Danışman Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                  'Danışman aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
  return false;
 }
 
 /**
- * active or passive Zend Module-Action
+ * active or passive Consultant
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 26/07/2016
+ * @since 09/08/2016
  */
-window.activePassiveAction = function (id, domElement) {
+window.activePassiveConsultant = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
     loader.loadImager('appendImage');
     var id = id;
@@ -670,7 +1115,7 @@ window.activePassiveAction = function (id, domElement) {
     var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdateMakeActiveOrPassive_sysAclActions' ,
+                         url:'pkUpdateMakeActiveOrPassive_sysOsbConsultants' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -678,9 +1123,9 @@ window.activePassiveAction = function (id, domElement) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Zend Action Aktif/Pasif İşlemi Başarısız...', 
-                                      'Zend action aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclActions" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Danışman Aktif/Pasif İşlemi Başarısız...', 
+                                      'Danışman aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysOsbConsultants" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -689,8 +1134,8 @@ window.activePassiveAction = function (id, domElement) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'Zend Action Aktif/Pasif İşlemi Başarılı...', 
-                                       'Zend action aktif/pasif işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Danışman Aktif/Pasif İşlemi Başarılı...', 
+                                       'Danışman aktif/pasif işlemini gerçekleştirdiniz... ',
                                        data);
             if($(domElement).hasClass("fa-minus-circle")){
                 $(domElement).removeClass("fa-minus-circle");
@@ -710,14 +1155,14 @@ window.activePassiveAction = function (id, domElement) {
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Zend Action Aktif/Pasif İşlemi Başarısız...', 
-                                      'Zend action aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclActions" servis datası boştur!!');
+             dm.dangerMessage('show', 'Danışman Aktif/Pasif İşlemi Başarısız...', 
+                                      'Danışman aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysOsbConsultants" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Zend Action Aktif/Pasif İşlemi Başarısız...', 
-                                      'Zend action aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Danışman Aktif/Pasif İşlemi Başarısız...', 
+                                      'Danışman aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
