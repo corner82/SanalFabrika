@@ -373,16 +373,16 @@ window.updateACLRoleDialog = function (id, row) {
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">ACL Resource</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <div id="dropdownACLResourcesPopup" ></div>\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
+                                                            <label class="col-sm-2 control-label">ACL Resource</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownACLResourcesPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
                                                          <div class="form-group">\n\
                                                              <label class="col-sm-2 control-label">Açıklama</label>\n\
                                                              <div id="mach-prod-box-popup" class="col-sm-10">\n\
