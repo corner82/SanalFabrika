@@ -63,6 +63,7 @@ $('#tt_grid_dynamic').datagrid({
                     var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateActionDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
                                                                                                                                                                        description : \''+row.description+'\',\n\
                                                                                                                                                                        module_id : '+row.module_id+',\n\
+                                                                                                                                                                       role_ids : '+row.role_ids+',\n\
                                                                                                                                                                        module_name : \''+row.module_name+'\',\n\
                                                                                                                                                                        } );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
@@ -85,11 +86,20 @@ $("#mach-prod-box").loadImager();
 $("#mach-prod-box").loadImager('appendImage');
 
 /**
+ * loading image for roles dropdown
+ * @author Mustafa Zeynel Dağlı
+ * @since 11/08/2016
+ */
+$("#loading-image-roles").loadImager();
+$("#loading-image-roles").loadImager('appendImage');
+
+
+/**
  * Zend Modules dropdown prepared
  * @type @call;$@call;ajaxCallWidget
  * @since 26/07/2016
  */
-var ajaxACLResources = $(window).ajaxCallWidget({
+var ajaxACLResources = $('#mach-prod-box').ajaxCallWidget({
     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: { url:'pkFillModulesDdList_sysAclModules' ,
                     pk : $("#pk").val() 
@@ -134,6 +144,64 @@ ajaxACLResources.ajaxCallWidget ({
          });
          dm.dangerMessage('show', 'Zend Modül Bulunamamıştır...',
                                   'Zend modül  bulunamamıştır...');
+     },
+}) 
+ajaxACLResources.ajaxCallWidget('call');
+
+
+/**
+ * Roles dropdown prepared
+ * @type @call;$@call;ajaxCallWidget
+ * @since 11/08/2016
+ */
+var ajaxACLResources = $('#loading-image-roles').ajaxCallWidget({
+    proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'pkFillRolesDdlist_sysAclRoles' ,
+                    pk : $("#pk").val() 
+            }
+   })
+ajaxACLResources.ajaxCallWidget ({
+     onError : function (event, textStatus,errorThrown) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#loading-image-roles').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'Rol Bulunamamıştır...',
+                                  'Rol  bulunamamıştır...');
+     },
+     onSuccess : function (event, data) {
+         var data = $.parseJSON(data);
+         $('#loading-image-roles').loadImager('removeLoadImage');
+         $('#dropdownRoles').ddslick({
+            height : 200,
+            data : data, 
+            width:'98%',
+            selectText: "Select your preferred social network",
+            //showSelectedHTML : false,
+            defaultSelectedIndex: 3,
+            search : true,
+            multiSelect : true,
+            tagBox : 'tag-container',
+            //multiSelectTagID : 'deneme',
+            //imagePosition:"right",
+            onSelected: function(selectedData){
+                if(selectedData.selectedData.value>0) {
+                    /*$('#tt_tree_menu').tree({
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                    });*/
+                }
+            }   
+        });   
+     },
+     onErrorDataNull : function (event, data) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#loading-image-roles').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'Rol Bulunamamıştır...',
+                                  'Rol  bulunamamıştır...');
      },
 }) 
 ajaxACLResources.ajaxCallWidget('call');
@@ -308,19 +376,34 @@ window.deleteActionUltimately = function(id, index) {
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
  * @since 26/07/2016
+ * @version 11/08/2016
  */
 window.insertActionsWrapper = function (e) {
  e.preventDefault();
- var ddData = $('#dropdownModules').data('ddslick');
+ 
  
  if ($("#actionsForm").validationEngine('validate')) {
      
-     if(!ddData.selectedData.value > 0) {
+    
+    var ddData = $('#dropdownModules').data('ddslick');
+    if(!ddData.selectedData.value > 0) {
          wm.warningMessage('resetOnShown');
          wm.warningMessage('show', 'Zend MVC Modül Seçiniz', 'Lütfen modül seçiniz!');
          return false;
+    }
+    
+    var ddDataRoles = $('#dropdownRoles').data('ddslick');
+    var multiSelectedRoles = $('#dropdownRoles').ddslick('selectedValues',
+                                                                {id: ''+ddDataRoles.settings.multiSelectTagID+'' 
+                                                                });
+    
+    if(multiSelectedRoles.length == 0) {
+         wm.warningMessage('resetOnShown');
+         wm.warningMessage('show', 'Rol Seçiniz', 'Lütfen rol seçiniz!');
+         return false;
      }
-     insertAction();
+    
+    insertAction();
  }
  return false;
 }
@@ -334,6 +417,7 @@ window.insertActionsWrapper = function (e) {
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
  * @since 26/07/2016
+ * @version 11/08/2016
  */
 window.updateActionDialog = function (id, row) {
     window.gridReloadController = false;
@@ -362,16 +446,27 @@ window.updateActionDialog = function (id, row) {
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">ACL Resource</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <div id="dropdownModulesPopup" ></div>\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
+                                                            <label class="col-sm-2 control-label">ACL Resource</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownModulesPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Rol</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div id="loading-image-role-popup" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownRolesPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
                                                          <div class="form-group">\n\
                                                              <label class="col-sm-2 control-label">Açıklama</label>\n\
                                                              <div id="mach-prod-box-popup" class="col-sm-10">\n\
@@ -403,55 +498,115 @@ window.updateActionDialog = function (id, row) {
             $("#mach-prod-box-popup").loadImager();
             $("#mach-prod-box-popup").loadImager('appendImage');
             
-            var ajaxACLResourcesPopup = $(window).ajaxCallWidget({
-            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillModulesDdList_sysAclModules' ,
-                            pk : $("#pk").val() 
-                    }
-       })
-        ajaxACLResourcesPopup.ajaxCallWidget ({
-            onError : function (event, textStatus,errorThrown) {
-                dm.dangerMessage({
-                   onShown : function() {
-                       //$('#mach-prod-box').loadImager('removeLoadImage'); 
-                   }
-                });
-                dm.dangerMessage('show', 'Zend Modül Bulunamamıştır...',
-                                         'Zend modül bulunamamıştır...');
-            },
-            onSuccess : function (event, data) {
-                var data = $.parseJSON(data);
-                    $('#mach-prod-box-popup').loadImager('removeLoadImage');
-                    $('#dropdownModulesPopup').ddslick({
-                            height : 200,
-                            data : data, 
-                            width:'98%',
-                            search : true,
-                            //imagePosition:"right",
-                            onSelected: function(selectedData){
-                                if(selectedData.selectedData.value>0) {
-                                    /*$('#tt_tree_menu').tree({
-                                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                                    });*/
-                             }
-                         }   
-                    });  
-                    $('#dropdownModulesPopup').ddslick('selectByValue', 
-                                                {index: ''+row.module_id+'' ,
-                                                 text : ''+row.module_name+''}
-                                                );
-                },
-                onErrorDataNull : function (event, data) {
-                     dm.dangerMessage({
-                        onShown : function() {
-                            //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+            $("#loading-image-role-popup").loadImager();
+            $("#loading-image-role-popup").loadImager('appendImage');
+            
+            
+            var ajaxACLResourcesPopup = $('#mach-prod-box-popup').ajaxCallWidget({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'pkFillModulesDdList_sysAclModules' ,
+                                pk : $("#pk").val() 
                         }
-                     });
-                     dm.dangerMessage('show', 'Zend Modül Bulunamamıştır...',
-                                              'Zend modül bulunamamıştır...');
-                 },
-            }) 
+           })
+            ajaxACLResourcesPopup.ajaxCallWidget ({
+                onError : function (event, textStatus,errorThrown) {
+                    dm.dangerMessage({
+                       onShown : function() {
+                           //$('#mach-prod-box').loadImager('removeLoadImage'); 
+                       }
+                    });
+                    dm.dangerMessage('show', 'Zend Modül Bulunamamıştır...',
+                                             'Zend modül bulunamamıştır...');
+                },
+                onSuccess : function (event, data) {
+                    var data = $.parseJSON(data);
+                        $('#mach-prod-box-popup').loadImager('removeLoadImage');
+                        $('#dropdownModulesPopup').ddslick({
+                                height : 200,
+                                data : data, 
+                                width:'98%',
+                                search : true,
+                                //imagePosition:"right",
+                                onSelected: function(selectedData){
+                                    if(selectedData.selectedData.value>0) {
+                                        /*$('#tt_tree_menu').tree({
+                                            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                                        });*/
+                                 }
+                             }   
+                        });  
+                        $('#dropdownModulesPopup').ddslick('selectByValue', 
+                                                    {index: ''+row.module_id+'' ,
+                                                     text : ''+row.module_name+''}
+                                                    );
+                    },
+                    onErrorDataNull : function (event, data) {
+                         dm.dangerMessage({
+                            onShown : function() {
+                                //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+                            }
+                         });
+                         dm.dangerMessage('show', 'Zend Modül Bulunamamıştır...',
+                                                  'Zend modül bulunamamıştır...');
+                     },
+                }) 
             ajaxACLResourcesPopup.ajaxCallWidget('call');
+            
+            var ajaxRolesPopup = $('#loading-image-role-popup').ajaxCallWidget({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'pkFillRolesDdlist_sysAclRoles' ,
+                                pk : $("#pk").val() 
+                        }
+           })
+            ajaxRolesPopup.ajaxCallWidget ({
+                onError : function (event, textStatus,errorThrown) {
+                    dm.dangerMessage({
+                       onShown : function() {
+                           //$('#mach-prod-box').loadImager('removeLoadImage'); 
+                       }
+                    });
+                    dm.dangerMessage('show', 'Rol Bulunamamıştır...',
+                                             'Rol bulunamamıştır...');
+                },
+                onSuccess : function (event, data) {
+                    var data = $.parseJSON(data);
+                        $('#loading-image-role-popup').loadImager('removeLoadImage');
+                        $('#dropdownRolesPopup').ddslick({
+                                height : 200,
+                                data : data, 
+                                width:'98%',
+                                search : true,
+                                multiSelect : true,
+                                multiSelectTagID : 'rolesTag',
+                                tagBox : 'tag-container-pop',
+                                //imagePosition:"right",
+                                onSelected: function(selectedData){
+                                    if(selectedData.selectedData.value>0) {
+                                 }
+                             }   
+                        }); 
+                        
+                        ddData = $('#dropdownRolesPopup').data('ddslick');
+                        //var resources ='[{"id" : "23", "text" : "test"}, {"id" :"34", "text" : "test2"}]';
+                        
+                        $('#dropdownRolesPopup').ddslick('selectByMultiValues', 
+                                                    {id: ''+ddData.settings.multiSelectTagID+'',
+                                                    tagBox : ''+ddData.settings.tagBox+''},
+                                                     data,
+                                                     row.role_ids
+                                                    );
+                    },
+                    onErrorDataNull : function (event, data) {
+                         dm.dangerMessage({
+                            onShown : function() {
+                                //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+                            }
+                         });
+                         dm.dangerMessage('show', 'Rol Bulunamamıştır...',
+                                                  'Rol bulunamamıştır...');
+                     },
+                }) 
+                ajaxRolesPopup.ajaxCallWidget('call');
             
             
          },
@@ -470,19 +625,31 @@ window.updateActionDialog = function (id, row) {
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
  * @since 26/07/2016
+ * @version 11/08/2016
  */
 window.updateActionWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  if ($("#actionsFormPopup").validationEngine('validate')) {
      
-     var ddData = $('#dropdownModulesPopup').data('ddslick');
-    if(ddData.selectedData.value>0) {
-        updateAction(id);
-    } else {
+    var ddData = $('#dropdownModulesPopup').data('ddslick');
+    if(!ddData.selectedData.value>0) {
         wm.warningMessage('resetOnShown');
-        wm.warningMessage('show', 'ZEND Modül Seçiniz', 'Lütfen Zend modül seçiniz!')
+        wm.warningMessage('show', 'ZEND Modül Seçiniz', 'Lütfen Zend modül seçiniz!');
+        return false;
+    } 
+    
+    var ddDataRolesPopup = $('#dropdownRolesPopup').data('ddslick');
+    var multiSelectedRolesPopup = $('#dropdownRolesPopup').ddslick('selectedValues',
+                                                                {id: ''+ddDataRolesPopup.settings.multiSelectTagID+'' 
+                                                                });
+    
+    if(multiSelectedRolesPopup.length == 0) {
+         wm.warningMessage('resetOnShown');
+         wm.warningMessage('show', 'Rol Seçiniz', 'Lütfen rol seçiniz!');
+         return false;
     }
+    updateAction(id);
     return false;
  }
  return false;
@@ -493,6 +660,7 @@ window.updateActionWrapper = function (e, id) {
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
  * @since 26/07/2016
+ * @version 11/08/2016
  */
 window.updateAction = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
@@ -500,6 +668,13 @@ window.updateAction = function (id) {
      
      var ddData = $('#dropdownModulesPopup').data('ddslick');
      var module_id = ddData.selectedData.value;
+     
+     var ddDataRolesPopup = $('#dropdownRolesPopup').data('ddslick');
+     var multiSelectedValues = $('#dropdownRolesPopup').ddslick('selectedValues',
+                                                                {id: ''+ddDataRolesPopup.settings.multiSelectTagID+'' 
+                                                                });
+     var rolesID = $.extend({}, multiSelectedValues);
+     var role_ids = JSON.stringify(rolesID);
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -509,6 +684,7 @@ window.updateAction = function (id) {
                          name : $('#name_popup').val(),
                          description : $('#description_popup').val(),
                          module_id : module_id,
+                         role_ids : role_ids,
                          pk : $("#pk").val()
                      }
     })
@@ -555,6 +731,7 @@ window.updateAction = function (id) {
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
  * @since 26/07/2016
+ * @version 11/08/2016
  */
 window.insertAction = function () {
      var loaderInsertBlock = $("#loading-image-crud").loadImager();
@@ -566,6 +743,13 @@ window.insertAction = function () {
      var ddData = $('#dropdownModules').data('ddslick')
      var module_id = ddData.selectedData.value;
      
+     var ddDataRoles = $('#dropdownRoles').data('ddslick');
+     var multiSelectedValues = $('#dropdownRoles').ddslick('selectedValues',
+                                                                {id: ''+ddDataRoles.settings.multiSelectTagID+'' 
+                                                                });
+     var rolesID = $.extend({}, multiSelectedValues);
+     var role_ids = JSON.stringify(rolesID);
+     
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
@@ -573,6 +757,7 @@ window.insertAction = function () {
                          name : name,
                          description : description,
                          module_id : module_id,
+                         role_ids: role_ids, 
                          pk : $("#pk").val()
                      }
     })
