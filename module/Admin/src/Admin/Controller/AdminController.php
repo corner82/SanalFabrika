@@ -626,7 +626,29 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
+     }
+     
+     /**
+      * admin page to create connection with action resource and privilege
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 11/08/2016
+      */
+     public function actionprivilegeAction()
+     {
+        $langCode = $this->getServiceLocator()
+                         ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                                    ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                          ->get('servicePublicKeyReader'); 
          
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode'            => $langCode,
+            'publicKey'           => $publicKey,
+        ));
+        return $view;
      }
 
  }

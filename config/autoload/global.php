@@ -110,6 +110,7 @@ return array(
                           'consultants' => 'layout/consultants.phtml',
                           'assigncons' => 'layout/assigncons.phtml',
                           'actionprivilegeservice' => 'layout/actionprivilegeservice.phtml',
+                          'actionprivilege' => 'layout/actionprivilege.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -273,7 +274,8 @@ return array(
                                                             'operationdef',
                                                             'consultants',
                                                             'assigncons',
-                                                            'actionprivilegeservice'),
+                                                            'actionprivilegeservice',
+                                                            'actionprivilege'),
                                            )
                    ),
         

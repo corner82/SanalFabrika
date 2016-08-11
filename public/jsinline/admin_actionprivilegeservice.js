@@ -18,9 +18,9 @@ $.extend($.fn.tree.methods,{
 });
 
 /**
- * privileges datagrid
+ * action resource privileges datagrid
  * @author Mustafa Zeynel Dağlı
- * @since 28/07/2016
+ * @since 11/08/2016
  */
 $('#tt_grid_dynamic_privileges').datagrid({
     onDblClickRow : function (index, row) {
@@ -68,9 +68,9 @@ $('#tt_grid_dynamic_privileges').datagrid('enableFilter');
 /*
 * 
 * @type @call;$@call;loadImager
-* @Since 28/07/2016
+* @Since 11/08/2016
 * @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for roles tree 
+* @Purpose this variable is to create loader image for action resources and roles tree 
 * this imager goes to #loading-image div in html.
 * imager will be removed on resource / roles tree onLoadSuccess method.
 */
@@ -95,9 +95,9 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
 /*
-* ACL resource and rol tree
+* Action resource and rol tree
 * Mustafa Zeynel Dağlı
-* 28/07/2016
+* 11/08/2016
 */
 $('#tt_tree_menu2').tree({  
     url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillResourceGroups_sysAclResources&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
@@ -124,11 +124,11 @@ $('#tt_tree_menu2').tree({
 });
 
 /**
- * privilege datagrid is filled due to Resource/role tree role id
+ * privilege datagrid is filled due to Action Resource/role tree role id
  * @param {type} id
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 28/07/2016
+ * @since 11/08/2016
  */
 window.fillPrivilegeDatagrid = function(id, resource_id) {
     var loaderInsertBlock = $("#loading-image-crud").loadImager();
@@ -160,12 +160,12 @@ $.fn.leftMenuFunction();
 
 
 /**
- * wrapper for ACL privilege and Rest Services attachment process
+ * wrapper for Action privilege and Rest Services attachment process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 28/07/2016
+ * @since 11/08/2016
  */
 window.privilegeServiceAttachDialog = function (id, row) {
     window.gridReloadController = false;
@@ -312,11 +312,11 @@ window.privilegeServiceAttachDialog = function (id, row) {
 
 /**
  * wrapper class for pop up and delete service from specific
- * ACL privilege
+ * Action privilege
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
- * @since 29/07/2016
+ * @since 11/08/2016
  */
 window.deleteServicePrivilegeDialog= function(id, element){
     var id = id;
@@ -324,17 +324,17 @@ window.deleteServicePrivilegeDialog= function(id, element){
         deleteServicePrivilege(id, element);
     }
     });
-    wcm.warningComplexMessage('show', 'Makina Özelliğini Kategoriden Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'Makina özelliğini kategoriden  silmek üzeresiniz, makina özelliği silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'Action Yetkisi Ve Servis İlişkisi Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'Action yetkisi ve servis ilişkisini  silmek üzeresiniz, makina özelliği silme işlemi geri alınamaz!! ');
 }
 
 /**
- * delete service from a specific ACL privilege
+ * delete service from a specific Action privilege
  * @param {type} id
  * @param {type} element
  * @param {type} machine_group_id
  * @returns {undefined}
- * @since 29/07/2016
+ * @since 11/08/2016
  */
 window.deleteServicePrivilege = function(id, element) {
     var loader = $("#loading-image-crud-popup").loadImager();  
@@ -390,8 +390,8 @@ window.deleteServicePrivilege = function(id, element) {
              onError23503 : function (event, data) {
                 wm.warningMessage('resetOnShown');
                 wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz !', 
-                                            'Servise bağlı bir operasyon tanımlanmıştır, veri bütünlüğünün bozulmaması için\n\
-                                            öncelikle servisin bağlı olduğu operasyonun silinmesi gerekmektedir');
+                                            'Servise bağlı bir veri tanımlanmıştır, veri bütünlüğünün bozulmaması için\n\
+                                            öncelikle servisin bağlı olduğu verinin silinmesi gerekmektedir');
                 loader.loadImager('removeLoadImage');
             }
      });
@@ -400,13 +400,13 @@ window.deleteServicePrivilege = function(id, element) {
 
 
 /**
- * attach rest service end point and ACL privilege
+ * attach rest service end point and Action privilege
  * @param {type} rrp_id
  * @param {type} restservices_id
  * @param {type} service_name
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 29/07/2016
+ * @since 11/08/2016
  */
 window.attachServiceToPrivilege = function(rrp_id, restservices_id, services_group_id, service_name) {
     var loader = $("#loading-image-crud-popup").loadImager();
