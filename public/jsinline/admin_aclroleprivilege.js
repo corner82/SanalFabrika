@@ -159,9 +159,9 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Tanımlanmış Özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
+              dm.dangerMessage('show', 'Yetki Ekleme İşlemi Başarısız...', 
+                                       'Yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkTransferRolesPrivilege_sysAclRrp" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
               var data = data;
@@ -174,22 +174,22 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
             tag.remove();                                               
             loader.loadImager('removeLoadImage');
             
-             sm.successMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarılı...', 
-                                       'Tanımlanmış özellik ekleme İşlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Yetki Ekleme İşlemi Başarılı...', 
+                                       'Yetki ekleme İşlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Tanımlanmış özellik Eekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis datası boştur!!');
+              dm.dangerMessage('show', 'Yetki Ekleme İşlemi Başarısız...', 
+                                       'Yetki Eekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkTransferRolesPrivilege_sysAclRrp" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                     'Tanımlanmış özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Yetki Ekleme İşlemi Başarısız...', 
+                                     'Yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkTransferRolesPrivilege_sysAclRrp" servis hatası->'+textStatus);
           },
           onError23503 : function (event, data) {
           },
@@ -200,8 +200,8 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
                      loader.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Özellik daha önce eklenmiştir, yeni bir özellik deneyiniz... ');
+              dm.dangerMessage('show', 'Yetki Ekleme İşlemi Başarısız...', 
+                                       'Yetki daha önce eklenmiştir, yeni bir yetki deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
