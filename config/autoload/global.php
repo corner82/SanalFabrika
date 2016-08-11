@@ -108,7 +108,8 @@ return array(
                           'assignrole' => 'layout/assignrole.phtml',
                           'operationdef' => 'layout/operationdef.phtml',
                           'consultants' => 'layout/consultants.phtml',
-            
+                          'assigncons' => 'layout/assigncons.phtml',
+                          'actionprivilegeservice' => 'layout/actionprivilegeservice.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
@@ -270,7 +271,9 @@ return array(
                                                             'assigndef',
                                                             'assignrole',
                                                             'operationdef',
-                                                            'consultants'),
+                                                            'consultants',
+                                                            'assigncons',
+                                                            'actionprivilegeservice'),
                                            )
                    ),
         

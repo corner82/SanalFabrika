@@ -23,7 +23,6 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
      
      
@@ -48,7 +47,6 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -72,7 +70,6 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
      
      
@@ -97,7 +94,6 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -121,7 +117,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -145,7 +140,6 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -169,7 +163,6 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -193,7 +186,6 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -217,10 +209,7 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
-     
-     
      
      /**
       * unique machine property admin operations
@@ -243,7 +232,6 @@
             'publicKey' => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -267,7 +255,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -291,7 +278,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -315,7 +301,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -339,7 +324,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -363,7 +347,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -387,7 +370,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -411,7 +393,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -435,7 +416,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -459,7 +439,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -483,7 +462,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -507,7 +485,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -532,7 +509,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -556,7 +532,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -580,7 +555,6 @@
             'publicKey'           => $publicKey,
         ));
         return $view;
-         
      }
      
      /**
@@ -603,10 +577,57 @@
             'langCode'            => $langCode,
             'publicKey'           => $publicKey,
         ));
+        return $view; 
+     }
+     
+     /**
+      * admin page to assign or non-assign 
+      * consultants to companies
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 10/08/2016
+      */
+     public function assignconsAction()
+     {
+        $langCode = $this->getServiceLocator()
+                         ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                                    ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                          ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode'            => $langCode,
+            'publicKey'           => $publicKey,
+        ));
+        return $view;
+     }
+     
+     /**
+      * admin page to create connection with action resource, privilege
+      * and rest services
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 11/08/2016
+      */
+     public function actionprivilegeserviceAction()
+     {
+        $langCode = $this->getServiceLocator()
+                         ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                                    ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                          ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode'            => $langCode,
+            'publicKey'           => $publicKey,
+        ));
         return $view;
          
      }
-     
 
  }
 
