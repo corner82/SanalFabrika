@@ -170,6 +170,37 @@ namespace SFDM;
         
     }
     
+    /**
+     * 
+     * @param MvcEvent $e
+     * @author Mustafa Zeynel Dağlı
+     * @since 12/08/2016
+     * @todo will be implemented for 'dispach' event  for 'aclCreater' function
+     */
+    public function pageAccessControler(MvcEvent $e) {
+        $acl = $e->getApplication()
+                 ->getServiceManager()
+                 ->get('serviceAclPrivilegeCreator');
+        if ( !$acl->isAllowed(strtolower(trim($roleResult['name'])), 'SayfaErişim', $moduleNamespace.'-'.$controlerName)){
+            print_r('--acl not allowed--');
+            $route = $e ->getRouteMatch()
+                            ->getMatchedRouteName();
+            if($route !== 'error') {   
+               $router = $e->getRouter();
+                // $url    = $router->assemble(array(), array('name' => 'Login/auth')); // assemble a login route
+               $url    = $router->assemble(array('action' => 'index'), 
+                                           array('name' => 'error'));
+               $response = $e->getResponse();
+               $response->setStatusCode(302);
+               // redirect to login page or other page.
+               $response->getHeaders()->addHeaderLine('Location', $url);
+               $e->stopPropagation(); 
+            } 
+        }
+        
+    }
+
+
     public function aclCreater(MvcEvent $e) {
         //print_r('--dispatch event acl creater--');
         $roleResult = $e->getApplication()
