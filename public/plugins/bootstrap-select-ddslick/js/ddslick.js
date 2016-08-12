@@ -29,6 +29,30 @@
     }
     
     /**
+     * get tag widget id
+     * @param {type} a
+     * @returns {window.data.settings.multiSelectTagID|a@call;data.settings.multiSelectTagID}
+     * @author Mustafa Zeynel Dağlı
+     * @since 12/08/2016
+     */
+    function getTagID(a) {  
+        var data = a.data("ddslick");
+        return data.settings.multiSelectTagID;
+    }
+    
+    /**
+     * get tag widget container id
+     * @param {type} a
+     * @returns {a@call;data.settings.tagBox|window.data.settings.tagBox}
+     * @author Mustafa Zeynel Dağlı
+     * @since 12/08/2016
+     */
+    function getTagBoxID(a) {  
+        var data = a.data("ddslick");
+        return data.settings.tagBox;
+    }
+    
+    /**
      * get selected items for multiselect dropbox , triggered by function 'selectedValues'
      * @param {type} b
      * @returns {unresolved}
@@ -482,10 +506,18 @@
                          });
 
                         if($('#'+b.multiSelectTagID+'').tagCabin('findSpecificTags', clickedItem.value, 'data-attribute')) {
-                            $('#'+b.multiSelectTagID+'').tagCabin('addTagManuallyDataAttr', 
+                            /**
+                             * 'please select' tag control
+                             * @author Mustafa Zeynel Dağlı
+                             * @since 12/08/2016
+                             */
+                            if(clickedItem.value>0) {
+                                $('#'+b.multiSelectTagID+'').tagCabin('addTagManuallyDataAttr', 
                                                             clickedItem.value, 
                                                             clickedItem.text
                                                             );
+                            }
+                            
                         }
                     }
                     
@@ -516,6 +548,25 @@
         return this.each(function() {
             if (b.index) g(a(this), b.index)
         })
+    };
+    
+    /**
+     * wrapper for multi selected tag widget id for 'getTagID' function
+     * @returns {window.data.settings.multiSelectTagID|a@call;data.settings.multiSelectTagID}
+     * @author Mustafa Zeynel Dağlı
+     * @since 12/08/2016
+     */
+    b.getMultiSelectTagID = function() {
+           return getTagID(a(this));
+    };
+    
+    /**
+     * wrapper for tags parent html element id for (getTagBoxID) function
+     * @returns {a@call;data.settings.tagBox|window.data.settings.tagBox}
+     * @author Mustafa Zeynel Dağlı
+     * @since 12/08/2016     */
+    b.getTagBox = function() {
+           return getTagBoxID(a(this));
     };
     
     /**
