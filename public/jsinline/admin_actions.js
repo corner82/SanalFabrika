@@ -446,7 +446,7 @@ window.updateActionDialog = function (id, row) {
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="form-group">\n\
-                                                            <label class="col-sm-2 control-label">ACL Resource</label>\n\
+                                                            <label class="col-sm-2 control-label">Zend Modül</label>\n\
                                                             <div class="col-sm-10">\n\
                                                                 <div class="input-group">\n\
                                                                     <div class="input-group-addon">\n\
