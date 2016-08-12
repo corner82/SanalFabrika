@@ -30,10 +30,10 @@ lang.change($('#ln').val());
     
     
 /**
- * loader image for resource and rol tree loading process
+ * loader image for action resource and rol tree loading process
  * @type @call;$@call;loadImager
  * @author Mustafa Zeynel Dağlı
- * @since 15/07/2016
+ * @since 11/08/2016
  */
 var loader_resource = $("#loading-image-resource").loadImager();
 loader_resource.loadImager('appendImage');
@@ -46,12 +46,12 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
     
 /*
 * 
-* ACL resource and rol tree
+* Action resource and rol tree
 * Mustafa Zeynel Dağlı
-* 15/07/2016
+* 11/08/2016
 */
 $('#tt_tree_menu2').tree({  
-   url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillResourceGroups_sysAclResources&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+   url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillActionResourceGroups_sysAclActionRrp&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
    method: 'get',
    animate: true,
    checkbox: false,
@@ -110,8 +110,8 @@ $('#tt_tree_menu2').tree({
                    self.tree('uncheck', node.target); 
                 }
             });
-            wm.warningMessage('show','ACL Rol Seçiniz',
-                                     'ACL resource (kaynak) seçtiniz, Lütfen rol seçiniz...');
+            wm.warningMessage('show','Lütfen Rol Seçiniz',
+                                     'Action resource (kaynak) seçtiniz, Lütfen rol seçiniz...');
 
         } else {
             window.clearRolePrivilege(node, tagBuilder);
@@ -129,7 +129,7 @@ $('#tt_tree_menu2').tree({
  * @param {type} nodeName
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 15/07/2016
+ * @since 11/08/2016
  */
 window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
     var tag = tag;
@@ -137,11 +137,11 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
     var loader = $("#rolePrivilegeBlock").loadImager();
     loader.loadImager('appendImage');
     
-    console.log(tag.attr('data-attribute'));
+    /*console.log(tag.attr('data-attribute'));
     console.log(tag.text());
     console.log(tag.attr('data-resource_id'));
     console.log(tag.attr('data-privilege_id'));
-    console.log(tag.attr('data-role_id'));
+    console.log(tag.attr('data-role_id'));*/
     var role_id = tag.attr('data-role_id');
     var privilege_id = tag.attr('data-privilege_id');
     var resource_id = tag.attr('data-resource_id');
@@ -159,8 +159,8 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Tanımlanmış Özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              dm.dangerMessage('show', 'Yetki Ekleme İşlemi Başarısız...', 
+                                       'Yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
               console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
@@ -174,21 +174,21 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
             tag.remove();                                               
             loader.loadImager('removeLoadImage');
             
-             sm.successMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarılı...', 
-                                       'Tanımlanmış özellik ekleme İşlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Yetki Ekleme İşlemi Başarılı...', 
+                                       'Yetki ekleme İşlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Tanımlanmış özellik Eekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              dm.dangerMessage('show', 'Yetki Ekleme İşlemi Başarısız...', 
+                                       'Yetki Eekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
               console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                     'Tanımlanmış özellik ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Yetki Ekleme İşlemi Başarısız...', 
+                                     'Yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkTransferPropertyMachineGroup_sysMachineToolPropertyDefinition" servis hatası->'+textStatus);
           },
           onError23503 : function (event, data) {
@@ -200,8 +200,8 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
                      loader.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'Tanımlanmış Özellik Ekleme İşlemi Başarısız...', 
-                                       'Özellik daha önce eklenmiştir, yeni bir özellik deneyiniz... ');
+              dm.dangerMessage('show', 'Yetki Ekleme İşlemi Başarısız...', 
+                                       'Yetki daha önce eklenmiştir, yeni bir yetki deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
