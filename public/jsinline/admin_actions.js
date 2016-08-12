@@ -588,10 +588,12 @@ window.updateActionDialog = function (id, row) {
                         
                         ddData = $('#dropdownRolesPopup').data('ddslick');
                         //var resources ='[{"id" : "23", "text" : "test"}, {"id" :"34", "text" : "test2"}]';
-                        
+                        var multiSelectTagID = $('#dropdownRolesPopup').ddslick('getMultiSelectTagID');
+                        var tagBox = $('#dropdownRolesPopup').ddslick('getTagBox');
                         $('#dropdownRolesPopup').ddslick('selectByMultiValues', 
-                                                    {id: ''+ddData.settings.multiSelectTagID+'',
-                                                    tagBox : ''+ddData.settings.tagBox+''},
+                                                    {
+                                                    id : multiSelectTagID,
+                                                    tagBox : ''+tagBox+''},
                                                      data,
                                                      row.role_ids
                                                     );
