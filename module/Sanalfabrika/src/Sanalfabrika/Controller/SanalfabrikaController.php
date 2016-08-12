@@ -518,8 +518,13 @@ class SanalfabrikaController extends AbstractActionController {
             $selectedCompanyNpk = $this->getServiceLocator()
                     ->get('serviceNpkReader');
         }
-        $acl = $this->getServiceLocator()
-                ->get('serviceAclPrivilegeFinder');
+        /**
+         * @author Mustafa Zeynel Dağlı
+         * @since 12/07/2016
+         * resource, role and privilege ACL class called
+         */
+        /*$acl = $this->getServiceLocator()
+                ->get('serviceAclPrivilegeFinder');*/
 
         /**
          * @author Mustafa Zeynel Dağlı

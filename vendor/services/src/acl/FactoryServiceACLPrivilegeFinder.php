@@ -39,11 +39,12 @@ class FactoryServiceACLPrivilegeFinder  implements FactoryInterface{
                 $statement = $pdo->prepare(" 
 
                     SELECT sapr.id, 
-                        trim(replace(lower(a.name),' ','')) as resource_name,  
-                        trim(replace(lower(sapr.name),' ','')) AS privilege_name , 
-                        trim(replace(lower(sapr.name_eng),' ','')) AS privilege_name_eng
+                        trim(replace(a.name,' ','')) as resource_name,  
+                        trim(replace(sapr.name,' ','')) AS privilege_name , 
+                        trim(replace(sapr.name_eng,' ','')) AS privilege_name_eng
                     FROM sys_acl_resources a 
-                    INNER JOIN sys_acl_roles saro ON saro.resource_id = a.id AND saro.deleted=0 AND saro.active =0 
+                    INNER JOIN sys_acl_resource_roles sarr ON sarr.resource_id = a.id AND sarr.deleted=0 AND sarr.active =0 
+                    INNER JOIN sys_acl_roles saro ON saro.id = sarr.role_id AND saro.deleted=0 AND saro.active =0 
                     INNER JOIN sys_acl_rrp rrp ON rrp.resource_id = a.id AND rrp.role_id = saro.id  AND rrp.deleted=0 AND rrp.active =0
                     INNER JOIN sys_acl_privilege sapr ON sapr.id = rrp.privilege_id and sapr.deleted=0 AND sapr.active =0 
                     where a.deleted=0 AND a.active =0 
