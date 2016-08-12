@@ -28,30 +28,29 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
         //print_r($sessionManager->getStorage()->getMetadata());  
         $aclSession = $sessionManager->getStorage()->getMetadata('__ACL');
         $aclResources = $sessionManager->getStorage()->getMetadata('__RES');
-        //print_r($aclResources);
         
         if($aclSession!= NULL) {
             $sessionData = $sessionManager->getStorage()->getMetadata();
-            //print_r('--ACL object bulundu--');
-            //print_r($sessionData['__ZY']['role']);
-            $role = new Role($sessionData['__ZY']['role']);
             $acl = unserialize(base64_decode($sessionData['__ACL']));
+            
+            //print_r($acl);
             /*echo $acl->isAllowed($role, 'adminİşlemleri', 'prvrrrabc') ?
                 "allowed" : "denied";
             echo $acl->isAllowed($role, 'adminİşlemleri', 'prvrrrabc  ') ?
                 "--allowed" : "--denied";*/
+            
+            return $acl;
         } else {
-            //print_r('--ACL object bulunamadı--');
             $pdo = $serviceLocator->get('servicePostgrePdo');
         
             $privileges = $serviceLocator->get('serviceAclPrivilegeFinder');
             //print_r($privileges);
-
+            $acl = new Acl();
             if(isset($privileges) and !empty($privileges['resultSet'])) {
                 $sessionData = $sessionManager->getStorage()->getMetadata();
                 //print_r($sessionData);
                 //print_r($sessionData['__ZY']);
-                $acl = new Acl();
+                
                 $role = new Role($sessionData['__ZY']['role']);
                 $acl->addRole($role);
                 $resourceArray;
@@ -63,9 +62,8 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
                     }
                     $acl->allow($role, $value['resource_name'], $value['privilege_name']);
                 }
-                //print_r($privileges);
                 //print_r($resourceArray);
-                $sessionManager->getStorage()->setMetadata('__RES',$resourceArray[0]);
+                $sessionManager->getStorage()->setMetadata('__RES',base64_encode(serialize($resourceArray)));
                 $sessionManager->getStorage()->setMetadata('__ACL',base64_encode(serialize($acl)));
                 
                 /*echo $acl->isAllowed($role, 'adminİşlemleri', 'prvrrrabc') ?
@@ -73,8 +71,9 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
                 echo $acl->isAllowed($role, 'adminİşlemleri', 'prvrrrabc  ') ?
                     "--allowed" : "--denied";*/
             }
+            return $acl;
         }
-        return true;
+        
         
     }
 
