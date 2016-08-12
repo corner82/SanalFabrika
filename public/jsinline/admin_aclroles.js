@@ -452,10 +452,11 @@ window.updateACLRoleDialog = function (id, row) {
                         
                         ddData = $('#dropdownACLResourcesPopup').data('ddslick');
                         //var resources ='[{"id" : "23", "text" : "test"}, {"id" :"34", "text" : "test2"}]';
-                        
+                        var multiSelectTagID = $('#dropdownACLResourcesPopup').ddslick('getMultiSelectTagID');
+                        var tagBox = $('#dropdownACLResourcesPopup').ddslick('getTagBox');
                         $('#dropdownACLResourcesPopup').ddslick('selectByMultiValues', 
-                                                    {id: ''+ddData.settings.multiSelectTagID+'',
-                                                    tagBox : ''+ddData.settings.tagBox+''},
+                                                    {id: multiSelectTagID,
+                                                    tagBox : ''+tagBox+''},
                                                      data,
                                                      row.multiSelect
                                                     );
