@@ -196,7 +196,7 @@ namespace SFDM;
             $moduleNamespace = strtolower(trim($moduleNamespace));
             //print_r($role);
             //print_r($acl);
-            print_r($acl->isAllowed($role, 'SayfaErişim', $moduleNamespace.'-'.$controlerName));
+            //print_r($acl->isAllowed($role, 'SayfaErişim', $moduleNamespace.'-'.$controlerName));
             if ( !$acl->isAllowed($role, 'SayfaErişim', $moduleNamespace.'-'.$controlerName)){
                 //print_r('--acl not allowed--');
                 $route = $e ->getRouteMatch()
