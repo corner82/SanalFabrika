@@ -44,7 +44,7 @@ namespace SFDM;
         $eventManager->attach('dispatch', array($this, 'translaterControl'));
         
         // acl for page restrictiones attaching to dispatch
-        $eventManager->attach('dispatch', array($this, 'aclCreater'));
+        $eventManager->attach('dispatch', array($this, 'pageAccessControler'));
         
         // acl privileges dıe to role of authenticated user attaching to dispatch
         $eventManager->attach('dispatch', array($this, 'privilegeCreater'));
@@ -181,22 +181,40 @@ namespace SFDM;
         $acl = $e->getApplication()
                  ->getServiceManager()
                  ->get('serviceAclPrivilegeCreator');
-        if ( !$acl->isAllowed(strtolower(trim($roleResult['name'])), 'SayfaErişim', $moduleNamespace.'-'.$controlerName)){
-            print_r('--acl not allowed--');
-            $route = $e ->getRouteMatch()
-                            ->getMatchedRouteName();
-            if($route !== 'error') {   
-               $router = $e->getRouter();
-                // $url    = $router->assemble(array(), array('name' => 'Login/auth')); // assemble a login route
-               $url    = $router->assemble(array('action' => 'index'), 
-                                           array('name' => 'error'));
-               $response = $e->getResponse();
-               $response->setStatusCode(302);
-               // redirect to login page or other page.
-               $response->getHeaders()->addHeaderLine('Location', $url);
-               $e->stopPropagation(); 
-            } 
+        $sessionManager = $e->getApplication()
+                            ->getServiceManager()
+                            ->get('SessionManagerDefault');
+        $sessionData = $sessionManager->getStorage()->getMetadata();
+        if(isset($sessionData['__ZY']['role'])) {
+            $role = $sessionData['__ZY']['role'];
+        
+            $controlerName = $e->getRouteMatch()->getParam('action');
+            //print_r($controlerName);
+            $controller = $e->getTarget();
+            $controllerClass = get_class($controller);
+            $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
+            $moduleNamespace = strtolower(trim($moduleNamespace));
+            //print_r($role);
+            //print_r($acl);
+            print_r($acl->isAllowed($role, 'SayfaErişim', $moduleNamespace.'-'.$controlerName));
+            if ( !$acl->isAllowed($role, 'SayfaErişim', $moduleNamespace.'-'.$controlerName)){
+                //print_r('--acl not allowed--');
+                $route = $e ->getRouteMatch()
+                                ->getMatchedRouteName();
+                if($route !== 'error') {   
+                   $router = $e->getRouter();
+                    // $url    = $router->assemble(array(), array('name' => 'Login/auth')); // assemble a login route
+                   $url    = $router->assemble(array('action' => 'index'), 
+                                               array('name' => 'error'));
+                   $response = $e->getResponse();
+                   $response->setStatusCode(302);
+                   // redirect to login page or other page.
+                   $response->getHeaders()->addHeaderLine('Location', $url);
+                   $e->stopPropagation(); 
+                } 
+            }
         }
+        
         
     }
 
