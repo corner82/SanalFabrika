@@ -790,83 +790,110 @@ var wm = $(window).warningMessage();
 var wcm = $(window).warningComplexMessage({denyButtonLabel: window.lang.translate('Cancel'),
     actionButtonLabel: window.lang.translate('Confirm')});
 
-function send_personnel_general_info() {
+function send_personel_general_info() {
 
-    if ($('#personnel_gen_info').validationEngine('validate')) {
-
-
-        /*
-         * Service cagirilip ve kayit yapilacak, 
-         * kaydin yapilmasi ile bir personnel id geri donecek
-         * bu personnel id #gen_info_tab in personnel_id attributuna yazilip
-         * tekrar bu taba geri donus yapildiginda eger mevcutsa update degilse 
-         * insert komutu calistirilacak
-         */
-
-        if ($('#gen_info_tab').attr('personnel_id')) {
-
+    var loader = $('#popup_loader').loadImager();
+    loader.loadImager('appendImage');
+    if ($('#pname').val() && $('#plast').val()) {
+        if ($('#personnel_gen_info').validationEngine('validate')) {
             /*
-             * update service
+             * Service cagirilip ve kayit yapilacak, 
+             * kaydin yapilmasi ile bir personnel id geri donecek
+             * bu personnel id #gen_info_tab in personnel_id attributuna yazilip
+             * tekrar bu taba geri donus yapildiginda eger mevcutsa update degilse 
+             * insert komutu calistirilacak
              */
 
-            $('#gen_info_tab').removeClass('active');
-            $('#edu_info_tab').addClass('active');
+            if ($('#gen_info_tab').attr('personnel_id')) {
 
-            $('#gen_info_tab_btn').removeClass('active');
-            $('#edu_info_tab_btn').addClass('active');
+                /*
+                 * update service
+                 */
 
-        } else {
-            /*
-             * insert service
-             */
+                $('#gen_info_tab').removeClass('active');
+                $('#edu_info_tab').addClass('active');
 
-            $.ajax({
-                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                $('#gen_info_tab_btn').removeClass('active');
+                $('#edu_info_tab_btn').addClass('active');
+
+            } else {
+                /*
+                 * insert service
+                 */
+
+                $.ajax({
+                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
-                data: {
-                    pk: $("#pk").val(),
-                    cpk: $("#cpk").val(),
-                    url: 'pkcpkInsert_infoFirmWorkingPersonnel',
-                    language_code: $("#langCode").val(),
-                    profile_public: 0,
-                    name: $('#pname').val(),
-                    surname: $('#plast').val(),
-                    title: $('#ptitle').val(),
-                    title_eng: $('#ptitle_eng').val(),
-                    positions: $('#ppos').val(),
-                    positions_eng: $('#ppos_eng').val(),
-                    sex_id: window.sel_sex_type
-                },
-                method: "GET",
-                async: false,
-                dataType: "json",
-                success: function (data) {
-//                    console.log(data);
-                    $('#reg_members_table').datagrid('reload');
-                    window.last_insert_id = data.lastInsertId;
-                    console.log(window.last_insert_id);
-                }
-            });
-            /*
-             * personnel id must be written in #gen_info_tab 's personnel_id attr
-             */
+                    data: {
+                        pk: $("#pk").val(),
+                        cpk: $("#cpk").val(),
+                        url: 'pkcpkInsert_infoFirmWorkingPersonnel',
+                        language_code: $("#langCode").val(),
+                        profile_public: 0,
+                        name: $('#pname').val(),
+                        surname: $('#plast').val(),
+                        title: $('#ptitle').val(),
+                        title_eng: $('#ptitle_eng').val(),
+                        positions: $('#ppos').val(),
+                        positions_eng: $('#ppos_eng').val(),
+                        sex_id: window.sel_sex_type
+                    },
+                    method: "GET",
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
 
-            $('#gen_info_tab').attr('personnel_id', '');
+                        if (data.errorInfo === '23505') {
+                            wm.warningMessage('resetOnShown');
+                            wm.warningMessage('show', 'Personel Genel Bilgi ekleme İşlemi Başarısız...',
+                                    'Personel Genel Bilgi ekleme işlemi başarısız, sistemde aynı özelliklere sahip kayıt bulunmaktadır... ');
 
-            $('#gen_info_tab').removeClass('active');
-            $('#edu_info_tab').addClass('active');
+                            $('#reg_members_table').datagrid('reload');
+                        } else if (data.errorInfo[0] === '00000') {
+                            window.last_insert_id = data.lastInsertId;
+                            console.log(window.last_insert_id);
 
-            $('#edu_tab_toggle').attr('href', '#edu_info_tab');
-            $('#edu_tab_toggle').attr('data-toggle', 'tab');
+                            sm.successMessage({
+                                onShown: function (event, data) {
+                                    loader.loadImager('removeLoadImage');
+                                }
+                            });
+                            sm.successMessage('show', 'Personel Genel Bilgi Ekleme İşlemi Başarılı...',
+                                    'Personel Genel Bilgi ekleme işlemini gerçekleştirdiniz... ',
+                                    data);
+                            $('#reg_members_table').datagrid('reload');
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
 
-            $('#gen_info_tab_btn').removeClass('active');
-            $('#edu_info_tab_btn').addClass('active');
-            $('#edu_info_tab_btn').removeClass('disabled');
+                        console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
+                    }
+                });
+                /*
+                 * personnel id must be written in #gen_info_tab 's personnel_id attr
+                 */
+
+//            $('#gen_info_tab').attr('personnel_id', '');
+//
+//            $('#gen_info_tab').removeClass('active');
+//            $('#edu_info_tab').addClass('active');
+//
+//            $('#edu_tab_toggle').attr('href', '#edu_info_tab');
+//            $('#edu_tab_toggle').attr('data-toggle', 'tab');
+//
+//            $('#gen_info_tab_btn').removeClass('active');
+//            $('#edu_info_tab_btn').addClass('active');
+//            $('#edu_info_tab_btn').removeClass('disabled');
+            }
+        } else {
+            $('.control-sidebar').hide();
         }
-    } else {
-        $('.control-sidebar').hide();
+    }else{
+        wm.warningMessage('resetOnShown');
+                            wm.warningMessage('show', 'Personel Genel Bilgi ekleme İşlemi Başarısız...',
+                                    'Personel Genel Bilgi ekleme işlemi başarısız, personel adı ve soyadı girilmelidir... ');
     }
-
 }
 
 function add_new_personnel_grad() {
@@ -1211,7 +1238,7 @@ function updatePersonnelDiplomaDialog(id, row) {
                             if (data[i].value == row.country_id) {
                                 var index = i;
                             }
-                        }                        
+                        }
                         $('#add_member_university_country_ph_edit').ddslick('destroy');
                         $('#add_member_university_country_ph_edit').ddslick({
                             data: data,
@@ -1275,7 +1302,7 @@ function updatePersonnelDiplomaDialog(id, row) {
                             }
                         }
                         //                console.log(data);
-                        
+
                         $('#add_member_university_ph_edit').ddslick('destroy');
                         $('#add_member_university_ph_edit').ddslick({
                             data: data,
@@ -1289,7 +1316,7 @@ function updatePersonnelDiplomaDialog(id, row) {
                             }
                         });
                         $('#ad_member_university_ph_edit').ddslick('select', {index: index});
-                        
+
                         $('#member_university_ph_edit').ddslick('destroy');
                         $('#member_university_ph_edit').ddslick({
                             data: data,
@@ -1396,14 +1423,14 @@ function updatePersonnelDiploma() {
     $('#diploma_grid').datagrid('reload');
 }
 
-function addPersonnelDiploma(){
-        
+function addPersonnelDiploma() {
+
     if ($('#add_grad_date_ph').val() !== null) {
         var date_on_milliseconds = milliseconds($('#add_grad_date_ph').val());
     } else {
         var date_on_milliseconds = null;
-    }    
-        
+    }
+
     var aj = $(window).ajaxCall({
         proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
