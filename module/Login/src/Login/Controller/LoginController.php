@@ -138,6 +138,14 @@
         $sessionManager->getStorage()->setMetadata('__RES','');
         
         /**
+         * Session data regarding roles destroyed here
+         * @author Mustafa Zeynel Dağlı
+         * @since 13/08/2016
+         * 
+         */
+        $sessionManager->getStorage()->setMetadata('__ZY','');
+        
+        /**
         * user log out action logged by rabbitMQ messaging
         * @author Mustafa Zeynel Dağlı
         * @since 17/03/2016
