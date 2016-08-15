@@ -24,11 +24,6 @@ namespace SFDM;
      
      public function onBootstrap(MvcEvent $e)
     {
-         
-         
-        
-         
-         
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
@@ -55,8 +50,6 @@ namespace SFDM;
          * @since 17/03/2016  
          */
         $eventManager->attach('dispatch', array($this, 'pageLogControl'));
-        
-        
         
         // translator service attaching to dispatch error event
         $eventManager->attach('dispatch.error', array($this, 'Error404PageTranslatorControl')); 
@@ -140,8 +133,7 @@ namespace SFDM;
                                                     function($e) {
             print_r('--finish--');
         }, 300);
-        
-        
+
         $moduleRouteListener->attach($eventManager);  
         
     }
@@ -218,7 +210,12 @@ namespace SFDM;
         
     }
 
-
+    /**
+     * page access control directly working with global config array
+     * @param MvcEvent $e
+     * @author Mustafa Zeynel Dağlı
+     * @deprecated since 15/08/2016 'pageAccessControler' function used instead
+     */
     public function aclCreater(MvcEvent $e) {
         //print_r('--dispatch event acl creater--');
         $roleResult = $e->getApplication()
