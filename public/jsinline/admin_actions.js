@@ -721,7 +721,11 @@ window.updateAction = function (id) {
                                       'Zend action güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
-          },
+                wm.warningMessage('resetOnShown');
+                wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz!', 'Action  bağlı servis tanımlandığı için silme işlemi\n\
+                                   gerçekleştiremezsiniz, önce Action / Servis  ilişkisi silinmelidir!');
+                loader.loadImager('removeLoadImage');
+        },
           onError23505 : function (event, data) {
           }
     }) 
