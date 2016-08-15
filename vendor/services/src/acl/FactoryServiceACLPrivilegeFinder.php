@@ -32,7 +32,7 @@ class FactoryServiceACLPrivilegeFinder  implements FactoryInterface{
         //print_r($sessionData['__ZY']['roleID']);
         if(isset($sessionData['__ZY']['roleID'])) {
             $role_id = $sessionData['__ZY']['roleID'];
-        }
+        } 
         
         //$role_id = 3;
         
