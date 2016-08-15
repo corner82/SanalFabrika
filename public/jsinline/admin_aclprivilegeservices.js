@@ -55,10 +55,17 @@ $('#tt_grid_dynamic_privileges').datagrid({
             {field:'resource_name',title:'Resource',sortable:true,width:100},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
-                    var u = '<button style="padding : 2px 4px;" title="Servis Atamaları Yap"  class="btn btn-info" type="button" onclick="return privilegeServiceAttachDialog('+row.id+', { privilege_name : \''+row.privilege_name+'\',\n\                                                                                                                   \n\
+                    if(row.resource_name!='Sayfa Erişim') {
+                       var u = '<button style="padding : 2px 4px;" title="Servis Atamaları Yap"  class="btn btn-info" type="button" onclick="return privilegeServiceAttachDialog('+row.id+', { privilege_name : \''+row.privilege_name+'\',\n\                                                                                                                   \n\
                                                                                                                                                                                                      role_name_tr : \''+row.role_name_tr+'\',\n\
-                                                                                                                                                                                                     resource_name : \''+row.resource_name+'\'} );"><i class="fa fa-exchange"></i></button>';
-                    return u;    
+                                                                                                                                                                                                     resource_name : \''+row.resource_name+'\'} );"><i class="fa fa-exchange"></i></button>'; 
+                        return u;
+                    } else if(row.resource_name == 'Sayfa Erişim') {
+                        var u = '<button style="padding : 2px 4px;" title="Servis Atamaları Yap"  class="btn btn-danger" type="button" onclick="e.preventDefault();return false;"><i class="fa fa-minus"></i></button>'; 
+                        return u;
+                    }
+                    
+                        
                 }
             },
         ]]   
