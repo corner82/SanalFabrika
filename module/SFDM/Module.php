@@ -71,8 +71,10 @@ namespace SFDM;
             
             $viewModel = $e->getApplication()->getMvcEvent()->getViewModel();
             $viewModel->module = $moduleNamespace;
-            $viewModel->controller = $controller;
-            
+            $viewModel->controller = $controlerName;
+            print_r($viewModel->controller);
+            print_r($viewModel->module);
+             
             $config = $e->getApplication()->getServiceManager()->get('config');
             /**
              *  added for layout control due to module action
