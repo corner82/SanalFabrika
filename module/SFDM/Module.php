@@ -68,6 +68,11 @@ namespace SFDM;
             $controllerClass = get_class($controller);
             $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
             //print_r(strtolower(trim($moduleNamespace)));
+            
+            $viewModel = $e->getApplication()->getMvcEvent()->getViewModel();
+            $viewModel->module = $moduleNamespace;
+            $viewModel->controller = $controller;
+            
             $config = $e->getApplication()->getServiceManager()->get('config');
             /**
              *  added for layout control due to module action
