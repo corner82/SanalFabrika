@@ -12,6 +12,8 @@
                 pk: $("#pk").val(),
                 url: 'pkGetLeftMenu_leftnavigation',
                 language_code: $("#langCode").val(),
+                m: $("#module").val(),
+                a: $("#controller").val()
 //                menu_types_id:
             },
             method: "GET",
