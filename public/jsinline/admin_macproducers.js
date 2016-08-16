@@ -18,8 +18,8 @@ $.extend($.fn.tree.methods,{
 });
 
 /**
- * ACL resources datagrid is being filled
- * @since 13/07/2016
+ * Machine producers datagrid is being filled
+ * @since 15/08/2016
  */
 $('#tt_grid_dynamic').datagrid({
     onDblClickRow : function (index, row) {
@@ -29,7 +29,7 @@ $('#tt_grid_dynamic').datagrid({
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillPropertieslist_sysAclResources',
+            url : 'pkFillManufacturerListGrid_sysManufacturer',
             sort : 'id',
             order : 'desc',
             /*machine_groups_id : null,
@@ -49,19 +49,27 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'name',title:'Resource',sortable:true,width:300},
-            {field:'parent_name',title:'Bağlı Resource',sortable:true,width:300},
-            {field:'description',title:'Açıklama',sortable:true, width:300},
+            {field:'name',title:'Üretici',sortable:true,width:150},
+            {field:'name_eng',title:'Üretici İng.',sortable:true,width:150},
+            {field:'abbreviation',title:'Kısaltma',sortable:true,width:100},
+            {field:'abbreviation_eng',title:'Kısaltma İng',sortable:true,width:100},
+            {field:'description',title:'Açıklama',sortable:true, width:200},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLResourcesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveMacProducersWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLResourcesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveMacProducersWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLResourceUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateACLResourceDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
-                                                                                                                                                                           description : \''+row.description+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
+                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteMacProducerUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMacProducerDialog('+row.id+', { name : \''+row.name+'\',\n\
+                                                                                                                                                                            name_eng : \''+row.name_eng+'\',\n\
+                                                                                                                                                                            about : \''+row.about+'\',\n\
+                                                                                                                                                                            about_eng : \''+row.about_eng+'\',\n\
+                                                                                                                                                                            abbreviation : \''+row.abbreviation+'\',\n\
+                                                                                                                                                                            abbreviation_eng : \''+row.abbreviation_eng+'\',\n\
+                                                                                                                                                                            description : \''+row.description+'\',\n\                                                                                                 \n\
+                                                                                                                                                                           description_eng : \''+row.description_eng+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
             },
@@ -89,17 +97,6 @@ lang.change($('#ln').val());
  */
 var selectedNode;
 
-/*
-* 
-* @type @call;$@call;loadImager
-* @Since 16/05/2016
-* @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for roles tree 
-* this imager goes to #loading-image div in html.
-* imager will be removed on roles tree onLoadSuccess method.
-*/
-var loader = $("#loading-image").loadImager();
-
 var sm  = $(window).successMessage();
 var dm  = $(window).dangerMessage();
 var wm  = $(window).warningMessage();
@@ -107,47 +104,24 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
 /**
- * machine insert form validation engine attached to work
- * @since 16/05/2016
+ * machine producer insert form validation engine attached to work
+ * @since 15/08/2016
  */
-$('#aclResourcesForm').validationEngine();
+$('#macProducersForm').validationEngine();
 
  /**
-* reset button function for machine property insert form
+* reset button function for machine producer insert form
 * property insert
 * for 'insert' and 'update' form buttons
 * @returns null
 * @author Mustafa Zeynel Dağlı  
-* @since 23/06/2016
+* @since 15/08/2016
 */
-window.resetMachinePropForm = function () {
-   $('#aclResourcesForm').validationEngine('hide');
+window.resetMacProducersForm = function () {
+   $('#macProducersForm').validationEngine('hide');
    return false;
 }
                                             
-   
-/*
-* 
-* units category tree
-* Mustafa Zeynel Dağlı
-* 23/06/2016
-*/
-$('#tt_tree_menu2').tree({  
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillResourcesTree_sysAclResources&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
-    method: 'get',
-    animate: true,
-    checkbox: false,
-    cascadeCheck: false,
-    lines: true,
-    onLoadSuccess: function (node, data) {
-         loader.loadImager('removeLoadImage');
-    },
-    onSelect: function(node) {
-         
-    },
-});
-      
-
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
 
@@ -155,32 +129,32 @@ $.fn.leftMenuFunction();
 jQuery("#machinePropForm").validationEngine();
     
 /**
- * wrapper class for pop up and delete ACL resource ultimately
+ * wrapper class for pop up and delete machine producer ultimately
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 15/08/2016
  */
-window.deleteACLResourceUltimatelyDialog= function(id, index){
+window.deleteMacProducerUltimatelyDialog= function(id, index){
     var id = id;
     var index = index;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteACLResourceUltimately(id, index);
+        deleteMacProducerUltimately(id, index);
     }
     });
-    wcm.warningComplexMessage('show', 'ACL Resource (Kaynak) Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'ACL Resource (Kaynak) silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'Makina Üreticisi Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'Makina Üreticisi silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
    
 /**
-* delete ACL resource
+* delete machine producer
 * @param {type} id
 * @param {type} element
 * @param {type} machine_group_id
 * @returns {undefined}
-* @since 13/07/2016
+* @since 15/08/2016
 */
-window.deleteACLResourceUltimately = function(id, index) {
+window.deleteMacProducerUltimately = function(id, index) {
    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
     loaderGridBlock.loadImager('appendImage');
 
@@ -189,7 +163,7 @@ window.deleteACLResourceUltimately = function(id, index) {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysAclResources' ,
+                    url:'pkDelete_sysManufacturer' ,
                     id : id,
                     pk : $("#pk").val()
                 }
@@ -197,41 +171,44 @@ window.deleteACLResourceUltimately = function(id, index) {
     ajDeleteAll.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'ACL Resource (Kaynak) Silme İşlemi Başarısız...',
-                                     'ACL Resource (Kaynak) silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            dm.dangerMessage('show', 'Makina Üreticisi Silme İşlemi Başarısız...',
+                                     'Makina Üreticisi silinememiştir, sistem yöneticisi ile temasa geçiniz...');
             console.error('"pkDelete_sysAclResources" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
             sm.successMessage({ 
                 onShown : function() {
-                    //console.warn(index);
                     loaderGridBlock.loadImager('removeLoadImage');
-                    
-                    var node = $('#tt_tree_menu2').tree('find', id);
-                    $('#tt_tree_menu2').tree('remove', node.target);
-                    
                     $('#tt_grid_dynamic').datagrid('reload');
-                    //$('#tt_grid_dynamic').datagrid('deleteRow', index);
                 }
             });
-            sm.successMessage('show', 'ACL Resource (Kaynak) Silme İşleminiz Başarılı...',
-                                      'ACL Resource (Kaynak) silme işleminiz başarılı...')
-        },                                   
+            sm.successMessage('show', 'Makina Üreticisi Silme İşleminiz Başarılı...',
+                                      'Makina Üreticisi silme işleminiz başarılı...')
+        },
+        onError23503: function (event, data) {
+                wm.dangerMessage('resetOnShown');
+                wm.dangerMessage('show', 'Makina Üreticisini silemezsiniz!',
+                        'Makina üreticisi bir makina ile eşleştirildiği için üreticiyi silemezsiniz, \n\
+                                    Öncelikle ilgili makinayı silmeniz gerekmektedir, '+data.errorInfoColumnCount+' makinanın\n\
+                                    üreticiye bağlı olduğu görülüyor... ');
+                loaderGridBlock.loadImager('removeLoadImage');
+
+            },
     });
     ajDeleteAll.ajaxCall('call');
 }
    
  
 /**
- * insert ACL resource
+ * insert machine producer
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 15/08/2016
  */
-window.insertACLResourcesWrapper = function (e) {
+window.insertMacProducersWrapper = function (e) {
  e.preventDefault();
- if ($("#aclResourcesForm").validationEngine('validate')) {
-     insertACLResource();
+ if ($("#macProducersForm").validationEngine('validate')) {
+     insertMacProducer();
  }
  return false;
 }
@@ -239,14 +216,14 @@ window.insertACLResourcesWrapper = function (e) {
    
    
 /**
- * wrapper for ACL resource update process
+ * wrapper for machine producer update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 15/08/2016
  */
-window.updateACLResourceDialog = function (id, row) {
+window.updateMacProducerDialog = function (id, row) {
     window.gridReloadController = false;
     //console.log(row);
     BootstrapDialog.show({  
@@ -256,19 +233,80 @@ window.updateACLResourceDialog = function (id, row) {
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                     <form id="aclResourceFormPopup" method="get" class="form-horizontal">\n\
+                                                     <form id="macProducerFormPopup" method="get" class="form-horizontal">\n\
                                                      <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Resource (Kaynak)</label>\n\
+                                                             <label class="col-sm-2 control-label">Üretici</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
                                                                      </div>\n\
-                                                                     <div  class="tag-container-popup">\n\
+                                                                     <div  >\n\
                                                                          <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.name+'" name="name_popup" id="name_popup"   />\n\
                                                                      </div>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group" style="margin-top: 20px;">\n\
+                                                             <label class="col-sm-2 control-label">Üretici İng.</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <div  >\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.name_eng+'" name="name_eng_popup" id="name_eng_popup"   />\n\
+                                                                     </div>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group" style="margin-top: 20px;">\n\
+                                                             <label class="col-sm-2 control-label">Kısaltma Kodu</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <div  >\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.abbreviation+'" name="abbreviation_popup" id="abbreviation_popup"   />\n\
+                                                                     </div>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group" style="margin-top: 20px;">\n\
+                                                             <label class="col-sm-2 control-label">Kısaltma Kodu İng.</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <div  >\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.abbreviation_eng+'" name="abbreviation_eng_popup" id="abbreviation_eng_popup"   />\n\
+                                                                     </div>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group">\n\
+                                                             <label class="col-sm-2 control-label">Hakkında</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <textarea data-prompt-position="topLeft:70" class="form-control " rows="3" name="about_popup" id="about_popup" placeholder="Hakkında...">'+row.about+'</textarea>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group">\n\
+                                                             <label class="col-sm-2 control-label">Hakkında İng</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <textarea data-prompt-position="topLeft:70" class="form-control " rows="3" name="about_eng_popup" id="about_eng_popup" placeholder="Hakkında İng...">'+row.about_eng+'</textarea>\n\
                                                                  </div>\n\
                                                              </div>\n\
                                                          </div>\n\
@@ -279,14 +317,25 @@ window.updateACLResourceDialog = function (id, row) {
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
                                                                      </div>\n\
-                                                                     <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description_popup" id="description_popup" placeholder="Açıklama ...">'+row.description+'</textarea>\n\
+                                                                     <textarea data-prompt-position="topLeft:70" class="form-control " rows="3" name="description_popup" id="description_popup" placeholder="Açıklama ...">'+row.description+'</textarea>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group">\n\
+                                                             <label class="col-sm-2 control-label">Açıklama İng.</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <textarea data-prompt-position="topLeft:70" class="form-control " rows="3" name="description_eng_popup" id="description_eng_popup" placeholder="Açıklama İng...">'+row.description_eng+'</textarea>\n\
                                                                  </div>\n\
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group">\n\
                                                              <div class="col-sm-10 col-sm-offset-2">\n\
-                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateACLResourceWrapper(event, '+id+');">\n\
+                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateMacProducerWrapper(event, '+id+');">\n\
                                                                  <i class="fa fa-save"></i> Güncelle </button>\n\
                                                              <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
                                                                  <i class="fa fa-remove"></i> Reset </button>-->\n\
@@ -300,7 +349,7 @@ window.updateACLResourceDialog = function (id, row) {
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
          onshown : function () {         
-            $('#aclResourceFormPopup').validationEngine();
+            $('#macProducerFormPopup').validationEngine();
          },
          onhide : function() {
              if(window.gridReloadController == true) {
@@ -313,49 +362,66 @@ window.updateACLResourceDialog = function (id, row) {
 }
 
 /**
- * update ACL resource wrapper
+ * update machine producer wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 15/08/2016
  */
-window.updateACLResourceWrapper = function (e, id) {
+window.updateMacProducerWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#aclResourceFormPopup").validationEngine('validate')) {   
-    updateACLResource(id);
+ if ($("#macProducerFormPopup").validationEngine('validate')) {   
+    updateMacProducer(id);
     return false;
  }
  return false;
 }
 
 /**
- * update ACL resource
+ * update machine producer
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 15/08/2016
  */
-window.updateACLResource = function (id) {
+window.updateMacProducer = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      
+     var name_popup = $('#name_popup').val();
+     var name_eng_popup = $('#name_eng_popup').val();
+     
+     var abbreviation_popup = $('#abbreviation_popup').val();
+     var abbreviation_eng_popup = $('#abbreviation_eng_popup').val();
+     
+     var about_popup = $('#about_popup').val();
+     var about_eng_popup = $('#about_eng_popup').val();
+     
+     var description_popup = $('#description_popup').val();
+     var description_eng_popup = $('#description_eng_popup').val();
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysAclResources' ,
-                         id : id,
-                         name : $('#name_popup').val(),
-                         description : $('#description_popup').val(),
-                         parent : 0,
-                         pk : $("#pk").val()
+                         url:'pkUpdate_sysManufacturer' ,
+                         name : name_popup,
+                         name_eng : name_eng_popup,
+                         abbreviation : abbreviation_popup,
+                         abbreviation_eng : abbreviation_eng_popup,
+                         about : about_popup,
+                         about_eng : about_eng_popup,
+                         description : description_popup,
+                         description_eng : description_eng_popup,
+                         pk : $("#pk").val(),
+                         language_code : $('#langCode').val(),
+                         id : id
                      }
     })
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
-                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclResources" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Makina Üreticisi Güncelleme İşlemi Başarısız...', 
+                                      'Makina üreticisi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysManufacturer" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -364,21 +430,21 @@ window.updateACLResource = function (id) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarılı...', 
-                                       'ACL Resource (Kaynak) güncelleme işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Makina Üreticisi Güncelleme İşlemi Başarılı...', 
+                                       'Makina üreticisi güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
              window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
-                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclResources" servis datası boştur!!');
+             dm.dangerMessage('show', 'Makina Üreticisi Güncelleme İşlemi Başarısız...', 
+                                      'Makina üreticisi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysManufacturer" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Güncelleme İşlemi Başarısız...', 
-                                      'ACL Resource (Kaynak) güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Makina Üreticisi Güncelleme İşlemi Başarısız...', 
+                                      'Makina üreticisi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
@@ -389,59 +455,63 @@ window.updateACLResource = function (id) {
 }
    
 /**
- * insert ACL resource
+ * insert machine producer
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 15/08/2016
  */
-window.insertACLResource = function () {
+window.insertMacProducer = function () {
      var loaderInsertBlock = $("#loading-image-crud").loadImager();
      loaderInsertBlock.loadImager('appendImage');
      
      var name = $('#name').val();
+     var name_eng = $('#name_eng').val();
+     
+     var abbreviation = $('#abbreviation').val();
+     var abbreviation_eng = $('#abbreviation_eng').val();
+     
+     var about = $('#about').val();
+     var about_eng = $('#about_eng').val();
+     
      var description = $('#description').val();
+     var description_eng = $('#description_eng').val();
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
-                         url:'pkInsert_sysAclResources' ,
+                         url:'pkInsert_sysManufacturer' ,
                          name : name,
+                         name_eng : name_eng,
+                         abbreviation : abbreviation,
+                         abbreviation_eng : abbreviation_eng,
+                         about : about,
+                         about_eng : about_eng,
                          description : description,
-                         parent : 0,
-                         pk : $("#pk").val()
+                         description_eng : description_eng,
+                         pk : $("#pk").val(),
+                         language_code : $('#langCode').val()
                      }
     })
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Resource (Kaynak) Ekleme İşlemi Başarısız...', 
-                                       'ACL resource (kaynak) ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysAclResources" servis hatası->'+textStatus);
+              dm.dangerMessage('show', 'Makina Üreticisi Ekleme İşlemi Başarısız...', 
+                                       'Makina üreticisi ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkInsert_sysManufacturer" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
               console.log(data);
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
-                     $('#aclResourcesForm')[0].reset();  
-                     
-                     $('#tt_tree_menu2').tree('append', {
-                        data: [{
-                                attributes:{ active: 0 },
-                                active: 0,
-                                id: data.lastInsertId,
-                                text: name,
-                                checked: false,
-                                state : 'open',
-                            },]
-                    });
+                     $('#macProducersForm')[0].reset();  
 
                      loaderInsertBlock.loadImager('removeLoadImage');
                      $('#tt_grid_dynamic').datagrid({
                          queryParams: {
                                  pk: $('#pk').val(),
                                  subject: 'datagrid',
-                                 url : 'pkFillPropertieslist_sysAclResources',
+                                 url : 'pkFillManufacturerListGrid_sysManufacturer',
                                  sort : 'id',
                                  order : 'desc',
                          },
@@ -450,22 +520,22 @@ window.insertACLResource = function () {
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
              });
-             sm.successMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarılı...', 
-                                       'ACL resource (kaynak) kayıt işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Makina Üreticisi Kayıt İşlemi Başarılı...', 
+                                       'Makina üreticisi kayıt işlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
-                                       'ACL resource (kaynak) kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysAclResources" servis datası boştur!!');
+              dm.dangerMessage('show', 'Makina Üreticisi Kayıt İşlemi Başarısız...', 
+                                       'Makina üreticisi kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkInsert_sysManufacturer" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
-                                     'ACL resource (kaynak) kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysAclResources" servis hatası->'+data.errorInfo);
+             dm.dangerMessage('show', 'Makina Üreticisi Kayıt İşlemi Başarısız...', 
+                                     'Makina üreticisi kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkInsert_sysManufacturer" servis hatası->'+data.errorInfo);
           },
           onError23503 : function (event, data) {
           },
@@ -476,8 +546,8 @@ window.insertACLResource = function () {
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'ACL Resource (Kaynak) Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile ACL resource (kaynak) kaydı yapılmıştır, yeni bir ACL resource (kaynak) deneyiniz... ');
+              dm.dangerMessage('show', 'Makina Üreticisi Kayıt İşlemi Başarısız...', 
+                                       'Aynı isim ile makina üreticisi kaydı yapılmıştır, yeni bir makina üreticisi deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
@@ -485,40 +555,39 @@ window.insertACLResource = function () {
    
 
 /**
- * active/passive ACL resource
+ * active/passive machine producer
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 15/08/2016
  */
-window.activePassiveACLResourcesWrapper = function (e, id) {
+window.activePassiveMacProducersWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  var domElement = e.target;
  wcm.warningComplexMessage({onConfirm : function(event, data) {
-        activePassiveACLResource(id, domElement);
+        activePassiveMacProducer(id, domElement);
     }
     });
-wcm.warningComplexMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                  'ACL resource (kaynak) aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
+wcm.warningComplexMessage('show', 'Makina Üreticisi Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                  'Makina üreticisi aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
  return false;
 }
 
 /**
- * active or passive ACL resource
+ * active or passive machine producer
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 13/07/2016
+ * @since 15/08/2016
  */
-window.activePassiveACLResource = function (id, domElement) {
+window.activePassiveMacProducer = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
     loader.loadImager('appendImage');
     var id = id;
-    //console.log(domElement);
 
     var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdateMakeActiveOrPassive_sysAclResources' ,
+                         url:'pkUpdateMakeActiveOrPassive_sysManufacturer' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -526,9 +595,9 @@ window.activePassiveACLResource = function (id, domElement) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL resource (kaynak) aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclResources" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Makina Üreticisi Aktif/Pasif İşlemi Başarısız...', 
+                                      'Makina üreticisi aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysManufacturer" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -537,8 +606,8 @@ window.activePassiveACLResource = function (id, domElement) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarılı...', 
-                                       'ACL resource (kaynak) aktif/pasif işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Makina Üreticisi Aktif/Pasif İşlemi Başarılı...', 
+                                       'Makina üreticisi aktif/pasif işlemini gerçekleştirdiniz... ',
                                        data);
             if($(domElement).hasClass("fa-minus-circle")){
                 $(domElement).removeClass("fa-minus-circle");
@@ -560,12 +629,12 @@ window.activePassiveACLResource = function (id, domElement) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
                                       'ACL resource (kaynak) aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclResources" servis datası boştur!!');
+             console.error('"pkUpdateMakeActiveOrPassive_sysManufacturer" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Resource (Kaynak) Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL resource (kaynak) aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Makina Üreticisi Aktif/Pasif İşlemi Başarısız...', 
+                                      'Makina üreticisi aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },

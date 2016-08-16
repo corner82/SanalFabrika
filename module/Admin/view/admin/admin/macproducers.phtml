@@ -167,13 +167,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    ACL Resources(Kaynak) İşlemleri
+                    Makina Üreticileri Tanımlama İşl.
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li><a href="#"><i class="fa fa-certificate"></i> Rol ve Yetki İşlemleri</a></li>
-                    <li class="active">Resources İşl.</li>
+                    <li><a href="#"><i class="fa fa-certificate"></i> Makina İşlemleri</a></li>
+                    <li class="active">Makina Üreticisi İşl.</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -188,7 +188,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> ACL Resources Tanımlama  İşlemleri </h3>
+                                <h3 class="box-title"> Makina Üreticisi Tanımlama  İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -199,28 +199,13 @@
                             <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
                                 <div class="alert alert-info alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Sistemde ACL işlemleri için kullanılan tüm 'Resources(Kaynak)' verisi eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
+                                    <h4><i class="icon fa fa-info"></i> Sistemde kullanılacak makina üreticileri eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
                                 </div>  
                                 <!--Makina ekleme formu -->
-                                <form id='aclResourcesForm' method="get" class="form-horizontal">     
+                                <form id='macProducersForm' method="get" class="form-horizontal">     
                                     <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                       
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Mevcut Resources(Kaynak)</label>
-                                            <div class="col-sm-10 " >
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-code-fork"></i>
-                                                    </div>
-                                                    <div class="inner test-tree" style='overflow:auto;'>    
-                                                        <div id="loading-image" class='scrollbar-inner'>
-                                                        <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
-                                                        </div>
-                                                    </div>                                                       
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Resource (Kaynak)</label>
+                                            <label class="col-sm-2 control-label">Üretici</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
@@ -231,20 +216,86 @@
                                             </div>
                                         </div>
                                         <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Üretici İng.</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="name_eng" id="name_eng" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Kısaltma Kodu</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation" id="abbreviation" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Kısaltma Kodu İng.</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="abbreviation_eng" id="abbreviation_eng" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Hakkında</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <textarea data-prompt-position="topLeft:70" class="form-control " rows="3" name="about" id="about" placeholder="Hakkında..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Hakkında İng.</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <textarea data-prompt-position="topLeft:70" class="form-control " rows="3" name="about_eng"  id="about_eng" placeholder="Hakkında İng..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
                                             <label class="col-sm-2 control-label">Açıklama</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-hand-o-right"></i>
                                                     </div>
-                                                    <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description" id="description" placeholder="Açıklama ..."></textarea>
+                                                    <textarea data-prompt-position="topLeft:70" class="form-control " rows="3" name="description" id="description" placeholder="Açıklama ..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Açıklama İng.</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <textarea data-prompt-position="topLeft:70" class="form-control " rows="3" name="description_eng" id="description_eng" placeholder="Açıklama İng..."></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertACLResourcesWrapper(event);"><i class="fa fa-save"></i>  Resource Kaydet </button>
-                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetMachinePropForm();" ><i class="fa fa-remove"></i> Reset </button>
+                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertMacProducersWrapper(event);"><i class="fa fa-save"></i>  Makina Üreticisi Kaydet </button>
+                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetMacProducersForm();" ><i class="fa fa-remove"></i> Reset </button>
                                             </div>
                                         </div>
                                     </div> 
@@ -258,7 +309,7 @@
                         <div id="loading-image-grid-container" class="box box-warning"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> ACL Resources (Kaynak) Listesi</h3>
+                                <h3 class="box-title"> Makina Üreticileri Listesi</h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -269,11 +320,11 @@
                             <div class="box-body">    
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> ACL Resources (Kaynak) Listesi </h4>
-                                    ACL Kaynaklarını  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirisiniz...
+                                    <h4><i class="icon fa fa-info"></i> Makina / Teçhizat Üreticileri Listesi </h4>
+                                    Üreticileri  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirisiniz...
                                 </div>
                                 <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
-                                    <table  id="tt_grid_dynamic" title="ACL Resources (Kaynaklar) " ></table>   
+                                    <table  id="tt_grid_dynamic" title="Makina Üreticileri " ></table>   
                                 </div> 
                                 
                             </div><!-- /.box-body -->
