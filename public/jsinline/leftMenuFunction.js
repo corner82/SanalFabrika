@@ -4,6 +4,8 @@
     $.fn.leftMenuFunction = function (data) {
 //       alert($("#pk").val());
 //      console.log('publicKey is ' + $("#pk").val());
+alert($("#controller").val());
+alert($("#module").val());
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
