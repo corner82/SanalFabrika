@@ -7,7 +7,9 @@
 
     <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
     <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input> 
-    <input id="pktemp" type="hidden" value=""></input>
+    <input id="pktemp" type="hidden" value=""></input>    
+    <input id="controller" type="hidden"  value="<?php echo $this->layout()->controller; ?>"></input>
+    <input id="module" type="hidden"  value="<?php echo $this->layout()->module; ?>"></input>
     <input id="lastInsertId" type="hidden"  value=""></input>
     <!--checks if first tab is completed and submitted successfully.-->
     <input id="checkGeneralForm" type="hidden" value="0"></input>
@@ -874,7 +876,7 @@
                                                 <label class="input">
                                                     <i class="icon-prepend fa fa-barcode"></i>
                                                     <input type="DUNS" class="form-control validation[custom[onlyNumberSp]]" 
-                                                          name="companyDUNSNumber" id="companyDUNSNumber">
+                                                           name="companyDUNSNumber" id="companyDUNSNumber">
                                                 </label>
                                             </section>
                                             <section>

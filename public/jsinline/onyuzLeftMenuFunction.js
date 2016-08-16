@@ -11,7 +11,9 @@
             pk: $("#pk").val(),
             url: 'pkGetLeftMenu_leftnavigation',
             language_code: $("#langCode").val(),
-            menu_types_id: 3
+            menu_types_id: 3,
+            m: $("#module").val(),
+            a: $("#controller").val()
         },
         method: "GET",
         async: false,
@@ -60,7 +62,7 @@
                             }
                         }
                         var newurl = currentPath.replace(changing, data[i].url);
-                        
+
                         var appending_html = "<li id='" + "" +
                                 data[i].id + "' tot_mach_count='' class='list-group-item list-toggle' onclick=getSubmenu(this)> \n\
                                                 <a id='" +
