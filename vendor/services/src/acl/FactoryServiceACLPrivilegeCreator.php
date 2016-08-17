@@ -53,7 +53,8 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
                 //print_r($sessionData);
                 //print_r($sessionData['__ZY']);
                 
-                $role = new Role($sessionData['__ZY']['role']);
+                //$role = new Role($sessionData['__ZY']['role']);
+                $role = new Role($sessionData['__ZY']);
                 $acl->addRole($role);
                 $resourceArray;
                 foreach ($privileges['resultSet'] as $key => $value) {
@@ -65,6 +66,7 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
                     $acl->allow($role, $value['resource_name'], $value['privilege_name']);
                 }
                 //print_r($resourceArray);
+                //print_r($acl);
                 $sessionManager->getStorage()->setMetadata('__RES',base64_encode(serialize($resourceArray)));
                 //$sessionManager->getStorage()->setMetadata('__ACL',base64_encode(serialize($acl)));
                 

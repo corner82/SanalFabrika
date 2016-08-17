@@ -25,12 +25,17 @@ class FactoryServiceRoleSessionWriter  implements FactoryInterface{
         $sessionID = $sessionManager->getId();
         $roleInfo = $sessionManager->getStorage()->getMetadata('__ZY');
         $authManager = $serviceLocator->get('authenticationManagerDefault');
+        
+        print_r('testttttt????');
         /**
          * if role info is not displayed and user not registered , then user is guest
          */
         if($authManager->getStorage()->isEmpty()) { 
-            $sessionManager->getStorage()->setMetadata('__ZY',array('role'=>'guest', 'roleID'=>7));
-            return array('name'=>'guest', 'id' => 7);
+            print_r('testttttt');
+            //$sessionManager->getStorage()->setMetadata('__ZY',array('role'=>'guest', 'roleID'=>7));
+            $sessionManager->getStorage()->setMetadata('__ZY','ziyaretçi');
+            $sessionManager->getStorage()->setMetadata('__ROLEID', 7);
+            return array('name'=>'ziyaretçi', 'id' => 7);
         } else {
             /**
              * if role info is not set and user is registered, then get
@@ -38,13 +43,17 @@ class FactoryServiceRoleSessionWriter  implements FactoryInterface{
              */
             $roleResult = $serviceLocator->get('serviceAclRoleFinder');
             if($roleResult['found']) {
-                //print_r($roleResult['resultSet']);
-                $sessionManager->getStorage()->setMetadata('__ZY',array('role'=>  strtolower(trim($roleResult['resultSet'][0]['name'])), 
-                                                          'roleID'=>$roleResult['resultSet'][0]['id']));
+                print_r($roleResult['resultSet']);
+                /*$sessionManager->getStorage()->setMetadata('__ZY',array('role'=>  ''.strtolower(trim($roleResult['resultSet'][0]['name']).''), 
+                                                          'roleID'=>$roleResult['resultSet'][0]['id']));*/
+                $sessionManager->getStorage()->setMetadata('__ZY',$roleResult['resultSet'][0]['name']);
+                $sessionManager->getStorage()->setMetadata('__ROLEID',$roleResult['resultSet'][0]['id']);
                 return $roleResult['resultSet'][0];
             } else {
-                $sessionManager->getStorage()->setMetadata('__ZY',array('role'=>'guest', 'roleID'=>7));
-                return array('name'=>'guest', 'id' => 7);
+                //$sessionManager->getStorage()->setMetadata('__ZY',array('role'=>'guest', 'roleID'=>7));
+                $sessionManager->getStorage()->setMetadata('__ZY','ziyaretçi');
+                $sessionManager->getStorage()->setMetadata('__ROLEID', 7);
+                return array('name'=>'ziyaretçi', 'id' => 7);
             }
         }
     }

@@ -892,12 +892,18 @@ class SanalfabrikaController extends AbstractActionController {
                     /**
                      * redirecting after success
                      */
-                    $this->getServiceLocator()->get('serviceAuthenticatedRedirectManager');
+                    $this->getServiceLocator()->get('serviceAuthenticatedRedirectManager');  
                 }
             } else {
                 $authManager->getStorage()->clear();
                 $viewModel->notValidated = true;
             }
+            /**
+            * user role service will be tested
+            * @author Mustafa Zeynel Dağlı
+            * @since 28/01/2016
+            */
+           $this->getServiceLocator()->get('serviceRoleSessionWriter');
         }
     }
 

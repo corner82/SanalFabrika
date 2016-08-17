@@ -143,7 +143,15 @@
          * @since 13/08/2016
          * 
          */
-        $sessionManager->getStorage()->setMetadata('__ZY','');
+        $sessionManager->getStorage()->setMetadata('__ZY','ziyaretçi');
+        
+        /**
+         * Session data regarding role id destroyed here
+         * @author Mustafa Zeynel Dağlı
+         * @since 17/08/2016
+         * 
+         */
+        $sessionManager->getStorage()->setMetadata('__ROLEID',7);
         
         /**
         * user log out action logged by rabbitMQ messaging

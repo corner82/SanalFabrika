@@ -32,7 +32,7 @@ class FactoryServiceACLRoleFinder  implements FactoryInterface{
                 $pdo->beginTransaction();
                 $statement = $pdo->prepare(" 
 
-                    SELECT   a.role_id as id , r.name as name
+                    SELECT   a.role_id as id , LOWER(TRIM(r.name_tr)) as name
                     FROM info_users a
                     inner join sys_acl_roles r on r.id = a.role_id AND r.active =0 AND r.deleted =0    
                     where a.active = 0 AND a.deleted = 0 AND

@@ -184,8 +184,10 @@ namespace SFDM;
                             ->getServiceManager()
                             ->get('SessionManagerDefault');
         $sessionData = $sessionManager->getStorage()->getMetadata();
-        if(isset($sessionData['__ZY']['role'])) {
-            $role = $sessionData['__ZY']['role'];
+        //if(isset($sessionData['__ZY']['role'])) {
+        if(isset($sessionData['__ZY'])) {
+            //$role = $sessionData['__ZY']['role'];
+            $role = $sessionData['__ZY'];
         
             $controlerName = $e->getRouteMatch()->getParam('action');
             //print_r($controlerName);
