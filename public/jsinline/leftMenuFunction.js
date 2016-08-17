@@ -2,6 +2,7 @@
 (function ($) {
 
     $.fn.leftMenuFunction = function (data) {
+
 //       alert($("#pk").val());
 //      console.log('publicKey is ' + $("#pk").val());
         $.ajax({
@@ -29,6 +30,7 @@
                         .replace('--dil--', $("#langCode").val());
 
                 var currentPathArray = currentPath.split('/');
+                var current_action = $('#controller').val();
 
 //            var langIndex = currentPathArray.indexOf($("#langCode").val());
 //            var urlArraySize = currentPathArray.length;
@@ -39,21 +41,24 @@
                 var i = 0;
                 for (i; i < len; i++) {
 
-                    if (data[i].collapse === 0) {
-
+                    if (data[i].collapse === 0) {   
+                        
+                        var target_link = currentPath.replace(current_action,data[i].url);
+                        
                         var appending_html = "<li id='menu_" +
-                                data[i].id + "'><a href='" +
-                                data[i].url + "'><i class='fa " +
+                                data[i].id + "'><a href='https://" +
+                                target_link + "'><i class='fa " +
                                 data[i].icon_class + "'></i><span>" +
                                 data[i].menu_name + "</span></a></li>";
 
                         var newappend = $(appending_html);
 
                     } else {
+                        var target_link = currentPath.replace(current_action,data[i].url);
 
                         var appending_html = "<li class='treeview' id='menu_" +
-                                data[i].id + "'><a href='" +
-                                data[i].url + "'><i class='fa " +
+                                data[i].id + "'><a href='https://" +
+                                target_link + "'><i class='fa " +
                                 data[i].icon_class + "'></i><span>" +
                                 data[i].menu_name +
                                 "</span><i class='fa fa-angle-left pull-right'></i></a></li>";
@@ -74,10 +79,11 @@
 
                         var data_url = data[i].url;
                         if (data[i].url) {
-                            
+
                             var sep_data_url = data_url.split('/');
                             var href_action = sep_data_url[sep_data_url.length - 1];
-                            var current_action = currentPathArray[currentPathArray.length - 1];
+//                            var current_action = currentPathArray[currentPathArray.length - 1];
+                            var current_action = $('#controller').val(); 
 
                             if (href_action === current_action) {
                                 var targetParentinURL = currentPathArray[c];
