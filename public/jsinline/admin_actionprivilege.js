@@ -149,7 +149,7 @@ window.assignRolePrivilege = function (property_id, tag, tagBuilder) {
     var aj = $(window).ajaxCall({
          proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
          data : {
-             url:'pkTransferRolesPrivilege_sysAclRrp' ,
+             url:'pkTransferRolesActionPrivilege_sysAclActionRrp' ,
              role_id : role_id,
              resource_id : resource_id,
              privilege_id : privilege_id,
@@ -222,11 +222,11 @@ window.deleteRolePrivilege = function(id, tag, tagBuilder) {
     var loader = $("#rolePrivilegeBlock").loadImager();
     loader.loadImager('appendImage');
     
-    console.log(tag.attr('data-attribute'));
+    /*console.log(tag.attr('data-attribute'));
     console.log(tag.text());
     console.log(tag.attr('data-resource_id'));
     console.log(tag.attr('data-privilege_id'));
-    console.log(tag.attr('data-role_id'));
+    console.log(tag.attr('data-role_id'));*/
     var role_id = tag.attr('data-role_id');
     var privilege_id = tag.attr('data-privilege_id');
     var resource_id = tag.attr('data-resource_id');
@@ -234,7 +234,7 @@ window.deleteRolePrivilege = function(id, tag, tagBuilder) {
     var ajPopUpDelete = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkDelete_sysAclRrp' ,
+                         url:'pkDelete_sysAclActionRrp' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -319,7 +319,7 @@ window.getRolePrivileges = function(node, treeObj, tagBuilder) {
         var ajaxMacProp = $('#test-cabin').ajaxCallWidget({
             proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                     data : {
-                        url:'pkFillPrivilegesOfRoles_sysAclPrivilege' ,
+                        url:'pkFillActionPrivilegesOfRoles_sysAclActionRrp' ,
                         language_code : $('#langCode').val(),
                         role_id : nodeID,
                         resource_id : resource_id,
@@ -400,7 +400,7 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
         var ajaxMacPropNot = $('#test-cabin-not').ajaxCallWidget({
             proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                     data : {
-                        url:'pkFillNotInPrivilegesOfRoles_sysAclPrivilege' ,
+                        url:'pkFillNotInActionPrivilegesOfRoles_sysAclActionRrp' ,
                         language_code : $('#langCode').val(),
                         role_id : nodeID,
                         resource_id : resource_id,
@@ -415,8 +415,8 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
                         //treeObj.tree('uncheck', node.target);
                     }
                  });
-                 dm.dangerMessage('show', 'Resource Yetkileri Yüklenememiştir...',
-                                          'Resource Yetkileri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
+                 dm.dangerMessage('show', 'Rol Yetkileri Yüklenememiştir...',
+                                          'Rol Yetkileri yüklenememiştir, sistem yöneticiniz ile temasa geçiniz...');
              },
              onSuccess : function (event, data) {
                  $('#mach-prop-box-not').loadImager('removeLoadImage');
@@ -439,7 +439,7 @@ window.getRolePrivilegesNotAssigned = function(node, treeObj, tagBuilder) {
                         //treeObj.tree('uncheck', node.target);
                     }
                  });
-                 dm.dangerMessage('show', 'Resource (Kaynak) Bağlı Yetki Bulunamamıştır...',
+                 dm.dangerMessage('show', 'Rol (Kaynak) Bağlı Yetki Bulunamamıştır...',
                                           'Seçtiğiniz rol için atanmamış yetki kaydı bulunamamıştır...');
                 $('#mach-prop-box-not').loadImager('removeLoadImage');
 
