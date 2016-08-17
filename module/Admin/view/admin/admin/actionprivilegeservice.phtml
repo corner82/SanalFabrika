@@ -2,6 +2,9 @@
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
 <input id="ln" type="hidden"  value="tr"></input>
+<input id="controller" type="hidden"  value="<?php echo $this->layout()->controller; ?>"></input>
+<input id="module" type="hidden"  value="<?php echo $this->layout()->module; ?>"></input>
+
 <body class="skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -204,7 +207,7 @@
                                 <!--Makina ekleme formu -->
                                 <form id='aclServiceForm' method="get" class="form-horizontal">     
                                     <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                       
-                                        <div class="form-group">
+                                        <div class="form-group" >
                                             <label class="col-sm-2 control-label">Action Resource  ve Bağlı Roller</label>
                                             <div class="col-sm-10 " >
                                                 <div class="input-group">
@@ -212,7 +215,7 @@
                                                         <i class="fa fa-code-fork"></i>
                                                     </div>
                                                     <div class="inner test-tree" style='overflow:auto;'>    
-                                                        <div id="loading-image" class='scrollbar-inner'>
+                                                        <div id="loading-image" class='scrollbar-inner' style="height: 250px;">
                                                         <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
                                                         </div>
                                                     </div>                                                       
