@@ -184,7 +184,7 @@ return array(
         ),
 
     ),
-    'ACL_pages' => array(
+    /*'ACL_pages' => array(
         'guest' => array(
                          'action' => array('sanalfabrika' => array ('index',
                                                                     'registration',
@@ -317,5 +317,5 @@ return array(
                          //'action' => array('sanalfabrika' => array ('index'))
                    ),    
         
-    )
+    )*/
 ); 

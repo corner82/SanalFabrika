@@ -140,7 +140,7 @@
       * machine categories consultant operations
       * @return ViewModel
       * @author Mustafa Zeynel Dağlı
-      * @since 30/03/2016
+      * @since 16/08/2016
       */
      public function machctgAction()
      {
@@ -150,7 +150,6 @@
                             ->get('serviceTranslatorUrlRegulator');
         $publicKey = $this->getServiceLocator()
                             ->get('servicePublicKeyReader'); 
-         
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
