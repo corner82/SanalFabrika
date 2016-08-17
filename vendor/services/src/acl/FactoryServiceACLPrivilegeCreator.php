@@ -54,7 +54,12 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
                 //print_r($sessionData['__ZY']);
                 
                 //$role = new Role($sessionData['__ZY']['role']);
-                $role = new Role($sessionData['__ZY']);
+                if(isset($sessionData['__ROLEID'])) {
+                    $role = $sessionData['__ZY'];
+                } else {
+                    $role = 'ziyaretçi';
+                }
+                $role = new Role($role);
                 $acl->addRole($role);
                 $resourceArray;
                 foreach ($privileges['resultSet'] as $key => $value) {
