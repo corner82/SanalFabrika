@@ -1,8 +1,6 @@
 (function ($) {
+//console.log($('#controller').val());
 
-//    $.fn.onyuzLeftMenuFunction = function (data) {
-//       alert($("#pk").val());
-//      console.log('publicKey is ' + $("#pk").val());
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -99,7 +97,7 @@
             }
         }
     });
-//    };
+
 }(jQuery));
 
 function activateLink(clicked) {
