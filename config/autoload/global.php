@@ -31,7 +31,14 @@ return array(
             'profile' => 'layout/profile.phtml',
             'confirm' => 'layout/confirm.phtml',
             'machinetest' => 'layout/machinetest.phtml',
-            'imageupload' => 'layout/imageupload.phtml'
+            'imageupload' => 'layout/imageupload.phtml',
+            'macproducers' => 'layout/macproducers.phtml',
+            'machattr'  => 'layout/machattr.phtml',
+            'uniquemachprop' => 'layout/uniquemachprop.phtml',
+            'machpropdef' => 'layout/machpropdef.phtml',
+            'machctg' => 'layout/machctg.phtml',
+            'machprop' => 'layout/machprop.phtml',
+            'mach' => 'layout/mach.phtml',
                         ),
         'Companies' => array(
             'companyregistration' => 'layout/companyregistrationLayout.phtml',
