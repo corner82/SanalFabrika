@@ -488,8 +488,8 @@ function _init() {
                             url: 'pkGetLeftMenu_leftnavigation',
                             pk: $("#pk").val(),
                             language_code: $("#langCode").val(),
-                            m: $("#module").val(),
-                            a: $("#controller").val()
+                            a: $("#controller").val(),
+                            m: $("#module").val()
 //                            menu_types_id: 1
                                     /*
                                      * clicked object id is being added to the query
