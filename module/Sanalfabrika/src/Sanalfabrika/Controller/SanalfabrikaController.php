@@ -845,6 +845,7 @@ class SanalfabrikaController extends AbstractActionController {
                         $event->stopPropagation();
                         exit();
                     }
+                    //print_r($publicKey);
                     $this->getServiceLocator()->setService('identity', $result->getIdentity());
                     //print_r($this->getServiceLocator()->get('identity'));
                     $userID = null;

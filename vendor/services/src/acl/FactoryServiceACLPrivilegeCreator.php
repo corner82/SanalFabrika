@@ -30,6 +30,7 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
         $aclResources = $sessionManager->getStorage()->getMetadata('__RES');
         
         if($aclSession!= NULL) {
+            //print_r('acl nesnesi boş değil');
             $sessionData = $sessionManager->getStorage()->getMetadata();
             $acl = unserialize(base64_decode($sessionData['__ACL']));
             
@@ -41,6 +42,7 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
             
             return $acl;
         } else {
+            //print_r('acl nesnesi boş!!');
             $pdo = $serviceLocator->get('servicePostgrePdo');
         
             $privileges = $serviceLocator->get('serviceAclPrivilegeFinder');
@@ -64,7 +66,7 @@ class FactoryServiceACLPrivilegeCreator  implements FactoryInterface{
                 }
                 //print_r($resourceArray);
                 $sessionManager->getStorage()->setMetadata('__RES',base64_encode(serialize($resourceArray)));
-                $sessionManager->getStorage()->setMetadata('__ACL',base64_encode(serialize($acl)));
+                //$sessionManager->getStorage()->setMetadata('__ACL',base64_encode(serialize($acl)));
                 
                 /*echo $acl->isAllowed($role, 'adminİşlemleri', 'prvrrrabc') ?
                     "allowed" : "denied";
