@@ -30,7 +30,7 @@ $('#tt_grid_dynamic_privileges').datagrid({
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillPrivilegesOfRolesList_sysAclPrivilege',
+            url : 'pkFillActionPrivilegesOfRolesList_sysAclActionRrp',
             sort : 'id',
             order : 'desc',
             /*machine_groups_id : null,
@@ -100,7 +100,7 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
 * 11/08/2016
 */
 $('#tt_tree_menu2').tree({  
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillResourceGroups_sysAclResources&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
+    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillActionResourceGroups_sysAclActionRrp&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
     method: 'get',
     animate: true,
     checkbox: false,
@@ -140,7 +140,7 @@ window.fillPrivilegeDatagrid = function(id, resource_id) {
         queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillPrivilegesOfRolesList_sysAclPrivilege',
+            url : 'pkFillActionPrivilegesOfRolesList_sysAclActionRrp',
             sort : 'id',
             order : 'desc',
             role_id : id,
@@ -243,7 +243,7 @@ window.privilegeServiceAttachDialog = function (id, row) {
             var ajPopUpMachProp = $('#test-cabin-popup').ajaxCallWidget({
                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                     data : {
-                        url:'pkFillRestServicesOfPrivileges_sysAclRrpRestservices' ,
+                        url:'pkFillActionRestServicesOfPrivileges_sysAclActionRrpRestservices' ,
                         language_code : $('#langCode').val(),
                         id : id,
                         pk : $("#pk").val()
@@ -277,7 +277,7 @@ window.privilegeServiceAttachDialog = function (id, row) {
             ajPopUpMachProp.ajaxCallWidget('call');
             
             $('#tt_tree_services_popup').tree({
-                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillNotInRestServicesOfPrivilegesTree_sysAclRrpRestservices&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val()+ '&rrp_id='+id,
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillNotInActionRestServicesOfPrivilegesTree_sysAclActionRrpRestservices&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val()+ '&rrp_id='+id,
                 method: 'get',
                 animate: true,
                 checkbox: false,
@@ -343,7 +343,7 @@ window.deleteServicePrivilege = function(id, element) {
     var ajPopUpDelete = $("#loading-image-crud-popup").ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkDelete_sysAclRrpRestservices' ,
+                         url:'pkDelete_sysAclActionRrpRestservices' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -415,11 +415,10 @@ window.attachServiceToPrivilege = function(rrp_id, restservices_id, services_gro
     var ajServiceAttach = $(window).ajaxCall({
             proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data : {
-                url:'pkInsert_sysAclRrpRestservices' ,
+                url:'pkInsert_sysAclActionRrpRestservices' ,
                 language_code : $('#langCode').val(),
                 rrp_id : rrp_id,
                 restservices_id : restservices_id,
-                description : '',
                 pk : $("#pk").val()
             }
     })
