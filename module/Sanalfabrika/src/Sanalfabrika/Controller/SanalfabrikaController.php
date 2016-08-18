@@ -67,6 +67,7 @@ class SanalfabrikaController extends AbstractActionController {
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
         ));
+        $this->ifLoggedinRedirect();
         $this->authenticate(null, $view);
         return $view;
     }
@@ -793,6 +794,19 @@ class SanalfabrikaController extends AbstractActionController {
         ));
         return $view;
     }
+    
+    /**
+     * if user logged in and still trying to hit login page,
+     * system redirects to role main page
+     * @author Mustafa Zeynel Dağlı
+     * @since 18/08/2016
+     */
+    private function ifLoggedinRedirect() {
+        $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
+        if(!$authManager->getStorage()->isEmpty()) {  
+            $this->getServiceLocator()->get('serviceAuthenticatedRedirectManager');
+        }
+    }
 
     /** this function called by indexAction to reduce complexity of function */
     protected function authenticate($form = null, $viewModel = null) {
@@ -898,12 +912,6 @@ class SanalfabrikaController extends AbstractActionController {
                 $authManager->getStorage()->clear();
                 $viewModel->notValidated = true;
             }
-            /**
-            * user role service will be tested
-            * @author Mustafa Zeynel Dağlı
-            * @since 28/01/2016
-            */
-           $this->getServiceLocator()->get('serviceRoleSessionWriter');
         }
     }
 
