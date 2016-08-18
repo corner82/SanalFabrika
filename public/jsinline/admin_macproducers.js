@@ -498,6 +498,7 @@ window.insertMacProducer = function () {
               dm.dangerMessage('show', 'Makina Üreticisi Ekleme İşlemi Başarısız...', 
                                        'Makina üreticisi ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
               console.error('"pkInsert_sysManufacturer" servis hatası->'+textStatus);
+            loaderInsertBlock.loadImager('removeLoadImage');
           },
           onSuccess : function (event, data) {
               console.log(data);
@@ -530,11 +531,15 @@ window.insertMacProducer = function () {
               dm.dangerMessage('show', 'Makina Üreticisi Kayıt İşlemi Başarısız...', 
                                        'Makina üreticisi kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
               console.error('"pkInsert_sysManufacturer" servis datası boştur!!');
+            loaderInsertBlock.loadImager('removeLoadImage');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'Makina Üreticisi Kayıt İşlemi Başarısız...', 
                                      'Makina üreticisi kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                     loaderInsertBlock.loadImager('removeLoadImage');
+             
+            loaderInsertBlock.loadImager('removeLoadImage');
              console.error('"pkInsert_sysManufacturer" servis hatası->'+data.errorInfo);
           },
           onError23503 : function (event, data) {
@@ -548,6 +553,20 @@ window.insertMacProducer = function () {
               });
               dm.dangerMessage('show', 'Makina Üreticisi Kayıt İşlemi Başarısız...', 
                                        'Aynı isim ile makina üreticisi kaydı yapılmıştır, yeni bir makina üreticisi deneyiniz... ');
+              
+            loaderInsertBlock.loadImager('removeLoadImage');
+          },
+          onError22001 : function (event, data) {
+              dm.dangerMessage({
+                 onShown : function(event, data) {
+                     $('#machinePropForm')[0].reset();
+                     loaderInsertBlock.loadImager('removeLoadImage');
+                 }
+              });
+              dm.dangerMessage('show', 'Makina Üreticisi Kayıt İşlemi Başarısız...', 
+                                       'Üretici kısaltılmış adı 20 karakterden fazla olmamalı. Lütfen bilgilerinizi kontrol edip tekrar giriniz... ');
+
+            loaderInsertBlock.loadImager('removeLoadImage');
           }
     }) 
     aj.ajaxCall('call');
