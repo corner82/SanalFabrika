@@ -748,6 +748,7 @@ window.updateMach = function (id) {
              sm.successMessage('show', 'Makina Güncelleme İşlemi Başarılı...', 
                                        'Makina güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
+                                       $('#tt_grid_dynamic').datagrid('reload');
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
