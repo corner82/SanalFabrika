@@ -995,7 +995,9 @@
                             self._trigger('onError23505', event, jsonString);
                         } else if(data.errorInfo == 23503) {
                             self._trigger('onError23503', event, jsonString);
-                        } else {
+                        } else if(data.errorInfo == 22001) {
+                            self._trigger('onError22001', event, jsonString);
+                        }else {
                             self._trigger('onSuccess', event,  jsonString);
                         }
                         
