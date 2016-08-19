@@ -10,6 +10,7 @@ class FactoryServiceAuthenticatedRedirectManager  implements FactoryInterface{
     public function createService(ServiceLocatorInterface $serviceLocator) {
 
         $roleResult = $serviceLocator->get('serviceAclRoleFinder');
+        print_r($roleResult);
         if(isset($roleResult['found'])) {
             $role = strtolower(trim($roleResult['resultSet'][0]['name']));
             //remove all whitespace from user role
