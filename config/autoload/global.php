@@ -39,6 +39,7 @@ return array(
             'machctg' => 'layout/machctg.phtml',
             'machprop' => 'layout/machprop.phtml',
             'mach' => 'layout/mach.phtml',
+            'machinsert' => 'layout/machinsert.phtml',
                         ),
         'Companies' => array(
             'companyregistration' => 'layout/companyregistrationLayout.phtml',
