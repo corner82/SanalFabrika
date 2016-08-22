@@ -184,7 +184,7 @@
                 <!-- Small boxes (Stat box) -->
                 <!--first collapsible panel row -->
                 <div class="row">
-                    
+                    <form class='form-horizontal'>
                     <!--Makina giriş bölümü -->
                     <div class="col-lg-12">
                         <!--arrange first panel color to blue by assigning primary class-->
@@ -204,14 +204,12 @@
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                     <h4><i class="icon fa fa-info"></i> Sistemde Danışman sorumluluğundaki firmalarda kullanılan tüm makinalar, makina kategorilerine bağlı olarak firmalara atanabilmektedir!</h4>
                                     Makina tanımlayabilir , silebilir, güncelleyebilirsiniz....
-                                </div>  
-                                <!--Makina ekleme formu -->
-                                <form id='machineForm' method="get" class="form-horizontal">     
+                                </div>      
                                     <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                     
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Kategori</label>
                                             <div class="col-sm-10 " >
-                                                <div class="input-group">
+                                                <div id ='machine-categories-loading-image' class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-code-fork"></i>
                                                     </div>
@@ -235,97 +233,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Makina Adedi</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="machine_tool_name" id="machine_tool_name" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Firmalar</label>
-                                            <div class="col-sm-10">
-                                                <div id="mach-prod-box" class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-copyright"></i>
-                                                    </div>
-                                                    <div id="dropdownProducers" ></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Makina Sahipliği</label>
-                                            <div class="col-sm-10">
-                                                <div id="mach-prod-box" class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-check"></i>
-                                                    </div>
-                                                    <div style="padding-left:20px;">
-                                                        <input type="radio" name="iCheckv" value="23"> <label style="padding-left:2px;padding-right: 15px;" >Firma</label>
-                                                        <input type="radio" name="iCheckv" value="18" checked> <label style="padding-left: 2px;">Leasing</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Makina Siparişe Uygun Mu?</label>
-                                            <div class="col-sm-10">
-                                                <div id="mach-prod-box" class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-check"></i>
-                                                    </div>
-                                                    <div style="padding-left:20px;">
-                                                        <input type="radio" name="order" value="23"> <label style="padding-left:2px;padding-right: 15px;" >Evet</label>
-                                                        <input type="radio" name="order" value="18" checked> <label style="padding-left: 2px;">Hayır</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Model Yılı</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-calendar-check-o"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required, custom[integer]]" type="text" name="model_year" id="model_year" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Makina Kodu</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-flag"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control" type="text" name="machine_code" id="machine_code" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertMachWrapper(event);"><i class="fa fa-save"></i>  Makina Kaydet </button>
-                                                <!--<button id="updateMachineCategory" class="btn btn-flat" type="submit" onclick="return updateMachineCategoryWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>-->
-                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetMachineForm();" ><i class="fa fa-remove"></i> Reset </button>
-                                            </div>
-                                        </div>
                                     </div> 
-                                </form>  
                             </div><!-- /.box-body -->
                         </div><!--/. primary box div-->
                     </div><!--/. first panel single column div -->
+                    </form>
                     
                     <!--Makina listeleme bölümü -->
                     <div class="col-lg-12">
                         <div id="loading-image-grid-container" class="box box-warning"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Makinalar Listesi</h3>
+                                <h3 class="box-title"> Danışman Firmaları Makinalar Listesi</h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -336,11 +255,10 @@
                             <div class="box-body">    
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Makina Listesi (Kategorik veya Tüm Makinalar)</h4>
-                                    Makina kategorisi ağaç yapısına tıklayarak, sadece kategori için makina listesini güncelletebilirsiniz...
+                                    <h4><i class="icon fa fa-info"></i> Makina Listesi (Danışmanın Yetkili Olduğu Firmalar)</h4>
                                 </div>
                                 <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
-                                    <table  id="tt_grid_dynamic" title="Makinalar " ></table>   
+                                    <table  id="tt_grid_dynamic" title="Firmalar / Makinalar" ></table>   
                                 </div> 
                                 
                             </div><!-- /.box-body -->
