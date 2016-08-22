@@ -273,5 +273,28 @@
         return $view;
      }
      
+     /**
+      * company insert page for consultants
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 22/08/2016
+      */
+     public function cmpinsertAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+     }
+     
  }
 
