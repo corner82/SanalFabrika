@@ -170,13 +170,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Makina  Tanımlama İşlemleri
+                    Firma  Tanımlama İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li><a href="#"><i class="fa fa-certificate"></i> Makina İşlemleri</a></li>
-                    <li class="active">Tekil Makina Ekleme İşlemleri</li>
+                    <li><a href="#"><i class="fa fa-certificate"></i> Firma İşlemleri</a></li>
+                    <li class="active">Firma Tanımlama</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -191,7 +191,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Makina  İşlemleri </h3>
+                                <h3 class="box-title"> Firma Tanımlama  İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -202,98 +202,61 @@
                             <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
                                 <div class="alert alert-info alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Sistemde kullanılan tüm makinalar, makina kategorilerine bağlı olarak sisteme eklenebilmektedir!</h4>
-                                    Makina tanımlayabilir , silebilir, güncelleyebilirsiniz....
+                                    <h4><i class="icon fa fa-info"></i> Sisteme dahil olacak firmalar danışman tarafından eklenebilmektedir!</h4>
+                                    Firma tanımlayabilir , silebilir, güncelleyebilirsiniz....
                                 </div>  
                                 <!--Makina ekleme formu -->
-                                <form id='machineForm' method="get" class="form-horizontal">     
+                                <form id='companyForm' method="get" class="form-horizontal">     
                                     <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                     
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Kategori</label>
-                                            <div class="col-sm-10 " >
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-code-fork"></i>
-                                                    </div>
-                                                    <div class="inner test-tree" style='overflow:auto;'>    
-                                                        <div id="loading-image" class='scrollbar-inner'>
-                                                        <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
-                                                        </div>
-                                                    </div>                                                       
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Makina Adı</label>
+                                            <label class="col-sm-2 control-label">Firma</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-hand-o-right"></i>
                                                     </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="machine_tool_name" id="machine_tool_name" />
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="firm_name" id="firm_name" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">İngilizce Makina Adı</label>
+                                            <label class="col-sm-2 control-label">Firma İng.</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-hand-o-right"></i>
                                                     </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="machine_tool_name_eng" id="machine_tool_name_eng" />
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="firm_name_eng" id="firm_name_eng" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Üretici Firma</label>
-                                            <div class="col-sm-10">
-                                                <div id="mach-prod-box" class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-copyright"></i>
-                                                    </div>
-                                                    <div id="dropdownProducers" ></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Model</label>
+                                            <label class="col-sm-2 control-label">Kısa Firma Adı</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-barcode"></i>
                                                     </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="model" id="model" />
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="firm_name_short" id="firm_name_short" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Model Yılı</label>
+                                            <label class="col-sm-2 control-label">Kısa Firma Adı İng.</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-calendar-check-o"></i>
                                                     </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required, custom[integer]]" type="text" name="model_year" id="model_year" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Makina Kodu</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-flag"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control" type="text" name="machine_code" id="machine_code" />
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="firm_name_short_eng" id="firm_name_short_eng" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertMachWrapper(event);"><i class="fa fa-save"></i>  Makina Kaydet </button>
+                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertCmpWrapper(event);"><i class="fa fa-save"></i>  Firma Kaydet </button>
                                                 <!--<button id="updateMachineCategory" class="btn btn-flat" type="submit" onclick="return updateMachineCategoryWrapper(event);" disabled><i class="fa fa-gears"></i> Güncelle </button>-->
-                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetMachineForm();" ><i class="fa fa-remove"></i> Reset </button>
+                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetCompanyForm();" ><i class="fa fa-remove"></i> Reset </button>
                                             </div>
                                         </div>
                                     </div> 
@@ -307,7 +270,7 @@
                         <div id="loading-image-grid-container" class="box box-warning"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Makinalar Listesi</h3>
+                                <h3 class="box-title"> Firmalar Listesi</h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -318,11 +281,10 @@
                             <div class="box-body">    
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Makina Listesi (Kategorik veya Tüm Makinalar)</h4>
-                                    Makina kategorisi ağaç yapısına tıklayarak, sadece kategori için makina listesini güncelletebilirsiniz...
+                                    <h4><i class="icon fa fa-info"></i> Firmalar Listesi (Danışman ile ilişkilendirilmiş)</h4>
                                 </div>
-                                <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
-                                    <table  id="tt_grid_dynamic" title="Makinalar " ></table>   
+                                <div id="companiesGridBlock" class="box-warning" style="padding-top: 20px;">
+                                    <table  id="tt_grid_dynamic" title="Danışmanın Atandığı Firmalar " ></table>   
                                 </div> 
                                 
                             </div><!-- /.box-body -->
