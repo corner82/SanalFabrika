@@ -875,6 +875,12 @@ window.insertMach = function (nodeID, nodeName) {
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
+              dm.dangerMessage({
+                 onHide : function(event, data) {
+                     $('#machineForm')[0].reset();
+                     loaderInsertBlock.loadImager('removeLoadImage');
+                 }
+              });
               dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...', 
                                        'Aynı isim ile makina kaydı yapılmıştır, yeni bir makina ismi deneyiniz... ');
           }
