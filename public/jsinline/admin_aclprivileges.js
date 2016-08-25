@@ -693,7 +693,7 @@ window.activePassiveACLPrivilege = function (id, domElement) {
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL yetki aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+                                      'ACL yetki aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
@@ -725,7 +725,7 @@ window.activePassiveACLPrivilege = function (id, domElement) {
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
              dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL yetki aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+                                      'ACL yetki aktif/pasif işlemi  başarısız, sistem yöneticisi ile temasa geçiniz... ');
              console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
