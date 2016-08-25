@@ -352,18 +352,18 @@ window.deleteActionUltimately = function(id, index) {
                                       'Zend action  silme işleminiz başarılı...')
         }, 
         onError23503 : function (event, data) {
-            wcm.warningComplexMessage('resetOnShown');
+            /*wcm.warningComplexMessage('resetOnShown');
             wcm.warningComplexMessage({onConfirm : function(event, data) {
                 deleteActionUltimatelyWithRelatedData(id, index);
             }
             });
             wcm.warningComplexMessage('show', 'Silme İşlemine Devam Etmek İstiyormusunuz?', 
                                               'Action  bağlı Menü Tipi tanımlandığı için silme işlemi bağlı veriyide etkileyecektir.\n\
-                                  Yinede silme işlemine devam etmek istiyormusunuz? ');
+                                  Yinede silme işlemine devam etmek istiyormusunuz? ');*/
             
-            /*wm.warningMessage('resetOnShown');
-            wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz!', 'Action  bağlı Menü Tipi tanımlandığı için silme işlemi\n\
-                               gerçekleştiremezsiniz, önce Action ile ilişkili Menü Tipi silinmelidir!');*/
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz!', 'Action  Servis tanımlandığı için silme işlemi\n\
+                               gerçekleştiremezsiniz, önce Action ile ilişkili Servis silinmelidir!');
             loaderGridBlock.loadImager('removeLoadImage');
         }
     });
@@ -657,6 +657,58 @@ window.updateActionWrapper = function (e, id) {
  return false;
 }
 
+window.updateActionAct = function (id,role_ids, module_id) {
+    var ajUpdateACT = $(window).ajaxCall({
+                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                     data : {
+                         url:'pkUpdateAct_sysAclActions' ,
+                         id : id,
+                         name : $('#name_popup').val(),
+                         description : $('#description_popup').val(),
+                         module_id : module_id,
+                         role_ids : role_ids,
+                         pk : $("#pk").val()
+                     }
+    })
+    ajUpdateACT.ajaxCall ({
+          onError : function (event, textStatus, errorThrown) {
+             dm.dangerMessage('resetOnShown');
+             dm.dangerMessage('show', 'Zend Action Güncelleme İşlemi Başarısız...', 
+                                      'Zend action güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclActions" servis hatası->'+textStatus);
+          },
+          onSuccess : function (event, data) {
+             var data = data;
+             sm.successMessage({
+                 onShown: function( event, data ) {
+                     loader.loadImager('removeLoadImage');
+                 }
+             });
+             sm.successMessage('show', 'Zend Action Güncelleme İşlemi Başarılı...', 
+                                       'Zend action güncelleme işlemini gerçekleştirdiniz... ',
+                                       data);
+             window.gridReloadController = true;
+          },
+          onErrorDataNull : function (event, data) {
+             dm.dangerMessage('resetOnShown');
+             dm.dangerMessage('show', 'Zend Action Güncelleme İşlemi Başarısız...', 
+                                      'Zend action güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysAclActions" servis datası boştur!!');
+          },
+          onErrorMessage : function (event, data) {
+             dm.dangerMessage('resetOnShown');
+             dm.dangerMessage('show', 'Zend Action Güncelleme İşlemi Başarısız...', 
+                                      'Zend action güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+          },
+          onError23503 : function (event, data) {
+             
+            },
+          onError23505 : function (event, data) {
+          }
+    }) 
+    ajUpdateACT.ajaxCall('call');
+}
+
 /**
  * update Zend Module-Action
  * @returns {undefined}
@@ -721,10 +773,25 @@ window.updateAction = function (id) {
                                       'Zend action güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
-                wm.warningMessage('resetOnShown');
-                wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz!', 'Action  bağlı servis tanımlandığı için silme işlemi\n\
+              if(data.errorInfoColumn == 'haveRecordsActionPrivilegRestServices') {
+                  wm.warningMessage('resetOnShown');
+                  wm.warningMessage('show', 'Silme İşlemi Gerçekleştiremezsiniz!', 'Action  bağlı servis tanımlandığı için silme işlemi\n\
                                    gerçekleştiremezsiniz, önce Action / Servis  ilişkisi silinmelidir!');
-                loader.loadImager('removeLoadImage');
+                  loader.loadImager('removeLoadImage');
+              } else if(data.errorInfoColumn == 'haveRecordsAclPrivileg') {
+                  wcm.warningComplexMessage({onConfirm : function(event, data) {
+                        loader.loadImager('removeLoadImage');
+                        window.updateActionAct(id, role_ids, module_id);
+                  }
+                  });
+                  wcm.warningComplexMessage({onGiveup : function(event, data) {
+                        loader.loadImager('removeLoadImage');
+                  }
+                  });
+                  wcm.warningComplexMessage('show', 'Action Bağlı Yetkiler Bulunmaktadır!', 
+                                                    'Action Bağlı Yetkiler Bulunmaktadır, güncelleme işlemi ile bu yetkilerde güncellenecektir, güncelleme işlemine devam etmek istediğinize emin misiniz? ');
+                              }
+                
         },
           onError23505 : function (event, data) {
           }
