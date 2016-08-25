@@ -61,7 +61,10 @@
         },
         appendImage: function () {
             var self = this;
-            self.element.append(self.options.overlay);
+            if(typeof self.element.find(self.options.overlayKey) != 'undefined') {
+                self.element.append(self.options.overlay);
+            }
+            
         }
     });
 
@@ -246,6 +249,8 @@
                     cssClass: 'btn-warning',
                     action: function(dialogItself){
                         dialogItself.close();
+                        self._trigger('onGiveup', event, {data : data});
+                        
                     }
                 }, {
                     icon: 'glyphicon glyphicon-ok-sign',
