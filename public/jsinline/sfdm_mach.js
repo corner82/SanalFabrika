@@ -842,6 +842,13 @@ window.insertMach = function (nodeID, nodeName) {
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
              });
+             sm.successMessage('resetOnShown');
+             sm.successMessage({
+                 onHide : function(event, data) {
+                     $('#machineForm')[0].reset();
+                     loaderInsertBlock.loadImager('removeLoadImage');
+                 }
+              });
              sm.successMessage('show', 'Makina Kayıt İşlemi Başarılı...', 
                                        'Makina kayıt işlemini gerçekleştirdiniz... ',
                                        data);

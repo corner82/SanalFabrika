@@ -256,11 +256,11 @@
                     icon: 'glyphicon glyphicon-ok-sign',
                     label: self.options.actionButtonLabel,
                     cssClass: 'btn-success',
-                    action: function(dialogItself){
+                    action: function(dialogItself){  
                         dialogItself.close();
                         self._trigger('onConfirm', event, {data : data});
                     }
-                }]
+                }],
             });
             
         },
@@ -333,7 +333,10 @@
                         dialogItself.close();
                         self._trigger('onShown', event, {data : data});                        
                     }
-                }]
+                }],
+                onhide : function() {
+                    self._trigger('onHide', event, {data : data});
+                }
             });
         },
         resetOnShown : function() {
