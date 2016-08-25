@@ -196,6 +196,7 @@
      * wrapper for warning message
      * @author Mustafa Zeynel Dağlı
      * @since 07/04/2016
+     * @version 25/08/2016 onHide call back event added
      */
     $.widget('sanalfabrika.warningDeleteMessage', {
         /**
@@ -211,6 +212,9 @@
                 title: title,
                 message: message,
                 type: BootstrapDialog.TYPE_WARNING,
+                onhide : function() {
+                    self._trigger('onHide', event, {data : data});
+                }
             });
         },
         resetOnShown : function() {
@@ -225,6 +229,7 @@
      * wrapper for warning message for complex warning operations
      * @author Mustafa Zeynel Dağlı
      * @since 08/04/2016
+     * @version 25/08/2016 onHide call back event added
      */
     $.widget('sanalfabrika.warningComplexMessage', {  
         /**
@@ -261,6 +266,9 @@
                         self._trigger('onConfirm', event, {data : data});
                     }
                 }],
+                onhide : function() {
+                    self._trigger('onHide', event, {data : data});
+                }
             });
             
         },
@@ -274,6 +282,7 @@
      * wrapper for warning message
      * @author Mustafa Zeynel Dağlı
      * @since 07/04/2016
+     * @version 25/08/2016 onHide call back event added
      */
     $.widget('sanalfabrika.warningMessage', {
         /**
@@ -290,6 +299,9 @@
                 title: title,
                 message: message,
                 type: BootstrapDialog.TYPE_WARNING,
+                onhide : function() {
+                    self._trigger('onHide', event, {data : data});
+                }
             });
             self._trigger('onShown', event, {data : data});
         },
@@ -303,6 +315,7 @@
      * wrapper for success message
      * @author Mustafa Zeynel Dağlı
      * @since 08/04/2016
+     * @version 25/08/2016 onHide call back event added
      */
     $.widget('sanalfabrika.successMessage', {
         
@@ -350,6 +363,7 @@
      * wrapper for danger message
      * @author Mustafa Zeynel Dağlı
      * @since 08/04/2016
+     * @version 25/08/2016 onHide call back event added
      */
     $.widget('sanalfabrika.dangerMessage', {  
         /**
@@ -374,7 +388,10 @@
                         dialogItself.close();
                         self._trigger('onShown', event, {data : data});
                     }
-                }]
+                }],
+                onhide : function() {
+                    self._trigger('onHide', event, {data : data});
+                }
             });  
         },
         resetOnShown : function() {
