@@ -122,6 +122,7 @@ return array(
                           'actionprivilege' => 'layout/actionprivilege.phtml',
                           'macproducers' => 'layout/macproducers.phtml',
                           'osb' => 'layout/osb.phtml',
+                          'clusters' => 'layout/clusters.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
