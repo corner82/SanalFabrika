@@ -18,8 +18,8 @@ $.extend($.fn.tree.methods,{
 });
 
 /**
- * ACL privileges datagrid is being filled
- * @since 14/07/2016
+ * Clusters datagrid is being filled
+ * @since 25/08/2016
  */
 $('#tt_grid_dynamic').datagrid({
     onDblClickRow : function (index, row) {
@@ -29,11 +29,9 @@ $('#tt_grid_dynamic').datagrid({
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillPrivilegesList_sysAclPrivilege',
+            url : 'pkFillOsbClusterLists_sysOsbClusters',
             sort : 'id',
             order : 'desc',
-            /*machine_groups_id : null,
-            filterRules:null*/
     },
     width : '100%',
     singleSelect:true,
@@ -49,21 +47,21 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'name',title:'Yetki',sortable:true,width:300},
-            {field:'name_eng',title:'Yetki Eng.',sortable:true,width:300},
-            {field:'resource_name',title:'ACL Resource',sortable:true,width:200},
+            {field:'name',title:'Küme',sortable:true,width:300},
+            {field:'name_eng',title:'Küme Eng.',sortable:true,width:300},
+            {field:'osb_name',title:'OSB',sortable:true,width:200},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLPrivilegesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveClusterWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLPrivilegesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveClusterWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLPrivilegeUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateACLPrivilegeDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
+                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteClusterUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateClusterDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
                                                                                                                                                                        description : \''+row.description+'\',\n\
-                                                                                                                                                                       resource_id : '+row.resource_id+',\n\
-                                                                                                                                                                       resource_name : \''+row.resource_name+'\',\n\
+                                                                                                                                                                       description_eng : \''+row.description_eng+'\',\n\
+                                                                                                                                                                       osb_id : '+row.osb_id+',\n\
                                                                                                                                                                        name_eng : \''+row.name_eng+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
@@ -73,53 +71,43 @@ $('#tt_grid_dynamic').datagrid({
 $('#tt_grid_dynamic').datagrid('enableFilter');
 
 
-/*
-* 
-* @type @call;$@call;loadImager
-* @Since 16/05/2016
-* @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for roles tree 
-* this imager goes to #loading-image div in html.
-* imager will be removed on roles tree onLoadSuccess method.
-*/
-var loader = $("#loading-image").loadImager();
-
  /*
 * 
 * @type @call;$@call;loadImager
-* @Since 14/07/2016
+* @Since 25/08/2016
 * @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for ACL 
-* resources dropdown. Loading image will be removed when dropdown filled data.
+* @Purpose this variable is to create loader image for organized industrial 
+* zones dropdown. Loading image will be removed when dropdown filled data.
 */
-$("#mach-prod-box").loadImager();
-$("#mach-prod-box").loadImager('appendImage');
+$("#loading-image-osb").loadImager();
+$("#loading-image-osb").loadImager('appendImage');
 
 /**
- * ACL resource dropdown prepared
+ * Organized industrial zones dropdown prepared
  * @type @call;$@call;ajaxCallWidget
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-var ajaxACLResources = $(window).ajaxCallWidget({
+var ajaxOsb = $(window).ajaxCallWidget({
     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: { url:'pkFillResourcesDdList_sysAclResources' ,
-                    pk : $("#pk").val() 
+            data: { url:'pkFillOsbDdlist_sysOsb' ,
+                    pk : $("#pk").val(),
+                    language_code: $('#langCode').val(),
             }
    })
-ajaxACLResources.ajaxCallWidget ({
+ajaxOsb.ajaxCallWidget ({
      onError : function (event, textStatus,errorThrown) {
          dm.dangerMessage({
             onShown : function() {
-                $('#mach-prod-box').loadImager('removeLoadImage'); 
+                $('#loading-image-osb').loadImager('removeLoadImage'); 
             }
          });
-         dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                  'ACL resource (kaynak)  bulunamamıştır...');
+         dm.dangerMessage('show', 'OSB Bulunamamıştır...',
+                                  'OSB  bulunamamıştır...');
      },
      onSuccess : function (event, data) {
          var data = $.parseJSON(data);
-         $('#mach-prod-box').loadImager('removeLoadImage');
-         $('#dropdownACLResources').ddslick({
+         $('#loading-image-osb').loadImager('removeLoadImage');
+         $('#dropdownOsb').ddslick({
             height : 200,
             data : data, 
             width:'98%',
@@ -140,14 +128,14 @@ ajaxACLResources.ajaxCallWidget ({
      onErrorDataNull : function (event, data) {
          dm.dangerMessage({
             onShown : function() {
-                $('#mach-prod-box').loadImager('removeLoadImage'); 
+                $('#loading-image-osb').loadImager('removeLoadImage'); 
             }
          });
-         dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                  'ACL resource (kaynak)  bulunamamıştır...');
+         dm.dangerMessage('show', 'OSB Bulunamamıştır...',
+                                  'OSB  bulunamamıştır...');
      },
 }) 
-ajaxACLResources.ajaxCallWidget('call');
+ajaxOsb.ajaxCallWidget('call');
 
 
 /**
@@ -161,14 +149,6 @@ lang.init({
 });
 lang.change($('#ln').val());
 
-/**
- * !! Important , do not delete
- * @type node
- */
-var selectedNode;
-
-
-
 var sm  = $(window).successMessage();
 var dm  = $(window).dangerMessage();
 var wm  = $(window).warningMessage();
@@ -176,76 +156,53 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                            actionButtonLabel : 'İşleme devam et'});
                                             
 /**
- * ACL privilege insert form validation engine attached to work
- * @since 14/07/2016
+ * Organized industrial zone insert form validation engine attached to work
+ * @since 25/08/2016
  */
-$('#aclPrivilegeForm').validationEngine();
+$('#clusterForm').validationEngine();
 
  /**
-* reset button function for ACL privilege insert form
+* reset button function for cluster insert form
 * @returns null
 * @author Mustafa Zeynel Dağlı  
-* @since 14/07/2016
+* @since 25/08/2016
 */
-window.resetACLPrivilegesForm = function () {
-   $('#aclPrivilegeForm').validationEngine('hide');
+window.resetClustersForm = function () {
+   $('#clusterForm').validationEngine('hide');
    return false;
 }
                                             
-   
-/*
-* 
-* ACL privileges tree
-* Mustafa Zeynel Dağlı
-* 14/07/2016
-*/
-$('#tt_tree_menu2').tree({  
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillRolesTree_sysAclRoles&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
-    method: 'get',
-    animate: true,
-    checkbox: false,
-    cascadeCheck: false,
-    lines: true,
-    onLoadSuccess: function (node, data) {
-         loader.loadImager('removeLoadImage');
-    },
-    onSelect: function(node) {
-         
-    },
-});
-      
-
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
 
     
 /**
- * wrapper class for pop up and delete ACL privilege ultimately
+ * wrapper class for pop up and delete cluster ultimately
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-window.deleteACLPrivilegeUltimatelyDialog= function(id, index){
+window.deleteClusterUltimatelyDialog= function(id, index){
     var id = id;
     var index = index;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteACLPrivilegeUltimately(id, index);
+        deleteClusterUltimately(id, index);
     }
     });
-    wcm.warningComplexMessage('show', 'ACL Yetki Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'ACL yetki silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'Küme Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'Küme silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
    
 /**
-* delete ACL privilege
+* delete cluster
 * @param {type} id
 * @param {type} element
 * @param {type} machine_group_id
 * @returns {undefined}
-* @since 14/07/2016
+* @since 25/08/2016
 */
-window.deleteACLPrivilegeUltimately = function(id, index) {
+window.deleteClusterUltimately = function(id, index) {
    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
     loaderGridBlock.loadImager('appendImage');
 
@@ -254,7 +211,7 @@ window.deleteACLPrivilegeUltimately = function(id, index) {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysAclPrivilege' ,
+                    url:'pkDelete_sysOsbClusters' ,
                     id : id,
                     pk : $("#pk").val()
                 }
@@ -262,25 +219,19 @@ window.deleteACLPrivilegeUltimately = function(id, index) {
     ajDeleteAll.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'ACL Yetki  Silme İşlemi Başarısız...',
-                                     'ACL yetki  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-            console.error('"pkDelete_sysAclPrivilege" servis hatası->'+data.errorInfo);
+            dm.dangerMessage('show', 'Küme  Silme İşlemi Başarısız...',
+                                     'Küme  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDelete_sysOsbClusters" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
             sm.successMessage({ 
                 onShown : function() {
-                    //console.warn(index);
                     loaderGridBlock.loadImager('removeLoadImage');
-                    
-                    /*var node = $('#tt_tree_menu2').tree('find', id);
-                    $('#tt_tree_menu2').tree('remove', node.target);*/
-                    
                     $('#tt_grid_dynamic').datagrid('reload');
-                    //$('#tt_grid_dynamic').datagrid('deleteRow', index);
                 }
             });
-            sm.successMessage('show', 'ACL Yetki Silme İşleminiz Başarılı...',
-                                      'ACL yetki  silme işleminiz başarılı...')
+            sm.successMessage('show', 'Küme Silme İşleminiz Başarılı...',
+                                      'Küme  silme işleminiz başarılı...')
         },                                   
     });
     ajDeleteAll.ajaxCall('call');
@@ -288,23 +239,23 @@ window.deleteACLPrivilegeUltimately = function(id, index) {
    
  
 /**
- * insert ACL privilege
+ * insert cluster
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-window.insertACLPrivilegesWrapper = function (e) {
+window.insertClustersWrapper = function (e) {
  e.preventDefault();
- var ddData = $('#dropdownACLResources').data('ddslick');
+ var ddData = $('#dropdownOsb').data('ddslick');
  
- if ($("#aclPrivilegeForm").validationEngine('validate')) {
+ if ($("#clusterForm").validationEngine('validate')) {
      
-     if(!ddData.selectedData.value > 0) {
+     /*if(!ddData.selectedData.value > 0) {
          wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'ACL Resource (Kaynak) Seçiniz', 'Lütfen ACL resource (kaynak) seçiniz!');
+         wm.warningMessage('show', 'OSB Seçiniz', 'Lütfen organize sanayi bölgesi seçiniz!');
          return false;
-     }
-     insertACLPrivilege();
+     }*/
+     insertCluster();
  }
  return false;
 }
@@ -312,28 +263,28 @@ window.insertACLPrivilegesWrapper = function (e) {
    
    
 /**
- * wrapper for ACL privilege update process
+ * wrapper for cluster update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-window.updateACLPrivilegeDialog = function (id, row) {
+window.updateClusterDialog = function (id, row) {
     window.gridReloadController = false;
     //console.log(row);
     BootstrapDialog.show({  
-         title: '"'+ row.name + '" ACL yetkisini güncellemektesiniz...',
+         title: '"'+ row.name + '" Kümesini güncellemektesiniz...',
          message: function (dialogRef) {
                      var dialogRef = dialogRef;
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                     <form id="aclPrivilegeFormPopup" method="get" class="form-horizontal">\n\
+                                                     <form id="clusterFormPopup" method="get" class="form-horizontal">\n\
                                                      <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Yetki</label>\n\
+                                                             <label class="col-sm-2 control-label">Küme</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
@@ -346,7 +297,7 @@ window.updateACLPrivilegeDialog = function (id, row) {
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Yetki Eng.</label>\n\
+                                                             <label class="col-sm-2 control-label">Küme İng.</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
@@ -359,19 +310,19 @@ window.updateACLPrivilegeDialog = function (id, row) {
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">ACL Resource</label>\n\
+                                                         <label class="col-sm-2 control-label">OSB</label>\n\
                                                          <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
+                                                             <div id="loading-image-osb-popup" class="input-group">\n\
                                                                  <div class="input-group-addon">\n\
                                                                      <i class="fa fa-hand-o-right"></i>\n\
                                                                  </div>\n\
-                                                                 <div id="dropdownACLResourcesPopup" ></div>\n\
+                                                                 <div id="dropdownOsbPopup" ></div>\n\
                                                              </div>\n\
                                                          </div>\n\
                                                      </div>\n\
                                                          <div class="form-group">\n\
                                                              <label class="col-sm-2 control-label">Açıklama</label>\n\
-                                                             <div id="mach-prod-box-popup" class="col-sm-10">\n\
+                                                             <div  class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
@@ -380,13 +331,22 @@ window.updateACLPrivilegeDialog = function (id, row) {
                                                                  </div>\n\
                                                              </div>\n\
                                                          </div>\n\
+                                                         <div class="form-group">\n\
+                                                             <label class="col-sm-2 control-label">Açıklama İng.</label>\n\
+                                                             <div id="loading-image-osb-popup" class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description_eng_popup" id="description_eng_popup" placeholder="Açıklama ...">'+row.description_eng+'</textarea>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
                                                          <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group">\n\
                                                              <div class="col-sm-10 col-sm-offset-2">\n\
-                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateACLPrivilegeWrapper(event, '+id+');">\n\
+                                                             <button  class="btn btn-primary" type="submit" onclick="return updateClusterWrapper(event, '+id+');">\n\
                                                                  <i class="fa fa-save"></i> Güncelle </button>\n\
-                                                             <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
-                                                                 <i class="fa fa-remove"></i> Reset </button>-->\n\
                                                          </div>\n\
                                                      </div>\n\
                                                  </form>\n\
@@ -397,127 +357,123 @@ window.updateACLPrivilegeDialog = function (id, row) {
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
          onshown : function () {         
-            $('#aclPrivilegeFormPopup').validationEngine();
+            $('#clusterFormPopup').validationEngine();
              
-            $("#mach-prod-box-popup").loadImager();
-            $("#mach-prod-box-popup").loadImager('appendImage');
+            $("#loading-image-osb-popup").loadImager();
+            $("#loading-image-osb-popup").loadImager('appendImage');
             
-            var ajaxACLResourcesPopup = $(window).ajaxCallWidget({
-            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillResourcesDdList_sysAclResources' ,
-                            pk : $("#pk").val() 
-                    }
-       })
-        ajaxACLResourcesPopup.ajaxCallWidget ({
-            onError : function (event, textStatus,errorThrown) {
-                dm.dangerMessage({
-                   onShown : function() {
-                       //$('#mach-prod-box').loadImager('removeLoadImage'); 
-                   }
-                });
-                dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                         'ACL resource (kaynak) bulunamamıştır...');
-            },
-            onSuccess : function (event, data) {
-                var data = $.parseJSON(data);
-                    $('#mach-prod-box-popup').loadImager('removeLoadImage');
-                    $('#dropdownACLResourcesPopup').ddslick({
-                            height : 200,
-                            data : data, 
-                            width:'98%',
-                            search : true,
-                            //imagePosition:"right",
-                            onSelected: function(selectedData){
-                                if(selectedData.selectedData.value>0) {
-                                    /*$('#tt_tree_menu').tree({
-                                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                                    });*/
-                             }
-                         }   
-                    });  
-                    $('#dropdownACLResourcesPopup').ddslick('selectByValue', 
-                                                {index: ''+row.resource_id+'' ,
-                                                 text : ''+row.resource_name+''}
-                                                );
-                },
-                onErrorDataNull : function (event, data) {
-                     dm.dangerMessage({
-                        onShown : function() {
-                            //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+            var ajaxClustersPopup = $("#loading-image-osb-popup").ajaxCallWidget({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'pkFillOsbDdlist_sysOsb' ,
+                                pk : $("#pk").val(),
+                                language_code : $('#langCode').val()
                         }
-                     });
-                     dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                              'ACL resource (kaynak) bulunamamıştır...');
-                 },
-            }) 
-            ajaxACLResourcesPopup.ajaxCallWidget('call');
-            
-            
+           });
+            ajaxClustersPopup.ajaxCallWidget ({
+                onError : function (event, textStatus,errorThrown) {
+                    dm.dangerMessage({
+                       onShown : function() {
+                           //$('#loading-image-osb').loadImager('removeLoadImage'); 
+                       }
+                    });
+                    dm.dangerMessage('show', 'OSB Bulunamamıştır...',
+                                             'OSB bulunamamıştır...');
+                },
+                onSuccess : function (event, data) {
+                    var data = $.parseJSON(data);
+                        $('#loading-image-osb-popup').loadImager('removeLoadImage');
+                        $('#dropdownOsbPopup').ddslick({
+                                height : 200,
+                                data : data, 
+                                width:'98%',
+                                search : true,
+                                //imagePosition:"right",
+                                onSelected: function(selectedData){
+                                    if(selectedData.selectedData.value>0) {
+                                        /*$('#tt_tree_menu').tree({
+                                            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                                        });*/
+                                 }
+                             }   
+                        });  
+                        $('#dropdownOsbPopup').ddslick('selectByValue', 
+                                                    {index: ''+row.osb_id+''});
+                    },
+                    onErrorDataNull : function (event, data) {
+                         dm.dangerMessage({
+                            onShown : function() {
+                                //$('#loading-image-osb-popup').loadImager('removeLoadImage'); 
+                            }
+                         });
+                         dm.dangerMessage('show', 'OSB Bulunamamıştır...',
+                                                  'OSB bulunamamıştır...');
+                     },
+                }) 
+                ajaxClustersPopup.ajaxCallWidget('call');
          },
          onhide : function() {
              if(window.gridReloadController == true) {
                  $('#tt_grid_dynamic').datagrid('reload');
              }
-
          },
      });
      return false;
 }
 
 /**
- * update ACL privilege wrapper
+ * update cluster wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-window.updateACLPrivilegeWrapper = function (e, id) {
+window.updateClusterWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#aclPrivilegeFormPopup").validationEngine('validate')) {
-     
-     var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
-    if(ddData.selectedData.value>0) {
-        updateACLPrivilege(id);
-    } else {
+ if ($("#clusterFormPopup").validationEngine('validate')) {
+    var ddData = $('#dropdownOsbPopup').data('ddslick');
+    /*if(!ddData.selectedData.value>0) {
         wm.warningMessage('resetOnShown');
-        wm.warningMessage('show', 'ACL Resource Seçiniz', 'Lütfen ACL resource seçiniz!')
-    }
+        wm.warningMessage('show', 'ACL Resource Seçiniz', 'Lütfen ACL resource seçiniz!');
+    }*/
+    updateCluster(id);
     return false;
  }
  return false;
 }
 
 /**
- * update ACL privilege
+ * update cluster
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-window.updateACLPrivilege = function (id) {
+window.updateCluster = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      
-     var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
-     var resource_id = ddData.selectedData.value;
+     var ddData = $('#dropdownOsbPopup').data('ddslick');
+     var osb_id = ddData.selectedData.value;
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysAclPrivilege' ,
+                         url:'pkUpdate_sysOsbClusters' ,
                          id : id,
                          name : $('#name_popup').val(),
                          name_eng : $('#name_eng_popup').val(),
                          description : $('#description_popup').val(),
-                         resource_id : resource_id,
-                         pk : $("#pk").val()
+                         description_eng : $('#description_eng_popup').val(),
+                         osb_id : osb_id,
+                         pk : $("#pk").val(),
+                         language_code : $('#langCode').val()
                      }
     })
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Küme Güncelleme İşlemi Başarısız...', 
+                                      'Küme güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysOsbClusters" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -526,88 +482,91 @@ window.updateACLPrivilege = function (id) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Yetki Güncelleme İşlemi Başarılı...', 
-                                       'ACL yetki güncelleme işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Küme Güncelleme İşlemi Başarılı...', 
+                                       'Küme güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
              window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis datası boştur!!');
+             dm.dangerMessage('show', 'Küme Güncelleme İşlemi Başarısız...', 
+                                      'Küme güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysOsbClusters" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Küme Güncelleme İşlemi Başarısız...', 
+                                      'Küme güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
           onError23505 : function (event, data) {
+              dm.dangerMessage('resetOnShown');
+              dm.dangerMessage('show', 'Küme Güncelleme İşlemi Başarısız...', 
+                                      'Aynı Küme ismi ve OSB adıyla kayıt bulunmaktadır, \n\
+                                        bu nedenle güncelleme işlemine devam edilmeyecektir...... ');
+              loader.loadImager('removeLoadImage');
           }
     }) 
     aj.ajaxCall('call');
 }
    
 /**
- * insert ACL privilege
+ * insert cluster
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-window.insertACLPrivilege = function () {
+window.insertCluster = function () {
      var loaderInsertBlock = $("#loading-image-crud").loadImager();
      loaderInsertBlock.loadImager('appendImage');
      
      var name = $('#name').val();
      var name_eng = $('#name_eng').val();
      var description = $('#description').val();
+     var description_eng = $('#description_eng').val();
      
-     var ddData = $('#dropdownACLResources').data('ddslick')
-     var resource_id = ddData.selectedData.value;
+     var osb_id = 0;
+     var ddData = $('#dropdownOsb').data('ddslick');
+     osb_id = ddData.selectedData.value; 
+     /*if(ddData.selectedData.value>0) {
+        osb_id = ddData.selectedData.value; 
+     }*/
+      
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
-                         url:'pkInsert_sysAclPrivilege' ,
+                         url:'pkInsert_sysOsbClusters' ,
                          name : name,
                          name_eng : name_eng,
                          description : description,
-                         resource_id : resource_id,
-                         pk : $("#pk").val()
+                         description_eng : description_eng,
+                         osb_id : osb_id,
+                         pk : $("#pk").val(),
+                         language_code : $('#langCode').val()
                      }
     })
     aj.ajaxCall ({  
           onError : function (event, textStatus, errorThrown) {   
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Yetki  Ekleme İşlemi Başarısız...', 
-                                       'ACL yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysAclPrivilege" servis hatası->'+textStatus);
+              dm.dangerMessage('show', 'Küme  Ekleme İşlemi Başarısız...', 
+                                       'Küme ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkInsert_sysOsbClusters" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
               console.log(data);
               var data = data;
              sm.successMessage({
                  onShown: function( event, data ) {
-                     $('#aclPrivilegeForm')[0].reset();  
-                     
-                     /*$('#tt_tree_menu2').tree('append', {
-                        data: [{
-                                attributes:{ active: 0 },
-                                id: data.lastInsertId,
-                                text: name,
-                                checked: false,
-                                state : 'open',
-                            },]
-                    });*/
+                     $('#clusterForm')[0].reset();  
 
                      loaderInsertBlock.loadImager('removeLoadImage');
                      $('#tt_grid_dynamic').datagrid({
                          queryParams: {
                                  pk: $('#pk').val(),
                                  subject: 'datagrid',
-                                 url : 'pkFillPrivilegesList_sysAclPrivilege',
+                                 url : 'pkFillOsbClusterLists_sysOsbClusters',
                                  sort : 'id',
                                  order : 'desc',
                          },
@@ -616,34 +575,34 @@ window.insertACLPrivilege = function () {
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
              });
-             sm.successMessage('show', 'ACL Yetki Kayıt İşlemi Başarılı...', 
-                                       'ACL yetki kayıt işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Küme Kayıt İşlemi Başarılı...', 
+                                       'Küme kayıt işlemini gerçekleştirdiniz... ',
                                        data);
 
           },
           onErrorDataNull : function (event, data) {
               dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Yetki Kayıt İşlemi Başarısız...', 
-                                       'ACL yetki  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysAclPrivilege" servis datası boştur!!');
+              dm.dangerMessage('show', 'Küme Kayıt İşlemi Başarısız...', 
+                                       'Küme  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkInsert_sysOsbClusters" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki  Kayıt İşlemi Başarısız...', 
-                                     'ACL yetki  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysAclRoles" servis hatası->'+data.errorInfo);
+             dm.dangerMessage('show', 'Küme  Kayıt İşlemi Başarısız...', 
+                                     'Küme  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkInsert_sysOsbClusters" servis hatası->'+data.errorInfo);
           },
           onError23503 : function (event, data) {
           },
           onError23505 : function (event, data) {
               dm.dangerMessage({
                  onShown : function(event, data) {
-                     $('#aclPrivilegeForm')[0].reset();
+                     $('#clusterForm')[0].reset();
                      loaderInsertBlock.loadImager('removeLoadImage');
                  }
               });
-              dm.dangerMessage('show', 'ACL Yetki Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile ACL yetki  kaydı yapılmıştır, yeni bir ACL yetki deneyiniz... ');
+              dm.dangerMessage('show', 'Küme Kayıt İşlemi Başarısız...', 
+                                       'Aynı isim ile küme  kaydı yapılmıştır, yeni bir küme deneyiniz... ');
           }
     }) 
     aj.ajaxCall('call');
@@ -651,31 +610,31 @@ window.insertACLPrivilege = function () {
    
 
 /**
- * active/passive ACL privilege
+ * active/passive cluster
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-window.activePassiveACLPrivilegesWrapper = function (e, id) {
+window.activePassiveClusterWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  var domElement = e.target;
  wcm.warningComplexMessage({onConfirm : function(event, data) {
-        activePassiveACLPrivilege(id, domElement);
+        activeCluster(id, domElement);
     }
     });
-wcm.warningComplexMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                  'ACL yetki aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
+wcm.warningComplexMessage('show', 'Küme Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                  'Küme aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
  return false;
 }
 
 /**
- * active or passive ACL privilege
+ * active or passive cluster
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 25/08/2016
  */
-window.activePassiveACLPrivilege = function (id, domElement) {
+window.activeCluster = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
     loader.loadImager('appendImage');
     var id = id;
@@ -684,7 +643,7 @@ window.activePassiveACLPrivilege = function (id, domElement) {
     var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdateMakeActiveOrPassive_sysAclPrivilege' ,
+                         url:'pkUpdateMakeActiveOrPassive_sysOsbClusters' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -692,9 +651,9 @@ window.activePassiveACLPrivilege = function (id, domElement) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL yetki aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'Küme Aktif/Pasif İşlemi Başarısız...', 
+                                      'Küme aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysOsbClusters" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -703,8 +662,8 @@ window.activePassiveACLPrivilege = function (id, domElement) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarılı...', 
-                                       'ACL yetki aktif/pasif işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'Küme Aktif/Pasif İşlemi Başarılı...', 
+                                       'Küme aktif/pasif işlemini gerçekleştirdiniz... ',
                                        data);
             if($(domElement).hasClass("fa-minus-circle")){
                 $(domElement).removeClass("fa-minus-circle");
@@ -724,14 +683,14 @@ window.activePassiveACLPrivilege = function (id, domElement) {
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL yetki aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis datası boştur!!');
+             dm.dangerMessage('show', 'Küme Aktif/Pasif İşlemi Başarısız...', 
+                                      'Küme aktif/pasif işlemi  başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysOsbClusters" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL yetki aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'Küme Aktif/Pasif İşlemi Başarısız...', 
+                                      'Küme aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
