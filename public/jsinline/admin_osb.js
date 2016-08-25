@@ -21,19 +21,14 @@ $.extend($.fn.tree.methods,{
  * ACL privileges datagrid is being filled
  * @since 14/07/2016
  */
-$('#tt_grid_dynamic').datagrid({
-    onDblClickRow : function (index, row) {
-        
-    },  
+$('#tt_grid_dynamic').datagrid({  
     url : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
     queryParams: {
             pk: $('#pk').val(),
             subject: 'datagrid',
-            url : 'pkFillPrivilegesList_sysAclPrivilege',
+            url : 'pkFillOsbList_sysOsb',
             sort : 'id',
             order : 'desc',
-            /*machine_groups_id : null,
-            filterRules:null*/
     },
     width : '100%',
     singleSelect:true,
@@ -49,21 +44,25 @@ $('#tt_grid_dynamic').datagrid({
     columns:
         [[
             {field:'id',title:'ID'},
-            {field:'name',title:'Yetki',sortable:true,width:300},
-            {field:'name_eng',title:'Yetki Eng.',sortable:true,width:300},
-            {field:'resource_name',title:'ACL Resource',sortable:true,width:200},
+            {field:'name',title:'OSB',sortable:true,width:200},
+            {field:'city_name',title:'Şehir',sortable:true,width:100},
+            {field:'country_name',title:'Ülke',sortable:true,width:100},
+            {field:'address',title:'Adres',sortable:true,width:300},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
-                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveACLPrivilegesWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveOsbWrapper(event, '+row.id+');"><i class="fa fa-minus-circle"></i></button>';
                     } else {
-                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveACLPrivilegesWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
+                        var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveOsbWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteACLPrivilegeUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateACLPrivilegeDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
-                                                                                                                                                                       description : \''+row.description+'\',\n\
-                                                                                                                                                                       resource_id : '+row.resource_id+',\n\
-                                                                                                                                                                       resource_name : \''+row.resource_name+'\',\n\
+                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteOSBUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateOsbDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
+                                                                                                                                                                       country_id : \''+row.country_id+'\',\n\
+                                                                                                                                                                       city_id : \''+row.city_id+'\',\n\
+                                                                                                                                                                       borough_id : \''+row.borough_id+'\',\n\
+                                                                                                                                                                       city : \''+row.city+'\',\n\
+                                                                                                                                                                       postal_code : \''+row.postal_code+'\',\n\
+                                                                                                                                                                       address : \''+row.address+'\',\n\
                                                                                                                                                                        name_eng : \''+row.name_eng+'\'} );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
@@ -82,44 +81,55 @@ $('#tt_grid_dynamic').datagrid('enableFilter');
 * this imager goes to #loading-image div in html.
 * imager will be removed on roles tree onLoadSuccess method.
 */
-var loader = $("#loading-image").loadImager();
+//var loader = $("#loading-image").loadImager();
 
  /*
 * 
 * @type @call;$@call;loadImager
-* @Since 14/07/2016
+* @Since 23/08/2016
 * @Author Mustafa Zeynel Dagli
-* @Purpose this variable is to create loader image for ACL 
-* resources dropdown. Loading image will be removed when dropdown filled data.
+* @Purpose this variable is to create loader image for countries 
+* dropdown. Loading image will be removed when dropdown filled data.
 */
-$("#mach-prod-box").loadImager();
-$("#mach-prod-box").loadImager('appendImage');
+$("#load-imager-countries").loadImager();
+$("#load-imager-countries").loadImager('appendImage');
 
 /**
- * ACL resource dropdown prepared
- * @type @call;$@call;ajaxCallWidget
- * @since 14/07/2016
+ * load imager for boroughs drop down
+ * @author Mustafa Zeynel Dağlı
+ * @since 23/08/2016
  */
-var ajaxACLResources = $(window).ajaxCallWidget({
+/*$("#load-imager-boroughs").loadImager();
+$("#load-imager-boroughs").loadImager('appendImage');*/
+
+
+/**
+ * Countries dropdown prepared
+ * @type @call;$@call;ajaxCallWidget
+ * @since 23/08/2016
+ */
+var ajaxCountries = $(window).ajaxCallWidget({
     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            data: { url:'pkFillResourcesDdList_sysAclResources' ,
-                    pk : $("#pk").val() 
+            data: { url:'fillComboBox_syscountrys' ,
+                    pk : $("#pk").val(),
+                    language_code : $('#langCode').val(),
+                    component_type: 'ddslick'
             }
    })
-ajaxACLResources.ajaxCallWidget ({
+ajaxCountries.ajaxCallWidget ({
      onError : function (event, textStatus,errorThrown) {
          dm.dangerMessage({
             onShown : function() {
-                $('#mach-prod-box').loadImager('removeLoadImage'); 
+                $('#load-imager-countries').loadImager('removeLoadImage'); 
             }
          });
-         dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                  'ACL resource (kaynak)  bulunamamıştır...');
+         dm.dangerMessage('show', 'Ülkeler Bulunamamıştır...',
+                                  'Ülkeler  bulunamamıştır...');
      },
      onSuccess : function (event, data) {
          var data = $.parseJSON(data);
-         $('#mach-prod-box').loadImager('removeLoadImage');
-         $('#dropdownACLResources').ddslick({
+         $('#load-imager-countries').loadImager('removeLoadImage');
+         $('#dropdownCountries').ddslick({
             height : 200,
             data : data, 
             width:'98%',
@@ -130,9 +140,13 @@ ajaxACLResources.ajaxCallWidget ({
             //imagePosition:"right",
             onSelected: function(selectedData){
                 if(selectedData.selectedData.value>0) {
-                    /*$('#tt_tree_menu').tree({
-                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                    });*/
+                    //alert('seelcted data >0');
+                    window.fillCities();
+                } else if(selectedData.selectedData.value == 0) {
+                    //alert('seelcted data 0');
+                    $('#dropdownCities').ddslick('destroy');
+                    //$("#city").toggleClass('form-control validate[required]');
+                    $('#city').show();
                 }
             }   
         });   
@@ -140,15 +154,363 @@ ajaxACLResources.ajaxCallWidget ({
      onErrorDataNull : function (event, data) {
          dm.dangerMessage({
             onShown : function() {
-                $('#mach-prod-box').loadImager('removeLoadImage'); 
+                $('#load-imager-countries').loadImager('removeLoadImage'); 
             }
          });
-         dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                  'ACL resource (kaynak)  bulunamamıştır...');
+         dm.dangerMessage('show', 'Ülkeler Bulunamamıştır...',
+                                  'Ülkeler  bulunamamıştır...');
      },
 }) 
-ajaxACLResources.ajaxCallWidget('call');
+ajaxCountries.ajaxCallWidget('call');
 
+
+/**
+ * filling cities drop down
+ * @returns {undefined}
+ * @author Mustafa Zeynel Dağlı
+ * @since 23/08/2016
+ */
+window.fillCities = function() {
+    var ddData = $('#dropdownCountries').data('ddslick')
+    var country_id = ddData.selectedData.value;
+    var country = ddData.selectedData.text;
+    country = $.trim(country).toLowerCase();
+    
+    if(country == 'türkiye') {
+        $("#city").removeClass('validate[required]');
+        $('#osbForm').validationEngine('hide');
+        $('#dropdownCities').ddslick('destroy');
+        $('#city').hide();
+        
+        $('#load-imager-cities').loadImager();
+        $('#load-imager-cities').loadImager('appendImage');
+        //alert(country);
+        var ajaxCities = $('#load-imager-cities').ajaxCallWidget({
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    data: { url:'fillComboBox_syscity' ,
+                            pk : $("#pk").val(),
+                            language_code: $("#langCode").val(),
+                            component_type: 'ddslick',
+                            country_id : country_id
+                    }
+           })
+        ajaxCities.ajaxCallWidget ({
+             onError : function (event, textStatus,errorThrown) {
+                 dm.dangerMessage({
+                    onShown : function() {
+                        $('#load-imager-cities').loadImager('removeLoadImage'); 
+                    }
+                 });
+                 dm.dangerMessage('show', 'Şehirler Bulunamamıştır...',
+                                          'Şehirler bulunamamıştır...');
+             },
+             onSuccess : function (event, data) {
+                 var data = $.parseJSON(data);
+                 $('#load-imager-cities').loadImager('removeLoadImage');
+                 $('#dropdownCities').ddslick({
+                    height : 200,
+                    data : data, 
+                    width:'98%',
+                    selectText: "Select your preferred social network",
+                    //showSelectedHTML : false,
+                    defaultSelectedIndex: 3,
+                    search : true,
+                    //imagePosition:"right",
+                    onSelected: function(selectedData){
+                        if(selectedData.selectedData.value>0) {
+                            window.fillBoroughs();
+                        } else {
+                            $('#dropdownBoroughs').ddslick('destroy');
+                            /*$('#load-imager-boroughs').loadImager(); 
+                            $('#load-imager-boroughs').loadImager('removeLoadImage'); 
+                            $('#load-imager-boroughs').loadImager('appendImage'); */
+                        }
+                    }   
+                });   
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage({
+                    onShown : function() {
+                        $('#load-imager-cities').loadImager('removeLoadImage'); 
+                    }
+                 });
+                 dm.dangerMessage('show', 'Şehirler Bulunamamıştır...',
+                                          'Şehirler  bulunamamıştır...');
+             },
+        }) 
+        ajaxCities.ajaxCallWidget('call');
+    } else {
+        $('#dropdownCities').ddslick('destroy');
+        $('#dropdownBoroughs').ddslick('destroy');
+        
+        /*$('#load-imager-boroughs').loadImager(); 
+        $('#load-imager-boroughs').loadImager('removeLoadImage'); 
+        $('#load-imager-boroughs').loadImager('appendImage');*/ 
+        
+        $('#city').show();
+        if(!$('#city').hasClass('validate[required]')) {
+            $("#city").addClass('validate[required]');
+        }
+        $('#osbForm').validationEngine('hide');
+    }
+}
+
+/**
+ * filling boroughs drop down
+ * @returns {undefined}
+ * @author Mustafa Zeynel Dağlı
+ * @since 23/08/2016
+ */
+window.fillBoroughs = function() {
+    $('#dropdownBoroughs').ddslick('destroy');
+    
+    var ddData = $('#dropdownCities').data('ddslick')
+    var city_id = ddData.selectedData.value;
+    
+    if(city_id>0) {
+       $('#load-imager-boroughs').loadImager(); 
+        $('#load-imager-boroughs').loadImager('removeLoadImage'); 
+        $('#load-imager-boroughs').loadImager('appendImage'); 
+
+        var ddData = $('#dropdownCountries').data('ddslick')
+        var country_id = ddData.selectedData.value;
+
+        var ddData = $('#dropdownCities').data('ddslick')
+        var city_id = ddData.selectedData.value;
+
+        var ajaxCities = $('#load-imager-boroughs').ajaxCallWidget({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'fillComboBox_sysborough' ,
+                                pk : $("#pk").val(),
+                                language_code: $("#langCode").val(),
+                                component_type: 'ddslick',
+                                country_id: country_id,
+                                city_id: city_id,
+                        }
+               })
+            ajaxCities.ajaxCallWidget ({
+                 onError : function (event, textStatus,errorThrown) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#load-imager-boroughs').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'İlçeler Bulunamamıştır...',
+                                              'İlçeler bulunamamıştır...');
+                 },
+                 onSuccess : function (event, data) {
+                     var data = $.parseJSON(data);
+                     $('#load-imager-boroughs').loadImager('removeLoadImage');
+                     $('#dropdownBoroughs').ddslick({
+                        height : 200,
+                        data : data, 
+                        width:'98%',
+                        selectText: "Select your preferred social network",
+                        //showSelectedHTML : false,
+                        defaultSelectedIndex: 3,
+                        search : true,
+                        //imagePosition:"right",
+                        onSelected: function(selectedData){
+                        }   
+                    });   
+                 },
+                 onErrorDataNull : function (event, data) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#load-imager-boroughs').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'İlçeler Bulunamamıştır...',
+                                              'İlçeler  bulunamamıştır...');
+                 },
+            }) 
+            ajaxCities.ajaxCallWidget('call');
+    } else {
+        /*$('#load-imager-boroughs').loadImager(); 
+        $('#load-imager-boroughs').loadImager('removeLoadImage'); 
+        $('#load-imager-boroughs').loadImager('appendImage'); */
+    } 
+}
+
+/**
+ * filling cities drop down for popup window (update operation)
+ * @returns {undefined}
+ * @author Mustafa Zeynel Dağlı
+ * @since 24/08/2016
+ */
+window.fillCitiesPopup = function(row) {
+    var ddData = $('#dropdownCountriesPopup').data('ddslick')
+    var country_id = ddData.selectedData.value;
+    var country = ddData.selectedData.text;
+    country = $.trim(country).toLowerCase();
+    
+    if(country == 'türkiye') {
+        $("#city_popup").removeClass('validate[required]');
+        $('#osbFormPopup').validationEngine('hide');
+        $('#dropdownCitiesPopup').ddslick('destroy');
+        $('#city_popup').hide();
+        
+        $('#load-imager-cities-popup').loadImager();
+        $('#load-imager-cities-popup').loadImager('appendImage');
+        //alert(country);
+        var ajaxCities = $('#load-imager-cities-popup').ajaxCallWidget({
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    data: { url:'fillComboBox_syscity' ,
+                            pk : $("#pk").val(),
+                            language_code: $("#langCode").val(),
+                            component_type: 'ddslick',
+                            country_id : country_id
+                    }
+           })
+        ajaxCities.ajaxCallWidget ({
+             onError : function (event, textStatus,errorThrown) {
+                 dm.dangerMessage({
+                    onShown : function() {
+                        $('#load-imager-cities-popup').loadImager('removeLoadImage'); 
+                    }
+                 });
+                 dm.dangerMessage('show', 'Şehirler Bulunamamıştır...',
+                                          'Şehirler bulunamamıştır...');
+             },
+             onSuccess : function (event, data) {
+                 var data = $.parseJSON(data);
+                 $('#load-imager-cities-popup').loadImager('removeLoadImage');
+                 $('#dropdownCitiesPopup').ddslick({
+                    height : 200,
+                    data : data, 
+                    width:'98%',
+                    selectText: "Select your preferred social network",
+                    //showSelectedHTML : false,
+                    defaultSelectedIndex: 3,
+                    search : true,
+                    //imagePosition:"right",
+                    onSelected: function(selectedData){
+                        if(selectedData.selectedData.value>0) {
+                            window.fillBoroughsPopup(row);
+                        } else {
+                            $('#dropdownBoroughsPopup').ddslick('destroy');
+                            /*$('#load-imager-boroughs-popup').loadImager(); 
+                            $('#load-imager-boroughs-popup').loadImager('removeLoadImage'); 
+                            $('#load-imager-boroughs-popup').loadImager('appendImage'); */
+                        }
+                    }   
+                }); 
+                if(window.dropdownCityControler) {
+                    $('#dropdownCitiesPopup').ddslick('selectByValue', 
+                                        {index: ''+row.city_id+''});
+                    window.dropdownCityControler = false;
+                }
+                
+             },
+             onErrorDataNull : function (event, data) {
+                 dm.dangerMessage({
+                    onShown : function() {
+                        $('#load-imager-cities-popup').loadImager('removeLoadImage'); 
+                    }
+                 });
+                 dm.dangerMessage('show', 'Şehirler Bulunamamıştır...',
+                                          'Şehirler  bulunamamıştır...');
+             },
+        }) 
+        ajaxCities.ajaxCallWidget('call');
+    } else {
+        $('#dropdownCitiesPopup').ddslick('destroy');
+        $('#dropdownBoroughsPopup').ddslick('destroy');
+        
+        /*$('#load-imager-boroughs-popup').loadImager(); 
+        $('#load-imager-boroughs-popup').loadImager('removeLoadImage'); 
+        $('#load-imager-boroughs-popup').loadImager('appendImage'); */
+        
+        $('#city_popup').show();
+        if(!$('#city_popup').hasClass('validate[required]')) {
+            $("#city_popup").addClass('validate[required]');
+        }
+        $('#osbFormPopup').validationEngine('hide');
+    }
+}
+
+/**
+ * filling boroughs drop down for poup window (update operation)
+ * @returns {undefined}
+ * @author Mustafa Zeynel Dağlı
+ * @since 24/08/2016
+ */
+window.fillBoroughsPopup = function(row) {
+    $('#dropdownBoroughsPopup').ddslick('destroy');
+    
+    var ddData = $('#dropdownCitiesPopup').data('ddslick')
+    var city_id = ddData.selectedData.value;
+    
+    if(city_id>0) {
+        $('#load-imager-boroughs-popup').loadImager(); 
+        $('#load-imager-boroughs-popup').loadImager('removeLoadImage'); 
+        $('#load-imager-boroughs-popup').loadImager('appendImage'); 
+
+        var ddData = $('#dropdownCountriesPopup').data('ddslick')
+        var country_id = ddData.selectedData.value;
+
+        var ddData = $('#dropdownCitiesPopup').data('ddslick')
+        var city_id = ddData.selectedData.value;
+
+        var ajaxCities = $('#load-imager-boroughs-popup').ajaxCallWidget({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'fillComboBox_sysborough' ,
+                                pk : $("#pk").val(),
+                                language_code: $("#langCode").val(),
+                                component_type: 'ddslick',
+                                country_id: country_id,
+                                city_id: city_id,
+                        }
+               })
+            ajaxCities.ajaxCallWidget ({
+                 onError : function (event, textStatus,errorThrown) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#load-imager-boroughs-popup').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'İlçeler Bulunamamıştır...',
+                                              'İlçeler bulunamamıştır...');
+                 },
+                 onSuccess : function (event, data) {
+                     var data = $.parseJSON(data);
+                     $('#load-imager-boroughs-popup').loadImager('removeLoadImage');
+                     $('#dropdownBoroughsPopup').ddslick({
+                        height : 200,
+                        data : data, 
+                        width:'98%',
+                        selectText: "Select your preferred social network",
+                        //showSelectedHTML : false,
+                        defaultSelectedIndex: 3,
+                        search : true,
+                        //imagePosition:"right",
+                        onSelected: function(selectedData){
+                        }   
+                    });
+                    if(window.dropdownBoroughControler){
+                        $('#dropdownBoroughsPopup').ddslick('selectByValue', 
+                                        {index: ''+row.borough_id+''});
+                        window.dropdownBoroughControler = false;
+                    }
+                    
+                 },
+                 onErrorDataNull : function (event, data) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            $('#load-imager-boroughs-popup').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'İlçeler Bulunamamıştır...',
+                                              'İlçeler  bulunamamıştır...');
+                 },
+            }) 
+            ajaxCities.ajaxCallWidget('call');
+    } else {
+       /* $('#load-imager-boroughs').loadImager(); 
+        $('#load-imager-boroughs').loadImager('removeLoadImage'); 
+        $('#load-imager-boroughs').loadImager('appendImage'); */
+    } 
+}
 
 /**
  * multilanguage plugin 
@@ -167,8 +529,6 @@ lang.change($('#ln').val());
  */
 var selectedNode;
 
-
-
 var sm  = $(window).successMessage();
 var dm  = $(window).dangerMessage();
 var wm  = $(window).warningMessage();
@@ -177,75 +537,53 @@ var wcm = $(window).warningComplexMessage({ denyButtonLabel : 'Vazgeç' ,
                                             
 /**
  * ACL privilege insert form validation engine attached to work
- * @since 14/07/2016
+ * @since 23/08/2016
  */
-$('#aclPrivilegeForm').validationEngine();
+$('#osbForm').validationEngine();
 
  /**
-* reset button function for ACL privilege insert form
+* reset button function for OSB insert form
 * @returns null
 * @author Mustafa Zeynel Dağlı  
-* @since 14/07/2016
+* @since 23/08/2016
 */
-window.resetACLPrivilegesForm = function () {
-   $('#aclPrivilegeForm').validationEngine('hide');
+window.resetOsbForm = function () {
+   $('#osbForm').validationEngine('hide');
    return false;
 }
-                                            
-   
-/*
-* 
-* ACL privileges tree
-* Mustafa Zeynel Dağlı
-* 14/07/2016
-*/
-$('#tt_tree_menu2').tree({  
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillRolesTree_sysAclRoles&pk=' + $("#pk").val()+ '&language_code='+$("#langCode").val(),
-    method: 'get',
-    animate: true,
-    checkbox: false,
-    cascadeCheck: false,
-    lines: true,
-    onLoadSuccess: function (node, data) {
-         loader.loadImager('removeLoadImage');
-    },
-    onSelect: function(node) {
-         
-    },
-});
-      
+     
 
 // Left menuyu oluşturmak için çağırılan fonksiyon...
 $.fn.leftMenuFunction();
 
     
 /**
- * wrapper class for pop up and delete ACL privilege ultimately
+ * wrapper class for pop up and delete organized industry zone ultimately
  * @param {integer} nodeID
  * @returns {null}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 24/08/2016
  */
-window.deleteACLPrivilegeUltimatelyDialog= function(id, index){
+window.deleteOSBUltimatelyDialog= function(id, index){
     var id = id;
     var index = index;
     wcm.warningComplexMessage({onConfirm : function(event, data) {
-        deleteACLPrivilegeUltimately(id, index);
+        deleteOsbUltimately(id, index);
     }
     });
-    wcm.warningComplexMessage('show', 'ACL Yetki Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                      'ACL yetki silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+    wcm.warningComplexMessage('show', 'OSB Silme İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                      'Tanımlanmış OSB verisini silmek üzeresiniz, silme işlemi geri alınamaz!! ');
 }
    
 /**
-* delete ACL privilege
+* delete organized industrial zone
 * @param {type} id
 * @param {type} element
 * @param {type} machine_group_id
 * @returns {undefined}
-* @since 14/07/2016
+* @since 23/08/2016
 */
-window.deleteACLPrivilegeUltimately = function(id, index) {
+window.deleteOsbUltimately = function(id, index) {
    var loaderGridBlock = $("#loading-image-grid-container").loadImager();
     loaderGridBlock.loadImager('appendImage');
 
@@ -254,7 +592,7 @@ window.deleteACLPrivilegeUltimately = function(id, index) {
     var ajDeleteAll = $(window).ajaxCall({
                 proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data : {
-                    url:'pkDelete_sysAclPrivilege' ,
+                    url:'pkDelete_sysOsb' ,
                     id : id,
                     pk : $("#pk").val()
                 }
@@ -262,9 +600,9 @@ window.deleteACLPrivilegeUltimately = function(id, index) {
     ajDeleteAll.ajaxCall ({
         onError : function (event, data) {  
             dm.dangerMessage('resetOnShown');  
-            dm.dangerMessage('show', 'ACL Yetki  Silme İşlemi Başarısız...',
-                                     'ACL yetki  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-            console.error('"pkDelete_sysAclPrivilege" servis hatası->'+data.errorInfo);
+            dm.dangerMessage('show', 'OSB  Silme İşlemi Başarısız...',
+                                     'OSB  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+            console.error('"pkDelete_sysOsb" servis hatası->'+data.errorInfo);
         },
         onSuccess : function (event, data) {
             sm.successMessage({ 
@@ -279,8 +617,8 @@ window.deleteACLPrivilegeUltimately = function(id, index) {
                     //$('#tt_grid_dynamic').datagrid('deleteRow', index);
                 }
             });
-            sm.successMessage('show', 'ACL Yetki Silme İşleminiz Başarılı...',
-                                      'ACL yetki  silme işleminiz başarılı...')
+            sm.successMessage('show', 'OSB Silme İşleminiz Başarılı...',
+                                      'OSB  silme işleminiz başarılı...')
         },                                   
     });
     ajDeleteAll.ajaxCall('call');
@@ -288,52 +626,177 @@ window.deleteACLPrivilegeUltimately = function(id, index) {
    
  
 /**
- * insert ACL privilege
+ * insert OSB wrapper function
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 23/08/2016
  */
-window.insertACLPrivilegesWrapper = function (e) {
+window.insertOsbWrapper = function (e) {
  e.preventDefault();
- var ddData = $('#dropdownACLResources').data('ddslick');
- 
- if ($("#aclPrivilegeForm").validationEngine('validate')) {
+ if ($("#osbForm").validationEngine('validate')) {
      
-     if(!ddData.selectedData.value > 0) {
-         wm.warningMessage('resetOnShown');
-         wm.warningMessage('show', 'ACL Resource (Kaynak) Seçiniz', 'Lütfen ACL resource (kaynak) seçiniz!');
-         return false;
-     }
-     insertACLPrivilege();
+    var ddData = $('#dropdownCountries').data('ddslick');
+     
+    if(!ddData.selectedData.value > 0) {
+        wm.warningMessage('resetOnShown');
+        wm.warningMessage('show', 'Ülke Seçiniz', 'Lütfen ülke seçiniz!');
+        return false;
+    }
+    var country = ddData.selectedData.text;
+    country = $.trim(country).toLowerCase();
+    if(country == 'türkiye') {
+        var ddDataCities = $('#dropdownCities').data('ddslick');
+        if(!ddDataCities.selectedData.value > 0) { 
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Şehir Seçiniz', 'Lütfen şehir seçiniz!');
+            return false;
+        }
+        
+        var ddDataBoroughs = $('#dropdownBoroughs').data('ddslick');
+        if(!ddDataBoroughs.selectedData.value > 0) { 
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'İlçe Seçiniz', 'Lütfen ilçe seçiniz!');
+            return false;
+        }
+    }
+     insertOsb();
  }
  return false;
 }
-   
-   
-   
+
+
 /**
- * wrapper for ACL privilege update process
+ * insert OSB
+ * @returns {undefined}
+ * @author Mustafa Zeynel Dağlı
+ * @since 23/08/2016
+ */
+window.insertOsb = function () {
+     $("#osbInsertBlock").loadImager();
+     $("#osbInsertBlock").loadImager('appendImage');
+     
+     var name = $('#name').val();
+     var name_eng = $('#name_eng').val();
+     var city = $('#city').val();
+     var address = $('#address').val();
+     var postal_code = $('#postal_code').val();
+     
+     var ddDataCountries = $('#dropdownCountries').data('ddslick');
+     var country_id  = ddDataCountries.selectedData.value;
+     
+     var city_id = 0;
+     var ddDataCities = $('#dropdownCities').data('ddslick');
+     if (typeof ddDataCities != 'undefined'){
+         city_id  = ddDataCities.selectedData.value;
+     }
+     
+     var borough_id = 0;
+     var ddDataBoroughs = $('#dropdownBoroughs').data('ddslick');
+     if (typeof ddDataBoroughs != 'undefined'){
+         borough_id  = ddDataBoroughs.selectedData.value;
+     }
+     
+     var aj = $(window).ajaxCall({
+                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
+                     data : {
+                         url:'pkInsert_sysOsb' ,
+                         pk : $("#pk").val(),
+                         language_code : $('#langCode').val(),
+                         name : name,
+                         name_eng : name_eng,
+                         city : city,
+                         country_id : country_id,
+                         city_id : city_id,
+                         borough_id : borough_id,
+                         address : address,
+                         postal_code : postal_code
+                     }
+    })
+    aj.ajaxCall ({  
+          onError : function (event, textStatus, errorThrown) {   
+              dm.dangerMessage('resetOnShown');
+              dm.dangerMessage('show', 'OSB  Ekleme İşlemi Başarısız...', 
+                                       'OSB ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
+              console.error('"pkInsert_sysOsb" servis hatası->'+textStatus);
+          },
+          onSuccess : function (event, data) {
+              //console.log(data);
+              var data = data;
+             sm.successMessage('resetOnShown');
+             sm.successMessage('show', 'OSB Kayıt İşlemi Başarılı...', 
+                                       'OSB kayıt işlemini gerçekleştirdiniz... ',
+                                       data);
+            
+            $('#tt_grid_dynamic').datagrid({
+                queryParams: {
+                        pk: $('#pk').val(),
+                        subject: 'datagrid',
+                        url : 'pkFillOsbList_sysOsb',
+                        sort : 'id',
+                        order : 'desc',
+                },
+            });
+            $('#tt_grid_dynamic').datagrid('enableFilter');
+            $('#tt_grid_dynamic').datagrid('reload');
+            
+            $('#osbForm')[0].reset();  
+            $("#osbInsertBlock").loadImager('removeLoadImage');
+            /*$('#load-imager-boroughs').loadImager();
+            $('#load-imager-boroughs').loadImager('removeLoadImage');*/
+
+          },
+          onErrorDataNull : function (event, data) {
+              dm.dangerMessage('resetOnShown');
+              dm.dangerMessage('show', 'OSB Kayıt İşlemi Başarısız...', 
+                                       'OSB  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+              console.error('"pkInsert_sysOsb" servis datası boştur!!');
+          },
+          onErrorMessage : function (event, data) {
+             dm.dangerMessage('resetOnShown');
+             dm.dangerMessage('show', 'OSB  Kayıt İşlemi Başarısız...', 
+                                     'OSB  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkInsert_sysOsb" servis hatası->'+data.errorInfo);
+          },
+          onError23503 : function (event, data) {
+          },
+          onError23505 : function (event, data) {
+              dm.dangerMessage({
+                 onShown : function(event, data) {
+                     $('#osbForm')[0].reset();
+                     loaderInsertBlock.loadImager('removeLoadImage');
+                 }
+              });
+              dm.dangerMessage('show', 'OSB Kayıt İşlemi Başarısız...', 
+                                       'Aynı isim ile OSB yetki  kaydı yapılmıştır, yeni bir OSB yetki deneyiniz... ');
+          }
+    }) 
+    aj.ajaxCall('call');
+}
+   
+     
+/**
+ * wrapper for organized ındustrial zone update process
  * @param {type} nodeID
  * @param {type} nodeName
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 23/08/2016
  */
-window.updateACLPrivilegeDialog = function (id, row) {
+window.updateOsbDialog = function (id, row) {
     window.gridReloadController = false;
     //console.log(row);
     BootstrapDialog.show({  
-         title: '"'+ row.name + '" ACL yetkisini güncellemektesiniz...',
+         title: '"'+ row.name + '" OSB "sini güncellemektesiniz...',
          message: function (dialogRef) {
                      var dialogRef = dialogRef;
                      var $message = $(' <div class="row">\n\
                                              <div class="col-md-12">\n\
                                                  <div id="loading-image-crud-popup" class="box box-primary">\n\
-                                                     <form id="aclPrivilegeFormPopup" method="get" class="form-horizontal">\n\
+                                                     <form id="osbFormPopup" method="get" class="form-horizontal">\n\
                                                      <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Yetki</label>\n\
+                                                             <label class="col-sm-2 control-label">OSB</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
@@ -346,7 +809,7 @@ window.updateACLPrivilegeDialog = function (id, row) {
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="form-group" style="margin-top: 20px;">\n\
-                                                             <label class="col-sm-2 control-label">Yetki Eng.</label>\n\
+                                                             <label class="col-sm-2 control-label">OSB Eng.</label>\n\
                                                              <div class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
@@ -359,34 +822,67 @@ window.updateACLPrivilegeDialog = function (id, row) {
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">ACL Resource</label>\n\
-                                                         <div class="col-sm-10">\n\
-                                                             <div class="input-group">\n\
-                                                                 <div class="input-group-addon">\n\
-                                                                     <i class="fa fa-hand-o-right"></i>\n\
-                                                                 </div>\n\
-                                                                 <div id="dropdownACLResourcesPopup" ></div>\n\
-                                                             </div>\n\
-                                                         </div>\n\
-                                                     </div>\n\
+                                                            <label class="col-sm-2 control-label">Ülke</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div  id="load-imager-countries-popup" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownCountriesPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Şehir</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div  id="load-imager-cities-popup" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="city_popup" id="city_popup" value="'+row.city+'" /><div id="dropdownCitiesPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">İlçe</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div  id="load-imager-boroughs-popup" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownBoroughsPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
                                                          <div class="form-group">\n\
-                                                             <label class="col-sm-2 control-label">Açıklama</label>\n\
-                                                             <div id="mach-prod-box-popup" class="col-sm-10">\n\
+                                                             <label class="col-sm-2 control-label">Adres</label>\n\
+                                                             <div  class="col-sm-10">\n\
                                                                  <div class="input-group">\n\
                                                                      <div class="input-group-addon">\n\
                                                                          <i class="fa fa-hand-o-right"></i>\n\
                                                                      </div>\n\
-                                                                     <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description_popup" id="description_popup" placeholder="Açıklama ...">'+row.description+'</textarea>\n\
+                                                                     <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="address_popup" id="address_popup" placeholder="Adres Giriniz ...">'+row.address+'</textarea>\n\
+                                                                 </div>\n\
+                                                             </div>\n\
+                                                         </div>\n\
+                                                         <div class="form-group" style="margin-top: 20px;">\n\
+                                                             <label class="col-sm-2 control-label">Posta Kodu</label>\n\
+                                                             <div class="col-sm-10">\n\
+                                                                 <div class="input-group">\n\
+                                                                     <div class="input-group-addon">\n\
+                                                                         <i class="fa fa-hand-o-right"></i>\n\
+                                                                     </div>\n\
+                                                                     <div  class="tag-container-popup">\n\
+                                                                         <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" value="'+row.postal_code+'" name="postal_code_popup" id="postal_code_popup"   />\n\
+                                                                     </div>\n\
                                                                  </div>\n\
                                                              </div>\n\
                                                          </div>\n\
                                                          <div class="hr-line-dashed"></div>\n\
                                                          <div class="form-group">\n\
                                                              <div class="col-sm-10 col-sm-offset-2">\n\
-                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateACLPrivilegeWrapper(event, '+id+');">\n\
+                                                             <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateOsbWrapper(event, '+id+');">\n\
                                                                  <i class="fa fa-save"></i> Güncelle </button>\n\
-                                                             <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
-                                                                 <i class="fa fa-remove"></i> Reset </button>-->\n\
                                                          </div>\n\
                                                      </div>\n\
                                                  </form>\n\
@@ -396,61 +892,70 @@ window.updateACLPrivilegeDialog = function (id, row) {
                      return $message;
                  },
          type: BootstrapDialog.TYPE_PRIMARY,
-         onshown : function () {         
-            $('#aclPrivilegeFormPopup').validationEngine();
+         onshown : function () { 
+            window.dropdownCityControler = true;
+            window.dropdownBoroughControler = true;
+            $('#osbFormPopup').validationEngine();
              
-            $("#mach-prod-box-popup").loadImager();
-            $("#mach-prod-box-popup").loadImager('appendImage');
+            $("#load-imager-countries-popup").loadImager();
+            $("#load-imager-countries-popup").loadImager('appendImage');
             
-            var ajaxACLResourcesPopup = $(window).ajaxCallWidget({
-            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                    data: { url:'pkFillResourcesDdList_sysAclResources' ,
-                            pk : $("#pk").val() 
-                    }
-       })
-        ajaxACLResourcesPopup.ajaxCallWidget ({
-            onError : function (event, textStatus,errorThrown) {
-                dm.dangerMessage({
-                   onShown : function() {
-                       //$('#mach-prod-box').loadImager('removeLoadImage'); 
-                   }
-                });
-                dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                         'ACL resource (kaynak) bulunamamıştır...');
-            },
-            onSuccess : function (event, data) {
-                var data = $.parseJSON(data);
-                    $('#mach-prod-box-popup').loadImager('removeLoadImage');
-                    $('#dropdownACLResourcesPopup').ddslick({
-                            height : 200,
-                            data : data, 
-                            width:'98%',
-                            search : true,
-                            //imagePosition:"right",
-                            onSelected: function(selectedData){
-                                if(selectedData.selectedData.value>0) {
-                                    /*$('#tt_tree_menu').tree({
-                                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
-                                    });*/
-                             }
-                         }   
-                    });  
-                    $('#dropdownACLResourcesPopup').ddslick('selectByValue', 
-                                                {index: ''+row.resource_id+'' ,
-                                                 text : ''+row.resource_name+''}
-                                                );
-                },
-                onErrorDataNull : function (event, data) {
-                     dm.dangerMessage({
-                        onShown : function() {
-                            //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+            var ajaxCountriesPopup = $('#load-imager-countries-popup').ajaxCallWidget({
+                proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                        data: { url:'fillComboBox_syscountrys' ,
+                                pk : $("#pk").val(),
+                                language_code : $('#langCode').val(),
+                                component_type: 'ddslick'
                         }
-                     });
-                     dm.dangerMessage('show', 'ACL Resource (Kaynak) Bulunamamıştır...',
-                                              'ACL resource (kaynak) bulunamamıştır...');
-                 },
-            }) 
-            ajaxACLResourcesPopup.ajaxCallWidget('call');
+           })
+            ajaxCountriesPopup.ajaxCallWidget ({
+                onError : function (event, textStatus,errorThrown) {
+                    dm.dangerMessage({
+                       onShown : function() {
+                           //$('#mach-prod-box').loadImager('removeLoadImage'); 
+                       }
+                    });
+                    dm.dangerMessage('show', 'Şehir Bulunamamıştır...',
+                                             'Şehir bulunamamıştır...');
+                },
+                onSuccess : function (event, data) {
+                    var data = $.parseJSON(data);
+                        $('#load-imager-countries-popup').loadImager('removeLoadImage');
+                        $('#dropdownCountriesPopup').ddslick({
+                                height : 200,
+                                data : data, 
+                                width:'98%',
+                                search : true,
+                                //imagePosition:"right",
+                                onSelected: function(selectedData){
+                                    if(selectedData.selectedData.value>0) {
+                                        if(selectedData.selectedData.value>0) {
+                                            //alert('seelcted data >0');
+                                            
+                                            window.fillCitiesPopup(row);
+                                        } else if(selectedData.selectedData.value == 0) {
+                                            //alert('seelcted data 0');
+                                            $('#dropdownCitiesPopup').ddslick('destroy');
+                                            //$("#city").toggleClass('form-control validate[required]');
+                                            $('#city_popup').show();
+                                        }
+                                 }
+                             }   
+                        });  
+                        $('#dropdownCountriesPopup').ddslick('selectByValue', 
+                                                    {index: ''+row.country_id+''});
+                    },
+                    onErrorDataNull : function (event, data) {
+                         dm.dangerMessage({
+                            onShown : function() {
+                                //$('#mach-prod-box-popup').loadImager('removeLoadImage'); 
+                            }
+                         });
+                         dm.dangerMessage('show', 'Şehir Bulunamamıştır...',
+                                                  'Şehir bulunamamıştır...');
+                     },
+                }) 
+                ajaxCountriesPopup.ajaxCallWidget('call');
             
             
          },
@@ -465,82 +970,125 @@ window.updateACLPrivilegeDialog = function (id, row) {
 }
 
 /**
- * update ACL privilege wrapper
+ * update Organized industri zone wrapper
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 23/08/2016
  */
-window.updateACLPrivilegeWrapper = function (e, id) {
+window.updateOsbWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
- if ($("#aclPrivilegeFormPopup").validationEngine('validate')) {
+ if ($("#osbFormPopup").validationEngine('validate')) {
      
-     var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
-    if(ddData.selectedData.value>0) {
-        updateACLPrivilege(id);
-    } else {
+     
+    var ddData = $('#dropdownCountriesPopup').data('ddslick');
+     
+    if(!ddData.selectedData.value > 0) {
         wm.warningMessage('resetOnShown');
-        wm.warningMessage('show', 'ACL Resource Seçiniz', 'Lütfen ACL resource seçiniz!')
+        wm.warningMessage('show', 'Ülke Seçiniz', 'Lütfen ülke seçiniz!');
+        return false;
     }
+    var country = ddData.selectedData.text;
+    country = $.trim(country).toLowerCase();
+    if(country == 'türkiye') {
+        var ddDataCities = $('#dropdownCitiesPopup').data('ddslick');
+        if(!ddDataCities.selectedData.value > 0) { 
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'Şehir Seçiniz', 'Lütfen şehir seçiniz!');
+            return false;
+        }
+        
+        var ddDataBoroughs = $('#dropdownBoroughsPopup').data('ddslick');
+        if(!ddDataBoroughs.selectedData.value > 0) { 
+            wm.warningMessage('resetOnShown');
+            wm.warningMessage('show', 'İlçe Seçiniz', 'Lütfen ilçe seçiniz!');
+            return false;
+        }
+    }
+    updateOsb(id);
     return false;
  }
  return false;
 }
 
 /**
- * update ACL privilege
+ * update organized industri zone
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 23/08/2016
  */
-window.updateACLPrivilege = function (id) {
+window.updateOsb = function (id) {
      var loader = $('#loading-image-crud-popup').loadImager();
      loader.loadImager('appendImage');
      
-     var ddData = $('#dropdownACLResourcesPopup').data('ddslick');
-     var resource_id = ddData.selectedData.value;
+     var name = $('#name_popup').val();
+     var name_eng = $('#name_eng_popup').val();
+     var city = $('#city_popup').val();
+     var address = $('#address_popup').val();
+     var postal_code = $('#postal_code_popup').val();
+     
+     var ddDataCountries = $('#dropdownCountriesPopup').data('ddslick')
+     var country_id  = ddDataCountries.selectedData.value;
+     
+     var ddDataCities = $('#dropdownCitiesPopup').data('ddslick');
+     var city_id = 0;
+     if (typeof ddDataCities != 'undefined'){
+         city_id  = ddDataCities.selectedData.value;
+     }
+     
+     
+     var ddDataBoroughs = $('#dropdownBoroughsPopup').data('ddslick');
+     var borough_id = 0;
+     if (typeof ddDataBoroughs != 'undefined'){
+         borough_id = ddDataBoroughs.selectedData.value;
+     }
+     
      
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdate_sysAclPrivilege' ,
-                         id : id,
-                         name : $('#name_popup').val(),
-                         name_eng : $('#name_eng_popup').val(),
-                         description : $('#description_popup').val(),
-                         resource_id : resource_id,
-                         pk : $("#pk").val()
+                        url:'pkUpdate_sysOsb' ,
+                        pk : $("#pk").val(),
+                        id : id,
+                        language_code : $('#langCode').val(),
+                        name : name,
+                        name_eng : name_eng,
+                        city : city,
+                        country_id : country_id,
+                        city_id : city_id,
+                        borough_id : borough_id,
+                        address : address,
+                        postal_code : postal_code
                      }
     })
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'OSB Güncelleme İşlemi Başarısız...', 
+                                      'OSB güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysOsb" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
-             sm.successMessage({
-                 onShown: function( event, data ) {
-                     loader.loadImager('removeLoadImage');
-                 }
-             });
-             sm.successMessage('show', 'ACL Yetki Güncelleme İşlemi Başarılı...', 
-                                       'ACL yetki güncelleme işlemini gerçekleştirdiniz... ',
+             sm.successMessage('resetOnShown');
+             sm.successMessage('show', 'OSB Güncelleme İşlemi Başarılı...', 
+                                       'OSB güncelleme işlemini gerçekleştirdiniz... ',
                                        data);
+            loader.loadImager('removeLoadImage');
+            $('#loading-image-crud-popup').loadImager();
+            $('#loading-image-crud-popup').loadImager('removeLoadImage');
              window.gridReloadController = true;
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdate_sysAclPrivilege" servis datası boştur!!');
+             dm.dangerMessage('show', 'OSB Güncelleme İşlemi Başarısız...', 
+                                      'OSB güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdate_sysOsb" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Güncelleme İşlemi Başarısız...', 
-                                      'ACL yetki güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'OSB Güncelleme İşlemi Başarısız...', 
+                                      'OSB güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },
@@ -551,131 +1099,31 @@ window.updateACLPrivilege = function (id) {
 }
    
 /**
- * insert ACL privilege
- * @returns {undefined}
- * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
- */
-window.insertACLPrivilege = function () {
-     var loaderInsertBlock = $("#loading-image-crud").loadImager();
-     loaderInsertBlock.loadImager('appendImage');
-     
-     var name = $('#name').val();
-     var name_eng = $('#name_eng').val();
-     var description = $('#description').val();
-     
-     var ddData = $('#dropdownACLResources').data('ddslick')
-     var resource_id = ddData.selectedData.value;
-     
-     var aj = $(window).ajaxCall({
-                     proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
-                     data : {
-                         url:'pkInsert_sysAclPrivilege' ,
-                         name : name,
-                         name_eng : name_eng,
-                         description : description,
-                         resource_id : resource_id,
-                         pk : $("#pk").val()
-                     }
-    })
-    aj.ajaxCall ({  
-          onError : function (event, textStatus, errorThrown) {   
-              dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Yetki  Ekleme İşlemi Başarısız...', 
-                                       'ACL yetki ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-              console.error('"pkInsert_sysAclPrivilege" servis hatası->'+textStatus);
-          },
-          onSuccess : function (event, data) {
-              console.log(data);
-              var data = data;
-             sm.successMessage({
-                 onShown: function( event, data ) {
-                     $('#aclPrivilegeForm')[0].reset();  
-                     
-                     /*$('#tt_tree_menu2').tree('append', {
-                        data: [{
-                                attributes:{ active: 0 },
-                                id: data.lastInsertId,
-                                text: name,
-                                checked: false,
-                                state : 'open',
-                            },]
-                    });*/
-
-                     loaderInsertBlock.loadImager('removeLoadImage');
-                     $('#tt_grid_dynamic').datagrid({
-                         queryParams: {
-                                 pk: $('#pk').val(),
-                                 subject: 'datagrid',
-                                 url : 'pkFillPrivilegesList_sysAclPrivilege',
-                                 sort : 'id',
-                                 order : 'desc',
-                         },
-                     });
-                     $('#tt_grid_dynamic').datagrid('enableFilter');
-                     $('#tt_grid_dynamic').datagrid('reload');
-                 }
-             });
-             sm.successMessage('show', 'ACL Yetki Kayıt İşlemi Başarılı...', 
-                                       'ACL yetki kayıt işlemini gerçekleştirdiniz... ',
-                                       data);
-
-          },
-          onErrorDataNull : function (event, data) {
-              dm.dangerMessage('resetOnShown');
-              dm.dangerMessage('show', 'ACL Yetki Kayıt İşlemi Başarısız...', 
-                                       'ACL yetki  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-              console.error('"pkInsert_sysAclPrivilege" servis datası boştur!!');
-          },
-          onErrorMessage : function (event, data) {
-             dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki  Kayıt İşlemi Başarısız...', 
-                                     'ACL yetki  kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkInsert_sysAclRoles" servis hatası->'+data.errorInfo);
-          },
-          onError23503 : function (event, data) {
-          },
-          onError23505 : function (event, data) {
-              dm.dangerMessage({
-                 onShown : function(event, data) {
-                     $('#aclPrivilegeForm')[0].reset();
-                     loaderInsertBlock.loadImager('removeLoadImage');
-                 }
-              });
-              dm.dangerMessage('show', 'ACL Yetki Kayıt İşlemi Başarısız...', 
-                                       'Aynı isim ile ACL yetki  kaydı yapılmıştır, yeni bir ACL yetki deneyiniz... ');
-          }
-    }) 
-    aj.ajaxCall('call');
-}
-   
-
-/**
- * active/passive ACL privilege
+ * active/passive organized industry zone
  * @returns {Boolean}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 23/08/2016
  */
-window.activePassiveACLPrivilegesWrapper = function (e, id) {
+window.activePassiveOsbWrapper = function (e, id) {
  e.preventDefault();
  var id = id;
  var domElement = e.target;
  wcm.warningComplexMessage({onConfirm : function(event, data) {
-        activePassiveACLPrivilege(id, domElement);
+        activePassiveOsb(id, domElement);
     }
     });
-wcm.warningComplexMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
-                                  'ACL yetki aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
+wcm.warningComplexMessage('show', 'OSB Aktif/Pasif İşlemi Gerçekleştirmek Üzeresiniz!', 
+                                  'OSB aktif/pasif işlemi gerçekleştirmek  üzeresiniz...');
  return false;
 }
 
 /**
- * active or passive ACL privilege
+ * active or passive organized industry zone
  * @returns {undefined}
  * @author Mustafa Zeynel Dağlı
- * @since 14/07/2016
+ * @since 23/08/2016
  */
-window.activePassiveACLPrivilege = function (id, domElement) {
+window.activePassiveOsb = function (id, domElement) {
     var loader = $("#loading-image-grid-container").loadImager();
     loader.loadImager('appendImage');
     var id = id;
@@ -684,7 +1132,7 @@ window.activePassiveACLPrivilege = function (id, domElement) {
     var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
-                         url:'pkUpdateMakeActiveOrPassive_sysAclPrivilege' ,
+                         url:'pkUpdateMakeActiveOrPassive_sysOsb' ,
                          id : id,
                          pk : $("#pk").val()
                      }
@@ -692,9 +1140,9 @@ window.activePassiveACLPrivilege = function (id, domElement) {
     aj.ajaxCall ({
           onError : function (event, textStatus, errorThrown) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL yetki aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis hatası->'+textStatus);
+             dm.dangerMessage('show', 'OSB Aktif/Pasif İşlemi Başarısız...', 
+                                      'OSB aktif/pasif işlemi, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysOsb" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
              var data = data;
@@ -703,8 +1151,8 @@ window.activePassiveACLPrivilege = function (id, domElement) {
                      loader.loadImager('removeLoadImage');
                  }
              });
-             sm.successMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarılı...', 
-                                       'ACL yetki aktif/pasif işlemini gerçekleştirdiniz... ',
+             sm.successMessage('show', 'OSB Aktif/Pasif İşlemi Başarılı...', 
+                                       'OSB aktif/pasif işlemini gerçekleştirdiniz... ',
                                        data);
             if($(domElement).hasClass("fa-minus-circle")){
                 $(domElement).removeClass("fa-minus-circle");
@@ -724,14 +1172,14 @@ window.activePassiveACLPrivilege = function (id, domElement) {
           },
           onErrorDataNull : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL yetki aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-             console.error('"pkUpdateMakeActiveOrPassive_sysAclPrivilege" servis datası boştur!!');
+             dm.dangerMessage('show', 'OSB Aktif/Pasif İşlemi Başarısız...', 
+                                      'OSB aktif/pasif işlemi güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             console.error('"pkUpdateMakeActiveOrPassive_sysOsb" servis datası boştur!!');
           },
           onErrorMessage : function (event, data) {
              dm.dangerMessage('resetOnShown');
-             dm.dangerMessage('show', 'ACL Yetki Aktif/Pasif İşlemi Başarısız...', 
-                                      'ACL yetki aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
+             dm.dangerMessage('show', 'OSB Aktif/Pasif İşlemi Başarısız...', 
+                                      'OSB aktif/pasif işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
           },
           onError23503 : function (event, data) {
           },

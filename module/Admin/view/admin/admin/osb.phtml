@@ -170,13 +170,13 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    ACL Yetki İşlemleri
+                    OSB Tanımlama İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
-                    <li><a href="#"><i class="fa fa-certificate"></i> Rol ve Yetki İşlemleri</a></li>
-                    <li class="active">Yetki İşl.</li>
+                    <li><a href="#"><i class="fa fa-certificate"></i> Tanımlamalar</a></li>
+                    <li class="active">OSB İşl.</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -191,7 +191,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> ACL Yetki Tanımlama  İşlemleri </h3>
+                                <h3 class="box-title"> Organize Sanayi Bölgesi Tanımlama İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -199,14 +199,14 @@
                                 </div><!--/. button div-->
                             </div><!--/. panel 1 header div-->
                             <!--Panel 1 contents-->
-                            <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
+                            <div  class="box box-body" style="border-top:0px;">
                                 <div class="alert alert-info alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Sistemde ACL işlemleri için kullanılan tüm 'Yetki' verisi eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
+                                    <h4><i class="icon fa fa-info"></i> Sisteme Organize Sanayi Bölgesi eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
                                 </div>  
                                 <!--Makina ekleme formu -->
-                                <form id='aclPrivilegeForm' method="get" class="form-horizontal">     
-                                    <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                       
+                                <form id='osbForm' method="get" class="form-horizontal">     
+                                    <div id="osbInsertBlock" class="box box-primary" style="padding-top: 20px;">                                       
                                         <!--<div class="form-group">
                                             <label class="col-sm-2 control-label">Mevcut Yetkiler</label>
                                             <div class="col-sm-10 " >
@@ -223,7 +223,7 @@
                                             </div>
                                         </div>-->
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Yetki (Privilege)</label>
+                                            <label class="col-sm-2 control-label">OSB</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
@@ -234,7 +234,7 @@
                                             </div>
                                         </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Yetki (Privilege) Eng.</label>
+                                            <label class="col-sm-2 control-label">OSB Eng.</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
@@ -245,31 +245,64 @@
                                             </div>
                                         </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">ACL Resource (Kaynak)</label>
+                                            <label class="col-sm-2 control-label">Ülke</label>
                                             <div class="col-sm-10">
-                                                <div id="mach-prod-box" class="input-group">    
+                                                <div id="load-imager-countries" class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-copyright"></i>
                                                     </div>
-                                                    <div id="dropdownACLResources" ></div>
+                                                    <div id="dropdownCountries" ></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Açıklama</label>
+                                            <label class="col-sm-2 control-label">Şehir</label>
+                                            <div class="col-sm-10">
+                                                <div id="load-imager-cities" class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-copyright"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="city" id="city" /><div id="dropdownCities" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">İlçe</label>
+                                            <div class="col-sm-10">
+                                                <div id="load-imager-boroughs" class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-copyright"></i>
+                                                    </div>
+                                                    <div id="dropdownBoroughs" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Adres</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-hand-o-right"></i>
                                                     </div>
-                                                    <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description" id="description" placeholder="Açıklama ..."></textarea>
+                                                    <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="address" id="address" placeholder="Adres Giriniz ..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Posta Kodu</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control " type="text" name="postal_code" id="postal_code" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertACLPrivilegesWrapper(event);"><i class="fa fa-save"></i>  Yetki Kaydet </button>
-                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetACLPrivilegesForm();" ><i class="fa fa-remove"></i> Reset </button>
+                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertOsbWrapper(event);"><i class="fa fa-save"></i>  OSB Kaydet </button>
+                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetOsbForm();" ><i class="fa fa-remove"></i> Reset </button>
                                             </div>
                                         </div>
                                     </div> 
@@ -283,7 +316,7 @@
                         <div id="loading-image-grid-container" class="box box-warning"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> ACL Yetki Listesi</h3>
+                                <h3 class="box-title"> Organize Sanayi Bölgeleri Listesi</h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -294,11 +327,11 @@
                             <div class="box-body">    
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> ACL Yetkiler Listesi </h4>
-                                    ACL yetkilerini  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirisiniz...
+                                    <h4><i class="icon fa fa-info"></i> OSB Listesi </h4>
+                                    OSB'leri filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirisiniz...
                                 </div>
                                 <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
-                                    <table  id="tt_grid_dynamic" title="ACL Yetkiler  " ></table>   
+                                    <table  id="tt_grid_dynamic" title="Organize Sanayi Bölgeleri" ></table>   
                                 </div> 
                                 
                             </div><!-- /.box-body -->
