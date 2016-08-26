@@ -29,13 +29,27 @@
 
 (function ($) {
     
-    /*setInterval(function() {
-        alert('test');
-    }, 5000);*/
-    
+    /**
+     * page blocking dialog after 22 minutes when page not refreshed
+     * @returns {undefined}
+     * @author Mustafa Zeynel Dağlı
+     * @since 26/08/2016
+     */
     setTimeout(function(){
-        alert("Boom!");
-      }, 5000);
+        
+        var $textAndPic = $('<div></div>');
+        $textAndPic.append('Who\'s this? <br />');
+        $textAndPic.append('<img src="https://zeynel.sanalfabrika.com/dist/img/ostim_logo_en.png" />');
+        $textAndPic.append('<img src="https://zeynel.sanalfabrika.com/onyuz/standard/assets/img/logo1-default.png" />');
+        $textAndPic.append('<h3>Sayfa Oturum Süreniz Sonlanmıştır, Lütfen Sisteme Tekrar Giriş Yapınız</h3>');
+        
+        
+        BootstrapDialog.show({
+            title: 'Sayfaya Giriş Yaptıktan Sonra Oluşan Oturum Süreniz Dolmuştur...',
+            message: $textAndPic,
+            closable : false, 
+        });
+      }, 1320000);
 
     /**
      * load imager widget for loading operations
