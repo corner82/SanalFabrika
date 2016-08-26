@@ -385,12 +385,19 @@ window.deleteMachUltimately = function(id, index) {
         onSuccess : function (event, data) {
             sm.successMessage({ 
                 onShown : function() {
-                    loaderGridBlock.loadImager('removeLoadImage');
+                    //loaderGridBlock.loadImager('removeLoadImage');
                     //$('#tt_grid_dynamic').datagrid('deleteRow', index);
-                    $('#tt_grid_dynamic').datagrid('reload');
+                    
                     
                 }
             });
+            sm.successMessage('resetOnShown');
+            sm.successMessage({
+                 onHide : function(event, data) {
+                     loaderGridBlock.loadImager('removeLoadImage');
+                     $('#tt_grid_dynamic').datagrid('reload');
+                 }
+              });
             sm.successMessage('show', 'Makina  Silme İşleminiz Başarılı...',
                                       'Makina  silme işleminiz başarılı...')
         },                                   
