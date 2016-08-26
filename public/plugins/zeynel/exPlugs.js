@@ -38,7 +38,6 @@
     setTimeout(function(){
         
         var $textAndPic = $('<div></div>');
-        $textAndPic.append('Who\'s this? <br />');
         $textAndPic.append('<img src="https://zeynel.sanalfabrika.com/dist/img/ostim_logo_en.png" />');
         $textAndPic.append('<img src="https://zeynel.sanalfabrika.com/onyuz/standard/assets/img/logo1-default.png" />');
         $textAndPic.append('<h3>Sayfa Oturum Süreniz Sonlanmıştır, Lütfen Sisteme Tekrar Giriş Yapınız</h3>');
