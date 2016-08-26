@@ -436,6 +436,7 @@
                     var items = c.find(".dd-options>li");
                     //console.log($(this).val());
                     var searchText = $(this).val();
+                    searchText = $.trim(searchText).toLowerCase();
                     if(searchText == '') {
                         $.each(items, function(index, item) {
                             $(item).show();
