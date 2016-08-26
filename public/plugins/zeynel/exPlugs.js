@@ -28,6 +28,14 @@
 }(jQuery));
 
 (function ($) {
+    
+    /*setInterval(function() {
+        alert('test');
+    }, 5000);*/
+    
+    setTimeout(function(){
+        alert("Boom!");
+      }, 5000);
 
     /**
      * load imager widget for loading operations
@@ -212,6 +220,15 @@
                 title: title,
                 message: message,
                 type: BootstrapDialog.TYPE_WARNING,
+                buttons: [{
+                    icon: 'glyphicon glyphicon-ok-sign',
+                    label: self.options.actionButtonLabel,
+                    cssClass: 'btn-success',
+                    action: function(dialogItself){  
+                        dialogItself.close();
+                        self._trigger('onConfirm', event, {data : data});
+                    }
+                }],
                 onhide : function() {
                     self._trigger('onHide', event, {data : data});
                 }
@@ -338,6 +355,7 @@
                 type: BootstrapDialog.TYPE_SUCCESS,
                 title: title,
                 message: message,
+                closable: false,
                 buttons: [ {
                     icon: 'glyphicon glyphicon-ok-sign',
                     label: 'Kapat',
