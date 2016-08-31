@@ -17,7 +17,8 @@ return array(
         'Error',
         'Supervisor',
         'Definitions',
-        'Signup'
+        'Signup',
+        'Cluster'
     ),
     
     // These are various options for the listeners attached to the ModuleManager
@@ -125,6 +126,7 @@ return array(
             'serviceLogoutLogRabbitMQ' => 'Utill\MQ\Factory\FactoryServiceLogoutLog',
             'serviceAclPrivilegeFinder' => 'Custom\Services\Acl\FactoryServiceACLPrivilegeFinder', 
             'serviceAclPrivilegeCreator' => 'Custom\Services\Acl\FactoryServiceACLPrivilegeCreator',
+            'serviceAuthenticatedRedirectCluster' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirectCluster',
         ],  
         
     ),

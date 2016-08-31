@@ -23,6 +23,7 @@ return array(
        'Definitions' => 'layout/definitions.phtml',
        'Supervisor' => 'layout/supervisor.phtml',
        'Signup' => 'layout/signup.phtml',
+       'Cluster' => 'layout/cluster.phtml',
         
    ),
     'action_layouts' => array(
@@ -125,6 +126,9 @@ return array(
                           'clusters' => 'layout/clusters.phtml',
                           'clusteremp' => 'layout/clusteremp.phtml',
                         ),
+        'Cluster' => array(
+            'index' => 'layout/cluster.phtml',
+                        ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
                         ),
@@ -169,7 +173,8 @@ return array(
         'SFDM',
         'Supervisor',
         'Companies',
-        'Sanalfabrika'
+        'Sanalfabrika',
+        'Cluster'
 
     ),
     'ActionsTobeAuthenticated' => array(
