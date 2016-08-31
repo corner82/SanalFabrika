@@ -58,8 +58,10 @@ $('#tt_grid_dynamic').datagrid({
                     var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteCmpUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
                     var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateCmpDialog('+row.id+', { firm_name : \''+row.firm_name+'\',\n\
                                                                                                                                                                    firm_name_eng : \''+row.firm_name_eng+'\',\n\
-                                                                                                                                                                   firm_name_short : \''+row.firm_name_short+'\',\n\                                                                                                               \n\
-                                                                                                                                                                    firm_name_short_eng : \''+row.firm_name_short_eng+'\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
+                                                                                                                                                                   firm_name_short : \''+row.firm_name_short+'\',\n\
+                                                                                                                                                                   osb_id : \''+row.osb_id+'\',\n\
+                                                                                                                                                                   cluster_ids : '+row.cluster_ids+',\n\
+                                                                                                                                                                   firm_name_short_eng : \''+row.firm_name_short_eng+'\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
                     return e+d+u;    
                 }
             },
@@ -67,6 +69,139 @@ $('#tt_grid_dynamic').datagrid({
         ]]   
 });
 $('#tt_grid_dynamic').datagrid('enableFilter');
+
+/**
+ * loading image for organized industrial zones dropdown
+ * @author Mustafa Zeynel Dağlı
+ * @since 25/08/2016
+ */
+$("#loading-image-osb").loadImager();
+$("#loading-image-osb").loadImager('appendImage');
+
+/**
+ * loading image for clusters dropdown
+ * @author Mustafa Zeynel Dağlı
+ * @since 25/08/2016
+ */
+$("#loading-image-clusters").loadImager();
+$("#loading-image-clusters").loadImager('appendImage');
+
+/**
+ * Organized industrial zones dropdown prepared
+ * @type @call;$@call;ajaxCallWidget
+ * @since 25/08/2016
+ */
+var ajaxOsb = $('#loading-image-osb').ajaxCallWidget({
+    proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'pkFillOsbDdlist_sysOsb' ,
+                    pk : $("#pk").val() 
+            }
+   })
+ajaxOsb.ajaxCallWidget ({
+     onError : function (event, textStatus,errorThrown) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#loading-image-osb').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'OSB Bulunamamıştır...',
+                                  'OSB  bulunamamıştır...');
+     },
+     onSuccess : function (event, data) {
+         var data = $.parseJSON(data);
+         $('#loading-image-osb').loadImager('removeLoadImage');
+         $('#dropdownOSB').ddslick({
+            height : 200,
+            data : data, 
+            width:'98%',
+            selectText: "Select your preferred social network",
+            //showSelectedHTML : false,
+            defaultSelectedIndex: 3,
+            search : true,
+           /* multiSelect : true,
+            tagBox : 'tag-container',
+            multiSelectTagID : 'deneme',*/
+            //imagePosition:"right",
+            onSelected: function(selectedData){
+                if(selectedData.selectedData.value>0) {
+                    /*$('#tt_tree_menu').tree({
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                    });*/
+                }
+            }   
+        });   
+     },
+     onErrorDataNull : function (event, data) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#loading-image-osb').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'OSB Bulunamamıştır...',
+                                  'OSB  bulunamamıştır...');
+     },
+}) 
+ajaxOsb.ajaxCallWidget('call');
+
+/**
+ * Clusters dropdown prepared
+ * @type @call;$@call;ajaxCallWidget
+ * @since 25/08/2016
+ */
+var ajaxClusters = $('#loading-image-clusters').ajaxCallWidget({
+    proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: { url:'pkFillOsbClustersDdlist_sysOsbClusters' ,
+                    pk : $("#pk").val() ,
+                    language_code : $('#langCode').val(),
+                    /*osb_id: 5, 
+                    country_id: 91*/
+            }
+   })
+ajaxClusters.ajaxCallWidget ({
+     onError : function (event, textStatus,errorThrown) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#loading-image-clusters').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'Küme Bulunamamıştır...',
+                                  'Küme  bulunamamıştır...');
+     },
+     onSuccess : function (event, data) {
+         var data = $.parseJSON(data);
+         $('#loading-image-clusters').loadImager('removeLoadImage');
+         $('#dropdownClusters').ddslick({
+            height : 200,
+            data : data, 
+            width:'98%',
+            selectText: "Select your preferred social network",
+            //showSelectedHTML : false,
+            defaultSelectedIndex: 3,
+            search : true,
+            multiSelect : true,
+            tagBox : 'tag-container-clusters',
+            multiSelectTagID : 'tagClusters',
+            //imagePosition:"right",
+            onSelected: function(selectedData){
+                if(selectedData.selectedData.value>0) {
+                    /*$('#tt_tree_menu').tree({
+                        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                    });*/
+                }
+            }   
+        });   
+     },
+     onErrorDataNull : function (event, data) {
+         dm.dangerMessage({
+            onShown : function() {
+                $('#loading-image-clusters').loadImager('removeLoadImage'); 
+            }
+         });
+         dm.dangerMessage('show', 'Küme Bulunamamıştır...',
+                                  'Küme  bulunamamıştır...');
+     },
+}) 
+ajaxClusters.ajaxCallWidget('call'); 
 
 
 /**
@@ -236,6 +371,28 @@ BootstrapDialog.show({
                                                          </div>\n\
                                                      </div>\n\
                                                      <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">OSB</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div id="loading-image-osb-popup" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownOsbPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                        <div class="form-group">\n\
+                                                            <label class="col-sm-2 control-label">Küme</label>\n\
+                                                            <div class="col-sm-10">\n\
+                                                                <div id="loading-image-clusters-popup" class="input-group">\n\
+                                                                    <div class="input-group-addon">\n\
+                                                                        <i class="fa fa-hand-o-right"></i>\n\
+                                                                    </div>\n\
+                                                                    <div id="dropdownClustersPopup" ></div>\n\
+                                                                </div>\n\
+                                                            </div>\n\
+                                                        </div>\n\
+                                                     <div class="form-group">\n\
                                                          <label class="col-sm-2 control-label">Kısa Firma Adı</label>\n\
                                                          <div class="col-sm-10">\n\
                                                              <div class="input-group">\n\
@@ -273,6 +430,120 @@ BootstrapDialog.show({
      type: BootstrapDialog.TYPE_PRIMARY,
      onshown : function () {         
         $('#cmpFormPopup').validationEngine();
+        
+        $("#loading-image-osb-popup").loadImager();
+        $("#loading-image-osb-popup").loadImager('appendImage');
+        
+        $("#loading-image-clusters-popup").loadImager();
+        $("#loading-image-clusters-popup").loadImager('appendImage');
+        
+        var ajaxOsbPopup = $('#loading-image-osb-popup').ajaxCallWidget({
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    data: { url:'pkFillOsbDdlist_sysOsb' ,
+                            pk : $("#pk").val() 
+                    }
+       })
+        ajaxOsbPopup.ajaxCallWidget ({
+            onError : function (event, textStatus,errorThrown) {
+                dm.dangerMessage({
+                   onShown : function() {
+                       //$('#loading-image-osb-popup').loadImager('removeLoadImage'); 
+                   }
+                });
+                dm.dangerMessage('show', 'OSB Bulunamamıştır...',
+                                         'OSB bulunamamıştır...');
+            },
+            onSuccess : function (event, data) {
+                var data = $.parseJSON(data);
+                    $('#loading-image-osb-popup').loadImager('removeLoadImage');
+                    $('#dropdownOsbPopup').ddslick({
+                            height : 200,
+                            data : data, 
+                            width:'98%',
+                            search : true,
+                            /*multiSelect : true,
+                            multiSelectTagID : 'deneme',
+                            tagBox : 'tag-container-pop',*/
+                            //imagePosition:"right",
+                            onSelected: function(selectedData){
+                                if(selectedData.selectedData.value>0) {
+                             }
+                         }   
+                    }); 
+                    $('#dropdownOsbPopup').ddslick('selectByValue', 
+                                                {index: ''+row.osb_id+'' }
+                                                );
+                },
+                onErrorDataNull : function (event, data) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            //$('#loading-image-osb-popup').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'OSB Bulunamamıştır...',
+                                              'OSB bulunamamıştır...');
+                 },
+            }) 
+        ajaxOsbPopup.ajaxCallWidget('call');
+        
+        var ajaxClustersPopup = $('#loading-image-clusters-popup').ajaxCallWidget({
+            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    data: { url:'pkFillOsbClustersDdlist_sysOsbClusters' ,
+                            pk : $("#pk").val() 
+                    }
+       })
+        ajaxClustersPopup.ajaxCallWidget ({
+            onError : function (event, textStatus,errorThrown) {
+                dm.dangerMessage({
+                   onShown : function() {
+                       //$('#loading-image-clusters-popup').loadImager('removeLoadImage'); 
+                   }
+                });
+                dm.dangerMessage('show', 'Küme Bulunamamıştır...',
+                                         'Küme bulunamamıştır...');
+            },
+            onSuccess : function (event, data) {
+                var data = $.parseJSON(data);
+                    $('#loading-image-clusters-popup').loadImager('removeLoadImage');
+                    $('#dropdownClustersPopup').ddslick({
+                            height : 200,
+                            data : data, 
+                            width:'98%',
+                            search : true,
+                            multiSelect : true,
+                            multiSelectTagID : 'tagClustersPopup',
+                            tagBox : 'tag-container-popup',
+                            //imagePosition:"right",
+                            onSelected: function(selectedData){
+                                if(selectedData.selectedData.value>0) {
+                             }
+                         }   
+                    }); 
+
+                    //ddData = $('#dropdownOsbPopup').data('ddslick');
+                    //var resources ='[{"id" : "23", "text" : "test"}, {"id" :"34", "text" : "test2"}]';
+                    var multiSelectTagID = $('#dropdownClustersPopup').ddslick('getMultiSelectTagID');
+                    var tagBox = $('#dropdownClustersPopup').ddslick('getTagBox');
+                    $('#dropdownClustersPopup').ddslick('selectByMultiValues', 
+                                                {id: multiSelectTagID,
+                                                tagBox : ''+tagBox+''},
+                                                 data,
+                                                 row.cluster_ids
+                                                );
+                },
+                onErrorDataNull : function (event, data) {
+                     dm.dangerMessage({
+                        onShown : function() {
+                            //$('#loading-image-clusters-popup').loadImager('removeLoadImage'); 
+                        }
+                     });
+                     dm.dangerMessage('show', 'Küme Bulunamamıştır...',
+                                              'Küme bulunamamıştır...');
+                 },
+            }) 
+        ajaxClustersPopup.ajaxCallWidget('call');
+        
+        
      },
      onhide : function() {
      },
@@ -310,6 +581,19 @@ window.updateCmp = function (id) {
      var firm_name_short = $('#firm_name_short_popup').val();
      var firm_name_short_eng = $('#firm_name_short_eng_popup').val();
      
+     var ddData = $('#dropdownClustersPopup').data('ddslick');
+     var multiSelectedValues = $('#dropdownClustersPopup').ddslick('selectedValues',
+                                                                {id: ''+ddData.settings.multiSelectTagID+'' 
+                                                                });
+     var clustersID = $.extend({}, multiSelectedValues);
+     var jsonClustersID = JSON.stringify(clustersID);
+     
+     var osb_id = 0;
+     var ddDataOsb = $('#dropdownOsbPopup').data('ddslick');
+     if (typeof ddDataOsb != 'undefined'){
+         osb_id  = ddDataOsb.selectedData.value;
+     }
+     
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                      data : {
@@ -320,6 +604,8 @@ window.updateCmp = function (id) {
                          firm_name_eng : firm_name_eng,
                          firm_name_short : firm_name_short,
                          firm_name_short_eng : firm_name_short_eng,
+                         clusters_id : jsonClustersID,
+                         osb_id : osb_id,
                          id : id,
                      }
     })
@@ -377,6 +663,19 @@ window.insertCmp = function (nodeID, nodeName) {
      var firm_name_eng = $('#firm_name_eng').val();     
      var firm_name_short = $('#firm_name_short').val();
      var firm_name_short_eng = $('#firm_name_short_eng').val();
+     
+     var ddData = $('#dropdownClusters').data('ddslick');
+     var multiSelectedValues = $('#dropdownClustersPopup').ddslick('selectedValues',
+                                                                {id: ''+ddData.settings.multiSelectTagID+'' 
+                                                                });
+     var clustersID = $.extend({}, multiSelectedValues);
+     var jsonClustersID = JSON.stringify(clustersID);
+     
+     var osb_id = 0;
+     var ddDataOsb = $('#dropdownOsb').data('ddslick');
+     if (typeof ddDataOsb != 'undefined'){
+         osb_id  = ddDataOsb.selectedData.value;
+     }
 
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
@@ -388,6 +687,8 @@ window.insertCmp = function (nodeID, nodeName) {
                          firm_name_eng : firm_name_eng,
                          firm_name_short : firm_name_short,
                          firm_name_short_eng : firm_name_short_eng,
+                         clusters_id : jsonClustersID,
+                         osb_id : osb_id
                      }
     })
     aj.ajaxCall ({  
