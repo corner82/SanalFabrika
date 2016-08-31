@@ -1,3 +1,60 @@
+$(document).ready(function () {
+    //    console.log($('#sidebar-nav-1 li').length);
+    for (var i = 1; i <= $('#sidebar-nav-1 li').length; i++) {
+
+        var current_element = $("#sidebar-nav-1 li:nth-child(" + i + ")");
+
+        var li_url = $("a", current_element).attr('href');
+        if (li_url === window.location.href) {
+            $('#' + current_element[0].id).siblings().removeClass('active');
+            $('#' + current_element[0].id).addClass('active');
+        }
+    }
+
+
+    if (window.location.href.indexOf('companymtprofile') > 0) {
+//
+
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+            data: {
+                url: 'pkFillFirmMachineGroupsCounts_infoFirmMachineTool',
+                language_code: $("#langCode").val(),
+                npk: $('#selectedCompanyNpk').val(),
+                pk: $('#pk').val()
+            },
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+
+                if (data.length > 0) {
+
+                    $('#machine_park_menu').attr('visibility', 'visible');
+                    $('#machine_park_menu').attr('display', 'block');
+                    for (var j = 0; j < data.length; j++) {
+
+//                        $('#sidebar-nav-2').append(data.group_name);
+
+                        $("#collapse-timeline").append("<li id='"
+                                + data[j].machine_grup_id
+                                + "' group_name='" + data[j].group_name + "'"
+                                + "' onclick='gotLink(this)'>"
+                                + "<span class='badge badge-u'>"
+                                + data[j].machine_count
+                                + "</span><a><i class='fa fa-dot-circle-o'></i>"
+                                + data[j].group_name
+                                + "</li></a>");
+                    }
+                }
+            }
+        });
+    } else {
+        $('#machine_park_menu').attr('visibility', 'hidden');
+        $('#machine_park_menu').attr('display', 'none');
+    }
+});
+
 (function ($) {
 //console.log($('#controller').val());
 
@@ -101,12 +158,12 @@
 }(jQuery));
 
 function activateLink(clicked) {
-
     $('#' + clicked.id).siblings().removeClass('active');
     $('#' + clicked.id).addClass('active');
 }
 
 function getSubmenu(clicked) {
+
     if ($('#' + clicked.id).hasClass('active')) {
 //        alert('aktif dir');
 //        $('#' + clicked.id).removeClass('active');
@@ -216,6 +273,6 @@ function getSubmenu(clicked) {
             }
         }
     });
-
-
 }
+
+

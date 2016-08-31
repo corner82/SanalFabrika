@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
@@ -15,6 +15,7 @@ $(document).ready(function () {
         var loging_value = window.lang.translate('Log in');
     }
     $('#loging_ph').append(loging_value);
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -77,6 +78,7 @@ $(document).ready(function () {
             $('#total_machs').append(window.total_machines);
         }
     });
+    
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
