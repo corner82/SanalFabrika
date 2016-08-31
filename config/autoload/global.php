@@ -123,6 +123,7 @@ return array(
                           'macproducers' => 'layout/macproducers.phtml',
                           'osb' => 'layout/osb.phtml',
                           'clusters' => 'layout/clusters.phtml',
+                          'clusteremp' => 'layout/clusteremp.phtml',
                         ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
