@@ -26,7 +26,7 @@ class FactoryServiceACLRoleFinder  implements FactoryInterface{
         $pdo = $serviceLocator->get('servicePostgrePdo');
         $authManager = $serviceLocator->get('authenticationManagerDefault');
         $authStorage = $authManager->getStorage()->read();
-        print_r('--auth storage-->'.$authStorage.'--');
+        //print_r('--auth storage-->'.$authStorage.'--');
         if(isset($authStorage['username'])) {
             $userName = $authStorage['username'];
             try {
