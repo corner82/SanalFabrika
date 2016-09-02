@@ -127,6 +127,8 @@ return array(
             'serviceAclPrivilegeFinder' => 'Custom\Services\Acl\FactoryServiceACLPrivilegeFinder', 
             'serviceAclPrivilegeCreator' => 'Custom\Services\Acl\FactoryServiceACLPrivilegeCreator',
             'serviceAuthenticatedRedirectCluster' => 'Custom\Services\Authentication\FactoryServiceAuthenticatedRedirectCluster',
+            'serviceAuthKeyControler' => 'Custom\Services\Authentication\FactoryServiceAuthKeyControler',
+            'serviceAuthKeyRedirect' => 'Custom\Services\Authentication\FactoryServiceAuthKeyRedirect',
         ],  
         
     ),
