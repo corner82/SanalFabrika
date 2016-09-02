@@ -170,13 +170,14 @@
             <section class="content-header">
                 <h1>
                     <?php echo $this->translate('Virtual Enterprise Control Panel') ?>
-                    Küme İşlemleri
+                    Küme Çalışanları İşlemleri
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="<?php echo $this->serverUrl('/ostim/sanalfabrika') ?>"><i class="fa fa-dashboard"></i> <?php echo $this->translate('Home') ?> </a></li>
                     <li><a href="#"><i class="fa fa-certificate"></i> Tanımlamalar</a></li>
-                    <li class="active">Küme İşl.</li>
+                    <li><a href="#"><i class="fa fa-sitemap"></i> Küme İşl.</a></li>
+                    <li class="active">Küme Çal.</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -191,7 +192,7 @@
                         <div id="loading-image-crud" class="box box-primary"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Küme Tanımlama  İşlemleri </h3>
+                                <h3 class="box-title"> Küme Çalışanları Tanımlama  İşlemleri </h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -202,85 +203,70 @@
                             <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
                                 <div class="alert alert-info alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> Sisteme küme verisi eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
+                                    <h4><i class="icon fa fa-info"></i> Sisteme küme çalışanı eklenebilir, güncellenebilir, aktif veya pasif işlemleri yapılabilir...</h4>
                                 </div>  
                                 <!--Makina ekleme formu -->
-                                <form id='clusterForm' method="get" class="form-horizontal">     
+                                <form id='clusterEmpForm' method="get" class="form-horizontal">     
                                     <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                       
-                                        <!--<div class="form-group">
-                                            <label class="col-sm-2 control-label">Mevcut Yetkiler</label>
-                                            <div class="col-sm-10 " >
-                                                <div class="input-group">
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Ad</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-code-fork"></i>
+                                                        <i class="fa fa-hand-o-right"></i>
                                                     </div>
-                                                    <div class="inner test-tree" style='overflow:auto;'>    
-                                                        <div id="loading-image" class='scrollbar-inner'>
-                                                        <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
-                                                        </div>
-                                                    </div>                                                       
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[onlyLetterSp]]" type="text" name="name" id="name" />
                                                 </div>
                                             </div>
-                                        </div>-->
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Soyad</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[onlyLetterSp]]" type="text" name="surname" id="surname" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Kullanıcı Adı(e-posta)</label>
+                                            <div class="col-sm-10">
+                                                <div class="input-group">    
+                                                    <div class="input-group-addon"> 
+                                                        <i class="fa fa-hand-o-right"></i>
+                                                    </div>
+                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required,custom[email]]" type="text" name="auth_email" id="auth_email" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div  class="form-group" >
+                                            <label class="col-sm-2 control-label">Rol</label>
+                                            <div class="col-sm-10">
+                                                <div id="roles-loading-image" class="input-group">    
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-copyright"></i>
+                                                    </div>
+                                                    <div id="dropdownClusterRoles" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div  class="form-group" >
                                             <label class="col-sm-2 control-label">Küme</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="name" id="name" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Küme İng.</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="name_eng" id="name_eng" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">OSB</label>
                                             <div class="col-sm-10">
                                                 <div id="loading-image-osb" class="input-group">    
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-copyright"></i>
                                                     </div>
-                                                    <div id="dropdownOsb" ></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Açıklama</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description" id="description" placeholder="Açıklama ..."></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div  class="form-group" >
-                                            <label class="col-sm-2 control-label">Açıklama İng.</label>
-                                            <div class="col-sm-10">
-                                                <div class="input-group">    
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-hand-o-right"></i>
-                                                    </div>
-                                                    <textarea data-prompt-position="topLeft:70" class="form-control validate[required]" rows="3" name="description_eng" id="description_eng" placeholder="İngilizce Açıklama ..."></textarea>
+                                                    <div id="dropdownCluster" ></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-2">
-                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertClustersWrapper(event);"><i class="fa fa-save"></i>  Küme Kaydet </button>
-                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetClustersForm();" ><i class="fa fa-remove"></i> Reset </button>
+                                                <button id="insertMachineCategory" class="btn btn-primary" type="submit" onclick="return insertClusterEmpWrapper(event);"><i class="fa fa-save"></i>  Küme Çalışanı Kaydet </button>
+                                                <button id="resetForm" class="btn btn-flat" type="reset" onclick="resetClusterEmpForm();" ><i class="fa fa-remove"></i> Reset </button>
                                             </div>
                                         </div>
                                     </div> 
@@ -294,7 +280,7 @@
                         <div id="loading-image-grid-container" class="box box-warning"> 
                             <!--First panel Header-->
                             <div class="box-header with-border">                                                    
-                                <h3 class="box-title"> Kümeler Listesi</h3>
+                                <h3 class="box-title"> Küme Çalışanları Listesi</h3>
                                 
                                 <!--Panel 1 collapse button-->
                                 <div class="box-tools pull-right">
@@ -305,11 +291,11 @@
                             <div class="box-body">    
                                 <div class="alert alert-warning alert-dismissable">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4><i class="icon fa fa-info"></i> OSB Kümeler Listesi </h4>
-                                    Kümeleri  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirisiniz...
+                                    <h4><i class="icon fa fa-info"></i> Küme Çalışanlar Listesi </h4>
+                                    Çalışanları  filtreleyebilir, güncelleme, silme veya aktif / pasif işlemleri gerçekleştirebilirisiniz...
                                 </div>
                                 <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
-                                    <table  id="tt_grid_dynamic" title="Organize Sanayi Bölgesi Kümeleri" ></table>   
+                                    <table  id="tt_grid_dynamic" title="Küme Çalışanları" ></table>   
                                 </div> 
                                 
                             </div><!-- /.box-body -->
