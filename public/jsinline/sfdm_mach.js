@@ -825,11 +825,12 @@ window.insertMach = function (nodeID, nodeName) {
               console.error('"pkInsert_sysMachineTools" servis hatası->'+textStatus);
           },
           onSuccess : function (event, data) {
-              console.log(data);
-              var data = data;
+             var data = data;
+             sm.successMessage('resetOnShown');
              sm.successMessage({
-                 onShown: function( event, data ) {
+                 onHide : function(event, data) {
                      $('#machineForm')[0].reset();
+                     
                      $('#dropdownProducers').ddslick('select', {index: '0' });
                      //var nodeSelected = $('#tt_tree_menu2').tree('find', machine_tool_grup_id); 
                      var nodeSelected = $('#tt_tree_menu2').tree('getSelected');
@@ -848,14 +849,7 @@ window.insertMach = function (nodeID, nodeName) {
                      $('#tt_grid_dynamic').datagrid('enableFilter');
                      $('#tt_grid_dynamic').datagrid('reload');
                  }
-             });
-             sm.successMessage('resetOnShown');
-             sm.successMessage({
-                 onHide : function(event, data) {
-                     $('#machineForm')[0].reset();
-                     loaderInsertBlock.loadImager('removeLoadImage');
-                 }
-              });
+                });
              sm.successMessage('show', 'Makina Kayıt İşlemi Başarılı...', 
                                        'Makina kayıt işlemini gerçekleştirdiniz... ',
                                        data);
