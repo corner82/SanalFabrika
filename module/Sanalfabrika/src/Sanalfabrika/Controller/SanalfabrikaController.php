@@ -77,6 +77,13 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+
+        //$authKey = $this->params()->fromQuery('key',null);
+        
+        $authControl = $this->getServiceLocator()
+                            ->get('serviceAuthKeyControler');
+        
+        
         /*
           $tabActivationController = $this->success last insert Id from okan first insert call
          * then based on this id i have to update data
