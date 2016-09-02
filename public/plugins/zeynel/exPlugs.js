@@ -979,6 +979,8 @@
                                 self._trigger('onError23503', event, data);
                             } else if(data.errorInfo == 22001) {
                                 self._trigger('onError22001', event, data);
+                            } else if(data.errorInfo == 23502) {
+                                self._trigger('onError23502', event, data); 
                             }else {
                                 self._trigger('onErrorMessage', event, data);
                             } 
