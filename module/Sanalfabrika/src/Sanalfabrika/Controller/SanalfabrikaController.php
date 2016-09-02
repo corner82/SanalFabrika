@@ -78,8 +78,7 @@ class SanalfabrikaController extends AbstractActionController {
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
 
-        //$authKey = $this->params()->fromQuery('key',null);
-        
+        $authKey = $this->params()->fromQuery('key',null);
         $authControl = $this->getServiceLocator()
                             ->get('serviceAuthKeyControler');
         
@@ -95,6 +94,7 @@ class SanalfabrikaController extends AbstractActionController {
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'key' => $authKey
         ));
 //        $this->authenticate(null, $view);
         return $view;
