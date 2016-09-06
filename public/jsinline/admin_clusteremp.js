@@ -60,7 +60,7 @@ $('#tt_grid_dynamic').datagrid({
                         var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveClusterEmpWrapper(event, '+row.id+');"><i class="fa fa-plus-circle"></i></button>';
                     }
                     var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteClusterEmpUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
-                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateClusterEmpEmpDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
+                    var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateClusterEmpDialog('+row.id+', { name : \''+row.name+'\',\n\                                                                                                                   \n\
                                                                                                                                                                        surname : \''+row.surname+'\',\n\
                                                                                                                                                                        auth_email : \''+row.auth_email+'\',\n\
                                                                                                                                                                        role_id : '+row.role_id+',\n\

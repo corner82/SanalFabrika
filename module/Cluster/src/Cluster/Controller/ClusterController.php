@@ -30,5 +30,51 @@
         ));
         return $view;
      }
+     
+     /**
+      * company insert page for cluster employees
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 06/09/2016
+      */
+     public function cmpinsertAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+     }
+     
+     /**
+      * Company machine insert page for cluster employees
+      * @return ViewModel
+      * @author Mustafa Zeynel Dağlı
+      * @since 06/09/2016
+      */
+     public function machinsertAction()
+     {
+         $langCode = $this->getServiceLocator()
+                            ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                            ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                            ->get('servicePublicKeyReader'); 
+         
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey,
+        ));
+        return $view;
+     }
  }
 
