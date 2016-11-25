@@ -769,7 +769,6 @@ function submitUserGeneralInfoForm() {
             });
 
         } else {
-
 //            console.log('insert ' + $("#pktemp").val());
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -813,6 +812,8 @@ function submitUserGeneralInfoForm() {
                         $('#userAddressInfoTab').removeClass('disabled');
 
                         taskProgressPerTabs();
+                        
+                        
 
                     } else if (data['errorInfo'] === '23505') {
 
@@ -894,7 +895,7 @@ function submitUserAddressInfoForm() {
     if (selectedAddTypeId != '-1') {
         if (selectedCountryId != '-1') {
             if ($('#userAddressInfoForm').validationEngine('validate')) {
-                if (selectedCountryId === "91") {
+                if (selectedCountryId === 91) {
                     $.ajax({
                         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -1606,35 +1607,35 @@ function taskProgressPerTabs() {
         overallRegistrationProgressNumber = 0;
 
         if ($('#userFirstName').val()) {
-            userGeneralInformationProgressNumber += 20;
-            overallRegistrationProgressNumber += 6;
+            userGeneralInformationProgressNumber += 33;
+            overallRegistrationProgressNumber += 8;
 //            console.log($('#userFirstName').val());
 //            console.log(userGeneralInformationProgressNumber);
 //            console.log(overallRegistrationProgressNumber);
         }
         if ($('#userLastName').val()) {
-            userGeneralInformationProgressNumber += 20;
-            overallRegistrationProgressNumber += 6;
+            userGeneralInformationProgressNumber += 33;
+            overallRegistrationProgressNumber += 8;
 //            console.log($('#userLastName').val());
 //            console.log(userGeneralInformationProgressNumber);
 //            console.log(overallRegistrationProgressNumber);
         }
-        if ($('#preferedUsername').val()) {
-            userGeneralInformationProgressNumber += 20;
-            overallRegistrationProgressNumber += 6;
-        }
+//        if ($('#preferedUsername').val()) {
+//            userGeneralInformationProgressNumber += 34;
+//            overallRegistrationProgressNumber += 8;
+//        }
         if ($('#useremail').val()) {
             if (!$('#useremail').validationEngine('validate')) {
-                userGeneralInformationProgressNumber += 20;
-                overallRegistrationProgressNumber += 6;
+                userGeneralInformationProgressNumber += 34;
+                overallRegistrationProgressNumber += 8;
             }
         }
-        if ($('#userPreferedPassword').val()) {
-            if (!$('#userPreferedPassword').validationEngine('validate')) {
-                userGeneralInformationProgressNumber += 20;
-                overallRegistrationProgressNumber += 6;
-            }
-        }
+//        if ($('#userPreferedPassword').val()) {
+//            if (!$('#userPreferedPassword').validationEngine('validate')) {
+//                userGeneralInformationProgressNumber += 20;
+//                overallRegistrationProgressNumber += 6;
+//            }
+//        }
         userGeneralInformationProgress = userGeneralInformationProgressNumber.toString();
         $("#userGeneralInfoRegistrationProgress").
                 html(userGeneralInformationProgress + '%');
@@ -1670,7 +1671,7 @@ function taskProgressPerTabs() {
             if (selectedAddTypeId === "-1") {
                 userAddressInformationProgressNumber += 25;
             }
-            if (selectedCountryId === "91") {
+            if (selectedCountryId === 91) {
                 userAddressInformationProgressNumber += 25;
                 if (selectedCityId >= 0) {
                     userAddressInformationProgressNumber += 15;
@@ -1789,77 +1790,89 @@ function taskProgressPerTabs() {
     }
 }
 
-/*
- * Contact information table pop up on modal
- * @author:Bahram
- * @Since:2016.1.2
- */
-if ($('#pktemp').val().length) {
-//    console.log($('#pktemp').val());
-    $('#table_address_modal').bootstrapTable({
-        url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersAddresses",
-        method: 'GET',
-        locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
-        toggle: "table",
-        width: "500",
-        pagination: "true",
-        search: "true",
-        toolbar: "#toolbar", showColumns: true,
-        showRefresh: true,
-        showToggle: true,
-        queryParams: function (p) {
-            if (pktemp === null) {
-                return false;
-            } else {
+
+function find_registered_addresses() {
+    console.log('--------yessss-----');
+    if ($('#pktemp').val().length) {
+        $('#table_address_modal').bootstrapTable({
+            url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersAddresses",
+            method: 'GET',
+            locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
+            toggle: "table",
+            width: "600",
+            pagination: "true",
+            search: "true",
+            toolbar: "#toolbar",
+            showColumns: true,
+            showRefresh: true,
+            showToggle: false,
+            queryParams: function (p) {
+//                if (pktemp === null) {
+//                    return false;
+//                } else {
                 return {
                     language_code: $('#langCode').val(),
-                    pktemp: pktemp,
+                    pktemp: $('#pktemp').val(),
                     component_type: 'bootstrap'
-                };
+//                    };
+                }
             }
-        }
-        , columns:
-                [
-                    {checkbox: true},
-                    {field: 'address_type', sortable: true, width: 100},
-                    /*        
-                     editable: {
-                     type: 'select',
-                     source: [
-                     {value: 1, text: 'Active'},
-                     {value: 2, text: 'Blocked'},
-                     {value: 3, text: 'Deleted'}
-                     ],
-                     //'title': 'Herd Tag',
-                     'prepend': {none: "--------------"}
-                     }
-                     },
-                     
-                     update action will be done exactely like as sfdm-confirm page 
-                     In this place a new tab will be opened based on selected row information 
-                     with a filled form (like user addres form) and data could be changed and 
-                     updated accordingly. 
-                     
-                     Second option is using bootstrap-table editable format which is given
-                     as a sample here. reference for this option is on the link below:
-                     
-                     http://bootstrap-table.wenzhixin.net.cn/examples/
-                     and 
-                     https://github.com/wenzhixin/bootstrap-table/issues/986
-                     and
-                     http://jsfiddle.net/wenyi/e3nk137y/28/light/
-                     
-                     */
-                    {field: 'tr_country_name', sortable: true, width: 100},
-                    {field: 'tr_city_name', sortable: true, width: 100},
-                    {field: 'tr_borough_name', sortable: true, width: 100},
-                    {field: 'city_name', sortable: true, width: 100},
-                    {field: 'address1', sortable: true, width: 200},
-                    {field: 'address2', sortable: true, width: 200},
-                    {field: 'postal_code', sortable: true, width: 50},
-                    {field: 'description', width: 300}
-                ]
-    });
+            , columns:
+                    [
+//                        {checkbox: true},
+                        /*        
+                         editable: {
+                         type: 'select',
+                         source: [
+                         {value: 1, text: 'Active'},
+                         {value: 2, text: 'Blocked'},
+                         {value: 3, text: 'Deleted'}
+                         ],
+                         //'title': 'Herd Tag',
+                         'prepend': {none: "--------------"}
+                         }
+                         },
+                         
+                         update action will be done exactely like as sfdm-confirm page 
+                         In this place a new tab will be opened based on selected row information 
+                         with a filled form (like user addres form) and data could be changed and 
+                         updated accordingly. 
+                         
+                         Second option is using bootstrap-table editable format which is given
+                         as a sample here. reference for this option is on the link below:
+                         
+                         http://bootstrap-table.wenzhixin.net.cn/examples/
+                         and 
+                         https://github.com/wenzhixin/bootstrap-table/issues/986
+                         and
+                         http://jsfiddle.net/wenyi/e3nk137y/28/light/
+                         
+                         */
+//                    {field: 'id', sortable: true, width: 100},
+//                    {field: 'user_id', sortable: true, width: 100},
+                        {field: 'name', title: 'Name', sortable: true, width: 100},
+                        {field: 'surname', title: 'Surname', sortable: true, width: 100},
+//                    {field: 'language_name', sortable: true, width: 200},
+                        {field: 's_date', title: 'Sub. Date', sortable: true, width: 200},
+//                    {field: 'c_date', sortable: true, width: 50},
+//                    {field: 'address_type_id', width: 300},
+                        {field: 'address_type', title: 'Address Type', width: 300},
+                        {field: 'address1', title: 'Address Line 1', width: 300},
+                        {field: 'address2', title: 'Address Line 1', width: 300},
+                        {field: 'postal_code', title: 'Po. Box', width: 300},
+//                    {field: 'country_id', width: 300},
+                        {field: 'country_name', title: 'Country', width: 300},
+//                    {field: 'city_id', width: 300},
+                        {field: 'city_names', title: 'City', width: 300},
+//                    {field: 'borough_id', width: 300},
+                        {field: 'borough_name', title: 'District', width: 300},
+                        {field: 'city_name', title: 'City', width: 300},
+                        {field: 'description', title: 'Description', width: 300},
+//                        {field: 'profile_public', width: 300}
+                    ]
+        });
+        $('#table_address_modal').load();
+    }
 }
 ;
 
@@ -1868,50 +1881,52 @@ if ($('#pktemp').val().length) {
  * @author: Bahram Lotfi
  * @Since: 2016.2.11
  */
-if ($('#pktemp').val().length) {
-    $('#table_contacts_modal').bootstrapTable({
-        onClickRow: function (row, $element) {
-            //        row: the record corresponding to the clicked row, 
+function find_registered_contacts() {
+    if ($('#pktemp').val().length) {
+        $('#table_contacts_modal').bootstrapTable({
+            onClickRow: function (row, $element) {
+                //        row: the record corresponding to the clicked row, 
 //                $element: the tr element.
-            //        console.log($("#pktemp").val());
-            //        console.log(pktemp);
-        },
-        onCheck: function (row, $element) {
-            //        row: the record corresponding to the clicked row,          
-            //        $element: the tr element.
-            //        console.log(row.id);
-        },
-        url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersCommunications",
-        method: 'GET',
-        locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
-        toggle: "table",
-        width: "500",
-        pagination: "true",
-        search: "true",
-        toolbar: "#toolbar",
-        showColumns: true,
-        showRefresh: true,
-        showToggle: true,
-        queryParams: function (p) {
-            if (pktemp === null) {
-                return false;
-            } else {
+                //        console.log($("#pktemp").val());
+                //        console.log(pktemp);
+            },
+            onCheck: function (row, $element) {
+                //        row: the record corresponding to the clicked row,          
+                //        $element: the tr element.
+                //        console.log(row.id);
+            },
+            url: "https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pktempFillGridSingular_infoUsersCommunications",
+            method: 'GET',
+            locale: "'" + ($('#langCode').val() + '-' + $('#langCode').val().toUpperCase()) + "'",
+            toggle: "table",
+            width: "500",
+            pagination: "true",
+            search: "true",
+            toolbar: "#toolbar",
+            showColumns: true,
+            showRefresh: true,
+            showToggle: true,
+            queryParams: function (p) {                
                 return {
-                    language_code: $('#langCode').val(),
-                    pktemp: pktemp,
-                    component_type: 'bootstrap'
+                        language_code: $('#langCode').val(),
+                        pktemp: $('#pktemp').val(),
+                        component_type: 'bootstrap'
                 };
-            }
-        },
-        columns:
-                [
-                    {field: 'state', checkbox: true},
-                    {field: 'comminication_type', sortable: true, width: 100},
-                    {field: 'communications_no', sortable: true, width: 100},
-                    {field: 'profile_public', sortable: true, width: 100}
-                ]
-    });
-};
+            },
+            columns:
+                    [
+                        {field: 'id', title: 'Id', checkbox: true},
+                        {field: 'communications_type_id', title: 'communications_type_id', sortable: true, width: 100},
+                        {field: 'comminication_type', title: 'comminication_type', sortable: true, width: 100},
+                        {field: 'communications_no', title: 'communications_no', sortable: true, width: 100},
+                        {field: 'default_communication_id', title: 'default_communication_id', sortable: true, width: 100},
+                        {field: 'default_communication', title: 'default_communication', sortable: true, width: 100}
+                    ]
+        });
+        $('#table_contacts_modal').load();
+    }
+}
+;
 
 function milliseconds()
 {

@@ -468,17 +468,17 @@
                                     <?php echo $this->translate('General Information') ?>
                                 </a>
                             </li>
-                            <li id="userAddressInfoTab"  onclick="checkUGI()">
+                            <li id="userAddressInfoTab"   onclick="checkUGI()">
                                 <a href="#userAddressInfo" data-toggle="tab">
                                     <?php echo $this->translate('Address Information') ?>
                                 </a>
                             </li>
-                            <li id="userCommunicationInfoTab" onclick="checkUAI()">
+                            <li id="userCommunicationInfoTab" class="disabled" onclick="checkUAI()">
                                 <a href="#userCommunicationInfo" data-toggle="tab">
                                     <?php echo $this->translate('Communication Information') ?>
                                 </a>
                             </li>
-                            <li id="companyInfoTab"  onclick="checkCI()">
+                            <li id="companyInfoTab" class="disabled" onclick="checkCI()">
                                 <a href="#companyInfo" data-toggle="tab">
                                     <?php echo $this->translate('Company Information') ?>
                                 </a>
@@ -543,7 +543,7 @@
                                                            onchange="taskProgressPerTabs()">
                                                 </div>
                                             </section>                                            
-                                            <section>
+<!--                                            <section>
                                                 <label class="label"><?php echo $this->translate('Prefered Password') ?></label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
@@ -565,14 +565,14 @@
                                                            id="repeatedUserPreferedPassword" required="true"
                                                            class="form-control validate[required,equals[userPreferedPassword]] text-input">
                                                 </div>
-                                            </section>                                                
-                                            <section> 
+                                            </section>                                                -->
+<!--                                            <section> 
                                                 <label class="checkbox">
                                                     <input type="checkbox" name="showPassword" 
                                                            id="showPassword">
                                                     <i></i><?php echo $this->translate('Show my password') ?> 
                                                 </label>
-                                            </section>
+                                            </section>-->
                                             <section>
                                                 <label class="label"><?php echo $this->translate('Prefered Language') ?></label>
                                                 <div id="userPreferedLanguage" />                                                     
@@ -615,7 +615,8 @@
                                                 <button type="button" class="btn-u btn-green col-md-12" 
                                                         id="showAllAddresses_btn" 
                                                         data-toggle="modal" 
-                                                        data-target="#addressModal">
+                                                        data-target="#addressModal"
+                                                        onclick="find_registered_addresses()">
                                                             <?php echo $this->translate('Show all my registered addresses') ?>
                                                 </button> 
                                             </section>                                               
@@ -738,7 +739,8 @@
                                                 <button type="button" class="btn-u btn-green col-md-12" 
                                                         id="showAllContacts_btn" 
                                                         data-toggle="modal" 
-                                                        data-target="#contactsModal">
+                                                        data-target="#contactsModal"
+                                                        onclick="find_registered_contacts()">
                                                             <?php echo $this->translate('Show all my registered contact Information') ?>
                                                 </button> 
                                             </section> 
@@ -1086,7 +1088,7 @@
                             <table id="table_address_modal">
                                 <thead>
                                     <tr>
-                                        <th data-field="state" data-checkbox="true"></th>
+<!--                                        <th data-field="state" data-checkbox="true"></th>
                                         <th><?php echo $this->translate('Address type') ?></th>
                                         <th><?php echo $this->translate('Country') ?></th>
                                         <th><?php echo $this->translate('City') ?></th>
@@ -1095,7 +1097,7 @@
                                         <th><?php echo $this->translate('Address 1') ?></th>
                                         <th><?php echo $this->translate('Address 2') ?></th>
                                         <th><?php echo $this->translate('Postal Code') ?></th>
-                                        <th><?php echo $this->translate('Description') ?></th> 
+                                        <th><?php echo $this->translate('Description') ?></th> -->
                                     </tr>
                                 </thead>
                             </table>
@@ -1132,10 +1134,10 @@
                             <table id="table_contacts_modal">
                                 <thead>
                                     <tr>
-                                        <th data-field="state" data-checkbox="true"></th>
+<!--                                        <th data-field="state" data-checkbox="true"></th>
                                         <th ><?php echo $this->translate('Contact type') ?></th>
                                         <th ><?php echo $this->translate('Contact Number') ?></th>
-                                        <th ><?php echo $this->translate('Default Contact') ?></th>
+                                        <th ><?php echo $this->translate('Default Contact') ?></th>-->
                                     </tr>
                                 </thead>
                             </table>
