@@ -22,6 +22,7 @@ $(document).ready(function () {
 
 
     $("#pagination_content").empty();
+    console.log('reloaded');
     //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -38,7 +39,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data);
+            console.log(data);
             var i;
             // @companyperpage = 10 company will be shown per page
             window.companyperpage = 10;
@@ -112,7 +113,10 @@ $(document).ready(function () {
             $('#paginationBar').paginator('option', 'total', window.totalnumberofpages);
             $('#paginationBar').paginator('option', 'maxVisible', 5);
             $('#paginationBar').paginator('paginate');
-        }
+        },
+    error: function (jqXHR, textStatus, errorThrown) {
+        console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
+    }
     });
 
 });
