@@ -802,6 +802,24 @@ class SanalfabrikaController extends AbstractActionController {
         return $view;
     }
     
+    public function machsearchAction() {
+        $langCode = $this->getServiceLocator()
+                ->get('serviceTranslator');
+        $requestUriRegulated = $this->getServiceLocator()
+                ->get('serviceTranslatorUrlRegulator');
+        $publicKey = $this->getServiceLocator()
+                ->get('servicePublicKeyReader');
+        // Do this inside your Controller before you return your ViewModel
+        $this->layout()->setVariable('test', $langCode);
+
+        $view = new ViewModel(array(
+            'requestUriRegulated' => $requestUriRegulated,
+            'langCode' => $langCode,
+            'publicKey' => $publicKey
+        ));
+        return $view;
+    }
+    
     /**
      * if user logged in and still trying to hit login page,
      * system redirects to role main page

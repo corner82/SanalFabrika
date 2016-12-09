@@ -92,7 +92,8 @@ return array(
             'projreg' => 'layout/projregLayout.phtml',
             'uprofset' => 'layout/uprofsetLayout.phtml',
             'projpool' => 'layout/projpoolLayout.phtml',
-            'signupconfirmation' => 'layout/signupconfirmationLayout.phtml'
+            'signupconfirmation' => 'layout/signupconfirmationLayout.phtml',
+            'machsearch' => 'layout/machsearchLayout.phtml'
         ),
         'Admin' => array( 'index' => 'layout/admin.phtml',
                           'menu' => 'layout/menu.phtml',
@@ -196,7 +197,8 @@ return array(
             'cpreference',
             'projreg',
             'uprofset',
-            'projpool'
+            'projpool',
+            'machsearch'
         ),
 
     ),
