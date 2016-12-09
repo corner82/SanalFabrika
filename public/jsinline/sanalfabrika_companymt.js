@@ -231,12 +231,12 @@ $('#machines_table').on('click-row.bs.table', function (e, row, $element) {
                     + "<div class='row'>"
                     + "<a href="
                     + "https://" + window.location.hostname
-                    + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                    + "/onyuz/standard/assets/img/sfClients/"
                     + row.picture
                     + ">"
                     + "<img class='mach_sample' src="
                     + " https://" + window.location.hostname
-                    + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                    + "/onyuz/standard/assets/img/sfClients/"
                     + row.picture
                     + " alt=''>"
                     + "</a>"
@@ -346,12 +346,12 @@ $('#machines_table').on('click-row.bs.table', function (e, row, $element) {
                 + "<div class='row'>"
                 + "<a href="
                 + "https://" + window.location.hostname
-                + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                + "/onyuz/standard/assets/img/sfClients/"
                 + row.picture
                 + ">"
                 + "<img class='mach_sample' src="
                 + " https://" + window.location.hostname
-                + "/onyuz/standard/assets/img/sfClients/EMGE/"
+                + "/onyuz/standard/assets/img/sfClients/"
                 + row.picture
                 + " alt=''>"
                 + "</a>"
