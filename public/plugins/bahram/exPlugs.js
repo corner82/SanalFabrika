@@ -294,56 +294,60 @@
 //                        console.log(data);
                         var i;
                         for (i = 0; i < 10; i++) {
+                            
                             $('#selectedCompanyNpk').val(data.rows[i].npk);
-                            var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyNpk').val());
+                var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
+                $('#selectedCompanyShN').val(rep_firm_short_name);
+                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
 
-                            var appending_html =
-                                    "<!-- Clients Block-->"
-//                                    + "<a href='#'>"
-                                    + "<div class='row clients-page'>"
-                                    + "<div class = 'col-md-2'>"
-                                    + "<img src='/onyuz/standard/assets/img/sfClients/"
-                                    + data.rows[i].logo
-                                    + "' "
-                                    + "class = 'img-responsive hover-effect' alt = '' / >"
-                                    + "</div>"
-                                    + "<div class = 'col-md-10' id='"
-                                    + data.rows[i].pk
-                                    + "'>"
-                                    + "<a href='"
-                                    + companyProfileLink
-                                    + "'>"
-                                    + "<h3>"
-                                    + data.rows[i].firm_names
-                                    + "</h3>"
-                                    + "</a>"
-                                    + "<ul class = 'list-inline'>"
-                                    + "<li>"
-                                    + "<i class = 'fa fa-map-marker color-green'></i>"
-                                    + data.rows[i].country_names
-                                    + "</li>"
-                                    + "<li><i class = 'fa fa-globe color-green'></i>"
-                                    + "<a class='linked' href='"
-                                    + data.rows[i].web_address
-                                    + "'>"
-                                    + data.rows[i].web_address
-                                    + "</a>"
-                                    + "</li>"
-                                    + "<li>"
-                                    + "<i class = 'fa fa-briefcase color-green'> </i>"
-                                    //                            + data[i].sectors
-                                    + "</li>"
-                                    + "</ul>"
-                                    + "<p>"
-                                    + data.rows[i].descriptions
-                                    + "</p>"
-                                    + "</div>"
+                var appending_html =
+                        "<!-- Clients Block-->"
+//                        + "<a href='#'>"
+                        + "<div class='row clients-page'>"
+                        + "<div class = 'col-md-2'>"
+                        + "<img src='/onyuz/standard/assets/img/sfClients/"
+                        + data.rows[i].logo
+                        + "' "
+                        + "class = 'img-responsive hover-effect' alt = '' / >"
+                        + "</div>"
+                        + "<div class = 'col-md-10' id='"
+                        + data.rows[i].npk
+                        + "'>"
+                        + "<a href='"
+                        + companyProfileLink
+                        + "'>"
+                        + "<h3>"
+                        + data.rows[i].firm_names
+                        + "</h3>"
+                        + "</a>"
+                        + "<ul class = 'list-inline'>"
+                        + "<li>"
+                        + "<i class = 'fa fa-map-marker color-green'></i>"
+                        + data.rows[i].country_names
+                        + "</li>"
+                        + "<li><i class = 'fa fa-globe color-green'></i>"
+                        + "<a class='linked' href='"
+                        + data.rows[i].web_address
+                        + "'>"
+                        + data.rows[i].web_address
+                        + "</a>"
+                        + "</li>"
+                        + "<li>"
+                        + "<i class = 'fa fa-briefcase color-green'> </i>"
+//                        + data[i].sectors
+                        + "</li>"
+                        + "</ul>"
+                        + "<p>"
+                        + data.rows[i].descriptions
+                        + "</p>"
+                        + "</div>"
 //                                    + "</div>"
 //                                    + "</a>"
-                                    + "<!-- End Clinets Block --> ";
+                        + "<!-- End Clinets Block --> ";
 //                            console.log(appending_html);
-                            var newappend = $(appending_html);
-                            $(newappend).appendTo($("#pagination_content"));
+                var newappend = $(appending_html);
+                $(newappend).appendTo($("#pagination_content"));
+                            
                         }
 //                        
                     }
