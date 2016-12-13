@@ -372,4 +372,75 @@
             });
         }
     });
+    
+    
+/**
+ * widget for front page notifications
+ * @author Mustafa Zeynel Dağlı
+ * @since 13/12/2016
+ */    
+$.widget("sanalfabrika.notifications", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            pk: $("#pk").val(),
+            serviceUrl : null,
+            ajaxParams: null,
+            machineID: null,
+
+        },
+        /**
+         * @returns {null}
+         */
+        _create: function () {
+
+        },
+        
+        test: function() {
+          var self = $this;
+          self.container.append('<li class="notification"> \n\
+                                    <img class="rounded-x" src="/onyuz/standard/assets/img/women-icon.png" alt="">\n\
+                                    <div class="overflow-h">\n\
+                                        <span><strong>Sedat Çelikdoğan</strong> zirate felan filan</span>\n\
+                                            <small> 18:25 </small>\n\
+                                    </div>\n\
+                                </li>');
+        },
+        
+        /**
+         * 
+         * get notifications from service
+         * @author Mustafa Zeynel Dağlı
+         * @since 13/12/2016
+         */
+        getNotifications: function () {
+            self = this;
+
+            $.ajax({
+                url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                data: {
+                    url: self.options.url,
+                    pk: $("#pk").val(),
+                    machine_id: self.options.machineID
+                },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+
+                    
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('error');
+                    console.error(textStatus);
+                }
+            });
+        }
+    });
+    
+    
+    
+    
 }(jQuery));
