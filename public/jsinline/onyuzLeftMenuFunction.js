@@ -11,7 +11,6 @@ $(document).ready(function () {
         }
     }
 
-
     if (window.location.href.indexOf('companymtprofile') > 0) {
 //
 
@@ -31,7 +30,9 @@ $(document).ready(function () {
                 if (data.length > 0) {
 
                     $('#machine_park_menu').attr('visibility', 'visible');
-                    $('#machine_park_menu').attr('display', 'block');
+                    $('#machine_park_menu').attr('display', 'block');                    
+                    $('#machine_park_menu_a').trigger('click');  
+                  
                     for (var j = 0; j < data.length; j++) {
 
 //                        $('#sidebar-nav-2').append(data.group_name);
