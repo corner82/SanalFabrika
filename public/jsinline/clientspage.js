@@ -54,14 +54,14 @@ $(document).ready(function () {
             for (i = 0; i < window.companyperpage; i++) {
                 $('#selectedCompanyNpk').val(data.rows[i].npk);
                 var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
-                $('#selectedCompanyShN').val(rep_firm_short_name);
+                $('#selectedCompanyShN').val(rep_firm_short_name);  
                 var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
 
                 var appending_html =
                         "<!-- Clients Block-->"
 //                        + "<a href='#'>"
-                        + "<div class='row clients-page'>"
-                        + "<div class = 'col-md-2'>"
+                        + "<div class='row clients-page' style='border-bottom: solid 5px #eee;'  >"
+                        + "<div class = 'col-md-2'  style='box-shadow: 0 0 30px #7c8082;'>"
                         + "<img src='/onyuz/standard/assets/img/sfClients/"
                         + data.rows[i].logo
                         + "' "
@@ -74,15 +74,18 @@ $(document).ready(function () {
                         + companyProfileLink
                         + "'>"
                         + "<h3>"
-                        + data.rows[i].firm_names
+                        + data.rows[i].firm_names  
                         + "</h3>"
                         + "</a>"
+                        + "<p>"
+                        + data.rows[i].fim_description
+                        + "</p>"
                         + "<ul class = 'list-inline'>"
                         + "<li>"
-                        + "<i class = 'fa fa-map-marker color-green'></i>"
+                        + "<i class = 'fa fa-map-marker color-green' style='padding-right:5px;'></i>"
                         + data.rows[i].country_names
                         + "</li>"
-                        + "<li><i class = 'fa fa-globe color-green'></i>"
+                        + "<li><i class = 'fa fa-globe color-green' style='padding-right:5px;'></i>"
                         + "<a class='linked' href='"
                         + data.rows[i].web_address
                         + "'>"
@@ -90,13 +93,26 @@ $(document).ready(function () {
                         + "</a>"
                         + "</li>"
                         + "<li>"
-                        + "<i class = 'fa fa-briefcase color-green'> </i>"
-//                        + data[i].sectors
+                        + "<i class = 'fa fa-mail-forward color-green' style='padding-right:5px;'> </i>"
+                        + data.rows[i].email
+                        + "</li>"
+                        + "<li>"
+                        + "<i class = 'fa fa-microphone color-green' style='padding-right:5px;'> </i>"
+                        + data.rows[i].tel
+                        + "</li>"
+                        + "<li>"
+                        + "<i class = 'fa fa-fax color-green' style='padding-right:5px;'> </i>"
+                        + data.rows[i].fax
+                        + "</li>"
+                        + "<li>"
+                        + "<i class = 'fa fa-asterisk color-green' style='padding-right:5px;'> </i>"
+                        + data.rows[i].total_machines
+                        + "</li>"
+                        + "<li>"
+                        + "<i class = 'fa fa-sitemap color-green' style='padding-right:5px;'> </i>"
+                        + data.rows[i].firm_sectoral  
                         + "</li>"
                         + "</ul>"
-                        + "<p>"
-                        + data.rows[i].descriptions
-                        + "</p>"
                         + "</div>"
 //                                    + "</div>"
 //                                    + "</a>"
