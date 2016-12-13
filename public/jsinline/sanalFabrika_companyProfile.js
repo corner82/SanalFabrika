@@ -256,4 +256,11 @@ $(document).ready(function () {
             }
         }
     });
+    
+    
+    window.notificationWidget = $('#testWidget').notifications();
+    window.notificationWidget.notifications('test')
+    
+    
+    
 });

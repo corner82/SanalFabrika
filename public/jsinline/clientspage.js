@@ -134,6 +134,6 @@ $(document).ready(function () {
         console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
     }
     });
-
+    
 });
 

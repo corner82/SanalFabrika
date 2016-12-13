@@ -390,6 +390,7 @@ $.widget("sanalfabrika.notifications", {
             serviceUrl : null,
             ajaxParams: null,
             machineID: null,
+            container: $('#testWidget'),
 
         },
         /**
@@ -400,8 +401,8 @@ $.widget("sanalfabrika.notifications", {
         },
         
         test: function() {
-          var self = $this;
-          self.container.append('<li class="notification"> \n\
+          var self = this;
+          self.options.container.append('<li class="notification"> \n\
                                     <img class="rounded-x" src="/onyuz/standard/assets/img/women-icon.png" alt="">\n\
                                     <div class="overflow-h">\n\
                                         <span><strong>Sedat Çelikdoğan</strong> zirate felan filan</span>\n\
