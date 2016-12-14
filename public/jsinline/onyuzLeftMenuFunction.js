@@ -193,7 +193,9 @@ function getSubmenu(clicked) {
             pk: $("#pk").val(),
             url: 'pkGetLeftMenu_leftnavigation',
             language_code: $("#langCode").val(),
-            menu_types_id: 3
+            menu_types_id: 3,            
+            m: $("#module").val(),
+            a: $("#controller").val()
         },
         method: "GET",
         async: false,
