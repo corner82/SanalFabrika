@@ -660,1116 +660,765 @@ msgstr "adres tipi"
 msgid "214"
 msgstr "Bina adresi"
 
-
 msgid "215" 
 msgstr "Posta adresi"
-
 
 msgid "216" 
 msgstr "İlerleme"
 
-
 msgid "217" 
 msgstr "Kullanıcı kaydı"
-
 
 msgid "218" 
 msgstr "Firma kaydı"
 
-
 msgid "219" 
 msgstr "Kayıt İşlemleri"
-
 
 msgid "220" 
 msgstr "Adres 1"
 
-
 msgid "221" 
 msgstr "Adres 2"
-
 
 msgid "222" 
 msgstr "Şifremi Göster"
 
-
 msgid "223" 
 msgstr "Adres bilgilerimi her kes görebilir"
-
 
 msgid "224" 
 msgstr "İrtibat bilgilerimi her kes görebilir"
 
-
 msgid "225" 
 msgstr "Bütün kayıtlı irtibat bilgilerimi göster"
-
 
 msgid "226" 
 msgstr "DUNS Numarası"
 
-
 msgid "227" 
 msgstr "Firma kısa adı"
-
 
 msgid "228" 
 msgstr "Geri"
 
-
 msgid "229" 
 msgstr "Hakkımızda"
-
 
 msgid "230" 
 msgstr "Hizmetler"
 
-
 msgid "231" 
 msgstr "Haberler"
-
 
 msgid "232" 
 msgstr "İletişim"
 
-
 msgid "233" 
 msgstr "Alt Menüler"
-
 
 msgid "234" 
 msgstr "Ana"
 
-
 msgid "235" 
 msgstr "Mülkiyet Durumu"
-
 
 msgid "236" 
 msgstr "Firma makine bilgisi paneli"
 
-
 msgid "237" 
 msgstr "Aktiviteler"
-
 
 msgid "238" 
 msgstr "Aktiviteler Listesi"
 
-
 msgid "239" 
 msgstr "Firma Makine Tezgahları Listesi"
-
 
 msgid "240" 
 msgstr "Firma Makineleri"
 
-
 msgid "241" 
 msgstr "Sistemde Mevcut Makineler"
-
 
 msgid "242" 
 msgstr "Yeni Makine Öner"
 
-
 msgid "243" 
 msgstr "Öneri Formu"
-
 
 msgid "244" 
 msgstr "Makine İmalatçısı"
 
-
 msgid "245" 
 msgstr "Makine Adı"
-
 
 msgid "246" 
 msgstr "Makine Modelleri"
 
-
 msgid "247" 
 msgstr "Makine Tipleri"
-
 
 msgid "248" 
 msgstr "Makine Özellikleri"
 
-
 msgid "249" 
 msgstr "Yeni Makine Ekle"
-
 
 msgid "250" 
 msgstr "Dil"
 
-
 msgid "251" 
 msgstr "Makine Genel Bilgileri"
-
 
 msgid "252" 
 msgstr "Makine Özelliği Bilgileri"
 
-
 msgid "253" 
 msgstr "Seçili Makineyi Ekle"
-
 
 msgid "254" 
 msgstr "Detaylar"
 
-
 msgid "255" 
 msgstr "Lütfen makine imalatçı firmanın ismini giriniz (Brand)"
-
 
 msgid "256" 
 msgstr "Lütfen makine adını giriniz (Makine Serisi)"
 
-
 msgid "257" 
 msgstr "Makine Modelini Giriniz (Üretim Yılı)"
-
-
-
-
-
-
 
 msgid "258" 
 msgstr "Firma Profili"
 
-
 msgid "259" 
 msgstr "Uyarı"
-
 
 msgid "260" 
 msgstr "Referanslar"
 
-
 msgid "261" 
 msgstr "Son iletiler"
-
 
 msgid "262" 
 msgstr "Yararlı Bağlantılar"
 
-
 msgid "263" 
 msgstr "Bize Ulaşın"
-
 
 msgid "264" 
 msgstr "Sanal fabrika farklı müşterilerin isteklerine en iyi şekilde cevap vermke ve iş fırsatlarını yakalayabimek için, yetenekler ve maharetlere sahip firmaları (KOBİ'leri) ağ üzerinde bilgi e iletişim teknolojilerinde yararlanarak geçici bir şekilde bir araya getirmek için oluşturulan bir işbirliği platformudur."
 
-
 msgid "265" 
 msgstr "OSTİM SF hakkında son haberler"
-
 
 msgid "266" 
 msgstr "OSTİM Kümeleri haberleri"
 
-
 msgid "267" 
 msgstr "Yeni Proje Çağrıları"
-
 
 msgid "268" 
 msgstr "OSTİM OSB"
 
-
 msgid "269" 
 msgstr "Türkiye Cumhuryeti Bilim, Teknoloji ve Sanayi Bakanlığı"
-
 
 msgid "270" 
 msgstr "TÜBİTAK"
 
-
 msgid "271" 
 msgstr "KOSGEB"
-
 
 msgid "272" 
 msgstr "Hizmet Koşulları"
 
-
 msgid "273" 
 msgstr "Güvenlik Politikası"
-
 
 msgid "274" 
 msgstr "Bütün Haklar Mahfuzdur"
 
-
 msgid "275" 
 msgstr "Performans Değerleri"
-
 
 msgid "276" 
 msgstr "Devam eden projeler"
 
-
 msgid "277" 
 msgstr "Son hafta"
-
 
 msgid "278" 
 msgstr "Son ay"
 
-
 msgid "279" 
 msgstr "Son ay proje sayısının toplam proje sayısına oranı"
-
 
 msgid "280" 
 msgstr "Son ay başlayan projeler"
 
-
 msgid "281" 
 msgstr "Toplam makine sayısı"
-
 
 msgid "282" 
 msgstr "Son 6 ayda eklenen makineler"
 
-
 msgid "283" 
 msgstr "Son ayda eklenen makineler"
-
 
 msgid "284" 
 msgstr "Son 6 ayda eklenen makine sayısının toplam makine sayısına oranı"
 
-
-
-
-
-
-
-
 msgid "285" 
 msgstr "Ocak"
-
 
 msgid "286" 
 msgstr "Şubat"
 
-
 msgid "287" 
 msgstr "Mart"
-
 
 msgid "288" 
 msgstr "Nisan"
 
-
 msgid "289" 
 msgstr "Mayıs"
-
 
 msgid "290" 
 msgstr "Haziran"
 
-
 msgid "291" 
 msgstr "Temmuz"
-
 
 msgid "292" 
 msgstr "Ağustos"
 
-
 msgid "293" 
 msgstr "Eylül"
-
 
 msgid "294" 
 msgstr "Ekim"
 
-
 msgid "295" 
 msgstr "Kasım"
-
 
 msgid "296" 
 msgstr "Aralık"
 
 
-
-
-
-
 msgid "297" 
 msgstr "Bugün"
-
 
 msgid "298" 
 msgstr "Dün"
 
-
 msgid "299" 
 msgstr "Yarın"
-
 
 msgid "300" 
 msgstr "Firma Ürünleri"
 
-
 msgid "301" 
 msgstr "Örnek Ürünler"
-
 
 msgid "302" 
 msgstr "Ürünler hakkında kısa açıklama"
 
-
 msgid "303" 
 msgstr ""
-
 
 msgid "304" 
 msgstr "Örnek Ürün Videosu"
 
-
 msgid "305" 
 msgstr "Ürünler Listesi"
-
 
 msgid "306" 
 msgstr "Firmanın toplam projeleri"
 
-
 msgid "307" 
 msgstr "Başarıyla Tamamlanmış"
-
 
 msgid "308" 
 msgstr "Devam eden"
 
-
 msgid "309" 
 msgstr "Başarılı proje oranı"
-
 
 msgid "310" 
 msgstr "son aya göre"
 
-
 msgid "311" 
 msgstr "Kalite ve Standard Belgeleri"
-
 
 msgid "312" 
 msgstr "Son yılda alınan sertifika ve belgeler"
 
-
 msgid "313" 
 msgstr "Yeni Belgeler için yapılan başvurular"
-
 
 msgid "314" 
 msgstr ""
 
-
 msgid "315" 
 msgstr "daha fazla"
-
 
 msgid "316" 
 msgstr "son yıla göre"
 
-
 msgid "317" 
 msgstr "Firma performans değerleri"
-
 
 msgid "318" 
 msgstr "Mühendis"
 
-
 msgid "319" 
 msgstr "Dış Ticaret Elemanı"
-
 
 msgid "320" 
 msgstr "Tekniker"
 
-
 msgid "321" 
 msgstr "Çalışan Sayısı"
-
 
 msgid "322" 
 msgstr "Firma Değerleri"
 
-
 msgid "323" 
 msgstr "Firma Kalite Değerleri"
-
 
 msgid "324" 
 msgstr "Son Yıl Artış Oranı"
 
-
 msgid "325" 
 msgstr "Toplam Performans"
-
 
 msgid "326" 
 msgstr "Bulunan kalite sertifika ve standartlar"
 
-
 msgid "327" 
 msgstr "Proje tamamlama performansı"
-
 
 msgid "328" 
 msgstr "Ortak olduğu projeler"
 
-
 msgid "329" 
 msgstr "Başarıyla tamamlanmış"
-
 
 msgid "330" 
 msgstr "Tamamlanmamış"
 
-
 msgid "331" 
 msgstr "Devam eden projeler"
-
 
 msgid "332" 
 msgstr "Müşteri memnuniyeti oranı"
 
-
 msgid "333" 
 msgstr "Memnun müşteriler"
-
 
 msgid "334" 
 msgstr "Şikayetçi müşteriler"
 
-
 msgid "335" 
 msgstr "Firma Makineleri"
-
 
 msgid "336" 
 msgstr "Seçtiğiniz makine hakkında daha fazla detaylı bilgi aşağıda verilmiştir"
 
-
 msgid "337" 
 msgstr "Toplam Makine"
-
 
 msgid "338" 
 msgstr "CNC Makineler"
 
-
 msgid "339" 
 msgstr "Özel Makineler"
-
 
 msgid "340" 
 msgstr "Çevrimdışı Makineler"
 
-
 msgid "341" 
 msgstr "Örnek Makine Videosu"
-
 
 msgid "342" 
 msgstr "Firma Üyeleri"
 
-
 msgid "343" 
 msgstr "Kayd edilmiş firma çalışanı"
-
 
 msgid "344" 
 msgstr "Sanal fabrika Üyeleri"
 
-
 msgid "345" 
 msgstr "Üyeler Sayfası"
-
 
 msgid "346" 
 msgstr "Daha fazla bilgi için lütfen bize ulaşın"
 
-
 msgid "347" 
 msgstr "İletişim"
-
 
 msgid "348" 
 msgstr "Panel"
 
-
 msgid "349" 
 msgstr "İletişim Bilgileri"
-
 
 msgid "350" 
 msgstr "Türkiye"
 
-
 msgid "351" 
 msgstr "Çalışma Saatleri"
-
 
 msgid "352" 
 msgstr "Hafta içi"
 
-
 msgid "353" 
 msgstr "Hafta sonu-Ctsi"
-
 
 msgid "354" 
 msgstr "Weekends Sun-Pzr"
 
-
 msgid "355" 
 msgstr "Kapalı"
-
 
 msgid "356" 
 msgstr "Daha fazla bilgi için lütfen bize ulaşın"
 
-
 msgid "357" 
 msgstr "Siparişiniz üzerine çalışma saatlerinde değişiklik yapılabilir"
-
 
 msgid "358" 
 msgstr "Detayları ekleyin..."
 
-
 msgid "359" 
 msgstr "Soru sor"
-
 
 msgid "360" 
 msgstr "Uzmanlığımız"
 
-
 msgid "361" 
 msgstr "Vizyonumuz"
-
 
 msgid "362" 
 msgstr "Rekabetçiliğimiz"
 
-
 msgid "363" 
 msgstr "Üretim ve Kalite Kontrol Mühendisi"
-
 
 msgid "364" 
 msgstr "Fİrma bilgileri güncelleme aralığı"
 
-
 msgid "365" 
 msgstr "Firma profili tamamlama oranı"
-
 
 msgid "366" 
 msgstr "Makine bilisi güncelleme aralığı"
 
-
 msgid "367" 
 msgstr "Firma teknoloji güncelleme aralığı"
-
 
 msgid "368" 
 msgstr "Online Kur Oranları"
 
-
 msgid "369" 
 msgstr "Dakika"
-
 
 msgid "370" 
 msgstr "Önce"
 
-
 msgid "371" 
 msgstr "Bugün"
-
 
 msgid "372" 
 msgstr "Ziyaret ettiğiniz proje sayfaları"
 
-
 msgid "373" 
 msgstr "Dün"
-
 
 msgid "374" 
 msgstr "Dosyanızı inceledi"
 
-
 msgid "375" 
 msgstr "Gün"
-
 
 msgid "376" 
 msgstr "Öneri Dosyası Eklendi"
 
-
 msgid "377" 
 msgstr "Firmanızı takip ediyor"
-
 
 msgid "378" 
 msgstr "az"
 
-
 msgid "379" 
 msgstr "Makine sayısının 6 ay önceye göre oranı"
-
 
 msgid "380" 
 msgstr "Toplam Çalışan"
 
-
 msgid "381" 
 msgstr "Proje sayfanızı ziyaret etmiştir"
-
 
 msgid "382" 
 msgstr "Sanal fabrika KOBİ'lerin piyasa paylarını artırmak ve sıkı dünya piyasasında rekabetçiliği artırmak için bir işbirliği platfomudur. 
 
-
-
-
-
-
-
-
-In order to reach these targets following services are provided by OSTIM VE system:"
-
-
 msgid "383" 
-msgstr "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
-
+msgstr "Firmalara profil sayfaları oluşturarak ve bu sayfalar üzerinden firmaların bünyesinde bulunan makine donanım ve personel bilgilerini sunarak firmaların kabiliyetlerini açık bir şekilde ortaya koyarak şeffaflığı artırmaktadır. Firmalar bu sayfalar üzerinde yeteneklerini sunarak, müşterilere kendilerine daha kolay bir şekilde ulaşabilmelerine sağlayacaklardır."
 
 msgid "384" 
-msgstr "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
-
+msgstr "Kullanıcı profil sayfaları üzerinden üyeler gereken teknik, mühendislik, tasarım, benzetim vb. yetenekleri projelerde kullanmak üzere sunabilirler."
 
 msgid "385" 
-msgstr "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
-
+msgstr "Projeler için en uygun partnerlerin seçilmesi için tarafsız ve güvenilir bir ihale sistemi yapısı geliştirilmiştir. Müşteri farklı ihale sistemleri arasından dilediği sistemi seçerek ihale sürecini başlatma isteğini sistem yöneticisine yönlendirebilir."
 
 msgid "386" 
-msgstr "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
-
+msgstr "Proje yönetimi bölümü, sistem yönetiisi, müşteri ve partnerlere proje süreçlerinin ilerilemesini gözetleme ve denetleme şansını vermektedir. Ayrıca sistem ve partnerlerin performansları bu yapı üzerinden değerlendirilebilir."
 
 msgid "387" 
-msgstr "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
-
+msgstr "Ortak tasarım, analiz ve simülasyonlar için Dassault Sistem'in CATIA V6 yazılımı sanal fabrika yapısında kullanılmaktadır. Böylece proje ortakları kendi hesapları üzerinde OSTİM sunucusuna bağlanıp ortak bir şekilde tasarım, analiz ve simülasyon işlemlerini prototipleme aşamasından önce gerçekleştirebilirler."
 
 msgid "388" 
-msgstr "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
-
+msgstr "Prototipleme amacıyla OSTİM'de bulunan 3B yazıcı kullanarak gerçek üretim aşamasına geçmeden ürün veya parçaların çalışması ve fonksyonları yazdırılarak kontrol edilebilir."
 
 msgid "389" 
-msgstr "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
-
+msgstr "Ostim Teknoloji, çalışmalarına 2004’te TÜBİTAK Üniversite-Sanayi Ortak Araştırma Merkezleri Programı çerçevesinde başlamıştır. 2007’den itibaren faaliyetlerini Anonim Şirket olarak yürütmektedir. Kurum - kuruluş , akademisyen ve işadamlarından oluşan 25 ortaklı bir yapıya sahiptir."
 
 msgid "390" 
 msgstr "Yeni Konsorsiyum"
 
-
 msgid "391" 
-msgstr "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
-
+msgstr "Projeniz için en uygun partneri bulabilir veya sisteme girilen projelere katkıda bulunabilirsiniz."
 
 msgid "392" 
-msgstr "Automatic and Objective Negotiation Process"
-
+msgstr "Otomatic ve Tarafsız İhale Yönetimi Süreci"
 
 msgid "393" 
-msgstr "New Technologies Implementation"
-
+msgstr "Yeni Teknolojilerin Uygulanması"
 
 msgid "394" 
-msgstr "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
-
+msgstr "Üretilecek olan ürünlerin kalitesinin arttırılması ve gerçek ürün aşamasına geçmeden önce parça veya ürünün müşteri isteklerinin karşılamasını analiz ve denetlemek için 3B yazıcı ve tarama sistemleri ile ürünün prtotipi OSTİM Teknoloji A.Ş. bünyesinde bulunan imkanlar ile üretilebilir."
 
 msgid "395" 
-msgstr "OSTIM VIRTUAL ENTERPRISE OFFICE"
-
+msgstr "OSTİM Sanal Fabrika Ofisi"
 
 msgid "396" 
-msgstr "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
-
+msgstr "OSTIM SF sistemini geliştirmektedir. OSTIM sanal fabrika ofisi Ankara da OSTIM OSB yönetim binasında yer almaktadır. Bu ofis sanal fabrika sisteminin araçları, programları ve uygulamalarının geliştirilmesinden ve yönetiminden sorumludur."
 
 msgid "397" 
-msgstr "VE System Mission"
-
+msgstr "SANAL FABRİKA SİSTEMİ MİSYONU"
 
 msgid "398" 
-msgstr "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
-
+msgstr "müşteri istekleri ve gereksinimlerini hızlı bir şekilde en uygun firmalara yönlendirmektir. Ayrıca bu sistem sayesinde firmalar yeni işleri alarak boş kapasitelerini daha verimli bir şekilde kullanabileceklerdir. Bu amaca ulaşmak için sistem çerçevesinde sunulan hizmetler:"
 
 msgid "399" 
-msgstr "Profile Pages"
-
+msgstr "Profil Sayfaları"
 
 msgid "400" 
-msgstr "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
-
+msgstr "OSTİM Sanal Fabrika kayıtlı kullanıcılar ve firmalar için profil sayfa açma imkanını sunarak, kendi yeteneklerini daha detaylı bir şekilde tanıtma şanısını vermektedir. Bu nedenle profil sayfalarını ziyaret eden müşteriler veya potansiyel partnerler firma veya şahıslar ile ilgili detaylı ve kapsamlı bir bilgi sahibi olabileceklerdir."
 
 msgid "401" 
-msgstr "Smart Macthcing"
-
+msgstr "Akıllı Eşleştirme"
 
 msgid "402" 
-msgstr "Objective Negotiation Platform"
-
+msgstr "Tarafsız İhale Yönetimi"
 
 msgid "403" 
-msgstr "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
-
+msgstr "Sistemde bulunan eşleştirme algoritmaları müşterinin istekleri doğrultusunda sistem'de kayıtlı veriler arasından en uygun kaynakları bulup müşteriye önermektedir."
 
 msgid "404" 
-msgstr "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
-
+msgstr "Farklı ihale yönetim sistemleri sanal fabirka sistemine tanıtılmıştır. Müşteri istekleri ve tercihleri doğrultusunda bu ihale yöneticilerden birisi seçilip ihale süreci yönetilir. Bütün ihale süreci otomatik olarak denetlenir ve ihale yönetiminde herhangi bir insan müdahelesi yoktur."
 
 msgid "405" 
-msgstr "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
-
+msgstr "OSTİM OSB'sinde bulunan tasarım, mühendislik ve üretim kapasitesini dünyaya açmayı hedeflemektedir. Bu sistem sayesinde müşterilerden gelen siparişler hızlı bir şekilde en uygun firmalara yönlendirilerek firmalardaki atıl kapasiteyi doldurup ve firmalarda üretim verimliliğini artıracaktır."
 
 msgid "406" 
-msgstr "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
-
+msgstr "OSTİM Organize Sanayi Bölge Müdürlüğü Yönetim Kurulu Başkanı"
 
 msgid "407" 
-msgstr "Chairman of OSTIM Technology A.Ş. Executive Board"
-
+msgstr "OSTİM Teknoloji A.Ş. Yönetim Kurulu Başkanı"
 
 msgid "408" 
-msgstr "Manager of OSTIM Organized Industrial Zone Management"
-
+msgstr "OSTİM Organize Sanayi Bölge Müdürlüğü Bölge Müdürü"
 
 msgid "409" 
-msgstr "OSTIM Organized Industrial Zone management provides various servises."
-
+msgstr "OSTİM OSB Yönetimi farklı hizmetler sunmaktadır."
 
 msgid "410" 
-msgstr "Some of these services are mentioned below"
-
+msgstr "Bu hizmetlerden bazıları aşağıda belirtilmiştir"
 
 msgid "411" 
-msgstr "Infrastrcuture Services"
-
+msgstr "Altyapı hizmetleri"
 
 msgid "412" 
-msgstr "Electric Management and Maitenance"
-
+msgstr "Elektrik İşletme ve Bakım"
 
 msgid "413" 
-msgstr "Environemnt and Security"
-
+msgstr "Çevre ve Güvenlik"
 
 msgid "414" 
-msgstr "Gas Management and Maintenance"
-
+msgstr "Doğal-gaz İşletme ve Bakım"
 
 msgid "415" 
-msgstr "Office and Work Permit"
-
+msgstr "İşyeri Açma ve Çalışma Ruhsatı"
 
 msgid "416" 
-msgstr "Town Planning and Infrastructure"
-
+msgstr "İmar ve Altyapı"
 
 msgid "417" 
-msgstr "IT and Computing Center"
+msgstr "Bilgi ve İşlem Teknolojileri"
 
 msgid "418" 
-msgstr "Customer Services"
-
+msgstr "Müşteri Hizmetleri"
 
 msgid "419" 
-msgstr "Financial Services"
-
+msgstr "Mali Hizmetler"
 
 msgid "420" 
-msgstr "Customer Relationship"
-
+msgstr "Müşteri İlişkileri"
 
 msgid "421" 
-msgstr "OSTIM Employment Office"
-
+msgstr "OSTİM İstihdam Ofisi"
 
 msgid "422" 
-msgstr "Fair and Organizations"
-
+msgstr "Fuar ve Organizasyon"
 
 msgid "423" 
-msgstr "Financial and Administrative Affairs"
-
+msgstr "Mali ve İdari İşler"
 
 msgid "424" 
-msgstr "Press and Public Relations"
-
+msgstr "Basın ve Halkla İlişkiler"
 
 msgid "425" 
-msgstr "Organizational Photo Gallery"
-
+msgstr "Kurumsal Foto Galerisi"
 
 msgid "426" 
-msgstr "Papers and Journals"
-
+msgstr "Yazılar ve Makaleler"
 
 msgid "427" 
-msgstr "Videos"
-
+msgstr "Tanıtım Videoları"
 
 msgid "428" 
-msgstr "Documents"
-
+msgstr "Dökümanlar"
 
 msgid "429" 
-msgstr "Indigenous Wind Turbine Project"
-
+msgstr "Milli Rüzgar Türbini"
 
 msgid "430" 
-msgstr "Indigenous Main Battle Tank Motor Project: TM-1150"
-
+msgstr "Güç Grubu Motor Geliştirme TM-150"
 
 msgid "431" 
-msgstr "Defense Cluster Project"
-
+msgstr "Savunma Kümesi Projesi"
 
 msgid "432" 
-msgstr "Railed Systems Cluster Project"
-
+msgstr "Rayli Sistemler Kümesi Projesi"
 
 msgid "433" 
-msgstr "Indigenous Subway Train Project"
-
+msgstr "Milli Metro Projesi"
 
 msgid "434" 
-msgstr "Read More"
-
+msgstr "Daha Fazla Bilgi"
 
 msgid "435" 
-msgstr "Renewable Energy Cluster Project"
-
+msgstr "Yenilenebilir Enerjiler Kümesi"
 
 msgid "436" 
-msgstr "OSTIM Technology Projects"
-
+msgstr "OSTİM Teknoloji Projeleri"
 
 msgid "437" 
-msgstr "OSTIM Technology R&D Center, collaborates researches and projects with the aim of developing high value added, high tech products under university and industry collaboration framework."
-
+msgstr "Ostim Teknoloji Araştırma Ve Geliştirme Merkezi, katma değeri yüksek, ileri teknoloji ürünleri üniversite sanayi işbirliği platformu çerçevesinde projelendirerek geliştirmeyi hedeflemektedir."
 
 msgid "438" 
-msgstr "VE integrates the capabiltities of 5,200 companies in OSTIM Organized Industrial Zone with more than 20,000 machine tools and 60,000 employees under one virtual company."
-
+msgstr "Sanal fabrika OSTİM OSB'sinde bulunan 5,200 firmanın 20,000'den fazla makine parkı ve 60,000'den fazla çalışanını tek bir çatı altında toplayarak, bu firmaların yetenekleri ve üretim kapastesini bütün dünyaya açmaktadır."
 
 msgid "439" 
-msgstr "Members Only"
-
+msgstr "Üyelik Gerekir"
 
 msgid "440" 
-msgstr "VE system services are provided under three main categories:"
-
+msgstr "Sanal Fabrika hizmetleri üç genel kategori altında sunulmaktadır:"
 
 msgid "441" 
-msgstr "Resource Discovery"
-
+msgstr "Üretim Gücümüz"
 
 msgid "442" 
-msgstr "Project Management"
-
+msgstr "Proje Yönetimi"
 
 msgid "443" 
-msgstr "Resource Definition"
-
+msgstr "Tanımlamalar"
 
 msgid "444" 
-msgstr "You may find your required human, information and physical (machinery, raw material and etc.) here"
-
+msgstr "Aranan insan kaynağı, bilgi ve fiziksel veriler (makine, hamm madde vb.)"
 
 msgid "445" 
-msgstr "VE Companies"
-
+msgstr "SF Firmaları"
 
 msgid "446" 
-msgstr "VE Machine Park"
-
+msgstr "SF Makine Parkı"
 
 msgid "447" 
-msgstr "VE Raw Materials"
-
+msgstr "SF Hammaddeleri"
 
 msgid "448" 
-msgstr "VE Waste"
-
+msgstr "SF Atıkları"
 
 msgid "449" 
-msgstr "VE Human Resources"
-
+msgstr "SF İnsan Kaynakları"
 
 msgid "450" 
-msgstr "VE Products"
-
+msgstr "SF Ürünleri"
 
 msgid "451" 
-msgstr "To manage existing projects or submit a new order you may use this section"
-
+msgstr "Mevcut projelerinizin yönetimi veya yeni bir siparişin girilmesi"
 
 msgid "452" 
-msgstr "Negotiation Management System"
-
+msgstr "İhale Yönetim Sistemi"
 
 msgid "453" 
-msgstr "Submit new Order"
-
+msgstr "Yeni Talep"
 
 msgid "454" 
-msgstr "Manage Your Project"
-
+msgstr "Proje Yönetim ve Takip"
 
 msgid "455" 
-msgstr "View Project Pool"
-
+msgstr "Projeler Havuzu"
 
 msgid "456" 
-msgstr "You may define your available different resources here"
-
+msgstr "Kaynak Tanımalma Bölümü"
 
 msgid "457" 
-msgstr "Add Company"
-
+msgstr "Yeni Firma Girişi"
 
 msgid "458" 
-msgstr "Add User"
-
+msgstr "Kullanıcı Ekle"
 
 msgid "459" 
-msgstr "Add Machine Tool"
-
+msgstr "Ürün Ekle"
 
 msgid "460" 
-msgstr "Add Product"
-
+msgstr "Ürün Ekle"
 
 msgid "461" 
 msgstr "Add Raw Material"
 
-
 msgid "462" 
-msgstr "Add Waste"
-
+msgstr "Atık Ekle"
 
 msgid "463" 
-msgstr "VE Services"
-
+msgstr "SF Hizmetleri"
 
 msgid "464" 
-msgstr "VE Machines List"
-
+msgstr "SF Makine Listesi"
 
 msgid "465" 
 msgstr "Virtual Enterprise Machines List"
 
-
 msgid "466" 
-msgstr "Machines List"
-
+msgstr "Makine Listesi"
 
 msgid "467" 
-msgstr "VE machine tools"
+msgstr "SF İmalat Makineleri"
 
 msgid "468" 
-msgstr "Reset all verbal information"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+msgstr "Bütün Firma Bilgilerini Temizle"

@@ -16,37 +16,37 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 msgid "1"
-msgstr "Virtual Enterprise Project"
+msgstr "پروژه شرکت مجازی"
 
 msgid "2"
-msgstr "Virtual Enterprise Control Panel"
+msgstr "صفحه کنترل"
 
 msgid "3"
-msgstr "Follow Development"
+msgstr "تعقیب کنید"
  
 msgid "4"
-msgstr "OSTIM"
+msgstr "اوستیم"
 
 msgid "5"
-msgstr "OSTIM Technology A.Ş."
+msgstr "اوستیم تکنولوژی"
 
 msgid "6"
-msgstr "Virtual Enterprise"
+msgstr "شرکت مجازی"
 
 msgid "7"
-msgstr "Active"
+msgstr "فعال"
 
 msgid "8"
-msgstr "Main Navigation"
+msgstr "منوی اصلی"
 
 msgid "9"
-msgstr "Home"
+msgstr "خانه"
 
 msgid "10"
-msgstr "Supervisor Dashboard"
+msgstr "صفحه کنترل سرپرست"
 
 msgid "11"
-msgstr "Enterprises"
+msgstr "شرکتها"
 
 msgid "12"
 msgstr "Users"

@@ -1397,7 +1397,7 @@ msgstr "OSTİM Teknoloji A.Ş. Yönetim Kurulu Başkanı"
 msgid "Manager of OSTIM Organized Industrial Zone Management"
 msgstr "OSTİM Organize Sanayi Bölge Müdürlüğü Bölge Müdürü"
 
-msgid "OSTIM Organized Industrial Zone management provides various servises."
+msgid "OSTIM Organized Industrial Zone management provides various services."
 msgstr "OSTİM OSB Yönetimi farklı hizmetler sunmaktadır."
 
 msgid "Some of these services are mentioned below"
