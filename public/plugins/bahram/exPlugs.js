@@ -384,8 +384,6 @@ $.widget("sanalfabrika.notifications", {
             proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             pk: $("#pk").val(),
             serviceUrl : null,
-            ajaxParams: null,
-            machineID: null,
             container: $('#notificationWidget'),
 
         },
@@ -396,19 +394,43 @@ $.widget("sanalfabrika.notifications", {
 
         },
         
+        
+        
         test: function() {
+          alert('test');
           var self = this;
-          self.options.container.append('<li class="notification"> \n\
+          
+          this.element.append('<div class="panel-heading-v2 overflow-h " style="margin-top: 20px">\n\
+                                <h2 class="heading-xs pull-left">\n\
+                                    <i class="fa fa-bell-o"></i> Notification</h2>\n\
+                                    <a href="#">\n\
+                                        <i class="fa fa-cog pull-right"></i>\n\
+                                    </a>\n\
+                                </div>\n\
+                                <div class="margin-bottom-20 "  >\n\
+                                <ul class="list-unstyled mCustomScrollbar margin-bottom-20 box" data-mcs-theme="minimal-dark" id="notificationWidget">\n\
+                                    <li class="notification"> \n\
+                                        <img class="rounded-x" src="/onyuz/standard/assets/img/women-icon.png" alt="">\n\
+                                        <div class="overflow-h">\n\
+                                            <span><strong>Sedat Çelikdoğan</strong> zirate felan filan</span>\n\
+                                                <small> 18:25 </small>\n\
+                                        </div>\n\
+                                    </li>\n\
+                                </ul>\n\
+                                </div>')
+          
+          
+          $('#notificationWidget').append('<li class="notification"> \n\
                                     <img class="rounded-x" src="/onyuz/standard/assets/img/women-icon.png" alt="">\n\
                                     <div class="overflow-h">\n\
-                                        <span><strong>Sedat Çelikdoğan</strong> zirate felan filan</span>\n\
+                                        <span><strong>Sedat Çelikdoğan</strong> zirate felan filan222222</span>\n\
                                             <small> 18:25 </small>\n\
                                     </div>\n\
                                 </li>');
-           /* this._trigger('onTagRemoved',event, { 
-                        element : element,
-                        id : id
-                    } )*/
+            
+           self._trigger('onServiceSuccess',event, { 
+                        element : this.element
+                    } );
         },
         
         /**
