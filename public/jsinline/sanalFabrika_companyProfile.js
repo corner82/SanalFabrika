@@ -261,7 +261,10 @@ $(document).ready(function () {
     window.notificationWidget = $('#notificationWidget').notifications({
         container : $('#notificationWidget')
     });
-    window.notificationWidget.notifications('test')
+    window.notificationWidget.notifications('test');
+    
+    var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
+    nonAttachedTreeLoadImage.loadSpinner('appendImage');
     
     
     

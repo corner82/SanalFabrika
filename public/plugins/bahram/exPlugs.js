@@ -405,6 +405,10 @@ $.widget("sanalfabrika.notifications", {
                                             <small> 18:25 </small>\n\
                                     </div>\n\
                                 </li>');
+           /* this._trigger('onTagRemoved',event, { 
+                        element : element,
+                        id : id
+                    } )*/
         },
         
         /**
@@ -437,6 +441,45 @@ $.widget("sanalfabrika.notifications", {
         }
     });
     
+    
+        /**
+     * load imager widget for loading operations, same class used for admin pages
+     * @author Mustafa Zeynel Dağlı
+     * @since 14/12/2016
+     */
+    $.widget("sanalfabrika.loadSpinner", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {  
+            overlay: "<div class='overlay'><div class='fa fa-refresh fa-spin'></div></div>",
+            overlayKey: ".overlay:first",
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+            var self = this;
+            //self.element.append(self.options.overlay);
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        removeLoadImage: function () {
+            var self = this;
+            self.element.find(self.options.overlayKey).remove();
+        },
+        appendImage: function () {
+            var self = this;
+            if(typeof self.element.find(self.options.overlayKey) != 'undefined') {
+                self.element.append(self.options.overlay);
+            }
+            
+        }
+    });
     
     
     
