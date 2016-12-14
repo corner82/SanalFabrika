@@ -86,11 +86,7 @@ $(document).ready(function () {
                         + data.rows[i].country_names
                         + "</li>"
                         + "<li><i class = 'fa fa-globe color-green' style='padding-right:5px;'></i>"
-                        + "<a class='linked' href='"
                         + data.rows[i].web_address
-                        + "'>"
-                        + data.rows[i].web_address
-                        + "</a>"
                         + "</li>"
                         + "<li>"
                         + "<i class = 'fa fa-mail-forward color-green' style='padding-right:5px;'> </i>"
