@@ -317,12 +317,12 @@
                         + companyProfileLink
                         + "'>"
                         + "<h3>"
-                        + "<p>"
-                        + data.rows[i].fim_description
-                        + "</p>"
                         + data.rows[i].firm_names
                         + "</h3>"
                         + "</a>"
+                        + "<p>"
+                        + data.rows[i].fim_description
+                        + "</p>"
                         + "<ul class = 'list-inline'>"
                         + "<li>"
                         + "<i class = 'fa fa-map-marker color-green' style='padding-right:5px;'></i>"
