@@ -278,6 +278,9 @@ $(document).ready(function () {
     var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
     nonAttachedTreeLoadImage.loadSpinner('appendImage');
     
+    var testLoadImage = $("#bannerWidget").loadSpinner();
+    testLoadImage.loadSpinner('appendImage');
+    
     
     
 });
