@@ -240,7 +240,7 @@ $(document).ready(function () {
                 $('#addresses_div').append(appending_address);
             }
 
-            if (data.rows[0].web_address !== '') {
+            /*if (data.rows[0].web_address !== '') {
 
                 var web_appender =
                         "<li><a href='#'><i class='fa fa-envelope'></i>"
@@ -253,12 +253,14 @@ $(document).ready(function () {
                         + "</a></li>";
                 $('#addresses_div').append(web_appender);
 
-            }
+            }*/
         }
     });
     
     
-    window.notificationWidget = $('#testWidget').notifications();
+    window.notificationWidget = $('#notificationWidget').notifications({
+        container : $('#notificationWidget')
+    });
     window.notificationWidget.notifications('test')
     
     

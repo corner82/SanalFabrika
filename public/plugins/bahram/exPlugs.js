@@ -386,7 +386,7 @@ $.widget("sanalfabrika.notifications", {
             serviceUrl : null,
             ajaxParams: null,
             machineID: null,
-            container: $('#testWidget'),
+            container: $('#notificationWidget'),
 
         },
         /**
