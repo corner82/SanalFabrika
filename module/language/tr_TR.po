@@ -1166,19 +1166,19 @@ msgid "382"
 msgstr "Sanal fabrika KOBİ'lerin piyasa paylarını artırmak ve sıkı dünya piyasasında rekabetçiliği artırmak için bir işbirliği platfomudur. 
 
 msgid "383" 
-msgstr "Firmalara profil sayfaları oluşturarak ve bu sayfalar üzerinden firmaların bünyesinde bulunan makine donanım ve personel bilgilerini sunarak firmaların kabiliyetlerini açık bir şekilde ortaya koyarak şeffaflığı artırmaktadır. Firmalar bu sayfalar üzerinde yeteneklerini sunarak, müşterilere kendilerine daha kolay bir şekilde ulaşabilmelerine sağlayacaklardır."
+msgstr "Firmalara profil sayfaları oluşturarak firmaların kabilitklerini ortaya koymaktadır."
 
 msgid "384" 
 msgstr "Kullanıcı profil sayfaları üzerinden üyeler gereken teknik, mühendislik, tasarım, benzetim vb. yetenekleri projelerde kullanmak üzere sunabilirler."
 
 msgid "385" 
-msgstr "Projeler için en uygun partnerlerin seçilmesi için tarafsız ve güvenilir bir ihale sistemi yapısı geliştirilmiştir. Müşteri farklı ihale sistemleri arasından dilediği sistemi seçerek ihale sürecini başlatma isteğini sistem yöneticisine yönlendirebilir."
+msgstr "İhale Sistemi"
 
 msgid "386" 
-msgstr "Proje yönetimi bölümü, sistem yönetiisi, müşteri ve partnerlere proje süreçlerinin ilerilemesini gözetleme ve denetleme şansını vermektedir. Ayrıca sistem ve partnerlerin performansları bu yapı üzerinden değerlendirilebilir."
+msgstr "Proje Yönetimi"
 
 msgid "387" 
-msgstr "Ortak tasarım, analiz ve simülasyonlar için Dassault Sistem'in CATIA V6 yazılımı sanal fabrika yapısında kullanılmaktadır. Böylece proje ortakları kendi hesapları üzerinde OSTİM sunucusuna bağlanıp ortak bir şekilde tasarım, analiz ve simülasyon işlemlerini prototipleme aşamasından önce gerçekleştirebilirler."
+msgstr "Ortak tasarım"
 
 msgid "388" 
 msgstr "Prototipleme amacıyla OSTİM'de bulunan 3B yazıcı kullanarak gerçek üretim aşamasına geçmeden ürün veya parçaların çalışması ve fonksyonları yazdırılarak kontrol edilebilir."
@@ -1422,3 +1422,6 @@ msgstr "SF İmalat Makineleri"
 
 msgid "468" 
 msgstr "Bütün Firma Bilgilerini Temizle"
+
+msgid "469"
+msgstr "Bu adresten bize ulaşabilirsiniz:"

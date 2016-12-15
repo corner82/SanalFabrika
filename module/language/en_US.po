@@ -1129,7 +1129,7 @@ msgid "343"
 msgstr "Registered Company Employees"
 
 msgid "344" 
-msgstr "Virtual Enterprise Clinets"
+msgstr "Virtual Enterprise Clients"
 
 msgid "345" 
 msgstr "Clients Page"
@@ -1243,31 +1243,31 @@ msgid "381"
 msgstr "Visited your project page"
 
 msgid "382" 
-msgstr "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
+msgstr "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competitiveness in highly turbulent strict global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
 
 msgid "383" 
-msgstr "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
+msgstr "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. "
 
 msgid "384" 
-msgstr "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
+msgstr "Providing professional user profile pages to increase the chance of finding required technical, and professional personnel."
 
 msgid "385" 
-msgstr "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
+msgstr "Negotiation Platform"
 
 msgid "386" 
-msgstr "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
+msgstr "Project Management"
 
 msgid "387" 
-msgstr "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
+msgstr "Collaborative Design"
 
 msgid "388" 
 msgstr "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
 
 msgid "389" 
-msgstr "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
+msgstr "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status changed to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
 
 msgid "390" 
-msgstr "New Consortiums"
+msgstr "New Consortium"
 
 msgid "391" 
 msgstr "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
@@ -1502,3 +1502,6 @@ msgstr "VE machine tools"
 
 msgid "468" 
 msgstr "Reset all verbal information"
+
+msgid "469"
+msgstr "You may contact us through given address below:"

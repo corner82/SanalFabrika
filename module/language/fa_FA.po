@@ -803,7 +803,7 @@ msgstr "ارتباط با ما"
 
 
 msgid "264" 
-msgstr "شرکت مجازی یک پلتفرم جهت ایجاد یک اتحاد و شراکت موقت مابین شرکتهای تولیدی و خدماتی با امکانات و ویژگیهای متفاوت جهت تولید و عرضه محصول مورد درخواست مشتری با قمیت مناسبتر و کیفیت بهتر میبا. is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
+msgstr "شرکت مجازی یک پلتفرم جهت ایجاد یک اتحاد و شراکت موقت مابین شرکتهای تولیدی و خدماتی با امکانات و ویژگیهای متفاوت جهت تولید و عرضه محصول مورد درخواست مشتری با قمیت مناسبتر و کیفیت بهتر میبا. "
 
 msgid "265" 
 msgstr "آخرین اخبار در مورد شرکت مجازی اوستیم"
@@ -1159,35 +1159,36 @@ msgid "381"
 msgstr "صفحه پروژه را زیارت کرد"
 
 msgid "382" 
-msgstr "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
-msgstr ""
+msgstr "شرکت مجازی اوستیم با فراهم کردن ساز و کار همکاری مابین شرکتهای عضو در سیستم قدرت رقابتی اعضا را در شرایط حساس 
+و متغیر بازار چهانی افزایش میدهد. جهت دستیابی به این اهداف شرکت مجازی اوستیم خدمات زیر را ارايه میدهد:"
 
 msgid "383" 
-msgstr "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
+msgstr "افزایش شفافیت شرکتهای عضو با ایجاد نمایه های ویژه جهت نمایش قابلیتهای شرکت"
 
 msgid "384" 
-msgstr "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
+msgstr "ارايه نمایه های شخصی برای متخصصین و تکنسینهای ثبت شده در سیستم حهت سهولت یافتن اشخاص متبهر در زمینه های گوناگون"
 
 msgid "385" 
-msgstr "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
+msgstr "مدیریت مناقصه و مزایده"
 
 msgid "386" 
-msgstr "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
+msgstr "مدیریت پروژه"
 
 msgid "387" 
-msgstr "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
+msgstr "طراحی مشترک از راه دور"
 
 msgid "388" 
-msgstr "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
+msgstr "ارايه خدمات پرینت سه بعدی جهت تست و آزمایش محصولات طراحی شده قبل از اجرای پروسه اصلی تولید"
 
 msgid "389" 
-msgstr "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
+msgstr "شرکت اوستیم تکنولوژی در سال 2004 جهت ارتقا سطح همکاری مابین صنعت و دانشگاه با حمایت سازمان توبیتاک تاسیس گردید.این شرکت در سال 2007  به یک شرکت سهامی عام با بیش از 25 سهامدار  تغییر ساختار داد."
 
 msgid "390" 
 msgstr "کنسرسیوم جدید"
 
 msgid "391" 
-msgstr "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
+msgstr "شما میتوانید جهت تولید صفارشات خود شرکتهای دارای قابلیتهای مد نظر خود را در این سیستم به راحتی پیدا کنید و 
+یا با شرکتهای دیگر در جهت تولید صفارشهای وارد شده به سیستم همکاری نمایید"
 
 msgid "392" 
 msgstr "سیستم مناقصه و مزایده اتوماتیک و بی طرف"
@@ -1196,7 +1197,6 @@ msgid "393"
 msgstr "تکنولوژی مدرن و به روز"
 
 msgid "394" 
-msgstr "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
 msgstr "جهت افزایش کیفیت محصولات تولیدی
  و تضمین انجام پروژه به نحو احسن خدمات پرینت و اسکن سه بعدی توسط شرکت اوستیم تکنولوژی فراهم می شود"
 
@@ -1204,7 +1204,6 @@ msgid "395"
 msgstr "دفتر شرکت مجازی اوستیم"
 
 msgid "396" 
-msgstr "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
 msgstr " از سیستم شرکت مجازی اوستیم پشتیبانی میکند.
  دفتر شرکت مجازی اوستیم در منطقه صنعتی اوستیم در آنکارا واقع شده است.
  این دفتر مسولیت تمامی امور توسعه و مدیریت و برنامه های  سیستم شرکت مجازی اوستیم را در اختیاردارد"
@@ -1494,3 +1493,6 @@ msgstr "ماشین ابزار شرکت مجازی"
 
 msgid "468" 
 msgstr "پاک کردن کلیه اطلاعات"
+
+msgid "469"
+msgstr "آدرس ما:"

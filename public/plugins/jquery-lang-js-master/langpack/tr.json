@@ -4,7 +4,7 @@
         "Successful Submission":
                 "İşleminiz başarıyla gerçekleştirilmiştir",
         "Sure":
-                "Eminmisiniz?",
+                "Eminmisiniz",
         "Progressing":
                 "İşleminiz yapılıyor...",
         "test":
@@ -315,9 +315,9 @@
                 "Ürün Detayları",
         "Title":
                 "Ünvan",
-        "LOGIN":
+        "Log in":
                 "Giriş",
-        "LOGOUT":
+        "Log out":
                 "Çıkış",
         "Assigned Company Consultant":
                 "Atanmış Firma Danışmanı",

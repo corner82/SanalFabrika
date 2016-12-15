@@ -318,8 +318,27 @@
         "Log in":
                 "",
         "Log out":
-                ""
-
+                "",
+        "Assigned Company Consultant":
+                "Atanmış Firma Danışmanı",
+        "Consultants":
+                "Danışmanlar",
+        "Message to Page Consultant":
+                "Sayfa Danışmanın'a Mesaj",
+        "Send Message":
+                "Mesajı Gönder",
+        "Select an Address Type":
+                "Lütfen bir adres tipi seçiniz",
+        "Please select a social media from list...":
+                "Lütfen listeden bir sosyal medya seçiniz...",
+        "Goto":
+                "Git",
+        "Please select a category from list...":
+                "Lütfen listeden bir kategori seçiniz...",
+        "Please select a product category from list...":
+                "Lütfen listeden bir ürün kategorisi seçiniz...",
+        "Please select a GTIP number from list...":
+                "Lütfen listeden GTİP numarası seçiniz..."
     },
     "regex": [
         ["Budget", "Bütçe"],
