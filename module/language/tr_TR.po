@@ -1435,3 +1435,11 @@ msgstr "Gönderdi"
 msgid "471"
 msgstr "Sosyal Medya"
 
+msgid "472"
+msgstr "Bilgi! Makine Parkı Bölümü!"
+
+msgid "473"
+msgstr "Firma makine parkına bu bölümden erişebilirsiniz. İstediğiniz ve seçtiğiniz makinenin üzerine tıklayarak o makine hakkında sistemde mevcutsa daha detaylı bilgiye sahip olabilirsiniz. "
+
+msgid "474"
+msgstr "Makine hakkında detaylı bilgi aşağıda sunulmuştur"

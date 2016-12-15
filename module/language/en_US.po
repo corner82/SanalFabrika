@@ -1515,3 +1515,11 @@ msgstr "Sent"
 msgid "471"
 msgstr "Social Media"
 
+msgid "472"
+msgstr "Info! Machine Tools Section!"
+
+msgid "473"
+msgstr "You may have access to company machine park from this section. By clicking over your desired machine tool you may see more detailed information if it is already in the system."
+
+msgid "474"
+msgstr "More information about your selected machine is given below"
