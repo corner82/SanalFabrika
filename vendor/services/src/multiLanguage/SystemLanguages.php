@@ -29,7 +29,7 @@ namespace Custom\Services\MultiLanguage;
     /**
      * I18n language locale codes
      */
-    const ENG_LOCALE = 'en_EN';
+    const ENG_LOCALE = 'en_US';
     const TR_LOCALE = 'tr_TR';
     const AR_LOCALE = 'ar_JO';
     const RU_LOCALE = 'ru_RU';

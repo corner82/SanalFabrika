@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SanalFabrika\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-msgstr-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 22:17-0700\n"
-"PO-Revision-Date: 2015-12-23 13:08+0200\n"
+"PO-Revision-Date: 2016-03-03 13:40+0200\n"
 "Last-Translator: Bahram Lotfi Sadigh <bahram.lotfi@ostim.com.tr>\n"
 "Language-Team: OSTIM Teknoloji A.Ş. <info@ostim.com.tr>\n"
-"Language: tr_TR\n"
+"Language: fa_FA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,1500 +15,1482 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-msgid "Virtual Enterprise Project"
+msgid "1"
 msgstr "پروژه شرکت مجازی"
 
-msgid "Virtual Enterprise Control Panel"
+msgid "2"
 msgstr "صفحه کنترل"
 
-msgid "OSTIM"
+msgid "3"
+msgstr "تعقیب کنید"
+ 
+msgid "4"
 msgstr "اوستیم"
 
-msgid "OSTIM Technology A.Ş."
-msgstr " اوستیم تکنولوژی"
+msgid "5"
+msgstr "اوستیم تکنولوژی"
 
-msgid "Virtual Enterprise"
+msgid "6"
 msgstr "شرکت مجازی"
 
-msgid "V.E."
-msgstr ".ش.م"
-
-msgid "Active"
+msgid "7"
 msgstr "فعال"
 
-msgid "Main Navigation"
+msgid "8"
 msgstr "منوی اصلی"
 
-msgid "Home"
+msgid "9"
 msgstr "خانه"
 
-msgid "Supervisor Dashboard"
+msgid "10"
 msgstr "صفحه کنترل سرپرست"
 
-msgid "Enterprises"
+msgid "11"
 msgstr "شرکتها"
 
-msgid "Users"
+msgid "12"
 msgstr "کاربران"
 
-msgid "Organizations"
+msgid "13"
 msgstr "سازمانها"
 
-msgid "ECO-OSTIM"
-msgstr "EKO-OSTİM"
+msgid "14"
+msgstr "اکو- اوستیم"
 
-msgid "OSTIM Services"
+msgid "15"
 msgstr "خدمات اوستیم"
 
-msgid "Definitions"
+msgid "16"
 msgstr "تعاریف"
 
-msgid "Calendar"
+msgid "17"
 msgstr "تقویم"
 
-msgid "Mail Box"
+msgid "18"
 msgstr "صندوق پست"
 
-msgid "My Documents"
+msgid "19"
 msgstr "مدارک"
 
-msgid "Notifications"
-msgstr "اطلاع رسانی"
+msgid "20"
+msgstr "اطلاعیه""
 
-msgid "Show all notifications"
-msgstr "مشاهده تمام اخطارها"
+msgid "21"
+msgstr "مشاهده تمام اطلاعیه ها"
 
-msgid "New Messages"
+msgid "22"
 msgstr "پیام جدید"
 
-msgid "Show all messages"
+msgid "23"
 msgstr "مشاهده تمام پیامها"
 
-msgid "Works To Do"
+msgid "24"
 msgstr "لیست تکالیف"
 
-msgid "Show all tasks"
+msgid "25"
 msgstr "مشاهده تمام تکالیف"
 
-msgid "Collaborating Companies"
-msgstr "شرکتهای مرتبط"
+msgid "26"
+msgstr "شرکتهای همکار"
 
-msgid "Friends"
+msgid "27"
 msgstr "دوستان"
 
-msgid "Followers"
+msgid "28"
 msgstr "تعقیب کنندگان"
 
-msgid "Profile"
+msgid "29"
 msgstr "نمایه"
 
-msgid "Log in"
+msgid "30"
 msgstr "ورود"
 
-msgid "Log out"
+msgid "31"
 msgstr "خروج"
 
-msgid "Layout Options"
+msgid "32"
 msgstr "صفحه بندی"
 
-msgid "Fixed layout"
+msgid "33"
 msgstr "صفحه بندی ثابت"
 
-msgid "Activate the fixed layout. You can't use fixed and boxed layouts together"
+msgid "34"
 msgstr "صفحه بندی ثابت را فعال کنید. شما قادر به استفاده همزمان از صفحه بندیای ثابت و جعبه ای نمیباشید. "
 
-msgid "Boxed Layout"
+msgid "35"
 msgstr "صفحه بندی جعبه ای"
 
-msgid "Activate the boxed layout"
+msgid "36"
 msgstr "صفحه بندی جعبه ای را فعال کنید. "
 
-msgid "Toggle Sidebar"
+msgid "37"
 msgstr "موقعیت منوی سمت چپ را عوض کنید"
 
-msgid "Toggle the left sidebar's state (open or collapse)"
+msgid "38"
 msgstr "موقعیت منوی سمت چپ را عوض کنید (باز ویا بسته)"
 
-msgid "Sidebar Expand on Hover"
+msgid "39"
 msgstr "به هنگام حرکت به سمت منو باز شود "
 
-msgid "Let the sidebar mini expand on hover"
+msgid "40"
 msgstr "به هنگام حرکت به سمت منوی چپ بسته  به صورت خودکار  باز شود"
 
-msgid "Toggle Right Sidebar Slide"
+msgid "41"
 msgstr "فعال سازی منوی سمت راست"
 
-msgid "Toggle between slide over content and push content effects"
+msgid "42"
 msgstr "با فعالسازی منوی سمت راست انرا باز کنید ویا ببندید"
 
-msgid "Toggle Right Sidebar Skin"
+msgid "43"
 msgstr "شابلون منوی سمت راست"
 
-msgid "Toggle between dark and light skins for the right sidebar"
+msgid "44"
 msgstr "برای منوی سمت راست شابلونهای تیره ویا رنگ روشن را فعال کنید"
 
-msgid "Skins"
+msgid "45"
 msgstr "شابلونها"
 
-msgid "Blue"
+msgid "46"
 msgstr "آبی"
 
-msgid "Black"
+msgid "47"
 msgstr "سیاه"
 
-msgid "Purple"
+msgid "48"
 msgstr "بنفش"
 
-msgid "Green"
+msgid "49"
 msgstr "سبز"
 
-msgid "Red"
+msgid "50"
 msgstr "قرمز"
 
-msgid "Yellow"
+msgid "51"
 msgstr "زرد"
 
-msgid "Blue Light"
+msgid "52"
 msgstr "آبی کمرنگ"
 
-msgid "Black Light"
+msgid "53"
 msgstr "خاکستری"
 
-msgid "Purple Light"
-msgstr "صورتی کمرنگ"
+msgid "54"
+msgstr "بنفش کمرنگ"
 
-msgid "Green Light"
+msgid "55"
 msgstr "سبز کمرنگ"
 
-msgid "Red Light"
+msgid "56"
 msgstr "قرمز کمرنگ"
 
-msgid "Yellow Light"
+msgid "57"
 msgstr "زرد کمرنگ"
 
-msgid "Recent Activities"
-msgstr "آخرین فعالیتها"
+msgid "58"
+msgstr " فعالیتهای اخیر"
 
-msgid "Tasks Progress"
-msgstr "لیست کارها"
+msgid "59"
+msgstr "پیشرفت امور"
 
-msgid "General Settings"
+msgid "60"
 msgstr "تنظیمات عمومی"
 
-msgid "Report panel usage"
-msgstr "استفاده از پانل گزارش"
+msgid "61"
+msgstr "طرز استفاده از پانل گزارش"
 
-msgid "Some information about this general settings option"
+msgid "62"
 msgstr "برخی اطلاعات جهت استفاده از پانل گزارش"
 
-msgid "Allow mail redirect"
-msgstr "تغییر مسیر پست"
+msgid "63"
+msgstr "تغییر مسیر پست الکترونیکی"
 
-msgid "Other sets of options are available"
+msgid "64"
 msgstr "سایر تنظیمات"
 
-msgid "Expose author name in posts"
+msgid "65"
 msgstr "مشاهده نام فرستنده پیام"
 
-msgid "Allow the user to show his name in blog posts"
+msgid "66"
 msgstr "مشاهده نام کاربران در پیامهای ارسالی در وبلاگ"
 
-msgid "Chat Settings"
+msgid "67"
 msgstr "تنظیمات گپ"
 
-msgid "Show me as online"
+msgid "68"
 msgstr "مشاهده آنلاین"
 
-msgid "Turn off notifications"
+msgid "69"
 msgstr "خاموش کردن اطلاع رسانی"
 
-msgid "Delete chat history"
+msgid "70"
 msgstr "پاک کردن پیشینه گپ"
 
-msgid "All rights reserved."
+msgid "71"
 msgstr "تمام حقوق محفوظ میباشد"
 
-msgid "Copyright"
+msgid "72"
 msgstr "حق تالیف"
 
-msgid "Version"
+msgid "73"
 msgstr "نسخه"
 
-msgid "Welcome to OSTIM Virtual Enterprise System"
-msgstr "به سیستم شرکت مجازی OSTIM خوش آمدید "
+msgid "74"
+msgstr "به سیستم شرکت مجازی اوستیم خوش آمدید"
 
-msgid "An error occurred"
-msgstr "یک خطا رخ داده "
+msgid "75"
+msgstr "خطا"
 
-msgid "Message"
+msgid "76"
 msgstr "پیام"
 
-msgid "Stack trace"
-msgstr "ردیابی"
+msgid "77"
+msgstr "ردیابی خطا"
 
-msgid "Previous exceptions"
+msgid "78"
 msgstr "استثناهای قبلی"
 
-msgid "No Exception available"
+msgid "79"
 msgstr "قاعده استثنا در دسترس نیست"
 
-msgid "A 404 error occurred"
-msgstr "خطای 404"
+msgid "80"
+msgstr "404 خطای"
 
-msgid "The requested controller was unable to dispatch the request."
+msgid "81"
 msgstr "قادر به پاسخگویی به درخواست شما نمیباشد"
 
-msgid "The requested controller could not be mapped to an existing controller class."
+msgid "82"
 msgstr "کنترلر مورد نیاز درخواست شما در دسترس نمیباشد"
 
-msgid "The requested controller was not dispatchable."
+msgid "83"
 msgstr "کنترلر مورد درخواست قابل ارسال نیست"
 
-msgid "The requested URL could not be matched by routing."
+msgid "84"
 msgstr "آدرس درخواستی با مسیریاب همسان نمیباشد "
 
-msgid "We cannot determine at this time why a 404 was generated."
-msgstr "علت خطای 404 در حال حاضر مشخص نمیباشد"
+msgid "85"
+msgstr "علت خطا در حال حاضر مشخص نمیباشد"
 
-msgid "Controller"
+msgid "86"
 msgstr "کنترل کننده"
 
-msgid "resolves to %s"
-msgstr "در اینجا حل میشود: %s"
+msgid "87"
+msgstr "در حال حل مشکل%s "
 
-msgid "Exception"
+msgid "88"
 msgstr "استثنا"
 
-msgid "Help"
+msgid "89"
 msgstr "راهنما"
 
-msgid "Frequently Asked Questions"
+msgid "90"
 msgstr "سوالات متداول"
 
-msgid "Languages"
+msgid "91"
 msgstr "زبانها"
 
-msgid "Learn more"
+msgid "92"
 msgstr "بیشتر بدانیم"
 
-msgid "Our Job"
+msgid "93"
 msgstr "تخصص ما"
 
-msgid "VE Team"
+msgid "94"
 msgstr "تیم شرکت مجازی"
 
-msgid "Overall Manufactuiring Area"
-msgstr "مجموع مساحت تولیدی"
+msgid "95"
+msgstr "تیم شرکت مجازی"
 
-
-msgid "Machine Park Size"
+msgid "96"
 msgstr "مجموع ماشین آلات تولیدی"
 
-
-msgid "Overall Enterprise Number"
+msgid "97"
 msgstr "تعداد شرکتهای ثبت شده"
 
+msgid "98"
+msgstr "کارکنان"
 
-msgid "Employees"
-msgstr "مجموع کارکنان"
+msgid "99"
+msgstr "بازاریابی و مشاوره"
 
-
-msgid "Marketing and Consulting"
-msgstr "بازیریابی و مشاوره"
-
-
-msgid "Our Organization"
+msgid "100"
 msgstr "سازمان ما"
 
-
-msgid "Imports"
+msgid "101"
 msgstr "واردات"
 
-
-msgid "Exports"
+msgid "102"
 msgstr "صادرات"
 
+msgid "103"
+msgstr "کارمندان"
 
-msgid "Our Employees"
-msgstr "کارکنان ما"
-
-
-msgid "Our Services"
+msgid "104"
 msgstr "خدمات ما"
 
+msgid "105"
+msgstr "نمونه کارها"
 
-msgid "Our Portfolio"
-msgstr "پورتفولیو"
+msgid "106"
+msgstr "اطلاعات بیشتر"
 
-
-msgid "Load More"
-msgstr "بارگذاری مضاعف"
-
-
-msgid "Our Clients"
+msgid "107"
 msgstr "مشتریان ما"
 
-
-msgid "Order"
+msgid "108"
 msgstr "سفارش"
 
-
-msgid "Request for Quote"
+msgid "109"
 msgstr "درخواست تکلیف"
 
-
-msgid "Contact us"
+msgid "110"
 msgstr "ارتباط با ما"
 
-
-msgid "Name"
+msgid "111"
 msgstr "نام"
 
-
-msgid "Email"
+msgid "112"
 msgstr "ایمیل"
 
-
-
-msgid "Send Message"
+msgid "113"
 msgstr "ارسال پیام"
 
-
-msgid "Negotiation"
+msgid "114"
 msgstr "مذاکره"
 
-
-msgid "Auction"
+msgid "115"
 msgstr "مزایده ویا مناقصه"
 
-
-msgid "Auctioning"
+msgid "116"
 msgstr "مزایده ویا مناقصه"
 
-
-msgid "Latest News"
+msgid "117"
 msgstr "آخرین اخبار"
 
-
-msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
+msgid "118"
 msgstr "یکپارچه سازی قابلیت ها و ظرفیت تولیدی منطقه صنعتی اوستیم با بیش از 5000 شرکت تولیدی و 60000 پرسنل"
 
-
-msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
+msgid "119"
 msgstr "ارائه خدمات تولیدی شرکتهای فعال در منطقه صنعتی اوستیم به تمامی مشتریان از اقصا نقاط جهان"
 
-
-
-msgid "Company Registration"
-msgstr "ثبت شرکت جدید"
-
-msgid "Company"
+msgid "120"
 msgstr "شرکت"
 
-msgid "Virtual Enterprise Company Registration"
-msgstr "ثبت نام شرکت "
+msgid "121"
+msgstr "ثبت شرکت جدید"
 
-msgid "Communication"
+msgid "122"
 msgstr "ارتباطات"
 
-msgid "Financial"
+msgid "123"
 msgstr "مالی"
 
-msgid "Personel"
+msgid "124"
 msgstr "پرسنل"
 
-msgid "Logo"
+msgid "125"
 msgstr "آرم شرکت"
 
-msgid "Tax Number"
+msgid "126"
 msgstr "شماره مالیاتی شرکت"
 
-msgid "Tax Office"
-msgstr "شعبه مالیاتی وابسته"
+msgid "127"
+msgstr "شعبه مالیاتی"
 
-msgid "Social Security Number"
+msgid "128"
 msgstr "شماره تامین اجتماعی"
 
-msgid "Foundation Date"
+msgid "129"
 msgstr "تاریخ تاسیس"
 
-msgid "Web Address"
+msgid "130"
 msgstr "آدرس اینترنتی"
 
-msgid "Submit"
+msgid "131"
 msgstr "ثبت"
 
-msgid "Cancel"
+msgid "132"
 msgstr "لغو"
 
-msgid "Building Type"
+msgid "133"
 msgstr "نوع ساختمان"
 
-msgid "Building Name"
+msgid "134"
 msgstr "نام ساختمان"
 
-msgid "Country"
+msgid "135"
 msgstr "کشور"
 
-msgid "State"
+msgid "136"
 msgstr "ایالت"
 
-msgid "Province"
+msgid "137"
 msgstr "استان"
 
-msgid "City"
+msgid "138"
 msgstr "شهر"
 
-msgid "District"
+msgid "139"
 msgstr "منطقه"
 
-msgid "Village"
+msgid "140"
 msgstr "روستا"
 
-msgid "Street"
+msgid "141"
 msgstr "خیابان"
 
-msgid "Alley"
+msgid "142"
 msgstr "کوچه"
 
-msgid "Number"
+msgid "143"
 msgstr "پلاک"
 
-msgid "Postal Code"
+msgid "145"
 msgstr "کد پستی"
 
-msgid "Telephone"
+msgid "146"
+msgstr "Telephone"
+
+msgid "147"
 msgstr "تلفن"
 
-msgid "Fax"
+msgid "148"
 msgstr "فاکس"
 
-msgid "Update"
+msgid "149"
 msgstr "به روز رسانی"
 
-msgid "Add New Address"
+msgid "150"
 msgstr "اضافه کردن آدرس جدید"
 
-msgid "Update Company Information"
+msgid "151"
 msgstr "به روز رسانی اطلاعات شرکت"
 
-msgid "List of Companies"
-msgstr "لیست شرکتها"
-
-msgid "List of Machine Tools"
-msgstr "لیست ماشین ابزار"
-
-msgid "New Submission"
-msgstr "ثبت جدید"
-
-msgid "Manufacturing Machine Tools"
-msgstr "ماشین ابزار تولیدی"
-
-msgid "Quality Control Equipment"
-msgstr "تجهیزات کنترل کیفی"
-
-msgid "Others"
-msgstr "غیره"
-
-msgid "Manufacturing Operation Type"
-msgstr "نوع عملیات تولیدی"
-
-msgid "Machine Tool Type"
-msgstr "نوع ماشین ابزار"
-
-msgid "Add New Machine Tool"
-msgstr "ثبت ماشین ابزار جدید"
-
-msgid "Measurement Process Type"
-msgstr "نوع روش اندازه گیری"
-
-msgid "Quality Control Tool Type"
-msgstr "نوع تجهیزات کنترل کیفی"
-
-msgid "Add New Q.C. Device"
-msgstr "ثبت تجهیزات اندازه گیری جدید"
-
-msgid "Update Machine Tool Information"
-msgstr "به روز رسانی اطلاعات ماشین ابزار"
-
-msgid "Add New Device"
-msgstr "ثبت تجهیزات جدید"
-
-msgid "Software Information"
-msgstr "اطلاعات نرم افزار"
-
-msgid "List of Software"
-msgstr "لیست نرم افزار"
- 
-msgid "Update Information"
-msgstr "به روز رسانی اطلاعات"
-
-
-msgid "Update software information"
-msgstr "به روز رسانی اطلاعات نرم افزار"
-
-msgid "Add New Software"
-msgstr "ثبت نرم افزار جدید"
-
-msgid "Select a country ... "
-msgstr " ... کشور انتخاب کنید"
-
-msgid "Select a province ... "
-msgstr " ... استان انتخاب کنید"
-
-msgid "Select a district ... "
-msgstr " ... شهر و یا شهرستان انتخاب کنید"
-
-msgid "Select a village ... "
-msgstr " ... منطقه و یا بخش انتخاب کنید"
-
-msgid "Search..."
-msgstr "...جستجو"
-
-
-msgid "General Information"
-msgstr "اطلاعات عمومی"
-
-msgid "Address Information"
-msgstr "نشانی و آدرس"
-
-msgid "Communication Information"
-msgstr "تماس و آدرس ارتباطی"
-
-msgid "Company Information"
-msgstr "اطلاعات شرکت"
-
-msgid "Please select a country from list..."
-msgstr " لطفا یک کشور را از لیست انتخاب کنید"
-
-msgid "Please select a city from list..."
-msgstr "لطفا یک شهرستان از لیست انتخاب کنید"
-
-msgid "Please select a district from list..."
-msgstr "لطفا یک منطقه از لیست انتخاب کنید"
-
-msgid "Please select a village from list..."
-msgstr "لطفا یک روستا از لیست انتخاب کنید"
-
-msgid "Continue to Address Information"
-msgstr "ادامه"
-
-msgid "Continue to Communication Information"
-msgstr "ادامه"
-
-msgid "Reset"
-msgstr "تمییز کردن فرم"
-
-msgid "Registration"
-msgstr "ثبت"
-
-msgid "First Name"
-msgstr "نام"
-
-msgid "Last Name"
-msgstr "نام خانوادگی"
-
-msgid "Prefered Username"
-msgstr "نام کاربری"
-
-msgid "Prefered Password"
-msgstr "رمز عبور"
-
-msgid "Repeat Password"
-msgstr "تکرار رمز عبور"
-
-msgid "ID Number (TC Kimlik No for Turkish Citizens)"
-msgstr " شماره ملی (مخصوص اتباع ترک( "
-
-msgid "Prefered Language"
-msgstr "زبان ترجیحی"
-
-msgid "Make my profile public"
-msgstr "صفحه پروفایل قابل رویت برای عموم"
-
-msgid "Communication Type"
-msgstr "انتخاب نوع تماس"
-
-msgid "Please select a communication type from list..."
-msgstr "لطفا نوع ارتباطات از لیست انتخاب کنید"
-
-msgid "Set this number as your default contact number"
-msgstr "شماره تماس پیش فرض"
-
-msgid "Contact Number"
-msgstr "شماره تماس"
-
-msgid "Submit Number"
-msgstr "ثبت شماره"
-
-msgid "Description"
-msgstr "توضیحات"
-
-msgid "Added Contacts"
-msgstr "تماسهای ثبت شده"
-
-msgid "I agree with the Terms and Conditions"
-msgstr "با تمام شرایط و ضوابط موافقت خود را اعلام مینمایم"
-
-msgid "Complete User Submission Process"
-msgstr "نکمیل فرایند ثبت کاربر"
-
-msgid "Continue to Company Information"
-msgstr "ادامه"
-
-msgid "Company Name"
-msgstr "نام شرکت"
-
-msgid "Please select your prefered language from list..."
-msgstr "لطفا زبان مورد نظر خود را از لیست انتخاب کنید"
-
-msgid "Show all my registered addresses"
-msgstr "نمایش همه آدرسهای ثبت شده من"
-
-msgid "My Registered Addresses"
-msgstr "آدرسهای من""
-
-msgid "List of Contacts"
-msgstr "لیست ارتباطات"
-
-msgid "Edit selected address"
-msgstr "ویرایش آدرس انتخابی"
-
-msgid "Close"
-msgstr "بستن"
-
-msgid "Address type"
-msgstr "نوع آدرس"
-
-msgid "Billing Address"
-msgstr " آدرس ارسال صورت حساب"
-
-msgid "Mailing Address"
-msgstr "آدرس پستی"
-
-msgid "Task Progress"
-msgstr "پیشرفت کار"
-
-msgid "User registration"
-msgstr "ثبت کاربر"
-
-msgid "Company registration"
+msgid "152"
 msgstr "ثبت شرکت"
 
-msgid "Registration process"
-msgstr "پروسه ثبت"
+msgid "153"
+msgstr "لیست شرکتها"
 
-msgid "Address 1"
-msgstr "آدرس 1"
+msgid "154"
+msgstr "لیست ماشین ابزار"
 
-msgid "Address 2"
-msgstr "آدرس 2"
+msgid "155"
+msgstr "ثبت جدید"
 
-msgid "Show my password"
-msgstr "نمایش رمز"
+msgid "156"
+msgstr "ماشین ابزار تولیدی"
 
-msgid "Make my address information public"
-msgstr "اطلاعات آدرس فابل رویت عموم"
+msgid "157"
+msgstr "تجهیزات کنترل کیفی"
 
-msgid "Make my contact information public"
-msgstr "اطلاعات تماس قابل رویت عموم"
+msgid "158"
+msgstr "غیره"
 
-msgid "Show all my registered contact Information"
-msgstr "نمایش تمام تماسهای ثبت شده"
+msgid "159"
+msgstr "نوع عملیات تولیدی"
 
-msgid "DUNS Number"
-msgstr "شماره DUNS"
+msgid "160"
+msgstr "نوع ماشین ابزار"
 
-msgid "Company Short Name"
-msgstr "نام اختصاری شرکت"
-
-msgid "Back"
-msgstr "صفحه قبل"
-
-msgid "About Us"
-msgstr "در مورد ما"
-
-msgid "Services"
-msgstr "خدمات"
-
-msgid "News"
-msgstr "اخبار"
-
-msgid "Contacts"
-msgstr "ارتباطات"
-
-msgid "Submenus"
-msgstr "زیر منوها"
-
-msgid "Main"
-msgstr "اصلی"
-
-msgid "Ownership Status"
-msgstr "وضعیت مالکیت"
-
-msgid "Company Machine Tool Panel"
-msgstr "صفحه کنترل ماشین ابزار شرکت"
-
-msgid "Some Activities"
-msgstr "فعالیتهای این صفحه"
-
-msgid "List of activities"
-msgstr "لیست فعالیتها"
-
-msgid "Company machine tools list"
-msgstr "لیست ماشین ابزار شرکت"
-
-msgid "Company machine tools"
-msgstr "ماشین ابزار شرکت"
-
-msgid "Available Machine Tools in System"
-msgstr "ماشین ابزار موجود در سیستم"
-
-msgid "Propose a New Machine Tool"
-msgstr "پیشنهاد ماشین ابزار جدید"
-
-msgid "Proposition Form"
-msgstr "فرم پیشنهاد ماشین ابزار"
-
-msgid "Machine Manufacturer"
-msgstr "نام تولید کننده"
-
-msgid "Machine Name"
-msgstr "نام ماشین ابزار"
-
-msgid "Machine Model"
-msgstr "مدل"
-
-msgid "Machine Type"
-msgstr "نوع فعالیت ماشین ابزار"
-
-msgid "Machine Properties"
-msgstr "ویژگیهای ماشین ابزار"
-
-msgid "Submit new machine tool"
+msgid "161"
 msgstr "ثبت ماشین ابزار جدید"
 
-msgid "Language"
+msgid "162"
+msgstr "نوع روش اندازه گیری"
+
+msgid "163"
+msgstr "نوع تجهیزات کنترل کیفی"
+
+msgid "164"
+msgstr "ثبت تجهیزات اندازه گیری جدید"
+
+msgid "165"
+msgstr "به روز رسانی اطلاعات ماشین ابزار"
+
+msgid "166"
+msgstr "ثبت تجهیزات جدید"
+
+msgid "167"
+msgstr "اطلاعات نرم افزار"
+
+msgid "168"
+msgstr "لیست نرم افزار"
+
+msgid "169"
+msgstr "به روز رسانی اطلاعات نرم افزار"
+
+msgid "170"
+msgstr "ثبت نرم افزار جدید"
+
+msgid "171"
+msgstr " ... کشور انتخاب کنید"
+
+msgid "172"
+msgstr " ... استان انتخاب کنید"
+
+msgid "173"
+msgstr " ... شهر و یا شهرستان انتخاب کنید"
+
+msgid "174"
+msgstr " ... منطقه و یا بخش انتخاب کنید"
+
+msgid "175"
+msgstr "...جستجو"
+
+msgid "176"
+msgstr "اطلاعات کلی"
+
+msgid "177"
+msgstr "نشانی و آدرس"
+
+msgid "178"
+msgstr "تماس و آدرس ارتباطی"
+
+msgid "179"
+msgstr "اطلاعات شرکت"
+
+msgid "180"
+msgstr " لطفا یک کشور را از لیست انتخاب کنید"
+
+msgid "181"
+msgstr "لطفا یک شهرستان از لیست انتخاب کنید"
+
+msgid "182"
+msgstr "لطفا یک منطقه از لیست انتخاب کنید"
+
+msgid "183"
+msgstr "لطفا یک روستا از لیست انتخاب کنید"
+
+msgid "184"
+msgstr "ادامه"
+
+msgid "185"
+msgstr "ادامه"
+
+msgid "186"
+msgstr "تمییز کردن فرم"
+
+msgid "187"
+msgstr "ثبت"
+
+msgid "188"
+msgstr "نام"
+
+msgid "189"
+msgstr "نام خانوادگی"
+
+msgid "190"
+msgstr "نام کاربری"
+
+msgid "191"
+msgstr "رمز عبور"
+
+msgid "192"
+msgstr "تکرار رمز عبور"
+
+msgid "193"
+msgstr " شماره ملی (مخصوص اتباع ترک( "
+
+msgid "194"
+msgstr "زبان ترجیحی"
+
+msgid "195"
+msgstr "صفحه پروفایل قابل رویت برای عموم"
+
+msgid "196"
+msgstr "انتخاب نوع تماس"
+
+msgid "197"
+msgstr "لطفا نوع ارتباطات از لیست انتخاب کنید"
+
+msgid "198"
+msgstr "شماره تماس پیش فرض"
+
+msgid "199"
+msgstr "شماره تماس"
+
+msgid "200"
+msgstr "ثبت شماره"
+
+msgid "201"
+msgstr "توضیحات"
+
+msgid "202"
+msgstr "تماسهای ثبت شده"
+
+msgid "203"
+msgstr "با تمام شرایط و ضوابط موافقت خود را اعلام مینمایم"
+
+msgid "204"
+msgstr "نکمیل فرایند ثبت کاربر"
+
+msgid "205"
+msgstr "ادامه"
+
+msgid "206"
+msgstr "نام شرکت"
+
+msgid "207"
+msgstr "لطفا زبان مورد نظر خود را از لیست انتخاب کنید"
+
+msgid "208"
+msgstr "نمایش همه آدرسهای ثبت شده من"
+
+msgid "209"
+msgstr "آدرسهای من"
+
+msgid "210"
+msgstr "لیست ارتباطات"
+
+msgid "211"
+msgstr "ویرایش آدرس انتخابی"
+
+msgid "212"
+msgstr "بستن"
+
+msgid "213"
+msgstr "نوع آدرس"
+
+msgid "214"
+msgstr " آدرس ارسال صورت حساب"
+
+msgid "215" 
+msgstr "آدرس پستی"
+
+msgid "216" 
+msgstr "پیشرفت کار"
+
+msgid "217" 
+msgstr "ثبت کاربر"
+
+msgid "218" 
+msgstr "ثبت شرکت"
+
+msgid "219" 
+msgstr "پروسه ثبت"
+
+msgid "220" 
+msgstr "آدرس 1"
+
+msgid "221" 
+msgstr "آدرس 2"
+
+msgid "222" 
+msgstr "نمایش رمز"
+
+msgid "223" 
+msgstr "اطلاعات آدرس فابل رویت عموم"
+
+msgid "224" 
+msgstr "اطلاعات تماس قابل رویت عموم"
+
+msgid "225" 
+msgstr "نمایش تمام تماسهای ثبت شده"
+
+msgid "226" 
+msgstr "شماره DUNS"
+
+msgid "227" 
+msgstr "نام اختصاری شرکت"
+
+msgid "228" 
+msgstr "صفحه قبل"
+
+msgid "229" 
+msgstr "در مورد ما"
+
+msgid "230" 
+msgstr "خدمات"
+
+msgid "231" 
+msgstr "اخبار"
+
+msgid "232" 
+msgstr "ارتباطات"
+
+msgid "233" 
+msgstr "زیر منوها"
+
+msgid "234" 
+msgstr "اصلی"
+
+msgid "235" 
+msgstr "وضعیت مالکیت"
+
+msgid "236" 
+msgstr "صفحه کنترل ماشین ابزار شرکت"
+
+msgid "237" 
+msgstr "فعالیتهای این صفحه"
+
+msgid "238" 
+msgstr "لیست فعالیتها"
+
+msgid "239" 
+msgstr "لیست ماشین ابزار شرکت"
+
+msgid "240" 
+msgstr "ماشین ابزار شرکت"
+
+msgid "241" 
+msgstr "ماشین ابزار موجود در سیستم"
+
+msgid "242" 
+msgstr "پیشنهاد ماشین ابزار جدید"
+
+msgid "243" 
+msgstr "فرم پیشنهاد ماشین ابزار"
+
+msgid "244" 
+msgstr "نام تولید کننده"
+
+msgid "245" 
+msgstr "نام ماشین ابزار"
+
+msgid "246" 
+msgstr "مدل"
+
+msgid "247" 
+msgstr "نوع ماشین ابزار"
+
+msgid "248" 
+msgstr "ویژگیهای ماشین ابزار"
+
+msgid "249" 
+msgstr "ثبت ماشین ابزار جدید"
+
+msgid "250" 
 msgstr "زبان"
 
-msgid "Machine Tool General Information"
-msgstr "اطلاعات عمومی ماشین ابزار"
+msgid "251" 
+msgstr "اطلاعات کلی ماشین ابزار"
 
-msgid "Machine Tool Properties Information"
+msgid "252" 
 msgstr "اطلاعات ویژگیهای ماشین ابزار"
 
-msgid "Add selected Machine"
+msgid "253" 
 msgstr "اضافه کردن ماشین ابزار انتخاب شده"
 
-msgid "Details"
+msgid "254" 
 msgstr "جزییات"
 
-msgid "Please Enter Machine Manufacturer Name (Brand)"
+msgid "255" 
 msgstr "لطفا نام شرکت و یا موسسه تولید کننده ماشین ابزار را وارد کنید"
 
-msgid "Please Enter Machine Name (Series)"
+msgid "256" 
 msgstr "لطفا نام ماشین ابزار (سری ساخت) ماشین را وارد کنید"
 
-msgid "Please Enter Machine Model (Production Year)"
+msgid "257" 
 msgstr "لطفا مدل (سال تولید) ماشین ابزار را وارد کنید"
 
-
-
-
-
-
-
-msgid "Company Profile"
+msgid "258" 
 msgstr "پروفایل شرکت"
 
-msgid "Notification"
-msgstr "اطلاعات و ارتباطات"
+msgid "259" 
+msgstr "اطلاعیه "
 
-msgid "References"
+msgid "260" 
 msgstr "رفرنسها"
 
-msgid "Latest Posts"
+msgid "261" 
 msgstr "آخرین گزارشها"
 
-msgid "Useful Links"
+msgid "262" 
 msgstr "ارتباطات مفید"
 
-msgid "Contact Us"
+msgid "263" 
 msgstr "ارتباط با ما"
 
-msgid "A virtual enterprise (VE) is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
-msgstr ""
 
-msgid "Latest News about OSTIM VE"
+msgid "264" 
+msgstr "شرکت مجازی یک پلتفرم جهت ایجاد یک اتحاد و شراکت موقت مابین شرکتهای تولیدی و خدماتی با امکانات و ویژگیهای متفاوت جهت تولید و عرضه محصول مورد درخواست مشتری با قمیت مناسبتر و کیفیت بهتر میبا. is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
+
+msgid "265" 
 msgstr "آخرین اخبار در مورد شرکت مجازی اوستیم"
 
-msgid "OSTIM Clusters News"
+msgid "266" 
 msgstr "اخبار بخشهای تجاری اوستیم"
 
-msgid "New Project Calls"
+msgid "267" 
 msgstr "فراخوان پروژه"
 
-msgid "Ostim Organized Industrial Zone"
+msgid "268" 
 msgstr "منطقه صنعتی اوستیم"
 
-msgid "Turkish Ministry of SIT"
+msgid "269" 
 msgstr "وزارت علوم تکنولوژی و صنایع جمهوری ترکیه"
 
-msgid "TUBITAK"
+msgid "270" 
 msgstr "توبیتاک"
 
-msgid "KOSGEB"
+msgid "271" 
 msgstr "کسگب"
 
-msgid "Terms of Service"
+msgid "272" 
 msgstr "شرایط استفاده از خدمات"
 
-msgid "Privacy Policy"
+msgid "273" 
 msgstr "سیاست حفظ حریم خصوصی"
 
-msgid "All Rights Reserved."
+msgid "274" 
 msgstr "تمام حقوق محفوظ است"
 
-msgid "Performance Meters"
+msgid "275" 
 msgstr "معیارهای عملکرد"
 
-msgid "Projects in progress"
+msgid "276" 
 msgstr "پروژه های در حال انجام"
 
-msgid "Last Week"
+msgid "277" 
 msgstr "هفته قبل"
 
-msgid "Last Month"
+msgid "278" 
 msgstr "ماه قبل"
 
-msgid "Last month projects to overall project number"
-msgstr "نسبت پروژه های ماه قبل به کل پروژه ها"
+msgid "279" 
+msgstr "نسبت تعداد پروژه های ماه قبل به کل پروژه ها"
 
-msgid "Project started in the last month"
+msgid "280" 
 msgstr "پروژه های آغاز شده در ماه قبل"
 
-msgid "Total machine tools number"
+msgid "281" 
 msgstr "تعداد کل ماشین ابزار"
 
-msgid "Added machine tools in last 6 months"
+msgid "282" 
 msgstr "تعداد ماشین ابزار اضافه شده در 6 ماه آخر"
 
-msgid "Added machine tools in last month"
+msgid "283" 
 msgstr "تعداد ماشین ابزار اضافه شده در ماه آخر"
 
-msgid "Rate of added machine tools in last 6 months to overall machine tools"
+msgid "284" 
 msgstr "نسبت ماشین ابزار اضافه شده در 6 ماه آخر به تعداد کل ماشین ابزار"
 
-
-
-
-
-
-
-msgid "January"
+msgid "285" 
 msgstr "ژانویه"
 
-msgid "February"
+msgid "286" 
 msgstr "فوریه"
 
-msgid "March"
+msgid "287" 
 msgstr "مارس"
 
-msgid "April"
+msgid "288" 
 msgstr "آوریل"
 
-msgid "May"
+msgid "289" 
 msgstr "می"
 
-msgid "June"
+msgid "290" 
 msgstr "ژوئن"
 
-msgid "July"
+msgid "291" 
 msgstr "ژوئیه"
 
-msgid "August"
+msgid "292" 
 msgstr "آگوست"
 
-msgid "September"
+msgid "293" 
 msgstr "سپتامبر"
 
-msgid "October"
+msgid "294" 
 msgstr "اکتبر"
 
-msgid "November"
+msgid "295" 
 msgstr "نوامبر"
 
-msgid "December"
+msgid "296" 
 msgstr "دسامبر"
 
 
-
-
-
-msgid "today"
+msgid "297" 
 msgstr "امروز"
 
-msgid "yesterday"
+msgid "298" 
 msgstr "دیروز"
 
-msgid "tommorrow"
+msgid "299" 
 msgstr "فردا"
 
-msgid "Company Products"
+msgid "300" 
 msgstr "محصولات شرکت"
 
-msgid "Sample Products"
+msgid "301" 
 msgstr "محصولات نمونه"
 
-msgid "Brief Description About Products"
+msgid "302" 
 msgstr "توضیح کوتاه در مورد محصولات شرکت"
 
-msgid "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
+msgid "303" 
+msgstr "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
 msgstr ""
 
-msgid "Sample product videos"
+msgid "304" 
 msgstr "ویدئو های محصولات شرکت"
 
-msgid "List of Products"
+msgid "305" 
 msgstr "لیست محصولات"
 
-msgid "Company\'s Total Projetcs"
+msgid "306" 
 msgstr "کل پروژه های شرکت"
 
-msgid "Finished Successfully"
+msgid "307" 
 msgstr "با موفقیت به اتمام رسانده"
 
-msgid "In progress"
+msgid "308" 
 msgstr "در حال انجام"
 
-msgid "Sucessfully completed projects rate"
+msgid "309" 
 msgstr "نسبت پروژه های تمام شده به کل پروژه ها"
 
-msgid "than last month"
+msgid "310" 
 msgstr "از ماه قبل"
 
-msgid "Quality and Standard Certificates"
+msgid "311" 
 msgstr "گواهی نامه ها و برگه های استاندارد"
 
-msgid "Acquired certificate in last year"
+msgid "312" 
 msgstr "برگه ها و گواهی نامه های اخذ شده در سال فبل"
 
-msgid "Applied for new certificates"
+msgid "313" 
 msgstr "تعداد اقدامات جهت اخذ گواهی نامه و برگه های جدید"
 
-msgid "Required certificates rate"
+msgid "314" 
 msgstr "نسبت گواهی نامه های موجود به تعداد کل گواهی نامه های مورد نیاز"
 
-msgid "higher"
+msgid "315" 
 msgstr "بیشتر از"
 
-msgid "than last year"
+msgid "316" 
 msgstr "از سال آخر"
 
-msgid "Company Performance Meters"
+msgid "317" 
 msgstr "معیارهای عملکرد شرکت"
 
-msgid "Engineers"
+msgid "318" 
 msgstr "مهندس"
 
-msgid "Foreign Trade Staff"
+msgid "319" 
 msgstr "پرسنل تجارت خارجی"
 
-msgid "Technicians"
+msgid "320" 
 msgstr "تکنسین"
 
-msgid "Number of Employee"
+msgid "321" 
 msgstr "تعداد کارکنان"
 
-msgid "Company Meters"
+msgid "322" 
 msgstr "معیارهای شرکت"
 
-msgid "Company Quality Performance"
+msgid "323" 
 msgstr "عملکرد کیفی شرکت"
 
-msgid "Last Year Increase Ratio"
+msgid "324" 
 msgstr "نسبت بهینه سازی عملکرد کیفی شرکت"
 
-msgid "Overall Performance"
+msgid "325" 
 msgstr "عملکرد کل"
 
-msgid "Available Quality Certificates and Standards"
+msgid "326" 
 msgstr "گواهی نامه و برگه موجود"
 
-msgid "Project Completion Performance"
+msgid "327" 
 msgstr "عملکرد تکمیل پروژه"
 
-msgid "Contributed Projects"
+msgid "328" 
 msgstr "مشارکت در پروژه ها"
 
-msgid "Accomplished Successfully"
+msgid "329" 
 msgstr "پروژه های تکمیل شده با موفقیت"
 
-msgid "Unfinished Porjects"
+msgid "330" 
 msgstr "پروژه های نا تمام"
 
-msgid "Projects in Progress"
+msgid "331" 
 msgstr "پروژه های در حال انجام"
 
-msgid "Customer Satisfaction Rate"
+msgid "332" 
 msgstr "درصد رضایت مشتری"
 
-msgid "Consent Customers"
+msgid "333" 
 msgstr "مشتری های راضی"
 
-msgid "Complained Customers"
+msgid "334" 
 msgstr "مشتری های نا راضی"
 
-msgid "Company Machine Tools"
+msgid "335" 
 msgstr "ماشین ابزار های شرکت"
 
-msgid "More information about your selected machine is given below"
+msgid "336" 
 msgstr "اطلاعات بیشتر در مورد ماشین ابزار انتخاب شده در قسمت پایین صفحه موجود است"
 
-msgid "Total Machine Tools"
-msgstr "کل ماشین ابزار"
+msgid "337" 
+msgstr "تعداد کل ماشین ابزار"
 
-msgid "CNC Machines"
+msgid "338" 
 msgstr "ماشینهای CNC"
 
-msgid "Special Machine Tools"
+msgid "339" 
 msgstr "ماشین ابزار ویژه"
 
-msgid "Unavailable Machines"
+msgid "340" 
 msgstr "ماشین ابزار خارج از دسترس"
 
-msgid "Sample machine tools videos"
+msgid "341" 
 msgstr "ویدئوهای ماشین ابزار"
 
-msgid "Company Members"
+msgid "342" 
 msgstr "کارکنان شرکت"
 
-msgid "Registered Company Employees"
+msgid "343" 
 msgstr "کارکنان ثبت شده شرکت در سیستم"
 
-msgid "Virtual Enterprise Clinets"
+msgid "344" 
 msgstr "شرکتهای ثبت شده در سیستم"
 
-msgid "Clients Page"
+msgid "345" 
 msgstr "صفحه شرکتهای موجود"
 
-msgid "For more information, questions please contact us"
+msgid "346" 
 msgstr "جهت دریافت اطلاعات بیشتر لطفا با ما تماس بگیرید"
 
-msgid "Contact"
+msgid "347" 
 msgstr "ارتباط"
 
-msgid "Panel"
+msgid "348" 
 msgstr "تابلو"
 
-msgid "Contact Information"
+msgid "349" 
 msgstr "اطلاعات تماس"
 
-msgid "TURKEY"
+msgid "350" 
 msgstr "ترکیه"
 
-msgid "Working Hours"
+msgid "351" 
 msgstr "ساعات کاری"
 
-msgid "Week days Mon- Fri"
+msgid "352" 
 msgstr "روزهای هفته دوشنبه تا جمعه"
 
-msgid "Weekends Sat"
+msgid "353" 
 msgstr "روزهای آخر هفته شنبه"
 
-msgid "Weekends Sun"
+msgid "354" 
 msgstr "روزهای آخر هفته یکشنبه"
 
-msgid "Closed"
+msgid "355" 
 msgstr "تعطیل"
 
-msgid "For more information please keep in touch ..."
+msgid "356" 
 msgstr "جهت اطلاعات بیشتر لطفا با ما در تماس باشید"
 
-msgid "Based on your order, working hours could be revised..."
+msgid "357" 
 msgstr "بر اساس حجم کار درخواستی شما ساعات کاری شرکت قابل تغییر میباشد"
 
-msgid "Write details..."
+msgid "358" 
 msgstr "لطفا اینجا بنویسید"
 
-msgid "Ask your question"
+msgid "359" 
 msgstr "سوال خود را مطرح بنمایید"
 
-msgid "Our Profession..."
+msgid "360" 
 msgstr "حرفه ما"
 
-msgid "Our Vision..."
+msgid "361" 
 msgstr "چشم انداز شرکت"
 
-msgid "We are competitive at ..."
+msgid "362" 
 msgstr "تواناییهای ما"
 
-msgid "Production and Quality Control Engineer"
+msgid "363" 
 msgstr "مهندس کنترل کیفی و خط تولید"
 
-msgid "Company info update period"
+msgid "364" 
 msgstr "دوره به روز رسانی اطلاعات شرکت"
 
-msgid "Company profil completion rate"
+msgid "365" 
 msgstr "میزان تکمیل پروفایل شرکت"
 
-msgid "Machine data update period"
+msgid "366" 
 msgstr "دوره به روز رسانی اطلاعات ماشین ابزار"
 
-msgid "Company technologies update period"
+msgid "367" 
 msgstr "دوره به روز رسانی تکنولوژی شرکت"
 
-msgid "Daily currency exchange rates"
+msgid "368" 
 msgstr "نرخ ارزهای معتبر"
 
-msgid "Minutes"
+msgid "369" 
 msgstr "دقیقه"
 
-msgid "Before"
+msgid "370" 
 msgstr "قبل"
 
-msgid "Today"
+msgid "371" 
 msgstr "امروز"
 
-msgid "Visited your projects page"
+msgid "372" 
 msgstr "صفحه پروژه شرکت مورد بازدید قرار گرفت"
 
-msgid "Yesterday"
+msgid "373" 
 msgstr "دیروز"
 
-msgid "Reviewed your document"
+msgid "374" 
 msgstr "مدارک شما بررسی شد"
 
-msgid "Days"
+msgid "375" 
 msgstr "روز"
 
-msgid "Proposal document added"
+msgid "376" 
 msgstr "مدارک ثبت شد"
 
-msgid "Following your company"
+msgid "377" 
 msgstr "شرکت را تعقیب میکند"
 
-msgid "less"
+msgid "378" 
 msgstr "کمتر"
 
-msgid "Machine tools rate to 6 month before"
+msgid "379" 
 msgstr "نسبت ماشین ابزار به 6 ماه قبل"
 
-msgid "Phone"
-msgstr "تلفن"
-
-msgid "Total Employees"
+msgid "380" 
 msgstr "تعداد کارکنان"
 
-msgid "Visited your project page"
+msgid "381" 
 msgstr "صفحه پروژه را زیارت کرد"
 
-
-msgid "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
+msgid "382" 
+msgstr "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
 msgstr ""
 
-msgid "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
-msgstr ""
+msgid "383" 
+msgstr "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
 
-msgid "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
-msgstr ""
+msgid "384" 
+msgstr "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
 
-msgid "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
-msgstr ""
+msgid "385" 
+msgstr "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
 
-msgid "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
-msgstr ""
+msgid "386" 
+msgstr "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
 
-msgid "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
-msgstr ""
+msgid "387" 
+msgstr "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
 
-msgid "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
-msgstr ""
+msgid "388" 
+msgstr "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
 
-msgid "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
-msgstr ""
+msgid "389" 
+msgstr "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
 
-msgid "New Consortiums"
-msgstr ""
+msgid "390" 
+msgstr "کنسرسیوم جدید"
 
-msgid "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
-msgstr ""
+msgid "391" 
+msgstr "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
 
-msgid "Automatic and Objective Negotiation Process"
-msgstr ""
+msgid "392" 
+msgstr "سیستم مناقصه و مزایده اتوماتیک و بی طرف"
 
-msgid "New Technologies Implementation"
-msgstr ""
+msgid "393" 
+msgstr "تکنولوژی مدرن و به روز"
 
-msgid "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
-msgstr ""
+msgid "394" 
+msgstr "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
+msgstr "جهت افزایش کیفیت محصولات تولیدی
+ و تضمین انجام پروژه به نحو احسن خدمات پرینت و اسکن سه بعدی توسط شرکت اوستیم تکنولوژی فراهم می شود"
 
-msgid "OSTIM VIRTUAL ENTERPRISE OFFICE"
-msgstr ""
+msgid "395" 
+msgstr "دفتر شرکت مجازی اوستیم"
 
-msgid "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
-msgstr ""
+msgid "396" 
+msgstr "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
+msgstr " از سیستم شرکت مجازی اوستیم پشتیبانی میکند.
+ دفتر شرکت مجازی اوستیم در منطقه صنعتی اوستیم در آنکارا واقع شده است.
+ این دفتر مسولیت تمامی امور توسعه و مدیریت و برنامه های  سیستم شرکت مجازی اوستیم را در اختیاردارد"
 
-msgid "VE System Mission"
-msgstr ""
+msgid "397" 
+msgstr "اهداف سیستم مجازی اوستیم"
 
-msgid "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
-msgstr ""
+msgid "398" 
+msgstr "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
 
-msgid "Profile Pages"
-msgstr ""
 
-msgid "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
-msgstr ""
+msgid "399" 
+msgstr "نمایه ها"
 
-msgid "Smart Macthcing"
-msgstr ""
 
-msgid "Objective Negotiation Platform"
-msgstr ""
+msgid "400" 
+msgstr "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
 
-msgid "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
-msgstr ""
 
-msgid "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
-msgstr ""
+msgid "401" 
+msgstr "تطابق هوشمند"
 
-msgid "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
-msgstr ""
 
-msgid "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
-msgstr ""
+msgid "402" 
+msgstr "پلاتفرم مناقصه و مزایده هوشمند و بیطرف"
 
-msgid "Chairman of OSTIM Technology A.Ş. Executive Board"
-msgstr ""
 
-msgid "Manager of OSTIM Organized Industrial Zone Management"
-msgstr ""
+msgid "403" 
+msgstr "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
 
-msgid "OSTIM Organized Industrial Zone management provides various servises."
-msgstr ""
 
-msgid "Some of these services are mentioned below"
-msgstr ""
+msgid "404" 
+msgstr "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
 
-msgid "Infrastrcuture Services"
-msgstr ""
 
-msgid "Electric Management and Maitenance"
-msgstr ""
+msgid "405" 
+msgstr "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
 
-msgid "Environemnt and Security"
-msgstr ""
 
-msgid "Gas Management and Maintenance"
-msgstr ""
+msgid "406" 
+msgstr "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
 
-msgid "Office and Work Permit"
-msgstr ""
 
-msgid "Town Planning and Infrastructure"
-msgstr ""
+msgid "407" 
+msgstr "ريیس هیات اجرایی شرکت اوستیم تکنولوژی "
 
-msgid "IT and Computing Center"
 
-msgid "Customer Services"
-msgstr ""
+msgid "408" 
+msgstr "رییس هیات مدیره منطقه صنعتی اوستیم"
 
-msgid "Financial Services"
-msgstr ""
 
-msgid "Customer Relationship"
-msgstr ""
+msgid "409" 
+msgstr "مدیریت منطقه صنعتی اوستیم خدمات گوناگونی را عرضه مینماید."
 
-msgid "OSTIM Employment Office"
-msgstr ""
 
-msgid "Fair and Organizations"
-msgstr ""
+msgid "410" 
+msgstr "برخی از این خدمات شامل"
 
-msgid "Financial and Administrative Affairs"
-msgstr ""
 
-msgid "Press and Public Relations"
-msgstr ""
+msgid "411" 
+msgstr "خدمات زیربنایی"
 
-msgid "Organizational Photo Gallery"
-msgstr ""
 
-msgid "Papers and Journals"
-msgstr ""
+msgid "412" 
+msgstr "مدیریت و نگهداری شبکه الکتریک"
 
-msgid "Videos"
-msgstr ""
 
-msgid "Documents"
-msgstr ""
+msgid "413" 
+msgstr "امنیت و محیط زیست"
 
-msgid "Indigenous Wind Turbine Project"
-msgstr ""
 
-msgid "Indigenous Main Battle Tank Motor Project: TM-1150"
-msgstr ""
+msgid "414" 
+msgstr "مدیریت و نگهداری شبکه گاز"
 
-msgid "Defense Cluster Project"
-msgstr ""
 
-msgid "Railed Systems Cluster Project"
-msgstr ""
+msgid "415" 
+msgstr "صدور مجوز محل کار"
 
-msgid "Indigenous Subway Train Project"
-msgstr ""
 
-msgid "Read More"
-msgstr ""
+msgid "416" 
+msgstr "مدیریت شهری و زیربنایی"
 
-msgid "Renewable Energy Cluster Project"
-msgstr ""
 
-msgid "OSTIM Technology Projects"
-msgstr ""
+msgid "417" 
+msgstr "مرکز محاسبات و شبکه اطلاعات"
 
-msgid "OSTIM Technology R&D Center, collaborates researches and projects with the aim of developing high value added, high tech products under university and industry collaboration framework."
-msgstr ""
+msgid "418" 
+msgstr "خدمات مشتری"
 
-msgid "VE integrates the capabiltities of 5,200 companies in OSTIM Organized Industrial Zone with more than 20,000 machine tools and 60,000 employees under one virtual company."
-msgstr ""
 
-msgid "Members Only"
-msgstr ""
+msgid "419" 
+msgstr "خدمات مالی"
 
-msgid "VE system services are provided under three main categories:"
-msgstr ""
 
-msgid "Resource Discovery"
-msgstr ""
+msgid "420" 
+msgstr "ارتباطات عمومی"
 
-msgid "Project Management"
-msgstr ""
 
-msgid "Resource Definition"
-msgstr ""
+msgid "421" 
+msgstr "کاریابی"
 
-msgid "You may find your required human, information and physical (machinery, raw material and etc.) here"
-msgstr ""
 
-msgid "VE Companies"
-msgstr ""
+msgid "422" 
+msgstr "نمایشگاهها و مناسبتها"
 
-msgid "VE Machine Park"
-msgstr ""
 
-msgid "VE Raw Materials"
-msgstr ""
+msgid "423" 
+msgstr "امور اداری و مالی"
 
-msgid "VE Waste"
-msgstr ""
 
-msgid "VE Human Resources"
-msgstr ""
+msgid "424" 
+msgstr "انتشارات و خبرگذاری"
 
-msgid "VE Products"
-msgstr ""
 
-msgid "To manage existing projects or submit a new order you may use this section"
-msgstr ""
+msgid "425" 
+msgstr "آلبوم سازمانی"
 
-msgid "Negotiation Management System"
-msgstr ""
 
-msgid "Submit new Order"
-msgstr ""
+msgid "426" 
+msgstr "مقالات و نشریات"
 
-msgid "Manage Your Project"
-msgstr ""
 
-msgid "View Project Pool"
-msgstr ""
+msgid "427" 
+msgstr "ویدئو ها"
 
-msgid "You may define your available different resources here"
-msgstr ""
 
-msgid "Add Company"
-msgstr ""
+msgid "428" 
+msgstr "مدارک"
 
-msgid "Add User"
-msgstr ""
 
-msgid "Add Machine Tool"
-msgstr ""
+msgid "429" 
+msgstr "پروژه ملی توربین بادی"
 
-msgid "Add Product"
-msgstr ""
 
-msgid "Add Raw Material"
-msgstr ""
+msgid "430" 
+msgstr "پروژه ملی تولید موتور تانک TM-1150   "
 
-msgid "Add Waste"
-msgstr ""
 
-msgid "VE Services"
-msgstr ""
+msgid "431" 
+msgstr "پروژههای  بخش صنایع دفاع"
 
-msgid "VE Machines List"
-msgstr ""
 
-msgid "Virtual Enterprise Machines List"
-msgstr ""
+msgid "432" 
+msgstr "پروژه های  بخش صنایع ریلی"
 
-msgid "Machines List"
-msgstr ""
 
-msgstr "VE machine tools"
+msgid "433" 
+msgstr "پروژه ملی مترو"
 
-msgid "Reset all verbal information"
-msgstr ""
 
-msgid ""
-msgstr ""
+msgid "434" 
+msgstr "اطلاعات بیشتر"
 
-msgid ""
-msgstr ""
 
-msgid ""
-msgstr ""
+msgid "435" 
+msgstr "پروژههای  بخش انرژیهای تجدید شونده"
 
-msgid ""
-msgstr ""
 
-msgid ""
-msgstr ""
+msgid "436" 
+msgstr "پروژه های اوستیم تکنولوژی"
 
-msgid ""
-msgstr ""
 
-msgid ""
-msgstr ""
+msgid "437" 
+msgstr "مرکز تحقیقاتی اوستیم تکنولوژی جهت تولید محصولات با تکنولوژی روز دنیا
+ و با ارزش افزوده بالا با دانشگاهها و مراکز تحقیقاتی دیگر همکاری مینماید"
 
-msgid ""
-msgstr ""
 
-msgid ""
-msgstr ""
+msgid "438" 
+msgstr "شرکت مجازی اوستیم قابلیتهای تولیدی و خدماتی بیش از 
+5200 شرکت موجود در منطقه صنعتی اوستیم با بیش از 20000 ماشین ابزار را با یکدیگر ادغام مینماید. "
 
-msgid ""
-msgstr ""
 
-msgid ""
-msgstr ""
+msgid "439" 
+msgstr "فقط اعضا"
 
-msgid ""
-msgstr ""
 
-msgid ""
-msgstr ""
+msgid "440" 
+msgstr "خدمات شرکت مجازی اوستیم در سه بخش عمده عرضه میشود"
 
-msgid ""
-msgstr ""
 
-msgid ""
-msgstr ""
+msgid "441" 
+msgstr "کشف منابع"
+
+
+msgid "442" 
+msgstr "مدیریت پروژه"
+
+
+msgid "443" 
+msgstr "تعریف منابع"
+
+
+msgid "444" 
+msgstr "شما میتوانید نیروی انسانی ماشین آلات و یا اطلاعات مورد نیازتان را از اینجا جستجو کنید"
+
+
+msgid "445" 
+msgstr "شرکتهای عضو شرکت مجازی اوستیم"
+
+
+msgid "446" 
+msgstr "ماشین ابزار شرکت مجازی اوستیم"
+
+
+msgid "447" 
+msgstr "مواد خام شرکت مجازی اوستیم"
+
+
+msgid "448" 
+msgstr "ضایعات شرکت مجازی اوستیم"
+
+
+msgid "449" 
+msgstr "نیروی انسانی شرکت مجازی اوستیم"
+
+
+msgid "450" 
+msgstr "محصولات شرکت مجازی اوستیم"
+
+
+msgid "451" 
+msgstr "از این قسمت میتوانید جهت مدیریت پروژه ها و یا ثبت سفارش جدیداستفاده کنید "
+
+
+msgid "452" 
+msgstr "مدیریت مناقصه و یا مزایده"
+
+
+msgid "453" 
+msgstr "ثبت سفارش جدید"
+
+
+msgid "454" 
+msgstr "مدیریت پروژه"
+
+
+msgid "455" 
+msgstr "مشاهده پروژه های ثبت شده"
+
+
+msgid "456" 
+msgstr "شما میتوانید منابع خود را در اینجا ثبت کنید"
+
+
+msgid "457" 
+msgstr "ثبت شرکت"
+
+
+msgid "458" 
+msgstr "ثبت کاربر"
+
+
+msgid "459" 
+msgstr "ثبت ماشین ابزار"
+
+
+msgid "460" 
+msgstr "ثبت محصول"
+
+
+msgid "461" 
+msgstr "ثبت ماده خام"
+
+
+msgid "462" 
+msgstr "ثبت ضایعات"
+
+
+msgid "463" 
+msgstr "خدمات شرکت مجازی"
+
+
+msgid "464" 
+msgstr "لیست ماشین ابزار شرکت مجازی"
+
+
+msgid "465" 
+msgstr "لیست ماشین ابزار شرکت مجازی"
 
 
+msgid "466" 
+msgstr "لیست ماشین آلات"
 
 
+msgid "467" 
+msgstr "ماشین ابزار شرکت مجازی"
 
+msgid "468" 
+msgstr "پاک کردن کلیه اطلاعات"

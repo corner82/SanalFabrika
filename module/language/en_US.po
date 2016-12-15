@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SanalFabrika\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-msgstr-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 22:17-0700\n"
 "PO-Revision-Date: 2016-03-03 13:40+0200\n"
 "Last-Translator: Bahram Lotfi Sadigh <bahram.lotfi@ostim.com.tr>\n"
 "Language-Team: OSTIM Teknoloji A.Ş. <info@ostim.com.tr>\n"
-"Language: tr_TR\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,1491 +15,1490 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-msgid "Virtual Enterprise Project"
-msgstr ""
+msgid "1"
+msgstr "Virtual Enterprise Project"
 
-msgid "Virtual Enterprise Control Panel"
-msgstr ""
+msgid "2"
+msgstr "Virtual Enterprise Control Panel"
 
-msgid "Follow Development"
-msgstr "" 
+msgid "3"
+msgstr "Follow Development"
+ 
+msgid "4"
+msgstr "OSTIM"
 
-msgid "OSTIM"
-msgstr ""
+msgid "5"
+msgstr "OSTIM Technology A.Ş."
 
-msgid "OSTIM Technology A.Ş."
-msgstr ""
+msgid "6"
+msgstr "Virtual Enterprise"
 
-msgid "Virtual Enterprise"
-msgstr ""
+msgid "7"
+msgstr "Active"
 
-msgid "Active"
-msgstr ""
+msgid "8"
+msgstr "Main Navigation"
 
-msgid "Main Navigation"
-msgstr ""
+msgid "9"
+msgstr "Home"
 
-msgid "Home"
-msgstr ""
+msgid "10"
+msgstr "Supervisor Dashboard"
 
-msgid "Supervisor Dashboard"
-msgstr ""
+msgid "11"
+msgstr "Enterprises"
 
-msgid "Enterprises"
-msgstr ""
+msgid "12"
+msgstr "Users"
 
-msgid "Users"
-msgstr ""
+msgid "13"
+msgstr "Organizations"
 
-msgid "Organizations"
-msgstr ""
+msgid "14"
+msgstr "ECO-OSTIM"
 
-msgid "ECO-OSTIM"
-msgstr ""
+msgid "15"
+msgstr "OSTIM Services"
 
-msgid "OSTIM Services"
-msgstr ""
+msgid "16"
+msgstr "Definitions"
 
-msgid "Definitions"
-msgstr ""
+msgid "17"
+msgstr "Calendar"
 
-msgid "Calendar"
-msgstr ""
+msgid "18"
+msgstr "Mail Box"
 
-msgid "Mail Box"
-msgstr ""
+msgid "19"
+msgstr "My Documents"
 
-msgid "My Documents"
-msgstr ""
+msgid "20"
+msgstr "Notifications"
 
-msgid "Notifications"
-msgstr ""
+msgid "21"
+msgstr "Show all notifications"
 
-msgid "Show all notifications"
-msgstr ""
+msgid "22"
+msgstr "New Messages"
 
-msgid "New Messages"
-msgstr ""
+msgid "23"
+msgstr "Show all messages"
 
-msgid "Show all messages"
-msgstr ""
+msgid "24"
+msgstr "Works To Do"
 
-msgid "Works To Do"
-msgstr ""
+msgid "25"
+msgstr "Show all tasks"
 
-msgid "Show all tasks"
-msgstr ""
+msgid "26"
+msgstr "Collaborating Companies"
 
-msgid "Collaborating Companies"
-msgstr ""
+msgid "27"
+msgstr "Friends"
 
-msgid "Friends"
-msgstr ""
+msgid "28"
+msgstr "Followers"
 
-msgid "Followers"
-msgstr ""
+msgid "29"
+msgstr "Profile"
 
-msgid "Profile"
-msgstr ""
+msgid "30"
+msgstr "Log in"
 
-msgid "Log in"
-msgstr ""
+msgid "31"
+msgstr "Log out"
 
-msgid "Log out"
-msgstr ""
+msgid "32"
+msgstr "Layout Options"
 
-msgid "Layout Options"
-msgstr ""
+msgid "33"
+msgstr "Fixed layout"
 
-msgid "Fixed layout"
-msgstr ""
+msgid "34"
+msgstr "Activate the fixed layout. You can't use fixed and boxed layouts together"
 
-msgid "Activate the fixed layout. You can't use fixed and boxed layouts together"
-msgstr ""
+msgid "35"
+msgstr "Boxed Layout"
 
-msgid "Boxed Layout"
-msgstr ""
+msgid "36"
+msgstr "Activate the boxed layout"
 
-msgid "Activate the boxed layout"
-msgstr ""
+msgid "37"
+msgstr "Toggle Sidebar"
 
-msgid "Toggle Sidebar"
-msgstr ""
+msgid "38"
+msgstr "Toggle the left sidebar's state (open or collapse)"
 
-msgid "Toggle the left sidebar's state (open or collapse)"
-msgstr ""
+msgid "39"
+msgstr "Sidebar Expand on Hover"
 
-msgid "Sidebar Expand on Hover"
-msgstr ""
+msgid "40"
+msgstr "Let the sidebar mini expand on hover"
 
-msgid "Let the sidebar mini expand on hover"
-msgstr ""
+msgid "41"
+msgstr "Toggle Right Sidebar Slide"
 
-msgid "Toggle Right Sidebar Slide"
-msgstr ""
+msgid "42"
+msgstr "Toggle between slide over content and push content effects"
 
-msgid "Toggle between slide over content and push content effects"
-msgstr ""
+msgid "43"
+msgstr "Toggle Right Sidebar Skin"
 
-msgid "Toggle Right Sidebar Skin"
-msgstr ""
+msgid "44"
+msgstr "Toggle between dark and light skins for the right sidebar"
 
-msgid "Toggle between dark and light skins for the right sidebar"
-msgstr ""
+msgid "45"
+msgstr "Skins"
 
-msgid "Skins"
-msgstr ""
+msgid "46"
+msgstr "Blue"
 
-msgid "Blue"
-msgstr ""
+msgid "47"
+msgstr "Black"
 
-msgid "Black"
-msgstr ""
+msgid "48"
+msgstr "Purple"
 
-msgid "Purple"
-msgstr ""
+msgid "49"
+msgstr "Green"
 
-msgid "Green"
-msgstr ""
+msgid "50"
+msgstr "Red"
 
-msgid "Red"
-msgstr ""
+msgid "51"
+msgstr "Yellow"
 
-msgid "Yellow"
-msgstr ""
+msgid "52"
+msgstr "Blue Light"
 
-msgid "Blue Light"
-msgstr ""
+msgid "53"
+msgstr "Black Light"
 
-msgid "Black Light"
-msgstr ""
+msgid "54"
+msgstr "Purple Light"
 
-msgid "Purple Light"
-msgstr ""
+msgid "55"
+msgstr "Green Light"
 
-msgid "Green Light"
-msgstr ""
+msgid "56"
+msgstr "Red Light"
 
-msgid "Red Light"
-msgstr ""
+msgid "57"
+msgstr "Yellow Light"
 
-msgid "Yellow Light"
-msgstr ""
+msgid "58"
+msgstr "Recent Activities"
 
-msgid "Recent Activities"
-msgstr ""
+msgid "59"
+msgstr "Tasks Progress"
 
-msgid "Tasks Progress"
-msgstr ""
+msgid "60"
+msgstr "General Settings"
 
-msgid "General Settings"
-msgstr ""
+msgid "61"
+msgstr "Report panel usage"
 
-msgid "Report panel usage"
-msgstr ""
+msgid "62"
+msgstr "Some information about this general settings option"
 
-msgid "Some information about this general settings option"
-msgstr ""
+msgid "63"
+msgstr "Allow mail redirect"
 
-msgid "Allow mail redirect"
-msgstr ""
+msgid "64"
+msgstr "Other sets of options are available"
 
-msgid "Other sets of options are available"
-msgstr ""
+msgid "65"
+msgstr "Expose author name in posts"
 
-msgid "Expose author name in posts"
-msgstr ""
+msgid "66"
+msgstr "Allow the user to show his name in blog posts"
 
-msgid "Allow the user to show his name in blog posts"
-msgstr ""
+msgid "67"
+msgstr "Chat Settings"
 
-msgid "Chat Settings"
-msgstr ""
+msgid "68"
+msgstr "Show me as online"
 
-msgid "Show me as online"
-msgstr ""
+msgid "69"
+msgstr "Turn off notifications"
 
-msgid "Turn off notifications"
-msgstr ""
+msgid "70"
+msgstr "Delete chat history"
 
-msgid "Delete chat history"
-msgstr ""
+msgid "71"
+msgstr "All rights reserved."
 
-msgid "All rights reserved."
-msgstr ""
+msgid "72"
+msgstr "Copyright"
 
-msgid "Copyright"
-msgstr ""
+msgid "73"
+msgstr "Version"
 
-msgid "Version"
-msgstr ""
+msgid "74"
+msgstr "Welcome to OSTIM Virtual Enterprise System"
 
-msgid "Welcome to OSTIM Virtual Enterprise System"
-msgstr ""
+msgid "75"
+msgstr "An error occurred"
 
-msgid "An error occurred"
-msgstr ""
+msgid "76"
+msgstr "Message"
 
-msgid "Message"
-msgstr ""
+msgid "77"
+msgstr "Stack trace"
 
-msgid "Stack trace"
-msgstr ""
+msgid "78"
+msgstr "Previous exceptions"
 
-msgid "Previous exceptions"
-msgstr ""
+msgid "79"
+msgstr "No Exception available"
 
-msgid "No Exception available"
-msgstr ""
+msgid "80"
+msgstr "A 404 error occurred"
 
-msgid "A 404 error occurred"
-msgstr ""
+msgid "81"
+msgstr "The requested controller was unable to dispatch the request."
 
-msgid "The requested controller was unable to dispatch the request."
-msgstr ""
+msgid "82"
+msgstr "The requested controller could not be mapped to an existing controller class."
 
-msgid "The requested controller could not be mapped to an existing controller class."
-msgstr ""
+msgid "83"
+msgstr "The requested controller was not dispatchable."
 
-msgid "The requested controller was not dispatchable."
-msgstr ""
+msgid "84"
+msgstr "The requested URL could not be matched by routing."
 
-msgid "The requested URL could not be matched by routing."
-msgstr ""
+msgid "85"
+msgstr "We cannot determine at this time why a 404 was generated."
 
-msgid "We cannot determine at this time why a 404 was generated."
-msgstr ""
+msgid "86"
+msgstr "Controller"
 
-msgid "Controller"
-msgstr ""
+msgid "87"
+msgstr "resolves to %s"
 
-msgid "resolves to %s"
-msgstr ""
+msgid "88"
+msgstr "Exception"
 
-msgid "Exception"
-msgstr ""
+msgid "89"
+msgstr "Help"
 
-msgid "Help"
-msgstr ""
+msgid "90"
+msgstr "Frequently Asked Questions"
 
-msgid "Frequently Asked Questions"
-msgstr ""
+msgid "91"
+msgstr "Languages"
 
-msgid "Languages"
-msgstr ""
+msgid "92"
+msgstr "Learn more"
 
-msgid "Learn more"
-msgstr ""
+msgid "93"
+msgstr "Our Job"
 
-msgid "Our Job"
-msgstr ""
+msgid "94"
+msgstr "VE Team"
 
-msgid "VE Team"
-msgstr ""
+msgid "95"
+msgstr "Overall Manufacturing Area"
 
-msgid "Overall Manufacturing Area"
-msgstr ""
+msgid "96"
+msgstr "Machine Park Size"
 
-msgid "Machine Park Size"
-msgstr ""
+msgid "97"
+msgstr "Overall Enterprise Number"
 
-msgid "Overall Enterprise Number"
-msgstr ""
+msgid "98"
+msgstr "Employees"
 
-msgid "Employees"
-msgstr ""
+msgid "99"
+msgstr "Marketing and Consulting"
 
-msgid "Marketing and Consulting"
-msgstr ""
+msgid "100"
+msgstr "Our Organization"
 
-msgid "Our Organization"
-msgstr ""
+msgid "101"
+msgstr "Imports"
 
-msgid "Imports"
-msgstr ""
+msgid "102"
+msgstr "Exports"
 
-msgid "Exports"
-msgstr ""
+msgid "103"
+msgstr "Our Employees"
 
-msgid "Our Employees"
-msgstr ""
+msgid "104"
+msgstr "Our Services"
 
-msgid "Our Services"
-msgstr ""
+msgid "105"
+msgstr "Our Portfolio"
 
-msgid "Our Portfolio"
-msgstr ""
+msgid "106"
+msgstr "Load More"
 
-msgid "Load More"
-msgstr ""
+msgid "107"
+msgstr "Our Clients"
 
-msgid "Our Clients"
-msgstr ""
+msgid "108"
+msgstr "Order"
 
-msgid "Order"
-msgstr ""
+msgid "109"
+msgstr "Request for Quote"
 
-msgid "Request for Quote"
-msgstr ""
+msgid "110"
+msgstr "Contact us"
 
-msgid "Contact us"
-msgstr ""
+msgid "111"
+msgstr "Name"
 
-msgid "Name"
-msgstr ""
+msgid "112"
+msgstr "Email"
 
-msgid "Email"
-msgstr ""
+msgid "113"
+msgstr "Send Message"
 
-msgid "Send Message"
-msgstr ""
+msgid "114"
+msgstr "Negotiation"
 
-msgid "Negotiation"
-msgstr ""
+msgid "115"
+msgstr "Auction"
 
-msgid "Auction"
-msgstr ""
+msgid "116"
+msgstr "Auctioning"
 
-msgid "Auctioning"
-msgstr ""
+msgid "117"
+msgstr "Latest News"
 
-msgid "Latest News"
-msgstr ""
+msgid "118"
+msgstr "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
 
-msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
-msgstr ""
+msgid "119"
+msgstr "Opening OSTIM manufacturing capabilities to the customers from all over the world"
 
-msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
-msgstr ""
+msgid "120"
+msgstr "Company"
 
-msgid "Company"
-msgstr ""
+msgid "121"
+msgstr "Virtual Enterprise Company Registration"
 
-msgid "Virtual Enterprise Company Registration"
-msgstr ""
+msgid "122"
+msgstr "Communication"
 
-msgid "Communication"
-msgstr ""
+msgid "123"
+msgstr "Financial"
 
-msgid "Financial"
-msgstr ""
+msgid "124"
+msgstr "Personel"
 
-msgid "Personel"
-msgstr ""
+msgid "125"
+msgstr "Logo"
 
-msgid "Logo"
-msgstr ""
+msgid "126"
+msgstr "Tax Number"
 
-msgid "Tax Number"
-msgstr ""
+msgid "127"
+msgstr "Tax Office"
 
-msgid "Tax Office"
-msgstr ""
+msgid "128"
+msgstr "Social Security Number"
 
-msgid "Social Security Number"
-msgstr ""
+msgid "129"
+msgstr "Foundation Date"
 
-msgid "Foundation Date"
-msgstr ""
+msgid "130"
+msgstr "Web Address"
 
-msgid "Web Address"
-msgstr ""
+msgid "131"
+msgstr "Submit"
 
-msgid "Submit"
-msgstr ""
+msgid "132"
+msgstr "Cancel"
 
-msgid "Cancel"
-msgstr ""
+msgid "133"
+msgstr "Building Type"
 
-msgid "Building Type"
-msgstr ""
+msgid "134"
+msgstr "Building Name"
 
-msgid "Building Name"
-msgstr ""
+msgid "135"
+msgstr "Country"
 
-msgid "Country"
-msgstr ""
+msgid "136"
+msgstr "State"
 
-msgid "State"
-msgstr ""
+msgid "137"
+msgstr "Province"
 
-msgid "Province"
-msgstr ""
+msgid "138"
+msgstr "City"
 
-msgid "City"
-msgstr ""
+msgid "139"
+msgstr "District"
 
-msgid "District"
-msgstr ""
+msgid "140"
+msgstr "Village"
 
-msgid "Village"
-msgstr ""
+msgid "141"
+msgstr "Street"
 
-msgid "Street"
-msgstr ""
+msgid "142"
+msgstr "Alley"
 
-msgid "Alley"
-msgstr ""
+msgid "143"
+msgstr "Number"
 
-msgid "Number"
-msgstr ""
+msgid "145"
+msgstr "Postal Code"
 
-msgid "Postal Code"
-msgstr ""
+msgid "146"
+msgstr "Telephone"
 
-msgid "Telephone"
-msgstr ""
+msgid "147"
+msgstr "Phone"
 
-msgid "Phone"
-msgstr ""
+msgid "148"
+msgstr "Fax"
 
-msgid "Fax"
-msgstr ""
+msgid "149"
+msgstr "Update"
 
-msgid "Update"
-msgstr ""
+msgid "150"
+msgstr "Add New Address"
 
-msgid "Add New Address"
-msgstr ""
+msgid "151"
+msgstr "Update Company Information"
 
-msgid "Update Company Information"
-msgstr ""
+msgid "152"
+msgstr "Company Registration"
 
-msgid "Company Registration"
-msgstr ""
+msgid "153"
+msgstr "List of Companies"
 
-msgid "List of Companies"
-msgstr ""
+msgid "154"
+msgstr "List of Machine Tools"
 
-msgid "List of Machine Tools"
-msgstr ""
+msgid "155"
+msgstr "New Submission"
 
-msgid "New Submission"
-msgstr ""
+msgid "156"
+msgstr "Manufacturing Machine Tools"
 
-msgid "Manufacturing Machine Tools"
-msgstr ""
+msgid "157"
+msgstr "Quality Control Equipment"
 
-msgid "Quality Control Equipment"
-msgstr ""
+msgid "158"
+msgstr "Others"
 
-msgid "Others"
-msgstr ""
+msgid "159"
+msgstr "Manufacturing Operation Type"
 
-msgid "Manufacturing Operation Type"
-msgstr ""
+msgid "160"
+msgstr "Machine Tool Type"
 
-msgid "Machine Tool Type"
-msgstr ""
+msgid "161"
+msgstr "Add New Machine Tool"
 
-msgid "Add New Machine Tool"
-msgstr ""
+msgid "162"
+msgstr "Measurement Process Type"
 
-msgid "Measurement Process Type"
-msgstr ""
+msgid "163"
+msgstr "Quality Control Tool Type"
 
-msgid "Quality Control Tool Type"
-msgstr ""
+msgid "164"
+msgstr "Add New Q.C. Device"
 
-msgid "Add New Q.C. Device"
-msgstr ""
+msgid "165"
+msgstr "Update Machine Tool Information"
 
-msgid "Update Machine Tool Information"
-msgstr ""
+msgid "166"
+msgstr "Add New Device"
 
-msgid "Add New Device"
-msgstr ""
+msgid "167"
+msgstr "Software Information"
 
-msgid "Software Information"
-msgstr ""
+msgid "168"
+msgstr "List of Software"
 
-msgid "List of Software"
-msgstr ""
+msgid "169"
+msgstr "Update software information"
 
-msgid "Update software information"
-msgstr ""
+msgid "170"
+msgstr "Add New Software"
 
-msgid "Add New Software"
-msgstr ""
+msgid "171"
+msgstr "Select a country ... "
 
-msgid "Select a country ... "
-msgstr ""
+msgid "172"
+msgstr "Select a province ... "
 
-msgid "Select a province ... "
-msgstr ""
+msgid "173"
+msgstr "Select a district ... "
 
-msgid "Select a district ... "
-msgstr ""
+msgid "174"
+msgstr "Select a village ... "
 
-msgid "Select a village ... "
-msgstr ""
+msgid "175"
+msgstr "Search..."
 
-msgid "Search..."
-msgstr ""
+msgid "176"
+msgstr "General Information"
 
-msgid "General Information"
-msgstr ""
+msgid "177"
+msgstr "Address Information"
 
-msgid "Address Information"
-msgstr ""
+msgid "178"
+msgstr "Communication Information"
 
-msgid "Communication Information"
-msgstr ""
+msgid "179"
+msgstr "Company Information"
 
-msgid "Company Information"
-msgstr ""
+msgid "180"
+msgstr "Please select a country from list..."
 
-msgid "Please select a country from list..."
-msgstr ""
+msgid "181"
+msgstr "Please select a city from list..."
 
-msgid "Please select a city from list..."
-msgstr ""
+msgid "182"
+msgstr "Please select a district from list..."
 
-msgid "Please select a district from list..."
-msgstr ""
+msgid "183"
+msgstr "Please select a village from list..."
 
-msgid "Please select a village from list..."
-msgstr ""
+msgid "184"
+msgstr "Continue to Address Information"
 
-msgid "Continue to Address Information"
-msgstr ""
+msgid "185"
+msgstr "Continue to Communication Information"
 
-msgid "Continue to Communication Information"
-msgstr ""
+msgid "186"
+msgstr "Reset"
 
-msgid "Reset"
-msgstr ""
+msgid "187"
+msgstr "Registration"
 
-msgid "Registration"
-msgstr ""
+msgid "188"
+msgstr "First Name"
 
-msgid "First Name"
-msgstr ""
+msgid "189"
+msgstr "Last Name"
 
-msgid "Last Name"
-msgstr ""
+msgid "190"
+msgstr "Prefered Username"
 
-msgid "Prefered Username"
-msgstr ""
+msgid "191"
+msgstr "Prefered Password"
 
-msgid "Prefered Password"
-msgstr ""
+msgid "192"
+msgstr "Repeat Password"
 
-msgid "Repeat Password"
-msgstr ""
+msgid "193"
+msgstr "ID Number (TC Kimlik No for Turkish Citizens)"
 
-msgid "ID Number (TC Kimlik No for Turkish Citizens)"
-msgstr ""
+msgid "194"
+msgstr "Prefered Language"
 
-msgid "Prefered Language"
-msgstr ""
+msgid "195"
+msgstr "Make my profile public"
 
-msgid "Make my profile public"
-msgstr ""
+msgid "196"
+msgstr "Communication Type"
 
-msgid "Communication Type"
-msgstr ""
+msgid "197"
+msgstr "Please select a communication type from list..."
 
-msgid "Please select a communication type from list..."
-msgstr ""
+msgid "198"
+msgstr "Set this number as your default contact number"
 
-msgid "Set this number as your default contact number"
-msgstr ""
+msgid "199"
+msgstr "Contact Number"
 
-msgid "Contact Number"
-msgstr ""
+msgid "200"
+msgstr "Submit Number"
 
-msgid "Submit Number"
-msgstr ""
+msgid "201"
+msgstr "Description"
 
-msgid "Description"
-msgstr ""
+msgid "202"
+msgstr "Added Contacts"
 
-msgid "Added Contacts"
-msgstr ""
+msgid "203"
+msgstr "I agree with the Terms and Conditions"
 
-msgid "I agree with the Terms and Conditions"
-msgstr ""
+msgid "204"
+msgstr "Complete User Submission Process"
 
-msgid "Complete User Submission Process"
-msgstr ""
+msgid "205"
+msgstr "Continue to Company Information"
 
-msgid "Continue to Company Information"
-msgstr ""
+msgid "206"
+msgstr "Company Name"
 
-msgid "Company Name"
-msgstr ""
+msgid "207"
+msgstr "Please select your prefered language from list..."
 
-msgid "Please select your prefered language from list..."
-msgstr ""
+msgid "208"
+msgstr "Show all my registered addresses"
 
-msgid "Show all my registered addresses"
-msgstr ""
+msgid "209"
+msgstr "My Registered Addresses"
 
-msgid "My Registered Addresses"
-msgstr ""
+msgid "210"
+msgstr "List of Contacts"
 
-msgid "List of Contacts"
-msgstr ""
+msgid "211"
+msgstr "Edit selected address"
 
-msgid "Edit selected address"
-msgstr ""
+msgid "212"
+msgstr "Close"
 
-msgid "Close"
-msgstr ""
+msgid "213"
+msgstr "Address type"
 
-msgid "Address type"
-msgstr ""
+msgid "214"
+msgstr "Billing Address"
 
-msgid "Billing Address"
-msgstr ""
 
-msgid "Mailing Address"
-msgstr ""
+msgid "215" 
+msgstr "Mailing Address"
 
-msgid "Task Progress"
-msgstr ""
 
-msgid "User registration"
-msgstr ""
+msgid "216" 
+msgstr "Task Progress"
 
-msgid "Company registration"
-msgstr ""
 
-msgid "Registration process"
-msgstr ""
+msgid "217" 
+msgstr "User registration"
 
-msgid "Address 1"
-msgstr ""
 
-msgid "Address 2"
-msgstr ""
+msgid "218" 
+msgstr "Company registration"
 
-msgid "Show my password"
-msgstr ""
 
-msgid "Make my address information public"
-msgstr ""
+msgid "219" 
+msgstr "Registration process"
 
-msgid "Make my contact information public"
-msgstr ""
 
-msgid "Show all my registered contact Information"
-msgstr ""
+msgid "220" 
+msgstr "Address 1"
 
-msgid "DUNS Number"
-msgstr ""
 
-msgid "Company Short Name"
-msgstr ""
+msgid "221" 
+msgstr "Address 2"
 
-msgid "Back"
-msgstr ""
 
-msgid "About Us"
-msgstr ""
+msgid "222" 
+msgstr "Show my password"
 
-msgid "Services"
-msgstr ""
 
-msgid "News"
-msgstr ""
+msgid "223" 
+msgstr "Make my address information public"
 
-msgid "Contacts"
-msgstr ""
 
-msgid "Submenus"
-msgstr ""
+msgid "224" 
+msgstr "Make my contact information public"
 
-msgid "Main"
-msgstr ""
 
-msgid "Ownership Status"
-msgstr ""
+msgid "225" 
+msgstr "Show all my registered contact Information"
 
-msgid "Company Machine Tool Panel"
-msgstr ""
 
-msgid "Some Activities"
-msgstr ""
+msgid "226" 
+msgstr "DUNS Number"
 
-msgid "List of activities"
-msgstr ""
 
-msgid "Company machine tools list"
-msgstr ""
+msgid "227" 
+msgstr "Company Short Name"
 
-msgid "Company machine tools"
-msgstr ""
 
-msgid "Available Machine Tools in System"
-msgstr ""
+msgid "228" 
+msgstr "Back"
 
-msgid "Propose a New Machine Tool"
-msgstr ""
 
-msgid "Proposition Form"
-msgstr ""
+msgid "229" 
+msgstr "About Us"
 
-msgid "Machine Manufacturer"
-msgstr ""
 
-msgid "Machine Name"
-msgstr ""
+msgid "230" 
+msgstr "Services"
 
-msgid "Machine Model"
-msgstr ""
 
-msgid "Machine Type"
-msgstr ""
+msgid "231" 
+msgstr "News"
 
-msgid "Machine Properties"
-msgstr ""
 
-msgid "Submit new machine tool"
-msgstr ""
+msgid "232" 
+msgstr "Contacts"
 
-msgid "Language"
-msgstr ""
 
-msgid "Machine Tool General Information"
-msgstr ""
+msgid "233" 
+msgstr "Submenus"
 
-msgid "Machine Tool Properties Information"
-msgstr ""
 
-msgid "Add selected Machine"
-msgstr ""
+msgid "234" 
+msgstr "Main"
 
-msgid "Details"
-msgstr ""
 
-msgid "Please Enter Machine Manufacturer Name (Brand)"
-msgstr ""
+msgid "235" 
+msgstr "Ownership Status"
 
-msgid "Please Enter Machine Name (Series)"
-msgstr ""
 
-msgid "Please Enter Machine Model (Production Year)"
-msgstr ""
+msgid "236" 
+msgstr "Company Machine Tool Panel"
 
 
+msgid "237" 
+msgstr "Some Activities"
 
 
+msgid "238" 
+msgstr "List of activities"
 
 
-msgid "Company Profile"
-msgstr ""
+msgid "239" 
+msgstr "Company machine tools list"
 
-msgid "Notification"
-msgstr ""
 
-msgid "References"
-msgstr ""
+msgid "240" 
+msgstr "Company machine tools"
 
-msgid "Latest Posts"
-msgstr ""
 
-msgid "Useful Links"
-msgstr ""
+msgid "241" 
+msgstr "Available Machine Tools in System"
 
-msgid "Contact Us"
-msgstr ""
 
-msgid "A virtual enterprise (VE) is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
-msgstr ""
+msgid "242" 
+msgstr "Propose a New Machine Tool"
 
-msgid "Latest News about OSTIM VE"
-msgstr ""
 
-msgid "OSTIM Clusters News"
-msgstr ""
+msgid "243" 
+msgstr "Proposition Form"
 
-msgid "New Project Calls"
-msgstr ""
 
-msgid "Ostim Organized Industrial Zone"
-msgstr ""
+msgid "244" 
+msgstr "Machine Manufacturer"
 
-msgid "Turkish Ministry of SIT"
-msgstr ""
 
-msgid "TUBITAK"
-msgstr ""
+msgid "245" 
+msgstr "Machine Name"
 
-msgid "KOSGEB"
-msgstr ""
 
-msgid "Terms of Service"
-msgstr ""
+msgid "246" 
+msgstr "Machine Model"
 
-msgid "Privacy Policy"
-msgstr ""
 
-msgid "All Rights Reserved."
-msgstr ""
+msgid "247" 
+msgstr "Machine Type"
 
-msgid "Performance Meters"
-msgstr ""
 
-msgid "Projects in progress"
-msgstr ""
+msgid "248" 
+msgstr "Machine Properties"
 
-msgid "Last Week"
-msgstr ""
 
-msgid "Last Month"
-msgstr ""
+msgid "249" 
+msgstr "Submit new machine tool"
 
-msgid "Last month projects to overall project number"
-msgstr ""
 
-msgid "Project started in the last month"
-msgstr ""
+msgid "250" 
+msgstr "Language"
 
-msgid "Total machine tools number"
-msgstr ""
 
-msgid "Added machine tools in last 6 months"
-msgstr ""
+msgid "251" 
+msgstr "Machine Tool General Information"
 
-msgid "Added machine tools in last month"
-msgstr ""
 
-msgid "Rate of added machine tools in last 6 months to overall machine tools"
-msgstr ""
+msgid "252" 
+msgstr "Machine Tool Properties Information"
 
 
+msgid "253" 
+msgstr "Add selected Machine"
 
 
+msgid "254" 
+msgstr "Details"
 
 
+msgid "255" 
+msgstr "Please Enter Machine Manufacturer Name (Brand)"
 
-msgid "January"
-msgstr ""
 
-msgid "February"
-msgstr ""
+msgid "256" 
+msgstr "Please Enter Machine Name (Series)"
 
-msgid "March"
-msgstr ""
 
-msgid "April"
-msgstr ""
+msgid "257" 
+msgstr "Please Enter Machine Model (Production Year)"
 
-msgid "May"
-msgstr ""
 
-msgid "June"
-msgstr ""
 
-msgid "July"
-msgstr ""
 
-msgid "August"
-msgstr ""
 
-msgid "September"
-msgstr ""
 
-msgid "October"
-msgstr ""
 
-msgid "November"
-msgstr ""
+msgid "258" 
+msgstr "Company Profile"
 
-msgid "December"
-msgstr ""
 
+msgid "259" 
+msgstr "Notification"
 
 
+msgid "260" 
+msgstr "References"
 
 
-msgid "today"
-msgstr ""
+msgid "261" 
+msgstr "Latest Posts"
 
-msgid "yesterday"
-msgstr ""
 
-msgid "tommorrow"
-msgstr ""
+msgid "262" 
+msgstr "Useful Links"
 
-msgid "Company Products"
-msgstr ""
 
-msgid "Sample Products"
-msgstr ""
+msgid "263" 
+msgstr "Contact Us"
 
-msgid "Brief Description About Products"
-msgstr ""
 
-msgid "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
-msgstr ""
+msgid "264" 
+msgstr "A virtual enterprise (VE) is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
 
-msgid "Sample product videos"
-msgstr ""
 
-msgid "List of Products"
-msgstr ""
+msgid "265" 
+msgstr "Latest News about OSTIM VE"
 
-msgid "Company\'s Total Projetcs"
-msgstr ""
 
-msgid "Finished Successfully"
-msgstr ""
+msgid "266" 
+msgstr "OSTIM Clusters News"
 
-msgid "In progress"
-msgstr ""
 
-msgid "Sucessfully completed projects rate"
-msgstr ""
+msgid "267" 
+msgstr "New Project Calls"
 
-msgid "than last month"
-msgstr ""
 
-msgid "Quality and Standard Certificates"
-msgstr ""
+msgid "268" 
+msgstr "Ostim Organized Industrial Zone"
 
-msgid "Acquired certificate in last year"
-msgstr ""
 
-msgid "Applied for new certificates"
-msgstr ""
+msgid "269" 
+msgstr "Turkish Ministry of SIT"
 
-msgid "Required certificates rate"
-msgstr ""
 
-msgid "higher"
-msgstr ""
+msgid "270" 
+msgstr "TUBITAK"
 
-msgid "than last year"
-msgstr ""
 
-msgid "Company Performance Meters"
-msgstr ""
+msgid "271" 
+msgstr "KOSGEB"
 
-msgid "Engineers"
-msgstr ""
 
-msgid "Foreign Trade Staff"
-msgstr ""
+msgid "272" 
+msgstr "Terms of Service"
 
-msgid "Technicians"
-msgstr ""
 
-msgid "Number of Employee"
-msgstr ""
+msgid "273" 
+msgstr "Privacy Policy"
 
-msgid "Company Meters"
-msgstr ""
 
-msgid "Company Quality Performance"
-msgstr ""
+msgid "274" 
+msgstr "All Rights Reserved."
 
-msgid "Last Year Increase Ratio"
-msgstr ""
 
-msgid "Overall Performance"
-msgstr ""
+msgid "275" 
+msgstr "Performance Meters"
 
-msgid "Available Quality Certificates and Standards"
-msgstr ""
 
-msgid "Project Completion Performance"
-msgstr ""
+msgid "276" 
+msgstr "Projects in progress"
 
-msgid "Contributed Projects"
-msgstr ""
 
-msgid "Accomplished Successfully"
-msgstr ""
+msgid "277" 
+msgstr "Last Week"
 
-msgid "Unfinished Porjects"
-msgstr ""
 
-msgid "Projects in Progress"
-msgstr ""
+msgid "278" 
+msgstr "Last Month"
 
-msgid "Customer Satisfaction Rate"
-msgstr ""
 
-msgid "Consent Customers"
-msgstr ""
+msgid "279" 
+msgstr "Last month projects to overall project number"
 
-msgid "Complained Customers"
-msgstr ""
 
-msgid "Company Machine Tools"
-msgstr ""
+msgid "280" 
+msgstr "Project started in the last month"
 
-msgid "More information about your selected machine is given below"
-msgstr ""
 
-msgid "Total Machine Tools"
-msgstr ""
+msgid "281" 
+msgstr "Total machine tools number"
 
-msgid "CNC Machines"
-msgstr ""
 
-msgid "Special Machine Tools"
-msgstr ""
+msgid "282" 
+msgstr "Added machine tools in last 6 months"
 
-msgid "Unavailable Machines"
-msgstr ""
 
-msgid "Sample machine tools videos"
-msgstr ""
+msgid "283" 
+msgstr "Added machine tools in last month"
 
-msgid "Company Members"
-msgstr ""
 
-msgid "Registered Company Employees"
-msgstr ""
+msgid "284" 
+msgstr "Rate of added machine tools in last 6 months to overall machine tools"
 
-msgid "Virtual Enterprise Clinets"
-msgstr ""
 
-msgid "Clients Page"
-msgstr ""
 
-msgid "For more information, questions please contact us"
-msgstr ""
 
-msgid "Contact"
-msgstr ""
 
-msgid "Panel"
-msgstr ""
 
-msgid "Contact Information"
-msgstr ""
 
-msgid "TURKEY"
-msgstr ""
 
-msgid "Working Hours"
-msgstr ""
+msgid "285" 
+msgstr "January"
 
-msgid "Week days Mon- Fri"
-msgstr ""
 
-msgid "Weekends Sat"
-msgstr ""
+msgid "286" 
+msgstr "February"
 
-msgid "Weekends Sun"
-msgstr ""
 
-msgid "Closed"
-msgstr ""
+msgid "287" 
+msgstr "March"
 
-msgid "For more information please keep in touch ..."
-msgstr ""
 
-msgid "Based on your order, working hours could be revised..."
-msgstr ""
+msgid "288" 
+msgstr "April"
 
-msgid "Write details..."
-msgstr ""
+msgid "289" 
+msgstr "May"
 
-msgid "Ask your question"
-msgstr ""
+msgid "290" 
+msgstr "June"
 
-msgid "Our Profession..."
-msgstr ""
+msgid "291" 
+msgstr "July"
 
-msgid "Our Vision..."
-msgstr ""
+msgid "292" 
+msgstr "August"
 
-msgid "We are competitive at ..."
-msgstr ""
+msgid "293" 
+msgstr "September"
 
-msgid "Production and Quality Control Engineer"
-msgstr ""
+msgid "294" 
+msgstr "October"
 
-msgid "Company info update period"
-msgstr ""
+msgid "295" 
+msgstr "November"
 
-msgid "Company profil completion rate"
-msgstr ""
+msgid "296" 
+msgstr "December"
 
-msgid "Machine data update period"
-msgstr ""
 
-msgid "Company technologies update period"
-msgstr ""
 
-msgid "Online exchange rates"
-msgstr ""
+msgid "297" 
+msgstr "today"
 
-msgid "Minutes"
-msgstr ""
+msgid "298" 
+msgstr "yesterday"
 
-msgid "Before"
-msgstr ""
+msgid "299" 
+msgstr "tommorrow"
 
-msgid "Today"
-msgstr ""
+msgid "300" 
+msgstr "Company Products"
 
-msgid "Visited your projects page"
-msgstr ""
+msgid "301" 
+msgstr "Sample Products"
 
-msgid "Yesterday"
-msgstr ""
+msgid "302" 
+msgstr "Brief Description About Products"
 
-msgid "Reviewed your document"
-msgstr ""
+msgid "303" 
+msgstr "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
 
-msgid "Days"
-msgstr ""
+msgid "304" 
+msgstr "Sample product videos"
 
-msgid "Proposal document added"
-msgstr ""
+msgid "305" 
+msgstr "List of Products"
 
-msgid "Following your company"
-msgstr ""
+msgid "306" 
+msgstr "Company\'s Total Projetcs"
 
-msgid "less"
-msgstr ""
+msgid "307" 
+msgstr "Finished Successfully"
 
-msgid "Machine tools rate to 6 month before"
-msgstr ""
+msgid "308" 
+msgstr "In progress"
 
-msgid "Total Employees"
-msgstr ""
+msgid "309" 
+msgstr "Sucessfully completed projects rate"
 
-msgid "Visited your project page"
-msgstr ""
+msgid "310" 
+msgstr "than last month"
 
-msgid "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
-msgstr ""
+msgid "311" 
+msgstr "Quality and Standard Certificates"
 
-msgid "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
-msgstr ""
+msgid "312" 
+msgstr "Acquired certificate in last year"
 
-msgid "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
-msgstr ""
+msgid "313" 
+msgstr "Applied for new certificates"
 
-msgid "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
-msgstr ""
+msgid "314" 
+msgstr "Required certificates rate"
 
-msgid "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
-msgstr ""
+msgid "315" 
+msgstr "higher"
 
-msgid "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
-msgstr ""
+msgid "316" 
+msgstr "than last year"
 
-msgid "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
-msgstr ""
+msgid "317" 
+msgstr "Company Performance Meters"
 
-msgid "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
-msgstr ""
+msgid "318" 
+msgstr "Engineers"
 
-msgid "New Consortiums"
-msgstr ""
+msgid "319" 
+msgstr "Foreign Trade Staff"
 
-msgid "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
-msgstr ""
+msgid "320" 
+msgstr "Technicians"
 
-msgid "Automatic and Objective Negotiation Process"
-msgstr ""
+msgid "321" 
+msgstr "Number of Employee"
 
-msgid "New Technologies Implementation"
-msgstr ""
+msgid "322" 
+msgstr "Company Meters"
 
-msgid "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
-msgstr ""
+msgid "323" 
+msgstr "Company Quality Performance"
 
-msgid "OSTIM VIRTUAL ENTERPRISE OFFICE"
-msgstr ""
+msgid "324" 
+msgstr "Last Year Increase Ratio"
 
-msgid "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
-msgstr ""
+msgid "325" 
+msgstr "Overall Performance"
 
-msgid "VE System Mission"
-msgstr ""
+msgid "326" 
+msgstr "Available Quality Certificates and Standards"
 
-msgid "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
-msgstr ""
+msgid "327" 
+msgstr "Project Completion Performance"
 
-msgid "Profile Pages"
-msgstr ""
+msgid "328" 
+msgstr "Contributed Projects"
 
-msgid "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
-msgstr ""
+msgid "329" 
+msgstr "Accomplished Successfully"
 
-msgid "Smart Macthcing"
-msgstr ""
+msgid "330" 
+msgstr "Unfinished Porjects"
 
-msgid "Objective Negotiation Platform"
-msgstr ""
+msgid "331" 
+msgstr "Projects in Progress"
 
-msgid "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
-msgstr ""
+msgid "332" 
+msgstr "Customer Satisfaction Rate"
 
-msgid "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
-msgstr ""
+msgid "333" 
+msgstr "Consent Customers"
 
-msgid "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
-msgstr ""
+msgid "334" 
+msgstr "Complained Customers"
 
-msgid "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
-msgstr ""
+msgid "335" 
+msgstr "Company Machine Tools"
 
-msgid "Chairman of OSTIM Technology A.Ş. Executive Board"
-msgstr ""
+msgid "336" 
+msgstr "More information about your selected machine is given below"
 
-msgid "Manager of OSTIM Organized Industrial Zone Management"
-msgstr ""
+msgid "337" 
+msgstr "Total Machine Tools"
 
-msgid "OSTIM Organized Industrial Zone management provides various servises."
-msgstr ""
+msgid "338" 
+msgstr "CNC Machines"
 
-msgid "Some of these services are mentioned below"
-msgstr ""
+msgid "339" 
+msgstr "Special Machine Tools"
 
-msgid "Infrastrcuture Services"
-msgstr ""
+msgid "340" 
+msgstr "Unavailable Machines"
 
-msgid "Electric Management and Maitenance"
-msgstr ""
+msgid "341" 
+msgstr "Sample machine tools videos"
 
-msgid "Environemnt and Security"
-msgstr ""
+msgid "342" 
+msgstr "Company Members"
 
-msgid "Gas Management and Maintenance"
-msgstr ""
+msgid "343" 
+msgstr "Registered Company Employees"
 
-msgid "Office and Work Permit"
-msgstr ""
+msgid "344" 
+msgstr "Virtual Enterprise Clinets"
 
-msgid "Town Planning and Infrastructure"
-msgstr ""
+msgid "345" 
+msgstr "Clients Page"
 
-msgid "IT and Computing Center"
+msgid "346" 
+msgstr "For more information, questions please contact us"
 
-msgid "Customer Services"
-msgstr ""
+msgid "347" 
+msgstr "Contact"
 
-msgid "Financial Services"
-msgstr ""
+msgid "348" 
+msgstr "Panel"
 
-msgid "Customer Relationship"
-msgstr ""
+msgid "349" 
+msgstr "Contact Information"
 
-msgid "OSTIM Employment Office"
-msgstr ""
+msgid "350" 
+msgstr "TURKEY"
 
-msgid "Fair and Organizations"
-msgstr ""
+msgid "351" 
+msgstr "Working Hours"
 
-msgid "Financial and Administrative Affairs"
-msgstr ""
+msgid "352" 
+msgstr "Week days Mon- Fri"
 
-msgid "Press and Public Relations"
-msgstr ""
+msgid "353" 
+msgstr "Weekends Sat"
 
-msgid "Organizational Photo Gallery"
-msgstr ""
+msgid "354" 
+msgstr "Weekends Sun"
 
-msgid "Papers and Journals"
-msgstr ""
+msgid "355" 
+msgstr "Closed"
 
-msgid "Videos"
-msgstr ""
+msgid "356" 
+msgstr "For more information please keep in touch ..."
 
-msgid "Documents"
-msgstr ""
+msgid "357" 
+msgstr "Based on your order, working hours could be revised..."
 
-msgid "Indigenous Wind Turbine Project"
-msgstr ""
+msgid "358" 
+msgstr "Write details..."
 
-msgid "Indigenous Main Battle Tank Motor Project: TM-1150"
-msgstr ""
+msgid "359" 
+msgstr "Ask your question"
 
-msgid "Defense Cluster Project"
-msgstr ""
+msgid "360" 
+msgstr "Our Profession..."
 
-msgid "Railed Systems Cluster Project"
-msgstr ""
+msgid "361" 
+msgstr "Our Vision..."
 
-msgid "Indigenous Subway Train Project"
-msgstr ""
+msgid "362" 
+msgstr "We are competitive at ..."
 
-msgid "Read More"
-msgstr ""
+msgid "363" 
+msgstr "Production and Quality Control Engineer"
 
-msgid "Renewable Energy Cluster Project"
-msgstr ""
+msgid "364" 
+msgstr "Company info update period"
 
-msgid "OSTIM Technology Projects"
-msgstr ""
+msgid "365" 
+msgstr "Company profil completion rate"
 
-msgid "OSTIM Technology R&D Center, collaborates researches and projects with the aim of developing high value added, high tech products under university and industry collaboration framework."
-msgstr ""
+msgid "366" 
+msgstr "Machine data update period"
 
-msgid "VE integrates the capabiltities of 5,200 companies in OSTIM Organized Industrial Zone with more than 20,000 machine tools and 60,000 employees under one virtual company."
-msgstr ""
+msgid "367" 
+msgstr "Company technologies update period"
 
-msgid "Members Only"
-msgstr ""
+msgid "368" 
+msgstr "Online exchange rates"
 
-msgid "VE system services are provided under three main categories:"
-msgstr ""
+msgid "369" 
+msgstr "Minutes"
 
-msgid "Resource Discovery"
-msgstr ""
+msgid "370" 
+msgstr "Before"
 
-msgid "Project Management"
-msgstr ""
+msgid "371" 
+msgstr "Today"
 
-msgid "Resource Definition"
-msgstr ""
+msgid "372" 
+msgstr "Visited your projects page"
 
-msgid "You may find your required human, information and physical (machinery, raw material and etc.) here"
-msgstr ""
+msgid "373" 
+msgstr "Yesterday"
 
-msgid "VE Companies"
-msgstr ""
+msgid "374" 
+msgstr "Reviewed your document"
 
-msgid "VE Machine Park"
-msgstr ""
+msgid "375" 
+msgstr "Days"
 
-msgid "VE Raw Materials"
-msgstr ""
+msgid "376" 
+msgstr "Proposal document added"
 
-msgid "VE Waste"
-msgstr ""
+msgid "377" 
+msgstr "Following your company"
 
-msgid "VE Human Resources"
-msgstr ""
+msgid "378" 
+msgstr "less"
 
-msgid "VE Products"
-msgstr ""
+msgid "379" 
+msgstr "Machine tools rate to 6 month before"
 
-msgid "To manage existing projects or submit a new order you may use this section"
-msgstr ""
+msgid "380" 
+msgstr "Total Employees"
 
-msgid "Negotiation Management System"
-msgstr ""
+msgid "381" 
+msgstr "Visited your project page"
 
-msgid "Submit new Order"
-msgstr ""
+msgid "382" 
+msgstr "Virtual enterprise is the collaboration platform for SMEs to enhance their market share and improve their competebility in highly turbulent strcit global market conditions. In order to reach these targets following services are provided by OSTIM VE system:"
 
-msgid "Manage Your Project"
-msgstr ""
+msgid "383" 
+msgstr "Increase Companies transparency by providing company profile pages and present company inventory and their capabilities. Completing these pages companies would be able to describe their activities in details and this helps customers to discover their target partners."
 
-msgid "View Project Pool"
-msgstr ""
+msgid "384" 
+msgstr "Providing professional user profile pages to increase the chance of finding required technical, and professional staff in the system to support design, analyses, simulation, engineering and other technic issues in projects"
 
-msgid "You may define your available different resources here"
-msgstr ""
+msgid "385" 
+msgstr "In order to select best possible project partners a robust, neutral and reliable negotiation platform is provided. On this platform customer may select different types of auctioning procedures and formats."
 
-msgid "Add Company"
-msgstr ""
+msgid "386" 
+msgstr "Project management feature enables system admin, cstomer and partners to follow project progression and analyse system and partners performances"
 
-msgid "Add User"
-msgstr ""
+msgid "387" 
+msgstr "Collaborative design, analyses and simulation platform using Dassault Systems CATIA V6 software. On this platform project partners connecting OSTIM servers could collaborate remotely to design, and analyze parts and products and even check simulations before than starting prototyping process."
 
-msgid "Add Machine Tool"
-msgstr ""
+msgid "388" 
+msgstr "Providing 3D printing solution to produce prototypes prior to real manufacturing processes to ensure designed product or part performance and functionality."
 
-msgid "Add Product"
-msgstr ""
+msgid "389" 
+msgstr "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status chnaged to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
 
-msgid "Add Raw Material"
-msgstr ""
+msgid "390" 
+msgstr "New Consortiums"
 
-msgid "Add Waste"
-msgstr ""
+msgid "391" 
+msgstr "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
 
-msgid "VE Services"
-msgstr ""
+msgid "392" 
+msgstr "Automatic and Objective Negotiation Process"
 
-msgid "VE Machines List"
-msgstr ""
+msgid "393" 
+msgstr "New Technologies Implementation"
 
-msgid "Virtual Enterprise Machines List"
-msgstr ""
+msgid "394" 
+msgstr "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
 
-msgid "Machines List"
-msgstr ""
+msgid "395" 
+msgstr "OSTIM VIRTUAL ENTERPRISE OFFICE"
 
+msgid "396" 
+msgstr "supports OSTIM VE system. OSTIM VE office is placed in OSTIM Organized Industrial Zone in Ankara. The office is responsible for development and management of VE tools, programs and applications."
+
+msgid "397" 
+msgstr "VE System Mission"
+
+msgid "398" 
+msgstr "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
+
+msgid "399" 
+msgstr "Profile Pages"
+
+msgid "400" 
+msgstr "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
+
+msgid "401" 
+msgstr "Smart Macthcing"
+
+msgid "402" 
+msgstr "Objective Negotiation Platform"
+
+msgid "403" 
+msgstr "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
+
+msgid "404" 
+msgstr "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
+
+msgid "405" 
+msgstr "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
+
+msgid "406" 
+msgstr "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
+
+msgid "407" 
+msgstr "Chairman of OSTIM Technology A.Ş. Executive Board"
+
+msgid "408" 
+msgstr "Manager of OSTIM Organized Industrial Zone Management"
+
+msgid "409" 
+msgstr "OSTIM Organized Industrial Zone management provides various services."
+
+msgid "410" 
+msgstr "Some of these services are mentioned below"
+
+msgid "411" 
+msgstr "Infrastructure Services"
+
+msgid "412" 
+msgstr "Electric Management and Maintenance"
+
+msgid "413" 
+msgstr "Environment and Security"
+
+msgid "414" 
+msgstr "Gas Management and Maintenance"
+
+msgid "415" 
+msgstr "Office and Work Permit"
+
+msgid "416" 
+msgstr "Town Planning and Infrastructure"
+
+msgid "417" 
+msgstr "IT and Computing Center"
+
+msgid "418" 
+msgstr "Customer Services"
+
+msgid "419" 
+msgstr "Financial Services"
+
+msgid "420" 
+msgstr "Customer Relationship"
+
+msgid "421" 
+msgstr "OSTIM Employment Office"
+
+msgid "422" 
+msgstr "Fair and Organizations"
+
+msgid "423" 
+msgstr "Financial and Administrative Affairs"
+
+msgid "424" 
+msgstr "Press and Public Relations"
+
+msgid "425" 
+msgstr "Organizational Photo Gallery"
+
+msgid "426" 
+msgstr "Papers and Journals"
+
+msgid "427" 
+msgstr "Videos"
+
+msgid "428" 
+msgstr "Documents"
+
+msgid "429" 
+msgstr "Indigenous Wind Turbine Project"
+
+msgid "430" 
+msgstr "Indigenous Main Battle Tank Motor Project: TM-1150"
+
+msgid "431" 
+msgstr "Defense Cluster Project"
+
+msgid "432" 
+msgstr "Railed Systems Cluster Project"
+
+msgid "433" 
+msgstr "Indigenous Subway Train Project"
+
+msgid "434" 
+msgstr "Read More"
+
+msgid "435" 
+msgstr "Renewable Energy Cluster Project"
+
+msgid "436" 
+msgstr "OSTIM Technology Projects"
+
+msgid "437" 
+msgstr "OSTIM Technology R&D Center, collaborates researches and projects with the aim of developing high value added, high tech products under university and industry collaboration framework."
+
+msgid "438" 
+msgstr "VE integrates the capabilities of 5,200 companies in OSTIM Organized Industrial Zone with more than 20,000 machine tools and 60,000 employees under one virtual company."
+
+msgid "439" 
+msgstr "Members Only"
+
+msgid "440" 
+msgstr "VE system services are provided under three main categories:"
+
+msgid "441" 
+msgstr "Resource Discovery"
+
+msgid "442" 
+msgstr "Project Management"
+
+msgid "443" 
+msgstr "Resource Definition"
+
+msgid "444" 
+msgstr "You may find your required human, information and physical (machinery, raw material and etc.) here"
+
+msgid "445" 
+msgstr "VE Companies"
+
+msgid "446" 
+msgstr "VE Machine Park"
+
+msgid "447" 
+msgstr "VE Raw Materials"
+
+msgid "448" 
+msgstr "VE Waste"
+
+msgid "449" 
+msgstr "VE Human Resources"
+
+msgid "450" 
+msgstr "VE Products"
+
+msgid "451" 
+msgstr "To manage existing projects or submit a new order you may use this section"
+
+msgid "452" 
+msgstr "Negotiation Management System"
+
+msgid "453" 
+msgstr "Submit new Order"
+
+msgid "454" 
+msgstr "Manage Your Project"
+
+msgid "455" 
+msgstr "View Project Pool"
+
+msgid "456" 
+msgstr "You may define your available different resources here"
+
+msgid "457" 
+msgstr "Add Company"
+
+msgid "458" 
+msgstr "Add User"
+
+msgid "459" 
+msgstr "Add Machine Tool"
+
+msgid "460" 
+msgstr "Add Product"
+
+msgid "461" 
+msgstr "Add Raw Material"
+
+msgid "462" 
+msgstr "Add Waste"
+
+msgid "463" 
+msgstr "VE Services"
+
+msgid "464" 
+msgstr "VE Machines List"
+
+msgid "465" 
+msgstr "Virtual Enterprise Machines List"
+
+msgid "466" 
+msgstr "Machines List"
+
+msgid "467" 
 msgstr "VE machine tools"
 
-msgid "Reset all verbal information"
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-msgid ""
-msgstr ""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+msgid "468" 
+msgstr "Reset all verbal information"
