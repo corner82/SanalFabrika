@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
@@ -28,6 +28,26 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
+
+            if (data.length > 0) {
+
+                $('#machine_park_menu_a').trigger('click');
+
+                for (var j = 0; j < data.length; j++) {
+
+//                        $('#sidebar-nav-2').append(data.group_name);
+
+                    $("#collapse-timeline").append("<li id='"
+                            + data[j].machine_grup_id
+                            + "' group_name='" + data[j].group_name + "'"
+                            + "' onclick='gotLink(this)'>"
+                            + "<span class='badge badge-u'>"
+                            + data[j].machine_count
+                            + "</span><a><i class='fa fa-dot-circle-o'></i>"
+                            + data[j].group_name
+                            + "</li></a>");
+                }
+            }
 
             $('#collapse_mach_cats').empty();
             $('#filters-container').empty();
@@ -78,7 +98,7 @@ $(document).ready(function () {
             $('#total_machs').append(window.total_machines);
         }
     });
-    
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            

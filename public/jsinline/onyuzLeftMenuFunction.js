@@ -12,44 +12,10 @@ $(document).ready(function () {
     }
 
     if (window.location.href.indexOf('companymtprofile') > 0) {
-//
-
-        $.ajax({
-            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-            //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-            data: {
-                url: 'pkFillFirmMachineGroupsCounts_infoFirmMachineTool',
-                language_code: $("#langCode").val(),
-                npk: $('#selectedCompanyNpk').val(),
-                pk: $('#pk').val()
-            },
-            method: "GET",
-            dataType: "json",
-            success: function (data) {
-
-                if (data.length > 0) {
-
-                    $('#machine_park_menu').attr('visibility', 'visible');
-                    $('#machine_park_menu').attr('display', 'block');                    
-                    $('#machine_park_menu_a').trigger('click');  
-                  
-                    for (var j = 0; j < data.length; j++) {
-
-//                        $('#sidebar-nav-2').append(data.group_name);
-
-                        $("#collapse-timeline").append("<li id='"
-                                + data[j].machine_grup_id
-                                + "' group_name='" + data[j].group_name + "'"
-                                + "' onclick='gotLink(this)'>"
-                                + "<span class='badge badge-u'>"
-                                + data[j].machine_count
-                                + "</span><a><i class='fa fa-dot-circle-o'></i>"
-                                + data[j].group_name
-                                + "</li></a>");
-                    }
-                }
-            }
-        });
+ 
+        $('#machine_park_menu').attr('visibility', 'visible');
+        $('#machine_park_menu').attr('display', 'block');
+        
     } else {
         $('#machine_park_menu').attr('visibility', 'hidden');
         $('#machine_park_menu').attr('display', 'none');
