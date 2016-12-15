@@ -1063,6 +1063,9 @@ msgstr "İletişim"
 msgid "348" 
 msgstr "Panel"
 
+msgid "348-1" 
+msgstr "İrtibat Paneli"
+
 msgid "349" 
 msgstr "İletişim Bilgileri"
 
@@ -1425,3 +1428,10 @@ msgstr "Bütün Firma Bilgilerini Temizle"
 
 msgid "469"
 msgstr "Bu adresten bize ulaşabilirsiniz:"
+
+msgid "470"
+msgstr "Gönderdi"
+
+msgid "471"
+msgstr "Sosyal Medya"
+

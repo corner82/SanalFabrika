@@ -1143,6 +1143,9 @@ msgstr "Contact"
 msgid "348" 
 msgstr "Panel"
 
+msgid "348-1" 
+msgstr "Contact Panel"
+
 msgid "349" 
 msgstr "Contact Information"
 
@@ -1192,7 +1195,7 @@ msgid "364"
 msgstr "Company info update period"
 
 msgid "365" 
-msgstr "Company profil completion rate"
+msgstr "Company profile completion rate"
 
 msgid "366" 
 msgstr "Machine data update period"
@@ -1505,3 +1508,10 @@ msgstr "Reset all verbal information"
 
 msgid "469"
 msgstr "You may contact us through given address below:"
+
+msgid "470"
+msgstr "Sent"
+
+msgid "471"
+msgstr "Social Media"
+
