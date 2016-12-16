@@ -1112,7 +1112,7 @@ msgid "363"
 msgstr "Üretim ve Kalite Kontrol Mühendisi"
 
 msgid "364" 
-msgstr "Fİrma bilgileri güncelleme aralığı"
+msgstr "Firma bilgileri güncelleme aralığı"
 
 msgid "365" 
 msgstr "Firma profili tamamlama oranı"
