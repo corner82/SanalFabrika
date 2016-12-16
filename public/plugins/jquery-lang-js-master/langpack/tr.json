@@ -338,7 +338,9 @@
         "Please select a product category from list...":
                 "Lütfen listeden bir ürün kategorisi seçiniz...",
         "Please select a GTIP number from list...":
-                "Lütfen listeden GTİP numarası seçiniz..."
+                "Lütfen listeden GTİP numarası seçiniz...",
+        "EMGE has ISO 9001 Quality Standard":
+                "EMGE ISO 9001 Kalite Standardına Sahiptir."
 
     },
     "regex": [

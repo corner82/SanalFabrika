@@ -100,12 +100,17 @@ function listOfCertificates() {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
         $("#qualityDetailsInsideDIV").empty();
-    } else {
+    } else {      
+        
+        var currentPath = window.location.hostname;
+        
+        console.log(currentPath);
+        
         var appending =
                 "<hr>"
                 + "<div class='col-xs-3'>"
                 + "<img style='width:100px; height: 100px' "
-                + "src='../../../../onyuz/standard/assets/img/sfClients/Images/Certificates/ISO_9001.jpg'"
+                + "src= 'https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/Images/Certificates/ISO_9001.jpg'"
                 + "alt=''>"
                 + "</div>"
                 + "<div class='col-xs-9'>"
