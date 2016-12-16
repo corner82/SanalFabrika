@@ -925,8 +925,8 @@ msgstr "Örnek Ürünler"
 msgid "302" 
 msgstr "Ürünler hakkında kısa açıklama"
 
-msgid "303" 
-msgstr ""
+msgid "303"
+msgstr "Bu firma aşağıda gösterilen ürünleri üretmektedir"
 
 msgid "304" 
 msgstr "Örnek Ürün Videosu"
@@ -1446,3 +1446,6 @@ msgstr "Makine hakkında detaylı bilgi aşağıda sunulmuştur"
 
 msgid "475"
 msgstr "Firma Tarihçesi"
+
+msgid "476"
+msgstr "Üretici firmalar ürünleri hakkında daha kapsamlı bilgiler sunabilmeleri için buradan ürünlerin videolarını gösterebilirler."

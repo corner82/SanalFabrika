@@ -1006,7 +1006,7 @@ msgid "302"
 msgstr "Brief Description About Products"
 
 msgid "303" 
-msgstr "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
+msgstr "This company is producing following products which are presented below"
 
 msgid "304" 
 msgstr "Sample product videos"
@@ -1526,3 +1526,6 @@ msgstr "More information about your selected machine is given below"
 
 msgid "475"
 msgstr "Company History"
+
+msgid "476"
+msgstr "In order to give a better description about products and their manufacturing processes companies may add product videos in this section."

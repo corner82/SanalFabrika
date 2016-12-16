@@ -37,7 +37,7 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/EMGE/Logos/';
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
             window.logosrc = imageFolAddress + data[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
         }

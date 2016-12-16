@@ -913,13 +913,13 @@ msgid "300"
 msgstr "محصولات شرکت"
 
 msgid "301"
-msgstr "محصولات نمونه"
+msgstr "نمونه محصولات تولیدی"
 
 msgid "302"
 msgstr "توضیح کوتاه در مورد محصولات شرکت"
 
 msgid "303"
-msgstr "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
+msgstr "این شرکت محصولات ذیل را تولید میکند"
 
 msgid "304"
 msgstr "ویدئو های محصولات شرکت"
@@ -1439,3 +1439,6 @@ msgstr "اطلاعات کامل ماشین ابزار انتخاب شده در �
 
 msgid "475"
 msgstr "تاریخچه شرکت"
+
+msgid "476"
+msgstr "جهت ارايه اطلاعات مبسوط در مورد محصول تولیدی تولید کنندگان میتوانند ویديوی محصولات خود را در اینجا به نمایش بگذارند."
