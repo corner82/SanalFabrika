@@ -33,14 +33,15 @@ $(document).ready(function () {
         data: {
             url: emp_service_url,
             language_code: $("#langCode").val(),
-            npk: $('#selectedCompanyNpk').val()
+            npk: $('#selectedCompanyNpk').val(),
+            pk: $('#pk').val()
         },
         method: "GET",
         dataType: "json",
         success: function (data) {
 //            console.log(data);
 
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/logos/';
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
 
             window.logosrc = imageFolAddress + data[0].logo;
 

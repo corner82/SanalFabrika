@@ -1523,3 +1523,6 @@ msgstr "You may have access to company machine park from this section. By clicki
 
 msgid "474"
 msgstr "More information about your selected machine is given below"
+
+msgid "475"
+msgstr "Company History"

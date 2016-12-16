@@ -1443,3 +1443,6 @@ msgstr "Firma makine parkına bu bölümden erişebilirsiniz. İstediğiniz ve s
 
 msgid "474"
 msgstr "Makine hakkında detaylı bilgi aşağıda sunulmuştur"
+
+msgid "475"
+msgstr "Firma Tarihçesi"
