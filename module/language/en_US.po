@@ -901,7 +901,7 @@ msgstr "All Rights Reserved."
 
 
 msgid "275" 
-msgstr "Performance Meters"
+msgstr "Company Indicators"
 
 
 msgid "276" 
@@ -1048,7 +1048,7 @@ msgid "316"
 msgstr "than last year"
 
 msgid "317" 
-msgstr "Company Performance Meters"
+msgstr "Company Indicators"
 
 msgid "318" 
 msgstr "Engineers"
@@ -1529,3 +1529,15 @@ msgstr "Company History"
 
 msgid "476"
 msgstr "In order to give a better description about products and their manufacturing processes companies may add product videos in this section."
+
+msgid "477"
+msgstr "Overview"
+
+msgid "478"
+msgstr "Engineer(s)"
+
+msgid "479"
+msgstr "Foreign Trade Staff"
+
+msgid "480"
+msgstr "Technician(s)"

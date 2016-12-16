@@ -1449,3 +1449,15 @@ msgstr "Firma Tarihçesi"
 
 msgid "476"
 msgstr "Üretici firmalar ürünleri hakkında daha kapsamlı bilgiler sunabilmeleri için buradan ürünlerin videolarını gösterebilirler."
+
+msgid "477"
+msgstr "Genel Bakış"
+
+msgid "478"
+msgstr "Mühendis(ler)"
+
+msgid "479"
+msgstr "Dış Ticaret Uzmanı"
+
+msgid "480"
+msgstr "Tekniker(ler)"
