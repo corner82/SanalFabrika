@@ -30,23 +30,17 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {
-            url: emp_service_url,
-            language_code: $("#langCode").val(),
-            npk: $('#selectedCompanyNpk').val(),
-            pk: $('#pk').val()
+        data: {url: 'getFirmLogo_infoFirmProfile',
+            npk: $('#selectedCompanyNpk').val()
         },
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data);
-
+            
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
-
-            window.logosrc = imageFolAddress + data[0].logo;
-
+            window.logosrc = imageFolAddress + data.resultSet[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
-
+//            $('#logoPlace1').attr('src', window.logosrc);
         }
     });
 
