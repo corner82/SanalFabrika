@@ -319,7 +319,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style='box-shadow: 0 0 30px #7c8082;'>
                 <img class="img-responsive" src="<?php echo $this->basePath('onyuz/standard/assets/img/sfSystem/DSC_0414.jpg') ?>" alt="">
             </div>
         </div>
@@ -360,29 +360,6 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                     </div>
                     <div class="col-md-6">
                         <div class="testimonials-info rounded-bottom">
-                            <img alt="" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/testimonials/sedatcelikdogan.jpg') ?>" class="rounded-x">
-                            <div class="testimonials-desc">
-                                <p><?php echo $this->translate("OSTIM VE") ?></p>
-                                <strong>Doç. Dr. Sedat ÇELİKDOĞAN</strong>
-                                <span><?php echo $this->translate('Chairman of OSTIM Technology A.Ş. Executive Board') ?></span>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--/end row-->
-
-                <div class="row margin-bottom-20">
-                    <div class="col-md-6 md-margin-bottom-50">
-                        <div class="testimonials-info rounded-bottom">
-                            <img alt="" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/testimonials/ziyaburhanettinguvenc.jpg') ?>" class="rounded-x">
-                            <div class="testimonials-desc">
-                                <p><?php echo $this->translate("OSTIM VE") ?></p>
-                                <strong>Prof.Dr.Ziya Burhanettin Güvenç</strong>
-                                <span>Ostim Teknik Üniversitesi Rektörü</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="testimonials-info rounded-bottom">
                             <img alt="" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/testimonials/ademarici.jpg') ?>" class="rounded-x">
                             <div class="testimonials-desc">
                                 <p><?php echo $this->translate("OSTIM VE") ?></p>
@@ -391,6 +368,30 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             </div>
                         </div>
                     </div>
+                </div><!--/end row-->
+
+                <div class="row margin-bottom-20">
+                    <!--<div class="col-md-6 md-margin-bottom-50">
+                        <div class="testimonials-info rounded-bottom">
+                            <img alt="" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/testimonials/ziyaburhanettinguvenc.jpg') ?>" class="rounded-x">
+                            <div class="testimonials-desc">
+                                <p><?php echo $this->translate("OSTIM VE") ?></p>
+                                <strong>Prof.Dr.Ziya Burhanettin Güvenç</strong>
+                                <span>Ostim Teknik Üniversitesi Rektörü</span>
+                            </div>
+                        </div>
+                    </div>-->
+                                        <!--<div class="col-md-6">
+                        <div class="testimonials-info rounded-bottom">
+                            <img alt="" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/testimonials/sedatcelikdogan.jpg') ?>" class="rounded-x">
+                            <div class="testimonials-desc">
+                                <p><?php echo $this->translate("OSTIM VE") ?></p>
+                                <strong>Doç. Dr. Sedat ÇELİKDOĞAN</strong>
+                                <span><?php echo $this->translate('Chairman of OSTIM Technology A.Ş. Executive Board') ?></span>
+                            </div>
+                        </div>
+                    </div>-->
+
                 </div><!--/end row-->
             </div>
             <!-- End Testimonials Wrap -->
@@ -436,17 +437,17 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 <h2><?php echo $this->translate('VE Services') ?><!--Our Services--></h2>
                 <p><?php echo $this->translate("VE system services are provided under three main categories:") ?> 
                     <strong><?php echo $this->translate('Resource Discovery') ?></strong>, 
-                    <strong><?php echo $this->translate('Project Management') ?></strong> <?php echo $this->translate('and') ?> 
-                    <strong><?php echo $this->translate('Resource Definition') ?></strong></p>
+                    <strong><?php echo $this->translate('Resource Discovery') ?></strong> <?php echo $this->translate('and') ?> 
+                    <strong><?php echo $this->translate('VE Machine Park') ?></strong></p>
             </div>
 
             <div class="row service-box-v1">
                 <div class="col-md-4 col-sm-6">
                     <div class="service-block service-block-default">
                         <i class="icon-custom icon-lg icon-bg-u rounded-x fa fa-lightbulb-o"></i>
-                        <h2 class="heading-md"><?php echo $this->translate('Resource Discovery') ?></h2>
+                        <h2 class="heading-md"><a href='#'><?php echo $this->translate('VE Companies') ?></a></h2>
                         <p><?php echo $this->translate('You may find your required human, information and physical (machinery, raw material and etc.) here') ?></p>
-                        <ul class="list-unstyled">
+                        <!--<ul class="list-unstyled">
                             <li style="font-size: 11px">
                                 <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage')); ?>">
                                     <?php echo $this->translate('VE Companies') ?>                                    
@@ -489,18 +490,18 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                     <?php echo $this->translate('VE Products') ?>
 <!--                                    <span style="font-size: 9px" class="label label-danger pull-right">
                                     <?php echo $this->translate('Members Only') ?>
-                                    </span>-->
+                                    </span>
                                 </a>
                             </li>
-                        </ul>
+                        </ul>-->
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="service-block service-block-default">
                         <i class="icon-custom icon-lg icon-bg-u rounded-x icon-line icon-present"></i>
-                        <h2 class="heading-sm"><?php echo $this->translate('Project Management') ?></h2>
+                        <h2 class="heading-sm"><a href='#'><?php echo $this->translate('VE Human Resources') ?></a></h2>
                         <p><?php echo $this->translate('To manage existing projects or submit a new order you may use this section') ?></p>
-                        <ul class="list-unstyled">
+                        <!--<ul class="list-unstyled">
                             <li style="font-size: 11px">
                                 <a href="">
                                     <?php echo $this->translate('Negotiation Management System') ?>
@@ -530,20 +531,18 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                     </span>
                                 </a>
                             </li>                        
-                        </ul>
+                        </ul>-->
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div class="service-block service-block-default">
                         <i class="icon-custom icon-lg icon-bg-u rounded-x icon-line icon-rocket"></i>
-                        <h2 class="heading-sm"><?php echo $this->translate('Resource Definition') ?></h2>
+                        <h2 class="heading-sm"><a href='<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines')); ?>'>
+                            <?php echo $this->translate('VE Machine Park') ?></a>
+                        </h2>
                         <p><?php echo $this->translate('You may define your available different resources here') ?></p>
-                        <ul class="list-unstyled">
-                            <!--                            <li style="font-size: 12px">
-                                                            <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration')); ?>">
-                            <?php echo $this->translate('Add Company') ?>
-                                                            </a>
-                                                        </li>-->
+                        <!--<ul class="list-unstyled">
+                            
                             <li style="font-size: 11px">
                                 <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration')); ?>">
                                     <?php echo $this->translate('Add User') ?>
@@ -569,8 +568,8 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                     <?php echo $this->translate('Add Waste') ?>
                                 </a>
                             </li>
-                        </ul>
-                    </div>
+                        </ul>-->
+                    </div> 
                 </div>
             </div>
         </div> 
