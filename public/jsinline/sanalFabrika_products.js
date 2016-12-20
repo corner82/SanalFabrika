@@ -28,18 +28,17 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {
-            url: 'fillCompanyInfoEmployeesGuest_infoFirmProfile',
-            language_code: $("#langCode").val(),
+        data: {url: 'getFirmLogo_infoFirmProfile',
             npk: $('#selectedCompanyNpk').val()
         },
         method: "GET",
         dataType: "json",
         success: function (data) {
-
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/EMGE/Logos/';
-            window.logosrc = imageFolAddress + data[0].logo;
+            
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+            window.logosrc = imageFolAddress + data.resultSet[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
+//            $('#logoPlace1').attr('src', window.logosrc);
         }
     });
     /*
@@ -364,6 +363,33 @@ $(document).ready(function () {
 
     });
 
+
+    
+    window.notificationWidget = $('#notificationContainer').notifications({
+        container : $('#notificationWidget')
+    });
+    window.notificationWidget.notifications({ 
+        onServiceSuccess : function(event, data) {
+            /*var elementData = data.element;
+            var id = data.id;*/
+            //window.deleteServicePrivilegeDialog(id, elementData);
+            console.warn(data.element);
+            console.warn(data.element.attr('attr-notification'));
+            alert('onServiceSucess');
+            
+        }  
+     });
+    
+    //window.notificationWidget.notifications('test');
+    
+    var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
+    nonAttachedTreeLoadImage.loadSpinner('appendImage');
+    
+    var testLoadImage = $("#bannerWidget").loadSpinner();
+    testLoadImage.loadSpinner('appendImage');
+    
+    
+    
 });
 /*
  * fixed first column js call

@@ -23,6 +23,23 @@ $(document).ready(function () {
     $('#loging_ph').append(loging_value);
 
 
+$.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {url: 'getFirmLogo_infoFirmProfile',
+            npk: $('#selectedCompanyNpk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+            window.logosrc = imageFolAddress + data.resultSet[0].logo;
+            $('#profileLogosrc').attr('src', window.logosrc);
+//            $('#logoPlace1').attr('src', window.logosrc);
+        }
+    });
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -35,11 +52,11 @@ $(document).ready(function () {
         success: function (data) {
 //            console.log(data);
 
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+//            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
 
-            window.logosrc = imageFolAddress + data[0].logo;
+//            window.logosrc = imageFolAddress + data[0].logo;
 
-            $('#profileLogosrc').attr('src', window.logosrc);
+//            $('#profileLogosrc').attr('src', window.logosrc);
 
             var total_employees = data[0].number_of_employees;
             $('#number_of_employees').append(total_employees);
@@ -64,6 +81,33 @@ $(document).ready(function () {
             document.getElementById('for_per_bar').style.width = for_trd_staff_percentage + '%';
         }
     });
+
+    
+    window.notificationWidget = $('#notificationContainer').notifications({
+        container : $('#notificationWidget')
+    });
+    window.notificationWidget.notifications({ 
+        onServiceSuccess : function(event, data) {
+            /*var elementData = data.element;
+            var id = data.id;*/
+            //window.deleteServicePrivilegeDialog(id, elementData);
+            console.warn(data.element);
+            console.warn(data.element.attr('attr-notification'));
+            alert('onServiceSucess');
+            
+        }  
+     });
+    
+    //window.notificationWidget.notifications('test');
+    
+    var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
+    nonAttachedTreeLoadImage.loadSpinner('appendImage');
+    
+    var testLoadImage = $("#bannerWidget").loadSpinner();
+    testLoadImage.loadSpinner('appendImage');
+    
+    
+    
 });
 
 function listOfCertificates() {
@@ -73,12 +117,17 @@ function listOfCertificates() {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
         $("#qualityDetailsInsideDIV").empty();
-    } else {
+    } else {      
+        
+        var currentPath = window.location.hostname;
+        
+        console.log(currentPath);
+        
         var appending =
                 "<hr>"
                 + "<div class='col-xs-3'>"
                 + "<img style='width:100px; height: 100px' "
-                + "src='../../../../onyuz/standard/assets/img/sfClients/Images/Certificates/ISO_9001.jpg'"
+                + "src= 'https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/Images/Certificates/ISO_9001.jpg'"
                 + "alt=''>"
                 + "</div>"
                 + "<div class='col-xs-9'>"

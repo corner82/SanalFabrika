@@ -88,7 +88,7 @@
     <div class="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="index-2.html">
+            <a class="logo" href="index.phtml">
                 <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
             </a>
             <!-- End Logo -->
@@ -98,13 +98,13 @@
                 <ul style="background: #ddd;
                     padding: 10px;" class="loginbar pull-right">
                     <li class="hoverSelector">                        
-                        <a><?php echo $this->translate('Languages') ?> </a>
+                        <a><?php echo $this->translate('91') ?> </a>
                         <i class="fa fa-globe"></i>
                         <ul id='topLanguageBar' class="languages hoverSelectorBlock">                                    
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
+                    <li><a href="page_faq.html"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
                     <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><span id="loging_ph"></span></a></li>   
                 </ul>
@@ -124,37 +124,37 @@
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="#body"><?php echo $this->translate('Home') ?></a>
+                        <a href="#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about"><?php echo $this->translate('About Us') ?></a>
+                        <a href="#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $this->translate('Services') ?>
+                            <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="page-scroll"><a href="#body">
-                                    <?php echo $this->translate('OSTIM Services') ?></a>
+                                    <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="#news"><?php echo $this->translate('News') ?></a>
+                        <a href="#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact"><?php echo $this->translate('Contacts') ?></a>
+                        <a href="#contact"><?php echo $this->translate('232') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $this->translate('Submenus') ?>
+                            <?php echo $this->translate('233') ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="page-scroll">
-                                <a href="#body"><?php echo $this->translate('Home') ?></a>
+                                <a href="#body"><?php echo $this->translate('9') ?></a>
                             </li>
                             <li class="page-scroll">
-                                <a href="../index-2.html"><?php echo $this->translate('Main') ?></a>
+                                <a href="../index-2.html"><?php echo $this->translate('234') ?></a>
                             </li>
                         </ul>
                     </li>
@@ -175,22 +175,22 @@
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
                 ?>">
-                           <?php echo $this->translate('Home') ?>
+                           <?php echo $this->translate('9') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage'));
                            ?>">
-                           <?php echo $this->translate('Clients Page') ?>
+                           <?php echo $this->translate('345') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile','selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
                            ?>">
-                           <?php echo $this->translate('Company Profile') ?>
+                           <?php echo $this->translate('258') ?>
                     </a>
                 </li>
-                <li class="active"><?php echo $this->translate('Company Members') ?></li>
+                <li class="active"><?php echo $this->translate('342') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -204,20 +204,19 @@
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
                 <img class="img-responsive profile-img margin-bottom-20" id="profileLogosrc"
-                     src="" alt="">
+                     src="" alt="" style="box-shadow: 0 0 30px #7c8082;">    
 
-                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
-                </ul>     
-
+                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1"></ul>
+                
                 <div class="panel-heading-v2 overflow-h">
                     <h2 class="heading-xs pull-left">
                         <i class="fa fa-bar-chart-o"></i> 
-                        <?php echo $this->translate('Company info update period') ?>
+                        <?php echo $this->translate('364') ?>
                     </h2>
                     <!--<a href="#"><i class="fa fa-cog pull-right"></i></a>-->
                 </div>
                 <h3 class="heading-xs">
-                    <?php echo $this->translate('Company profil completion rate') ?>
+                    <?php echo $this->translate('365') ?>
                     <span class="pull-right">92%</span>
                 </h3>
                 <div class="progress progress-u progress-xxs">
@@ -227,7 +226,7 @@
                     </div>
                 </div>
                 <h3 class="heading-xs">
-                    <?php echo $this->translate('Machine data update period') ?>
+                    <?php echo $this->translate('366') ?>
                     <span class="pull-right">85%</span>
                 </h3>
                 <div class="progress progress-u progress-xxs">
@@ -236,7 +235,7 @@
                          role="progressbar" class="progress-bar progress-bar-blue">
                     </div>
                 </div>
-                <h3 class="heading-xs"> <?php echo $this->translate('Company technologies update period') ?>
+                <h3 class="heading-xs"> <?php echo $this->translate('367') ?>
                     <span class="pull-right">64%</span>
                 </h3>
                 <div class="progress progress-u progress-xxs margin-bottom-40">
@@ -256,31 +255,36 @@
                               background-repeat:no-repeat;padding-left:5px;">
                             <a href="https://www.exchangeratewidget.com/" 
                                style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
-                                   <?php echo $this->translate('Daily currency exchange rates') ?>
+                                   <?php echo $this->translate('368') ?>
                             </a>
                         </span>
                     </div>
                     <script type="text/javascript" 
-                            src="//www.exchangeratewidget.com/converter.php?l=en&f=USD&t=EUR,GBP,TRY,JPY,CHF,CAD,AUD,CNY,ZAR,RUB,BRL,HKD,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=5">
+                            src="//www.exchangeratewidget.com/converter.php?l=en&f=TRY&t=EUR,USD,GBP,JPY,CHF,CAD,AUD,CNY,ZAR,RUB,BRL,HKD,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=5">
                     </script>
                 </div>
                 <!-- End of Exchange Rates Script -->
 
                 <!--Notification-->
-                <div class="panel-heading-v2 overflow-h">
+                <div class="box box-relative"  id="notificationContainer"  
+                     data-bind=""
+                     attr-notification="<?php echo $this->translate('20') ?>"
+                     
+                     >    
+                <div class="panel-heading-v2 overflow-h " style="margin-top: 20px">
                     <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> 
-                        <?php echo $this->translate('Notification') ?></h2>
+                        <?php echo $this->translate('20') ?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
-                <div class="margin-bottom-20">
-                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20" 
-                        data-mcs-theme="minimal-dark">
+                <div class="margin-bottom-20 "  >
+                    <ul class="list-unstyled mCustomScrollbar margin-bottom-20 box" 
+                        data-mcs-theme="minimal-dark" id="notificationWidget"> 
                         <li class="notification">
                             <i class="icon-custom icon-sm rounded-x 
                                icon-bg-red icon-line icon-envelope"></i>
                             <div class="overflow-h">
-                                <span><strong>Muhsin Teber</strong> <?php echo $this->translate('Email') ?> <?php echo $this->translate('Sent') ?></span>
-                                <small>2 <?php echo $this->translate('Minutes') ?> <?php echo $this->translate('Before') ?></small>
+                                <span><strong>Muhsin Teber</strong> <?php echo $this->translate('112') ?> <?php echo $this->translate('470') ?></span>
+                                <small>2 <?php echo $this->translate('369') ?> <?php echo $this->translate('370') ?></small>
                             </div>    
                         </li>
                         <li class="notification">
@@ -288,42 +292,44 @@
                                  src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" 
                                  alt="">
                             <div class="overflow-h">
-                                <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your project page') ?></span>
-                                <small><?php echo $this->translate('Today') ?> 18:25 </small>
+                                <span><strong>Sedat Çelikdoğan</strong> <?php echo $this->translate('381') ?></span>
+                                <small><?php echo $this->translate('297') ?> 18:25 </small>
                             </div>    
                         </li>
                         <li class="notification">
                             <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
                             <div class="overflow-h">
-                                <span><strong>Adem Başarır</strong> <?php echo $this->translate('Reviewed your document') ?></span>
-                                <small><?php echo $this->translate('Yesterday') ?> 13:07</small>
+                                <span><strong>Adem Başarır</strong> <?php echo $this->translate('374') ?></span>
+                                <small><?php echo $this->translate('298') ?> 13:07</small>
                             </div>    
                         </li>
                         <li class="notification">
                             <img class="rounded-x" 
                                  src="<?php echo $this->basePath('onyuz/standard/assets/img/men-icon.png') ?>" alt="">
                             <div class="overflow-h">
-                                <span><strong>Mikel Andrews</strong> <?php echo $this->translate('Proposal document added') ?></span>
-                                <small>2 <?php echo $this->translate('Days') ?> <?php echo $this->translate('Before') ?> 12:09</small>
+                                <span><strong>OSSA</strong> <?php echo $this->translate('376') ?></span>
+                                <small>2 <?php echo $this->translate('375') ?> <?php echo $this->translate('370') ?> 12:09</small>
                             </div>    
                         </li>
                         <li class="notification">
                             <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
                             <div class="overflow-h">
-                                <span><strong>Burhan Yetiş</strong> <?php echo $this->translate('Following your company') ?></span>
-                                <small>2 <?php echo $this->translate('Days') ?> <?php echo $this->translate('Before') ?>Önce 09:34</small>
+                                <span><strong>Burhan Yetiş</strong> <?php echo $this->translate('377') ?></span>
+                                <small>2 <?php echo $this->translate('375') ?> <?php echo $this->translate('370') ?> 09:34</small>
                             </div>    
                         </li>
                         <li class="notification">
                             <img class="rounded-x" 
                                  src="<?php echo $this->basePath('onyuz/standard/assets/img/women-icon.png') ?>" alt="">
                             <div class="overflow-h">
-                                <span><strong>Taylor Lee</strong> <?php echo $this->translate('Visited your projects page') ?></span>
-                                <small>3 <?php echo $this->translate('Days') ?> <?php echo $this->translate('Before') ?> 14:28</small>  
+                                <span><strong>Orhan Aydın</strong> <?php echo $this->translate('372') ?></span>
+                                <small>3 <?php echo $this->translate('375') ?> <?php echo $this->translate('370') ?> 14:28</small>  
                             </div>      
                         </li>
                     </ul>    
                 </div>
+                </div>                
+                <!--/notifications -->
             </div>
             <!--End Left Sidebar-->
 
@@ -387,34 +393,29 @@
                 <div class="row">
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <a href="index-2.html"><img id="logo-footer" class="footer-logo" 
+                        <a href="index.phtml"><img id="logo-footer" class="footer-logo" 
                                                     src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
                                                     alt=""></a>
-                        <p><?php
-                            echo $this->translate('A virtual enterprise (VE) is a temporary alliance of '
-                                    . 'businesses that come together to share skills or core competencies and resources '
-                                    . 'in order to better respond to business opportunities, and whose cooperation is '
-                                    . 'supported by computer networks.')
-                            ?></p>
+                        <p><?php echo $this->translate('264')?></p>
                     </div><!--/col-md-3-->
                     <!-- End About -->
 
                     <!-- Latest -->
                     <div class="col-md-3 md-margin-bottom-40">
                         <div class="posts">
-                            <div class="headline"><h2><?php echo $this->translate('Latest Posts') ?></h2></div>
+                            <div class="headline"><h2><?php echo $this->translate('261') ?></h2></div>
                             <ul class="list-unstyled latest-list">
                                 <li>
-                                    <a href="#"><?php echo $this->translate('Latest News about OSTIM VE') ?></a>
-                                    <small><?php echo $this->translate('February') ?> 8, 2016</small>
+                                    <a href="#"><?php echo $this->translate('265') ?></a>
+                                    <small><?php echo $this->translate('286') ?> 8, 2016</small>
                                 </li>
                                 <li>
-                                    <a href="#"><?php echo $this->translate('OSTIM Clusters News') ?></a>
-                                    <small><?php echo $this->translate('January') ?> 23, 2016</small>
+                                    <a href="#"><?php echo $this->translate('266') ?></a>
+                                    <small><?php echo $this->translate('285') ?> 23, 2016</small>
                                 </li>
                                 <li>
-                                    <a href="#"><?php echo $this->translate('New Project Calls') ?></a>
-                                    <small><?php echo $this->translate('December') ?> 15, 2016</small>
+                                    <a href="#"><?php echo $this->translate('267') ?></a>
+                                    <small><?php echo $this->translate('296') ?> 15, 2016</small>
                                 </li>
                             </ul>
                         </div>
@@ -423,12 +424,12 @@
 
                     <!-- Link List -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <div class="headline"><h2><?php echo $this->translate('Useful Links') ?></h2></div>
+                        <div class="headline"><h2><?php echo $this->translate('262') ?></h2></div>
                         <ul class="list-unstyled link-list">
-                            <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('Ostim Organized Industrial Zone') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('Turkish Ministry of SIT') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('TUBITAK') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('KOSGEB') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('268') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('269') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('270') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('271') ?></a><i class="fa fa-angle-right"></i></li>
                             <!--<li><a href="#"><?php echo $this->translate('') ?></a><i class="fa fa-angle-right"></i></li>-->
                         </ul>
                     </div><!--/col-md-3-->
@@ -436,14 +437,14 @@
 
                     <!-- Address -->
                     <div class="col-md-3 map-img md-margin-bottom-40">
-                        <div class="headline"><h2><?php echo $this->translate('Contact Us') ?></h2></div>                         
+                        <div class="headline"><h2><?php echo $this->translate('110') ?></h2></div>                         
                         <address class="md-margin-bottom-40">
                             100. Yıl Bulvarı No: 101/A <br />
                             OSTIM, Ankara <br />
                             Turkey <br />
-                            <?php echo $this->translate('Phone') ?> :  +90 312 385 50 90 <br />
-                            <?php echo $this->translate('Fax') ?>:    +90 312 354 58 98 <br />
-                            <?php echo $this->translate('Email') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
+                            <?php echo $this->translate('147') ?> :  +90 312 385 50 90 <br />
+                            <?php echo $this->translate('148') ?>:    +90 312 354 58 98 <br />
+                            <?php echo $this->translate('112') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
                         </address>
                     </div><!--/col-md-3-->
                     <!-- End Address -->
@@ -456,8 +457,8 @@
                 <div class="row">
                     <div class="col-md-6">                     
                         <p>
-                            2016 &copy; <?php echo $this->translate('All Rights Reserved.') ?>
-                            <a href="#"><?php echo $this->translate('Privacy Policy') ?></a> | <a href="#"><?php echo $this->translate('Terms of Service') ?></a>
+                            2016 &copy; <?php echo $this->translate('274') ?>
+                            <a href="#"><?php echo $this->translate('273') ?></a> | <a href="#"><?php echo $this->translate('272') ?></a>
                         </p>
                     </div>
 
@@ -505,6 +506,6 @@
                 </div>
             </div> 
         </div><!--/copyright-->
-    </div>        
+    </div>    
     <!--=== End Footer Version 1 ===-->
 </div><!--/wrapper-->

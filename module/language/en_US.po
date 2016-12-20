@@ -580,10 +580,10 @@ msgid "189"
 msgstr "Last Name"
 
 msgid "190"
-msgstr "Prefered Username"
+msgstr "Preferred Username"
 
 msgid "191"
-msgstr "Prefered Password"
+msgstr "Preferred Password"
 
 msgid "192"
 msgstr "Repeat Password"
@@ -592,7 +592,7 @@ msgid "193"
 msgstr "ID Number (TC Kimlik No for Turkish Citizens)"
 
 msgid "194"
-msgstr "Prefered Language"
+msgstr "Preferred Language"
 
 msgid "195"
 msgstr "Make my profile public"
@@ -631,7 +631,7 @@ msgid "206"
 msgstr "Company Name"
 
 msgid "207"
-msgstr "Please select your prefered language from list..."
+msgstr "Please select your preferred language from list..."
 
 msgid "208"
 msgstr "Show all my registered addresses"
@@ -901,7 +901,7 @@ msgstr "All Rights Reserved."
 
 
 msgid "275" 
-msgstr "Performance Meters"
+msgstr "Company Indicators"
 
 
 msgid "276" 
@@ -1006,7 +1006,7 @@ msgid "302"
 msgstr "Brief Description About Products"
 
 msgid "303" 
-msgstr "This job was a great job for the pay and benefits when compared to waiting table and working fast food. I also preferred working for the vs other stores like. The biggest problem was unreasonable expectations from management. Even as one of there top employees you feel taken advantage of and over worked. Dealing with the customers was the other issue."
+msgstr "This company is producing following products which are presented below"
 
 msgid "304" 
 msgstr "Sample product videos"
@@ -1015,7 +1015,7 @@ msgid "305"
 msgstr "List of Products"
 
 msgid "306" 
-msgstr "Company\'s Total Projetcs"
+msgstr "Company\'s Total Projects"
 
 msgid "307" 
 msgstr "Finished Successfully"
@@ -1024,7 +1024,7 @@ msgid "308"
 msgstr "In progress"
 
 msgid "309" 
-msgstr "Sucessfully completed projects rate"
+msgstr "Successfully completed projects rate"
 
 msgid "310" 
 msgstr "than last month"
@@ -1048,7 +1048,7 @@ msgid "316"
 msgstr "than last year"
 
 msgid "317" 
-msgstr "Company Performance Meters"
+msgstr "Company Indicators"
 
 msgid "318" 
 msgstr "Engineers"
@@ -1087,7 +1087,7 @@ msgid "329"
 msgstr "Accomplished Successfully"
 
 msgid "330" 
-msgstr "Unfinished Porjects"
+msgstr "Unfinished Projects"
 
 msgid "331" 
 msgstr "Projects in Progress"
@@ -1282,7 +1282,7 @@ msgid "393"
 msgstr "New Technologies Implementation"
 
 msgid "394" 
-msgstr "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Dijital scanning technologies are provided by the OSTİM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
+msgstr "In order to improve the quality of products and guarantee the project outcomes, 3D printing and Digital scanning technologies are provided by the OSTIM Technology A.Ş. to produce prototype products before than transition to the main manufacturing processes."
 
 msgid "395" 
 msgstr "OSTIM VIRTUAL ENTERPRISE OFFICE"
@@ -1300,10 +1300,10 @@ msgid "399"
 msgstr "Profile Pages"
 
 msgid "400" 
-msgstr "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
+msgstr "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting customers and potential partners."
 
 msgid "401" 
-msgstr "Smart Macthcing"
+msgstr "Smart Matching"
 
 msgid "402" 
 msgstr "Objective Negotiation Platform"
@@ -1315,7 +1315,7 @@ msgid "404"
 msgstr "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
 
 msgid "405" 
-msgstr "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
+msgstr "aims to open OSTIM's design, engineering and manufacturing capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
 
 msgid "406" 
 msgstr "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
@@ -1396,7 +1396,7 @@ msgid "431"
 msgstr "Defense Cluster Project"
 
 msgid "432" 
-msgstr "Railed Systems Cluster Project"
+msgstr "Railway Systems Cluster Project"
 
 msgid "433" 
 msgstr "Indigenous Subway Train Project"
@@ -1523,3 +1523,21 @@ msgstr "You may have access to company machine park from this section. By clicki
 
 msgid "474"
 msgstr "More information about your selected machine is given below"
+
+msgid "475"
+msgstr "Company History"
+
+msgid "476"
+msgstr "In order to give a better description about products and their manufacturing processes companies may add product videos in this section."
+
+msgid "477"
+msgstr "Overview"
+
+msgid "478"
+msgstr "Engineer(s)"
+
+msgid "479"
+msgstr "Foreign Trade Staff"
+
+msgid "480"
+msgstr "Technician(s)"
