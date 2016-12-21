@@ -844,19 +844,19 @@ msgid "275"
 msgstr "Performans Değerleri"
 
 msgid "276" 
-msgstr "Devam eden projeler"
+msgstr "Toplam Firma Ziyaretçileri"
 
 msgid "277" 
-msgstr "Son hafta"
+msgstr "Son 6 Ayda"
 
 msgid "278" 
-msgstr "Son ay"
+msgstr "Son 12 Ayda"
 
 msgid "279" 
-msgstr "Son ay proje sayısının toplam proje sayısına oranı"
+msgstr "Firma ziyaretçilerin toplam sistem ziyaretçilerine oranı"
 
 msgid "280" 
-msgstr "Son ay başlayan projeler"
+msgstr "Toplam sistem ziyaretçileri"
 
 msgid "281" 
 msgstr "Toplam makine sayısı"

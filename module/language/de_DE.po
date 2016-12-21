@@ -903,25 +903,24 @@ msgstr "Alle Rechte vorbehalten."
 msgid "275" 
 msgstr "Unternehmen Indikatoren"
 
-
 msgid "276" 
-msgstr "Projekte im Gange"
+msgstr "Gesamtes Firmenprofil Besucher"
 
 
 msgid "277" 
-msgstr "Letzte Woche"
+msgstr "Letzte sechs Monate"
 
 
 msgid "278" 
-msgstr "Im vergangenen Monat"
+msgstr "Letzte Zwölf Monate"
 
 
 msgid "279" 
-msgstr "Letztes Monat Projekte zur Gesamtprojektnummer"
+msgstr "Rate der Besucher aller Systembesucher"
 
 
 msgid "280" 
-msgstr "Das Projekt begann im letzten Monat"
+msgstr "Gesamtsystembesucher"
 
 
 msgid "281" 

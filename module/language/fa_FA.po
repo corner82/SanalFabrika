@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SanalFabrika\n"
 "Report-msgstr-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 22:17-0700\n"
-"PO-Revision-Date: 2016-12-21 12:00+0200\n"
+"PO-Revision-Date: 2016-12-21 17:12+0200\n"
 "Last-Translator: Bahram Lotfi Sadigh <bahram.lotfi@ostim.com.tr>\n"
 "Language-Team: OSTIM Teknoloji A.Ş. <info@ostim.com.tr>\n"
 "Language: fa_FA\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 msgid "1"
-msgstr "پروژه شرکت مجازی اوستیم"
+msgstr "Virtuelles Unternehmen Project"
 
 msgid "2"
 msgstr "صفحه کنترل"
@@ -838,19 +838,19 @@ msgid "275"
 msgstr "معیارهای عملکرد"
 
 msgid "276"
-msgstr "پروژه های در حال انجام"
+msgstr "تعداد زیارت کنندگان"
 
 msgid "277"
-msgstr "هفته قبل"
+msgstr "در شش ماه آخر"
 
 msgid "278"
-msgstr "ماه قبل"
+msgstr "در دوازده ماه آخر"
 
 msgid "279"
-msgstr "نسبت تعداد پروژه های ماه قبل به کل پروژه ها"
+msgstr "نسبت بازدید کنندگان شما به کل بازدیدکنندگان"
 
 msgid "280"
-msgstr "پروژه های آغاز شده در ماه قبل"
+msgstr "کل بازدید کنندگان از سیستم"
 
 msgid "281"
 msgstr "تعداد کل ماشین ابزار"

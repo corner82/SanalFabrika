@@ -905,23 +905,23 @@ msgstr "Company Indicators"
 
 
 msgid "276" 
-msgstr "Projects in progress"
+msgstr "Total Company Profile Visitors"
 
 
 msgid "277" 
-msgstr "Last Week"
+msgstr "Last Six Months"
 
 
 msgid "278" 
-msgstr "Last Month"
+msgstr "Last Twelve Months"
 
 
 msgid "279" 
-msgstr "Last month projects to overall project number"
+msgstr "Rate of your visitors to all system visitors"
 
 
 msgid "280" 
-msgstr "Project started in the last month"
+msgstr "Total system visitors"
 
 
 msgid "281" 
