@@ -1270,7 +1270,7 @@ msgid "389"
 msgstr "OSTIM Technology founded on 2004 to improve university-industry collaboration program under TUBITAK's industry-university co-research and development program. Since 2007 company status changed to Anonymous Company (Anonym Şirket). This company has more than 25 stack holders including Organizations, universities, researchers, academia and businessmen."
 
 msgid "390" 
-msgstr "New Consortium"
+msgstr "New Consortiums"
 
 msgid "391" 
 msgstr "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
@@ -1541,3 +1541,30 @@ msgstr "Foreign Trade Staff"
 
 msgid "480"
 msgstr "Technician(s)"
+
+msgid "481"
+msgstr "OSTIM VIRTUAL ENTERPRISE TARGETS"
+
+msgid "482"
+msgstr "and"
+
+msgid "483"
+msgstr "Mechanical Engineer"
+
+msgid "484"
+msgstr "Finished his PhD research on virtual enterprise issue and started to coordinate activities to develop VE commercial software."
+
+msgid "485"
+msgstr "Code Developer"
+
+msgid "486"
+msgstr "Database Specialist"
+
+msgid "487"
+msgstr "Software Engineer"
+
+msgid "488"
+msgstr "Your message sent successfully!"
+
+msgid "489"
+msgstr "Your message sent successfully!"

@@ -1541,3 +1541,27 @@ msgstr "Außenhandelsmitarbeiter"
 
 msgid "480"
 msgstr "Techniker"
+
+msgid "481"
+msgstr "OSTIM VIRTUELLE UNTERNEHMENSZIELE"
+
+msgid "482"
+msgstr "und"
+
+msgid "483"
+msgstr "Maschinenbauingenieur"
+
+msgid "484"
+msgstr "Abgeschlossen seine Doktorarbeit auf virtuelle Unternehmen Problem und begann, die Aktivitäten zur Entwicklung von kommerziellen VE-Software zu koordinieren."
+
+msgid "485"
+msgstr "Code Entwickler"
+
+msgid "486"
+msgstr "Datenbankspezialist"
+
+msgid "487"
+msgstr "Softwareentwickler"
+
+msgid "488"
+msgstr "Ihre Nachricht wurde erfolgreich gesendet!"

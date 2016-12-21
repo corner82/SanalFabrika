@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: SanalFabrika\n"
 "Report-msgstr-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 22:17-0700\n"
-"PO-Revision-Date: 2016-12-16 09:29+0200\n"
+"PO-Revision-Date: 2016-12-21 12:00+0200\n"
 "Last-Translator: Bahram Lotfi Sadigh <bahram.lotfi@ostim.com.tr>\n"
 "Language-Team: OSTIM Teknoloji A.Ş. <info@ostim.com.tr>\n"
 "Language: fa_FA\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 msgid "1"
-msgstr "Virtual Enterprise Project"
+msgstr "پروژه شرکت مجازی اوستیم"
 
 msgid "2"
 msgstr "صفحه کنترل"
@@ -1207,13 +1207,13 @@ msgid "397"
 msgstr "اهداف سیستم مجازی اوستیم"
 
 msgid "398"
-msgstr "is to redirect customer needs and requirements nimbly to the appropriate partners. Besides it also helps SMEs to enhance their capacity usage by discovering customer orders and get new projects.  To do so system provides following features to the customers and solution partners:"
+msgstr "یافتن گزینه های مناسب برای نیازهای مشتریهاست در کنار آن هدف این سیستم افزایش قدرت رقابتی اعضای با ارايه سرویسهای گوناگون میباشد."
 
 msgid "399"
 msgstr "نمایه ها"
 
 msgid "400"
-msgstr "OSTIM VE provides profile pages for registered users and companies to describe their capabilities in details and introduce themselves to the visiting cutomers and potential partners."
+msgstr "  شرکتهای عضو با شناساندن تواناییها و قابلیتهای تولیدی خود میتوانند سریعتر و راحتتر خود را به مشتریان بالقوه در بازارهای جهانی معرفی کنند شرکت مجازی اوستیم نمایه های مخصوص در اختیار شرکتهای عضو قرار میدهد.  "
 
 msgid "401"
 msgstr "تطابق هوشمند"
@@ -1222,22 +1222,22 @@ msgid "402"
 msgstr "پلاتفرم مناقصه و مزایده هوشمند و بیطرف"
 
 msgid "403"
-msgstr "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
+msgstr "سیستم تطابق در شرکت مجازی اوستیم نیازهای تکنینی مشتری و محصول درخواستی را با امکانات و قابلیتهای شرکتهای موجود در سیستم مقایسه کرده و بهترین گزینه های موجود را به مشتریان معرفی میکند."
 
 msgid "404"
-msgstr "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
+msgstr "انواع پروسه های مناقصه و مزایده در سیستم تعریف شده است و مشتری بر اساس نیازهای خود میتواند یکی از این روشها را انتخاب را انتخاب و پیشنهادهای شرکتهای داوطلب برای تولید محصول درخواستی را دریافت کند."
 
 msgid "405"
-msgstr "aims to open OSTIM's design, engineering and manufactuirng capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
+msgstr "در صدد باز کردن درهای منطقه صنعتی اوستیم به بازارهای جهانی است و در این راستا سعی دارد تا با شناساندن قابلیتهای تولیدی شرکتهای موجود در منطقه هم به نیاز مشتریان پاخگو باشد و هم قدرت رققابتی این شرکتها را افزایش دهد."
 
 msgid "406"
-msgstr "Chairman of the OSTIM Organized Industrial Zone Management Executive Board"
+msgstr " رئیس هیئت اجرایی منطقه صنعتی اوستیم"
 
 msgid "407"
 msgstr "ريیس هیات اجرایی شرکت اوستیم تکنولوژی "
 
 msgid "408"
-msgstr "رییس هیات مدیره منطقه صنعتی اوستیم"
+msgstr " مدیر منطقه صنعتی اوستیم"
 
 msgid "409"
 msgstr "مدیریت منطقه صنعتی اوستیم خدمات گوناگونی را عرضه مینماید."
@@ -1454,3 +1454,27 @@ msgstr "متخصص تجارت خارجی"
 
 msgid "480"
 msgstr "تکنسین"
+
+msgid "481"
+msgstr "اهداف سیستم شرکت مجازی اوستیم"
+
+msgid "482"
+msgstr "و"
+
+msgid "483"
+msgstr "مهندس مکانیک"
+
+msgid "484"
+msgstr "دکترای خود را در زمینه کاربرد شرکت مجازی درسیستمهای تولیدی از دانشگاه صنعتی خاورمیانه دریافت و جهت راه اندازی این سیستم در منطقه صنعتی اوستیم فعالیتهای خود را در این منقطفه ادامه میدهد"
+
+msgid "485"
+msgstr "برنامه نویس"
+
+msgid "486"
+msgstr "متخصص پایگاههای داده"
+
+msgid "487"
+msgstr "مهندس نرم افزار"
+
+msgid "488"
+msgstr "پیام شما با موفقیت ارسال شد!"

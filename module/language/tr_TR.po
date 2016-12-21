@@ -1461,3 +1461,27 @@ msgstr "Dış Ticaret Uzmanı"
 
 msgid "480"
 msgstr "Tekniker(ler)"
+
+msgid "481"
+msgstr "OSTİM SANAL FABRİKA HEDEFLERİ"
+
+msgid "482"
+msgstr "ve"
+
+msgid "483"
+msgstr "Makine Mühendisi"
+
+msgid "484"
+msgstr "Doktorasını sanal fabrika konusunda ODTÜ de bitirip, sanal fabrika sistemini kurmak ve çalıştırmak için OSTİM Teknoloji A.Ş. de çalışmaya başlamıştır."
+
+msgid "485"
+msgstr "Kod Geliştirici"
+
+msgid "486"
+msgstr "Veritabanı Uzmanı"
+
+msgid "487"
+msgstr "Yazılım Mühendisi"
+
+msgid "488"
+msgstr "Mesajınız başarılı bir şekilde gönderildi!"
