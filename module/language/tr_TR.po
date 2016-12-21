@@ -301,7 +301,7 @@ msgid "93"
 msgstr "İşimiz"
 
 msgid "94"
-msgstr "SF Takımı"
+msgstr "Sanal Fabrika Takımı"
 
 msgid "95"
 msgstr "Toplam İmalat Alanı"
@@ -811,7 +811,7 @@ msgid "264"
 msgstr "Sanal fabrika farklı müşterilerin isteklerine en iyi şekilde cevap vermke ve iş fırsatlarını yakalayabimek için, yetenekler ve maharetlere sahip firmaları (KOBİ'leri) ağ üzerinde bilgi e iletişim teknolojilerinde yararlanarak geçici bir şekilde bir araya getirmek için oluşturulan bir işbirliği platformudur."
 
 msgid "265" 
-msgstr "OSTİM SF hakkında son haberler"
+msgstr "OSTİM Sanal Fabrika hakkında son haberler"
 
 msgid "266" 
 msgstr "OSTİM Kümeleri haberleri"
@@ -1208,7 +1208,7 @@ msgid "395"
 msgstr "OSTİM Sanal Fabrika Ofisi"
 
 msgid "396" 
-msgstr "OSTIM SF sistemini geliştirmektedir. OSTIM sanal fabrika ofisi Ankara da OSTIM OSB yönetim binasında yer almaktadır. Bu ofis sanal fabrika sisteminin araçları, programları ve uygulamalarının geliştirilmesinden ve yönetiminden sorumludur."
+msgstr "OSTIM Sanal Fabrika sistemini geliştirmektedir. OSTIM sanal fabrika ofisi Ankara da OSTIM OSB yönetim binasında yer almaktadır. Bu ofis sanal fabrika sisteminin araçları, programları ve uygulamalarının geliştirilmesinden ve yönetiminden sorumludur."
 
 msgid "397" 
 msgstr "SANAL FABRİKA SİSTEMİ MİSYONU"
@@ -1355,22 +1355,22 @@ msgid "444"
 msgstr "Aranan insan kaynağı, bilgi ve fiziksel veriler (makine, hamm madde vb.)"
 
 msgid "445" 
-msgstr "SF Firmaları"
+msgstr "Sanal Fabrika Firmaları"
 
 msgid "446" 
-msgstr "SF Makine Parkı"
+msgstr "Sanal Fabrika Makine Parkı"
 
 msgid "447" 
-msgstr "SF Hammaddeleri"
+msgstr "Sanal Fabrika Hammaddeleri"
 
 msgid "448" 
-msgstr "SF Atıkları"
+msgstr "Sanal Fabrika Atıkları"
 
 msgid "449" 
-msgstr "SF İnsan Kaynakları"
+msgstr "Sanal Fabrika İnsan Kaynakları"
 
 msgid "450" 
-msgstr "SF Ürünleri"
+msgstr "Sanal Fabrika Ürünleri"
 
 msgid "451" 
 msgstr "Mevcut projelerinizin yönetimi veya yeni bir siparişin girilmesi"
@@ -1409,10 +1409,10 @@ msgid "462"
 msgstr "Atık Ekle"
 
 msgid "463" 
-msgstr "SF Hizmetleri"
+msgstr "SANAL FABRİKA HİZMETLERİ"
 
 msgid "464" 
-msgstr "SF Makine Listesi"
+msgstr "Sanal Fabrika Makine Listesi"
 
 msgid "465" 
 msgstr "Virtual Enterprise Machines List"
@@ -1421,7 +1421,7 @@ msgid "466"
 msgstr "Makine Listesi"
 
 msgid "467" 
-msgstr "SF İmalat Makineleri"
+msgstr "Sanal Fabrika İmalat Makineleri"
 
 msgid "468" 
 msgstr "Bütün Firma Bilgilerini Temizle"

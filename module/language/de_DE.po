@@ -861,7 +861,7 @@ msgstr "Ein Virtuelles Unternehmen (VU) ist eine vorübergehende Allianz von Unt
 
 
 msgid "265" 
-msgstr "Aktuelle Nachrichten zu OSTIM VU"
+msgstr "Aktuelle Nachrichten zu OSTIM Virtuelles Unternehmen"
 
 
 msgid "266" 
@@ -1435,22 +1435,22 @@ msgid "444"
 msgstr "Hier finden Sie Ihre benötigten menschlichen, Informationen und physikalischen (Maschinen, Rohstoffe und etc.) hier"
 
 msgid "445" 
-msgstr "VU Unternehmen"
+msgstr "Virtuelles Unternehmen Unternehmen"
 
 msgid "446" 
-msgstr "VU Maschinenpark"
+msgstr "Virtuelles Unternehmen Maschinenpark"
 
 msgid "447" 
-msgstr "VU Rohes Material"
+msgstr "Virtuelles Unternehmen Rohes Material"
 
 msgid "448" 
-msgstr "VU Abfall"
+msgstr "Virtuelles Unternehmen Abfall"
 
 msgid "449" 
-msgstr "VU Humanressourcen"
+msgstr "Virtuelles Unternehmen Humanressourcen"
 
 msgid "450" 
-msgstr "VU Sicherheit"
+msgstr "Virtuelles Unternehmen Sicherheit"
 
 msgid "451" 
 msgstr "Um bestehende Projekte zu verwalten oder einen neuen Auftrag einzureichen, können Sie diesen Abschnitt verwenden"
@@ -1489,10 +1489,10 @@ msgid "462"
 msgstr "Abfälle hinzufügen"
 
 msgid "463" 
-msgstr "VU Dienstleistungen"
+msgstr "Virtuelles Unternehmen Dienstleistungen"
 
 msgid "464" 
-msgstr "VU Maschinenliste"
+msgstr "Virtuelles Unternehmen Maschinenliste"
 
 msgid "465" 
 msgstr "Virtuelles Unternehmen Maschinenliste"
@@ -1501,7 +1501,7 @@ msgid "466"
 msgstr "Maschinenliste"
 
 msgid "467" 
-msgstr "VU Werkzeugmaschinen"
+msgstr "Virtuelles Unternehmen Werkzeugmaschinen"
 
 msgid "468" 
 msgstr "Setzen Sie alle verbalen Informationen zurück"
