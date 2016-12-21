@@ -383,9 +383,10 @@ $.widget("sanalfabrika.notifications", {
         options: {
             proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             pk: $("#pk").val(),
-            serviceUrl : null,
+            langCode : $('#langCode').val(),
+            serviceUrl : 'getUsersCompanyNotifications_ActUsersActionStatistics',
             container: $('#notificationWidget'),
-
+            appendText : null
         },
         /**
          * @returns {null}
@@ -393,76 +394,105 @@ $.widget("sanalfabrika.notifications", {
         _create: function () {
 
         },
-        
-        
-        
-        test: function() {
-          alert('test');
-          var self = this;
-          
-          this.element.append('<div class="panel-heading-v2 overflow-h " style="margin-top: 20px">\n\
-                                <h2 class="heading-xs pull-left">\n\
-                                    <i class="fa fa-bell-o"></i> Notification</h2>\n\
-                                    <a href="#">\n\
-                                        <i class="fa fa-cog pull-right"></i>\n\
-                                    </a>\n\
-                                </div>\n\
-                                <div class="margin-bottom-20 "  >\n\
-                                <ul class="list-unstyled mCustomScrollbar margin-bottom-20 box" data-mcs-theme="minimal-dark" id="notificationWidget">\n\
-                                    <li class="notification"> \n\
-                                        <img class="rounded-x" src="/onyuz/standard/assets/img/women-icon.png" alt="">\n\
-                                        <div class="overflow-h">\n\
-                                            <span><strong>Sedat Çelikdoğan</strong> zirate felan filan</span>\n\
-                                                <small> 18:25 </small>\n\
-                                        </div>\n\
-                                    </li>\n\
-                                </ul>\n\
-                                </div>')
-          
-          
-          $('#notificationWidget').append('<li class="notification"> \n\
-                                    <img class="rounded-x" src="/onyuz/standard/assets/img/women-icon.png" alt="">\n\
-                                    <div class="overflow-h">\n\
-                                        <span><strong>Sedat Çelikdoğan</strong> zirate felan filan222222</span>\n\
-                                            <small> 18:25 </small>\n\
-                                    </div>\n\
-                                </li>');
-            
-           self._trigger('onServiceSuccess',event, { 
-                        element : this.element
-                    } );
-        },
+
         
         /**
-         * 
          * get notifications from service
          * @author Mustafa Zeynel Dağlı
          * @since 13/12/2016
          */
         getNotifications: function () {
             self = this;
-
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
-                    url: self.options.url,
-                    pk: $("#pk").val(),
+                    url: self.options.serviceUrl,
+                    pk: self.options.pk,
+                    langCode : self.options.langCode,
                     machine_id: self.options.machineID
                 },
                 type: 'GET',
                 dataType: 'json',
                 success: function (data, textStatus, jqXHR) {
-
-                    
+                    self._trigger('onServiceSuccess',event, { 
+                        element : this.element
+                    } );
+                    self._setNotifications(data); 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    console.log('error');
+                    //console.log('error');
                     console.error(textStatus);
                 }
             });
-        }
+        },
+        
+        /**
+         * set notifications from rest service data
+         * @param {type} data
+         * @returns {undefined}
+         * @author Mustafa Zeynel Dağlı
+         * @since 21/12/2016
+         */
+        _setNotifications : function(data){
+            var self = this;
+            self._setNotificationsHeader();
+            //console.log(data);
+            $.each(data, function(key, row){
+                //console.log(row);
+                var iconPath = null;
+                if(row.icon_path!=null){
+                    iconPath = '<img class="rounded-x" src="'+row.icon_path+'" alt="">'
+                } else{
+                    iconPath = '<i class="'+row.icon_class+'"></i>';
+                }
+                
+                
+                self.options.appendText+='<li class="notification"> \n\
+                                        '+iconPath+'\n\
+                                        <div class="overflow-h">\n\
+                                            <span>\n\
+                                                    <strong>'+ row.name+' '+row.surname +'</strong>&nbsp&nbsp&nbsp'+ row.notification +'\
+                                            </span>\n\
+                                                <small>'+ row.processingtime+' </small>\n\
+                                        </div>\n\
+                                    </li>';
+            });
+            self._setNotificationsFooter();
+            self.element.append(self.options.appendText);
+        },
+        
+        /**
+         * set notifications footer html text
+         * @returns {undefined}
+         * @author Mustafa Zeynel Dağlı
+         * @since 21/12/2016
+         */
+        _setNotificationsFooter : function() {
+            var self = this;
+            self.options.appendText+='</ul>\n\
+                                        </div>';
+        },
+        
+        /**
+         * set notifications header html text
+         * @returns {undefined}
+         * @author Mustafa Zeynel Dağlı
+         * @since 2/12/2016
+         */
+        _setNotificationsHeader : function() {  
+            var self = this;
+            self.options.appendText+='<div class="panel-heading-v2 overflow-h " style="margin-top: 20px">\n\
+                                        <h2 class="heading-xs pull-left">\n\
+                                            <i class="fa fa-bell-o"></i> Notification</h2>\n\
+                                            <a href="#">\n\
+                                                <i class="fa fa-cog pull-right"></i>\n\
+                                            </a>\n\
+                                        </div>\n\
+                                        <div class="margin-bottom-20 "  >\n\
+                                        <ul class="list-unstyled mCustomScrollbar margin-bottom-20 box" data-mcs-theme="minimal-dark" id="notificationWidget">';
+        }   
+      
     });
-    
     
         /**
      * load imager widget for loading operations, same class used for admin pages

@@ -258,6 +258,11 @@ $(document).ready(function () {
     });
     
     
+    var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
+    nonAttachedTreeLoadImage.loadSpinner('appendImage');
+    
+    
+    
     window.notificationWidget = $('#notificationContainer').notifications({
         container : $('#notificationWidget')
     });
@@ -266,17 +271,17 @@ $(document).ready(function () {
             /*var elementData = data.element;
             var id = data.id;*/
             //window.deleteServicePrivilegeDialog(id, elementData);
-            console.warn(data.element);
-            console.warn(data.element.attr('attr-notification'));
-            alert('onServiceSucess');
+            //console.warn(data.element);
+            //console.warn(data.element.attr('attr-notification'));
+            //alert('onServiceSucess');  
+            nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');
             
         }  
      });
     
     //window.notificationWidget.notifications('test');
+    window.notificationWidget.notifications('getNotifications');
     
-    var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
-    nonAttachedTreeLoadImage.loadSpinner('appendImage');
     
     var testLoadImage = $("#bannerWidget").loadSpinner();
     testLoadImage.loadSpinner('appendImage');
