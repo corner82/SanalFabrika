@@ -261,8 +261,7 @@ $(document).ready(function () {
     var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
     nonAttachedTreeLoadImage.loadSpinner('appendImage');
     
-    
-    
+   
     window.notificationWidget = $('#notificationContainer').notifications({
         container : $('#notificationWidget')
     });
@@ -274,7 +273,7 @@ $(document).ready(function () {
             //console.warn(data.element);
             //console.warn(data.element.attr('attr-notification'));
             //alert('onServiceSucess');  
-            nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');
+            nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');  
             
         }  
      });
@@ -283,7 +282,13 @@ $(document).ready(function () {
     window.notificationWidget.notifications('getNotifications');
     
     
-    var testLoadImage = $("#bannerWidget").loadSpinner();
+    var guestDataWidget = $('#guestBannerWidget').pageGuests({
+        //container : $('#guestBannerWidget')
+    });
+    guestDataWidget.pageGuests('getGuestsData');
+    
+    
+    var testLoadImage = $("#guestBannerWidget").loadSpinner();
     testLoadImage.loadSpinner('appendImage');
     
     
