@@ -23,8 +23,8 @@ $(document).ready(function () {
         var loging_value = window.lang.translate('Log in');
     }
     $('#loging_ph').append(loging_value);
-    
-    
+
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -117,7 +117,7 @@ $(document).ready(function () {
 
         }
     });
-    
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -156,7 +156,7 @@ $(document).ready(function () {
             }
         }
     });
-    
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -208,14 +208,14 @@ $(document).ready(function () {
             for (var i = 0; i < data.rows.length; i++) {
                 var borough_name;
                 var city_name;
-                if(data.rows[i].borough_name !== null){
+                if (data.rows[i].borough_name !== null) {
                     borough_name = data.rows[i].borough_name;
-                }else{
+                } else {
                     borough_name = '';
                 }
-                if(data.rows[i].city_name !== null){
+                if (data.rows[i].city_name !== null) {
                     city_name = data.rows[i].city_name;
-                }else{
+                } else {
                     city_name = '';
                 }
                 var appending_address =
@@ -241,51 +241,95 @@ $(document).ready(function () {
             }
 
             /*if (data.rows[0].web_address !== '') {
-
-                var web_appender =
-                        "<li><a href='#'><i class='fa fa-envelope'></i>"
-                        + data.rows[0].email
-                        + "</a></li>"
-                        + "<li><a target='_blank' href='"
-                        + data.rows[0].web_address
-                        + "'><i class='fa fa-globe'></i>"
-                        + data.rows[0].web_address
-                        + "</a></li>";
-                $('#addresses_div').append(web_appender);
-
-            }*/
+             
+             var web_appender =
+             "<li><a href='#'><i class='fa fa-envelope'></i>"
+             + data.rows[0].email
+             + "</a></li>"
+             + "<li><a target='_blank' href='"
+             + data.rows[0].web_address
+             + "'><i class='fa fa-globe'></i>"
+             + data.rows[0].web_address
+             + "</a></li>";
+             $('#addresses_div').append(web_appender);
+             
+             }*/
         }
     });
-    
-    
+
+
     var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
     nonAttachedTreeLoadImage.loadSpinner('appendImage');
-    
-   
+
     window.notificationWidget = $('#notificationContainer').notifications({
-        container : $('#notificationWidget')
+        container: $('#notificationWidget')
     });
-    window.notificationWidget.notifications({ 
-        onServiceSuccess : function(event, data) {
+    window.notificationWidget.notifications({
+        onServiceSuccess: function (event, data) {
             /*var elementData = data.element;
-            var id = data.id;*/
+             var id = data.id;*/
             //window.deleteServicePrivilegeDialog(id, elementData);
             //console.warn(data.element);
             //console.warn(data.element.attr('attr-notification'));
             //alert('onServiceSucess');  
-            nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');  
-            
-        }  
-     });
-    
+            nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');
+
+        }
+    });
+
     //window.notificationWidget.notifications('test');
     window.notificationWidget.notifications('getNotifications');
+
+
+    window.testLoadImage = $("#bannerWidget").loadSpinner();
+    window.testLoadImage.loadSpinner('appendImage');
     
+    window.testLoadImage_2 = $("#bannerWidget_mt").loadSpinner();
+    window.testLoadImage_2.loadSpinner('appendImage');
+
+
+    /*
+     * Get left counter calculations
+     * visitors information
+     */
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: "getUsersLeftNotifications_ActUsersActionStatistics",
+//            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            $('#visitor_total').empty();
+            $('#visitor_last_six').empty();
+            $('#visitor_last_twelve').empty();
+            $('#total_sys_visitors').empty();
+            $('#visitor_rate_number').empty();
+
+            $('#visitor_bar').css('width', "0%");
+            $('#visitor_bar').attr("aria-valuenow", "0");
+
+            $('#visitor_total').append(data[0].allfirmnotificationscount);
+            $('#visitor_last_six').append(data[0].lastsix);
+            $('#visitor_last_twelve').append(data[0].lasttwelve);
+            $('#total_sys_visitors').append(data[0].allnotificationscount);
+            $('#visitor_rate_number').append(data[0].lasttwelvepercent + "%");
+
+            $('#visitor_bar').css('width', data[0].lasttwelvepercent + "%");
+            $('#visitor_bar').attr("aria-valuenow", data[0].lasttwelvepercent);
+
+            window.testLoadImage.loadSpinner('removeLoadImage');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            //console.log('error');
+            console.error(textStatus);
+        }
+    });
     
-<<<<<<< HEAD
-    var guestDataWidget = $('#guestBannerWidget').pageGuests({
-        //container : $('#guestBannerWidget')
-=======
     /*
      * Get left counter calculations
      * machine tools infomation
@@ -325,14 +369,6 @@ $(document).ready(function () {
             //console.log('error');
             console.error(textStatus);
         }
->>>>>>> origin/master
     });
-    guestDataWidget.pageGuests('getGuestsData');
-    
-    
-    var testLoadImage = $("#guestBannerWidget").loadSpinner();
-    testLoadImage.loadSpinner('appendImage');
-    
-    
-    
+
 });
