@@ -337,7 +337,7 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
-            url: "getUsersLeftNotifications_ActUsersActionStatistics",
+            url: "getUsersRightNotifications_ActUsersActionStatistics",
 //            pk: $('#pk').val(),
             npk: $('#selectedCompanyNpk').val()
         },
