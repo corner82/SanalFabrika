@@ -57,8 +57,8 @@ $(document).ready(function () {
                 var verbal_2 = data.rows[0].verbal2;
                 var title_3 = data.rows[0].verbal3_title;
                 var verbal_3 = data.rows[0].verbal3;
-                var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
-                var logo_src = imageFolAddress + data.rows[0].logo;
+//                var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+//                var logo_src = imageFolAddress + data.rows[0].logo;
 //                console.log(logo_src);
                 $('#header_company_name').append("<i class='fa fa-user'></i>" + window.firm_name);
                 $('#firm_name_ph').append(window.firm_name);
@@ -69,10 +69,30 @@ $(document).ready(function () {
                 $('#verbal_2_ph').append(verbal_2);
                 $('#title_3_ph').append(title_3);
                 $('#verbal_3_ph').append(verbal_3);
-                $('#profileLogosrc').attr('src', logo_src);
+//                $('#profileLogosrc').attr('src', logo_src);
             }
         }
     });
+
+
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {url: 'getFirmLogo_infoFirmProfile',
+            npk: $('#selectedCompanyNpk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+            window.logosrc = imageFolAddress + data.resultSet[0].logo;
+            $('#profileLogosrc').attr('src', window.logosrc);
+//            $('#logoPlace1').attr('src', window.logosrc);
+        }
+    });
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -117,6 +137,7 @@ $(document).ready(function () {
 
         }
     });
+
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -283,7 +304,7 @@ $(document).ready(function () {
 
     window.testLoadImage = $("#bannerWidget").loadSpinner();
     window.testLoadImage.loadSpinner('appendImage');
-    
+
     window.testLoadImage_2 = $("#bannerWidget_mt").loadSpinner();
     window.testLoadImage_2.loadSpinner('appendImage');
 
@@ -329,7 +350,7 @@ $(document).ready(function () {
             console.error(textStatus);
         }
     });
-    
+
     /*
      * Get left counter calculations
      * machine tools infomation
