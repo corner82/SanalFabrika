@@ -36,8 +36,8 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data.rows[0]);
-            if (data.rows[0]) {
+//            console.log(data.rows);
+            if (data.rows) {
 //                console.log(data.rows[0]);
                 $('#firm_name_ph').empty();
                 $('#header_company_name').empty();
@@ -48,7 +48,7 @@ $(document).ready(function () {
                 $('#verbal_2_ph').empty();
                 $('#title_3_ph').empty();
                 $('#verbal_3_ph').empty();
-//                $('#profileLogosrc').empty();
+                $('#profileLogosrc').empty();
                 var about_company = data.rows[0].about;
                 window.firm_name = data.rows[0].firm_name;
                 var title_1 = data.rows[0].verbal1_title;
@@ -57,8 +57,8 @@ $(document).ready(function () {
                 var verbal_2 = data.rows[0].verbal2;
                 var title_3 = data.rows[0].verbal3_title;
                 var verbal_3 = data.rows[0].verbal3;
-//                var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
-//                var logo_src = imageFolAddress + data.rows[0].logo;
+                var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+                var logo_src = imageFolAddress + data.rows[0].logo;
 //                console.log(logo_src);
                 $('#header_company_name').append("<i class='fa fa-user'></i>" + window.firm_name);
                 $('#firm_name_ph').append(window.firm_name);
@@ -69,31 +69,10 @@ $(document).ready(function () {
                 $('#verbal_2_ph').append(verbal_2);
                 $('#title_3_ph').append(title_3);
                 $('#verbal_3_ph').append(verbal_3);
-//                $('#profileLogosrc').attr('src', logo_src);
+                $('#profileLogosrc').attr('src', logo_src);
             }
         }
     });
-    
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
-        data: {url: 'getFirmLogo_infoFirmProfile',
-            npk: $('#selectedCompanyNpk').val()
-        },
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-
-            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
-            window.logosrc = imageFolAddress + data.resultSet[0].logo;
-            $('#profileLogosrc').attr('src', window.logosrc);
-//            $('#logoPlace1').attr('src', window.logosrc);
-        }
-    });
-    
-    /*
-     * Testimonial part service
-     */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -358,7 +337,7 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
-            url: "getUsersRightNotifications_ActUsersActionStatistics",
+            url: "getUsersLeftNotifications_ActUsersActionStatistics",
 //            pk: $('#pk').val(),
             npk: $('#selectedCompanyNpk').val()
         },
