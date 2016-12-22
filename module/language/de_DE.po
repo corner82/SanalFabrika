@@ -654,186 +654,251 @@ msgstr "Adresstyp"
 msgid "214"
 msgstr "Rechnungsadresse"
 
+
 msgid "215" 
 msgstr "Postanschrift"
+
 
 msgid "216" 
 msgstr "Aufgabe Fortschritt"
 
+
 msgid "217" 
 msgstr "Benutzer Registration"
+
 
 msgid "218" 
 msgstr "Firmenregistrierung"
 
+
 msgid "219" 
 msgstr "Registrierungsprozess"
+
 
 msgid "220" 
 msgstr "Address 1"
 
+
 msgid "221" 
 msgstr "Address 2"
+
 
 msgid "222" 
 msgstr "Zeigen Sie mein Passwort an"
 
+
 msgid "223" 
 msgstr "Machen Sie meine Adressinformationen öffentlich"
+
 
 msgid "224" 
 msgstr "Machen Sie meine Kontaktinformationen öffentlich"
 
+
 msgid "225" 
 msgstr "Zeige alle meine registrierten Kontaktinformationen"
+
 
 msgid "226" 
 msgstr "DUNS-Nummer"
 
+
 msgid "227" 
 msgstr "Kurzname des Unternehmens"
+
 
 msgid "228" 
 msgstr "Zurück"
 
+
 msgid "229" 
 msgstr "Über uns"
+
 
 msgid "230" 
 msgstr "Dienstleistungen"
 
+
 msgid "231" 
 msgstr "Nachrichten"
+
 
 msgid "232" 
 msgstr "Ansprechpartner"
 
+
 msgid "233" 
 msgstr "Untermenüs"
+
 
 msgid "234" 
 msgstr "Main"
 
+
 msgid "235" 
 msgstr "Eigentumsverhältnisse"
+
 
 msgid "236" 
 msgstr "Unternehmen Machine Tool Panel"
 
+
 msgid "237" 
 msgstr "Einige Aktivitäten"
+
 
 msgid "238" 
 msgstr "Liste der Aktivitäten"
 
+
 msgid "239" 
 msgstr "Unternehmen Werkzeugmaschinen-Liste"
+
 
 msgid "240" 
 msgstr "Unternehmen Werkzeugmaschinen"
 
+
 msgid "241" 
 msgstr "Verfügbare Werkzeugmaschinen im System"
+
 
 msgid "242" 
 msgstr "Neue Werkzeugmaschine vorschlagen"
 
+
 msgid "243" 
 msgstr "Antragsformular"
+
 
 msgid "244" 
 msgstr "Maschinenhersteller"
 
+
 msgid "245" 
 msgstr "Gerätename"
+
 
 msgid "246" 
 msgstr "Maschinenmodell"
 
+
 msgid "247" 
 msgstr "Maschinentyp"
+
 
 msgid "248" 
 msgstr "Maschineneigenschaften"
 
+
 msgid "249" 
 msgstr "Neue Werkzeugmaschine einreichen"
+
 
 msgid "250" 
 msgstr "Sprache"
 
+
 msgid "251" 
 msgstr "Werkzeugmaschine Allgemeine Informationen"
+
 
 msgid "252" 
 msgstr "Eigenschaften der Werkzeugmaschine"
 
+
 msgid "253" 
 msgstr "Ausgewählte Maschine hinzufügen"
+
 
 msgid "254" 
 msgstr "Einzelheiten"
 
+
 msgid "255" 
 msgstr "Bitte Hersteller eingeben Hersteller-Name (Marke)"
 
+
 msgid "256" 
 msgstr "Bitte Maschinenname (Serie) eingeben"
+
 
 msgid "257" 
 msgstr "Bitte Maschinen-Modell eingeben (Produktionsjahr)"
 
 
+
+
+
+
+
 msgid "258" 
 msgstr "Firmenprofil"
+
 
 msgid "259" 
 msgstr "Benachrichtigung"
 
+
 msgid "260" 
 msgstr "Referenzen"
+
 
 msgid "261" 
 msgstr "Neueste Beiträge"
 
+
 msgid "262" 
 msgstr "Nützliche Links"
+
 
 msgid "263" 
 msgstr "Kontaktiere uns"
 
+
 msgid "264" 
 msgstr "Ein Virtuelles Unternehmen (VU) ist eine vorübergehende Allianz von Unternehmen, die zusammen kommen, um Fähigkeiten oder Kernkompetenzen und Ressourcen zu teilen, um besser auf Geschäftsmöglichkeiten reagieren zu können und deren Zusammenarbeit durch Computernetze unterstützt wird."
+
 
 msgid "265" 
 msgstr "Aktuelle Nachrichten zu OSTIM Virtuelles Unternehmen"
 
+
 msgid "266" 
 msgstr "OSTIM Cluster Nachrichten"
+
 
 msgid "267" 
 msgstr "Neue Projektaufrufe"
 
+
 msgid "268" 
 msgstr "Ostim organisierte industrielle Zone"
+
 
 msgid "269" 
 msgstr "Türkisches Ministerium für Wissenschaft, Industrie und Technologie"
 
+
 msgid "270" 
 msgstr "TUBITAK"
+
 
 msgid "271" 
 msgstr "KOSGEB"
 
+
 msgid "272" 
 msgstr "Nutzungsbedingungen"
+
 
 msgid "273" 
 msgstr "Datenschutz-Bestimmungen"
 
+
 msgid "274" 
 msgstr "Alle Rechte vorbehalten."
+
 
 msgid "275" 
 msgstr "Unternehmen Indikatoren"
@@ -841,38 +906,56 @@ msgstr "Unternehmen Indikatoren"
 msgid "276" 
 msgstr "Gesamtes Firmenprofil Besucher"
 
+
 msgid "277" 
 msgstr "Letzte sechs Monate"
+
 
 msgid "278" 
 msgstr "Letzte Zwölf Monate"
 
+
 msgid "279" 
 msgstr "Rate der Besucher aller Systembesucher"
+
 
 msgid "280" 
 msgstr "Gesamtsystembesucher"
 
+
 msgid "281" 
-msgstr "Insgesamt Werkzeugmaschinen-Nummer"
+msgstr "Anzahl der Werkzeugmaschinen insgesamt"
+
 
 msgid "282" 
-msgstr "in den letzten 6 Monaten hinzugefügt"
+msgstr "Werkzeugmaschinen in den letzten 6 Monaten hinzugefügt"
+
 
 msgid "283" 
-msgstr "in den letzten 12 Monaten hinzugefügt"
+msgstr "Werkzeugmaschinen im letzten Monat hinzugefügt"
+
 
 msgid "284" 
-msgstr "Rate der addierten Werkzeugmaschinen in den letzten 12 Monaten zu den gesamt der Firma"
+msgstr "Rate der addierten Werkzeugmaschinen in den letzten 6 Monaten zu den gesamten Werkzeugmaschinen"
+
+
+
+
+
+
+
 
 msgid "285" 
 msgstr "Januar"
 
+
 msgid "286" 
 msgstr "Februar"
 
+
 msgid "287" 
 msgstr "März"
+
 
 msgid "288" 
 msgstr "April"
@@ -1481,6 +1564,3 @@ msgstr "Softwareentwickler"
 
 msgid "488"
 msgstr "Ihre Nachricht wurde erfolgreich gesendet!"
-
-msgid "489" 
-msgstr "Insgesamt registrierte Werkzeugmaschinen im System"

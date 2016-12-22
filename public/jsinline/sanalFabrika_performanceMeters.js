@@ -23,7 +23,7 @@ $(document).ready(function () {
     $('#loging_ph').append(loging_value);
 
 
-    $.ajax({
+$.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
         data: {url: 'getFirmLogo_infoFirmProfile',
@@ -32,7 +32,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-
+            
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
             window.logosrc = imageFolAddress + data.resultSet[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
@@ -82,32 +82,32 @@ $(document).ready(function () {
         }
     });
 
-
+    
     window.notificationWidget = $('#notificationContainer').notifications({
-        container: $('#notificationWidget')
+        container : $('#notificationWidget')
     });
-    window.notificationWidget.notifications({
-        onServiceSuccess: function (event, data) {
+    window.notificationWidget.notifications({ 
+        onServiceSuccess : function(event, data) {
             /*var elementData = data.element;
-             var id = data.id;*/
+            var id = data.id;*/
             //window.deleteServicePrivilegeDialog(id, elementData);
             console.warn(data.element);
             console.warn(data.element.attr('attr-notification'));
             alert('onServiceSucess');
-
-        }
-    });
-
+            
+        }  
+     });
+    
     //window.notificationWidget.notifications('test');
-
+    
     var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
     nonAttachedTreeLoadImage.loadSpinner('appendImage');
-
+    
     var testLoadImage = $("#bannerWidget").loadSpinner();
     testLoadImage.loadSpinner('appendImage');
-
-
-
+    
+    
+    
 });
 
 function listOfCertificates() {
@@ -117,12 +117,12 @@ function listOfCertificates() {
         $("#qualityDetaildDIV").removeClass('active');
         $("#qualityDetaildDIV").slideUp('Slow');
         $("#qualityDetailsInsideDIV").empty();
-    } else {
-
+    } else {      
+        
         var currentPath = window.location.hostname;
-
+        
         console.log(currentPath);
-
+        
         var appending =
                 "<hr>"
                 + "<div class='col-xs-3'>"
