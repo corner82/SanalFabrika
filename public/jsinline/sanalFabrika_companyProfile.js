@@ -282,8 +282,50 @@ $(document).ready(function () {
     window.notificationWidget.notifications('getNotifications');
     
     
+<<<<<<< HEAD
     var guestDataWidget = $('#guestBannerWidget').pageGuests({
         //container : $('#guestBannerWidget')
+=======
+    /*
+     * Get left counter calculations
+     * machine tools infomation
+     */
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: "getUsersLeftNotifications_ActUsersActionStatistics",
+//            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            $('#total_mt').empty();
+            $('#add_mt_last_six').empty();
+            $('#add_mt_last_twelve').empty();
+            $('#add_mt_rate').empty();
+            $('#total_sys_mt').empty();
+
+            $('#add_mt_rate_bar').css('width', "0%");
+            $('#add_mt_rate_bar').attr("aria-valuenow", "0");
+
+            $('#total_mt').append(data[0].firmmachinetotal);
+            $('#add_mt_last_six').append(data[0].lastsix);
+            $('#add_mt_last_twelve').append(data[0].lasttwelve);
+            $('#total_sys_mt').append(data[0].allfirmmachinetotal);
+            $('#add_mt_rate').append(data[0].lasttwelvepercent + "%");
+
+            $('#add_mt_rate_bar').css('width', data[0].lasttwelvepercent + "%");
+            $('#add_mt_rate_bar').attr("aria-valuenow", data[0].lasttwelvepercent);
+
+            window.testLoadImage_2.loadSpinner('removeLoadImage');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            //console.log('error');
+            console.error(textStatus);
+        }
+>>>>>>> origin/master
     });
     guestDataWidget.pageGuests('getGuestsData');
     
