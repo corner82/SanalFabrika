@@ -36,8 +36,8 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-//            console.log(data.rows);
-            if (data.rows) {
+//            console.log(data.rows[0]);
+            if (data.rows[0]) {
 //                console.log(data.rows[0]);
                 $('#firm_name_ph').empty();
                 $('#header_company_name').empty();
@@ -48,7 +48,7 @@ $(document).ready(function () {
                 $('#verbal_2_ph').empty();
                 $('#title_3_ph').empty();
                 $('#verbal_3_ph').empty();
-                $('#profileLogosrc').empty();
+//                $('#profileLogosrc').empty();
                 var about_company = data.rows[0].about;
                 window.firm_name = data.rows[0].firm_name;
                 var title_1 = data.rows[0].verbal1_title;
@@ -57,8 +57,8 @@ $(document).ready(function () {
                 var verbal_2 = data.rows[0].verbal2;
                 var title_3 = data.rows[0].verbal3_title;
                 var verbal_3 = data.rows[0].verbal3;
-                var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
-                var logo_src = imageFolAddress + data.rows[0].logo;
+//                var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+//                var logo_src = imageFolAddress + data.rows[0].logo;
 //                console.log(logo_src);
                 $('#header_company_name').append("<i class='fa fa-user'></i>" + window.firm_name);
                 $('#firm_name_ph').append(window.firm_name);
@@ -69,10 +69,31 @@ $(document).ready(function () {
                 $('#verbal_2_ph').append(verbal_2);
                 $('#title_3_ph').append(title_3);
                 $('#verbal_3_ph').append(verbal_3);
-                $('#profileLogosrc').attr('src', logo_src);
+//                $('#profileLogosrc').attr('src', logo_src);
             }
         }
     });
+    
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+        data: {url: 'getFirmLogo_infoFirmProfile',
+            npk: $('#selectedCompanyNpk').val()
+        },
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
+            window.logosrc = imageFolAddress + data.resultSet[0].logo;
+            $('#profileLogosrc').attr('src', window.logosrc);
+//            $('#logoPlace1').attr('src', window.logosrc);
+        }
+    });
+    
+    /*
+     * Testimonial part service
+     */
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -283,17 +304,22 @@ $(document).ready(function () {
 
     window.testLoadImage = $("#bannerWidget").loadSpinner();
     window.testLoadImage.loadSpinner('appendImage');
+    
+    window.testLoadImage_2 = $("#bannerWidget_mt").loadSpinner();
+    window.testLoadImage_2.loadSpinner('appendImage');
 
 
     /*
-     * Get counter calculations
+     * Get left counter calculations
+     * visitors information
      */
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
-            url: "pkGetUsersLeftNotifications_ActUsersActionStatistics",
-            pk: $('#pk').val()
+            url: "getUsersLeftNotifications_ActUsersActionStatistics",
+//            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
         },
         type: 'GET',
         dataType: 'json',
@@ -318,6 +344,47 @@ $(document).ready(function () {
             $('#visitor_bar').attr("aria-valuenow", data[0].lasttwelvepercent);
 
             window.testLoadImage.loadSpinner('removeLoadImage');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            //console.log('error');
+            console.error(textStatus);
+        }
+    });
+    
+    /*
+     * Get left counter calculations
+     * machine tools infomation
+     */
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: "getUsersRightNotifications_ActUsersActionStatistics",
+//            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            $('#total_mt').empty();
+            $('#add_mt_last_six').empty();
+            $('#add_mt_last_twelve').empty();
+            $('#add_mt_rate').empty();
+            $('#total_sys_mt').empty();
+
+            $('#add_mt_rate_bar').css('width', "0%");
+            $('#add_mt_rate_bar').attr("aria-valuenow", "0");
+
+            $('#total_mt').append(data[0].firmmachinetotal);
+            $('#add_mt_last_six').append(data[0].lastsix);
+            $('#add_mt_last_twelve').append(data[0].lasttwelve);
+            $('#total_sys_mt').append(data[0].allfirmmachinetotal);
+            $('#add_mt_rate').append(data[0].lasttwelvepercent + "%");
+
+            $('#add_mt_rate_bar').css('width', data[0].lasttwelvepercent + "%");
+            $('#add_mt_rate_bar').attr("aria-valuenow", data[0].lasttwelvepercent);
+
+            window.testLoadImage_2.loadSpinner('removeLoadImage');
         },
         error: function (jqXHR, textStatus, errorThrown) {
             //console.log('error');

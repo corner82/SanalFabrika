@@ -925,7 +925,7 @@ msgstr "Total system visitors"
 
 
 msgid "281" 
-msgstr "Total machine tools number"
+msgstr "Total company machine tools number"
 
 
 msgid "282" 
@@ -933,11 +933,11 @@ msgstr "Added machine tools in last 6 months"
 
 
 msgid "283" 
-msgstr "Added machine tools in last month"
+msgstr "Added machine tools in last 12 months"
 
 
 msgid "284" 
-msgstr "Rate of added machine tools in last 6 months to overall machine tools"
+msgstr "Rate of added machine tools in last 12 months to overall company machine tools"
 
 
 
@@ -1566,5 +1566,5 @@ msgstr "Software Engineer"
 msgid "488"
 msgstr "Your message sent successfully!"
 
-msgid "489"
-msgstr "Your message sent successfully!"
+msgid "489" 
+msgstr "Total registered machine tools in the system"
