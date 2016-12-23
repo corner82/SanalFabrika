@@ -44,28 +44,117 @@ $(document).ready(function () {
     });
 
     
-    window.notificationWidget = $('#notificationContainer').notifications({
-        container : $('#notificationWidget')
-    });
-    window.notificationWidget.notifications({ 
-        onServiceSuccess : function(event, data) {
-            /*var elementData = data.element;
-            var id = data.id;*/
-            //window.deleteServicePrivilegeDialog(id, elementData);
-            console.warn(data.element);
-            console.warn(data.element.attr('attr-notification'));
-            alert('onServiceSucess');
-            
-        }  
-     });
-    
-    //window.notificationWidget.notifications('test');
-    
+    /**
+     * Notification container load spinner
+     * @author Mustafa Zeynel Dağlı
+     * @since 23/12/2016
+     */
     var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
     nonAttachedTreeLoadImage.loadSpinner('appendImage');
+
+    /**
+     * notification widget 
+     * @author Mustafa Zeynel Dağlı
+     * @since 23/12/2016
+     */
+    window.notificationWidget = $('#notificationContainer').notifications({
+        container: $('#notificationWidget')
+    });
+    window.notificationWidget.notifications({
+        onServiceSuccess: function (event, data) { 
+            nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');
+        }
+    });
+    window.notificationWidget.notifications('getNotifications');
     
-    var testLoadImage = $("#bannerWidget").loadSpinner();
-    testLoadImage.loadSpinner('appendImage');
+    
+    window.testLoadImage = $("#bannerWidget").loadSpinner();
+    window.testLoadImage.loadSpinner('appendImage');
+
+    window.testLoadImage_2 = $("#bannerWidget_mt").loadSpinner();
+    window.testLoadImage_2.loadSpinner('appendImage');
+
+    /*
+     * Get left counter calculations
+     * visitors information
+     */
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: "getUsersLeftNotifications_ActUsersActionStatistics",
+//            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            $('#visitor_total').empty();
+            $('#visitor_last_six').empty();
+            $('#visitor_last_twelve').empty();
+            $('#total_sys_visitors').empty();
+            $('#visitor_rate_number').empty();
+
+            $('#visitor_bar').css('width', "0%");
+            $('#visitor_bar').attr("aria-valuenow", "0");
+
+            $('#visitor_total').append(data[0].allfirmnotificationscount);
+            $('#visitor_last_six').append(data[0].lastsix);
+            $('#visitor_last_twelve').append(data[0].lasttwelve);
+            $('#total_sys_visitors').append(data[0].allnotificationscount);
+            $('#visitor_rate_number').append(data[0].lasttwelvepercent + "%");
+
+            $('#visitor_bar').css('width', data[0].lasttwelvepercent + "%");
+            $('#visitor_bar').attr("aria-valuenow", data[0].lasttwelvepercent);
+
+            window.testLoadImage.loadSpinner('removeLoadImage');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            //console.log('error');
+            console.error(textStatus);
+        }
+    });
+
+    /*
+     * Get right counter calculations
+     * machine tools infomation
+     */
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: "getUsersRightNotifications_ActUsersActionStatistics",
+//            pk: $('#pk').val(),
+            npk: $('#selectedCompanyNpk').val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+
+            $('#total_mt').empty();
+            $('#add_mt_last_six').empty();
+            $('#add_mt_last_twelve').empty();
+            $('#add_mt_rate').empty();
+            $('#total_sys_mt').empty();
+
+            $('#add_mt_rate_bar').css('width', "0%");
+            $('#add_mt_rate_bar').attr("aria-valuenow", "0");
+
+            $('#total_mt').append(data[0].firmmachinetotal);
+            $('#add_mt_last_six').append(data[0].lastsix);
+            $('#add_mt_last_twelve').append(data[0].lasttwelve);
+            $('#total_sys_mt').append(data[0].allfirmmachinetotal);
+            $('#add_mt_rate').append(data[0].lasttwelvepercent + "%");
+
+            $('#add_mt_rate_bar').css('width', data[0].lasttwelvepercent + "%");
+            $('#add_mt_rate_bar').attr("aria-valuenow", data[0].lasttwelvepercent);
+
+            window.testLoadImage_2.loadSpinner('removeLoadImage');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            //console.log('error');
+            console.error(textStatus);
+        }
+    });
     
     
     

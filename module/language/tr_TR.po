@@ -40,7 +40,7 @@ msgid "8"
 msgstr "Ana Navigasyon"
 
 msgid "9"
-msgstr "Ev"
+msgstr "Giriş Sayfa"
 
 msgid "10"
 msgstr "Yönetici Gösterge Paneli"

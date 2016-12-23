@@ -100,17 +100,15 @@
 
     <!-- inline js -->        
     <script src="<?php echo $this->basePath('jsinline/languageBar.js') ?>"></script>
-    <script src="<?php echo $this->basePath('jsinline/sanalFabrika_companyHistory.js') ?>"></script>
-    <!--<script src="<?php echo $this->basePath('jsinline/profile_pages_leftmenu.js') ?>"></script>-->
     <script src="<?php echo $this->basePath('jsinline/onyuzLeftMenuFunction.js') ?>"></script>
+    <!--<script src="<?php echo $this->basePath('jsinline/profile_pages_leftmenu.js') ?>"></script>-->
+    <script src="<?php echo $this->basePath('jsinline/sanalFabrika_companyHistory.js') ?>"></script>
     <!--<script src="<?php echo $this->basePath('jsinline/sanalFabrika_profileControl.js') ?>"></script>-->
 
     <script type="text/javascript">
         jQuery(document).ready(function () {
             App.init();
-            App.initCounter();
-            App.initScrollBar();
-            Datepicker.initDatepicker();
+            CirclesMaster.initCirclesMaster1();
             StyleSwitcher.initStyleSwitcher();
         });
     </script>
