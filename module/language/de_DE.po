@@ -1485,3 +1485,5 @@ msgstr "Ihre Nachricht wurde erfolgreich gesendet!"
 msgid "489" 
 msgstr "Insgesamt registrierte Werkzeugmaschinen im System"
 
+msgid "490" 
+msgstr "Einstellungen"

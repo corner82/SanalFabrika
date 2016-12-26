@@ -1489,3 +1489,6 @@ msgstr "Mesajınız başarılı bir şekilde gönderildi!"
 msgid "489"
 msgstr "Sisteme kayıtlı toplam makine sayısı"
 
+msgid "490" 
+msgstr "Ayarlar"
+

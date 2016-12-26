@@ -1569,3 +1569,5 @@ msgstr "Your message sent successfully!"
 msgid "489" 
 msgstr "Total registered machine tools in the system"
 
+msgid "490" 
+msgstr "Settings"
