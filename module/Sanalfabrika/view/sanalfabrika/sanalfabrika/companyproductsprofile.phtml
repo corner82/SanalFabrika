@@ -97,6 +97,9 @@
             <div class="topbar">
                 <ul style="background: #ddd; 
                     padding: 10px;" id="topbar_menu_ul" class="loginbar pull-right">
+                    <li id="setting_link" style="visibility: hidden; display: none">
+                        <a style="cursor: pointer;" onclick="setredirect()"><?php echo $this->translate('490')?></a></li>                                        
+                    <li id="setting_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>
                     <li class="hoverSelector">
                         <a><?php echo $this->translate('91') ?> </a>
                         <i class="fa fa-globe"></i>
@@ -119,45 +122,52 @@
             <!-- End Toggle -->
         </div><!--/end container-->
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+<!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse menu-xs navbar-responsive-collapse" >
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="#body"><?php echo $this->translate('9') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                            ?>#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about"><?php echo $this->translate('229') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                            ?>#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="page-scroll"><a href="#body">
+                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                            ?>#ostimServices">
                                     <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="#news"><?php echo $this->translate('231') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                            ?>#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact"><?php echo $this->translate('232') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                            ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
-                    <li class="dropdown">
+<!--                    <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             <?php echo $this->translate('233') ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="page-scroll">
-                                <a href="#body"><?php echo $this->translate('9') ?></a>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                            ?>#body"><?php echo $this->translate('9') ?></a>
                             </li>
                             <li class="page-scroll">
-                                <a href="../index.phtml"><?php echo $this->translate('234') ?></a>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                            ?>"><?php echo $this->translate('234') ?></a>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
             </div><!--/end container-->
         </div><!--/navbar-collapse-->
