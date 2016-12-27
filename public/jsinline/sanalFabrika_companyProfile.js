@@ -9,21 +9,29 @@ $(document).ready(function () {
     window.current_Lang = $('#langCode').val();
 
     lang.change($('#langCode').val());
-    $('#loging_ph').empty();
     if ($('#pk').val()) {
         var soc_med_service_url = 'pkFillCompanyInfoSocialedia_infoFirmProfile';
         var verbal_service_url = 'pkFillUsersFirmVerbalNpk_infoFirmVerbal';
         var user_desc_service_url = 'pkFillUsersDescForFirmVerbalNpk_infoFirmUserDescForCompany';
         var address_info_service_url = 'pkFillUsersFirmAddressNpk_infoFirmAddress';
-        var loging_value = window.lang.translate('Log out');
+        
+        $('#login_place').css('visibility', 'hidden');
+        $('#login_place').css('display', 'none');
+        $('#logout_place').css('visibility', 'visible');
+        $('#logout_place').css('display', '');
     } else {
         var soc_med_service_url = 'fillCompanyInfoSocialediaGuest_infoFirmProfile';
         var verbal_service_url = 'fillUsersFirmVerbalNpkGuest_infoFirmVerbal';
         var user_desc_service_url = 'fillUsersDescForFirmVerbalNpkGuest_infoFirmUserDescForCompany';
         var address_info_service_url = 'FillUsersFirmAddressNpkQuest_infoFirmAddress';
-        var loging_value = window.lang.translate('Log in');
+        
+        $('#login_place').css('visibility', 'visible');
+        $('#login_place').css('display', '');
+        $('#logout_place').css('visibility', 'hidden');
+        $('#logout_place').css('display', 'none');
     }
-    $('#loging_ph').append(loging_value);
+    
+    
 
 
     $.ajax({
@@ -37,8 +45,20 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
+
 //            console.log(data.rows);
             if (data.rows) {
+                if (data.rows[0].attributes.userb) {
+                    $('#setting_link').css('visibility', 'visible');
+                    $('#setting_link_divider').css('visibility', 'visible');
+                    $('#setting_link').css('display', '');
+                    $('#setting_link_divider').css('display', '');
+                }else {
+                    $('#setting_link').css('visibility', 'hidden');
+                    $('#setting_link_divider').css('visibility', 'hidden');
+                    $('#setting_link').css('display', 'none');
+                    $('#setting_link_divider').css('display', 'none');
+                }
 //                console.log(data.rows[0]);
                 $('#firm_name_ph').empty();
                 $('#header_company_name').empty();
@@ -73,6 +93,7 @@ $(document).ready(function () {
 //                $('#profileLogosrc').attr('src', logo_src);
             }
         }
+
     });
 
 
@@ -120,8 +141,13 @@ $(document).ready(function () {
                         + "</p>"
                         + "</div>"
                         + "<img class='rounded-x' src='https://"
-                        + window.location.hostname
-                        + "/onyuz/standard/assets/img/filozof.png' alt='thumb'>"
+                        + window.location.hostname 
+                        + "/onyuz/standard/assets/img/sfClients/"
+                        + data.rows[i].picture 
+                        + "' "
+                        + " alt='"
+                        +  data.rows[i].name + "_" + data.rows[i].surname
+                        + "'>"
                         + "<span class='testimonials-author'>"
                         + data.rows[i].name + " " + data.rows[i].surname
                         + "<br>"
@@ -411,4 +437,12 @@ function referenceRedirect() {
         var redirecting_url = "https://" + window.location.hostname + "/ostim/sanalfabrika/companyprofile/" + rep_firm_short_name + "/" + ref_network_key;
     }
     window.location = redirecting_url;
+}
+
+function setredirect() {
+    var currenturl = window.location.href;
+//    console.log(currenturl);
+    var targeturl = currenturl.replace('companyprofile', 'cpgeneralset');
+//    console.log(targeturl);
+    window.location.replace(targeturl);
 }
