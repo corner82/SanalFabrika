@@ -40,7 +40,7 @@ msgid "8"
 msgstr "Ana Navigasyon"
 
 msgid "9"
-msgstr "Giriş Sayfa"
+msgstr "Ana Sayfa"
 
 msgid "10"
 msgstr "Yönetici Gösterge Paneli"
@@ -103,7 +103,7 @@ msgid "29"
 msgstr "Profil"
 
 msgid "30"
-msgstr "Log in"
+msgstr "Giriş"
 
 msgid "31"
 msgstr "Çıkış"
