@@ -8,17 +8,20 @@ $(document).ready(function () {
 
     lang.change($('#langCode').val());
 
-//    console.log($('#pk').val());
-    $('#loging_ph').empty();
-
-    if ($('#pk').val()) {
-        var list_service_url = 'pkFillCompanyLists_infoFirmProfile';
-        var loging_value = window.lang.translate('Log out');
+/*
+     * Checking pk value for login and logout actions
+     */
+    if (!$('#pk').val()) {
+        $('#login_place').css('visibility', 'visible');
+        $('#login_place').css('display', '');
+        $('#logout_place').css('visibility', 'hidden');
+        $('#logout_place').css('display', 'none');
     } else {
-        var list_service_url = 'fillCompanyListsGuest_infoFirmProfile';
-        var loging_value = window.lang.translate('Log in');
+        $('#login_place').css('visibility', 'hidden');
+        $('#login_place').css('display', 'none');
+        $('#logout_place').css('visibility', 'visible');
+        $('#logout_place').css('display', '');
     }
-    $('#loging_ph').append(loging_value);
 
 
     $("#pagination_content").empty();

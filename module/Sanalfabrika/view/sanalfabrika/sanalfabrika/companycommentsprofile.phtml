@@ -109,7 +109,21 @@
                     <li class="topbar-devider"></li>   
                     <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><span id="loging_ph"></span></a></li>   
+                    <li id="login_place" style="visibility: hidden; display: none">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout')); ?>">
+                            <span>
+                                <?php echo $this->translate('30')?>
+                            </span>
+                        </a>
+                    </li>
+                    <li id="logout_place" style="visibility: hidden; display: none">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout')); ?>">
+                            <span>
+                                <?php echo $this->translate('31')?>
+                            </span>
+                        </a>
+                    </li>
+                    <!--<li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><span id="loging_ph"></span></a></li>-->   
                 </ul>
             </div>
             <!-- End Topbar -->

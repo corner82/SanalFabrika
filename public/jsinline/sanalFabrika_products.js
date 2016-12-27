@@ -13,16 +13,20 @@ $(document).ready(function () {
     $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
 
 
-    $('#loging_ph').empty();
-
-    if ($('#pk').val()) {
-        var prod_service_url = 'pkFillCompanyInfoProducts_infoFirmProfile';
-        var loging_value = window.lang.translate('Log out');
+    /*
+     * Checking pk value for login and logout actions
+     */
+    if (!$('#pk').val()) {
+        $('#login_place').css('visibility', 'visible');
+        $('#login_place').css('display', '');
+        $('#logout_place').css('visibility', 'hidden');
+        $('#logout_place').css('display', 'none');
     } else {
-        var prod_service_url = 'fillCompanyInfoProductsGuest_infoFirmProfile';
-        var loging_value = window.lang.translate('Log in');
+        $('#login_place').css('visibility', 'hidden');
+        $('#login_place').css('display', 'none');
+        $('#logout_place').css('visibility', 'visible');
+        $('#logout_place').css('display', '');
     }
-    $('#loging_ph').append(loging_value);
 
 
     $.ajax({
