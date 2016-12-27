@@ -407,7 +407,7 @@ $.widget("sanalfabrika.notifications", {
                 data: {
                     url: self.options.serviceUrl,
                     pk: self.options.pk,
-                    langCode : self.options.langCode,
+                    language_code : self.options.langCode,
                     machine_id: self.options.machineID
                 },
                 type: 'GET',
@@ -483,7 +483,7 @@ $.widget("sanalfabrika.notifications", {
             var self = this;
             self.options.appendText+='<div class="panel-heading-v2 overflow-h " style="margin-top: 20px">\n\
                                         <h2 class="heading-xs pull-left">\n\
-                                            <i class="fa fa-bell-o"></i> Notification</h2>\n\
+                                            <i class="fa fa-bell-o"></i> '+self.element.attr('attr-notification')+'</h2>\n\
                                             <a href="#">\n\
                                                 <i class="fa fa-cog pull-right"></i>\n\
                                             </a>\n\
