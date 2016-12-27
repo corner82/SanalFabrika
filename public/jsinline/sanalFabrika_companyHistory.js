@@ -9,12 +9,12 @@ $(document).ready(function () {
     });
 
     lang.change($('#langCode').val());
-    
+
     $('#header_company_name').empty();
     $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
 
 
-    
+
     $('#loging_ph').empty();
 
     if ($('#pk').val()) {
@@ -24,7 +24,7 @@ $(document).ready(function () {
     }
     $('#loging_ph').append(loging_value);
 
-    
+
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -35,7 +35,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            
+
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
             window.logosrc = imageFolAddress + data.resultSet[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
@@ -43,7 +43,7 @@ $(document).ready(function () {
         }
     });
 
-    
+
     /**
      * Notification container load spinner
      * @author Mustafa Zeynel Dağlı
@@ -61,13 +61,13 @@ $(document).ready(function () {
         container: $('#notificationWidget')
     });
     window.notificationWidget.notifications({
-        onServiceSuccess: function (event, data) { 
+        onServiceSuccess: function (event, data) {
             nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');
         }
     });
     window.notificationWidget.notifications('getNotifications');
-    
-    
+
+
     window.testLoadImage = $("#bannerWidget").loadSpinner();
     window.testLoadImage.loadSpinner('appendImage');
 
@@ -155,7 +155,78 @@ $(document).ready(function () {
             console.error(textStatus);
         }
     });
-    
-    
-    
+
+
+    /*
+     * Get company historical activities
+     */
+    window.testLoadImage_history = $("#history_place").loadSpinner();
+    window.testLoadImage_history.loadSpinner('appendImage');
+
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: "getFirmHistoryV1_ActUsersActionStatistics",
+            npk: $('#selectedCompanyNpk').val(),
+            language_code: $("#langCode").val()
+        },
+        type: 'GET',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+            if (data.length) {
+                $('#history_place').empty();
+                console.log(data);
+                for (var i = 0; i < data.length; i++) {
+
+                    if (data[i].picture.indexOf('onyuz/standard/') >= 0) {
+                        var picture_address = data[i].picture;
+                    } else {
+                        var picture_address = "/onyuz/standard/assets/img/sfClients/" + data[i].picture;
+                    }
+
+                    var app_history_li =
+                            "<li>"
+                            + "<time class='cbp_tmtime' datetime=''>"
+                            + "<span><small>"
+                            + data[i].s_date
+                            + "</span></small>"
+                            + "<span style='font-size:14px'>"
+                            + data[i].category
+                            + "</span>"
+                            + "</time>"
+                            + "<i class='cbp_tmicon rounded-x hidden-xs'></i>"
+                            + "<div class='cbp_tmlabel'>"
+                            + "<h2>"
+                            + data[i].operation_name
+                            + "</h2>"
+                            + "<div class='row'>"
+                            + "<div class='col-md-2'>"
+                            + "<img class='img-responsive' src='"
+                            + "https://" + window.location.hostname + picture_address
+                            + "' alt=''>"
+                            + "<div class='md-margin-bottom-20'></div>"
+                            + "</div>"
+                            + "<div class='col-md-10'>"
+                            + "<p>"
+                            + data[i].description
+                            + "</p>"
+                            + "</div>"
+                            + "</div>"
+                            + "</div>"
+                            + "</li>";
+
+                    $('#history_place').append(app_history_li);
+                }
+            }
+            window.testLoadImage_history.loadSpinner('removeLoadImage');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            //console.log('error');
+//            console.error(textStatus);
+        }
+    });
+
+
+
+
 });
