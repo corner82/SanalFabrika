@@ -181,43 +181,80 @@ $(document).ready(function () {
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
 
-                    if (data[i].picture.indexOf('onyuz/standard/') >= 0) {
-                        var picture_address = data[i].picture;
+//                    console.log(data[i].picture);
+
+                    if (data[i].picture === "") {
+
+                        var app_history_li =
+                                "<li>"
+                                + "<time class='cbp_tmtime' datetime=''>"
+                                + "<span><small>"
+                                + data[i].s_date
+                                + "</span></small>"
+                                + "<span style='font-size:14px'>"
+                                + data[i].category
+                                + "</span>"
+                                + "</time>"
+                                + "<i class='cbp_tmicon rounded-x hidden-xs'></i>"
+                                + "<div class='cbp_tmlabel'>"
+                                + "<h2>"
+                                + data[i].operation_name
+                                + "</h2>"
+                                + "<div class='row'>"
+//                            + "<div class='col-md-2'>"
+//                            + "<img class='img-responsive' src='"
+//                            + "https://" + window.location.hostname + picture_address
+//                            + "' alt=''>"
+//                            + "<div class='md-margin-bottom-20'></div>"
+//                            + "</div>"
+                                + "<div class='col-md-12'>"
+                                + "<p>"
+                                + data[i].description
+                                + "</p>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>"
+                                + "</li>";
+
                     } else {
-                        var picture_address = "/onyuz/standard/assets/img/sfClients/" + data[i].picture;
+
+                        if (data[i].picture.indexOf('onyuz/standard/') >= 0) {
+                            var picture_address = data[i].picture;
+                        } else {
+                            var picture_address = "/onyuz/standard/assets/img/sfClients/" + data[i].picture;
+                        }
+
+                        var app_history_li =
+                                "<li>"
+                                + "<time class='cbp_tmtime' datetime=''>"
+                                + "<span><small>"
+                                + data[i].s_date
+                                + "</span></small>"
+                                + "<span style='font-size:14px'>"
+                                + data[i].category
+                                + "</span>"
+                                + "</time>"
+                                + "<i class='cbp_tmicon rounded-x hidden-xs'></i>"
+                                + "<div class='cbp_tmlabel'>"
+                                + "<h2>"
+                                + data[i].operation_name
+                                + "</h2>"
+                                + "<div class='row'>"
+                                + "<div class='col-md-2'>"
+                                + "<img class='img-responsive' src='"
+                                + "https://" + window.location.hostname + picture_address
+                                + "' alt=''>"
+                                + "<div class='md-margin-bottom-20'></div>"
+                                + "</div>"
+                                + "<div class='col-md-10'>"
+                                + "<p>"
+                                + data[i].description
+                                + "</p>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>"
+                                + "</li>";
                     }
-
-                    var app_history_li =
-                            "<li>"
-                            + "<time class='cbp_tmtime' datetime=''>"
-                            + "<span><small>"
-                            + data[i].s_date
-                            + "</span></small>"
-                            + "<span style='font-size:14px'>"
-                            + data[i].category
-                            + "</span>"
-                            + "</time>"
-                            + "<i class='cbp_tmicon rounded-x hidden-xs'></i>"
-                            + "<div class='cbp_tmlabel'>"
-                            + "<h2>"
-                            + data[i].operation_name
-                            + "</h2>"
-                            + "<div class='row'>"
-                            + "<div class='col-md-2'>"
-                            + "<img class='img-responsive' src='"
-                            + "https://" + window.location.hostname + picture_address
-                            + "' alt=''>"
-                            + "<div class='md-margin-bottom-20'></div>"
-                            + "</div>"
-                            + "<div class='col-md-10'>"
-                            + "<p>"
-                            + data[i].description
-                            + "</p>"
-                            + "</div>"
-                            + "</div>"
-                            + "</div>"
-                            + "</li>";
-
                     $('#history_place').append(app_history_li);
                 }
             }
