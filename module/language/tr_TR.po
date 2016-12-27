@@ -15,6 +15,9 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+msgid "0"
+msgstr "Sanal Fabrika"
+
 msgid "1"
 msgstr "Sanal Fabrika Projesi"
 
@@ -1492,3 +1495,17 @@ msgstr "Sisteme kayıtlı toplam makine sayısı"
 msgid "490" 
 msgstr "Ayarlar"
 
+msgid "491"
+msgstr "tuşuna basarak kayıt işlemlerine başlayınız."
+
+msgid "492"
+msgstr "Kayıt"
+
+msgid "493"
+msgstr "Daha üye olmadınızmı? Lütfen"
+
+msgid "494"
+msgstr "Çevrimiçi kal"
+
+msgid "495"
+msgstr "Lütfen Giriş Yapınız"

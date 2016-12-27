@@ -15,6 +15,9 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+msgid "0"
+msgstr "Virtuelles Unternehmen"
+
 msgid "1"
 msgstr "Virtuelles Unternehmen Project"
 
@@ -1487,3 +1490,18 @@ msgstr "Insgesamt registrierte Werkzeugmaschinen im System"
 
 msgid "490" 
 msgstr "Einstellungen"
+
+msgid "491"
+msgstr "um die Registrierung zu starten"
+
+msgid "492"
+msgstr "anmelden"
+
+msgid "493"
+msgstr "Haben Sie nicht Konto? Klicken"
+
+msgid "494"
+msgstr "Bleiben Sie immer angemeldet"
+
+msgid "495"
+msgstr "Bitte loggen Sie sich ein"

@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle(' Virtual Enterprise ' . $this->translate('Login'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle($this->translate('0') . " " . $this->translate('30'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?php
         echo $this->headMeta()
@@ -72,6 +72,11 @@
         <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/validationEngine/jquery.validationEngine-' . $this->layout()->test . '.js'); ?>" type="text/javascript"></script>
         <!--<script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/validationEngine/jquery.validationEngine-en.js'); ?>" type="text/javascript"></script>-->
         <script src="<?php echo $this->basePath('onyuz/standard/assets/plugins/validationEngine/jquery.validationEngine.js') ?>" type="text/javascript"></script>
+
+        <!-- multulanguage js -->
+        <script src="<?php echo $this->basePath('plugins/jquery-lang-js-master/js.cookie.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $this->basePath('plugins/jquery-lang-js-master/jquery-lang.js') ?>" type="text/javascript"></script>
+        <!--<script src="js/langpack/nonDynamic.js" charset="utf-8" type="text/javascript"></script>-->
 
         <!-- inline js -->        
         <script src="<?php echo $this->basePath('jsinline/sanalfabrika_login.js') ?>"></script>
