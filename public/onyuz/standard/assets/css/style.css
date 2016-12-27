@@ -1699,3 +1699,16 @@ used for image spinner for loading purposes
 .box-relative {
     position : relative;
 }
+
+
+.block-description-company-profile {
+    border-top: 4px solid #eee !important;
+        padding: 28px 0 24px !important;
+}
+.title-box-v2-company-profile {
+        padding: 0px 0 5px !important;
+        margin-bottom : 0px !important;
+}
+.hr-company-profile {
+    border-top: 5px solid #eee !important;
+}
