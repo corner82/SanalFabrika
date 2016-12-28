@@ -21,7 +21,7 @@ $(document).ready(function () {
         $('#setting_link_divider').css('visibility', 'hidden');
         $('#setting_link').css('display', 'none');
         $('#setting_link_divider').css('display', 'none');
-        
+
     } else {
         $('#login_place').css('visibility', 'hidden');
         $('#login_place').css('display', 'none');
@@ -32,11 +32,14 @@ $(document).ready(function () {
         $('#setting_link_divider').css('visibility', 'visible');
         $('#setting_link').css('display', '');
         $('#setting_link_divider').css('display', '');
-        
+
     }
 
 
     $("#pagination_content").empty();
+
+    window.testLoadImage = $("#pagination_content").loadSpinner();
+    window.testLoadImage.loadSpinner('appendImage');
 //    console.log('reloaded');
     //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
     $.ajax({
@@ -54,6 +57,7 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
+
 //            console.log(data);
             var i;
             // @companyperpage = 10 company will be shown per page
@@ -140,6 +144,9 @@ $(document).ready(function () {
             $('#paginationBar').paginator('option', 'total', window.totalnumberofpages);
             $('#paginationBar').paginator('option', 'maxVisible', 5);
             $('#paginationBar').paginator('paginate');
+
+
+            window.testLoadImage.loadSpinner('removeLoadImage');
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
