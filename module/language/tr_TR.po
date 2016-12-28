@@ -1572,3 +1572,6 @@ msgstr "İletişim tipi"
 
 msgid "516"
 msgstr "Varsayılan Numaram"
+
+msgid "516"
+msgstr "Yorumlar"

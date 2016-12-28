@@ -1568,3 +1568,6 @@ msgstr "Kontaktart"
 
 msgid "516"
 msgstr "Standardkontakt"
+
+msgid "517"
+msgstr "Bemerkungen"
