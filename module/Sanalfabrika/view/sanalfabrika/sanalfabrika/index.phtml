@@ -83,7 +83,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="page_faq.html"><?php echo $this->translate('89') ?></a></li>  
+                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
                     <li>
                         <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login','lang'=> $this->langCode)); ?>">
@@ -540,7 +540,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 <div class="col-md-4 col-sm-12">
                     <div class="service-block service-block-default">
                         <i class="icon-custom icon-lg icon-bg-u rounded-x icon-line icon-rocket"></i>
-                        <h2 class="heading-sm"><a href='<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines')); ?>'>
+                        <h2 class="heading-sm"><a href='<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines','lang'=> $this->langCode)); ?>'>
                             <?php echo $this->translate('446') ?></a>
                         </h2>
                         <p><?php echo $this->translate('456') ?></p>

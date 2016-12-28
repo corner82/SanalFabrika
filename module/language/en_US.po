@@ -1653,3 +1653,6 @@ msgstr "Contact type"
 msgid "516"
 msgstr "Default Contact"
 
+msgid "517"
+msgstr "Company Comments"
+

@@ -88,38 +88,38 @@
     <div class="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="index-2.html">
+            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>">
                 <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
             </a>
             <!-- End Logo -->
 
             <!-- Topbar -->
             <div class="topbar">
-                <ul style="background: #ddd;
-                    padding: 10px;" class="loginbar pull-right">
+                <ul style="background: #ddd; 
+                    padding: 10px;" id="topbar_menu_ul" class="loginbar pull-right">                    
                     <li id="setting_link" style="visibility: hidden; display: none">
-                        <a style="cursor: pointer;" onclick="setredirect()"><?php echo $this->translate('490')?></a></li>                                        
+                        <a style="cursor: pointer;" onclick="setredirect()"><?php echo $this->translate('490') ?></a></li>                                        
                     <li id="setting_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>
-                    <li class="hoverSelector">
-                        <a><?php echo $this->translate('Languages') ?> </a>
+                    <li style="cursor: pointer;" class="hoverSelector">
+                        <a><?php echo $this->translate('91') ?> </a>
                         <i class="fa fa-globe"></i>
-                        <ul id='topLanguageBar' class="languages hoverSelectorBlock">                                    
+                        <ul id='topLanguageBar' class="languages hoverSelectorBlock" >                                    
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
+                    <li><a href="index.phtml"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
                     <li id="login_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('login', array('action' => 'logout')); ?>">
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('30')?>
+                                <?php echo $this->translate('30') ?>
                             </span>
                         </a>
                     </li>
                     <li id="logout_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('login', array('action' => 'logout')); ?>">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('31')?>
+                                <?php echo $this->translate('31') ?>
                             </span>
                         </a>
                     </li>
@@ -141,40 +141,47 @@
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="#body"><?php echo $this->translate('Home') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about"><?php echo $this->translate('About Us') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $this->translate('Services') ?>
+                            <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="page-scroll"><a href="#body">
-                                    <?php echo $this->translate('OSTIM Services') ?></a>
+                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                            ?>#ostimServices">
+                                    <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="#news"><?php echo $this->translate('News') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact"><?php echo $this->translate('Contacts') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $this->translate('Submenus') ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="page-scroll">
-                                <a href="#body"><?php echo $this->translate('Home') ?></a>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="../index-2.html"><?php echo $this->translate('Main') ?></a>
-                            </li>
-                        </ul>
-                    </li>
+                    <!--                    <li class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                    <?php echo $this->translate('233') ?>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li class="page-scroll">
+                                                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                    ?>#body"><?php echo $this->translate('9') ?></a>
+                                                </li>
+                                                <li class="page-scroll">
+                                                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                    ?>"><?php echo $this->translate('234') ?></a>
+                                                </li>
+                                            </ul>
+                                        </li>-->
                 </ul>
             </div><!--/end container-->
         </div><!--/navbar-collapse-->
@@ -191,23 +198,23 @@
                 <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'index')); ?>">
+                            array('action' => 'index', 'lang' => $this->langCode)); ?>">
                         <?php echo $this->translate('Home') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'clientspage')); ?>">
+                            array('action' => 'clientspage', 'lang' => $this->langCode)); ?>">
                         <?php echo $this->translate('Clients Page') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', 
-                            array('action' => 'companyprofile', 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk)); ?>">
+                            array('action' => 'companyprofile' , 'lang' => $this->langCode , 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk)); ?>">
                         <?php echo $this->translate('Company Profile') ?>
                     </a>
                 </li>
-                <li class="active"><?php echo $this->translate('Company Comments') ?></li>
+                <li class="active"><?php echo $this->translate('517') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -337,34 +344,30 @@
                 <div class="row">
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <a href="index-2.html"><img id="logo-footer" class="footer-logo" 
-                                                    src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
-                                                    alt=""></a>
-                        <p><?php
-                            echo $this->translate('A virtual enterprise (VE) is a temporary alliance of '
-                                    . 'businesses that come together to share skills or core competencies and resources '
-                                    . 'in order to better respond to business opportunities, and whose cooperation is '
-                                    . 'supported by computer networks.')
-                            ?></p>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage', 'lang' => $this->langCode)); ?>">
+                            <img id="logo-footer" class="footer-logo" 
+                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                 alt=""></a>
+                        <p><?php echo $this->translate('264') ?></p>
                     </div><!--/col-md-3-->
                     <!-- End About -->
 
                     <!-- Latest -->
                     <div class="col-md-3 md-margin-bottom-40">
                         <div class="posts">
-                            <div class="headline"><h2><?php echo $this->translate('Latest Posts') ?></h2></div>
+                            <div class="headline"><h2><?php echo $this->translate('261') ?></h2></div>
                             <ul class="list-unstyled latest-list">
                                 <li>
-                                    <a href="#"><?php echo $this->translate('Latest News about OSTIM VE') ?></a>
-                                    <small><?php echo $this->translate('February') ?> 8, 2016</small>
+                                    <a href="#"><?php echo $this->translate('265') ?></a>
+                                    <small><?php echo $this->translate('286') ?> 8, 2016</small>
                                 </li>
                                 <li>
-                                    <a href="#"><?php echo $this->translate('OSTIM Clusters News') ?></a>
-                                    <small><?php echo $this->translate('January') ?> 23, 2016</small>
+                                    <a href="#"><?php echo $this->translate('266') ?></a>
+                                    <small><?php echo $this->translate('285') ?> 23, 2016</small>
                                 </li>
                                 <li>
-                                    <a href="#"><?php echo $this->translate('New Project Calls') ?></a>
-                                    <small><?php echo $this->translate('December') ?> 15, 2016</small>
+                                    <a href="#"><?php echo $this->translate('267') ?></a>
+                                    <small><?php echo $this->translate('296') ?> 15, 2016</small>
                                 </li>
                             </ul>
                         </div>
@@ -373,12 +376,12 @@
 
                     <!-- Link List -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <div class="headline"><h2><?php echo $this->translate('Useful Links') ?></h2></div>
+                        <div class="headline"><h2><?php echo $this->translate('262') ?></h2></div>
                         <ul class="list-unstyled link-list">
-                            <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('Ostim Organized Industrial Zone') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('Turkish Ministry of SIT') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('TUBITAK') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('KOSGEB') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('268') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('269') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('270') ?></a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('271') ?></a><i class="fa fa-angle-right"></i></li>
                             <!--<li><a href="#"><?php echo $this->translate('') ?></a><i class="fa fa-angle-right"></i></li>-->
                         </ul>
                     </div><!--/col-md-3-->
@@ -386,14 +389,14 @@
 
                     <!-- Address -->
                     <div class="col-md-3 map-img md-margin-bottom-40">
-                        <div class="headline"><h2><?php echo $this->translate('Contact Us') ?></h2></div>                         
+                        <div class="headline"><h2><?php echo $this->translate('110') ?></h2></div>                         
                         <address class="md-margin-bottom-40">
                             100. Yıl Bulvarı No: 101/A <br />
                             OSTIM, Ankara <br />
                             Turkey <br />
-                            <?php echo $this->translate('Phone') ?> :  +90 312 385 50 90 <br />
-                            <?php echo $this->translate('Fax') ?>:    +90 312 354 58 98 <br />
-                            <?php echo $this->translate('Email') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
+                            <?php echo $this->translate('147') ?> :  +90 312 385 50 90 <br />
+                            <?php echo $this->translate('148') ?>:    +90 312 354 58 98 <br />
+                            <?php echo $this->translate('112') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
                         </address>
                     </div><!--/col-md-3-->
                     <!-- End Address -->
@@ -406,8 +409,8 @@
                 <div class="row">
                     <div class="col-md-6">                     
                         <p>
-                            2016 &copy; <?php echo $this->translate('All Rights Reserved.') ?>
-                            <a href="#"><?php echo $this->translate('Privacy Policy') ?></a> | <a href="#"><?php echo $this->translate('Terms of Service') ?></a>
+                            2016 &copy; <?php echo $this->translate('274') ?>
+                            <a href="#"><?php echo $this->translate('273') ?></a> | <a href="#"><?php echo $this->translate('272') ?></a>
                         </p>
                     </div>
 
@@ -455,6 +458,6 @@
                 </div>
             </div> 
         </div><!--/copyright-->
-    </div>        
+    </div>    
     <!--=== End Footer Version 1 ===-->
 </div><!--/wrapper-->

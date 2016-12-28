@@ -100,7 +100,7 @@
                 <ul style="background: #ddd; 
                     padding: 10px;" id="topbar_menu_ul" class="loginbar pull-right">                    
                     <li id="setting_link" style="visibility: hidden; display: none">
-                        <a style="cursor: pointer;" onclick="setredirect()"><?php echo $this->translate('490')?></a></li>                                        
+                        <a style="cursor: pointer;" onclick="setredirect()"><?php echo $this->translate('490') ?></a></li>                                        
                     <li id="setting_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>
                     <li style="cursor: pointer;" class="hoverSelector">
                         <a><?php echo $this->translate('91') ?> </a>
@@ -112,16 +112,16 @@
                     <li><a href="index.phtml"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
                     <li id="login_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('login', array('action' => 'logout')); ?>">
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('30')?>
+                                <?php echo $this->translate('30') ?>
                             </span>
                         </a>
                     </li>
                     <li id="logout_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('login', array('action' => 'logout')); ?>">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('31')?>
+                                <?php echo $this->translate('31') ?>
                             </span>
                         </a>
                     </li>
@@ -143,47 +143,47 @@
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>#body"><?php echo $this->translate('9') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>#about"><?php echo $this->translate('229') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
+                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
                             ?>#ostimServices">
                                     <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>#news"><?php echo $this->translate('231') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>#contact"><?php echo $this->translate('232') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
-<!--                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $this->translate('233') ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="page-scroll">
-                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>#body"><?php echo $this->translate('9') ?></a>
-                            </li>
-                            <li class="page-scroll">
-                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>"><?php echo $this->translate('234') ?></a>
-                            </li>
-                        </ul>
-                    </li>-->
+                    <!--                    <li class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                    <?php echo $this->translate('233') ?>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li class="page-scroll">
+                                                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                    ?>#body"><?php echo $this->translate('9') ?></a>
+                                                </li>
+                                                <li class="page-scroll">
+                                                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                    ?>"><?php echo $this->translate('234') ?></a>
+                                                </li>
+                                            </ul>
+                                        </li>-->
                 </ul>
             </div><!--/end container-->
         </div><!--/navbar-collapse-->
@@ -197,13 +197,12 @@
             <h1 id="header_company_name" class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Company Name') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>">
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));?>">
                            <?php echo $this->translate('9') ?>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage'));
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage', 'lang' => $this->langCode));
                            ?>">
                            <?php echo $this->translate('345') ?>
                     </a>
@@ -464,17 +463,17 @@
                                 <!-- leaflet map -->
                                 <div id="map" class="map">
                                     <script type="text/javascript">
-                                var map = L.map('map').setView([41.83683, 19.33594], 4);
-                                map.fitWorld().zoomIn();
+                            var map = L.map('map').setView([41.83683, 19.33594], 4);
+                            map.fitWorld().zoomIn();
 
-                                map.on('resize', function (e) {
-                                    map.fitWorld({reset: true}).zoomIn();
-                                });
-                                mapLink =
-                                        '<a href="https://openstreetmap.org">OpenStreetMap</a>';
-                                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                                }).addTo(map);
+                            map.on('resize', function (e) {
+                                map.fitWorld({reset: true}).zoomIn();
+                            });
+                            mapLink =
+                                    '<a href="https://openstreetmap.org">OpenStreetMap</a>';
+                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                            }).addTo(map);
 
                                     </script>
                                 </div>
@@ -555,10 +554,11 @@
                 <div class="row">
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <a href="index.phtml"><img id="logo-footer" class="footer-logo" 
-                                                    src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
-                                                    alt=""></a>
-                        <p><?php echo $this->translate('264')?></p>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage', 'lang' => $this->langCode)); ?>">
+                            <img id="logo-footer" class="footer-logo" 
+                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                 alt=""></a>
+                        <p><?php echo $this->translate('264') ?></p>
                     </div><!--/col-md-3-->
                     <!-- End About -->
 
