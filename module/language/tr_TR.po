@@ -1545,3 +1545,30 @@ msgstr "Kullanıcı Tarihçesi"
 
 msgid "507"
 msgstr "Projeler"
+
+msgid "508"
+msgstr "Şifre"
+
+msgid "509"
+msgstr "Takım Üyeleri"
+
+msgid "510"
+msgstr "Ödüller"
+
+msgid "511"
+msgstr "Firmanın Ülkesi"
+
+msgid "512"
+msgstr "Firma bilgilerini herkes görebilir"
+
+msgid "513"
+msgstr "Adresler Listesi"
+
+msgid "514"
+msgstr "Benim iletişim numaralarım"
+
+msgid "515"
+msgstr "İletişim tipi"
+
+msgid "516"
+msgstr "Varsayılan Numaram"

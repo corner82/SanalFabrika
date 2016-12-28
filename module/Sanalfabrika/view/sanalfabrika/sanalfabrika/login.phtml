@@ -78,10 +78,10 @@
                         <li><a class="rounded-x social_googleplus" data-original-title="Google Plus" href="#"></a></li>
                         <li><a class="rounded-x social_linkedin" data-original-title="Linkedin" href="#"></a></li>
                     </ul>-->
-                    <a href="/ostim/sanalfabrika" class="btn btn-block "><img style="height:50px;" src="/dist/img/ostim_logo_en.png"> <img style="height:50px;" src="/onyuz/standard/assets/img/logo1-default.png"> </a>
+                    <a href=<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>" class="btn btn-block "><img style="height:50px;" src="/dist/img/ostim_logo_en.png"> <img style="height:50px;" src="/onyuz/standard/assets/img/logo1-default.png"> </a>
                     <p>
                         <?php echo $this->translate("493") ?> 
-                        <a class="color-green" href="/ostim/sanalfabrika/registration">
+                        <a class="color-green" href="<?php echo $this->url('sanalfabrika', array('action' => 'registration','lang'=> $this->langCode)); ?>">
                             <?php echo $this->translate('492') ?>
                         </a> 
                         <?php echo $this->translate('491') ?>
@@ -90,11 +90,11 @@
 
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="text" id="eposta" name="eposta" class="form-control validate[required,custom[email]]" placeholder="E-Posta">
+                    <input type="text" id="eposta" name="eposta" class="form-control validate[required,custom[email]]" placeholder="<?php echo $this->translate('112')?>">
                 </div>
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input type="password" id="sifre" name="sifre" class="form-control validate[required,minSize[8],maxSize[20]]" data-prompt-position="bottomLeft" placeholder="Şifre">
+                    <input type="password" id="sifre" name="sifre" class="form-control validate[required,minSize[8],maxSize[20]]" data-prompt-position="bottomLeft" placeholder="<?php echo $this->translate('508')?>">
                 </div>
                 <hr>
 

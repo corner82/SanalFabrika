@@ -85,7 +85,11 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                     <li class="topbar-devider"></li>   
                     <li><a href="page_faq.html"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'login','lang'=> $this->langCode)); ?>"><?php echo $this->translate('30') ?> </a></li>   
+                    <li>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login','lang'=> $this->langCode)); ?>">
+                            <?php echo $this->translate('30') ?> 
+                        </a>
+                    </li>   
                 </ul>
             </div>
             <!-- End Topbar -->

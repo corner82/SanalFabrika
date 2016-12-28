@@ -1626,3 +1626,30 @@ msgstr "User Profile History"
 msgid "507"
 msgstr "Projects"
 
+msgid "508"
+msgstr "Password"
+
+msgid "509"
+msgstr "Team Members"
+
+msgid "510"
+msgstr "Awards"
+
+msgid "511"
+msgstr "Company's Established Country"
+
+msgid "512"
+msgstr "Keep company information public"
+
+msgid "513"
+msgstr "List of Addresses"
+
+msgid "514"
+msgstr "My Registered Contacts"
+
+msgid "515"
+msgstr "Contact type"
+
+msgid "516"
+msgstr "Default Contact"
+

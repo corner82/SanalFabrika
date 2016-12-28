@@ -1541,3 +1541,30 @@ msgstr "Benutzerprofilverlauf"
 
 msgid "507"
 msgstr "Projekte"
+
+msgid "508"
+msgstr "Passwort"
+
+msgid "509"
+msgstr "Teammitgliedern"
+
+msgid "510"
+msgstr "Auszeichnungen"
+
+msgid "511"
+msgstr "Unternehmen Land"
+
+msgid "512"
+msgstr "Halten Sie die Unternehmensinformationen öffentlich"
+
+msgid "513"
+msgstr "Liste der Adressen"
+
+msgid "514"
+msgstr "Meine registrierten Kontakte"
+
+msgid "515"
+msgstr "Kontaktart"
+
+msgid "516"
+msgstr "Standardkontakt"

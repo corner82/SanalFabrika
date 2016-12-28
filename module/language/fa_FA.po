@@ -1539,4 +1539,29 @@ msgstr "تاریخچه کاربر"
 msgid "507"
 msgstr "پروژه ها"
 
+msgid "508"
+msgstr "رمز عبور"
 
+msgid "509"
+msgstr "اعضای تیم"
+
+msgid "510"
+msgstr "جوایز"
+
+msgid "511"
+msgstr "کشور محل تاسیس شرکت"
+
+msgid "512"
+msgstr "اطلاعات شرکت قابل رویت توسط عموم میباشد"
+
+msgid "513"
+msgstr "لیست آدرسها"
+
+msgid "514"
+msgstr "شماره های ارتباطی من"
+
+msgid "515"
+msgstr "نوع ارتباط"
+
+msgid "516"
+msgstr "شماره تماس اصلی"

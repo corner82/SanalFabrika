@@ -13,6 +13,21 @@ $(document).ready(function () {
     lang.change($('#langCode').val());
 
     /*
+     * Checking pk value for login and logout actions
+     */
+    if (!$('#pk').val()) {
+        $('#login_place').css('visibility', 'visible');
+        $('#login_place').css('display', '');
+        $('#logout_place').css('visibility', 'hidden');
+        $('#logout_place').css('display', 'none');
+    } else {
+        $('#login_place').css('visibility', 'hidden');
+        $('#login_place').css('display', 'none');
+        $('#logout_place').css('visibility', 'visible');
+        $('#logout_place').css('display', '');
+    }
+
+    /*
      * Signup.js variables
      * 
      */
@@ -241,8 +256,8 @@ $.ajax({
                 imagePosition: 'right',
                 onSelected: function (selectedData) {
                     if (selectedData.selectedData.value !== 0) {
-                        
-                        window.cityList = selectedData.selectedData.attributes.citylist;                        
+
+                        window.cityList = selectedData.selectedData.attributes.citylist;
                         window.boroughList = false;
                     }
                     selectedCountryId = selectedData.selectedData.value;
@@ -812,8 +827,8 @@ function submitUserGeneralInfoForm() {
                         $('#userAddressInfoTab').removeClass('disabled');
 
                         taskProgressPerTabs();
-                        
-                        
+
+
 
                     } else if (data['errorInfo'] === '23505') {
 
@@ -1906,11 +1921,11 @@ function find_registered_contacts() {
             showColumns: true,
             showRefresh: true,
             showToggle: true,
-            queryParams: function (p) {                
+            queryParams: function (p) {
                 return {
-                        language_code: $('#langCode').val(),
-                        pktemp: $('#pktemp').val(),
-                        component_type: 'bootstrap'
+                    language_code: $('#langCode').val(),
+                    pktemp: $('#pktemp').val(),
+                    component_type: 'bootstrap'
                 };
             },
             columns:
@@ -1932,9 +1947,10 @@ function milliseconds()
 {
     var input_date = $('#companyFoundationDate').val();
     var entered_date = new Date(input_date);
-    window.date_value = entered_date.getTime();    
-    window.okan = Math.round(window.date_value/1000.0);    
+    window.date_value = entered_date.getTime();
+    window.okan = Math.round(window.date_value / 1000.0);
     console.log(window.date_value);
     console.log(okan);
-    
-};
+
+}
+;
