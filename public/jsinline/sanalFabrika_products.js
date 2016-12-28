@@ -13,8 +13,6 @@ $(document).ready(function () {
     $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
 
 
-$('#loging_ph').empty();
-
     /*
      * Checking pk value for login and logout actions
      */
@@ -24,14 +22,25 @@ $('#loging_ph').empty();
         $('#login_place').css('display', '');
         $('#logout_place').css('visibility', 'hidden');
         $('#logout_place').css('display', 'none');
+
+        $('#setting_link').css('visibility', 'hidden');
+        $('#setting_link_divider').css('visibility', 'hidden');
+        $('#setting_link').css('display', 'none');
+        $('#setting_link_divider').css('display', 'none');
+        
     } else {
         var prod_service_url = 'pkFillCompanyInfoProducts_infoFirmProfile';
         $('#login_place').css('visibility', 'hidden');
         $('#login_place').css('display', 'none');
         $('#logout_place').css('visibility', 'visible');
         $('#logout_place').css('display', '');
-    }
 
+        $('#setting_link').css('visibility', 'visible');
+        $('#setting_link_divider').css('visibility', 'visible');
+        $('#setting_link').css('display', '');
+        $('#setting_link_divider').css('display', '');
+        
+    }
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -180,7 +189,7 @@ $('#loging_ph').empty();
             $('#product_table').DataTable({
                 data: dataSet,
                 fixedColumns: true,
-                scrollX: true,
+                scrollX: false,
                 select: {
                     style: 'single'
                 },
@@ -195,6 +204,7 @@ $('#loging_ph').empty();
             });
             window.table = $('#product_table').DataTable();
             $('#product_table tbody').on('click', 'tr', function () {
+//                console.log($(this));
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
                 }
@@ -399,85 +409,3 @@ $('#loging_ph').empty();
     
     
 });
-/*
- * fixed first column js call
- * 
- */
-
-//    $("#product_table").tableHeadFixer({"head": false, "left": 2});
-
-
-function listOfCertificates() {
-
-    if ($("#qualityDetaildDIV").hasClass('active')) {
-        $("#qualityDetaildDIV").removeClass('active');
-        $("#qualityDetaildDIV").slideUp('Slow');
-        $("#qualityDetailsInsideDIV").empty();
-    } else {
-        window.i++;
-        $("#qualityDetailsInsideDIV").append('Certificates ' + i + ' , ');
-        $("#qualityDetaildDIV").addClass("active");
-        $("#qualityDetaildDIV").slideDown("slow");
-    }
-
-}
-
-function qualityHistory() {
-
-    if ($("#qualityDetaildDIV").hasClass('active')) {
-        $("#qualityDetaildDIV").removeClass('active');
-        $("#qualityDetaildDIV").slideUp('Slow');
-        $("#qualityDetailsInsideDIV").empty();
-    } else {
-        window.i++;
-        $("#qualityDetailsInsideDIV").append('history ' + i + ' , ');
-        $("#qualityDetaildDIV").addClass("active");
-        $("#qualityDetaildDIV").slideDown("slow");
-    }
-}
-
-
-
-function qualityPerformances() {
-
-    if ($("#qualityDetaildDIV").hasClass('active')) {
-        $("#qualityDetaildDIV").removeClass('active');
-        $("#qualityDetaildDIV").slideUp('Slow');
-        $("#qualityDetailsInsideDIV").empty();
-    } else {
-
-        $("#qualityDetaildDIV").addClass("active");
-        $("#qualityDetaildDIV").slideDown("slow");
-    }
-
-}
-
-
-function performanceDetails() {
-
-    if ($("#pastPerformanceDetailsDIV").hasClass('active')) {
-        $("#pastPerformanceDetailsDIV").removeClass('active');
-        $("#pastPerformanceDetailsDIV").slideUp('Slow');
-        $("#pastPerformanceDetailsInsideDIV").empty();
-    } else {
-
-        $("#pastPerformanceDetailsDIV").addClass("active");
-        $("#pastPerformanceDetailsDIV").slideDown("slow");
-    }
-
-}
-
-function customerDetails() {
-
-    if ($("#customerDetailsDIV").hasClass('active')) {
-        $("#customerDetailsDIV").removeClass('active');
-        $("#customerDetailsDIV").slideUp('Slow');
-        $("#customerDetailsInsideDIV").empty();
-    } else {
-
-        $("#customerDetailsInsideDIV").append();
-        $("#customerDetailsDIV").addClass("active");
-        $("#customerDetailsDIV").slideDown("slow");
-    }
-
-}

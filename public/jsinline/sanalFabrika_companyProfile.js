@@ -19,6 +19,12 @@ $(document).ready(function () {
         $('#login_place').css('display', 'none');
         $('#logout_place').css('visibility', 'visible');
         $('#logout_place').css('display', '');
+
+        $('#setting_link').css('visibility', 'visible');
+        $('#setting_link_divider').css('visibility', 'visible');
+        $('#setting_link').css('display', '');
+        $('#setting_link_divider').css('display', '');
+        
     } else {
         var soc_med_service_url = 'fillCompanyInfoSocialediaGuest_infoFirmProfile';
         var verbal_service_url = 'fillUsersFirmVerbalNpkGuest_infoFirmVerbal';
@@ -28,10 +34,13 @@ $(document).ready(function () {
         $('#login_place').css('visibility', 'visible');
         $('#login_place').css('display', '');
         $('#logout_place').css('visibility', 'hidden');
-        $('#logout_place').css('display', 'none');
+        $('#logout_place').css('display', 'none');        
+        
+        $('#setting_link').css('visibility', 'hidden');
+        $('#setting_link_divider').css('visibility', 'hidden');
+        $('#setting_link').css('display', 'none');
+        $('#setting_link_divider').css('display', 'none');
     }
-    
-    
 
 
     $.ajax({
@@ -48,17 +57,7 @@ $(document).ready(function () {
 
 //            console.log(data.rows);
             if (data.rows) {
-                if (data.rows[0].attributes.userb) {
-                    $('#setting_link').css('visibility', 'visible');
-                    $('#setting_link_divider').css('visibility', 'visible');
-                    $('#setting_link').css('display', '');
-                    $('#setting_link_divider').css('display', '');
-                }else {
-                    $('#setting_link').css('visibility', 'hidden');
-                    $('#setting_link_divider').css('visibility', 'hidden');
-                    $('#setting_link').css('display', 'none');
-                    $('#setting_link_divider').css('display', 'none');
-                }
+                
 //                console.log(data.rows[0]);
                 $('#firm_name_ph').empty();
                 $('#header_company_name').empty();

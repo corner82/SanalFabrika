@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     lang.change($('#langCode').val());
 
-/*
+    /*
      * Checking pk value for login and logout actions
      */
     if (!$('#pk').val()) {
@@ -16,11 +16,23 @@ $(document).ready(function () {
         $('#login_place').css('display', '');
         $('#logout_place').css('visibility', 'hidden');
         $('#logout_place').css('display', 'none');
+
+        $('#setting_link').css('visibility', 'hidden');
+        $('#setting_link_divider').css('visibility', 'hidden');
+        $('#setting_link').css('display', 'none');
+        $('#setting_link_divider').css('display', 'none');
+        
     } else {
         $('#login_place').css('visibility', 'hidden');
         $('#login_place').css('display', 'none');
         $('#logout_place').css('visibility', 'visible');
         $('#logout_place').css('display', '');
+
+        $('#setting_link').css('visibility', 'visible');
+        $('#setting_link_divider').css('visibility', 'visible');
+        $('#setting_link').css('display', '');
+        $('#setting_link_divider').css('display', '');
+        
     }
 
 
@@ -57,7 +69,7 @@ $(document).ready(function () {
             for (i = 0; i < window.companyperpage; i++) {
                 $('#selectedCompanyNpk').val(data.rows[i].npk);
                 var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
-                $('#selectedCompanyShN').val(rep_firm_short_name);  
+                $('#selectedCompanyShN').val(rep_firm_short_name);
                 var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
 
                 var appending_html =
@@ -77,7 +89,7 @@ $(document).ready(function () {
                         + companyProfileLink
                         + "'>"
                         + "<h3>"
-                        + data.rows[i].firm_names  
+                        + data.rows[i].firm_names
                         + "</h3>"
                         + "</a>"
                         + "<p>"
@@ -109,7 +121,7 @@ $(document).ready(function () {
                         + "</li>"
                         + "<li>"
                         + "<i class = 'fa fa-sitemap color-green' style='padding-right:5px;'> </i>"
-                        + data.rows[i].firm_sectoral  
+                        + data.rows[i].firm_sectoral
                         + "</li>"
                         + "</ul>"
                         + "</div>"
@@ -129,10 +141,10 @@ $(document).ready(function () {
             $('#paginationBar').paginator('option', 'maxVisible', 5);
             $('#paginationBar').paginator('paginate');
         },
-    error: function (jqXHR, textStatus, errorThrown) {
-        console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
-    }
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
+        }
     });
-    
+
 });
 
