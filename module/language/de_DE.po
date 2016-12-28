@@ -1505,3 +1505,39 @@ msgstr "Bleiben Sie immer angemeldet"
 
 msgid "495"
 msgstr "Bitte loggen Sie sich ein"
+
+msgid "496"
+msgstr "Unternehmen"
+
+msgid "497"
+msgstr "Unternehmen Werkzeugmaschinen"
+
+msgid "498"
+msgstr "Leistungsmessgeräte"
+
+msgid "499"
+msgstr "Sicherheit"
+
+msgid "500"
+msgstr "Profileinstellungen"
+
+msgid "501"
+msgstr "Projektpool"
+
+msgid "502"
+msgstr "Projektmitteilung"
+
+msgid "503"
+msgstr "Benutzerprofil"
+
+msgid "504"
+msgstr "Benutzerprofileinstellungen"
+
+msgid "505"
+msgstr "Benutzerprofil Kommentare"
+
+msgid "506"
+msgstr "Benutzerprofilverlauf"
+
+msgid "507"
+msgstr "Projekte"
