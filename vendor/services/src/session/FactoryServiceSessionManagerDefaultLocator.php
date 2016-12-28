@@ -36,9 +36,15 @@ class FactoryServiceSessionManagerDefaultLocator  implements FactoryInterface{
                 $sessionSaveHandler = $serviceLocator->get($session['savehandler']['database']['savehandler']);
             }
             
-            $sessionManager = new \Zend\Session\SessionManager($sessionConfig, $sessionStorage, $sessionSaveHandler);
-            $sessionManager->start();
-            $metaData = $sessionManager->getStorage()->getMetadata();
+            try {
+                $sessionManager = new \Zend\Session\SessionManager($sessionConfig, $sessionStorage, $sessionSaveHandler);
+                $sessionManager->start();
+                $metaData = $sessionManager->getStorage()->getMetadata();
+            } catch (Exception $exc) {
+                echo $exc->getTraceAsString();
+            }
+
+            
 
             if(empty($sessionManager->getStorage()->getMetadata('_VALID'))) {
                 if (isset($config['session']['validators'])) {

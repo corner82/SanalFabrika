@@ -409,7 +409,7 @@
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
                     url: self.options.serviceUrl,
-                    pk: self.options.pk,
+                    zk: self.options.pk,
                     language_code: self.options.langCode,
                     machine_id: self.options.machineID
                 },
