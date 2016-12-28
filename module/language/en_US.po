@@ -920,7 +920,7 @@ msgstr "Last Twelve Months"
 
 
 msgid "279" 
-msgstr "Rate of your visitors to all system visitors"
+msgstr "Rate of your visitors to all visitors"
 
 
 msgid "280" 

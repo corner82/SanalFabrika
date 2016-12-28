@@ -851,7 +851,7 @@ msgid "278"
 msgstr "Letzte Zwölf Monate"
 
 msgid "279" 
-msgstr "Rate der Besucher aller Systembesucher"
+msgstr "Rate der Besucher aller besucher"
 
 msgid "280" 
 msgstr "Gesamtsystembesucher"

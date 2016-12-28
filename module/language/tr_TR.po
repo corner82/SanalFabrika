@@ -856,10 +856,10 @@ msgid "278"
 msgstr "Son 12 Ayda"
 
 msgid "279" 
-msgstr "Firma ziyaretçilerin toplam sistem ziyaretçilerine oranı"
+msgstr "Firma ziyaretçilerin toplam ziyaretçilere oranı"
 
 msgid "280" 
-msgstr "Toplam sistem ziyaretçileri"
+msgstr "Toplam ziyaretçiler"
 
 msgid "281" 
 msgstr "Toplam firma makine sayısı"
@@ -1573,5 +1573,5 @@ msgstr "İletişim tipi"
 msgid "516"
 msgstr "Varsayılan Numaram"
 
-msgid "516"
+msgid "517"
 msgstr "Yorumlar"
