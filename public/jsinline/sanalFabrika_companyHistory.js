@@ -180,11 +180,8 @@ $(document).ready(function () {
                 $('#history_place').empty();
                 console.log(data);
                 for (var i = 0; i < data.length; i++) {
-
 //                    console.log(data[i].picture);
-
                     if (data[i].picture === "") {
-
                         var app_history_li =
                                 "<li>"
                                 + "<time class='cbp_tmtime' datetime=''>"
@@ -215,9 +212,7 @@ $(document).ready(function () {
                                 + "</div>"
                                 + "</div>"
                                 + "</li>";
-
                     } else {
-
                         var app_history_li =
                                 "<li>"
                                 + "<time class='cbp_tmtime' datetime=''>"
@@ -235,8 +230,9 @@ $(document).ready(function () {
                                 + "</h2>"
                                 + "<div class='row'>"
                                 + "<div class='col-md-2'>"
-                                + "<img class='img-responsive' src='"
-                                + "https://" + window.location.hostname + data[i].picture
+                                + "<img"
+                                + " class='img-responsive' src='"
+                                + data[i].picture
                                 + "' alt=''>"
                                 + "<div class='md-margin-bottom-20'></div>"
                                 + "</div>"
