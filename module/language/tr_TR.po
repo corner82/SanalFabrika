@@ -1509,3 +1509,39 @@ msgstr "Çevrimiçi kal"
 
 msgid "495"
 msgstr "Lütfen Giriş Yapınız"
+
+msgid "496"
+msgstr "Firma Çalışanları"
+
+msgid "497"
+msgstr "Firma Makine Parkı"
+
+msgid "498"
+msgstr "Firma Göstergeleri"
+
+msgid "499"
+msgstr "Firma Ürünleri"
+
+msgid "500"
+msgstr "Firma Profil Ayarları"
+
+msgid "501"
+msgstr "Proje Havuzu"
+
+msgid "502"
+msgstr "Proje Kaydı"
+
+msgid "503"
+msgstr "Kullanıcı Profil Sayfası"
+
+msgid "504"
+msgstr "Kullanıcı Profil Ayarları"
+
+msgid "505"
+msgstr "Kullanıcı Yorumları"
+
+msgid "506"
+msgstr "Kullanıcı Tarihçesi"
+
+msgid "507"
+msgstr "Projeler"

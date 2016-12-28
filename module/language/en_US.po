@@ -1590,3 +1590,39 @@ msgstr "Always stay signed in"
 msgid "495"
 msgstr "Please log in"
 
+msgid "496"
+msgstr "Company Members"
+
+msgid "497"
+msgstr "Company Machine Tools"
+
+msgid "498"
+msgstr "Company Performance Meters"
+
+msgid "499"
+msgstr "Company Products"
+
+msgid "500"
+msgstr "Company Profile Settings"
+
+msgid "501"
+msgstr "Project Pool"
+
+msgid "502"
+msgstr "Project Submission"
+
+msgid "503"
+msgstr "User Profile"
+
+msgid "504"
+msgstr "User Profile Settings"
+
+msgid "505"
+msgstr "User Profile Comments"
+
+msgid "506"
+msgstr "User Profile History"
+
+msgid "507"
+msgstr "Projects"
+

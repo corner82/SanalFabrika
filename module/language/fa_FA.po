@@ -1503,4 +1503,40 @@ msgstr " به حالت فعال در سیستم بمان"
 msgid "495"
 msgstr "لطفا وارد شوید"
 
+msgid "496"
+msgstr "کارکنان شرکت"
+
+msgid "497"
+msgstr "ماشین ابزار شرکت"
+
+msgid "498"
+msgstr "معیارهای عملکرد شرکت"
+
+msgid "499"
+msgstr "محصولات شرکت"
+
+msgid "500"
+msgstr "تنظیمات"
+
+msgid "501"
+msgstr "پروژه ها"
+
+msgid "502"
+msgstr "ثبت روژه"
+
+msgid "503"
+msgstr "نمایه کاربر"
+
+msgid "504"
+msgstr "تنظیمات نمایه کاربر"
+
+msgid "505"
+msgstr "نظرات کاربران"
+
+msgid "506"
+msgstr "تاریخچه کاربر"
+
+msgid "507"
+msgstr "پروژه ها"
+
 
