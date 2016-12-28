@@ -218,12 +218,6 @@ $(document).ready(function () {
 
                     } else {
 
-                        if (data[i].picture.indexOf('onyuz/standard/') >= 0) {
-                            var picture_address = data[i].picture;
-                        } else {
-                            var picture_address = "/onyuz/standard/assets/img/sfClients/" + data[i].picture;
-                        }
-
                         var app_history_li =
                                 "<li>"
                                 + "<time class='cbp_tmtime' datetime=''>"
@@ -242,7 +236,7 @@ $(document).ready(function () {
                                 + "<div class='row'>"
                                 + "<div class='col-md-2'>"
                                 + "<img class='img-responsive' src='"
-                                + "https://" + window.location.hostname + picture_address
+                                + "https://" + window.location.hostname + data[i].picture
                                 + "' alt=''>"
                                 + "<div class='md-margin-bottom-20'></div>"
                                 + "</div>"
