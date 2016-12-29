@@ -14,32 +14,7 @@ $(document).ready(function () {
     $('#header_company_name').append("<i class='fa fa-user'></i>" + $('#selectedCompanyShN').val().toUpperCase());
 
 
-    /*
-     * Checking pk value for login and logout actions
-     */
-    if (!$('#pk').val()) {
-        $('#login_place').css('visibility', 'visible');
-        $('#login_place').css('display', '');
-        $('#logout_place').css('visibility', 'hidden');
-        $('#logout_place').css('display', 'none');
-
-        $('#setting_link').css('visibility', 'hidden');
-        $('#setting_link_divider').css('visibility', 'hidden');
-        $('#setting_link').css('display', 'none');
-        $('#setting_link_divider').css('display', 'none');
-        
-    } else {
-        $('#login_place').css('visibility', 'hidden');
-        $('#login_place').css('display', 'none');
-        $('#logout_place').css('visibility', 'visible');
-        $('#logout_place').css('display', '');
-
-        $('#setting_link').css('visibility', 'visible');
-        $('#setting_link_divider').css('visibility', 'visible');
-        $('#setting_link').css('display', '');
-        $('#setting_link_divider').css('display', '');
-        
-    }
+    
 
 
     $.ajax({

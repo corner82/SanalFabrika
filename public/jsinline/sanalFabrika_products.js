@@ -17,29 +17,9 @@ $(document).ready(function () {
      * Checking pk value for login and logout actions
      */
     if (!$('#pk').val()) {
-        var prod_service_url = 'fillCompanyInfoProductsGuest_infoFirmProfile';        
-        $('#login_place').css('visibility', 'visible');
-        $('#login_place').css('display', '');
-        $('#logout_place').css('visibility', 'hidden');
-        $('#logout_place').css('display', 'none');
-
-        $('#setting_link').css('visibility', 'hidden');
-        $('#setting_link_divider').css('visibility', 'hidden');
-        $('#setting_link').css('display', 'none');
-        $('#setting_link_divider').css('display', 'none');
-        
+        var prod_service_url = 'fillCompanyInfoProductsGuest_infoFirmProfile';           
     } else {
-        var prod_service_url = 'pkFillCompanyInfoProducts_infoFirmProfile';
-        $('#login_place').css('visibility', 'hidden');
-        $('#login_place').css('display', 'none');
-        $('#logout_place').css('visibility', 'visible');
-        $('#logout_place').css('display', '');
-
-        $('#setting_link').css('visibility', 'visible');
-        $('#setting_link_divider').css('visibility', 'visible');
-        $('#setting_link').css('display', '');
-        $('#setting_link_divider').css('display', '');
-        
+        var prod_service_url = 'pkFillCompanyInfoProducts_infoFirmProfile';                
     }
 
     $.ajax({

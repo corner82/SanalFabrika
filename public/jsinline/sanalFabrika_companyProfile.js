@@ -14,32 +14,13 @@ $(document).ready(function () {
         var verbal_service_url = 'pkFillUsersFirmVerbalNpk_infoFirmVerbal';
         var user_desc_service_url = 'pkFillUsersDescForFirmVerbalNpk_infoFirmUserDescForCompany';
         var address_info_service_url = 'pkFillUsersFirmAddressNpk_infoFirmAddress';
-        
-        $('#login_place').css('visibility', 'hidden');
-        $('#login_place').css('display', 'none');
-        $('#logout_place').css('visibility', 'visible');
-        $('#logout_place').css('display', '');
-
-        $('#setting_link').css('visibility', 'visible');
-        $('#setting_link_divider').css('visibility', 'visible');
-        $('#setting_link').css('display', '');
-        $('#setting_link_divider').css('display', '');
-        
+                
     } else {
         var soc_med_service_url = 'fillCompanyInfoSocialediaGuest_infoFirmProfile';
         var verbal_service_url = 'fillUsersFirmVerbalNpkGuest_infoFirmVerbal';
         var user_desc_service_url = 'fillUsersDescForFirmVerbalNpkGuest_infoFirmUserDescForCompany';
         var address_info_service_url = 'FillUsersFirmAddressNpkQuest_infoFirmAddress';
         
-        $('#login_place').css('visibility', 'visible');
-        $('#login_place').css('display', '');
-        $('#logout_place').css('visibility', 'hidden');
-        $('#logout_place').css('display', 'none');        
-        
-        $('#setting_link').css('visibility', 'hidden');
-        $('#setting_link_divider').css('visibility', 'hidden');
-        $('#setting_link').css('display', 'none');
-        $('#setting_link_divider').css('display', 'none');
     }
 
 
