@@ -77,16 +77,16 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
             <div class="topbar">
                 <ul class="loginbar pull-right">
                     <li class="hoverSelector">
-                        <span onmouseover="" style="color: rgb(149,208,97);cursor: pointer;"><?php echo $this->translate('91')?></span>
+                        <span onmouseover="" style="color: rgb(149,208,97);cursor: pointer;"><?php echo $this->translate('91') ?></span>
                         <i class="fa fa-globe"></i>
                         <ul class="languages hoverSelectorBlock">
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
+                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
                     <li>
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login','lang'=> $this->langCode)); ?>">
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login', 'lang' => $this->langCode)); ?>">
                             <?php echo $this->translate('30') ?> 
                         </a>
                     </li>   
@@ -115,9 +115,9 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                     <li class="page-scroll">
                         <a href="#ostimServices"><?php echo $this->translate('15') ?></a>
                     </li>                    
-<!--                    <li class="page-scroll">
-                        <a href="#sfTeam"><?php echo $this->translate('94') ?></a>
-                    </li>-->
+                    <!--                    <li class="page-scroll">
+                                            <a href="#sfTeam"><?php echo $this->translate('94') ?></a>
+                                        </li>-->
                     <!--                    <li class="page-scroll">
                                             <a href="#news">Haberler</a>
                                         </li>-->
@@ -127,19 +127,27 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                     <li class="page-scroll">
                         <a href="#contact"><?php echo $this->translate('110') ?></a>
                     </li>
-                    <!--                    <li class="dropdown">
-                                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                                Submenu
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="page-scroll"><a href="#body">Home</a></li>
-                                                <li class="page-scroll"><a href="#about">About Us</a></li>
-                                                <li class="page-scroll"><a href="#services">Services</a></li>
-                                                <li class="page-scroll"><a href="#news">News</a></li>
-                                                <li class="page-scroll"><a href="#portfolio">Portfolio</a></li>
-                                                <li class="page-scroll"><a href="#contact">Contact</a></li>
-                                            </ul>
-                                        </li>-->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                            <?php echo $this->translate('0')?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="page-scroll">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage', 'lang' => $this->langCode)); ?>">
+                                    <?php echo $this->translate('345')?>
+                                </a>
+                            </li>
+                            <li class="page-scroll">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>">
+                                    <?php echo $this->translate('446')?>
+                                </a>
+                            </li>
+                            <!--<li class="page-scroll"><a href="#services"><?php echo $this->translate('')?></a></li>-->
+                            <!--<li class="page-scroll"><a href="#news"><?php echo $this->translate('')?></a></li>-->
+                            <!--<li class="page-scroll"><a href="#portfolio"><?php echo $this->translate('')?></a></li>-->
+                            <!--<li class="page-scroll"><a href="#contact"><?php echo $this->translate('')?></a></li>-->
+                        </ul>
+                    </li>
                     <!--                    <li class="page-scroll">
                                             <a href="../index-2.html">Main</a>
                                         </li>-->
@@ -384,16 +392,16 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             </div>
                         </div>
                     </div>-->
-                                        <!--<div class="col-md-6">
-                        <div class="testimonials-info rounded-bottom">
-                            <img alt="" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/testimonials/sedatcelikdogan.jpg') ?>" class="rounded-x">
-                            <div class="testimonials-desc">
-                                <p><?php echo $this->translate('4') ?> <?php echo $this->translate('6') ?> </p>
-                                <strong>Doç. Dr. Sedat ÇELİKDOĞAN</strong>
-                                <span><?php echo $this->translate('Chairman of OSTIM Technology A.Ş. Executive Board') ?></span>
-                            </div>
-                        </div>
-                    </div>-->
+                    <!--<div class="col-md-6">
+    <div class="testimonials-info rounded-bottom">
+        <img alt="" src="<?php echo $this->basePath('onyuz/One-Page/assets/img/testimonials/sedatcelikdogan.jpg') ?>" class="rounded-x">
+        <div class="testimonials-desc">
+            <p><?php echo $this->translate('4') ?> <?php echo $this->translate('6') ?> </p>
+            <strong>Doç. Dr. Sedat ÇELİKDOĞAN</strong>
+            <span><?php echo $this->translate('Chairman of OSTIM Technology A.Ş. Executive Board') ?></span>
+        </div>
+    </div>
+</div>-->
 
                 </div><!--/end row-->
             </div>
@@ -453,46 +461,46 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <!--<ul class="list-unstyled">
                             <li style="font-size: 11px">
                                 <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage')); ?>">
-                                    <?php echo $this->translate('445') ?>                                    
+                        <?php echo $this->translate('445') ?>                                    
                                 </a>
                             </li>
                             <li style="font-size: 11px;">
                                 <a href="<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines')); ?>">
-                                    <?php echo $this->translate('446') ?>                                    
+                        <?php echo $this->translate('446') ?>                                    
                                     <span style="font-size: 8px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('439') ?>
+                        <?php echo $this->translate('439') ?>
                                     </span>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('447') ?>
+                        <?php echo $this->translate('447') ?>
                                     <span style="font-size: 8px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('439') ?>
+                        <?php echo $this->translate('439') ?>
                                     </span>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('448') ?>
+                        <?php echo $this->translate('448') ?>
                                     <span style="font-size: 8px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('439') ?>
+                        <?php echo $this->translate('439') ?>
                                     </span>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('449') ?>
+                        <?php echo $this->translate('449') ?>
                                     <span style="font-size: 8px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('439') ?>
+                        <?php echo $this->translate('439') ?>
                                     </span>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('450') ?>
+                        <?php echo $this->translate('450') ?>
 <!--                                    <span style="font-size: 9px" class="label label-danger pull-right">
-                                    <?php echo $this->translate('439') ?>
+                        <?php echo $this->translate('439') ?>
                                     </span>
                                 </a>
                             </li>
@@ -507,30 +515,30 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                         <!--<ul class="list-unstyled">
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('452') ?>
+                        <?php echo $this->translate('452') ?>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('453') ?>
+                        <?php echo $this->translate('453') ?>
                                     <span style="font-size: 8px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('439') ?>
+                        <?php echo $this->translate('439') ?>
                                     </span>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('454') ?>
+                        <?php echo $this->translate('454') ?>
                                     <span style="font-size: 8px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('439') ?>
+                        <?php echo $this->translate('439') ?>
                                     </span>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('455') ?>
+                        <?php echo $this->translate('455') ?>
                                     <span style="font-size: 8px" class="label label-danger pull-right">
-                                        <?php echo $this->translate('439') ?>
+                        <?php echo $this->translate('439') ?>
                                     </span>
                                 </a>
                             </li>                        
@@ -540,35 +548,35 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                 <div class="col-md-4 col-sm-12">
                     <div class="service-block service-block-default">
                         <i class="icon-custom icon-lg icon-bg-u rounded-x icon-line icon-rocket"></i>
-                        <h2 class="heading-sm"><a href='<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines','lang'=> $this->langCode)); ?>'>
-                            <?php echo $this->translate('446') ?></a>
+                        <h2 class="heading-sm"><a href='<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines', 'lang' => $this->langCode)); ?>'>
+                                <?php echo $this->translate('446') ?></a>
                         </h2>
                         <p><?php echo $this->translate('456') ?></p>
                         <!--<ul class="list-unstyled">
                             
                             <li style="font-size: 11px">
                                 <a href="<?php echo $this->url('sanalfabrika', array('action' => 'registration')); ?>">
-                                    <?php echo $this->translate('458') ?>
+                        <?php echo $this->translate('458') ?>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('459') ?>
+                        <?php echo $this->translate('459') ?>
                                 </a>
                             </li>
                             <li style="font-size: 12px">
                                 <a href="">
-                                    <?php echo $this->translate('460') ?>
+                        <?php echo $this->translate('460') ?>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('461') ?>
+                        <?php echo $this->translate('461') ?>
                                 </a>
                             </li>
                             <li style="font-size: 11px">
                                 <a href="">
-                                    <?php echo $this->translate('462') ?>
+                        <?php echo $this->translate('462') ?>
                                 </a>
                             </li>
                         </ul>-->
@@ -683,7 +691,7 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                                 <li>
                                     <i class=" icon-lg  rounded-x  fa fa-comments-o  margin-right-10"></i>
                                     <a href='http://ostim.com.tr/List/ListItem/4257?lid=413' class="js-newTab" data-popup="width=200,height=200">
-                                    <?php echo $this->translate('420') ?>
+                                        <?php echo $this->translate('420') ?>
                                     </a>
                                 </li>
                                 <li>
@@ -808,8 +816,8 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             </ul>
                         </div>
                         <h3>Bahram Lotfi Sadigh</h3>
-                        <h4>/ <?php echo $this->translate('483')?></h4>
-                        <p><?php echo $this->translate('484')?></p>
+                        <h4>/ <?php echo $this->translate('483') ?></h4>
+                        <p><?php echo $this->translate('484') ?></p>
                     </li>
                     <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
                         <div class="team-img">
@@ -821,8 +829,8 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             </ul>
                         </div>
                         <h3>Mustafa Zeynel Dağlı</h3>
-                        <h4>/ <?php echo $this->translate('485')?></h4>
-                        <p><?php echo $this->translate('485')?></p>
+                        <h4>/ <?php echo $this->translate('485') ?></h4>
+                        <p><?php echo $this->translate('485') ?></p>
                     </li>                    
                     <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
                         <div class="team-img">
@@ -834,8 +842,8 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             </ul>
                         </div>
                         <h3>Okan Ciran</h3>
-                        <h4>/ <?php echo $this->translate('Database Specialist')?></h4>
-                        <p><?php echo $this->translate('Database Specialist')?></p>
+                        <h4>/ <?php echo $this->translate('Database Specialist') ?></h4>
+                        <p><?php echo $this->translate('Database Specialist') ?></p>
                     </li>                    
                     <li class="col-sm-3 col-xs-6 md-margin-bottom-30">
                         <div class="team-img">
@@ -847,8 +855,8 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                             </ul>
                         </div>
                         <h3>Durali Çiçek</h3>
-                        <h4>/ <?php echo $this->translate('486')?></h4>
-                        <p><?php echo $this->translate('486')?></p>
+                        <h4>/ <?php echo $this->translate('486') ?></h4>
+                        <p><?php echo $this->translate('486') ?></p>
                     </li>
                 </ul>
             </div>
@@ -858,8 +866,6 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
 
 </section>
 <!--  About Section -->
-
-
 
 <!-- News Section -->
 <!--<section id="news" class="news-section">

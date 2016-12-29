@@ -1279,7 +1279,7 @@ msgid "391"
 msgstr "You may find your appropriate partners for your project or you may contribute to the new offered projects and extend your business."
 
 msgid "392" 
-msgstr "Automatic and Objective Negotiation Process"
+msgstr "Automatic and Objective Negotiation"
 
 msgid "393" 
 msgstr "New Technologies Implementation"
@@ -1315,7 +1315,7 @@ msgid "403"
 msgstr "Provided matching algorithms check registered system data and customer requirements and propose the most appropriate available resources."
 
 msgid "404" 
-msgstr "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference. Based on incoming bids from partners and customer winner bidders are chosen and introduced by system negotiation manager."
+msgstr "Different types of negotiation management processes added to VE system. According to customer preferences one of these negotiation processes are selected. The whole negotiation process is managed automatically by system without human interference."
 
 msgid "405" 
 msgstr "aims to open OSTIM's design, engineering and manufacturing capacity to the world by redirect customer orders instantly to the related suitable companies, enhance the collaboration between multiple SMEs and improve SME's productivity by loading their idle capacity with appropriate tasks and projects."
@@ -1655,5 +1655,3 @@ msgstr "Default Contact"
 
 msgid "517"
 msgstr "Company Comments"
-
-
