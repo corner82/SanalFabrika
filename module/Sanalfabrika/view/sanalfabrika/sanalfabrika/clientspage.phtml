@@ -166,21 +166,23 @@
                         <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
                             ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
-<!--                    <li class="dropdown">
+                    <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $this->translate('233') ?>
+                            <?php echo $this->translate('0') ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="page-scroll">
-                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>#body"><?php echo $this->translate('9') ?></a>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage', 'lang' => $this->langCode)); ?>">
+                                    <?php echo $this->translate('345') ?>
+                                </a>
                             </li>
                             <li class="page-scroll">
-                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                            ?>"><?php echo $this->translate('234') ?></a>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines', 'lang' => $this->langCode)); ?>">
+                                    <?php echo $this->translate('446') ?>
+                                </a>
                             </li>
                         </ul>
-                    </li>-->
+                    </li>
                 </ul>
             </div><!--/end container-->
         </div><!--/navbar-collapse-->
