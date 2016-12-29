@@ -70,7 +70,7 @@ class SanalfabrikaController extends AbstractActionController {
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
         ));
-        echo $langCode;
+//        echo $langCode;
         $this->ifLoggedinRedirect();
         $this->authenticate(null, $view);
         return $view;
