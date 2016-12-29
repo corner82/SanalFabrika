@@ -200,13 +200,15 @@ var App = function() {
          }
          $.each(data, function(index, element) {
              if($.fn.multiLanguageBarSetter.defaults.requestUriTranslated == '/') {  
-                 if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
+                 //if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
+                 if($.fn.multiLanguageBarSetter.defaults.langCode == element.language_main_code) {
                  $this.append('<li class="active" ><a href="/'+element.language_main_code+'/'+$.fn.multiLanguageBarSetter.defaults.basePath+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
                  } else {
                      $this.append('<li><a href="/'+element.language_main_code+'/'+$.fn.multiLanguageBarSetter.defaults.basePath+'" >'+element.language+' </a></li>');
                  }
              } else {
-                 if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
+                 //if($.fn.multiLanguageBarSetter.defaults.baseLanguage == element.language_main_code) {
+                 if($.fn.multiLanguageBarSetter.defaults.langCode == element.language_main_code) {
                  $this.append('<li class="active" ><a href="/'+element.language_main_code+''+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+'" >'+element.language+' <i class="fa fa-check"></i> </a></li>');
                  } else {
                      $this.append('<li><a href="/'+element.language_main_code+''+$.fn.multiLanguageBarSetter.defaults.requestUriTranslated+'" >'+element.language+' </a></li>');
