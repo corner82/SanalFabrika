@@ -71,8 +71,9 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
         ));
 //        echo $langCode;
-        $this->ifLoggedinRedirect();
+        
         $this->authenticate(null, $view);
+        $this->ifLoggedinRedirect();
         return $view;
     }
 
@@ -832,7 +833,10 @@ class SanalfabrikaController extends AbstractActionController {
      */
     private function ifLoggedinRedirect() {
         $authManager = $this->getServiceLocator()->get('authenticationManagerDefault');
+        //if (!$authManager->getStorage()->isEmpty()) {
         if (!$authManager->getStorage()->isEmpty()) {
+            print_r('ifloggedinredirect not empty___');
+           // print_r('ifLoggedinRedirect identity-->'.$this->getServiceLocator()->get('identity'));
             $this->getServiceLocator()->get('serviceAuthenticatedRedirectManager');
         }
     }
@@ -890,10 +894,12 @@ class SanalfabrikaController extends AbstractActionController {
                     }
                     //print_r($publicKey);
                     $this->getServiceLocator()->setService('identity', $result->getIdentity());
-                    //print_r($this->getServiceLocator()->get('identity'));
+                    print_r($this->getServiceLocator()->get('identity'));
                     $userID = null;
                     $userIDService = $this->getServiceLocator()->get('serviceUserIDFinder');
+                    print_r('service user id-->'.$userIDService);
                     if (is_integer($userIDService))
+                        print_r ('is_integer');
                         $userID = $userIDService;
                     $userID = $userIDService;
                     $authManager->getStorage()->write(
