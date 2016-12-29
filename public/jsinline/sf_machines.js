@@ -17,7 +17,7 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
         queryParams: {
-            url: 'pkFillAllCompanyMachineLists_infoFirmMachineTool',
+            url: 'pkGetMachineTools_sysMachineTools',
             pk: $('#pk').val(),
             subject: 'datagrid'
                     /*machine_groups_id : null,
@@ -35,17 +35,26 @@ $(document).ready(function () {
         remoteFilter: true,
         remoteSort: true,
         multiSort: false,
-        columns: [[                
-                {field: 'machine_tool_names', title: 'Machine Name', width: 200}, 
+        columns: [[
+                {field: 'id', title: 'Id', width: 50},
+                {field: 'machine_tool_name', title: 'Machine Name', width: 200},
                 {field: 'manufacturer_name', title: 'Manufacturer', width: 150, align: 'center'},
-                {field: 'model', title: 'Model', width: 150, align: 'center'}  ,
-                {field: 'firm_name', title: 'Firm Name', width: 200},                   
-                {field: 'machine_tool_grup_names', title: 'Group', width: 150}, 
-                {field: 'model_year', title: 'Year', width: 100, align: 'center'}, 
-                {field: 'total', title: 'Number', width: 50, align: 'center'}                  
+                {field: 'group_name', title: 'Group', width: 150},
+                {field: 'group_name_eng', title: 'Group', width: 150},
+                {field: 'model_year', title: 'Year', width: 100, align: 'center',
+                    formatter: function (value, row, index) {
+                        return row.attributes.model_year;
+                    }
+                }
+//                {field: 'picture', title: 'Picture', width: 300, align: 'center',
+//                    formatter: function (value, row, index) {
+//                        var image_address = row.attributes.picture;
+//                        var image_place_holder = "<img style='height:20px' src='/onyuz/standard/assets/img/sfClients/" +image_address + "'></img>";
+//                        return image_place_holder;
+//                    }
+//                }
             ]]
     });
     $('#reg_address_table').datagrid('enableFilter');
-
 });
 
