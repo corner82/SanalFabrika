@@ -23,8 +23,7 @@ return array(
        'Definitions' => 'layout/definitions.phtml',
        'Supervisor' => 'layout/supervisor.phtml',
        'Signup' => 'layout/signup.phtml',
-       'Cluster' => 'layout/cluster.phtml',
-       'Comics' => 'layout/comics.phtml'
+       'Cluster' => 'layout/cluster.phtml'
         
    ),
     'action_layouts' => array(
@@ -133,9 +132,6 @@ return array(
             'cmpinsert' => 'layout/cmpinsert.phtml',
             'machinsert' => 'layout/machinsert.phtml',
                         ),
-        "Comics" => array(
-            'index' => 'layout/comics.phtml'
-        ),
         'Error' => array(
             'index' => 'layout/401layout.phtml',
                         ),

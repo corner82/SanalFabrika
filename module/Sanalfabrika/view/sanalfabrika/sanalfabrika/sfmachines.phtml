@@ -87,7 +87,7 @@
     <div class="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>">
+            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>">
                 <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
             </a>
             <!-- End Logo -->
@@ -106,19 +106,19 @@
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
+                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
                     <li id="login_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login','lang'=> $this->langCode)); ?>">
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('30')?>
+                                <?php echo $this->translate('30') ?>
                             </span>
                         </a>
                     </li>
                     <li id="logout_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('login', array('action' => 'logout','lang'=> $this->langCode)); ?>">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('31')?>
+                                <?php echo $this->translate('31') ?>
                             </span>
                         </a>
                     </li>
@@ -140,31 +140,31 @@
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#body"><?php echo $this->translate('9') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#about"><?php echo $this->translate('229') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
                             ?>#ostimServices">
                                     <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#news"><?php echo $this->translate('231') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#contact"><?php echo $this->translate('232') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
@@ -197,7 +197,7 @@
             <ul class="pull-right breadcrumb">                        
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
-                            ?>">
+                                    ?>">
                            <?php echo $this->translate('9') ?>
                     </a>
                 </li>
@@ -220,6 +220,37 @@
                 <div id="sf_machines_grid">
                     <table id="reg_address_table"></table>
                 </div>
+                <div class='row' id='table_row' 
+                     style='visibility: hidden; display: none; margin-top: 20px'  
+                     lastIndex=''>
+                    <div class='col-md-3'></div>
+                    <div class='col-md-6'>                
+                        <div class="panel datagrid" style="width: auto;">
+                            <div class="datagrid-wrap panel-body panel-body-noheader" title="" style="width: 848px; height: auto;">
+                                <div class="datagrid-view" style="width: 846px; height: 300px;">
+                                    <div class="datagrid-view1" style="width: 0px;">
+                                        <div class="datagrid-header" style="width: 0px; height: 50px;">
+                                            <div class="datagrid-header-inner" style="display: block;">
+                                                <table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 50px;">
+                                                    <tbody>
+                                                        <tr class="datagrid-header-row datagrid-filter-row">
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="datagrid-body" style="width: 0px; height: 250px;"><div class="datagrid-body-inner"></div></div><div class="datagrid-footer" style="width: 0px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><div class="datagrid-view2" style="width: 846px;"><div class="datagrid-header" style="width: 846px; height: 50px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 50px;"><tbody><tr class="datagrid-header-row"><td field="id"><div class="datagrid-cell datagrid-cell-c1-id"><span>Id</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="machine_tool_name" class=""><div class="datagrid-cell datagrid-cell-c1-machine_tool_name"><span>Machine Name</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="manufacturer_name"><div class="datagrid-cell datagrid-cell-c1-manufacturer_name" style="text-align: center;"><span>Manufacturer</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="group_name"><div class="datagrid-cell datagrid-cell-c1-group_name"><span>Group</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="group_name_eng"><div class="datagrid-cell datagrid-cell-c1-group_name_eng"><span>Group</span><span class="datagrid-sort-icon">&nbsp;</span></div></td><td field="model_year" class=""><div class="datagrid-cell datagrid-cell-c1-model_year" style="text-align: center;"><span>Year</span><span class="datagrid-sort-icon">&nbsp;</span></div></td></tr><tr class="datagrid-header-row datagrid-filter-row"><td field="id"><div class="datagrid-filter-c"><input type="text" class="datagrid-editable-input datagrid-filter" name="id" style="width: 50px; height: 22px;"></div></td><td field="machine_tool_name"><div class="datagrid-filter-c"><input type="text" class="datagrid-editable-input datagrid-filter" name="machine_tool_name" style="width: 200px; height: 22px;"></div></td><td field="manufacturer_name"><div class="datagrid-filter-c"><input type="text" class="datagrid-editable-input datagrid-filter" name="manufacturer_name" style="width: 150px; height: 22px;"></div></td><td field="group_name"><div class="datagrid-filter-c"><input type="text" class="datagrid-editable-input datagrid-filter" name="group_name" style="width: 150px; height: 22px;"></div></td><td field="group_name_eng"><div class="datagrid-filter-c"><input type="text" class="datagrid-editable-input datagrid-filter" name="group_name_eng" style="width: 150px; height: 22px;"></div></td><td field="model_year"><div class="datagrid-filter-c"><input type="text" class="datagrid-editable-input datagrid-filter" name="model_year" style="width: 100px; height: 22px;"></div></td></tr></tbody></table></div></div><div class="datagrid-body" style="width: 846px; height: 250px;"><table class="datagrid-btable" cellspacing="0" cellpadding="0" border="0"><tbody><tr id="datagrid-row-r1-2-0" datagrid-row-index="0" class="datagrid-row   datagrid-row-checked datagrid-row-selected"><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1195</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UL-15</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-1" datagrid-row-index="1" class="datagrid-row"><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1196</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UL-20</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-2" datagrid-row-index="2" class="datagrid-row"><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1197</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UT-200</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-3" datagrid-row-index="3" class="datagrid-row"><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1198</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UT-200Y</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-4" datagrid-row-index="4" class="datagrid-row"><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1199</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UT-300</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-5" datagrid-row-index="5" class="datagrid-row  "><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1200</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UT-300Y</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-6" datagrid-row-index="6" class="datagrid-row  "><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1201</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UV-55E</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-7" datagrid-row-index="7" class="datagrid-row  "><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1202</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UV-75A</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-8" datagrid-row-index="8" class="datagrid-row  "><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1203</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACCUWAY UV-75E</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">accuway</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr><tr id="datagrid-row-r1-2-9" datagrid-row-index="9" class="datagrid-row  "><td field="id"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-id">1204</div></td><td field="machine_tool_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-machine_tool_name">ACER 1340G</div></td><td field="manufacturer_name"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-manufacturer_name">acer</div></td><td field="group_name"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name">Torna</div></td><td field="group_name_eng"><div style=";height:auto;" class="datagrid-cell datagrid-cell-c1-group_name_eng">Lathe</div></td><td field="model_year"><div style=";text-align:center;;height:auto;" class="datagrid-cell datagrid-cell-c1-model_year">0</div></td></tr></tbody></table></div><div class="datagrid-footer" style="width: 846px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><table id="reg_address_table" style="display: none;"></table><style type="text/css">
+                                                            .datagrid-cell-c1-id{width:50px}
+                                                            .datagrid-cell-c1-machine_tool_name{width:200px}
+                                                            .datagrid-cell-c1-manufacturer_name{width:150px}
+                                                            .datagrid-cell-c1-group_name{width:150px}
+                                                            .datagrid-cell-c1-group_name_eng{width:150px}
+                                                            .datagrid-cell-c1-model_year{width:100px}
+                                    </style></div><div class="datagrid-pager pagination"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td><select class="pagination-page-list"><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:void(0)" class="l-btn l-btn-plain l-btn-disabled l-btn-plain-disabled" group=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-first">&nbsp;</span></span></span></a></td><td><a href="javascript:void(0)" class="l-btn l-btn-plain l-btn-disabled l-btn-plain-disabled" group=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-prev">&nbsp;</span></span></span></a></td><td><div class="pagination-btn-separator"></div></td><td><span style="padding-left:6px;">Sayfa</span></td><td><input class="pagination-num" type="text" value="1" size="2"></td><td><span style="padding-right:6px;"> / 575</span></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:void(0)" class="l-btn l-btn-plain" group=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-next">&nbsp;</span></span></span></a></td><td><a href="javascript:void(0)" class="l-btn l-btn-plain" group=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-last">&nbsp;</span></span></span></a></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:void(0)" class="l-btn l-btn-plain" group=""><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-load">&nbsp;</span></span></span></a></td></tr></tbody></table><div class="pagination-info">1 ile 10 arası gösteriliyor, toplam 5743 kayıt</div><div style="clear:both;"></div></div></div></div>
+                    </div>
+                </div>
+                <div class='col-md-3'></div>
 
                 <!-- pagination bar -->
                 <!--                <div class="row clients-page" style="text-align: center">
@@ -258,12 +289,12 @@
                     <p><?php echo $this->translate('469') ?></p>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="fa fa-home"></i>100. Yıl Bulvarı No: 101/A<br/>
-                                 OSTIM Ankara <br/>
+                                OSTIM Ankara <br/>
                                 Turkey</a></li>
-                        <li><i class="fa fa-envelope-o"></i><?php echo $this->translate('112')?>:<a href="#"> info@ostim.com.tr</a></li>
-                        <li><i class="fa fa-phone"></i><?php echo $this->translate('147')?>: <a href="#">312 385 50 90</a></li>
-                        <li><i class="fa fa-fax"></i><?php echo $this->translate('148')?>: <a href="#">312 354 58 98</a></li>
-                        <li><i class="fa fa-globe"></i><?php echo $this->translate('130')?>: <a target='_blank' href="http://www.ostimteknoloji.com">http://www.ostimteknoloji.com</a></li>
+                        <li><i class="fa fa-envelope-o"></i><?php echo $this->translate('112') ?>:<a href="#"> info@ostim.com.tr</a></li>
+                        <li><i class="fa fa-phone"></i><?php echo $this->translate('147') ?>: <a href="#">312 385 50 90</a></li>
+                        <li><i class="fa fa-fax"></i><?php echo $this->translate('148') ?>: <a href="#">312 354 58 98</a></li>
+                        <li><i class="fa fa-globe"></i><?php echo $this->translate('130') ?>: <a target='_blank' href="http://www.ostimteknoloji.com">http://www.ostimteknoloji.com</a></li>
                     </ul>
                 </div>
             </div><!--/col-md-3-->
@@ -279,9 +310,9 @@
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
                         <a href="index.phtml"><img id="logo-footer" class="footer-logo" 
-                                                    src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
-                                                    alt=""></a>
-                        <p><?php echo $this->translate('264')?></p>
+                                                   src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                                   alt=""></a>
+                        <p><?php echo $this->translate('264') ?></p>
                     </div><!--/col-md-3-->
                     <!-- End About -->
 
