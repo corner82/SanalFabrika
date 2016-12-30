@@ -1571,3 +1571,9 @@ msgstr "نظرات"
 
 msgid "518"
 msgstr "جستجو"
+
+msgid "519"
+msgstr "بخش فعال"
+
+msgid "520"
+msgstr "جستجو"

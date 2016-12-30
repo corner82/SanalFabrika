@@ -87,7 +87,7 @@
     <div class="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>">
+            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>">
                 <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
             </a>
             <!-- End Logo -->
@@ -106,19 +106,19 @@
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
+                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
                     <li id="login_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login','lang'=> $this->langCode)); ?>">
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('30')?>
+                                <?php echo $this->translate('30') ?>
                             </span>
                         </a>
                     </li>
                     <li id="logout_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('login', array('action' => 'logout','lang'=> $this->langCode)); ?>">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('31')?>
+                                <?php echo $this->translate('31') ?>
                             </span>
                         </a>
                     </li>
@@ -140,31 +140,31 @@
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#body"><?php echo $this->translate('9') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#about"><?php echo $this->translate('229') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
                             ?>#ostimServices">
                                     <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#news"><?php echo $this->translate('231') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#contact"><?php echo $this->translate('232') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
@@ -196,8 +196,8 @@
             <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('345') ?></h1>
             <ul class="pull-right breadcrumb">                        
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>">
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>">
                            <?php echo $this->translate('9') ?>
                     </a>
                 </li>
@@ -212,54 +212,86 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="tag-box tag-box-v3" style="box-shadow: 0 0 30px #7c8082;">
-                    
-                    
-                    <div class="row">
-                        <div class="col-md-9">
-                            
-                        </div>
-                        
-                    </div>
-                    
-                    
-                    <div class="row">
-                        <div class="headline">
+                    <div class="row" id='search_box'>                        
+                        <div class="headline" onclick='hide_search()'>
                             <h2>
                                 <i class="fa fa-search"></i>
-                                <?php echo $this->translate('518')?>
+                                <?php echo $this->translate('518') ?>
                             </h2>
                         </div>
-                        <form class="sky-form">
+                        <form class="sky-form" id='search_box'  status='opened'>
                             <fieldset style="padding: 9px 25px 5px;">    
-                            <section>
-                                                <label class="label"><?php echo $this->translate('206')?></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-users"></i>
-                                                    </div>
-                                                    <input type="text" name="company_name" id="company_name" required="true" class="form-control validate[required,custom[onlyLetterSp]]" onchange="taskProgressPerTabs()">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <section>
+                                            <label class="label">
+                                                <?php echo $this->translate('206') ?>
+                                            </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-tag"></i>
                                                 </div>
-                                            </section>
-                            <section>
-                                                <label class="label">Ad</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-users"></i>
-                                                    </div>
-                                                    <input type="text" name="userFirstName" id="userFirstName" required="true" class="form-control validate[required,custom[onlyLetterSp]]" onchange="taskProgressPerTabs()">
+                                                <input type="text" name="company_name" 
+                                                       id="company_name" required="true" 
+                                                       class="form-control validate[required,custom[onlyLetterSp]]">
+                                            </div>
+                                        </section>
+                                        <section>
+                                            <label class="label">
+                                                <?php echo $this->translate('519') ?>
+                                            </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-pie-chart"></i>
                                                 </div>
-                                            </section> 
-                                <section>
-                                    <button type="submit" id="userGeneralInfoFormSubmit" class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">   
-                                                        Temizle                                                </button>
-                                                <button type="button" id="userGeneralInfoFormReset" class="btn-u" onclick="resetForm()">
-                                                            Temizle                                                </button>
-                                    
-                                </section>
-                            
+                                                <div id="dropdownSectors"></div>
+                                            </div>
+                                        </section>
+                                    </div>    
+                                    <div class="col-md-6">
+                                        <section>
+                                            <label class="label">
+                                                <?php echo $this->translate('135') ?>
+                                            </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-globe"></i>
+                                                </div>
+                                                <div id="dropdownCountries"></div>
+                                            </div>
+                                        </section>
+                                        <section>
+                                            <label class="label">
+                                                <?php echo $this->translate('138') ?>
+                                            </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-building"></i>
+                                                </div>
+                                                <input type="text" name="company_city" 
+                                                       id="company_city" required="true" 
+                                                       class="form-control validate[required,custom[onlyLetterSp]]">
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <section>
+                                        <button type="submit" id="userGeneralInfoFormSubmit" 
+                                                class="btn-u btn-u-dark-blue" 
+                                                onclick="submitUserGeneralInfoForm()">   
+                                                    <?php echo $this->translate('520') ?>                                                
+                                        </button>
+                                        <button type="button" id="userGeneralInfoFormReset" 
+                                                class="btn-u" 
+                                                onclick="resetForm()">
+                                                    <?php echo $this->translate('186') ?>
+                                        </button>
+                                    </section>
+                                </div>
                             </fieldset>
                         </form>
-                        
+
                         <!--<div class="col-md-3">
                             <h2 class="heading-sm">Emphasis Classes</h2>
                             <p class="muted">Muted Textxt Information</p>
@@ -293,7 +325,7 @@
                         </div>-->
                     </div><!--/row-->
                 </div>
-                
+
                 <div id="come_here" class="headline"><h2><?php echo $this->translate('344') ?></h2></div>
 
                 <!-- Start Clients Block-->
@@ -340,12 +372,12 @@
                     <p><?php echo $this->translate('469') ?></p>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="fa fa-home"></i>100. Yıl Bulvarı No: 101/A<br/>
-                                 OSTIM Ankara <br/>
+                                OSTIM Ankara <br/>
                                 Turkey</a></li>
-                        <li><i class="fa fa-envelope-o"></i><?php echo $this->translate('112')?>:<a href="#"> info@ostim.com.tr</a></li>
-                        <li><i class="fa fa-phone"></i><?php echo $this->translate('147')?>: <a href="#">312 385 50 90</a></li>
-                        <li><i class="fa fa-fax"></i><?php echo $this->translate('148')?>: <a href="#">312 354 58 98</a></li>
-                        <li><i class="fa fa-globe"></i><?php echo $this->translate('130')?>: <a target='_blank' href="http://www.ostimteknoloji.com">http://www.ostimteknoloji.com</a></li>
+                        <li><i class="fa fa-envelope-o"></i><?php echo $this->translate('112') ?>:<a href="#"> info@ostim.com.tr</a></li>
+                        <li><i class="fa fa-phone"></i><?php echo $this->translate('147') ?>: <a href="#">312 385 50 90</a></li>
+                        <li><i class="fa fa-fax"></i><?php echo $this->translate('148') ?>: <a href="#">312 354 58 98</a></li>
+                        <li><i class="fa fa-globe"></i><?php echo $this->translate('130') ?>: <a target='_blank' href="http://www.ostimteknoloji.com">http://www.ostimteknoloji.com</a></li>
                     </ul>
                 </div>
             </div><!--/col-md-3-->
@@ -361,9 +393,9 @@
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
                         <a href="index.phtml"><img id="logo-footer" class="footer-logo" 
-                                                    src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
-                                                    alt=""></a>
-                        <p><?php echo $this->translate('264')?></p>
+                                                   src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                                   alt=""></a>
+                        <p><?php echo $this->translate('264') ?></p>
                     </div><!--/col-md-3-->
                     <!-- End About -->
 

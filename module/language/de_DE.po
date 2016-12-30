@@ -1574,3 +1574,9 @@ msgstr "Bemerkungen"
 
 msgid "518"
 msgstr "Suche"
+
+msgid "519"
+msgstr "Sektor"
+
+msgid "520"
+msgstr "Gehen"

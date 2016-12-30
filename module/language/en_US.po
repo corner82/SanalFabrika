@@ -1658,3 +1658,9 @@ msgstr "Company Comments"
 
 msgid "518"
 msgstr "Search"
+
+msgid "519"
+msgstr "Sector"
+
+msgid "520"
+msgstr "Go"

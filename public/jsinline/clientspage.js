@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     lang.change($('#langCode').val());
 
-    
+
     $("#pagination_content").empty();
 
     window.testLoadImage = $("#pagination_content").loadSpinner();
@@ -126,5 +126,112 @@ $(document).ready(function () {
         }
     });
 
+    /**
+     * Sectors dropdown prepared
+     * @type @call;$@call;ajaxCallWidget
+     * @since 14/07/2016
+     */
+    var ajaxSectors = $(window).ajaxCallWidget({
+        proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {
+            url: 'getSectors_syssectors',
+            language_code: $('#langCode').val(),
+            component_type: "ddslick"
+        }
+    });
+    ajaxSectors.ajaxCallWidget({
+        onError: function (event, textStatus, errorThrown) {
+
+        },
+        onSuccess: function (event, data) {
+            var data = $.parseJSON(data);
+//         $('#mach-prod-box').loadImager('removeLoadImage');
+            $('#dropdownSectors').ddslick({
+                height: 200,
+                data: data,
+                width: '100%',
+                selectText: "",
+                //showSelectedHTML : false,
+                defaultSelectedIndex: 3,
+                search: true,
+                //imagePosition:"right",
+                onSelected: function (selectedData) {
+                    if (selectedData.selectedData.value > 0) {
+                        /*$('#tt_tree_menu').tree({
+                         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                         });*/
+                    }
+                }
+            });
+        },
+        onErrorDataNull: function (event, data) {
+
+        }
+    });
+    ajaxSectors.ajaxCallWidget('call');
+
+
+
+
+    /**
+     * Countries dropdown prepared
+     * @type @call;$@call;ajaxCallWidget
+     * @since 14/07/2016
+     */
+    var ajaxCountries = $(window).ajaxCallWidget({
+        proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: {url: 'fillComboBox_syscountrys',
+            language_code: $('#langCode').val(),
+            component_type: "ddslick"
+        }
+    });
+    ajaxCountries.ajaxCallWidget({
+        onError: function (event, textStatus, errorThrown) {
+
+        },
+        onSuccess: function (event, data) {
+            var data = $.parseJSON(data);
+//         $('#mach-prod-box').loadImager('removeLoadImage');
+            $('#dropdownCountries').ddslick({
+                height: 200,
+                data: data,
+                width: '100%',
+                selectText: "",
+                //showSelectedHTML : false,
+                defaultSelectedIndex: 3,
+                search: true,
+                //imagePosition:"right",
+                onSelected: function (selectedData) {
+                    if (selectedData.selectedData.value > 0) {
+                        /*$('#tt_tree_menu').tree({
+                         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
+                         });*/
+                    }
+                }
+            });
+        },
+        onErrorDataNull: function (event, data) {
+
+        }
+    });
+    ajaxCountries.ajaxCallWidget('call');
+
+
+
+
+
+
 });
+
+function hide_search() {
+
+    if ($('.sky-form').attr('status') === 'opened') {
+        $('.sky-form').attr('status', 'closed');
+        $('.sky-form').slideUp();
+    } else {
+        $('.sky-form').attr('status', 'opened');
+        $('.sky-form').slideDown();
+    }
+
+}
 

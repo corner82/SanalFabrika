@@ -1578,3 +1578,9 @@ msgstr "Yorumlar"
 
 msgid "518"
 msgstr "Hızlı Arama"
+
+msgid "519"
+msgstr "Sektör"
+
+msgid "520"
+msgstr "Ara"
