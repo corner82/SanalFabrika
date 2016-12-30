@@ -211,6 +211,89 @@
     <div class="container content">		
         <div class="row">
             <div class="col-md-9">
+                <div class="tag-box tag-box-v3">
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-9">
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="headline">
+                            <h2>
+                                <i class="fa fa-search"></i>
+                                <?php echo $this->translate('518')?>
+                            </h2>
+                        </div>
+                        <form class="sky-form">
+                            <fieldset style="padding: 9px 25px 5px;">    
+                            <section>
+                                                <label class="label"><?php echo $this->translate('206')?></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-users"></i>
+                                                    </div>
+                                                    <input type="text" name="company_name" id="company_name" required="true" class="form-control validate[required,custom[onlyLetterSp]]" onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section>
+                            <section>
+                                                <label class="label">Ad</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-users"></i>
+                                                    </div>
+                                                    <input type="text" name="userFirstName" id="userFirstName" required="true" class="form-control validate[required,custom[onlyLetterSp]]" onchange="taskProgressPerTabs()">
+                                                </div>
+                                            </section> 
+                                <section>
+                                    <button type="submit" id="userGeneralInfoFormSubmit" class="btn-u btn-u-dark-blue" onclick="submitUserGeneralInfoForm()">   
+                                                        Temizle                                                </button>
+                                                <button type="button" id="userGeneralInfoFormReset" class="btn-u" onclick="resetForm()">
+                                                            Temizle                                                </button>
+                                    
+                                </section>
+                            
+                            </fieldset>
+                        </form>
+                        
+                        <!--<div class="col-md-3">
+                            <h2 class="heading-sm">Emphasis Classes</h2>
+                            <p class="muted">Muted Textxt Information</p>
+                            <p class="text-primary">Primary Textxt Information</p>
+                            <p class="text-success">Success Textxt Information</p>
+                            <p class="text-warning">Warning Textxt Information</p>
+                            <p class="text-danger">Danger Textxt Information</p>
+                            <p class="text-info">Info Textxt Information</p>
+                            <p class="text-success">Success Textxt Information</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2 class="heading-sm">Address</h2>
+                            <address>
+                                <strong>Twitter, Inc.</strong><br>
+                                795 Folsom Ave, Suite 600<br>
+                                San Francisco, CA 94107<br>
+                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                            </address>
+                            <address>
+                                <strong>Full Name</strong><br>
+                                <a href="mailto:#">first.last@example.com</a>
+                            </address>
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="heading-sm">Misc Collection</h2>
+                            <p>Lorem Ipsum is simply dummy text and <a href="#">here is a link example.</a></p>
+                            <p><del>Use a tag del lorem Ipsum is simply dummy text</del></p>
+                            <p>Some <sup>sup example</sup> and some more <sub>sub example</sub></p>
+                            <p><abbr title="attribute">attr distribution</abbr> of letters as opposed <abbr title="attribute">attr</abbr> to using</p>
+                            <p><span style="text-decoration: underline;">Use a tag span lorem Ipsum is simply dummy text</span></p>                            
+                        </div>-->
+                    </div><!--/row-->
+                </div>
+                
                 <div id="come_here" class="headline"><h2><?php echo $this->translate('344') ?></h2></div>
 
                 <!-- Start Clients Block-->

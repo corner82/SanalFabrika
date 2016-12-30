@@ -604,7 +604,7 @@ msgid "194"
 msgstr "Dil"
 
 msgid "195"
-msgstr "Profilim her kese açık olsun"
+msgstr "Profilim herkese açık olsun"
 
 msgid "196"
 msgstr "İletişim tipi"
@@ -1575,3 +1575,6 @@ msgstr "Varsayılan Numaram"
 
 msgid "517"
 msgstr "Yorumlar"
+
+msgid "518"
+msgstr "Hızlı Arama"

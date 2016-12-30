@@ -1568,3 +1568,6 @@ msgstr "شماره تماس اصلی"
 
 msgid "517"
 msgstr "نظرات"
+
+msgid "518"
+msgstr "جستجو"
