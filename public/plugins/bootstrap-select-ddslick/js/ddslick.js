@@ -227,7 +227,7 @@
             search : false,
             searchTextClass : 'search-text',
             searchTemplate : '<div  class="form-group" style="margin-bottom:0px;margin-left:-4px;margin-top:10px;" >\n\
-                                <div class="col-sm-10">\n\
+                                <div class="col-sm-11">\n\
                                     <div class="input-group">\n\
                                         <div class="input-group-addon">\n\
                                             <i class="fa  fa-search-plus"></i>\n\
@@ -272,7 +272,7 @@
              * @since 02/08/2016
              */
             multiSelectTemplate : '<div  class="form-group" style="margin-bottom:0px;margin-left:-4px;margin-top:10px;" >\n\
-                                <div class="col-sm-10">\n\
+                                <div class="col-sm-11">\n\
                                     <div class="input-group">\n\
                                         <div class="input-group-addon">\n\
                                             <i class="fa   fa-check"></i>\n\
