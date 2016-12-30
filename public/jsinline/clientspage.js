@@ -131,7 +131,7 @@ $(document).ready(function () {
      * @type @call;$@call;ajaxCallWidget
      * @since 14/07/2016
      */
-    var ajaxSectors = $(window).ajaxCallWidget({
+    var ajaxSectors = $('#dropdownSectors').ajaxCallWidget({
         proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
             url: 'getSectors_syssectors',
@@ -178,7 +178,7 @@ $(document).ready(function () {
      * @type @call;$@call;ajaxCallWidget
      * @since 14/07/2016
      */
-    var ajaxCountries = $(window).ajaxCallWidget({
+    var ajaxCountries = $('#dropdownCountries').ajaxCallWidget({
         proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {url: 'fillComboBox_syscountrys',
             language_code: $('#langCode').val(),
@@ -198,7 +198,7 @@ $(document).ready(function () {
                 width: '100%',
                 selectText: "",
                 //showSelectedHTML : false,
-                defaultSelectedIndex: 3,
+//                defaultSelectedIndex: 3,
                 search: true,
                 //imagePosition:"right",
                 onSelected: function (selectedData) {
