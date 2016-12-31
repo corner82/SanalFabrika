@@ -232,7 +232,7 @@
                                                     <i class="fa fa-tag"></i>
                                                 </div>
                                                 <input type="text" name="company_name" 
-                                                       id="company_name" required="true" 
+                                                       id="company_name" 
                                                        class="form-control validate[required,custom[onlyLetterSp]]">
                                             </div>
                                         </section>
@@ -260,7 +260,7 @@
                                                 <div id="dropdownCountries"></div>
                                             </div>
                                         </section>
-                                        <section>
+<!--                                        <section>
                                             <label class="label">
                                                 <?php echo $this->translate('138') ?>
                                             </label>
@@ -269,17 +269,17 @@
                                                     <i class="fa fa-building"></i>
                                                 </div>
                                                 <input type="text" name="company_city" 
-                                                       id="company_city" required="true" 
+                                                       id="company_city"
                                                        class="form-control validate[required,custom[onlyLetterSp]]">
                                             </div>
-                                        </section>
+                                        </section>-->
                                     </div>
                                 </div>
                                 <div class="row">
                                     <section>
                                         <button type="submit" id="userGeneralInfoFormSubmit" 
                                                 class="btn-u btn-u-dark-blue" 
-                                                onclick="submitUserGeneralInfoForm()">   
+                                                onclick="searchCompanies()">   
                                                     <?php echo $this->translate('520') ?>                                                
                                         </button>
                                         <button type="button" id="userGeneralInfoFormReset" 
