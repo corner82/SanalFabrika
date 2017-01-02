@@ -279,7 +279,7 @@ function searchCompanies() {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            if(data.length > 0){
+            if(data.rows.length > 0){
 //            console.log('--------------' + data);
             var i;
             // @companyperpage = 10 company will be shown per page
