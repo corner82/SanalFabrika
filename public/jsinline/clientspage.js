@@ -160,6 +160,8 @@ $(document).ready(function () {
                         /*$('#tt_tree_menu').tree({
                          url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
                          });*/
+                        window.selected_sector_id = selectedData.selectedData.value;
+
                     }
                 }
             });
@@ -206,6 +208,8 @@ $(document).ready(function () {
                         /*$('#tt_tree_menu').tree({
                          url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php?url=pkFillForAdminTree_leftnavigation&pk=' + $("#pk").val()+ '&role_id='+selectedData.selectedData.value+'&language_code='+$("#langCode").val(),
                          });*/
+
+                        window.selected_country_id = selectedData.selectedData.value;
                     }
                 }
             });
@@ -243,38 +247,40 @@ function hide_search() {
 
 function resetForm() {
 
-    $('#dropdownCountries').ddslick('select' , {index:0});
-    $('#dropdownSectors').ddslick('select', {index:0});
+    $('#dropdownCountries').ddslick('select', {index: 0});
+    $('#dropdownSectors').ddslick('select', {index: 0});
     event.stopImmediatePropagation();
     event.target.closest('form').reset();
     event.preventDefault();
-    
+
 }
 
-function searchCompanies(){
-    $("#pagination_content").empty();
+function searchCompanies() {
 
-    window.testLoadImage = $("#pagination_content").loadSpinner();
-    window.testLoadImage.loadSpinner('appendImage');
-//    console.log('reloaded');
-    //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
+
+    $("#pagination_content").empty();
+    $("#paginationBar").empty();
+    
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
         data: {
-            url: '',
+            url: 'fillCompanyListsGuest_infoFirmProfile',
             pk: $('#pk').val(),
             language_code: $("#langCode").val(),
             page: 1,
             rows: 10,
             sort: null,
-            order: null
+            order: null,
+            company_name: $('#company_name').val(),
+            country_id: window.selected_country_id,
+            sector_id: window.selected_sector_id
         },
         method: "GET",
         dataType: "json",
         success: function (data) {
 
-//            console.log(data);
+//            console.log('--------------' + data);
             var i;
             // @companyperpage = 10 company will be shown per page
             window.companyperpage = 10;
@@ -353,20 +359,24 @@ function searchCompanies(){
                 $(newappend).appendTo($("#pagination_content"));
 
             }
+
             $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");
             event.preventDefault();
 
-            $('#paginationBar').paginator();
-            $('#paginationBar').paginator('option', 'total', window.totalnumberofpages);
-            $('#paginationBar').paginator('option', 'maxVisible', 5);
-            $('#paginationBar').paginator('paginate');
+//                $('#paginationBar').empty();
+            $('#paginationBar').search_paginator();
+            $('#paginationBar').search_paginator('option', 'total', window.totalnumberofpages);
+            $('#paginationBar').search_paginator('option', 'maxVisible', 5);
+            $('#paginationBar').search_paginator('search_paginate');
 
 
-            window.testLoadImage.loadSpinner('removeLoadImage');
+//            window.testLoadImage.loadSpinner('removeLoadImage');
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"fillAddressTypes_sysSpecificDefinitions" servis hatasÄ±->' + textStatus);
+            console.error('"fillCompanyListsGuest_infoFirmProfile" servis hatasÄ±->' + textStatus);
         }
     });
+
+
 }
 

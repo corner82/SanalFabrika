@@ -230,7 +230,6 @@
          * Default options.
          * @returns {null}
          */
-
         options: {
             total: 50,
             page: 1,
@@ -291,6 +290,160 @@
                         rows: window.companyperpage,
                         sort: null,
                         order: null
+                    },
+                    method: "GET",
+                    dataType: "json",
+                    success: function (data) {
+//                        console.log(data);
+                        var i;
+                        for (i = 0; i < 10; i++) {
+
+                            $('#selectedCompanyNpk').val(data.rows[i].npk);
+                            var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
+                            $('#selectedCompanyShN').val(rep_firm_short_name);
+                            var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
+
+                            var appending_html =
+                                    "<!-- Clients Block-->"
+//                        + "<a href='#'>"
+                                    + "<div class='row clients-page ' style='border-bottom: solid 5px #eee;'>"
+                                    + "<div class = 'col-md-2' style='box-shadow: 0 0 30px #7c8082;'>"
+                                    + "<img src='/onyuz/standard/assets/img/sfClients/"
+                                    + data.rows[i].logo
+                                    + "' "
+                                    + "class = 'img-responsive hover-effect' alt = '' / >"
+                                    + "</div>"
+                                    + "<div class = 'col-md-10' id='"
+                                    + data.rows[i].npk
+                                    + "'>"
+                                    + "<a href='"
+                                    + companyProfileLink
+                                    + "'>"
+                                    + "<h3>"
+                                    + data.rows[i].firm_names
+                                    + "</h3>"
+                                    + "</a>"
+                                    + "<p>"
+                                    + data.rows[i].fim_description
+                                    + "</p>"
+                                    + "<ul class = 'list-inline'>"
+                                    + "<li>"
+                                    + "<i class = 'fa fa-map-marker color-green' style='padding-right:5px;'></i>"
+                                    + data.rows[i].country_names
+                                    + "</li>"
+                                    + "<li><i class = 'fa fa-globe color-green' style='padding-right:5px;'></i>"
+                                    + data.rows[i].web_address
+                                    + "<li>"
+                                    + "<i class = 'fa fa-mail-forward color-green' style='padding-right:5px;'> </i>"
+                                    + data.rows[i].email
+                                    + "</li>"
+                                    + "<li>"
+                                    + "<i class = 'fa fa-microphone color-green' style='padding-right:5px;'> </i>"
+                                    + data.rows[i].tel
+                                    + "</li>"
+                                    + "<li>"
+                                    + "<i class = 'fa fa-fax color-green' style='padding-right:5px;'> </i>"
+                                    + data.rows[i].fax
+                                    + "</li>"
+                                    + "<li>"
+                                    + "<i class = 'fa fa-asterisk color-green' style='padding-right:5px;'> </i>"
+                                    + data.rows[i].total_machines
+                                    + "</li>"
+                                    + "<li>"
+                                    + "<i class = 'fa fa-sitemap color-green' style='padding-right:5px;'> </i>"
+                                    + data.rows[i].firm_sectoral
+                                    + "</li>"
+                                    + "</ul>"
+                                    + "</div>"
+//                                    + "</div>"
+//                                    + "</a>"
+                                    + "<!-- End Clinets Block --> ";
+//                            console.log(appending_html);
+                            var newappend = $(appending_html);
+                            $(newappend).appendTo($("#pagination_content"));
+
+                        }
+                        window.testLoadImage.loadSpinner('removeLoadImage');
+                    }
+                });
+                $("html, body").animate({scrollTop: $(".header").offset().top}, "slow");
+                event.preventDefault();
+            });
+        }
+    });
+
+
+
+    $.widget("sanalfabrika.search_paginator", {
+        /**
+         * Default options.
+         * @returns {null}
+         */
+
+        options: {
+            total: 50,
+            page: 1,
+            maxVisible: 5,
+            leaps: true,
+            firstLastUse: true,
+            first: '<span aria-hidden="true">&larr;</span>',
+            last: '<span aria-hidden="true">&rarr;</span>',
+            wrapClass: 'pagination',
+            activeClass: 'active',
+            disabledClass: 'disabled',
+            nextClass: 'next',
+            prevClass: 'prev',
+            lastClass: 'last',
+            firstClass: 'first'
+        },
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+        },
+        /**
+         * public method to remove loading image when necessary
+         * @returns {null}
+         */
+        search_paginate: function () {
+
+            $('#paginationBar').bootpag({
+                total: this.options.total,
+                page: this.options.page,
+                maxVisible: this.options.maxVisible,
+                leaps: this.options.leaps,
+                firstLastUse: this.options.firstLastUse,
+                first: this.options.first,
+                last: this.options.last,
+                wrapClass: this.options.wrapClass,
+                activeClass: this.options.activeClass,
+                disabledClass: this.options.disabledClass,
+                nextClass: this.options.nextClass,
+                prevClass: this.options.prevClass,
+                lastClass: this.options.lastClass,
+                firstClass: this.options.firstClass
+            }).on("page", function (event, num) {
+
+                $("#pagination_content").empty();
+
+                window.testLoadImage = $("#pagination_content").loadSpinner();
+                window.testLoadImage.loadSpinner('appendImage');
+
+                $.ajax({
+                    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                    //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
+                    data: {
+                        url: 'fillCompanyListsGuest_infoFirmProfile',
+                        pk: $('#pk').val(),
+                        language_code: $("#langCode").val(),
+                        page: 1,
+                        rows: 10,
+                        sort: null,
+                        order: null,
+                        company_name: $('#company_name').val(),
+                        country_id: window.selected_country_id,
+                        sector_id: window.selected_sector_id
                     },
                     method: "GET",
                     dataType: "json",
@@ -470,7 +623,19 @@
          */
         _setNotificationsFooter: function () {
             var self = this;
-            self.options.appendText += '</ul>\n\
+            self.options.appendText += '</div>\n\
+</div>\n\
+<div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;">\n\
+<div class="mCSB_draggerContainer">\n\
+<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 199px; max-height: 286px; top: 0px;" oncontextmenu="return false;">\n\
+<div class="mCSB_dragger_bar" style="line-height: 50px;">\n\
+</div>\n\
+</div>\n\
+<div class="mCSB_draggerRail">\n\
+</div>\n\
+</div>\n\
+</div>\n\
+</ul>\n\
                                         </div>';
         },
         /**
@@ -489,7 +654,9 @@
                                             </a>\n\
                                         </div>\n\
                                         <div class="margin-bottom-20 "  >\n\
-                                        <ul class="list-unstyled mCustomScrollbar margin-bottom-20 box" data-mcs-theme="minimal-dark" id="notificationWidget">';
+                                        <ul class="list-unstyled mCustomScrollbar margin-bottom-20 box" data-mcs-theme="minimal-dark" id="notificationWidget">\n\
+                                        <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0">\n\
+                                        <div id="mCSB_1_container" class="mCSB_container">';
         }
 
     });
