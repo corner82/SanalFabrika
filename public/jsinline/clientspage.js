@@ -8,7 +8,6 @@ $(document).ready(function () {
 
     lang.change($('#langCode').val());
 
-
     $("#pagination_content").empty();
 
     window.testLoadImage = $("#clients_left_side").loadSpinner();
@@ -380,9 +379,6 @@ function searchCompanies() {
         error: function (jqXHR, textStatus, errorThrown) {
             console.error('"fillCompanyListsGuest_infoFirmProfile" servis hatasÄ±->' + textStatus);
         }
-
     });
-
-
 }
 
