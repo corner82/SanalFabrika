@@ -61,7 +61,7 @@ $(document).ready(function () {
             if ($('#props_table_div').css('visibility') === 'visible') {
                 $('html, body').animate({
                     scrollTop: $("#props_table_div").offset().top
-                }, 1000);
+                }, 1000);                
             }
         },
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -89,7 +89,7 @@ $(document).ready(function () {
                 {field: 'machine_tool_name', title: 'Machine Name', width: 200},
                 {field: 'manufacturer_name', title: 'Manufacturer', width: 190, align: 'center'},
                 {field: 'group_name', title: 'Group', width: 150},
-                {field: 'group_name_eng', title: 'Group', width: 150},
+                {field: 'group_name_eng', title: 'Group (English)', width: 150},
                 {field: 'model_year', title: 'Year', width: 100, align: 'center',
                     formatter: function (value, row, index) {
                         return row.attributes.model_year;
