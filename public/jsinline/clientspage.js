@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     $("#pagination_content").empty();
 
-    window.testLoadImage = $("#pagination_content").loadSpinner();
+    window.testLoadImage = $("#clients_left_side").loadSpinner();
     window.testLoadImage.loadSpinner('appendImage');
 //    console.log('reloaded');
     //    $("#pagination_content").html("Page " + num); // or some ajax content loading...
@@ -220,11 +220,6 @@ $(document).ready(function () {
     });
     ajaxCountries.ajaxCallWidget('call');
 
-
-
-
-
-
 });
 
 function hide_search() {
@@ -259,7 +254,7 @@ function resetForm() {
 
 function searchCompanies() {
 
-    window.testLoadImage = $("#pagination_content").loadSpinner();
+    window.testLoadImage = $("#clients_left_side").loadSpinner();
     window.testLoadImage.loadSpinner('appendImage');
 
     $("#pagination_content").empty();
@@ -378,8 +373,8 @@ function searchCompanies() {
                 $('#paginationBar').search_paginator('option', 'total', window.totalnumberofpages);
                 $('#paginationBar').search_paginator('option', 'maxVisible', 5);
                 $('#paginationBar').search_paginator('search_paginate');
-            }
             window.testLoadImage.loadSpinner('removeLoadImage');
+            }
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error('"fillCompanyListsGuest_infoFirmProfile" servis hatasÄ±->' + textStatus);

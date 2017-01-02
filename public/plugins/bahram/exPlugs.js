@@ -277,7 +277,7 @@
 
                 $("#pagination_content").empty();
 
-                window.testLoadImage = $("#pagination_content").loadSpinner();
+                window.testLoadImage = $("#clients_left_side").loadSpinner();
                 window.testLoadImage.loadSpinner('appendImage');
 
                 $.ajax({
