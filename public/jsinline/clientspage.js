@@ -257,6 +257,8 @@ function resetForm() {
 
 function searchCompanies() {
 
+    window.testLoadImage = $("#pagination_content").loadSpinner();
+    window.testLoadImage.loadSpinner('appendImage');
 
     $("#pagination_content").empty();
     $("#paginationBar").empty();
@@ -375,8 +377,7 @@ function searchCompanies() {
                 $('#paginationBar').search_paginator('option', 'maxVisible', 5);
                 $('#paginationBar').search_paginator('search_paginate');
             }
-
-//            window.testLoadImage.loadSpinner('removeLoadImage');
+            window.testLoadImage.loadSpinner('removeLoadImage');
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error('"fillCompanyListsGuest_infoFirmProfile" servis hatasÄ±->' + textStatus);
