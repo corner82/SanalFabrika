@@ -279,7 +279,7 @@ function searchCompanies() {
         method: "GET",
         dataType: "json",
         success: function (data) {
-
+            if(data.length > 0){
 //            console.log('--------------' + data);
             var i;
             // @companyperpage = 10 company will be shown per page
@@ -368,7 +368,7 @@ function searchCompanies() {
             $('#paginationBar').search_paginator('option', 'total', window.totalnumberofpages);
             $('#paginationBar').search_paginator('option', 'maxVisible', 5);
             $('#paginationBar').search_paginator('search_paginate');
-
+            }
 
 //            window.testLoadImage.loadSpinner('removeLoadImage');
         },
