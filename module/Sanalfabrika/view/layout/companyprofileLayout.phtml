@@ -86,12 +86,11 @@
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/datepicker.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>        
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/circles-master.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/jquery.parallax.js') ?>"></script>    
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/image-hover/js/modernizr.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/image-hover/js/touch.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/owl-carousel.js') ?>"></script>
+    <!--<script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/owl-carousel.js') ?>"></script>-->
     
     
     <!-- multulanguage js -->
@@ -113,6 +112,7 @@
     <script type="text/javascript">
         jQuery(document).ready(function () {
             App.init();
+            App.initScrollBar();
             CirclesMaster.initCirclesMaster1();
             StyleSwitcher.initStyleSwitcher();
         });
