@@ -95,27 +95,27 @@ $(document).ready(function () {
         }
     });
 
-
-    
-    window.notificationWidget = $('#notificationContainer').notifications({
-        container : $('#notificationWidget')
-    });
-    window.notificationWidget.notifications({ 
-        onServiceSuccess : function(event, data) {
-            /*var elementData = data.element;
-            var id = data.id;*/
-            //window.deleteServicePrivilegeDialog(id, elementData);
-            console.warn(data.element);
-            console.warn(data.element.attr('attr-notification'));
-            alert('onServiceSucess');
-            
-        }  
-     });
-    
-    //window.notificationWidget.notifications('test');
-    
     var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
     nonAttachedTreeLoadImage.loadSpinner('appendImage');
+    
+    window.notificationWidget = $('#notificationContainer').notifications({
+        container: $('#notificationWidget')
+    });
+    
+    window.notificationWidget.notifications({
+        onServiceSuccess: function (event, data) {
+            /*var elementData = data.element;
+             var id = data.id;*/
+            //window.deleteServicePrivilegeDialog(id, elementData);
+            //console.warn(data.element);
+            //console.warn(data.element.attr('attr-notification'));
+            //alert('onServiceSucess');  
+            nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');
+        }
+    });
+    //window.notificationWidget.notifications('test');
+    window.notificationWidget.notifications('getNotifications');
+    
     
     var testLoadImage = $("#bannerWidget").loadSpinner();
     testLoadImage.loadSpinner('appendImage');

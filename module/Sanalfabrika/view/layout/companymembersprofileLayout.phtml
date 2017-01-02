@@ -79,8 +79,8 @@
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/back-to-top.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/smoothScroll.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/circles-master/circles.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') ?>"></script>
     
     <!-- JS Customization -->
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/custom.js') ?>"></script>
@@ -90,7 +90,6 @@
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/datepicker.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>        
     <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/circles-master.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo $this->basePath('onyuz/standard/assets/js/plugins/style-switcher.js') ?>"></script>
 
     <!-- multulanguage js -->
     <script src="<?php echo $this->basePath('plugins/jquery-lang-js-master/js.cookie.js') ?>" type="text/javascript"></script>
@@ -116,6 +115,7 @@
     <script type="text/javascript">
         jQuery(document).ready(function () {
             App.init();
+            App.initScrollBar();
             CirclesMaster.initCirclesMaster1();
             StyleSwitcher.initStyleSwitcher();
         });

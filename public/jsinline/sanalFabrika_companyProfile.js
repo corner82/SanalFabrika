@@ -76,8 +76,6 @@ $(document).ready(function () {
 
     });
 
-
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -144,7 +142,6 @@ $(document).ready(function () {
 
         }
     });
-
 
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -224,7 +221,6 @@ $(document).ready(function () {
      * Address information service 
      * For users with pk
      */
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -289,7 +285,6 @@ $(document).ready(function () {
              }*/
         }
     });
-
 
     var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
     nonAttachedTreeLoadImage.loadSpinner('appendImage');
