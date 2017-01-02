@@ -87,7 +87,7 @@
     <div class="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>">
+            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>">
                 <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
             </a>
             <!-- End Logo -->
@@ -106,19 +106,19 @@
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
+                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
                     <li id="login_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login','lang'=> $this->langCode)); ?>">
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('30')?>
+                                <?php echo $this->translate('30') ?>
                             </span>
                         </a>
                     </li>
                     <li id="logout_place" style="visibility: hidden; display: none">
-                        <a href="<?php echo $this->url('login', array('action' => 'logout','lang'=> $this->langCode)); ?>">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout', 'lang' => $this->langCode)); ?>">
                             <span>
-                                <?php echo $this->translate('31')?>
+                                <?php echo $this->translate('31') ?>
                             </span>
                         </a>
                     </li>
@@ -140,31 +140,31 @@
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#body"><?php echo $this->translate('9') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#about"><?php echo $this->translate('229') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
                             ?>#ostimServices">
                                     <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#news"><?php echo $this->translate('231') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#contact"><?php echo $this->translate('232') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
@@ -210,7 +210,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile' , 'lang' => $this->langcode ,'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'lang' => $this->langcode, 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
                            ?>">
                            <?php echo $this->translate('258') ?>
                     </a>
@@ -267,14 +267,15 @@
                          role="progressbar" class="progress-bar progress-bar-dark">
                     </div>
                 </div>
-                
+
+
                 <!--Notification-->
                 <div class="box box-relative"  id="notificationContainer"  
                      attr-notification="<?php echo $this->translate('20') ?>">    
                 </div>                
                 <!--/notifications -->
-                
-                
+
+
                 <!-- Exchange Rates Script - EXCHANGERATEWIDGET.COM -->
                 <div style="width:auto; border:0px solid #55A516; text-align:left;">
                     <div style="text-align:left;background-color:#717984;width:100%;
@@ -380,197 +381,197 @@
                 <div class="profile-body">
                     <div class="block-description">
                         <!--<div class="container">-->
-                            <i class="center-icon rounded-x fa fa-edit"></i>
-                            <div class="title-box-v2 col-md-12">
-                                <h2><?php echo $this->translate('317') ?></h2>
-                                <p></p>
-                            </div> 
-                            <div class="row">
-                                <div class="col-md-12"> 
+                        <i class="center-icon rounded-x fa fa-edit"></i>
+                        <div class="title-box-v2 col-md-12">
+                            <h2><?php echo $this->translate('317') ?></h2>
+                            <p></p>
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-12"> 
+                                <div class="left-inner">
+
+                                    <h3><?php echo $this->translate('477') ?></h3>
+
+                                    <div class="row">
+                                        <!-- Overview -->
+                                        <div class="col-sm-6">
+                                            <div class="overview">
+                                                <i class="fa fa-user"></i>
+                                                <div class="overflow-h">
+                                                    <small><?php echo $this->translate('478') ?></small>
+                                                    <small id="number_of_engineers"></small>
+                                                    <div class="progress progress-u progress-xxs">
+                                                        <div id="eng_per_bar"
+                                                             aria-valuemax="100" 
+                                                             aria-valuemin="0" 
+                                                             aria-valuenow="0" 
+                                                             role="progressbar" 
+                                                             class="progress-bar progress-bar-u">
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <!-- End Overview -->
+
+                                        <!-- Overview -->
+                                        <div class="col-sm-6">
+                                            <div class="overview">
+                                                <i class="fa fa-share"></i>
+                                                <div class="overflow-h">
+                                                    <small><?php echo $this->translate('479') ?></small>
+                                                    <small id="number_of_for_trd_staff"></small>
+                                                    <div class="progress progress-u progress-xxs">
+                                                        <div id="for_per_bar"                                                                  
+                                                             aria-valuemax="100" 
+                                                             aria-valuemin="0" 
+                                                             aria-valuenow="0" 
+                                                             role="progressbar" 
+                                                             class="progress-bar progress-bar-u">
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <!-- End Overview -->
+                                    </div>
+
+                                    <div class="row margin-bottom-20">
+                                        <!-- Overview -->
+                                        <div class="col-sm-6">
+                                            <div class="overview">
+                                                <i class="fa fa-eye"></i>
+                                                <div class="overflow-h">
+                                                    <small><?php echo $this->translate('480') ?></small>
+                                                    <small id="number_of_technicians"></small>
+                                                    <div class="progress progress-u progress-xxs">
+                                                        <div id="tech_per_bar"
+                                                             aria-valuemax="100" 
+                                                             aria-valuemin="0" 
+                                                             aria-valuenow="0" 
+                                                             role="progressbar" 
+                                                             class="progress-bar progress-bar-u">
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <!-- End Overview -->
+
+                                        <!-- Overview -->
+                                        <div class="col-sm-6">
+                                            <div class="overview">
+                                                <i class="fa fa-group"></i>
+                                                <div class="overflow-h">
+                                                    <small><?php echo $this->translate('321') ?></small>
+                                                    <small id="number_of_employees"></small>
+                                                    <div class="progress progress-u progress-xxs">
+                                                        <div id="employee_per_bar"
+                                                             aria-valuemax="100" 
+                                                             aria-valuemin="0" 
+                                                             aria-valuenow="0" 
+                                                             role="progressbar" 
+                                                             class="progress-bar progress-bar-u">
+                                                        </div>                                                            
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
                                     <div class="left-inner">
 
-                                        <h3><?php echo $this->translate('477')?></h3>
-
-                                        <div class="row">
-                                            <!-- Overview -->
-                                            <div class="col-sm-6">
-                                                <div class="overview">
-                                                    <i class="fa fa-user"></i>
-                                                    <div class="overflow-h">
-                                                        <small><?php echo $this->translate('478') ?></small>
-                                                        <small id="number_of_engineers"></small>
-                                                        <div class="progress progress-u progress-xxs">
-                                                            <div id="eng_per_bar"
-                                                                 aria-valuemax="100" 
-                                                                 aria-valuemin="0" 
-                                                                 aria-valuenow="0" 
-                                                                 role="progressbar" 
-                                                                 class="progress-bar progress-bar-u">
-                                                            </div>
-                                                        </div>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <!-- End Overview -->
-
-                                            <!-- Overview -->
-                                            <div class="col-sm-6">
-                                                <div class="overview">
-                                                    <i class="fa fa-share"></i>
-                                                    <div class="overflow-h">
-                                                        <small><?php echo $this->translate('479') ?></small>
-                                                        <small id="number_of_for_trd_staff"></small>
-                                                        <div class="progress progress-u progress-xxs">
-                                                            <div id="for_per_bar"                                                                  
-                                                                 aria-valuemax="100" 
-                                                                 aria-valuemin="0" 
-                                                                 aria-valuenow="0" 
-                                                                 role="progressbar" 
-                                                                 class="progress-bar progress-bar-u">
-                                                            </div>
-                                                        </div>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <!-- End Overview -->
-                                        </div>
-
+                                        <h3><?php echo $this->translate('322') ?></h3>
+                                        <!-- Pie Chart Progress Bar -->    
                                         <div class="row margin-bottom-20">
-                                            <!-- Overview -->
-                                            <div class="col-sm-6">
-                                                <div class="overview">
-                                                    <i class="fa fa-eye"></i>
-                                                    <div class="overflow-h">
-                                                        <small><?php echo $this->translate('480') ?></small>
-                                                        <small id="number_of_technicians"></small>
-                                                        <div class="progress progress-u progress-xxs">
-                                                            <div id="tech_per_bar"
-                                                                 aria-valuemax="100" 
-                                                                 aria-valuemin="0" 
-                                                                 aria-valuenow="0" 
-                                                                 role="progressbar" 
-                                                                 class="progress-bar progress-bar-u">
-                                                            </div>
-                                                        </div>
-                                                    </div>    
-                                                </div>
+                                            <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
+                                                <h3><?php echo $this->translate('323') ?></h3>
+                                                <div class="circle" id="circle-4"></div>
                                             </div>
-                                            <!-- End Overview -->
-
-                                            <!-- Overview -->
-                                            <div class="col-sm-6">
-                                                <div class="overview">
-                                                    <i class="fa fa-group"></i>
-                                                    <div class="overflow-h">
-                                                        <small><?php echo $this->translate('321') ?></small>
-                                                        <small id="number_of_employees"></small>
-                                                        <div class="progress progress-u progress-xxs">
-                                                            <div id="employee_per_bar"
-                                                                 aria-valuemax="100" 
-                                                                 aria-valuemin="0" 
-                                                                 aria-valuenow="0" 
-                                                                 role="progressbar" 
-                                                                 class="progress-bar progress-bar-u">
-                                                            </div>                                                            
-                                                        </div>
-                                                    </div>    
-                                                </div>
+                                            <div class="p-chart col-sm-6 col-xs-6">                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="qualityHistory()" type="button">
+                                                            <?php echo $this->translate('324') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="qualityPerformances()" type="button">
+                                                            <?php echo $this->translate('325') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="listOfCertificates()" type="button">
+                                                            <?php echo $this->translate('326') ?>
+                                                </button>                                                    
+                                            </div> 
+                                        </div>
+                                        <div id="qualityDetaildDIV" 
+                                             class="row margin-bottom-20 left-inner" style="display:none" >                                                
+                                            <div id="qualityDetailsInsideDIV" class="left-inner" >                                                    
                                             </div>
                                         </div>
-
                                         <hr>
-
-                                        <div class="left-inner">
-
-                                            <h3><?php echo $this->translate('322') ?></h3>
-                                            <!-- Pie Chart Progress Bar -->    
-                                            <div class="row margin-bottom-20">
-                                                <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
-                                                    <h3><?php echo $this->translate('323') ?></h3>
-                                                    <div class="circle" id="circle-4"></div>
-                                                </div>
-                                                <div class="p-chart col-sm-6 col-xs-6">                                                    
-                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="qualityHistory()" type="button">
-                                                                <?php echo $this->translate('324') ?>
-                                                    </button>                                                    
-                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="qualityPerformances()" type="button">
-                                                                <?php echo $this->translate('325') ?>
-                                                    </button>                                                    
-                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="listOfCertificates()" type="button">
-                                                                <?php echo $this->translate('326') ?>
-                                                    </button>                                                    
-                                                </div> 
+                                        <div class="row margin-bottom-20">
+                                            <div class="p-chart col-sm-6 col-xs-6">
+                                                <h3><?php echo $this->translate('327') ?></h3>
+                                                <div class="circle" id="circle-5"></div>
                                             </div>
-                                            <div id="qualityDetaildDIV" 
-                                                 class="row margin-bottom-20 left-inner" style="display:none" >                                                
-                                                <div id="qualityDetailsInsideDIV" class="left-inner" >                                                    
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row margin-bottom-20">
-                                                <div class="p-chart col-sm-6 col-xs-6">
-                                                    <h3><?php echo $this->translate('327') ?></h3>
-                                                    <div class="circle" id="circle-5"></div>
-                                                </div>
-                                                <div class="p-chart col-sm-6 col-xs-6">                                                    
-                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="performanceDetails()" type="button">
-                                                                <?php echo $this->translate('328') ?>
-                                                    </button>                                                    
-                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="performanceDetails()" type="button">
-                                                                <?php echo $this->translate('329') ?>
-                                                    </button>                                                    
-<!--                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="performanceDetails()" type="button">
-                                                                <?php echo $this->translate('330') ?>
-                                                    </button>                                                     -->
-                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="performanceDetails()" type="button">
-                                                                <?php echo $this->translate('331') ?>
-                                                    </button>                                                   
-                                                </div>       
-                                            </div>
-                                            <hr>
-                                            <div id="pastPerformanceDetailsDIV" 
-                                                 class="row margin-bottom-20 left-inner" style="display:none" >
-                                                <hr>
-                                                <div id="pastPerformanceDetailsInsideDIV" class="left-inner" >
-
-                                                </div>
-                                                <hr>
-                                            </div>
-                                            <div class="row margin-bottom-20">
-                                                <div class="p-chart col-sm-6 col-xs-6">
-                                                    <h3><?php echo $this->translate('332') ?></h3>
-                                                    <div class="circle" id="circle-10"></div>
-                                                </div>
-                                                <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
-                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="customerDetails()" type="button">
-                                                                <?php echo $this->translate('333') ?>
-                                                    </button>                                                    
-<!--                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                            onclick="customerDetails()" type="button">
-                                                                <?php echo $this->translate('334') ?>
-                                                    </button>                                                 -->
-                                                </div>       
-                                            </div>
-                                            <div id="customerDetailsDIV" 
-                                                 class="row margin-bottom-20 left-inner" style="display:none" >
-
-                                                <div id="customerDetailsInsideDIV" class="left-inner" >
-
-                                                </div>
-                                            </div>
-                                            <!-- End Pie Chart Progress Bar -->
+                                            <div class="p-chart col-sm-6 col-xs-6">                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="performanceDetails()" type="button">
+                                                            <?php echo $this->translate('328') ?>
+                                                </button>                                                    
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="performanceDetails()" type="button">
+                                                            <?php echo $this->translate('329') ?>
+                                                </button>                                                    
+                                                <!--                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                                                                            onclick="performanceDetails()" type="button">
+                                                <?php echo $this->translate('330') ?>
+                                                                                                    </button>                                                     -->
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="performanceDetails()" type="button">
+                                                            <?php echo $this->translate('331') ?>
+                                                </button>                                                   
+                                            </div>       
                                         </div>
-                                    </div>   
-                                </div>
+                                        <hr>
+                                        <div id="pastPerformanceDetailsDIV" 
+                                             class="row margin-bottom-20 left-inner" style="display:none" >
+                                            <hr>
+                                            <div id="pastPerformanceDetailsInsideDIV" class="left-inner" >
+
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <div class="row margin-bottom-20">
+                                            <div class="p-chart col-sm-6 col-xs-6">
+                                                <h3><?php echo $this->translate('332') ?></h3>
+                                                <div class="circle" id="circle-10"></div>
+                                            </div>
+                                            <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
+                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                        onclick="customerDetails()" type="button">
+                                                            <?php echo $this->translate('333') ?>
+                                                </button>                                                    
+                                                <!--                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
+                                                                                                            onclick="customerDetails()" type="button">
+                                                <?php echo $this->translate('334') ?>
+                                                                                                    </button>                                                 -->
+                                            </div>       
+                                        </div>
+                                        <div id="customerDetailsDIV" 
+                                             class="row margin-bottom-20 left-inner" style="display:none" >
+
+                                            <div id="customerDetailsInsideDIV" class="left-inner" >
+
+                                            </div>
+                                        </div>
+                                        <!-- End Pie Chart Progress Bar -->
+                                    </div>
+                                </div>   
                             </div>
+                        </div>
                         <!--</div>-->
                     </div>
                 </div>
@@ -588,9 +589,9 @@
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
                         <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langcode)); ?>"><img id="logo-footer" class="footer-logo" 
-                                                    src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
-                                                    alt=""></a>
-                        <p><?php echo $this->translate('264')?></p>
+                                                                                                                                        src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                                                                                                                        alt=""></a>
+                        <p><?php echo $this->translate('264') ?></p>
                     </div><!--/col-md-3-->
                     <!-- End About -->
 
