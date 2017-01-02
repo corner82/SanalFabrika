@@ -449,75 +449,77 @@
                     dataType: "json",
                     success: function (data) {
 //                        console.log(data);
-                        var i;
-                        for (i = 0; i < 10; i++) {
+                        if (data.rows) {
+                            var i;
+                            for (i = 0; i < 10; i++) {
 
-                            $('#selectedCompanyNpk').val(data.rows[i].npk);
-                            var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
-                            $('#selectedCompanyShN').val(rep_firm_short_name);
-                            var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
+                                $('#selectedCompanyNpk').val(data.rows[i].npk);
+                                var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
+                                $('#selectedCompanyShN').val(rep_firm_short_name);
+                                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
 
-                            var appending_html =
-                                    "<!-- Clients Block-->"
+                                var appending_html =
+                                        "<!-- Clients Block-->"
 //                        + "<a href='#'>"
-                                    + "<div class='row clients-page ' style='border-bottom: solid 5px #eee;'>"
-                                    + "<div class = 'col-md-2' style='box-shadow: 0 0 30px #7c8082;'>"
-                                    + "<img src='/onyuz/standard/assets/img/sfClients/"
-                                    + data.rows[i].logo
-                                    + "' "
-                                    + "class = 'img-responsive hover-effect' alt = '' / >"
-                                    + "</div>"
-                                    + "<div class = 'col-md-10' id='"
-                                    + data.rows[i].npk
-                                    + "'>"
-                                    + "<a href='"
-                                    + companyProfileLink
-                                    + "'>"
-                                    + "<h3>"
-                                    + data.rows[i].firm_names
-                                    + "</h3>"
-                                    + "</a>"
-                                    + "<p>"
-                                    + data.rows[i].fim_description
-                                    + "</p>"
-                                    + "<ul class = 'list-inline'>"
-                                    + "<li>"
-                                    + "<i class = 'fa fa-map-marker color-green' style='padding-right:5px;'></i>"
-                                    + data.rows[i].country_names
-                                    + "</li>"
-                                    + "<li><i class = 'fa fa-globe color-green' style='padding-right:5px;'></i>"
-                                    + data.rows[i].web_address
-                                    + "<li>"
-                                    + "<i class = 'fa fa-mail-forward color-green' style='padding-right:5px;'> </i>"
-                                    + data.rows[i].email
-                                    + "</li>"
-                                    + "<li>"
-                                    + "<i class = 'fa fa-microphone color-green' style='padding-right:5px;'> </i>"
-                                    + data.rows[i].tel
-                                    + "</li>"
-                                    + "<li>"
-                                    + "<i class = 'fa fa-fax color-green' style='padding-right:5px;'> </i>"
-                                    + data.rows[i].fax
-                                    + "</li>"
-                                    + "<li>"
-                                    + "<i class = 'fa fa-asterisk color-green' style='padding-right:5px;'> </i>"
-                                    + data.rows[i].total_machines
-                                    + "</li>"
-                                    + "<li>"
-                                    + "<i class = 'fa fa-sitemap color-green' style='padding-right:5px;'> </i>"
-                                    + data.rows[i].firm_sectoral
-                                    + "</li>"
-                                    + "</ul>"
-                                    + "</div>"
+                                        + "<div class='row clients-page ' style='border-bottom: solid 5px #eee;'>"
+                                        + "<div class = 'col-md-2' style='box-shadow: 0 0 30px #7c8082;'>"
+                                        + "<img src='/onyuz/standard/assets/img/sfClients/"
+                                        + data.rows[i].logo
+                                        + "' "
+                                        + "class = 'img-responsive hover-effect' alt = '' / >"
+                                        + "</div>"
+                                        + "<div class = 'col-md-10' id='"
+                                        + data.rows[i].npk
+                                        + "'>"
+                                        + "<a href='"
+                                        + companyProfileLink
+                                        + "'>"
+                                        + "<h3>"
+                                        + data.rows[i].firm_names
+                                        + "</h3>"
+                                        + "</a>"
+                                        + "<p>"
+                                        + data.rows[i].fim_description
+                                        + "</p>"
+                                        + "<ul class = 'list-inline'>"
+                                        + "<li>"
+                                        + "<i class = 'fa fa-map-marker color-green' style='padding-right:5px;'></i>"
+                                        + data.rows[i].country_names
+                                        + "</li>"
+                                        + "<li><i class = 'fa fa-globe color-green' style='padding-right:5px;'></i>"
+                                        + data.rows[i].web_address
+                                        + "<li>"
+                                        + "<i class = 'fa fa-mail-forward color-green' style='padding-right:5px;'> </i>"
+                                        + data.rows[i].email
+                                        + "</li>"
+                                        + "<li>"
+                                        + "<i class = 'fa fa-microphone color-green' style='padding-right:5px;'> </i>"
+                                        + data.rows[i].tel
+                                        + "</li>"
+                                        + "<li>"
+                                        + "<i class = 'fa fa-fax color-green' style='padding-right:5px;'> </i>"
+                                        + data.rows[i].fax
+                                        + "</li>"
+                                        + "<li>"
+                                        + "<i class = 'fa fa-asterisk color-green' style='padding-right:5px;'> </i>"
+                                        + data.rows[i].total_machines
+                                        + "</li>"
+                                        + "<li>"
+                                        + "<i class = 'fa fa-sitemap color-green' style='padding-right:5px;'> </i>"
+                                        + data.rows[i].firm_sectoral
+                                        + "</li>"
+                                        + "</ul>"
+                                        + "</div>"
 //                                    + "</div>"
 //                                    + "</a>"
-                                    + "<!-- End Clinets Block --> ";
+                                        + "<!-- End Clinets Block --> ";
 //                            console.log(appending_html);
-                            var newappend = $(appending_html);
-                            $(newappend).appendTo($("#pagination_content"));
+                                var newappend = $(appending_html);
+                                $(newappend).appendTo($("#pagination_content"));
 
+                            }
+                            window.testLoadImage.loadSpinner('removeLoadImage');
                         }
-                        window.testLoadImage.loadSpinner('removeLoadImage');
                     }
                 });
                 $("html, body").animate({scrollTop: $(".header").offset().top}, "slow");

@@ -260,7 +260,7 @@ function searchCompanies() {
 
     $("#pagination_content").empty();
     $("#paginationBar").empty();
-    
+
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -279,95 +279,101 @@ function searchCompanies() {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            if(data.rows.length > 0){
-//            console.log('--------------' + data);
-            var i;
-            // @companyperpage = 10 company will be shown per page
-            window.companyperpage = 10;
-            var numberofpages = ~~(data.total / window.companyperpage);
-            var remainingcompanynumber = data.total % window.companyperpage;
-            window.totalnumberofpages;
-            if (remainingcompanynumber > 0) {
-                window.totalnumberofpages = numberofpages + 1;
-            } else {
-                window.totalnumberofpages = numberofpages;
-            }
-            for (i = 0; i < window.companyperpage; i++) {
-                $('#selectedCompanyNpk').val(data.rows[i].npk);
-                var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
-                $('#selectedCompanyShN').val(rep_firm_short_name);
-                var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
 
-                var appending_html =
-                        "<!-- Clients Block-->"
+            if (data.rows.length > 0) {
+//            console.log('--------------' + data);
+                var i;
+                // @companyperpage = 10 company will be shown per page
+                if (data.rows.length < 10) {
+                    window.companyperpage = data.rows.length;
+                } else {
+                    window.companyperpage = 10;
+                }
+                var numberofpages = ~~(data.total / window.companyperpage);
+                var remainingcompanynumber = data.total % window.companyperpage;
+                window.totalnumberofpages;
+                if (remainingcompanynumber > 0) {
+                    window.totalnumberofpages = numberofpages + 1;
+                } else {
+                    window.totalnumberofpages = numberofpages;
+                }
+                for (i = 0; i < window.companyperpage; i++) {
+
+                    $('#selectedCompanyNpk').val(data.rows[i].npk);
+                    var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
+                    $('#selectedCompanyShN').val(rep_firm_short_name);
+                    var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
+
+                    var appending_html =
+                            "<!-- Clients Block-->"
 //                        + "<a href='#'>"
-                        + "<div class='row clients-page' style='border-bottom: solid 5px #eee;'  >"
-                        + "<div class = 'col-md-2'  style='box-shadow: 0 0 30px #7c8082;'>"
-                        + "<img src='/onyuz/standard/assets/img/sfClients/"
-                        + data.rows[i].logo
-                        + "' "
-                        + "class = 'img-responsive hover-effect' alt = '' / >"
-                        + "</div>"
-                        + "<div class = 'col-md-10' id='"
-                        + data.rows[i].npk
-                        + "'>"
-                        + "<a href='"
-                        + companyProfileLink
-                        + "'>"
-                        + "<h3>"
-                        + data.rows[i].firm_names
-                        + "</h3>"
-                        + "</a>"
-                        + "<p>"
-                        + data.rows[i].fim_description
-                        + "</p>"
-                        + "<ul class = 'list-inline'>"
-                        + "<li>"
-                        + "<i class = 'fa fa-map-marker color-green' style='padding-right:5px;'></i>"
-                        + data.rows[i].country_names
-                        + "</li>"
-                        + "<li><i class = 'fa fa-globe color-green' style='padding-right:5px;'></i>"
-                        + data.rows[i].web_address
-                        + "</li>"
-                        + "<li>"
-                        + "<i class = 'fa fa-mail-forward color-green' style='padding-right:5px;'> </i>"
-                        + data.rows[i].email
-                        + "</li>"
-                        + "<li>"
-                        + "<i class = 'fa fa-microphone color-green' style='padding-right:5px;'> </i>"
-                        + data.rows[i].tel
-                        + "</li>"
-                        + "<li>"
-                        + "<i class = 'fa fa-fax color-green' style='padding-right:5px;'> </i>"
-                        + data.rows[i].fax
-                        + "</li>"
-                        + "<li>"
-                        + "<i class = 'fa fa-asterisk color-green' style='padding-right:5px;'> </i>"
-                        + data.rows[i].total_machines
-                        + "</li>"
-                        + "<li>"
-                        + "<i class = 'fa fa-sitemap color-green' style='padding-right:5px;'> </i>"
-                        + data.rows[i].firm_sectoral
-                        + "</li>"
-                        + "</ul>"
-                        + "</div>"
+                            + "<div class='row clients-page' style='border-bottom: solid 5px #eee;'  >"
+                            + "<div class = 'col-md-2'  style='box-shadow: 0 0 30px #7c8082;'>"
+                            + "<img src='/onyuz/standard/assets/img/sfClients/"
+                            + data.rows[i].logo
+                            + "' "
+                            + "class = 'img-responsive hover-effect' alt = '' / >"
+                            + "</div>"
+                            + "<div class = 'col-md-10' id='"
+                            + data.rows[i].npk
+                            + "'>"
+                            + "<a href='"
+                            + companyProfileLink
+                            + "'>"
+                            + "<h3>"
+                            + data.rows[i].firm_names
+                            + "</h3>"
+                            + "</a>"
+                            + "<p>"
+                            + data.rows[i].fim_description
+                            + "</p>"
+                            + "<ul class = 'list-inline'>"
+                            + "<li>"
+                            + "<i class = 'fa fa-map-marker color-green' style='padding-right:5px;'></i>"
+                            + data.rows[i].country_names
+                            + "</li>"
+                            + "<li><i class = 'fa fa-globe color-green' style='padding-right:5px;'></i>"
+                            + data.rows[i].web_address
+                            + "</li>"
+                            + "<li>"
+                            + "<i class = 'fa fa-mail-forward color-green' style='padding-right:5px;'> </i>"
+                            + data.rows[i].email
+                            + "</li>"
+                            + "<li>"
+                            + "<i class = 'fa fa-microphone color-green' style='padding-right:5px;'> </i>"
+                            + data.rows[i].tel
+                            + "</li>"
+                            + "<li>"
+                            + "<i class = 'fa fa-fax color-green' style='padding-right:5px;'> </i>"
+                            + data.rows[i].fax
+                            + "</li>"
+                            + "<li>"
+                            + "<i class = 'fa fa-asterisk color-green' style='padding-right:5px;'> </i>"
+                            + data.rows[i].total_machines
+                            + "</li>"
+                            + "<li>"
+                            + "<i class = 'fa fa-sitemap color-green' style='padding-right:5px;'> </i>"
+                            + data.rows[i].firm_sectoral
+                            + "</li>"
+                            + "</ul>"
+                            + "</div>"
 //                                    + "</div>"
 //                                    + "</a>"
-                        + "<!-- End Clinets Block --> ";
+                            + "<!-- End Clinets Block --> ";
 //                            console.log(appending_html);
-                var newappend = $(appending_html);
-                $(newappend).appendTo($("#pagination_content"));
+                    var newappend = $(appending_html);
+                    $(newappend).appendTo($("#pagination_content"));
 
-            }
+                }
 
-            $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");
-            event.preventDefault();
+                $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");
+                event.preventDefault();
 
 //                $('#paginationBar').empty();
-            $('#paginationBar').search_paginator();
-            $('#paginationBar').search_paginator('option', 'total', window.totalnumberofpages);
-            $('#paginationBar').search_paginator('option', 'maxVisible', 5);
-            $('#paginationBar').search_paginator('search_paginate');
+                $('#paginationBar').search_paginator();
+                $('#paginationBar').search_paginator('option', 'total', window.totalnumberofpages);
+                $('#paginationBar').search_paginator('option', 'maxVisible', 5);
+                $('#paginationBar').search_paginator('search_paginate');
             }
 
 //            window.testLoadImage.loadSpinner('removeLoadImage');
