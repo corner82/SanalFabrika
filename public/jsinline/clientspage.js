@@ -247,8 +247,10 @@ function hide_search() {
 
 function resetForm() {
 
-    $('#dropdownCountries').ddslick('select', {index: 0});
-    $('#dropdownSectors').ddslick('select', {index: 0});
+    $('#dropdownCountries').ddslick('selectByValue', {index: 0});
+    $('#dropdownSectors').ddslick('selectByValue', {index: 0});
+    window.selected_country_id = 0;
+    window.selected_sector_id = 0;
     event.stopImmediatePropagation();
     event.target.closest('form').reset();
     event.preventDefault();

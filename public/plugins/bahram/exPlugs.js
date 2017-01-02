@@ -436,8 +436,8 @@
                     data: {
                         url: 'fillCompanyListsGuest_infoFirmProfile',
                         pk: $('#pk').val(),
-                        language_code: $("#langCode").val(),
-                        page: 1,
+                        language_code: $("#langCode").val(),                        
+                        page: num,
                         rows: 10,
                         sort: null,
                         order: null,
