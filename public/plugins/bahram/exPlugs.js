@@ -436,7 +436,7 @@
                     data: {
                         url: 'fillCompanyListsGuest_infoFirmProfile',
                         pk: $('#pk').val(),
-                        language_code: $("#langCode").val(),                        
+                        language_code: $("#langCode").val(),
                         page: num,
                         rows: 10,
                         sort: null,
@@ -576,6 +576,7 @@
                         element: this.element
                     });
                     self._setNotifications(data);
+                    $("#notificationWidget").mCustomScrollbar()
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     //console.log('error');
@@ -625,19 +626,7 @@
          */
         _setNotificationsFooter: function () {
             var self = this;
-            self.options.appendText += '</div>\n\
-</div>\n\
-<div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;">\n\
-<div class="mCSB_draggerContainer">\n\
-<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 199px; max-height: 286px; top: 0px;" oncontextmenu="return false;">\n\
-<div class="mCSB_dragger_bar" style="line-height: 50px;">\n\
-</div>\n\
-</div>\n\
-<div class="mCSB_draggerRail">\n\
-</div>\n\
-</div>\n\
-</div>\n\
-</ul>\n\
+            self.options.appendText += '</ul>\n\
                                         </div>';
         },
         /**
@@ -656,9 +645,7 @@
                                             </a>\n\
                                         </div>\n\
                                         <div class="margin-bottom-20 "  >\n\
-                                        <ul class="list-unstyled mCustomScrollbar margin-bottom-20 box" data-mcs-theme="minimal-dark" id="notificationWidget">\n\
-                                        <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0">\n\
-                                        <div id="mCSB_1_container" class="mCSB_container">';
+                                        <ul class="list-unstyled mCustomScrollbar margin-bottom-20 box" data-mcs-theme="minimal-dark" id="notificationWidget">';
         }
 
     });
