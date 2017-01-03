@@ -29,7 +29,7 @@ $('#tt_grid_dynamic').datagrid({
     //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
     queryParams: {
             pk: $('#pk').val(),
-            url : 'pkFillConsCompanyMachineLists_infoFirmMachineTool',
+            url : 'pkFillUrgeCompanyMachineLists_infoFirmMachineTool',
     },
     width : '100%',
     singleSelect:true,
@@ -487,7 +487,7 @@ BootstrapDialog.show({
         */
        var ajaxConsProducersPopup = $(window).ajaxCallWidget({
            proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-                   data: { url:'pkFillConsultantAllowFirmListDds_infoFirmProfile' ,
+                   data: { url:'pkFillUrgeAllowFirmListDds_infoFirmProfile' ,
                            pk : $("#pk").val() 
                    }
           })
@@ -587,7 +587,7 @@ window.insertMach = function (id) {
      var aj = $(window).ajaxCall({
                      proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',   
                      data : {
-                         url:'pkInsertCons_infoFirmMachineTool' ,
+                         url:'pkInsertUrgeMachines_infoFirmMachineTool' ,
                          pk : $("#pk").val(),
                          language_code: $('#langCode').val(),
                          machine_id : id,
@@ -617,7 +617,7 @@ window.insertMach = function (id) {
                      $('#tt_grid_dynamic').datagrid({
                          queryParams: {
                                  pk: $('#pk').val(),
-                                 url : 'pkFillConsCompanyMachineLists_infoFirmMachineTool',
+                                 url : 'pkFillUrgeCompanyMachineLists_infoFirmMachineTool',
                                  sort : 'id',
                                  order : 'desc',
                          },
