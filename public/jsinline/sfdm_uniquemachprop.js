@@ -193,7 +193,7 @@ $('#tt_tree_menu2').tree({
          
          if(node.attributes.active == true) {
              s += '&nbsp;\n\
-                 <i class="fa fa-level-down" title="Özelliği güncelle" onclick="updateMachPropDialog('+propertyID+', { machine_grup_id : \''+node.attributes.machine_grup_id+'\',\n\
+                 <i class="fa fa-level-down" title="Makina Özelliği güncelle" onclick="updateMachPropDialog('+propertyID+', { machine_grup_id : \''+node.attributes.machine_grup_id+'\',\n\
                                                                                                                         property_name : \''+node.text+'\',\n\
                                                                                                                         unit_id : \''+node.attributes.unit_id+'\',\n\
                                                                                                                         machine_tool_id : \''+node.attributes.machine_tool_id+'\',\n\
@@ -202,7 +202,7 @@ $('#tt_tree_menu2').tree({
                  <i class="fa fa-fw fa-check-square-o" title="özellik sil" onclick="deleteIndMachPropUltimatelyDialog('+propertyID+', '+$('#machID').val()+')"></i>';
          } else if(node.attributes.active == false) {
               s += '&nbsp;\n\
-                 <i class="fa fa-fw fa-ban" title="aktif yap" onclick="insertIndMachPropDialog('+propertyID+', \''+node.text+'\', \''+$('#machName').val()+'\');"></i>';
+                 <i class="fa fa-level-down" title="Makina Özellik Değeri Belirle" onclick="insertIndMachPropDialog('+propertyID+', \''+node.text+'\', \''+$('#machName').val()+'\');"></i>';
          }
          return s;
      }
