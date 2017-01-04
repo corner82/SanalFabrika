@@ -55,14 +55,15 @@ $('#tt_grid_dynamic').datagrid({
                     }
                     
                     //var d = '<a href="javascript:void(0)" onclick="deleteISScenario(this);">Delete</a>';
-                    var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteCmpUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
+                   // var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteCmpUltimatelyDialog('+row.id+', '+index+');"><i class="fa fa-eraser"></i></button>';
                     var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateCmpDialog('+row.id+', { firm_name : \''+row.firm_name+'\',\n\
                                                                                                                                                                    firm_name_eng : \''+row.firm_name_eng+'\',\n\
                                                                                                                                                                    firm_name_short : \''+row.firm_name_short+'\',\n\
                                                                                                                                                                    osb_id : \''+row.osb_id+'\',\n\
                                                                                                                                                                    cluster_ids : '+row.cluster_ids+',\n\
                                                                                                                                                                    firm_name_short_eng : \''+row.firm_name_short_eng+'\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
-                    return e+d+u;    
+                    //return e+d+u;    
+                    return e+u;
                 }
             },
 
