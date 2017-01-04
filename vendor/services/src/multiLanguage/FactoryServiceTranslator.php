@@ -28,13 +28,22 @@ class FactoryServiceTranslator  implements FactoryInterface{
                       ->getParam('lang');
         $lang = trim(strtolower($lang));
         
+        $route = $event ->getRouteMatch()
+                        ->getMatchedRouteName();
+        //print_r($route);
+        
         /**
          * changing language  due to browser langugae settings 
          * @since 28/12/2016
          * @author Mustafa Zeynel Dağlı
          */
         if($lang == null){
-            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            if($lang!='admin' && $lang!='sfdm' && $lang!='cluster'){
+                $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            } else {
+                $lang = 'tr';
+            }
+            
         }
         
         $translator = $event->getApplication()  
