@@ -53,6 +53,7 @@ $('#tt_grid_dynamic').datagrid({
             {field:'manufacturer_name',title:'Üretici', width:150},
             {field:'machine_tool_name',title:'Makina',sortable:true,width:300},
             {field:'machine_tool_name_eng',title:'İng. Makina',sortable:true, width:300},
+            {field:'model',title:'Model',sortable:true, width:200},
             {field:'action',title:'Action',width:80,align:'center',
                 formatter:function(value,row,index){
                     if(row.attributes.active == 0) {
@@ -258,11 +259,11 @@ $('#tt_tree_menu2').tree({
          var s = node.text;
          var id = node.id;
          var parent = $(this).tree('getParent', node.target);
-         /*if(node.state == 'open') {
+         if(node.state == 'open') {
              s += '&nbsp;\n\
                  <i class="fa fa-level-down" title="Kategoriye makina özelliği ekle" onclick="insertMachPropDialog('+id+', \''+node.text+'\')"></i>';
              return s;
-         }*/
+         }
          return s;
      }
 });
