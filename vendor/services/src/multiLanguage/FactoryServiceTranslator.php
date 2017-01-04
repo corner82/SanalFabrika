@@ -38,7 +38,7 @@ class FactoryServiceTranslator  implements FactoryInterface{
          * @author Mustafa Zeynel Dağlı
          */
         if($lang == null){
-            if($lang!='admin' && $lang!='sfdm' && $lang!='cluster'){
+            if($route!='admin' && $route!='sfdm' && $route!='cluster'){
                 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
             } else {
                 $lang = 'tr';
