@@ -164,7 +164,7 @@ $(document).ready(function () {
                             + "/onyuz/standard/assets/img/sfClients/"
                             + data[i].ref_logo;
                     var referencesPHAppending =
-                            "<li"
+                            "<li style='cursor:pointer' "
                             + " onclick='referenceRedirect()'>"
                             + "<figure>"
                             + "<img src='"
