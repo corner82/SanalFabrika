@@ -1584,3 +1584,40 @@ msgstr "Sektör"
 
 msgid "520"
 msgstr "Ara"
+
+msgid "521"
+msgstr "Makine listesini düzenle"
+
+msgid "522" 
+msgstr "Makine Parkı Listesi Düzenleme"
+
+msgid "523"
+msgstr "Sistemde Danışman sorumluluğundaki firmalarda kullanılan tüm makinalar, makina kategorilerine bağlı olarak firmalara atanabilmektedir!"
+
+msgid "524"
+msgstr "Makina tanımlayabilir , silebilir, güncelleyebilirsiniz...."
+
+msgid "525"
+msgstr "Kategoriler"
+
+msgid "526"
+msgstr "Danışman Firmaları Makinalar Listesi"
+
+msgid "527"
+msgstr "Firmanın makine listesi"
+
+msgid "528"
+msgstr "Firma/Makine"
+
+msgid "529"
+msgstr "Systemde mevcut olan makineler"
+
+msgid "530"
+msgstr "Firma Profil Ayarları"
+
+msgid "531"
+msgstr "Makine Parkı Ayarları"
+
+msgid "532"
+msgstr "Firma Makine Parkı"
+

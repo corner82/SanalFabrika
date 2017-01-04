@@ -1664,3 +1664,42 @@ msgstr "Sector"
 
 msgid "520"
 msgstr "Go"
+
+msgid "521" 
+msgstr "Edit Company Machine Tools"
+
+msgid "522" 
+msgstr "Machine Park List Edit"
+
+msgid "523"
+msgstr "Consultant may edit all available machine tools in consultant's responsible companies' inventory according to their categories!"
+
+msgid "524"
+msgstr "Define, add, delete or edit machine tools..."
+
+msgid "525"
+msgstr "Categories"
+
+msgid "526"
+msgstr "List of consultant's companies' machine tools"
+
+msgid "527"
+msgstr "List of company machine tools"
+
+msgid "528"
+msgstr "Company/Machines"
+
+msgid "529"
+msgstr "Available machines in system"
+
+msgid "530"
+msgstr "Company Profile Setting"
+
+msgid "531"
+msgstr "Machine Park Settings"
+
+msgid "532"
+msgstr "Company Machine Park"
+
+
+

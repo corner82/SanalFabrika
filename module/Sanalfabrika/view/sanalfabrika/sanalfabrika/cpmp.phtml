@@ -387,29 +387,29 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1> 
-                    <?php echo $this->translate('Company Profile') ?>
-                    <small><?php echo $this->translate('Machine Park Settings') ?></small>
+                    <?php echo $this->translate('530') ?>
+                    <small><?php echo $this->translate('531') ?></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-home"></i>
                         <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
                     ?>">
-                               <?php echo $this->translate('Home') ?>
+                               <?php echo $this->translate('9') ?>
                         </a>
                     </li>
                     <li>
                         <i class="fa fa-home"></i>
                         <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk));
                                ?>">
-                               <?php echo $this->translate('Company Profile') ?>
+                               <?php echo $this->translate('258') ?>
                         </a>
                     </li>
                     <li class="active">
                         <i class="fa fa-dashboard"></i>
                         <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpmp'));
                                ?>">
-                               <?php echo $this->translate('Company Machine Park') ?>
+                               <?php echo $this->translate('532') ?>
                         </a>
                     </li>
                 </ol>
@@ -417,11 +417,10 @@
 
             <!-- Main content -->
             <section class="content">
-
                 <!-- company general information setting box -->
-                <div class="box box-primary">                
+                <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo $this->translate('Profile Page Settings') ?></h3>
+                        <h3 class="box-title"><?php echo $this->translate('522') ?></h3>
                         <div id='consultant_div' class="box-tools pull-right" 
                              style='margin-right:100px; font-size:12px; width: 200px' 
                              data-balloon="" email_address =""
@@ -443,187 +442,102 @@
                         </div>
                     </div>
 
-                    <div class="box-body" style="display: block;">
-                        <!-- /.box-header -->
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><?php echo $this->translate('Machine park') ?></h3>                    
-                        </div>
-                        <div class="box-body">
-                            <!-- Start of first column -->
-                            <div class="col-lg-9">
-                                <table id='mt_grid' class="easyui-datagrid" title="List of Machine Tools"></table>
-                            </div>
-                            <!-- End of first column -->
-                            <!-- Start of second column -->
-                            <div class="col-lg-3">  
-                                <p>
-                                    <?php echo $this->translate("Company machine park reveals your company's capabilities.") ?><br/>
-                                    <?php echo $this->translate("Check machine list continuously and keep your machine park list up to date, to not to miss potential orders from customers.") ?>
-                                    <button id="add_new _machine" type="button" class="btn btn-primary col-lg-12" onclick="unhide_mt_section()">
-                                        <?php echo $this->translate('Add new machine') ?>
-                                    </button>
-                            </div>
-                            <!-- End of second column -->                                        
-                        </div>
-                    </div>
-                </div>
-                <!-- start of hidden machine tool section -->   
-                <div id="hidden_mt_section" style="display: none; visibility: hidden">
-                    <div class="box box-danger">
-                        <div class="box-header with-border">
-                            <h3 class="box-title"><?php echo $this->translate('Add new machine') ?></h3>                    
-                        </div>
-                        <div class="box-body">
-                            <form id="new_mt_form">
-                                <!-- start of first new machine section -->  
-                                <div class="col-lg-6">
-                                    <label for="machine_categories" style="margin-top: 20px">
-                                        <?php echo $this->translate('New machine tool category:') ?>
-                                    </label>
-                                    <div id="machine_categories"></div>
 
-                                    <label for="machine_types" style="margin-top: 20px">
-                                        <?php echo $this->translate('New machine tool type:') ?>
-                                    </label>                                
-                                    <div id="machine_types"></div>
+                    <!-- machine park editing section start -->
+                    <!--first collapsible panel row -->
+                    <div class="row">
+                        <form class='form-horizontal'>
+                            <!--Makina giriş bölümü -->
+                            <div class="col-lg-12">
+                                <!--arrange first panel color to blue by assigning primary class-->
+                                <div id="loading-image-crud" class="box box-primary"> 
+                                    <!--First panel Header-->
+                                    <div class="box-header with-border">                                                    
+                                        <h3 class="box-title"><?php echo $this->translate('529') ?></h3>
 
-                                    <label for="machine_brands" style="margin-top: 20px">
-                                        <?php echo $this->translate('New machine tool brand:') ?>
-                                    </label>                                
-                                    <div id="machine_brands"></div>
-
-                                    <label for="machine_series" style="margin-top: 20px">
-                                        <?php echo $this->translate('New machine tool serie:') ?>
-                                    </label>                                
-                                    <div id="machine_series"></div>
-                                </div>
-                                <!-- end of first new machine section -->  
-                                <!-- start of second new machine section --> 
-                                <div class="col-lg-6">
-                                    <label for="selected_mt_category" style="margin-top: 20px">
-                                        <?php echo $this->translate('Selected Machine Category is:') ?>
-                                    </label>
-                                    <intput id="selected_mt_category" class="form-control" type="text" disabled="disabled" value=""></intput>
-                                    <label for="selected_mt_type" style="margin-top: 20px">
-                                        <?php echo $this->translate('Selected Machine Type is:') ?>
-                                    </label>
-                                    <intput id="selected_mt_type" class="form-control" type="text" disabled="disabled"></intput>
-                                    <label for="selected_mt_brand" style="margin-top: 20px">
-                                        <?php echo $this->translate('Selected Machine Brand is:') ?>
-                                    </label>
-                                    <intput id="selected_mt_brand" class="form-control" type="text" disabled="disabled" ></intput>
-                                    <label for="selected_mt_series" style="margin-top: 20px">
-                                        <?php echo $this->translate('Selected Machine Serie is:') ?>
-                                    </label>
-                                    <intput id="selected_mt_series" class="form-control" type="text" disabled="disabled"></intput>
-
-                                    <button class='btn btn-primary col-md-12' id="show_sel_mt_btn" 
-                                            onclick="show_sel_mt()" style="margin-top: 20px; display: none;visibility: hidden">
-                                                <?php echo $this->translate('Show Machine Properties in Detail') ?>
-                                    </button>
-                                    <button class='btn btn-default col-md-12' id="reset_sel_mt_btn" 
-                                            onclick="reset_sel_mt()" style="margin-top: 20px; display: none;visibility: hidden">
-                                                <?php echo $this->translate('Reset Selections') ?>
-                                    </button>
-                                </div>
-                                <!-- end of second new machine section --> 
-                            </form>
-                        </div>
-                    </div>
-                    <div id='sel_mt_props_div' class ='box box-success' style='display: none;visibility: hidden'>
-                        <div class="box-header with-border">
-                            <h3 id='sel_mt_title' class="box-title"></h3>                    
-                        </div>
-                        <div class='box-body'>
-                            <div class='col-lg-6'>
-                                <img style='width: 50%' src='<?php echo $this->translate('/onyuz/standard/assets/img/sfClients/machines/Mazak_INTEGREX-j-200-(500U).jpg') ?>' alt=''>
-                                <table id="pg" style="width:100%px"></table>
-                            </div>
-                            <div class='col-lg-6'>
-                                <form id='new_mt_details_form'>
-                                    <label for="number_of_avai_mt" style="margin-top: 20px">
-                                        <?php echo $this->translate('Available number of this machine tool:') ?>
-                                    </label>                                
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-info"></i>
-                                        </div>
-                                        <input id="number_of_avai_mt" onchange="cont_add_mt_btn()"
-                                               class="form-control validate[required,custom[onlyNumberSp]]" 
-                                               type="text">
-                                    </div>
-                                    <hr>
-                                    <label for="mt_owner_cond" style="margin-top: 20px">
-                                        <?php echo $this->translate('Ownership conditions:') ?>
-                                    </label>
-                                    <div class="form-group" id='mt_owner_cond'>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios_1" id="mt_owner" value="Owner" checked="">
-                                                <?php echo $this->translate("Owner") ?>
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios_1" id="mt_lease" value="Leasing">
-                                                <?php echo $this->translate("Leasing") ?>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <label for="mt_availability" style="margin-top: 20px">
-                                        <?php echo $this->translate('If machines are available for new orders:') ?>
-                                    </label>                                
-                                    <div class="input-group">                                    
-                                        <div class="form-group" id='mt_owner_cond'>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios_2" id="ava_yes" value="yes" checked="">
-                                                    <?php echo $this->translate("Yes") ?>
-                                                </label>
+                                        <!--Panel 1 collapse button-->
+                                        <div class="box-tools pull-right">
+                                            <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                                        </div><!--/. button div-->
+                                    </div><!--/. panel 1 header div-->
+                                    <!--Panel 1 contents-->
+                                    <div id='tab_image_loader' class="box box-body" style="border-top:0px;">
+                                        <div class="alert alert-info alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <h4><i class="icon fa fa-info"></i><?php echo $this->translate('523') ?></h4>
+                                        </div>      
+                                        <div id="machineInsertBlock" class="box box-primary" style="padding-top: 20px;">                                     
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label"><?php echo $this->translate('525') ?></label>
+                                                <div class="col-sm-10 " >
+                                                    <div id ='machine-categories-loading-image' class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-code-fork"></i>
+                                                        </div>
+                                                        <div class="inner test-tree" style='overflow:auto;'>    
+                                                            <div id="loading-image" class='scrollbar-inner'>
+                                                                <ul id="tt_tree_menu2" class="easyui-tree" ></ul> 
+                                                            </div>
+                                                        </div>                                                       
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios_2" id="ava_no" value="no">
-                                                    <?php echo $this->translate("No") ?>
-                                                </label>
+                                            <div  class="form-group" >
+                                                <label class="col-sm-2 control-label"><?php echo $this->translate('466') ?> </label>
+                                                <div class="col-sm-10">
+                                                    <div class="input-group">    
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-hand-o-right"></i>
+                                                        </div>
+                                                        <!--<input data-prompt-position="topLeft:70" class="form-control validate[required]" type="text" name="name_tr" id="name_tr" />-->
+                                                        <table  id="tt_grid_dynamic_machines" title="<?php echo $this->translate('466') ?>" ></table> 
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </div> 
+                                    </div><!-- /.box-body -->
+                                </div><!--/. primary box div-->
+                            </div><!--/. first panel single column div -->
+                        </form>
+
+                        <!--Makina listeleme bölümü -->
+                        <div class="col-lg-12">
+                            <div id="loading-image-grid-container" class="box box-warning"> 
+                                <!--First panel Header-->
+                                <div class="box-header with-border">                                                    
+                                    <h3 class="box-title"><?php echo $this->translate('527') ?> </h3>
+
+                                    <!--Panel 1 collapse button-->
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                                    </div><!--/. button div-->
+                                </div><!--/. panel 1 header div-->
+                                <!--Panel 1 contents-->
+                                <div class="box-body">    
+                                    <div class="alert alert-warning alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h4><i class="icon fa fa-info"></i> <?php echo $this->translate('527') ?></h4>
                                     </div>
-                                    <hr>
-                                    <button class='btn btn-primary col-md-12' id="add_machine" onclick="add_machine()" 
-                                            style="margin-top: 20px" disabled="disabled"
-                                            data-balloon="Yes! Add this machine to my company machine park!" 
-                                            data-balloon-pos="up">
-                                                <?php echo $this->translate('Add Machine') ?>
-                                    </button>                                
-                                    <button class='btn btn-success col-md-12' id="prop_mt_btn" 
-                                            onclick="prop_mt()" style="margin-top: 5px; display: none;visibility: hidden" 
-                                            data-balloon="If your machine is not in the list. Propose it to the system!" 
-                                            data-balloon-pos="up">
-                                                <?php echo $this->translate("Propose New Machine") ?>
-                                    </button>
-                                    <button class='btn btn-default col-md-12' id="reset_all_btn" 
-                                            onclick="reset_all()" style="margin-top: 5px"
-                                            data-balloon="Cancel and clear all!" 
-                                            data-balloon-pos="up">
-                                                <?php echo $this->translate('Reset Selections') ?>
-                                    </button>  
-                                </form>
-                            </div>
-                        </div>
-                    </div>                
+                                    <div id="machinesGridBlock" class="box-warning" style="padding-top: 20px;">
+                                        <table  id="tt_grid_dynamic" title="<?php echo $this->translate('528') ?>" ></table>   
+                                    </div> 
+
+                                </div><!-- /.box-body -->
+                            </div><!--/. primary box div--> 
+                        </div>  
+                    </div><!-- / first panel row-->
+                    <!--\ machine park editing section start -->
                 </div>
-                <!-- end of hidden machine tool section -->
+            </section>
         </div>
-        <!-- end of company general information setting -->
-    </section> /.content 
+        <!-- end of company information setting -->
+    </section>
 </div><!-- /.content-wrapper -->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b><?php echo $this->translate('Version') ?></b> 1.0
+        <b><?php echo $this->translate('73') ?></b> 1.0
     </div>
-    <strong><?php echo $this->translate('Copyright') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a></strong> <?php echo $this->translate('All rights reserved.') ?>
+    <strong><?php echo $this->translate('72') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('5') ?></a></strong> <?php echo $this->translate('71') ?>
 </footer>
 
 <!-- Control Sidebar -->      
@@ -639,7 +553,7 @@
         <!-- Home tab content -->
         <div class="tab-pane" id="control-sidebar-home-tab">
             <div>
-                <h3 class="control-sidebar-heading"><?php echo $this->translate('Recent Activities') ?></h3>
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('58') ?></h3>
                 <ul class='control-sidebar-menu'>
                     <li>
                         <a href='javascript::;'>
