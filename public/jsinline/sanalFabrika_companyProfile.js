@@ -217,6 +217,7 @@ $(document).ready(function () {
             }
         }
     });
+    
     /*
      * Address information service 
      * For users with pk
@@ -320,7 +321,6 @@ $(document).ready(function () {
      * Get left counter calculations
      * visitors information
      */
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {

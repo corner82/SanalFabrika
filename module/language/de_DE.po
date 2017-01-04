@@ -1580,3 +1580,39 @@ msgstr "Sektor"
 
 msgid "520"
 msgstr "Gehen"
+
+msgid "521" 
+msgstr "Bearbeiten Sie Maschinenliste"
+
+msgid "522" 
+msgstr "Maschinenparkliste bearbeiten"
+
+msgid "523"
+msgstr "Der Berater kann alle verfügbaren Werkzeugmaschinen im Beratungsunternehmen der jeweiligen Inventur nach ihren Kategorien bearbeiten!"
+
+msgid "524"
+msgstr "Werkzeugmaschinen definieren, hinzufügen, löschen oder bearbeiten ..."
+
+msgid "525"
+msgstr "Kategorien"
+
+msgid "526"
+msgstr "Liste der Berater Unternehmen Werkzeugmaschinen"
+
+msgid "527"
+msgstr "Liste der Unternehmen Werkzeugmaschinen"
+
+msgid "528"
+msgstr "Unternehmen / Maschinen"
+
+msgid "529"
+msgstr "Verfügbare Maschinen im System"
+
+msgid "530"
+msgstr "Firmenprofil Einstellung"
+
+msgid "531"
+msgstr "Maschinenpark-Einstellungen"
+
+msgid "532"
+msgstr "Unternehmen Maschinenpark"

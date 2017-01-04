@@ -81,11 +81,11 @@
 <!--=== End Style Switcher ===-->    
 
 <div class="wrapper">
-    <!--=== Header ===-->    
+    <!--=== Header ===-->   
     <div class="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="index-2.html">
+            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>">
                 <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
             </a>
             <!-- End Logo -->
@@ -94,16 +94,33 @@
             <div class="topbar">
                 <ul style="background: #ddd;
                     padding: 10px;" class="loginbar pull-right">
+                    <li id="setting_link" style="visibility: hidden; display: none">
+                        <a style="cursor: pointer;" onclick="setredirect()"><?php echo $this->translate('490') ?></a></li>                                        
+                    <li id="setting_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>
                     <li class="hoverSelector">
-                        <a><?php echo $this->translate('Languages') ?> </a>
+                        <a><?php echo $this->translate('91') ?> </a>
                         <i class="fa fa-globe"></i>
                         <ul id='topLanguageBar' class="languages hoverSelectorBlock">                                    
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>   
-                    <li><a href="page_faq.html"><?php echo $this->translate('Help') ?></a></li>  
+                    <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
-                    <li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><?php echo $this->translate('Log out') ?></a></li>   
+                    <li id="login_place" style="visibility: hidden; display: none">
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login','lang'=> $this->langCode)); ?>">
+                            <span>
+                                <?php echo $this->translate('30')?>
+                            </span>
+                        </a>
+                    </li>
+                    <li id="logout_place" style="visibility: hidden; display: none">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout','lang'=> $this->langCode)); ?>">
+                            <span>
+                                <?php echo $this->translate('31')?>
+                            </span>
+                        </a>
+                    </li>
+                    <!--<li><a href="<?php echo $this->url('login', array('action' => 'logout')); ?>"><span id="loging_ph"></span></a></li>-->   
                 </ul>
             </div>
             <!-- End Topbar -->
@@ -121,37 +138,46 @@
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="#body"><?php echo $this->translate('Home') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            ?>#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about"><?php echo $this->translate('About Us') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            ?>#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $this->translate('Services') ?>
+                            <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="page-scroll"><a href="#body">
-                                    <?php echo $this->translate('OSTIM Services') ?></a>
+                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            ?>#ostimServices">
+                                    <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="#news"><?php echo $this->translate('News') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            ?>#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact"><?php echo $this->translate('Contacts') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php echo $this->translate('Submenus') ?>
+                            <?php echo $this->translate('0') ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="page-scroll">
-                                <a href="#body"><?php echo $this->translate('Home') ?></a>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'clientspage', 'lang' => $this->langCode)); ?>">
+                                    <?php echo $this->translate('345') ?>
+                                </a>
                             </li>
                             <li class="page-scroll">
-                                <a href="../index-2.html"><?php echo $this->translate('Main') ?></a>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'sfmachines', 'lang' => $this->langCode)); ?>">
+                                    <?php echo $this->translate('446') ?>
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -165,16 +191,16 @@
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
         <div style='background: #E0EDDF;' class="container">
-            <h1 class="pull-left"><i class="fa fa-user"></i><?php echo $this->translate('Profile Owner Name') ?></h1>
+            <h1 class="pull-left" id='user_name_breadcrumbs'><i class="fa fa-user"></i></h1>
             <ul class="pull-right breadcrumb">                        
                 <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
                 ?>">
-                           <?php echo $this->translate('Home') ?>
+                           <?php echo $this->translate('9') ?>
                     </a>
                 </li>
-                <li class="active"><?php echo $this->translate('User Profile') ?></li>
+                <li class="active"><?php echo $this->translate('503') ?></li>
             </ul>
         </div>
     </div><!--/breadcrumbs-->
@@ -210,58 +236,32 @@
                     <div style="width: 64%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar" class="progress-bar progress-bar-dark">
                     </div>
                 </div>
-
-                <hr>
+                
+                <!-- Exchange Rates Script - EXCHANGERATEWIDGET.COM -->
+                <div style="width:auto; border:0px solid #55A516; text-align:left;">
+                    <div style="text-align:left;background-color:#717984;width:100%;
+                         border-bottom:0px;height:30px; font-size:12px;
+                         font-weight:bold;padding:5px 0px;">
+                        <span style="margin-left:2px;background-image:url(//www.exchangeratewidget.com/flag.png); 
+                              background-position: 0 -1232px; width:100%; height:15px; 
+                              background-repeat:no-repeat;padding-left:5px;">
+                            <a href="https://www.exchangeratewidget.com/" 
+                               style="color:#FFFFFF; text-decoration:none;padding-left:22px;">
+                                   <?php echo $this->translate('368') ?>
+                            </a>
+                        </span>
+                    </div>
+                    <script type="text/javascript" 
+                            src="//www.exchangeratewidget.com/converter.php?l=en&f=TRY&t=EUR,USD,GBP,JPY,CHF,CAD,AUD,CNY,ZAR,RUB,BRL,HKD,&a=1&d=F0F0F0&n=FFFFFF&o=000000&v=5">
+                    </script>
+                </div>
+                <!-- End of Exchange Rates Script -->
 
                 <!--Notification-->
-                <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> <?php echo $this->translate('Notification') ?></h2>
-                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
-                </div>
-                <ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
-                        <div class="overflow-h">
-                            <span><strong>Albert Heller</strong> has sent you email.</span>
-                            <small>Two minutes ago</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> started following you.</span>
-                            <small>Today 18:25 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
-                        <div class="overflow-h">
-                            <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
-                            <small>Yesterday 1:07 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img1.jpg') ?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
-                            <small>23/12 11:01 am</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
-                        <div class="overflow-h">
-                            <span><strong>Bruno Js.</strong> added you to group chating.</span>
-                            <small>Yesterday 1:07 pm</small>
-                        </div>    
-                    </li>
-                    <li class="notification">
-                        <img class="rounded-x" src="<?php echo $this->basePath('onyuz/assets/img/testimonials/img6.jpg') ?>" alt="">
-                        <div class="overflow-h">
-                            <span><strong>Taylor Lee</strong> changed profile picture.</span>
-                            <small>23/12 15:15 pm</small>
-                        </div>    
-                    </li>
-                </ul>    
+                <div class="box box-relative"  id="notificationContainer"  
+                     attr-notification="<?php echo $this->translate('20') ?>">    
+                </div>                
+                <!--/notifications -->   
 
             </div>
             <!--End Left Sidebar-->

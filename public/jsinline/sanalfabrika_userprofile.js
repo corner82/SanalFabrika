@@ -11,38 +11,47 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
+    
+    var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
+    nonAttachedTreeLoadImage.loadSpinner('appendImage');
+
+    window.notificationWidget = $('#notificationContainer').notifications({
+        container: $('#notificationWidget')
+    });
+    window.notificationWidget.notifications({
+        onServiceSuccess: function (event, data) {
+            /*var elementData = data.element;
+             var id = data.id;*/
+            //window.deleteServicePrivilegeDialog(id, elementData);
+            //console.warn(data.element);
+            //console.warn(data.element.attr('attr-notification'));
+            //alert('onServiceSucess');  
+            nonAttachedTreeLoadImage.loadSpinner('removeLoadImage');
+
+        }
+    });
+
+    //window.notificationWidget.notifications('test');
+    window.notificationWidget.notifications('getNotifications');
 
 });
 
-/*
- * Language bar on top of page...
- * @author:Bahram
- * @Since: 2016.2.12
- */
 
 $.ajax({
-    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-    data: {
-        url: 'fillComboBox_syslanguage',
-        language_code: $("#langCode").val()
+    url:'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+    data:{
+        url:'',
+        pk:$('#pk').val(),
+        language_code: $('#langCode').val()
     },
-    type: 'GET',
-    dataType: 'json',
-    //data: 'rowIndex='+rowData.id,
-    success: function (data, textStatus, jqXHR) {
-        if (data.length !== 0) {
-            $.fn.multiLanguageBarSetter.defaults.requestUriTranslated = $("#requestUriRegulated").val();
-            $.fn.multiLanguageBarSetter.defaults.langCode = $("#langCode").val();
-            $.fn.multiLanguageBarSetter.defaults.basePath = 'ostim/sanalfabrika';
-            $.fn.multiLanguageBarSetter.defaults.baseLanguage = 'tr';
-            $(".languages").multiLanguageBarSetter(data);
-
-        } else {
-            console.error('"fillComboBox_syslanguage" servis datasÄ± boÅŸtur!!');
-        }
+    type:'GET',
+    datatype: 'json',
+    success:{
+        
     },
-    error: function (jqXHR, textStatus, errorThrown) {
-        console.error('"fillComboBox_syslanguage" servis hatasÄ±->' + textStatus);
+    error:{
+        
     }
+            
 });
 
