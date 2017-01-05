@@ -6,7 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2015-12-23 13:08+0200\n"
 "Last-Translator: Bahram Lotfi Sadigh <bahram.lotfi@ostim.com.tr>\n"
 "Language-Team: OSTIM Teknoloji A.Ş. <info@ostim.com.tr>\n"
-"Language: tr_TR\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,651 +15,1687 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../view/layout/sfdm.phtml:1
-msgid "Virtual Enterprise Project"
-msgstr "Виртуальные предприятия проекта"
+msgid "0"
+msgstr "Виртуальное предприятие"
 
-#: ../view/layout/sfdm.phtml:2
-msgid "Virtual Enterprise Control Panel"
-msgstr "Виртуальная панель управления"
+msgid "1"
+msgstr "Virtual Enterprise Project"
 
-#: ../view/layout/sfdm.phtml:3
-msgid "OSTIM"
+msgid "2"
+msgstr "Виртуальная панель управления предприятием"
+
+msgid "3"
+msgstr "Follow Development"
+ 
+msgid "4"
 msgstr "OSTIM"
 
-#: ../view/layout/sfdm.phtml:3
-msgid "OSTIM Technology A.Ş."
-msgstr "OSTIM Technology A.Ş."
+msgid "5"
+msgstr "OSTIM Технология А.Ш."
 
-#: ../view/layout/sfdm.phtml:4
-#: ../view/layout/sfdm.phtml:11
-msgid "Virtual Enterprise"
-msgstr "Виртуальные предприятия"
+msgid "6"
+msgstr "Виртуальное предприятие"
 
-#: ../view/layout/sfdm.phtml:5
-msgid "Active"
-msgstr "Активно"
+msgid "7"
+msgstr "Активный"
 
-#: ../view/layout/sfdm.phtml:6
-msgid "Main Navigation"
-msgstr "Главной панели навигации"
+msgid "8"
+msgstr "Main Navigation"
 
-#: ../view/layout/sfdm.phtml:7
-#: ../view/layout/sfdm.phtml:17
-msgid "Home"
-msgstr "Для дома"
+msgid "9"
+msgstr "дома"
 
-#: ../view/layout/layout.phtml:36
-msgid "Supervisor Dashboard"
-msgstr "руководитель панель"
+msgid "10"
+msgstr "Supervisor Dashboard"
 
-#: ../view/layout/sfdm.phtml:8
-msgid "Enterprises"
-msgstr "Предприятия"
+msgid "11"
+msgstr "Компании"
 
-#: ../view/layout/sfdm.phtml:9
-msgid "Users"
+msgid "12"
 msgstr "Пользователи"
 
-#: ../view/layout/sfdm.phtml:10
-msgid "Organizations"
-msgstr "Организаций"
+msgid "13"
+msgstr "Организации"
 
-#: ../view/layout/sfdm.phtml:12
-msgid "ECO-OSTIM"
-msgstr "ECO-OSTIM"
+msgid "14"
+msgstr "ЭКО-OSTIM"
 
-#: ../view/layout/sfdm.phtml:13
-msgid "Definitions"
+msgid "15"
+msgstr "Ostim Services"
+
+msgid "16"
 msgstr "Определения"
 
-#: ../view/layout/sfdm.phtml:14
-msgid "Calendar"
+msgid "17"
 msgstr "Календарь"
 
-#: ../view/layout/sfdm.phtml:15
-msgid "Mail Box"
-msgstr "Входящие"
+msgid "18"
+msgstr "Почтовый ящик"
 
-#: ../view/layout/sfdm.phtml:16
-msgid "My Documents"
+msgid "19"
 msgstr "Мои документы"
 
-#: ../view/layout/sfdm.phtml:18
-msgid "Notifications"
+msgid "20"
 msgstr "Уведомления"
 
-#: ../view/layout/sfdm.phtml:18
-msgid "Show all notifications"
+msgid "21"
 msgstr "Показать все уведомления"
 
-#: ../view/layout/sfdm.phtml:19
-msgid "New Messages"
+msgid "22"
 msgstr "Новые сообщения"
 
-#: ../view/layout/sfdm.phtml:18
-msgid "Show all messages"
+msgid "23"
 msgstr "Показать все сообщения"
 
-#: ../view/layout/sfdm.phtml:20
-msgid "Works To Do"
-msgstr "Работает сделать"
+msgid "24"
+msgstr "Работает To Do"
 
-#: ../view/layout/sfdm.phtml:20
-msgid "Show all tasks"
+msgid "25"
 msgstr "Показать все задачи"
 
-#: ../view/layout/sfdm.phtml:21
-msgid "Collaborating Companies"
-msgstr "Сотрудничество компаний"
+msgid "26"
+msgstr "Сотрудничающие компании"
 
-#: ../view/layout/sfdm.phtml:22
-msgid "Friends"
+msgid "27"
 msgstr "Друзья"
 
-#: ../view/layout/sfdm.phtml:23
-msgid "Followers"
-msgstr "Следящие элементы кулачков"
+msgid "28"
+msgstr "Последователи"
 
-#: ../view/layout/sfdm.phtml:24
-msgid "Profile"
+msgid "29"
 msgstr "Профиль"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Log in"
-msgstr "Войдите в систему"
+msgid "30"
+msgstr "Войти"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Log out"
-msgstr "Выход"
+msgid "31"
+msgstr "Выйти"
 
-#: ../view/layout/sfdm.phtml:26
-msgid "Layout Options"
-msgstr "Параметры компоновки"
+msgid "32"
+msgstr "Параметры макета"
 
-#: ../view/layout/sfdm.phtml:27
-msgid "Fixed layout"
+msgid "33"
 msgstr "Фиксированный макет"
 
-#: ../view/layout/sfdm.phtml:28
-msgid "Activate the fixed layout. You can't use fixed and boxed layouts together"
-msgstr "Активировать фиксированный макет. Вы не можете использовать фиксированные и макетов в штучной упаковке вместе"
+msgid "34"
+msgstr "Активировать фиксированный макет. Вы не можете использовать фиксированные и боксировал макеты вместе"
 
-#: ../view/layout/sfdm.phtml:29
-msgid "Boxed Layout"
-msgstr "Макет в штучной упаковке"
+msgid "35"
+msgstr "Штучной Layout"
 
-#: ../view/layout/sfdm.phtml:30
-msgid "Activate the boxed layout"
-msgstr "Активировать макет в штучной упаковке"
+msgid "36"
+msgstr "Активировать коробочный макет"
 
-#: ../view/layout/sfdm.phtml:31
-msgid "Toggle Sidebar"
-msgstr "Переключение на боковой панели"
+msgid "37"
+msgstr "Переключить Боковая панель"
 
-#: ../view/layout/sfdm.phtml:32
-msgid "Toggle the left sidebar's state (open or collapse)"
-msgstr "Переключение левой боковой панели в состоянии (открытом или свернуть)"
+msgid "38"
+msgstr "Переключите состояние левой боковой панели (в открытой или коллапс)"
 
-#: ../view/layout/sfdm.phtml:33
-msgid "Sidebar Expand on Hover"
-msgstr "Sidebar расширить наведите указатель мыши"
+msgid "39"
+msgstr "Боковая панель Expand при наведении курсора мыши"
 
-#: ../view/layout/sfdm.phtml:34
-msgid "Let the sidebar mini expand on hover"
-msgstr "Позвольте боковой панели мини расширить наведите указатель мыши"
+msgid "40"
+msgstr "Пусть боковая панель мини-расширение при наведении курсора мыши"
 
-#: ../view/layout/sfdm.phtml:35
-msgid "Toggle Right Sidebar Slide"
-msgstr "Переключения правой боковой панели слайда"
+msgid "41"
+msgstr "Переключение правой боковой панели Slide"
 
-#: ../view/layout/sfdm.phtml:36
-msgid "Toggle between slide over content and push content effects"
-msgstr "Переключение между слайд в отношении содержания и передачи содержимого воздействие"
+msgid "42"
+msgstr "Переключение между горкой над содержанием и толкать эффекты контента"
 
-#: ../view/layout/sfdm.phtml:37
-msgid "Toggle Right Sidebar Skin"
-msgstr "Переключения правой боковой панели кожи"
+msgid "43"
+msgstr "Переключение правой боковой панели кожи"
 
-#: ../view/layout/sfdm.phtml:38
-msgid "Toggle between dark and light skins for the right sidebar"
-msgstr "Переключение между темными и светлыми скины для правой боковой панели"
+msgid "44"
+msgstr "Переключение между темными и светлыми кож для правой боковой панели"
 
-#: ../view/layout/sfdm.phtml:39
-msgid "Skins"
-msgstr "Скины"
+msgid "45"
+msgstr "Skins"
 
-#: ../view/layout/sfdm.phtml:40
-msgid "Blue"
-msgstr "Синий"
+msgid "46"
+msgstr "Blue"
 
-#: ../view/layout/sfdm.phtml:41
-msgid "Black"
-msgstr "Черный"
+msgid "47"
+msgstr "Black"
 
-#: ../view/layout/sfdm.phtml:42
-msgid "Purple"
+msgid "48"
 msgstr "Фиолетовый"
 
-#: ../view/layout/sfdm.phtml:43
-msgid "Green"
+msgid "49"
 msgstr "Зеленый"
 
-#: ../view/layout/sfdm.phtml:44
-msgid "Red"
+msgid "50"
 msgstr "Красный"
 
-#: ../view/layout/sfdm.phtml:45
-msgid "Yellow"
+msgid "51"
 msgstr "Желтый"
 
-#: ../view/layout/sfdm.phtml:46
-msgid "Blue Light"
-msgstr "Синяя лампа"
+msgid "52"
+msgstr "Голубой свет"
 
-#: ../view/layout/sfdm.phtml:47
-msgid "Black Light"
-msgstr "Индикатор черного цвета"
+msgid "53"
+msgstr "Black Light"
 
-#: ../view/layout/sfdm.phtml:48
-msgid "Purple Light"
-msgstr "Фиолетовый лампа"
+msgid "54"
+msgstr "Фиолетовый свет"
 
-#: ../view/layout/sfdm.phtml:49
-msgid "Green Light"
-msgstr "Зеленый индикатор"
+msgid "55"
+msgstr "Зеленый свет"
 
-#: ../view/layout/sfdm.phtml:50
-msgid "Red Light"
-msgstr "Красный индикатор"
+msgid "56"
+msgstr "Красный свет"
 
-#: ../view/layout/sfdm.phtml:51
-msgid "Yellow Light"
-msgstr "Желтый индикатор"
+msgid "57"
+msgstr "Желтый свет"
 
-#: ../view/layout/sfdm.phtml:52
-msgid "Recent Activities"
-msgstr "Последние мероприятия"
+msgid "58"
+msgstr "Последние действия"
 
-#: ../view/layout/sfdm.phtml:54
-msgid "Tasks Progress"
-msgstr "Задач прогресса"
+msgid "59"
+msgstr "Задачи Прогресс"
 
-#: ../view/layout/sfdm.phtml:55
-msgid "General Settings"
+msgid "60"
 msgstr "Общие настройки"
 
-#: ../view/layout/sfdm.phtml:56
-msgid "Report panel usage"
-msgstr "Доклад использования панели"
+msgid "61"
+msgstr "Отчет об использовании панели"
 
-#: ../view/layout/sfdm.phtml:57
-msgid "Some information about this general settings option"
-msgstr "Некоторые сведения об этом общие настройки параметра"
+msgid "62"
+msgstr "Некоторая информация об этой общей опции настройки"
 
-#: ../view/layout/sfdm.phtml:58
-msgid "Allow mail redirect"
-msgstr "Разрешить перенаправления электронной почты"
+msgid "63"
+msgstr "Разрешить почту редирект"
 
-#: ../view/layout/sfdm.phtml:59
-msgid "Other sets of options are available"
-msgstr "Другие наборы параметров доступны"
+msgid "64"
+msgstr "Другие наборы опций доступны"
 
-#: ../view/layout/sfdm.phtml:60
-msgid "Expose author name in posts"
-msgstr "Подвергайте имя автора в должности"
+msgid "65"
+msgstr "Expose имя автора в сообщениях"
 
-#: ../view/layout/sfdm.phtml:61
-msgid "Allow the user to show his name in blog posts"
-msgstr "Чтобы разрешить пользователю показать его имя в блоге"
+msgid "66"
+msgstr "Разрешить пользователю показать свое имя в блогах"
 
-#: ../view/layout/sfdm.phtml:62
-msgid "Chat Settings"
-msgstr "Настройки чата"
+msgid "67"
+msgstr "Настройки чат"
 
-#: ../view/layout/sfdm.phtml:63
-msgid "Show me as online"
-msgstr "Покажите мне в Интернете"
+msgid "68"
+msgstr "Покажите мне, как онлайн"
 
-#: ../view/layout/sfdm.phtml:64
-msgid "Turn off notifications"
+msgid "69"
 msgstr "Отключить уведомления"
 
-#: ../view/layout/sfdm.phtml:65
-msgid "Delete chat history"
+msgid "70"
 msgstr "Удалить историю чата"
 
-#: ../view/layout/layout.phtml:66
-msgid "All rights reserved."
-msgstr "Все права защищены"
+msgid "71"
+msgstr "Все права защищены."
 
-#: ../view/layout/layout.phtml:66
-msgid "Copyright"
+msgid "72"
 msgstr "Авторское право"
 
-#: ../view/layout/layout.phtml:67
-msgid "Version"
-msgstr "Версии"
+msgid "73"
+msgstr "Версия"
 
-#: ../view/application/index/index.phtml:2
-#, php-format
-msgid "Welcome to OSTIM Virtual Enterprise System"
-msgstr "Добро пожаловать на виртуальную OSTIM корпоративные системы"
+msgid "74"
+msgstr "Добро пожаловать в Остим Virtual Enterprise System"
 
-#: ../view/error/index.phtml:1
-msgid "An error occurred"
+msgid "75"
 msgstr "Произошла ошибка"
 
-#: ../view/error/index.phtml:15 ../view/error/index.phtml:39
-msgid "Message"
+msgid "76"
 msgstr "Сообщение"
 
-#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
-#: ../view/error/404.phtml:55
-msgid "Stack trace"
-msgstr "Трассировка стека"
+msgid "77"
+msgstr "Стек след"
 
-#: ../view/error/index.phtml:29
-msgid "Previous exceptions"
+msgid "78"
 msgstr "Предыдущие исключения"
 
-#: ../view/error/index.phtml:58
-msgid "No Exception available"
-msgstr "Не является исключением и имеющихся"
+msgid "79"
+msgstr "Нет исключений доступна"
 
-#: ../view/error/404.phtml:1
-msgid "A 404 error occurred"
-msgstr "A 404 произошла ошибка"
+msgid "80"
+msgstr "Произошла ошибка 404"
 
-#: ../view/error/404.phtml:10
-msgid "The requested controller was unable to dispatch the request."
-msgstr "Запрошенный контроллер не смог направить просьбу о"
+msgid "81"
+msgstr "Запрашиваемый контроллер не смог отправить запрос."
 
-#: ../view/error/404.phtml:13
-msgid "The requested controller could not be mapped to an existing controller class."
-msgstr "Запрошенный контроллер не может быть отображен в существующий класс контроллера"
+msgid "82"
+msgstr "Запрашиваемый контроллер не может быть отображен в существующий класс контроллера."
 
-#: ../view/error/404.phtml:16
-msgid "The requested controller was not dispatchable."
-msgstr "Запрошенный контроллер не был dispatchable"
+msgid "83"
+msgstr "Запрашиваемый контроллер не был диспетчеризация."
 
-#: ../view/error/404.phtml:19
-msgid "The requested URL could not be matched by routing."
-msgstr "Запрошенный URL не может быть подкреплен маршрутизации"
+msgid "84"
+msgstr "Запрошенный URL не может быть сопоставлен с помощью маршрутизации."
 
-#: ../view/error/404.phtml:22
-msgid "We cannot determine at this time why a 404 was generated."
-msgstr "Мы не можем определить в это время почему 404 был сгенерирован."
+msgid "85"
+msgstr "Мы не можем определить, в это время, почему 404 был сгенерирован."
 
-#: ../view/error/404.phtml:34
-msgid "Controller"
+msgid "86"
 msgstr "Контроллер"
 
-#: ../view/error/404.phtml:41
-#, php-format
-msgid "resolves to %s"
-msgstr "Постановляет %s"
+msgid "87"
+msgstr "Преобразуется% S"
 
-#: ../view/error/404.phtml:51
-msgid "Exception"
-msgstr "За исключением"
+msgid "88"
+msgstr "Исключение"
 
+msgid "89"
+msgstr "Помощь"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Help"
-msgstr "Справка"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Frequently Asked Questions"
+msgid "90"
 msgstr "Часто задаваемые вопросы"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Languages"
+msgid "91"
 msgstr "Языки"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Learn more"
-msgstr "Узнайте больше"
+msgid "92"
+msgstr "Узнать больше"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Job"
+msgid "93"
 msgstr "Наша работа"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "VE Team"
-msgstr "В.П. Группа"
+msgid "94"
+msgstr "VE Team"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Overall Manufactuiring Area"
-msgstr "Производственные площади"
+msgid "95"
+msgstr "Общая площадь производства"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Machine Park Size"
-msgstr "Парковка машины размера"
+msgid "96"
+msgstr "Станочный Парк Размер"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Overall Enterprise Number"
-msgstr "Общее число предприятий"
+msgid "97"
+msgstr "Общее число предприятие"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Employees"
+msgid "98"
 msgstr "Сотрудники"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Marketing and Consulting"
-msgstr "Маркетинговые и консалтинговые"
+msgid "99"
+msgstr "Маркетинг и Консалтинг"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Organization"
-msgstr "Наша Организация"
+msgid "100"
+msgstr "Наша организация"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Imports"
+msgid "101"
 msgstr "Импорт"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Exports"
+msgid "102"
 msgstr "Экспорт"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Employees"
+msgid "103"
 msgstr "Наши сотрудники"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Services"
+msgid "104"
 msgstr "Наши услуги"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Portfolio"
-msgstr "Наше портфолио"
+msgid "105"
+msgstr "Наши работы"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Load More"
-msgstr "Загрузить дополнительные"
+msgid "106"
+msgstr "Загрузить больше"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Clients"
+msgid "107"
 msgstr "Наши клиенты"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Order"
-msgstr "С тем"
+msgid "108"
+msgstr "Заказ"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Request for Quote"
-msgstr "Запрос предложения"
+msgid "109"
+msgstr "Запрос Цитировать"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Contact us"
-msgstr "Свяжитесь с нами"
+msgid "110"
+msgstr "Контакт"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Name"
-msgstr "Имя"
+msgid "111"
+msgstr "Name"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Email"
-msgstr "Почте"
+msgid "112"
+msgstr "Отправить"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Send Message"
+msgid "113"
 msgstr "Отправить сообщение"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Negotiation"
-msgstr "Переговоров"
+msgid "114"
+msgstr "Переговоры"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Auction"
-msgstr "Аукциона"
+msgid "115"
+msgstr "Аукцион"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Auctioning"
+msgid "116"
 msgstr "С аукциона"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Latest News"
+msgid "117"
 msgstr "Последние новости"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
-msgstr "Интеграция возможностей и потенциала более чем 5000 компаний с 60000 сотрудников"
+msgid "118"
+msgstr "Интеграция возможностей и потенциала более 5000 компаний с 60000 сотрудников"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
-msgstr "Открытие OSTIM производственные возможности для клиентов со всего мира"
+msgid "119"
+msgstr "Открытие производственных мощностей Ostim для клиентов со всего мира"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Company Registration"
+msgid "120"
+msgstr "Компания"
+
+msgid "121"
+msgstr "Виртуальный регистрации предприятия Компания"
+
+msgid "122"
+msgstr "Связь"
+
+msgid "123"
+msgstr "Финансовый"
+
+msgid "124"
+msgstr "Кадровая"
+
+msgid "125"
+msgstr "Логотип"
+
+msgid "126"
+msgstr "Налоговый номер"
+
+msgid "127"
+msgstr "Налоговое управление"
+
+msgid "128"
+msgstr "Номер социального страхования"
+
+msgid "129"
+msgstr "Дата основания"
+
+msgid "130"
+msgstr "Веб-адрес"
+
+msgid "131"
+msgstr "Отправить"
+
+msgid "132"
+msgstr "Отменить"
+
+msgid "133"
+msgstr "Тип здания"
+
+msgid "134"
+msgstr "Название здания"
+
+msgid "135"
+msgstr "Страна"
+
+msgid "136"
+msgstr "State"
+
+msgid "137"
+msgstr "Провинция"
+
+msgid "138"
+msgstr "Город"
+
+msgid "139"
+msgstr "Район"
+
+msgid "140"
+msgstr "Деревня"
+
+msgid "141"
+msgstr "Улица"
+
+msgid "142"
+msgstr "Аллея"
+
+msgid "143"
+msgstr "Номер"
+
+msgid "145"
+msgstr "Почтовый индекс"
+
+msgid "146"
+msgstr "Телефон"
+
+msgid "147"
+msgstr "Телефон"
+
+msgid "148"
+msgstr "Факс"
+
+msgid "149"
+msgstr "Обновление"
+
+msgid "150"
+msgstr "Добавить новый адрес"
+
+msgid "151"
+msgstr "Обновить Информация о компании"
+
+msgid "152"
+msgstr "Регистрационная компания"
+
+msgid "153"
+msgstr "Список компаний"
+
+msgid "154"
+msgstr "Список Станков"
+
+msgid "155"
+msgstr "Новое представление"
+
+msgid "156"
+msgstr "Инструменты Производство Machine"
+
+msgid "157"
+msgstr "Quality Equipment Control"
+
+msgid "158"
+msgstr "Другие"
+
+msgid "159"
+msgstr "Производство Вид"
+
+msgid "160"
+msgstr "Machine Type Tool"
+
+msgid "161"
+msgstr "Добавить Machine Tool"
+
+msgid "162"
+msgstr "Измерение Тип процесса"
+
+msgid "163"
+msgstr "Качество Тип инструмента управления"
+
+msgid "164"
+msgstr "Добавить устройство королевский адвокат"
+
+msgid "165"
+msgstr "Update Machine Tool Информация"
+
+msgid "166"
+msgstr "Add New Device"
+
+msgid "167"
+msgstr "Информация о программном обеспечении"
+
+msgid "168"
+msgstr "Список программного обеспечения"
+
+msgid "169"
+msgstr "Сведения об обновлении программного обеспечения"
+
+msgid "170"
+msgstr "Добавить новое программное обеспечение"
+
+msgid "171"
+msgstr "Выберите страну ..."
+
+msgid "172"
+msgstr "Выберите провинцию ..."
+
+msgid "173"
+msgstr "Выберите район ..."
+
+msgid "174"
+msgstr "Выберите деревню ..."
+
+msgid "175"
+msgstr "Поиск ..."
+
+msgid "176"
+msgstr "Общая информация"
+
+msgid "177"
+msgstr "Адрес Информация"
+
+msgid "178"
+msgstr "Связь данных"
+
+msgid "179"
+msgstr "Информация о компании"
+
+msgid "180"
+msgstr "Пожалуйста, выберите страну из списка ..."
+
+msgid "181"
+msgstr "Пожалуйста, выберите город из списка ..."
+
+msgid "182"
+msgstr "Пожалуйста, выберите район из списка ..."
+
+msgid "183"
+msgstr "Пожалуйста, выберите деревню из списка ..."
+
+msgid "184"
+msgstr "Продолжить к информации об адресах"
+
+msgid "185"
+msgstr "Продолжить связи и информации"
+
+msgid "186"
+msgstr "Сброс"
+
+msgid "187"
+msgstr "Регистрация"
+
+msgid "188"
+msgstr "First Name"
+
+msgid "189"
+msgstr "Фамилия"
+
+msgid "190"
+msgstr "Preferred Имя пользователя"
+
+msgid "191"
+msgstr "Предпочтительные пароль"
+
+msgid "192"
+msgstr "Повторить пароль"
+
+msgid "193"
+msgstr "Идентификационный номер (TC Kimlik Нет для турецких граждан)"
+
+msgid "194"
+msgstr "Язык"
+
+msgid "195"
+msgstr "Сделать мой профиль общественности"
+
+msgid "196"
+msgstr "Тип связи"
+
+msgid "197"
+msgstr "Пожалуйста, выберите тип связи из списка ..."
+
+msgid "198"
+msgstr "Установить этот номер в качестве стандартного числа контактов"
+
+msgid "199"
+msgstr "Контактный номер"
+
+msgid "200"
+msgstr "Отправить Номер"
+
+msgid "201"
+msgstr "Описание"
+
+msgid "202"
+msgstr "Добавленные Контакты"
+
+msgid "203"
+msgstr "Я согласен с Условиями"
+
+msgid "204"
+msgstr "Процесс Complete User Представление"
+
+msgid "205"
+msgstr "Продолжить компании Информация"
+
+msgid "206"
+msgstr "Название компании"
+
+msgid "207"
+msgstr "Пожалуйста, выберите нужный язык из списка ..."
+
+msgid "208"
+msgstr "Показать все мои зарегистрированные адреса"
+
+msgid "209"
+msgstr "Мои зарегистрированные адреса"
+
+msgid "210"
+msgstr "Список контактов"
+
+msgid "211"
+msgstr "Редактировать выбранный адрес"
+
+msgid "212"
+msgstr "Закрыть"
+
+msgid "213"
+msgstr "Тип адреса"
+
+msgid "214"
+msgstr "Платежный адрес"
+
+
+msgid "215"
+msgstr "Почтовый адрес"
+
+
+msgid "216"
+msgstr "Задача Прогресс"
+
+
+msgid "217"
+msgstr "Регистрация пользователя"
+
+
+msgid "218"
 msgstr "Регистрация компании"
 
 
+msgid "219"
+msgstr "Процесс регистрации"
+
+
+msgid "220"
+msgstr "Адрес 1"
+
+
+msgid "221"
+msgstr "Адрес 2"
+
+
+msgid "222"
+msgstr "Показывать мой пароль"
+
+
+msgid "223"
+msgstr "Сделать мой адрес информации общественности"
+
+
+msgid "224"
+msgstr "Сделать моя контактная информация общественности"
+
+
+msgid "225"
+msgstr "Показать все мои зарегистрированный контактная информация"
+
+
+msgid "226"
+msgstr "DUNS номер"
+
+
+msgid "227"
+msgstr "Сокращенное фирменное наименование"
+
+
+msgid "228"
+msgstr "Назад"
+
+
+msgid "229"
+msgstr "О нас"
+
+
+msgid "230"
+msgstr "Услуги"
+
+
+msgid "231"
+msgstr "Новости"
+
+
+msgid "232"
+msgstr "Контакты"
+
+
+msgid "233"
+msgstr "Подменю"
+
+
+msgid "234"
+msgstr "Main"
+
+
+msgid "235"
+msgstr "Статус собственности"
+
+
+msgid "236"
+msgstr "Панель Компания Machine Tool"
+
+
+msgid "237"
+msgstr "Некоторые виды деятельности"
+
+
+msgid "238"
+msgstr "Перечень видов деятельности"
+
+
+msgid "239"
+msgstr "Список компаний станки"
+
+
+msgid "240"
+msgstr "Компания станки"
+
+
+msgid "241"
+msgstr "Доступные инструменты машины в системе"
+
+
+msgid "242"
+msgstr "Предложить новый Machine Tool"
+
+
+msgid "243"
+msgstr "Предложение Форма"
+
+
+msgid "244"
+msgstr "Машина Производитель"
+
+
+msgid "245"
+msgstr "Название машины"
+
+
+msgid "246"
+msgstr "Модель машины"
+
+
+msgid "247"
+msgstr "Тип машины"
+
+
+msgid "248"
+msgstr "Свойства Machine"
+
+
+msgid "249"
+msgstr "Отправить новый станок"
+
+
+msgid "250"
+msgstr "Язык"
+
+msgid "251"
+msgstr "Machine Tool Общая информация"
+
+
+msgid "252"
+msgstr "Машина свойства инструмента Информация"
+
+
+msgid "253"
+msgstr "Добавить выбранные машины"
+
+
+msgid "254"
+msgstr "Подробности"
+
+
+msgid "255"
+msgstr "Пожалуйста, введите имя машины Производитель (бренд)"
+
+
+msgid "256"
+msgstr "Пожалуйста, введите имя аппарата (серии)"
+
+
+msgid "257"
+msgstr "Пожалуйста, введите модель машины (производство год)"
 
 
 
 
-msgid "Company"
-msgstr "Компания"
-
-msgid "Virtual Enterprise Company Registration"
-msgstr "Виртуальные предприятия для регистрации компании"
-
-msgid "General Information"
-msgstr "Общие сведения"
-
-msgid "Communication"
-msgstr "Коммуникации"
-
-msgid "Financial"
-msgstr "Финансовые"
-
-msgid "Personel"
-msgstr "Неуполномоченного персонала"
-
-msgid "Logo"
-msgstr "Логотип"
-
-msgid "Tax Number"
-msgstr "Номер налогоплательщика"
-
-msgid "Tax Office"
-msgstr "Налоговое управление"
-
-msgid "Social Security Number"
-msgstr "Номер социального страхования"
-
-msgid "Foundation Date"
-msgstr "Правовые основы деятельности"
-
-msgid "Web Address"
-msgstr "Веб-адрес"
-
-msgid "Submit"
-msgstr "Отправить"
-
-msgid "Cancel"
-msgstr "Отмена"
-
-msgid "Building Type"
-msgstr "Здание типа"
-
-msgid "Building Name"
-msgstr "Название здания"
-
-msgid "Country"
-msgstr "Страны"
-
-msgid "State"
-msgstr "Государство"
-
-msgid "Province"
-msgstr "Провинция"
-
-msgid "City"
-msgstr "Город"
-
-msgid "District"
-msgstr "Округ"
-
-msgid "Village"
-msgstr "Деревня"
-
-msgid "Street"
-msgstr "Улицы"
-
-msgid "Alley"
-msgstr "Аллея"
-
-msgid "Number"
-msgstr "Номер"
-
-msgid "Postal Code"
-msgstr "Почтовый код"
-
-msgid "Telephone"
-msgstr "Телефон"
-
-msgid "Fax"
-msgstr "Факс"
-
-msgid "Update"
-msgstr "Обновление"
-
-msgid "Add New Address"
-msgstr "Добавить новый адрес"
-
-msgid "Update Company Information"
-msgstr "Обновить информацию о компании"
-
-msgid "List of Companies"
-msgstr "Список компаний"
-
-msgid "List of Machine Tools"
-msgstr "Список инструментов машины"
-
-msgid "New Submission"
-msgstr "Новое представление"
-
-msgid "Manufacturing Machine Tools"
-msgstr "Производство станков"
-
-msgid "Quality Control Equipment"
-msgstr "Контроль качества оборудования"
-
-msgid "Others"
-msgstr "Другие"
-
-msgid "Manufacturing Operation Type"
-msgstr "Производство Тип Операции"
-
-msgid "Machine Tool Type"
-msgstr "Машины тип инструмента"
-
-msgid "Add New Machine Tool"
-msgstr "Добавить новый станок"
-
-msgid "Measuremnt Process Type"
-msgstr "Измерение тип процесса"
-
-msgid "Quality Control Tool Type"
-msgstr "Инструмент контроля качества типа"
-
-msgid "Add New Q.C. Device"
-msgstr "Добавить новый устройством контроля качества"
-
-msgid "Update Machine Tool Information"
-msgstr "Обновление машины инструмент Информация"
-
-msgid "Add New Device"
-msgstr "Добавление нового устройства"
-
-msgid "Software Information"
-msgstr "Информация о программном обеспечении"
-
-msgid "List of Software"
-msgstr "Список программного обеспечения"
-
-msgid "Update Information"
-msgstr "Обновление информации"
-
-msgid "Update software information"
-msgstr "Обновление программного обеспечения информация"
-
-msgid "Add New Software"
-msgstr "Добавить новое программное обеспечение"
 
 
-msgid "Select a country ... "
-msgstr "Выберите страну ... "
 
-msgid "Select a province ... "
-msgstr "Выберите федерации ... "
+msgid "258"
+msgstr "Профиль компании"
 
-msgid "Select a district ... "
-msgstr "Выберите экономический регион ... "
 
-msgid "Select a village ... "
-msgstr "Выберите город ... "
+msgid "259"
+msgstr "Уведомление"
 
-msgid "Search..."
-msgstr "Поиск..."
+
+msgid "260"
+msgstr "Ссылки"
+
+
+msgid "261"
+msgstr "Последние сообщения"
+
+
+msgid "262"
+msgstr "Полезные ссылки"
+
+
+msgid "263"
+msgstr "Обратная связь"
+
+
+msgid "264"
+msgstr "Виртуальное предприятие (VE) является временный союз предприятий, которые собрались вместе, чтобы поделиться навыками или ключевые компетенции и ресурсы для того, чтобы более эффективно реагировать на деловые возможности, и чье сотрудничество поддерживается с помощью компьютерных сетей."
+
+
+msgid "265"
+msgstr "Последние новости о Ostim VE"
+
+
+msgid "266"
+msgstr "Кластеры OSTIM Новости"
+
+
+msgid "267"
+msgstr "Новый проект призывает"
+
+
+msgid "268"
+msgstr "Ostim Организованная промышленная зона"
+
+
+msgid "269"
+msgstr "Турецкий министерство SIT"
+
+
+msgid "270"
+msgstr "TUBITAK"
+
+
+msgid "271"
+msgstr "KOSGEB"
+
+
+msgid "272"
+msgstr "Условия предоставления услуг"
+
+
+msgid "273"
+msgstr "Политика конфиденциальности"
+
+
+msgid "274"
+msgstr "Все права защищены."
+
+
+msgid "275"
+msgstr "Компания" Индикаторы
+
+
+msgid "276"
+msgstr "Общая Профиль компании" посетители
+
+
+msgid "277"
+msgstr "Последние шесть месяцев"
+
+
+msgid "278"
+msgstr "Последние двенадцать месяцев"
+
+
+msgid "279"
+msgstr "Скорость ваших посетителей всех посетителей"
+
+
+msgid "280"
+msgstr "Всего пользователей системы"
+
+
+msgid "281"
+msgstr "Всего инструменты компании машины номер"
+
+
+msgid "282"
+msgstr "Добавленные станки за последние 6 месяцев"
+
+
+msgid "283"
+msgstr "Добавленные станки в последние 12 месяцев"
+
+
+msgid "284"
+msgstr "Скорость добавленных станков за последние 12 месяцев в целом компании станков"
+
+
+
+
+
+
+
+
+msgid "285"
+msgstr "Январь"
+
+
+msgid "286"
+msgstr "Февраль"
+
+
+msgid "287"
+msgstr "Март"
+
+
+msgid "288"
+msgstr "Апрель"
+
+msgid "289"
+msgstr "Май"
+
+msgid "290"
+msgstr "Июнь"
+
+msgid "291"
+msgstr "Июль"
+
+msgid "292"
+msgstr "Август"
+
+msgid "293"
+msgstr "Сентябрь"
+
+msgid "294"
+msgstr "Октябрь"
+
+msgid "295"
+msgstr "Ноябрь"
+
+msgid "296"
+msgstr "Декабрь"
+
+
+
+msgid "297"
+msgstr "Сегодня"
+
+msgid "298"
+msgstr "Вчера"
+
+msgid "299"
+msgstr "Tommorrow"
+
+msgid "300"
+msgstr "Компания Продукция"
+
+msgid "301"
+msgstr "Примеры продуктов"
+
+msgid "302"
+msgstr "Краткое описание О продукции"
+
+msgid "303"
+msgstr "Эта компания производит следующие виды продукции, которые представлены ниже"
+
+msgid "304"
+msgstr "видео продукта Примеры"
+
+msgid "305"
+msgstr "Список продуктов"
+
+msgid "306"
+msgstr "Компания \ 's Всего проектов"
+
+msgid "307"
+msgstr "Успешно завершено"
+
+msgid "308"
+msgstr "В процессе"
+
+msgid "309"
+msgstr "Скорость успешно завершенных проектов"
+
+msgid "310"
+msgstr ", Чем в прошлом месяце"
+
+msgid "311"
+msgstr "Качество и стандартные сертификаты"
+
+msgid "312"
+msgstr "Приобретенный сертификат в прошлом году"
+
+msgid "313"
+msgstr "Прикладной для новых сертификатов"
+
+msgid "314"
+msgstr "Ставка Необходимые сертификаты"
+
+msgid "315"
+msgstr "Высшее"
+
+msgid "316"
+msgstr ", Чем в прошлом году"
+
+msgid "317"
+msgstr "Компания" Индикаторы
+
+msgid "318"
+msgstr "Инженеры"
+
+msgid "319"
+msgstr "Внешняя торговля Персонал"
+
+msgid "320"
+msgstr "технари"
+
+msgid "321"
+msgstr "Количество Сотрудник"
+
+msgid "322"
+msgstr "Метры Компания"
+
+msgid "323"
+msgstr "Компания Качество Performance"
+
+msgid "324"
+msgstr "В прошлом году увеличение ликвидности"
+
+msgid "325"
+msgstr "Общая производительность"
+
+msgid "326"
+msgstr "Доступные сертификаты качества и стандарты"
+
+msgid "327"
+msgstr "Завершение проекта Performance"
+
+msgid "328"
+msgstr "Внесенные проекты"
+
+msgid "329"
+msgstr "Успешно решена"
+
+msgid "330"
+msgstr "Незавершенные проекты"
+
+msgid "331"
+msgstr "Проекты в стадии разработки"
+
+msgid "332"
+msgstr "Удовлетворение клиента Rate"
+
+msgid "333"
+msgstr "Согласие" Клиенты
+
+msgid "334"
+msgstr "пожаловалась Клиенты"
+
+msgid "335"
+msgstr "Компания Machine Tools"
+
+msgid "336"
+msgstr "Более подробную информацию о выбранной машины приводится ниже"
+
+msgid "337"
+msgstr "Всего Инструменты Machine"
+
+msgid "338"
+msgstr "Станки с ЧПУ"
+
+msgid "339"
+msgstr "Специальные станки"
+
+msgid "340"
+msgstr "Недоступные машины"
+
+msgid "341"
+msgstr "Sample станки видео"
+
+msgid "342"
+msgstr "Компания Члены"
+
+msgid "343"
+msgstr "зарегистрированная компания Сотрудники"
+
+msgid "344"
+msgstr "виртуального предприятия" Клиенты
+
+msgid "345"
+msgstr "Клиенты страницы"
+
+msgid "346"
+msgstr "Для получения дополнительной информации, вопросы, пожалуйста, свяжитесь с нами"
+
+msgid "347"
+msgstr "Контакт"
+
+msgid "348"
+msgstr "Группа"
+
+msgid "348-1"
+msgstr "Контактная группа"
+
+msgid "349"
+msgstr "Контактная информация"
+
+msgid "350"
+msgstr "ТУРЦИЯ"
+
+msgid "351"
+msgstr "Часы работы"
+
+msgid "352"
+msgstr "Дни недели обезьянах ПТ"
+
+msgid "353"
+msgstr "Выходные дни СБ"
+
+msgid "354"
+msgstr "Выходные дни Солнце"
+
+msgid "355"
+msgstr "Закрыто"
+
+msgid "356"
+msgstr "Для получения дополнительной информации, пожалуйста, в курсе ..."
+
+msgid "357"
+msgstr "На основании вашего заказа, продолжительность рабочего времени может быть пересмотрено ..."
+
+msgid "358"
+msgstr "Пишите подробнее ..."
+
+msgid "359"
+msgstr "Задать вопрос"
+
+msgid "360"
+msgstr "Наша профессия ..."
+
+msgid "361"
+msgstr "Наше видение ..."
+
+msgid "362"
+msgstr "Мы конкурентоспособны на ..."
+
+msgid "363"
+msgstr "Производство и контроль качества Инженер"
+
+msgid "364"
+msgstr "Компания Период обновления Инфо"
+
+msgid "365"
+msgstr "Показатель завершения Профиль компании"
+
+msgid "366"
+msgstr "Период обновления данных Machine"
+
+msgid "367"
+msgstr "Технологии компании Период обновления"
+
+msgid "368"
+msgstr "Онлайн курсы обмена"
+
+msgid "369"
+msgstr "Минуты"
+
+msgid "370"
+msgstr "До"
+
+msgid "371"
+msgstr "Сегодня"
+
+msgid "372"
+msgstr "Посетили страницу проектов"
+
+msgid "373"
+msgstr "Вчера"
+
+msgid "374"
+msgstr "Отзыв документ"
+
+msgid "375"
+msgstr "Дни"
+
+msgid "376"
+msgstr "Предложение документ добавлен"
+
+msgid "377"
+msgstr "После вашей компании"
+
+msgid "378"
+msgstr "Меньше"
+
+msgid "379"
+msgstr "Станки скорость до 6 месяцев, прежде чем"
+
+msgid "380"
+msgstr "Общее число сотрудников"
+
+msgid "381"
+msgstr "Посетили вашу страницу проекта"
+
+msgid "382"
+msgstr ". Virtual Enterprise является платформой сотрудничества для малых и средних предприятий для повышения их доли на рынке и повысить их конкурентоспособность в сильно турбулентных строгих условиях глобального рынка Для достижения этих целей следующие виды услуг предоставляются Ostim VE системы:"
+
+msgid "383"
+msgstr "Повышение прозрачности компаний путем предоставления информации об организации ООО страницы и нынешней компании инвентаризации и их возможности."
+
+msgid "384"
+msgstr "Предоставление профессиональных страниц профилей пользователей, чтобы увеличить вероятность нахождения необходимой технической и профессиональный персонал."
+
+msgid "385"
+msgstr "Платформа переговоров"
+
+msgid "386"
+msgstr "Управление проектами"
+
+msgid "387"
+msgstr "Collaborative Design"
+
+msgid "388"
+msgstr "Обеспечение 3D решение для печати для производства прототипов до реальных производственных процессов, чтобы обеспечить разработанный продукт или производительность и функциональность деталей."
+
+msgid "389"
+msgstr "OSTIM Technology основана 2004 году для улучшения университетского отрасли программу сотрудничества в рамках отрасли университета совместно программы исследований и разработок TUBITAK в. С 2007 года статус компании изменено на анонимное общество (Anonym Şirket). Эта компания имеет более чем 25 стек держатели в том числе организаций, университетов, исследователей, научных кругов и предпринимателей ".
+
+msgid "390"
+msgstr "Новые консорциумы"
+
+msgid "391"
+msgstr "Вы можете найти свой подходящих партнеров для вашего проекта или вы можете внести свой вклад в новые проекты и размещенных расширить свой бизнес."
+
+msgid "392"
+msgstr "Автоматическая и цель переговоров"
+
+msgid "393"
+msgstr "Внедрение новых технологий"
+
+msgid "394"
+msgstr "В целях повышения качества выпускаемой продукции и гарантировать результаты проекта, 3D-печать и технологии цифрового сканирования обеспечиваются OSTIM Technology A.Ş. производить прототипы продуктов, прежде чем переход на основных производственных процессов."
+
+msgid "395"
+msgstr "OSTIM Виртуальное предприятие ОФИС"
+
+msgid "396"
+msgstr "Поддержка OSTIM VE системы. Ostim VE офис находится в OSTIM организованной промышленной зоне в Анкаре. Офис несет ответственность за развитие и управление VE инструментов, программ и приложений."
+
+msgid "397"
+msgstr "VE Миссия Система"
+
+msgid "398"
+msgstr "Является ли перенаправить потребности клиентов и требования проворно соответствующих партнеров. Кроме того, она также помогает МСП в целях повышения их использования потенциала путем обнаружения заказов клиентов и получить новые проекты. Для этого система предоставляет следующие возможности клиентов и решения партнеры: "
+
+msgid "399"
+msgstr "Профиль" Страницы
+
+msgid "400"
+msgstr "OSTIM VE предоставляет страницы профиля для зарегистрированных пользователей и компаний, чтобы описать свои возможности в деталях и представить себя приезжих клиентов и потенциальных партнеров."
+
+msgid "401"
+msgstr "Смарт Matching"
+
+msgid "402"
+msgstr "Цель переговоров Платформа"
+
+msgid "403"
+msgstr "Предоставленные соответствующие алгоритмы проверка зарегистрированы системные данные и требования заказчика и предложить наиболее подходящие имеющиеся ресурсы."
+
+msgid "404"
+msgstr "Различные типы процессов управления переговорных добавлены в систему VE. В соответствии с предпочтениями клиентов один из этих переговорных процессах выбраны. Весь переговорный процесс управляется автоматически с помощью системы без вмешательства человека."
+
+msgid "405"
+msgstr "Цели, чтобы открыть проектирование, инжиниринг и производственные мощности Ostim к миру по заказам клиентов переадресацией мгновенно соответствующих подходящих компаний, расширение взаимодействия между несколькими МСП и повысить производительность труда малых и средних предприятий путем загрузки их простаивающие мощности с соответствующими задачами и проектами ".
+
+msgid "406"
+msgstr "Председатель Исполнительного совета управления OSTIM Организованная промышленная зона"
+
+msgid "407"
+msgstr "Председатель Правления OSTIM технологии A.Ş."
+msgid "408"
+msgstr "Менеджер OSTIM организованной управления промышленной зоне"
+
+msgid "409"
+msgstr "Управление OSTIM Организованная промышленная зона предоставляет различные услуги."
+
+msgid "410"
+msgstr "Некоторые из этих услуг приведены ниже"
+
+msgid "411"
+msgstr "Infrastructure Services"
+
+msgid "412"
+msgstr "Управление электрическое и техническое обслуживание"
+
+msgid "413"
+msgstr "Окружающая среда и безопасность"
+
+msgid "414"
+msgstr "Управление газа и техническое обслуживание"
+
+msgid "415"
+msgstr "Управление и разрешение на работу"
+
+msgid "416"
+msgstr "Градостроительство и инфраструктура"
+
+msgid "417"
+msgstr "IT-вычислительный центр"
+
+msgid "418"
+msgstr "Обслуживание клиентов"
+
+msgid "419"
+msgstr "Финансовые услуги"
+
+msgid "420"
+msgstr "Отношения с клиентами"
+
+msgid "421"
+msgstr "OSTIM Бюро по трудоустройству"
+
+msgid "422"
+msgstr "Ярмарка и организации"
+
+msgid "423"
+msgstr "Финансовые и административным вопросам"
+
+msgid "424"
+msgstr "Пресса и связи с общественностью"
+
+msgid "425"
+msgstr "Организационная Фотогалерея"
+
+msgid "426"
+msgstr "Документы и журналы"
+
+msgid "427"
+msgstr "Видео"
+
+msgid "428"
+msgstr "Документы"
+
+msgid "429"
+msgstr "Турбина Проект коренных Ветер"
+
+msgid "430"
+msgstr "Коренные Основной боевой танк Мотор проекта: ТМ-1150"
+
+msgid "431"
+msgstr "Защита кластера проекта"
+
+msgid "432"
+msgstr "Проект железнодорожной системы кластера"
+
+msgid "433"
+msgstr "Коренные Поезд метро Проект"
+
+msgid "434"
+msgstr "Подробнее"
+
+msgid "435"
+msgstr "Проект по возобновляемым источникам энергии кластера"
+
+msgid "436"
+msgstr "Ostim Технологии Проекты"
+
+msgid "437"
+msgstr "OSTIM Технология R & D Center, сотрудничает исследований и проектов с целью разработки с высокой добавленной стоимостью, высокотехнологичной продукции в рамках университета и рамок сотрудничества промышленности."
+
+msgid "438"
+msgstr "VE интегрирует возможности 5,200 компаний в OSTIM организованной промышленной зоне с более чем 20.000 станков и 60000 сотрудников в рамках одной виртуальной компании."
+
+msgid "439"
+msgstr "Только для членов"
+
+msgid "440"
+msgstr "VE системные услуги предоставляются по трем основным категориям:"
+
+msgid "441"
+msgstr "Ресурс Дискавери"
+
+msgid "442"
+msgstr "Управление проектами"
+
+msgid "443"
+msgstr "Определение ресурсов"
+
+msgid "444"
+msgstr "Вы можете найти ваши необходимые человеческие, информационные и физические (машины, сырье и т.д.) здесь"
+
+msgid "445"
+msgstr "VE компаний"
+
+msgid "446"
+msgstr "VE Станочный Парк"
+
+msgid "447"
+msgstr "VE сырье"
+
+msgid "448"
+msgstr "VE отходов"
+
+msgid "449"
+msgstr "VE Человеческие ресурсы"
+
+msgid "450"
+msgstr "VE Products"
+
+msgid "451"
+msgstr "Для того, чтобы управлять существующими проектами или отправить новый заказ, вы можете использовать этот раздел"
+
+msgid "452"
+msgstr "Система управления Ведение переговоров"
+
+msgid "453"
+msgstr "Отправить новый заказ"
+
+msgid "454"
+msgstr "Управление проектом"
+
+msgid "455"
+msgstr "View Project Pool"
+
+msgid "456"
+msgstr "Вы можете определить ваши доступные ресурсы здесь различные"
+
+msgid "457"
+msgstr "Добавить Компания"
+
+msgid "458"
+msgstr "Добавить пользователя"
+
+msgid "459"
+msgstr "Add Machine Tool"
+
+msgid "460"
+msgstr "Добавить продукт"
+
+msgid "461"
+msgstr "Добавить Сырье"
+
+msgid "462"
+msgstr "Добавить отходы"
+
+msgid "463"
+msgstr "VE Services"
+
+msgid "464"
+msgstr "VE Machines Список"
+
+msgid "465"
+msgstr "Virtual Enterprise Machines Список"
+
+msgid "466"
+msgstr "Список машины"
+
+msgid "467"
+msgstr "VE станков"
+
+msgid "468"
+msgstr "Сбросить все вербальную информацию"
+
+msgid "469"
+msgstr "Вы можете связаться с нами по указанному адресу ниже:"
+
+msgid "470"
+msgstr "Отправленные"
+
+msgid "471"
+msgstr "Социальные медиа"
+
+msgid "472"
+msgstr "Info! Machine Tools Раздел!"
+
+msgid "473"
+msgstr "Вы можете иметь доступ к информации об организации машинного парка из этого раздела. При нажатии более нужного станка вы можете увидеть более подробную информацию, если она уже есть в системе."
+
+msgid "474"
+msgstr "Более подробную информацию о выбранной машины приводится ниже"
+
+msgid "475"
+msgstr "История компании"
+
+msgid "476"
+msgstr "Для того, чтобы дать лучшее описание продуктов и их производственные процессы компании могут добавлять видео продукта в этом разделе."
+
+msgid "477"
+msgstr "Обзор"
+
+msgid "478"
+msgstr "Инженер (ы)"
+
+msgid "479"
+msgstr "Внешняя торговля Персонал"
+
+msgid "480"
+msgstr "Техник (ы)"
+
+msgid "481"
+msgstr "Ostim Виртуальное предприятие мишенями»
+
+msgid "482"
+msgstr "И"
+
+msgid "483"
+msgstr "Инженер-механик"
+
+msgid "484"
+msgstr "Закончил свою кандидатскую исследования по проблеме виртуального предприятия и начал координировать деятельность по разработке VE коммерческого программного обеспечения."
+
+msgid "485"
+msgstr "Код разработчика"
+
+msgid "486"
+msgstr "Специалист базы данных"
+
+msgid "487"
+msgstr "Инженер-программист"
+
+msgid "488"
+msgstr "Ваше сообщение успешно отправлено!"
+
+msgid "489"
+msgstr "Всего инструментов зарегистрированных машин в системе"
+
+msgid "490"
+msgstr "Настройки"
+
+msgid "491"
+msgstr "Чтобы начать регистрацию"
+
+msgid "492"
+msgstr "Зарегистрироваться"
+
+msgid "493"
+msgstr "Не есть аккаунт? Нажмите"
+
+msgid "494"
+msgstr "Всегда оставаться в системе"
+
+msgid "495"
+msgstr "Сначала необходимо войти в"
+
+msgid "496"
+msgstr "Компания Члены"
+
+msgid "497"
+msgstr "Компания Machine Tools"
+
+msgid "498"
+msgstr "Компания" Счетчики производительности
+
+msgid "499"
+msgstr "Компания Продукция"
+
+msgid "500"
+msgstr "Профиль компании" Настройки
+
+msgid "501"
+msgstr "Проект Pool"
+
+msgid "502"
+msgstr "Проект Представление"
+
+msgid "503"
+msgstr "Профиль"
+
+msgid "504"
+msgstr "Настройки профиля пользователя"
+
+msgid "505"
+msgstr "Профиль пользователя" Комментарии
+
+msgid "506"
+msgstr "Профиль пользователя История"
+
+msgid "507"
+msgstr "Проекты"
+
+msgid "508"
+msgstr "Пароль"
+
+msgid "509"
+msgstr "Члены команды"
+
+msgid "510"
+msgstr "Награды"
+
+msgid "511"
+msgstr "Основана Страна компании"
+
+msgid "512"
+msgstr "Держите информацию о компании общественность"
+
+msgid "513"
+msgstr "Список адресов"
+
+msgid "514"
+msgstr "Мои контакты" Зарегистрированные
+
+msgid "515"
+msgstr "Тип контакта"
+
+msgid "516"
+msgstr "По умолчанию Контакт"
+
+msgid "517"
+msgstr "Компания" Комментарии
+
+msgid "518"
+msgstr "Поиск"
+
+msgid "519"
+msgstr "Сектор"
+
+msgid "520"
+msgstr "Go"
+
+msgid "521"
+msgstr "Редактировать компании Machine Tools"
+
+msgid "522"
+msgstr "Станочный Парк Изменение списка"
+
+msgid "523"
+msgstr "Консультант может редактировать все доступные инструменты машины в инвентаре консультантскими ответственных компаний" в соответствии с их категориями! "
+
+msgid "524"
+msgstr "Определить, добавлять, удалять или редактировать станки ..."
+
+msgid "525"
+msgstr "Категории"
+
+msgid "526"
+msgstr "Перечень станков консультантскими компаний"
+
+msgid "527"
+msgstr "Список станков компании"
+
+msgid "528"
+msgstr "Компания / машины"
+
+msgid "529"
+msgstr "Доступные машины в системе"
+
+msgid "530"
+msgstr "Профиль компании Настройка"
+
+msgid "531"
+msgstr "Параметры машины Парк"
+
+msgid "532"
+msgstr "Компания Станочный Парк"
+
