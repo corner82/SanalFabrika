@@ -128,10 +128,10 @@ $(document).ready(function () {
                         + "'>"
                         + "<span class='testimonials-author'>"
                         + data.rows[i].name + " " + data.rows[i].surname
-                        + "<br>"
-                        + "<em>"
-                        + data.rows[i].title
-                        + "</em>"
+//                        + "<br>"
+//                        + "<em>"
+//                        + data.rows[i].title
+//                        + "</em>"
                         + "</span>"
                         + "</div>"
                         + "<!-- End Testimonials v4 -->"
