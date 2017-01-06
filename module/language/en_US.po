@@ -1740,12 +1740,12 @@ msgstr "New Supplier Registration"
 msgid "573"
 msgstr "OSTİM Enterprise Registration"
 
-msgid "573"
+msgid "574"
 msgstr "Academia"
 
-msgid "574"
+msgid "575"
 msgstr "Expert"
 
-msgid "575"
+msgid "576"
 msgstr "Choose File"
 

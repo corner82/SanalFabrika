@@ -1735,10 +1735,13 @@ msgid "572"
 msgstr "新供应商注册"
 
 msgid "573"
-msgstr "OSTİM 企业注册"
+msgstr "OSTİM 企业登记"
 
 msgid "574"
-msgstr "专家"
+msgstr "学术界"
 
 msgid "575"
+msgstr "专家"
+
+msgid "576"
 msgstr "选择文件"

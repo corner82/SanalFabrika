@@ -15,652 +15,1732 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../view/layout/sfdm.phtml:1
-msgid "Virtual Enterprise Project"
-msgstr "المشاريع الظاهرية"
+msgid  "0"
+msgstr  "المؤسسة الافتراضية"
 
-#: ../view/layout/sfdm.phtml:2
-msgid "Virtual Enterprise Control Panel"
-msgstr "لوحة تحكم حاسوبى للمؤسسات"
+msgid  "1"
+msgstr  "مشروع المؤسسة الظاهري"
 
-#: ../view/layout/sfdm.phtml:3
-msgid "OSTIM"
-msgstr "اوستیم"
+msgid  "2"
+msgstr  "الظاهري لوحة تحكم المؤسسة"
 
-#: ../view/layout/sfdm.phtml:3
-msgid "OSTIM Technology A.Ş."
-msgstr "OSTIM Technology A.Ş."
+msgid  "3"
+msgstr  "التنمية متابعة"
+ 
+msgid  "4"
+msgstr  "OSTİM"
 
-#: ../view/layout/sfdm.phtml:4
-#: ../view/layout/sfdm.phtml:11
-msgid "Virtual Enterprise"
-msgstr "المشروع الافتراضى"
+msgid  "5"
+msgstr  "شركة تقنية OSTİM"
 
-#: ../view/layout/sfdm.phtml:5
-msgid "Active"
-msgstr "نشط"
+msgid  "6"
+msgstr  "المؤسسة الافتراضية"
 
-#: ../view/layout/sfdm.phtml:6
-msgid "Main Navigation"
-msgstr "الملاحة الرئيسية"
+msgid  "7"
+msgstr  "نشط"
 
-
-#: ../view/layout/layout.phtml:36
-msgid "Home"
-msgstr "الرئيسية"
-
-#: ../view/layout/layout.phtml:36
-msgid "Supervisor Dashboard"
-msgstr "المشرف لوح القيادة"
-
-#: ../view/layout/sfdm.phtml:8
-msgid "Enterprises"
-msgstr "الشركات"
-
-#: ../view/layout/sfdm.phtml:9
-msgid "Users"
-msgstr "المستخدمون"
-
-#: ../view/layout/sfdm.phtml:10
-msgid "Organizations"
-msgstr "المنظمات"
-
-#: ../view/layout/sfdm.phtml:12
-msgid "ECO-OSTIM"
-msgstr "ECO-OSTIM"
-
-#: ../view/layout/sfdm.phtml:13
-msgid "Definitions"
-msgstr "التعاريف"
-
-#: ../view/layout/sfdm.phtml:14
-msgid "Calendar"
-msgstr "التقويم"
-
-#: ../view/layout/sfdm.phtml:15
-msgid "Mail Box"
-msgstr "صندوق البريد"
-
-#: ../view/layout/sfdm.phtml:16
-msgid "My Documents"
-msgstr "المستندات"
-
-#: ../view/layout/sfdm.phtml:18
-msgid "Notifications"
-msgstr "اشعارات مزايا برامج الاصلية"
-
-#: ../view/layout/sfdm.phtml:18
-msgid "Show all notifications"
-msgstr "اظهار كافة الاشعارات"
-
-#: ../view/layout/sfdm.phtml:19
-msgid "New Messages"
-msgstr "رسائل جديدة"
-
-#: ../view/layout/sfdm.phtml:18
-msgid "Show all messages"
-msgstr "اظهار كافة الرسائل"
-
-#: ../view/layout/sfdm.phtml:20
-msgid "Works To Do"
-msgstr "لا يعمل"
-
-#: ../view/layout/sfdm.phtml:20
-msgid "Show all tasks"
-msgstr "اظهار كافة المهام"
-
-#: ../view/layout/sfdm.phtml:21
-msgid "Collaborating Companies"
-msgstr "وتتعاون الشركات"
-
-#: ../view/layout/sfdm.phtml:22
-msgid "Friends"
-msgstr "الاصدقاء"
-
-#: ../view/layout/sfdm.phtml:23
-msgid "Followers"
-msgstr "اتباع"
-
-#: ../view/layout/sfdm.phtml:24
-msgid "Profile"
-msgstr "ملف تعريف"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Log in"
-msgstr "تسجيل الدخول"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Log out"
-msgstr "تسجيل الخروج"
-
-#: ../view/layout/sfdm.phtml:26
-msgid "Layout Options"
-msgstr "خيارات المظاهر"
-
-#: ../view/layout/sfdm.phtml:27
-msgid "Fixed layout"
-msgstr "تصميم ثابت"
-
-#: ../view/layout/sfdm.phtml:28
-msgid "Activate the fixed layout. You can't use fixed and boxed layouts together"
-msgstr "تفعيل تخطيط محدد. لا يمكنك استخدام معالج التخطيطات الثابتة معا"
-
-#: ../view/layout/sfdm.phtml:29
-msgid "Boxed Layout"
-msgstr "تصميم العبوة الفردية"
-
-#: ../view/layout/sfdm.phtml:30
-msgid "Activate the boxed layout"
-msgstr "تفعيل تخطيط المعباة"
-
-#: ../view/layout/sfdm.phtml:31
-msgid "Toggle Sidebar"
-msgstr "للتبديل بين تشغيل الشريط الجانبى"
-
-#: ../view/layout/sfdm.phtml:32
-msgid "Toggle the left sidebar's state (open or collapse)"
-msgstr "للتبديل بين تشغيل الشريط الجانبى الايسر (الدولة او انهيارها)"
-
-#: ../view/layout/sfdm.phtml:33
-msgid "Sidebar Expand on Hover"
-msgstr "الشريط الجانبى التوسع تحلق"
-
-#: ../view/layout/sfdm.phtml:34
-msgid "Let the sidebar mini expand on hover"
-msgstr "واود ان توسع الشريط الجانبى الصغير تحلق"
-
-#: ../view/layout/sfdm.phtml:35
-msgid "Toggle Right Sidebar Slide"
-msgstr "للتبديل بين تشغيل الشريط الجانبى الايمن الشريحة"
-
-#: ../view/layout/sfdm.phtml:36
-msgid "Toggle between slide over content and push content effects"
-msgstr "للتبديل بين انخفاض محتوى ودفع اثار المحتوى"
-
-#: ../view/layout/sfdm.phtml:37
-msgid "Toggle Right Sidebar Skin"
-msgstr "للتبديل بين تشغيل الشريط الجانبى الايمن الجلد"
-
-#: ../view/layout/sfdm.phtml:38
-msgid "Toggle between dark and light skins for the right sidebar"
-msgstr "التبديل بين الالوان جلود حق الشريط الجانبى"
-
-#: ../view/layout/sfdm.phtml:39
-msgid "Skins"
-msgstr "الجلود"
-
-#: ../view/layout/sfdm.phtml:40
-msgid "Blue"
-msgstr "ازرق"
-
-#: ../view/layout/sfdm.phtml:41
-msgid "Black"
-msgstr "بلاك"
-
-#: ../view/layout/sfdm.phtml:42
-msgid "Purple"
-msgstr "الارجوانى"
-
-#: ../view/layout/sfdm.phtml:43
-msgid "Green"
-msgstr "اخضر"
+msgid  "8"
+msgstr  "قائمة التصفح الرئيسية"
 
-#: ../view/layout/sfdm.phtml:44
-msgid "Red"
-msgstr "الاحمر"
+msgid  "9"
+msgstr  "الوطن"
 
-#: ../view/layout/sfdm.phtml:45
-msgid "Yellow"
-msgstr "اصفر"
+msgid  "10"
+msgstr  "المشرف لوحة"
 
-#: ../view/layout/sfdm.phtml:46
-msgid "Blue Light"
-msgstr "ضوء ازرق"
-
-#: ../view/layout/sfdm.phtml:47
-msgid "Black Light"
-msgstr "بلاك لايت"
-
-#: ../view/layout/sfdm.phtml:48
-msgid "Purple Light"
-msgstr "ارجوانى فاتح"
-
-#: ../view/layout/sfdm.phtml:49
-msgid "Green Light"
-msgstr "الضوء الاخضر"
-
-#: ../view/layout/sfdm.phtml:50
-msgid "Red Light"
-msgstr "الضوء الاحمر"
-
-#: ../view/layout/sfdm.phtml:51
-msgid "Yellow Light"
-msgstr "ضوء اصفر"
-
-#: ../view/layout/sfdm.phtml:52
-msgid "Recent Activities"
-msgstr "الانشطة الحديثة"
-
-#: ../view/layout/sfdm.phtml:54
-msgid "Tasks Progress"
-msgstr "مهام التقدم"
-
-#: ../view/layout/sfdm.phtml:55
-msgid "General Settings"
-msgstr "الاعدادات العامة"
-
-#: ../view/layout/sfdm.phtml:56
-msgid "Report panel usage"
-msgstr "تقرير الفريق الاستخدام"
-
-#: ../view/layout/sfdm.phtml:57
-msgid "Some information about this general settings option"
-msgstr "بعض المعلومات عن هذا الخيار الاعدادات العامة"
-
-#: ../view/layout/sfdm.phtml:58
-msgid "Allow mail redirect"
-msgstr "السماح باعادة توجيه البريد الالكترونى"
-
-#: ../view/layout/sfdm.phtml:59
-msgid "Other sets of options are available"
-msgstr "مجموعات اخرى من الخيارات المتاحة"
-
-#: ../view/layout/sfdm.phtml:60
-msgid "Expose author name in posts"
-msgstr "يعرض اسم الكاتب فى الوظائف"
-
-#: ../view/layout/sfdm.phtml:61
-msgid "Allow the user to show his name in blog posts"
-msgstr "السماح للمستخدم اظهار اسمه فى المدونة"
-
-#: ../view/layout/sfdm.phtml:62
-msgid "Chat Settings"
-msgstr "اعدادات الدردشة"
-
-#: ../view/layout/sfdm.phtml:63
-msgid "Show me as online"
-msgstr "اظهرنى كغائب عبر الانترنت"
-
-#: ../view/layout/sfdm.phtml:64
-msgid "Turn off notifications"
-msgstr "ايقاف تشغيل الاعلامات"
-
-#: ../view/layout/sfdm.phtml:65
-msgid "Delete chat history"
-msgstr "حذف محفوظات الدردشة"
-
-#: ../view/layout/layout.phtml:50
-msgid "All rights reserved."
-msgstr "جميع الحقوق محفوظة لـ "
-
-#: ../view/layout/layout.phtml:66
-msgid "Copyright"
-msgstr "حقوق النشر"
-
-#: ../view/layout/layout.phtml:67
-msgid "Version"
-msgstr "الاصدار"
-
-
-#: ../view/application/index/index.phtml:2
-#, php-format
-msgid "Welcome to %sOSTIM Virtual Enterprise System%s"
-msgstr "أهلا بك في  %sOSTIM نظام حاسوبى للمؤسسات%s"
+msgid  "11"
+msgstr  "الشركات"
 
-#: ../view/error/index.phtml:1
-msgid "An error occurred"
-msgstr "حدث خطا"
+msgid  "12"
+msgstr  "المستخدمون"
 
-#: ../view/error/index.phtml:19
-#: ../view/error/index.phtml:43
-#: ../view/error/404.phtml:55
-msgid "Stack trace"
-msgstr "تتبع الحدث"
-
-#: ../view/error/index.phtml:29
-msgid "Previous exceptions"
-msgstr "الاستثناءات السابقة"
-
-#: ../view/error/index.phtml:58
-msgid "No Exception available"
-msgstr "لم يحدث استثناءات"
-
-#: ../view/error/404.phtml:1
-msgid "A 404 error occurred"
-msgstr "حدث خطأ 404"
-
-#: ../view/error/404.phtml:10
-msgid "The requested controller was unable to dispatch the request."
-msgstr "لم تستطع وحدة التحكم معالجة الطلب"
-
-#: ../view/error/404.phtml:13
-msgid "The requested controller could not be mapped to an existing controller class."
-msgstr "لم يستطع ZF2 من مطابقة وحدة التحكم المطلوبة بالمصنفات الموجودة"
-
-#: ../view/error/404.phtml:16
-msgid "The requested controller was not dispatchable."
-msgstr "لم يتم مطابقة وحدة التحكم المطلوبة"
-
-#: ../view/error/404.phtml:19
-msgid "The requested URL could not be matched by routing."
-msgstr "عنوان URL المطلوب لا يمكن ان تقابلها التوجيه"
-
-#: ../view/error/404.phtml:22
-msgid "We cannot determine at this time why a 404 was generated."
-msgstr "لا يمكننا تحديد هذه المرة لماذا تم انشاء 404"
-
-#: ../view/error/404.phtml:34
-msgid "Controller"
-msgstr "المراقب المالى"
-
-#: ../view/error/404.phtml:41
-#, php-format
-msgid "resolves to %s"
-msgstr "يقرر %s"
-
-#: ../view/error/404.phtml:51
-msgid "Exception"
-msgstr "استثناء"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Help"
-msgstr "المساعدة"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Frequently Asked Questions"
-msgstr "الاسئلة المتداولة"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Languages"
-msgstr "اللغات"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Learn more"
-msgstr "تعرف على المزيد"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Job"
-msgstr "عملنا"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "VE Team"
-msgstr "VE فريق"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Overall Manufacturing Area"
-msgstr "مساحت منطقة الصناعة ككل"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Machine Park Size"
-msgstr "حجم الجهاز بارك"
-
-#: ../view/layout/sfdm.phtml:25
-msgid "Overall Enterprise Number"
-msgstr "اجمالى عدد المشاريع"
+msgid  "13"
+msgstr  "المنظمات"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Employees"
-msgstr "الموظفين"
+msgid  "14"
+msgstr  "ECO-OSTİM"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Marketing and Consulting"
-msgstr "والتسويق والاستشارة"
+msgid  "15"
+msgstr  "الخدمات OSTİM"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Organization"
-msgstr "منظمتنا"
+msgid  "16"
+msgstr  "تعريفات"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Imports"
-msgstr "الواردات"
+msgid  "17"
+msgstr  "التقويم"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Exports"
-msgstr "الصادرات"
+msgid  "18"
+msgstr  "صندوق بريد"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Employees"
-msgstr "موظفونا"
+msgid  "19"
+msgstr  "المستندات"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Services"
-msgstr "خدماتنا"
+msgid  "20"
+msgstr  "الإخطارات"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Portfolio"
-msgstr "مجموعة منتجاتنا"
+msgid  "21"
+msgstr  "مشاهدة جميع الإخطارات"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Load More"
-msgstr "حمولة اكبر"
+msgid  "22"
+msgstr  "رسائل جديدة"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Our Clients"
-msgstr "عملاءنا"
+msgid  "23"
+msgstr  "إظهار كافة الرسائل"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Order"
-msgstr "الامر"
+msgid  "24"
+msgstr  "يعمل تفعل"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Request for Quote"
-msgstr "طلب الاسعار"
+msgid  "25"
+msgstr  "إظهار كافة المهام"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Contact us"
-msgstr "الاتصال بنا"
+msgid  "26"
+msgstr  "الشركات المتعاونة"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Name"
-msgstr "الاسم"
+msgid  "27"
+msgstr  "أصدقاء"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Email"
-msgstr "البريد الالكترونى"
+msgid  "28"
+msgstr  "المتابعون"
 
-#: ../view/error/index.phtml:15
-#: ../view/error/index.phtml:39
-msgid "Message"
-msgstr "رسالة"
+msgid  "29"
+msgstr  "الملف الشخصي"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Send Message"
-msgstr "ارسال رسالة"
+msgid  "30"
+msgstr  "تسجيل الدخول"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Negotiation"
-msgstr "التفاوض"
+msgid  "31"
+msgstr  "تسجيل الخروج"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Auction"
-msgstr "المزاد"
+msgid  "32"
+msgstr  "خيارات التخطيط"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Auctioning"
-msgstr "بيع بالمزاد العلني"
+msgid  "33"
+msgstr  "تخطيط الثابت"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Latest News"
-msgstr "احدث الاخبار"
+msgid  "34"
+msgstr  "تفعيل التنسيق الثابت. لا يمكنك استخدام تخطيطات الثابتة ومحاصر معا"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Integrating the Capabilities and Capacities of more than 5,000 Companies with 60,000 Employees"
-msgstr "دمج امكانات وقدرات اكثر من 5,000 شركة يعمل فيها 60 الف شخص"
+msgid  "35"
+msgstr  "محاصر تخطيط"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Opening OSTIM manufacturing capabilities to the customers from all over the world"
-msgstr "فتح قدرات تصنيع OSTIM الزبائن من جميع انحاء العالم"
+msgid  "36"
+msgstr  "تنشيط تخطيط محاصر"
 
-#: ../view/layout/sfdm.phtml:25
-msgid "Company Registration"
-msgstr "التسجيل الشركة"
+msgid  "37"
+msgstr  "تبديل الشريط الجانبي"
 
+msgid  "38"
+msgstr  "تبديل حالة الشريط الجانبي اليسار (فتح أو انهيار)"
 
+msgid  "39"
+msgstr  "الشريط الجانبي توسيع على التحويم"
 
+msgid  "40"
+msgstr  وقال "دعونا مصغرة الشريط الجانبي توسيع على التحويم"
 
+msgid  "41"
+msgstr  "الشريحة تبديل الحق في الشريط الجانبي"
 
+msgid  "42"
+msgstr  "تبديل بين الشرائح والمحتوى دفعة من الآثار المحتوى"
 
-msgid "Company"
-msgstr "الشركة"
+msgid  "43"
+msgstr  "الجلد تبديل الحق في الشريط الجانبي"
 
-msgid "Virtual Enterprise Company Registration"
-msgstr "المشروع الافتراضى لتسجيل الشركة"
+msgid  "44"
+msgstr  "تبديل بين الجلود الداكنة والفاتحة للالشريط الجانبي الصحيح"
 
-msgid "General Information"
-msgstr "معلومات عامة"
+msgid  "45"
+msgstr  "جلود"
 
-msgid "Communication"
-msgstr "الاتصالات"
+msgid  "46"
+msgstr  "الأزرق"
 
-msgid "Financial"
-msgstr "المالية"
+msgid  "47"
+msgstr  "الأسود"
 
-msgid "Personel"
-msgstr "اكفاء"
+msgid  "48"
+msgstr  "البنفسجي"
 
-msgid "Logo"
-msgstr "شعار"
+msgid  "49"
+msgstr  "الخضراء"
 
-msgid "Tax Number"
-msgstr "ورقم ضريبة القيمة المضافة"
+msgid  "50"
+msgstr  "الأحمر"
 
-msgid "Tax Office"
-msgstr "مكتب الضرائب"
+msgid  "51"
+msgstr  "الأصفر"
 
-msgid "Social Security Number"
-msgstr "رقم الضمان الاجتماعى"
+msgid  "52"
+msgstr  "الضوء الأزرق"
 
-msgid "Foundation Date"
-msgstr "تاريخ المؤسسة"
+msgid  "53"
+msgstr  "الضوء الأسود"
 
-msgid "Web Address"
-msgstr "عنوان الويب"
+msgid  "54"
+msgstr  "أرجواني فاتح"
 
-msgid "Submit"
-msgstr "تقديم"
+msgid  "55"
+msgstr  "الضوء الأخضر"
 
-msgid "Cancel"
-msgstr "الغاء"
+msgid  "56"
+msgstr  "الضوء الأحمر"
 
-msgid "Building Type"
-msgstr "نوع المبنى"
+msgid  "57"
+msgstr  "الضوء الأصفر"
 
-msgid "Building Name"
-msgstr "اسم المبنى"
+msgid  "58"
+msgstr  "الأنشطة الحديثة"
 
-msgid "Country"
-msgstr "البلد"
+msgid  "59"
+msgstr  "مهام التقدم"
 
-msgid "State"
-msgstr "الدولة"
+msgid  "60"
+msgstr  "إعدادات عامة"
 
-msgid "Province"
-msgstr "المقاطعة"
+msgid  "61"
+msgstr  "استخدام لوحة تقرير"
 
-msgid "City"
-msgstr "المدينة"
+msgid  "62"
+msgstr  "بعض المعلومات حول هذا الخيار إعدادات العام"
 
-msgid "District"
-msgstr "حى"
+msgid  "63"
+msgstr  "السماح إعادة توجيه البريد الإلكتروني"
 
-msgid "Village"
-msgstr "القرية"
+msgid  "64"
+msgstr  "تتوفر مجموعات أخرى من الخيارات"
 
-msgid "Street"
-msgstr "الشارع"
+msgid  "65"
+msgstr  "فضح اسم المؤلف في المشاركات"
 
-msgid "Alley"
-msgstr "بالحارة"
+msgid  "66"
+msgstr  "السماح للمستخدم لاظهار اسمه في بلوق وظيفة"
 
-msgid "Number"
-msgstr "عدد"
+msgid  "67"
+msgstr  "إعدادات الدردشة"
 
-msgid "Postal Code"
-msgstr "الرمز البريدى"
+msgid  "68"
+msgstr  "أرني خط"
 
-msgid "Telephone"
-msgstr "الهاتف"
+msgid  "69"
+msgstr  "إيقاف الإخطارات"
 
-msgid "Fax"
-msgstr "فاكس"
+msgid  "70"
+msgstr  "حذف دردشة التاريخ"
 
-msgid "Update"
-msgstr "تحديث"
+msgid  "71"
+msgstr  "جميع الحقوق محفوظة".
 
-msgid "Add New Address"
-msgstr "اضافة عنوان جديد"
+msgid  "72"
+msgstr  "حقوق النشر"
 
-msgid "Update Company Information"
-msgstr "تحديث بيانات الشركة"
+msgid  "73"
+msgstr  "نسخة"
 
-msgid "List of Companies"
-msgstr "قائمة الشركات"
+msgid  "74"
+msgstr  "مرحبا بكم في OSTİM نظام المؤسسة الظاهري"
 
-msgid "List of Machine Tools"
-msgstr "قائمة الالات"
+msgid  "75"
+msgstr  "حدث خطأ"
 
-msgid "New Submission"
-msgstr "عرض جديد"
+msgid  "76"
+msgstr  "رسالة"
 
-msgid "Manufacturing Machine Tools"
-msgstr "تصنيع الالات"
+msgid  "77"
+msgstr  "تتبع المكدس"
 
-msgid "Quality Control Equipment"
-msgstr "معدات مراقبة الجودة"
+msgid  "78"
+msgstr  "الاستثناءات السابقة"
 
-msgid "Others"
-msgstr "اخرون"
+msgid  "79"
+msgstr  "لا استثناء متوفر"
 
-msgid "Manufacturing Operation Type"
-msgstr "عملية التصنيع النوع"
+msgid  "80"
+msgstr  "حدث خطأ 404"
 
-msgid "Machine Tool Type"
-msgstr "المخارط النوع"
+msgid  "81"
+msgstr  "كان وحدة تحكم طلب غير قادر على ارسال الطلب."
 
-msgid "Add New Machine Tool"
-msgstr "اضافة جهاز جديد الاداة"
+msgid  "82"
+msgstr  "وحدة تحكم المطلوبة لا يمكن تعيينها إلى فئة حدة تحكم موجودة."
 
-msgid "Measurement Process Type"
-msgstr "وعملية القياس النوع"
+msgid  "83"
+msgstr  "لم يطلب وحدة تحكم لdispatchabl."
 
-msgid "Quality Control Tool Type"
-msgstr "مراقبة الجودة نوع الاداة"
+msgid  "84"
+msgstr  "وقد طلبت عنوان قد لا تكون مطابقة من قبل التوجيه".
 
-msgid "Add New Q.C. Device"
-msgstr "اضافة جهاز جديد لمراقبة الجودة"
+msgid  "85"
+msgstr  "لا يمكننا determin الحصان هذا الوقت لماذا تم إنشاء 404".
 
-msgid "Update Machine Tool Information"
-msgstr "تحديث معلومات المخارط"
+msgid  "86"
+msgstr  "تحكم"
 
-msgid "Add New Device"
-msgstr "اضافة جهاز جديد"
+msgid  "87"
+msgstr  "يقرر إلى٪ s"
 
-msgid "Software Information"
-msgstr "معلومات حول البرنامج"
+msgid  "88"
+msgstr  "استثناء"
 
-msgid "List of Software"
-msgstr "قائمة البرامج"
+msgid  "89"
+msgstr  "مساعدة"
 
-msgid "Update Information"
-msgstr "تحديث المعلومات"
+msgid  "90"
+msgstr  "أسئلة وأجوبة"
 
-msgid "Update software information"
-msgstr "تحديث معلومات حول البرنامج"
+msgid  "91"
+msgstr  "اللغات"
 
-msgid "Add New Software"
-msgstr "اضافة برامج جديدة"
+msgid  "92"
+msgstr  "تعرف على المزيد"
 
-msgid "Select a country ... "
-msgstr " ... اختيار بلد"
+msgid  "93"
+msgstr  "وظيفة واحدة"
 
-msgid "Select a province ... "
-msgstr " ... حدد المقاطعة"
+msgid  "94"
+msgstr  "وفريق"
 
-msgid "Select a district ... "
-msgstr " ... اختر منطقة"
+msgid  "95"
+msgstr  "منطقة التصنيع بشكل عام"
 
-msgid "Select a village ... "
-msgstr " ... حدد احدى القرى"
+msgid  "96"
+msgstr  "بارك الجهاز الخاص بك"
 
-msgid "Search..."
-msgstr "...البحث"
+msgid  "97"
+msgstr  "عدد المشاريع العام"
+
+msgid  "98"
+msgstr  "الموظفين"
+
+msgid  "99"
+msgstr  "التسويق والاستشارات"
+
+msgid  "100"
+msgstr  "منظمتنا"
+msgid  "101"
+msgstr  "الواردات"
+
+msgid  "102"
+msgstr  "الصادرات"
+
+msgid  "103"
+msgstr  "موظفونا"
+
+msgid  "104"
+msgstr  "خدماتنا"
+
+msgid  "105"
+msgstr  "لدينا محفظة"
+
+msgid  "106"
+msgstr  "تحميل أكثر"
+
+msgid  "107"
+msgstr  "عملاؤنا"
+
+msgid  "108"
+msgstr  "النظام"
+
+msgid  "109"
+msgstr  "طلب اقتباس"
+
+msgid  "110"
+msgstr  "اتصل بنا"
+
+msgid  "111"
+msgstr  "اسم"
+
+msgid  "112"
+msgstr  "البريد الإلكتروني"
+
+msgid  "113"
+msgstr  "إرسال رسالة"
+
+msgid  "114"
+msgstr  "التفاوض"
+
+msgid  "115"
+msgstr  "مزاد"
+
+msgid  "116"
+msgstr  "بيع بالمزاد العلني"
+
+msgid  "117"
+msgstr  "آخر الأخبار"
+
+msgid  "118"
+msgstr  "دمج قدرات وقدرات أكثر من 5000 موظف 60،000 الشركات مع"
+
+msgid  "119"
+msgstr  "فتح قدرات التصنيع OSTİM للعملاء من جميع أنحاء العالم"
+
+msgid  "120"
+msgstr  "الشركة"
+
+msgid  "121"
+msgstr  "الظاهري تسجيل الشركة المؤسسة"
+
+msgid  "122"
+msgstr  "الاتصالات"
+
+msgid  "123"
+msgstr  "المالية"
+
+msgid  "124"
+msgstr  "شخصية"
+
+msgid  "125"
+msgstr  "الشعار"
+
+msgid  "126"
+msgstr  "الرقم الضريبي"
+
+msgid  "127"
+msgstr  "مكتب الضرائب"
+
+msgid  "128"
+msgstr  "رقم الضمان الاجتماعي"
+
+msgid  "129"
+msgstr  "تاريخ المؤسسة"
+
+msgid  "130"
+msgstr  "عنوان الويب"
+
+msgid  "131"
+msgstr  "إرسال"
+
+msgid  "132"
+msgstr  "إلغاء"
+
+msgid  "133"
+msgstr  "نوع البناء"
+
+msgid  "134"
+msgstr  "اسم مبنى"
+
+msgid  "135"
+msgstr  "البلد"
+
+msgid  "136"
+msgstr  "الدولة"
+
+msgid  "137"
+msgstr  "مقاطعة"
+
+msgid  "138"
+msgstr  "المدينة"
+
+msgid  "139"
+msgstr  "مقاطعة"
+
+msgid  "140"
+msgstr  "القرية"
+
+msgid  "141"
+msgstr  "شارع"
+
+msgid  "142"
+msgstr  "زقاق"
+
+msgid  "143"
+msgstr  "الرقم"
+
+msgid  "145"
+msgstr  "الرمز البريدي"
+
+msgid  "146"
+msgstr  "الهاتف"
+
+msgid  "147"
+msgstr  "الهاتف"
+
+msgid  "148"
+msgstr  "الفاكس"
+
+msgid  "149"
+msgstr  "تحديث"
+
+msgid  "150"
+msgstr  "إضافة عنوان جديد"
+
+msgid  "151"
+msgstr  "معلومات عن الشركة تحديث"
+
+msgid  "152"
+msgstr  "تسجيل الشركة"
+
+msgid  "153"
+msgstr  "قائمة الشركات"
+
+msgid  "154"
+msgstr  "قائمة أدوات آلة"
+
+msgid  "155"
+msgstr  "تقديم الجديد"
+
+msgid  "156"
+msgstr  "أدوات آلة التصنيع"
+
+msgid  "157"
+msgstr  "معدات مراقبة الجودة"
+
+msgid  "158"
+msgstr  "أخرى"
+
+msgid  "159"
+msgstr  "التصنيع النوع العملية"
+
+msgid  "160"
+msgstr  "آلة أداة الكتابة"
+
+msgid  "161"
+msgstr  "إضافة أداة آلة الجديد"
+
+msgid  "162"
+msgstr  "نوع العملية القياس"
+
+msgid  "163"
+msgstr  "نوع أداة مراقبة الجودة"
+
+msgid  "164"
+msgstr  "Q.C. إضافة جهاز جديد"
+
+msgid  "165"
+msgstr  "آلة أداة معلومات تحديث"
+
+msgid  "166"
+msgstr  "إضافة جهاز جديد"
+
+msgid  "167"
+msgstr  "معلومات البرنامج"
+
+msgid  "168"
+msgstr  "قائمة البرامج"
+
+msgid  "169"
+msgstr  "تحديث المعلومات البرمجيات"
+
+msgid  "170"
+msgstr  "إضافة برنامج جديد"
+
+msgid  "171"
+msgstr  "اختر البلد ..."
+
+msgid  "172"
+msgstr  "اختر المحافظة ..."
+
+msgid  "173"
+msgstr  "تحديد منطقة ..."
+
+msgid  "174"
+msgstr  "اختر قرية ..."
+
+msgid  "175"
+msgstr  "البحث ..."
+
+msgid  "176"
+msgstr  "معلومات عامة"
+
+msgid  "177"
+msgstr  "معلومات عنوان"
+
+msgid  "178"
+msgstr  "الاتصالات والمعلومات"
+
+msgid  "179"
+msgstr  "معلومات الشركة"
+
+msgid  "180"
+msgstr  "الرجاء اختيار الدولة من القائمة ..."
+
+msgid  "181"
+msgstr  "الرجاء اختر مدينة من قائمة ..."
+
+msgid  "182"
+msgstr  "الرجاء اختيار منطقة من القائمة ..."
+
+msgid  "183"
+msgstr  "الرجاء اختيار قرية من قائمة ..."
+
+msgid  "184"
+msgstr  "متابعة لمعالجة المعلومات"
+
+msgid  "185"
+msgstr  "مواصلة المعلومات والاتصالات"
+
+msgid  "186"
+msgstr  "إعادة تعيين"
+
+msgid  "187"
+msgstr  "التسجيل"
+
+msgid  "188"
+msgstr  "الاسم الأول"
+
+msgid  "189"
+msgstr  "اسم العائلة"
+
+msgid  "190"
+msgstr  "اسم المستخدم المفضل"
+
+msgid  "191"
+msgstr  "كلمة السر المفضل"
+
+msgid  "192"
+msgstr  "كرر كلمة السر"
+
+msgid  "193"
+msgstr  "رقم الهوية (TC رقم الهوية للمواطنين الأتراك)"
+
+msgid  "194"
+msgstr  "اللغة المفضلة"
+
+msgid  "195"
+msgstr  "جعل ملفي الشخصي عاما"
+
+msgid  "196"
+msgstr  "نوع الاتصالات"
+
+msgid  "197"
+msgstr  "الرجاء اختيار نوع الاتصال من قائمة ..."
+
+msgid  "198"
+msgstr  "تعيين هذا العدد إلى رقم الاتصال الافتراضي"
+
+msgid  "199"
+msgstr  "رقم الاتصال"
+
+msgid  "200"
+msgstr  "إرسال الرقم"
+
+msgid  "201"
+msgstr  "الوصف"
+
+msgid  "202"
+msgstr  "اتصالات اضاف"
+
+msgid  "203"
+msgstr  "أنا أتفق مع شروط والشروط"
+
+msgid  "204"
+msgstr  "الكامل العضو عملية تقديم"
+
+msgid  "205"
+msgstr  "مواصلة معلومات عن الشركة"
+
+msgid  "206"
+msgstr  "اسم الشركة"
+
+msgid  "207"
+msgstr  "PREFERRED الرجاء اختيار لغتك من القائمة ..."
+
+msgid  "208"
+msgstr  "إظهار كل ما عندي من عناوين مسجلة"
+
+msgid  "209"
+msgstr  "يا عناوين مسجلة"
+
+msgid  "210"
+msgstr  "قائمة جهات الاتصال"
+
+msgid  "211"
+msgstr  "تحرير عنوانه المختار"
+
+msgid  "212"
+msgstr  "إغلاق"
+
+msgid  "213"
+msgstr  في "نوع عنوان"
+
+msgid  "214"
+msgstr  "عنوان الفواتير"
+
+msgid  "215"
+msgstr  "العنوان البريدي"
+
+msgid  "216"
+msgstr  "التقدم المهام"
+
+msgid  "217"
+msgstr  "تسجيل المستخدم"
+
+msgid  "218"
+msgstr  "تسجيل الشركة"
+
+msgid  "219"
+msgstr  "عملية التسجيل"
+
+msgid  "220"
+msgstr  "عنوان 1"
+
+msgid  "221"
+msgstr  "العنوان 2"
+
+msgid  "222"
+msgstr  "إظهار كلمة المرور الخاصة بي"
+
+msgid  "223"
+msgstr  "جعل المعلومات عنوان بريدي الجمهور"
+
+msgid  "224"
+msgstr  "جعل معلومات الاتصال الخاصة بي جمهور"
+
+msgid  "225"
+msgstr  "إظهار كل ما عندي مسجلة معلومات الاتصال"
+
+msgid  "226"
+msgstr  "عدد يسئن"
+
+msgid  "227"
+msgstr  "اسم الشركة قصيرة"
+
+msgid  "228"
+msgstr  "العودة"
+
+msgid  "229"
+msgstr  "من نحن"
+
+msgid  "230"
+msgstr  "الخدمات"
+
+msgid  "231"
+msgstr  "الأخبار"
+
+msgid  "232"
+msgstr  "اتصالات"
+
+msgid  "233"
+msgstr  "قوائم فرعية"
+
+msgid  "234"
+msgstr  "مين"
+
+msgid  "235"
+msgstr  "حالة ملكية"
+
+msgid  "236"
+msgstr  "لوحة آلة أداة الشركة"
+
+msgid  "237"
+msgstr  "بعض الأنشطة"
+
+msgid  "238"
+msgstr  "قائمة من الأنشطة"
+
+msgid  "239"
+msgstr  "قائمة أدوات آلة شركة"
+
+msgid  "240"
+msgstr  "أدوات آلة شركة"
+
+msgid  "241"
+msgstr  "المتوفرة في أدوات النظام آلة"
+
+msgid  "242"
+msgstr  "اقتراح الأدوات الآلية الجديدة"
+
+msgid  "243"
+msgstr  "نموذج المقترح"
+
+msgid  "244"
+msgstr  "آلة الصانع"
+
+msgid  "245"
+msgstr  "اسم الجهاز"
+
+msgid  "246"
+msgstr  "آلة نموذج"
+
+msgid  "247"
+msgstr  "نوع الجهاز"
+
+msgid  "247-1"
+msgstr  "المحددة نوع آلة"
+
+msgid  "248"
+msgstr  "خصائص الجهاز"
+
+msgid  "249"
+msgstr  "إرسال أداة آلة جديدة"
+
+msgid  "250"
+msgstr  "اللغة"
+
+msgid  "251"
+msgstr  "معلومات الجهاز أداة عامة"
+
+msgid  "252"
+msgstr  "معلومات الجهاز خصائص أداة"
+
+msgid  "253"
+msgstr  "إضافة آلة المختارة"
+
+msgid  "254"
+msgstr  "تفاصيل"
+
+msgid  "255"
+msgstr  "من فضلك أدخل آلة اسم الصانع (العلامة التجارية)"
+
+msgid  "256"
+msgstr  "من فضلك أدخل آلة اسم (سلسلة)"
+
+msgid  "257"
+msgstr  "من فضلك أدخل آلة نموذج (إنتاج سنة)"
+
+msgid  "258"
+msgstr  "نبذة عن الشركة"
+
+msgid  "259"
+msgstr  "الإخطار"
+
+msgid  "260"
+msgstr  "المراجع"
+
+msgid  "261"
+msgstr  "آخر المشاركات"
+
+msgid  "262"
+msgstr  "روابط مفيدة"
+
+msgid  "263"
+msgstr  "اتصل بنا"
+
+msgid  "264"
+msgstr  "مؤسسة الظاهرية (VE) هو تحالف مؤقت من الأعمال التي تأتي معا لتبادل المهارات أو الكفاءات الأساسية والموارد من أجل الرد الأفضل أن فرص العمل، والذي تعاون العمل بدعم من شبكات الكمبيوتر."
+
+msgid  "265"
+msgstr  "أنا آخر الأخبار حول نظام التشغيل و"
+
+msgid  "266"
+msgstr  "أنا OS الكتل نيوز"
+
+msgid  "267"
+msgstr  "مشروع جديد يدعو"
+
+msgid  "268"
+msgstr  "المنطقة الصناعية المؤسسية المنظمة"
+
+msgid  "269"
+msgstr  "وزارة التركية لSIT"
+
+msgid  "270"
+msgstr  "توبيتاك"
+
+msgid  "271"
+msgstr  "KOSGEB"
+
+msgid  "272"
+msgstr  "شروط الخدمة"
+
+msgid  "273"
+msgstr  "سياسة الخصوصية"
+
+msgid  "274"
+msgstr  "جميع الحقوق محفوظة".
+
+msgid  "275"
+msgstr  "مؤشرات الشركة"
+
+msgid  "276"
+msgstr  "إجمالي نبذة عن آخر"
+
+msgid  "277"
+msgstr  "آخر ستة شهور"
+
+msgid  "278"
+msgstr  "آخر اثني عشر شهرا"
+
+msgid  "279"
+msgstr  "معدل للزائرين لجميع الزوار"
+
+msgid  "280"
+msgstr  "مجموع الزوار النظام"
+
+msgid  "281"
+msgstr  "مجموع أدوات آلة عدد شركة"
+
+msgid  "282"
+msgstr  "وأضاف الآلات المكنية في 6 أشهر الماضية"
+
+msgid  "283"
+msgstr  "وأضاف الآلات المكنية في الأشهر ال 12 الماضية"
+
+msgid  "284"
+msgstr  "أسعار الآلات المكنية في الأشهر ال 12 الماضية وأضاف لآلات الشركة العامة"
+
+msgid  "285"
+msgstr  "يناير"
+
+msgid  "286"
+msgstr  "فبراير"
+
+msgid  "287"
+msgstr  "ماركي"
+
+msgid  "288"
+msgstr  "أبريل"
+
+msgid  "289"
+msgstr  "مايو"
+
+msgid  "290"
+msgstr  "يونيو"
+
+msgid  "291"
+msgstr  "يوليو"
+
+msgid  "292"
+msgstr  "أغسطس"
+
+msgid  "293"
+msgstr  "سبتمبر"
+
+msgid  "294"
+msgstr  "أكتوبر"
+
+msgid  "295"
+msgstr  "نوفمبر"
+
+msgid  "296"
+msgstr  "ديسمبر"
+
+msgid  "297"
+msgstr  "اليوم"
+
+msgid  "298"
+msgstr  "أمس"
+
+msgid  "299"
+msgstr  "غدا"
+
+msgid  "300"
+msgstr  "منتجات الشركة"
+msgid  "301"
+msgstr  "المنتجات عينة"
+
+msgid  "302"
+msgstr  "وصفا موجزا حول المنتجات"
+
+msgid  "303"
+msgstr  "هذه الشركة هو انتاج منتجات التالية التي ترد أدناه"
+
+msgid  "304"
+msgstr  "الفيديو المنتج نموذج"
+
+msgid  "305"
+msgstr  "قائمة المنتجات"
+
+msgid  "306"
+msgstr  "إجمالي مشاريع الشركة \ 'ق"
+
+msgid  "307"
+msgstr  "انتهى بنجاح"
+
+msgid  "308"
+msgstr  "في التقدم"
+
+msgid  "309"
+msgstr  "نسبة المشاريع المنجزة بنجاح"
+
+msgid  "310"
+msgstr  "من الشهر الماضي"
+
+msgid  "311"
+msgstr  "شهادات الجودة وستاندرد"
+
+msgid  "312"
+msgstr  "شهادة المكتسبة في العام الماضي"
+
+msgid  "313"
+msgstr  "بطلب للحصول على شهادات جديدة"
+
+msgid  "314"
+msgstr  "معدل الشهادات المطلوبة"
+
+msgid  "315"
+msgstr  "العالي"
+
+msgid  "316"
+msgstr  "من العام الماضي"
+
+msgid  "317"
+msgstr  "مؤشرات الشركة"
+
+msgid  "318"
+msgstr  "المهندسين"
+
+msgid  "319"
+msgstr  "الموظفين التجارة الخارجية"
+
+msgid  "320"
+msgstr  "الفنيون"
+
+msgid  "321"
+msgstr  "عدد الموظفين"
+
+msgid  "322"
+msgstr  "متر الشركة"
+
+msgid  "323"
+msgstr  "الشركة جودة الأداء"
+
+msgid  "324"
+msgstr  "السنة الماضية زيادة نسبة"
+
+msgid  "325"
+msgstr  "الأداء العام"
+
+msgid  "326"
+msgstr  "شهادات الجودة المتاحة ومعايير"
+
+msgid  "327"
+msgstr  "إتمام المشروع الأداء"
+
+msgid  "328"
+msgstr  "مشاريع أسهم"
+
+msgid  "329"
+msgstr  "أنجزت بنجاح"
+
+msgid  "330"
+msgstr  "المشاريع التي لم تكتمل"
+
+msgid  "331"
+msgstr  "مشاريع في التقدم"
+
+msgid  "332"
+msgstr  "معدل رضا العملاء"
+
+msgid  "333"
+msgstr  "العملاء الموافقة"
+
+msgid  "334"
+msgstr  "العملاء واشتكى"
+
+msgid  "335"
+msgstr  "شركة أدوات آلة"
+
+msgid  "336"
+msgstr  "ويرد المزيد من المعلومات عن الجهاز حددتها أسفل"
+
+msgid  "337"
+msgstr  "مجموع أدوات آلة"
+
+msgid  "338"
+msgstr  "آلات التصنيع باستخدام الحاسب الآلي"
+
+msgid  "339"
+msgstr  "أدوات الآلة الخاصة"
+
+msgid  "340"
+msgstr  "آلات غير متوفر"
+
+msgid  "341"
+msgstr  "نموذج أدوات آلة الفيديو"
+
+msgid  "342"
+msgstr  "أعضاء الشركة"
+
+msgid  "343"
+msgstr  "الموظفين شركة مسجلة"
+
+msgid  "344"
+msgstr  "عملاء المؤسسة الظاهري"
+
+msgid  "345"
+msgstr  "عميل ل"
+
+msgid  "346"
+msgstr  "لمزيد من المعلومات، يرجى الاتصال بنا الأسئلة"
+
+msgid  "347"
+msgstr  "الاتصال"
+
+msgid  "348"
+msgstr  "لوحة"
+
+msgid  "348-1"
+msgstr  "لوحة الاتصال"
+
+msgid  "349"
+msgstr  "معلومات الاتصال"
+
+msgid  "350"
+msgstr  "تركيا"
+
+msgid  "351"
+msgstr  "ساعات العمل"
+
+msgid  "352"
+msgstr  "أسبوع أيام mon- جمعة"
+
+msgid  "353"
+msgstr  "عطلة نهاية الأسبوع بيع"
+
+msgid  "354"
+msgstr  "عطلة نهاية الأسبوع الشمس"
+
+msgid  "355"
+msgstr  "مغلق"
+
+msgid  "356"
+msgstr  "لمزيد من المعلومات يرجى البقاء على اتصال ..."
+
+msgid  "357"
+msgstr  "بناء على طلبك، وساعات العمل يمكن تنقيح ..."
+
+msgid  "358"
+msgstr  "كتابة التفاصيل ..."
+
+msgid  "359"
+msgstr  "اسأل سؤالك"
+
+msgid  "360"
+msgstr  "لدينا المهنة ..."
+
+msgid  "361"
+msgstr  "رؤيتنا ..."
+
+msgid  "362"
+msgstr  "نحن على المنافسة في ..."
+
+msgid  "363"
+msgstr  "الإنتاج ومراقبة الجودة المهندس"
+
+msgid  "364"
+msgstr  "الشركة فترة المعلومات التحديث"
+
+msgid  "365"
+msgstr  "نسبة الانجاز لمحة عن الشركة"
+
+msgid  "366"
+msgstr  "فترة تحديث بيانات الجهاز"
+
+msgid  "367"
+msgstr  "فترة تحديث تقنيات شركة"
+
+msgid  "368"
+msgstr  "أسعار الصرف الآن"
+
+msgid  "369"
+msgstr  "دقيقة"
+
+msgid  "370"
+msgstr  "قبل"
+
+msgid  "371"
+msgstr  "اليوم"
+
+msgid  "372"
+msgstr  "الزيارة في الصفحة مشاريعك"
+
+msgid  "373"
+msgstr  "أمس"
+
+msgid  "374"
+msgstr  "تم التعليق المستند"
+
+msgid  "375"
+msgstr  "الأيام"
+
+msgid  "376"
+msgstr  "وأضافت وثيقة اقتراح"
+
+msgid  "377"
+msgstr  "بعد لشركتك"
+
+msgid  "378"
+msgstr  "يسر"
+
+msgid  "379"
+msgstr  "معدل المكينات إلى 6 أشهر قبل"
+
+msgid  "380"
+msgstr  "إجمالي الموظفين"
+
+msgid  "381"
+msgstr  "الزيارة في صفحة المشروع الخاص بك"
+
+msgid  "382"
+msgstr  "مؤسسة افتراضية هي منصة تعاون للمشاريع الصغيرة والمتوسطة لتعزيز قدرتها على حصتها في السوق وتحسينها على المنافسة في ظروف السوق العالمية الصارمة مضطربة للغاية. من أجل الوصول إلى تسا الأهداف التالية خدمات يتم توفيرها من قبل OSTİM ونظام"
+
+msgid  "383"
+msgstr  "الشركات على زيادة الشفافية من خلال تقديم صفحات بيانات الشركة والحاضر جرد الشركة وقدراتها".
+
+msgid  "384"
+msgstr  "توفير صفحات الملف الشخصي للمستخدم المهنية لزيادة فرصة العثور على الموظفين المطلوبين الفني والمهني".
+
+msgid  "385"
+msgstr  "منصة التفاوض"
+
+msgid  "386"
+msgstr  "إدارة المشاريع"
+
+msgid  "387"
+msgstr  "تصميم التعاونية"
+
+msgid  "388"
+msgstr  "توفير حل الطباعة 3D لإنتاج نماذج حقيقية قبل عمليات التصنيع المنتجات المصممة التي هي جزء من أفضل أداء أجزاء وظائف".
+
+msgid  "389"
+msgstr  "أنا OS تقنية تأسست في عام 2004 لتحسين برنامج التعاون بين الجامعات والصناعة في إطار برنامج التعاون للبحوث وتطوير صناعة الجامعة TUBITAK ومنذ عام 2007 تغير وضع الشركة إلى شركة مجهول (شركة مجهول). هذه الشركة لديها أكثر من 25 حملة كومة بما في ذلك المنظمات والجامعات والباحثين والأكاديميين ورجال الأعمال ".
+
+msgid  "390"
+msgstr  "الكونسورتيوم جديدة"
+msgid  "391"
+msgstr  "قد تجد appropriati لشركاء لمشروعك أو قد تساهم في المشاريع المعروضة الجديدة وتوسيع عملك."
+
+msgid  "392"
+msgstr  "تلقائي والتفاوض الهدف"
+
+msgid  "393"
+msgstr  "تنفيذ التكنولوجيات الجديدة"
+
+msgid  "394"
+msgstr  "من أجل تحسين جودة المنتجات وضمان مخرجات المشروع، 3D الطباعة وتقنيات المسح الضوئي الرقمية يتم توفيرها من قبل نظام التشغيل أنا والتكنولوجيا المحدودة لإنتاج منتجات النموذج قبل الانتقال إلى عمليات التصنيع الرئيسية."
+
+msgid  "395"
+msgstr  "OSTİM منتجات المكتب الافتراضي"
+
+msgid  "396"
+msgstr  "أنا يدعم نظام التشغيل والنظام. لقد OS نظام التشغيل ويتم وضع مكتب في المنطقة الصناعية المنظمة في أنقرة. المكتب هو المسؤول عن تطوير وإدارة والأدوات والبرامج والتطبيقات."
+
+msgid  "397"
+msgstr  "والرسالة النظام"
+
+msgid  "398"
+msgstr  "هل لإعادة توجيه احتياجات ومتطلبات العملاء برشاقة إلى appropriati الشركاء بالإضافة إلى أنه يساعد أيضا الشركات الصغيرة والمتوسطة لتعزيز قدرتها على استخدام القدرات من خلال اكتشاف أوامر العملاء والحصول على مشاريع جديدة للقيام بذلك يوفر نظام الميزات التالية للعملاء والشركاء حل.: "
+
+msgid  "399"
+msgstr  'صفحة الملف الشخصي "
+
+msgid  "400"
+msgstr  "يوفر نظام التشغيل الصفحات والشخصية للمستخدمين المسجلين والشركات لوصفها في تفاصيل القدرات وتقديم أنفسهم للعملاء زيارة والشركاء المحتملين."
+
+msgid  "401"
+msgstr  "مطابقة الذكية"
+
+msgid  "402"
+msgstr  "منصة التفاوض الهدف"
+
+msgid  "403"
+msgstr  "قدمت خوارزميات مطابقة الاختيار تسجيل بيانات النظام ومتطلبات العملاء واقتراح الموارد الأكثر appropriati المتاحة."
+
+msgid  "404"
+msgstr  "أنواع مختلفة من التفاوض، وأضافت العمليات الإدارية لVE النظام. ووفقا لرغبات العملاء هو واحد من تسا يتم اختيار عمليات التفاوض. ويدير عملية التفاوض برمتها تلقائيا من قبل النظام دون تدخل بشري."
+
+msgid  "405"
+msgstr  "يهدف إلى فتح طاقة التصميم والهندسة والتصنيع OSTİM إلى العالم من خلال أوامر العملاء إعادة توجيه على الفور إلى الشركات المناسبة ذات الصلة، وتعزيز التعاون بين الشركات الصغيرة والمتوسطة المتعددة وتحسين إنتاجية الشركات الصغيرة والمتوسطة من خلال تحميلها على الطاقة العاطلة مع appropriati إلى المهام والمشاريع."
+
+msgid  "406"
+msgstr  "رئيس I OS المنظمة الصناعية إدارة المنطقة للمجلس التنفيذي"
+
+msgid  "407"
+msgstr  "رئيس OSTİM شركة تكنولوجيا المجلس التنفيذي"
+
+msgid  "408"
+msgstr  "مدير OSTİM المنظمة إدارة المنطقة الصناعية"
+
+msgid  "409"
+msgstr  "إدارة OSTİM المنظمة المنطقة الصناعية يوفر الخدمات المختلفة."
+
+msgid  "410"
+msgstr  "بعض تسا المذكورة أدناه هي الخدمات"
+
+msgid  "411"
+msgstr  "خدمات البنية التحتية"
+
+msgid  "412"
+msgstr  "إدارة الكهربائية والصيانة"
+
+msgid  "413"
+msgstr  "البيئة والأمن"
+
+msgid  "414"
+msgstr  "إدارة الغاز والصيانة"
+
+msgid  "415"
+msgstr  "مكتب وتصريح العمل"
+
+msgid  "416"
+msgstr  "تخطيط المدن والبنية التحتية"
+
+msgid  "417"
+msgstr  "تكنولوجيا المعلومات والحوسبة مركز"
+
+msgid  "418"
+msgstr  "خدمة العملاء"
+
+msgid  "419"
+msgstr  "الخدمات المالية"
+
+msgid  "420"
+msgstr  "علاقات العملاء"
+
+msgid  "421"
+msgstr  "مكتب التوظيف OSTİM"
+
+msgid  "422"
+msgstr  "معرض والمنظمات"
+
+msgid  "423"
+msgstr  "الشؤون المالية والإدارية"
+
+msgid  "424"
+msgstr  "العلاقات مع الصحافة والجمهور"
+
+msgid  "425"
+msgstr  "معرض الصور التنظيمية"
+
+msgid  "426"
+msgstr  "أوراق والمجلات"
+
+msgid  "427"
+msgstr  "فيديو"
+
+msgid  "428"
+msgstr  "وثائق"
+
+msgid  "429"
+msgstr  "مشروع التوربينات الريحية الأصليين"
+
+msgid  "430"
+msgstr  "الرئيسية المشروع الأصلية معركة دبابات المحرك: TM-1150"
+
+msgid  "431"
+msgstr  "مشروع العنقودية الدفاع"
+
+msgid  "432"
+msgstr  "مشروع العنقودية السكك الحديدية أنظمة"
+
+msgid  "433"
+msgstr  "مشروع الأصليين قطار مترو"
+
+msgid  "434"
+msgstr  "اقرأ المزيد"
+
+msgid  "435"
+msgstr  "مشروع العنقودية للطاقة المتجددة"
+
+msgid  "436"
+msgstr  "مشروعات تكنولوجيا OSTİM"
+
+msgid  "437"
+msgstr  "أنا OS تقنية مركز الأبحاث والتطوير تتعاون الأبحاث والمشاريع بهدف تطوير القيمة المضافة العالية، ومنتجات التكنولوجيا الفائقة تحت الجامعة وإطار التعاون الصناعي."
+
+msgid  "438"
+msgstr  "ويدمج قدرات 5200 شركة في OSTİM المنطقة الصناعية المنظمة مع أكثر من 60،000 موظف و 20،000 أدوات الجهاز تحت شركة افتراضية واحدة."
+
+msgid  "439"
+msgstr  "للأعضاء فقط"
+
+msgid  "440"
+"يتم توفير وخدمات النظام تحت ثلاث فئات رئيسية هي:" msgstr 
+
+msgid  "441"
+msgstr  "اكتشاف الموارد"
+
+msgid  "442"
+msgstr  "إدارة المشاريع"
+
+msgid  "443"
+msgstr  "تعريف الموارد"
+
+msgid  "444"
+msgstr  "قد تجد المطلوب الخاص بك البشرية والمعلومات والمادية (الآلات والمواد الخام وغيرها) هنا"
+
+msgid  "445"
+msgstr  "وشركات"
+
+msgid  "446"
+msgstr  "وآلة بارك"
+
+msgid  "447"
+msgstr  "ومواد أولية"
+
+msgid  "448"
+msgstr  "والنفايات"
+
+msgid  "449"
+msgstr  "والموارد البشرية"
+
+msgid  "450"
+msgstr  "والمنتجات"
+
+msgid  "451"
+msgstr  "لإدارة المشاريع القائمة أو يقدم على أمر جديد يمكنك استخدام هذا القسم"
+
+msgid  "452"
+msgstr  "نظام إدارة التفاوض"
+
+msgid  "453"
+msgstr  "إرسال الطلب الجديد"
+
+msgid  "454"
+msgstr  "إدارة المشروع الخاص بك"
+
+msgid  "455"
+msgstr  "عرض بركة المشروع"
+
+msgid  "456"
+msgstr  "قد تحدد ما تبذلونه من الموارد المختلفة المتاحة هنا"
+
+msgid  "457"
+msgstr  "اضف شركة"
+msgid  "458"
+msgstr  "إضافة مستخدم"
+
+msgid  "459"
+msgstr  "إضافة أداة آلة"
+
+msgid  "460"
+msgstr  "إضافة المنتج"
+
+msgid  "461"
+msgstr  "إضافة المواد الخام"
+
+msgid  "462"
+msgstr  "إضافة النفايات"
+
+msgid  "463"
+msgstr  "والخدمات"
+
+msgid  "464"
+msgstr  "والآلات قائمة"
+
+msgid  "465"
+msgstr  "مؤسسة افتراضية قائمة آلات"
+
+msgid  "466"
+msgstr  "قائمة آلات"
+
+msgid  "467"
+msgstr  "وأدوات آلة"
+
+msgid  "468"
+msgstr  "إعادة تعيين جميع المعلومات اللفظية"
+
+msgid  "469"
+msgstr  "قد الاتصال بنا من خلال العنوان التالي:"
+
+msgid  "470"
+msgstr  "أنت"
+
+msgid  "471"
+msgstr  "وسائل الإعلام الاجتماعي"
+
+msgid  "472"
+msgstr  "معلومات! القسم أدوات آلة!"
+
+msgid  "473"
+msgstr  "قد يكون لديك الوصول إلى الحديقة آلة شركة من هذا الباب. بالضغط على ك أداة آلة المطلوب قد ترى معلومات أكثر تفصيلا إذا كان بالفعل في نظام نوع".
+
+msgid  "474"
+msgstr  "ويرد المزيد من المعلومات عن الجهاز حددتها أسفل"
+
+msgid  "475"
+msgstr  "تاريخ الشركة"
+
+msgid  "476"
+msgstr  "من أجل إعطاء وصف أفضل حول المنتجات والتصنيع من العمليات الشركات قد تضيف أشرطة الفيديو المنتج في هذا القسم."
+
+msgid  "477"
+msgstr  "نظرة عامة"
+
+msgid  "478"
+msgstr  "المهندس (ق)"
+
+msgid  "479"
+msgstr  "الموظفين التجارة الخارجية"
+
+msgid  "480"
+msgstr  "فني (ق)"
+
+msgid  "481"
+msgstr  "OSTİM الأهداف الشركة الإفتراضية"
+
+msgid  "482"
+msgstr  "و"
+
+msgid  "483"
+msgstr  "مهندس ميكانيكي"
+
+msgid  "484"
+msgstr  "البحث انتهى يشعر دكتوراه في قضية الشركة الإفتراضية والتي لتنسيق الأنشطة وتطوير البرمجيات التجارية."
+
+msgid  "485"
+msgstr  "مدونة المطور"
+
+msgid  "486"
+msgstr  "أخصائي قاعدة بيانات"
+
+msgid  "487"
+msgstr  "مهندس برمجيات"
+
+msgid  "488"
+msgstr  "رسالتك أرسلت بنجاح!"
+
+msgid  "489"
+msgstr  "مجموع أدوات الآلات المسجلة في نظام"
+
+msgid  "490"
+msgstr  "إعدادات"
+
+msgid  "491"
+msgstr  "لبدء تسجيل"
+
+msgid  "492"
+msgstr  "اشترك"
+
+msgid  "493"
+msgstr  "لم يكن لديك حساب؟ اضغط على"
+
+msgid  "494"
+msgstr  "دائما الاحتفاظ بتسجيل الدخول"
+
+msgid  "495"
+msgstr  "الرجاء تسجيل الدخول"
+
+msgid  "496"
+msgstr  "أعضاء الشركة"
+
+msgid  "497"
+msgstr  "شركة أدوات آلة"
+
+msgid  "498"
+msgstr  "شركة متر الأداء"
+
+msgid  "499"
+msgstr  "منتجات الشركة"
+
+msgid  "500"
+msgstr  "شركة إعدادات الملف"
+msgid  "501"
+msgstr  "تجمع المشروع"
+
+msgid  "502"
+msgstr  "تقديم مشروع"
+
+msgid  "503"
+msgstr  "العضو"
+
+msgid  "504"
+msgstr  "الإعدادات الشخصية للمستخدم"
+
+msgid  "505"
+msgstr  "العضو تعليقات"
+
+msgid  "506"
+msgstr  "العضو التاريخ"
+
+msgid  "507"
+msgstr  "مشاريع"
+
+msgid  "508"
+msgstr  "كلمة السر"
+
+msgid  "509"
+msgstr  "أعضاء الفريق"
+
+msgid  "510"
+msgstr  "جوائز"
+
+msgid  "511"
+msgstr  "الشركة تأسست في البلد"
+
+msgid  "512"
+msgstr  "حافظوا على معلومات الشركة العامة"
+
+msgid  "513"
+msgstr  "قائمة العناوين"
+
+msgid  "514"
+msgstr  "يا اتصالات مسجلة"
+
+msgid  "515"
+msgstr  "نوع الاتصال"
+
+msgid  "516"
+msgstr  "الافتراضي الاتصال"
+
+msgid  "517"
+msgstr  "تعليقات شركة"
+
+msgid  "518"
+msgstr  "بحث"
+
+msgid  "519"
+msgstr  "القطاع"
+
+msgid  "520"
+msgstr  "ذهب"
+
+msgid  "521"
+msgstr  "تحرير الشركة أدوات آلة"
+
+msgid  "522"
+msgstr  "قائمة آلة بارك محرر"
+
+msgid  "523"
+msgstr  "استشاري قد تحرير جميع أدوات الجهاز متوفر في المخزون الشركات المسؤولة" الخبير الاستشاري وفقا للفئات لهم! "
+
+msgid  "524"
+msgstr  "الكنز، إضافة أو حذف أو أدوات تحرير آلة ..."
+
+msgid  "525"
+msgstr  "فئات"
+
+msgid  "526"
+msgstr  "قائمة الشركات الاستشاري" أدوات الجهاز '
+
+msgid  "527"
+msgstr  "قائمة شركة أدوات آلة"
+
+msgid  "528"
+msgstr  "شركة / آلات"
+
+msgid  "529"
+msgstr  "الآلات المتوفرة في نظام"
+
+msgid  "530"
+msgstr  "الشركة إعداد الملف"
+
+msgid  "531"
+msgstr  "إعدادات الجهاز بارك"
+
+msgid  "532"
+msgstr  "الشركة آلة بارك"
+
+msgid  "533"
+msgstr  "تسجيل في النظام"
+
+msgid  "534"
+msgstr  "الشركات استعرضها"
+
+msgid  "535"
+msgstr  "تقارير انتهى"
+
+msgid  "536"
+msgstr  "تقارير الكفاءة الإيكولوجية مصنعة"
+
+msgid  "537"
+msgstr  "الجدولة الدولة المحتويات"
+
+msgid  "538"
+msgstr  "تقارير"
+
+msgid  "539"
+msgstr  "الشركة التحرير إذن"
+
+msgid  "540"
+msgstr  "مستشار لوحة"
+
+msgid  "541"
+msgstr  "401 خطأ في الصفحة"
+
+msgid  "542"
+msgstr  "مصادقة"
+
+msgid  "543"
+msgstr  "ACL تعريف الصفحة"
+
+msgid  "544"
+msgstr  "البحث أدوار"
+
+msgid  "545"
+msgstr  "أدوار"
+
+msgid  "546"
+msgstr  "اسم دور"
+
+msgid  "547"
+msgstr  "الموارد"
+
+msgid  "548"
+msgstr  "اسم المورد"
+
+msgid  "549"
+msgstr  "URL الموارد"
+
+msgid  "550"
+msgstr  "IP الموارد"
+
+msgid  "551"
+msgstr  "الوصف الموارد"
+
+msgid  "552"
+msgstr  "امتيازات"
+
+msgid  "553"
+msgstr  "امتياز الاسم"
+
+msgid  "554"
+msgstr  "URL امتياز"
+
+msgid  "555"
+msgstr  "امتياز الوصف"
+
+msgid  "556"
+msgstr  "العضو صفحة"
+
+msgid  "557"
+msgstr  "لوحة تحكم"
+
+msgid  "558"
+msgstr  "انقر نقرا مزدوجا فوق صف الجدول لعرض خصائص الجهاز في التفاصيل"
+
+msgid  "559"
+msgstr  "إضافة الجهاز الجديد من قائمة متاح نظام الجرد أدوات آلة لشركتك"
+
+msgid  "560"
+msgstr  "تحديد خصائص الجهاز أداة الجهاز من شجرة ومعرفة ما اذا كان متوافقا مع أداة المكتسبة الجهاز معلومات الجهاز الخاص بك من إضافة إلى المخزون الخاص بك عن طريق النقر على زر إضافة."
+
+msgid  "561"
+msgstr  "اقتراح الجهاز الجديد على نظام"
+
+msgid  "562"
+msgstr  "إذا كنت قد اشتريت بالفعل أداة آلة التي لا تتوفر في مقاعد الجهاز نظام تعبئة النموذج المقترح في القسم التالي وإرسال الاقتراح الخاص بك عن طريق clikcing إضافة زر آلة جديدة. يرجى ملاحظة أن ظهر هذا الجهاز على النظام بناء على موافقة المستشار."
+
+msgid  "563"
+msgstr  "العميل"
+
+msgid  "564"
+msgstr  "معلومات المشروع"
+
+msgid  "565"
+msgstr  "البحث عن الأعضاء المسجلين والمفعلين"
+
+msgid  "566"
+msgstr  "اسم المشروع"
+
+msgid  "567"
+msgstr  "الفئة مشروع"
+
+msgid  "568"
+msgstr  "العملاء طلبات محددة"
+
+msgid  "569"
+msgstr  "حافظوا على معلومات المشروع الجمهور"
+
+msgid  "570"
+msgstr  "التسجيل"
+
+msgid  "571"
+msgstr  "تسجيل عميل جديد"
+
+msgid  "572"
+msgstr  "تسجيل مزود جديد"
+
+msgid  "573"
+msgstr  "التسجيل I OS المؤسسة"
+
+msgid  "574"
+msgstr  "أكاديميا"
+
+msgid  "575"
+msgstr  "الخبراء"
+
+msgid  "576"
+msgstr  "اختيار ملف"
+

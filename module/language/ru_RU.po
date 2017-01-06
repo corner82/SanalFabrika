@@ -1822,11 +1822,11 @@ msgstr "Новый поставщик Регистрация"
 msgid "573"
 msgstr "Ostim Enterprise Регистрация"
 
-msgid "573"
+msgid "574"
 msgstr "Academia"
 
-msgid "574"
+msgid "575"
 msgstr "Эксперт"
 
-msgid "575"
+msgid "576"
 msgstr "Выберите файл"

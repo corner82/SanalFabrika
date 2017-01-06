@@ -1744,11 +1744,11 @@ Msgstr "Yeni Tedarikçi Kaydı"
 Msgstr "573"
 Msgstr "OSTİM Kurumsal Kayıt"
 
-Msgstr "573"
+Msgstr "574"
 Msgstr "Akademik"
 
-Msgstr "574"
+Msgstr "575"
 Msgstr "Uzman"
 
-Msgstr "575"
+Msgstr "576"
 Msgstr "Dosya Seç"
