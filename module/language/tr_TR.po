@@ -1621,3 +1621,134 @@ msgstr "Makine Parkı Ayarları"
 msgid "532"
 msgstr "Firma Makine Parkı"
 
+Msgstr "533"
+Msgstr "Sisteme girildi"
+
+Msgstr "534"
+Msgstr "İncelenen Firmalar"
+
+Msgstr "535"
+Msgstr "Tamamlanan Raporlar"
+
+Msgstr "536"
+Msgstr "Bitmiş Eko Verimlilik Raporları"
+
+Msgstr "537"
+Msgstr "Stat Tab İçeriği"
+
+Msgstr "538"
+Msgstr "Raporlar"
+
+Msgstr "539"
+Msgstr "Şirket Düzenleme İzni"
+
+Msgstr "540"
+Msgstr "Danışman Paneli"
+
+Msgstr "541"
+Msgstr "401 Hata Sayfası"
+
+Msgstr "542"
+Msgstr "Kimlik doğrulama"
+
+Msgstr "543"
+Msgstr "ACL Tanımı Sayfası"
+
+Msgstr "544"
+Msgstr "Arama Rolleri"
+
+Msgstr "545"
+Msgstr "Roller"
+
+Msgstr "546"
+Msgstr "Rol Adı"
+
+Msgstr "547"
+Msgstr "Kaynaklar"
+
+Msgstr "548"
+Msgstr "Kaynak Adı"
+
+Msgstr "549"
+Msgstr "Kaynak URL"
+
+Msgstr "550"
+Msgstr "Kaynak IP"
+
+Msgstr "551"
+Msgstr "Kaynak Açıklama"
+
+Msgstr "552"
+Msgstr "Ayrıcalıklar"
+
+Msgstr "553"
+Msgstr "İmtiyazlı İsim"
+
+Msgstr "554"
+Msgstr "İmtiyaz URL'si"
+
+Msgstr "555"
+Msgstr "İmtiyaz Tanımı"
+
+Msgstr "556"
+Msgstr "Kullanıcı Profili Sayfası"
+
+Msgstr "557"
+Msgstr "Kontrol Paneli"
+
+Msgstr "558"
+Msgstr "Makine özelliklerini ayrıntılı olarak görüntülemek için tablo satırına çift tıklayın"
+
+Msgstr "559"
+Msgstr "Sistemdeki mevcut takım tezgahları listesinden, şirket envanterine yeni bir makine ekle"
+
+Msgstr "560"
+Msgstr "Ağaçtan bir makine aleti seçin ve edindiğiniz makine tezgahı bilgileriyle uyumluysa makine özelliklerini kontrol edin, daha sonra, Ekle düğmesini tıklayarak envanterinize makine ekleyin."
+
+Msgstr "561"
+Msgstr "Sisteme yeni bir makine önerin"
+
+Msgstr "562"
+Msgstr "Sistem makinesinde bulunmayan bir makine almışsanız, aşağıdaki bölümde teklif formunu eksiksiz doldurunuz ve önerilerinizi yeni makine düğmesi ekleyerek gönderiniz, lütfen makinenin danışman onayından sonra sistemde olacağını unutmayın."
+
+Msgstr "563"
+Msgstr "Müşteriler"
+
+Msgstr "564"
+Msgstr "Proje Bilgisi"
+
+Msgstr "565"
+Msgstr "Kayıtlı Kullanıcıları Bul"
+
+Msgstr "566"
+Msgstr "Proje Adı"
+
+Msgstr "567"
+Msgstr "Proje Kategorisi"
+
+Msgstr "568"
+Msgstr "Müşteri Özel İstekleri"
+
+Msgstr "569"
+Msgstr "Proje bilgilerini kamuya açık tutun"
+
+Msgstr "570"
+Msgstr "Kayıt"
+
+Msgstr "571"
+Msgstr "Yeni Müşteri Kaydı"
+
+Msgstr "572"
+Msgstr "Yeni Tedarikçi Kaydı"
+
+Msgstr "573"
+Msgstr "OSTİM Kurumsal Kayıt"
+
+Msgstr "573"
+Msgstr "Akademik"
+
+Msgstr "574"
+Msgstr "Uzman"
+
+Msgstr "575"
+Msgstr "Dosya Seç"
