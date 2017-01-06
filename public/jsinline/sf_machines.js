@@ -6,7 +6,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-    $('#reg_address_table').datagrid({
+    $('#machs_table').datagrid({
         onDblClickRow: function (index, row) {
             $("#machine_details_table").empty();
             $('#machine_name').empty();
@@ -22,9 +22,9 @@ $(document).ready(function () {
                 $('#machine_image_ph').attr('href', "/onyuz/standard/assets/img/sfClients/" + row.attributes.picture);
                 $('#machine_image_ph').attr('title', row.machine_tool_name);
                 $('#machine_image_ph_src').attr('src', "/onyuz/standard/assets/img/sfClients/" + row.attributes.picture);
-            }else{
+            } else {
                 $('#machine_image_ph').css('visibility', 'hidden');
-                $('#machine_image_ph').css('display', 'none');                
+                $('#machine_image_ph').css('display', 'none');
             }
             $('#mach_props_table').datagrid({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -55,13 +55,12 @@ $(document).ready(function () {
                         {field: 'unitcode', title: 'Unit', width: 160, align: 'center'}
                     ]]
             });
-
             $('#props_table_div').css('visibility', 'visible');
             $('#props_table_div').css('display', '');
             if ($('#props_table_div').css('visibility') === 'visible') {
                 $('html, body').animate({
                     scrollTop: $("#props_table_div").offset().top
-                }, 1000);                
+                }, 1000);
             }
         },
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -99,9 +98,9 @@ $(document).ready(function () {
 
     });
 
-    $('#reg_address_table').datagrid('enableFilter');
-
-
+    $('#machs_table').datagrid('enableFilter');
+    $("html, body").animate({scrollTop: $("#sf_machines_list").offset().top}, "slow");
+    event.preventDefault();
 
 });
 

@@ -12,20 +12,33 @@
         <!-- Logo -->
         <a href="index.phtml" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b><?php echo $this->translate('OSTIM') ?></b></span>
+            <span class="logo-mini"><b><?php echo $this->translate('OSTIM') ?></b> </span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b><?php echo $this->translate('OSTIM') ?></b>
-                <?php echo $this->translate('V.E.') ?>
-            </span>
+            <span class="logo-lg"><b><?php echo $this->translate('OSTIM') ?></b> <?php echo $this->translate('V.E.') ?></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only"><?php echo $this->translate('Toggle navigation') ?></span>
+                <span class="sr-only">Toggle navigation</span>
             </a>
             <div class="navbar-custom-menu">                
                 <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-group"></i>
+                            <span id="number_of_consultants_power" class="label label-success">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li id="number_of_consultants" class="header"></li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu" id='list_consultants'>                                    
+                                </ul>
+                            </li>
+                            <!--<li class="footer"><a href="#"><?php echo $this->translate('Show all consultants') ?></a></li>-->
+                        </ul>
+                    </li>
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -259,16 +272,59 @@
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
-                    <li class="dropdown language-selector" >                          
+                    <li class="dropdown language-selector" id='languages'>                          
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-                            <!--<img src="<?php echo $this->basePath('onyuz/standard/assets/img/flags/24/United Kingdom(Great Britain).png') ?>"-->
-                            <span class="logo-mini"><?php echo $this->translate('Language') ?></span>
+                            <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
+                            <span class="logo-mini">EN</span>
                         </a>
-                        <ul class="dropdown-menu pull-right" id='languages'>
-                            <li class="hoverSelector">                                
-                                <a><?php echo $this->translate('Languages') ?> </a>
-                                <ul id='topLanguageBar' class="languages hoverSelectorBlock">                                    
-                                </ul>
+                        <ul class="dropdown-menu pull-right">
+                            <li class="active">
+                                <a href="#">
+                                    <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
+                                    <span class="logo-mini">EN</span>
+                                    <span>English</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <!--<img src="<?php echo $this->basePath('img/flag-tr.png') ?>"-->
+                                    <span class="logo-mini">TR</span>
+                                    <span>Türkçe</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="#">
+                                    <!--<img src="<?php echo $this->basePath('img/flag-ru.png') ?>"-->
+                                    <span class="logo-mini">RU</span>
+                                    <span>Pу́сский</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <!--<img src="<?php echo $this->basePath('img/flag-de.png') ?>"-->
+                                    <span class="logo-mini">DE</span>
+                                    <span>Deutsch</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <!--<img src="<?php echo $this->basePath('img/flag-fr.png') ?>"-->
+                                    <span class="logo-mini">FR</span>
+                                    <span>Français</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <!--<img src="<?php echo $this->basePath('img/flag-ar.png') ?>"-->
+                                    <span class="logo-mini">AR</span>
+                                    <span>العربية</span>
+                                </a>
+                            <li>
+                                <a href="#">
+                                    <!--<img src="<?php echo $this->basePath('img/flag-fa.png') ?>"-->
+                                    <span class="logo-mini">FA</span>
+                                    <span>فارسی</span>
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -293,7 +349,7 @@
                 <div class="pull-left info">
                     <p><?php /* echo $_SESSION['userName']; */ ?></p>
                     <a href="#"><i class="fa fa-circle text-success"></i>
-                        <?php echo $this->translate('Active') ?>
+                        <?php echo $this->translate('7') ?>
                     </a>
                 </div>
             </div>
@@ -301,7 +357,7 @@
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" 
-                           placeholder="<?php echo $this->translate('Search') ?>"/>
+                           placeholder="<?php echo $this->translate('518') ?>"/>
                     <span class="input-group-btn">
                         <button type='submit' name='search' id='search-btn' 
                                 class="btn btn-flat"><i class="fa fa-search"></i>
@@ -314,7 +370,7 @@
 
             <ul class="sidebar-menu" id="leftside-menu">
                 <li class="header">
-                    <?php echo $this->translate('Main Navigation') ?>
+                    <?php echo $this->translate('8') ?>
                 </li>
                 <li class="active treeview">
 
@@ -330,20 +386,20 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?php echo $this->translate('Company Machine Tool Panel') ?>
+                <?php echo $this->translate('236') ?>
                 <small></small>
             </h1>
             <ol class="breadcrumb">
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index')); ?>">
                         <i class="fa fa-dashboard"></i>
-                        <?php echo $this->translate('Home') ?>
+                        <?php echo $this->translate('9') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cmt')); ?>">
                         <i class="fa fa-dashboard"></i>
-                        <?php echo $this->translate('Company Machine Tool Panel') ?>
+                        <?php echo $this->translate('236') ?>
                     </a>
                 </li>
                 <!--<li class="active">Firma İşlemleri</li>-->
@@ -369,7 +425,7 @@
                             <i class="ion ion-pie-graph"></i>
                         </div>
                         <a href="#" class="small-box-footer">
-                            <?php echo $this->translate('Details') ?> 
+                            <?php echo $this->translate('254') ?> 
                             <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -388,7 +444,7 @@
                             <i class="ion ion-person-add"></i>
                         </div>
                         <a href="#" class="small-box-footer">
-                            <?php echo $this->translate('Details') ?> 
+                            <?php echo $this->translate('254') ?> 
                             <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -407,7 +463,7 @@
                             <i class="ion ion-briefcase"></i>
                         </div>
                         <a href="#" class="small-box-footer">
-                            <?php echo $this->translate('Details') ?> 
+                            <?php echo $this->translate('254') ?> 
                             <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -427,7 +483,7 @@
                             <i class="ion ion-stats-bars"></i>
                         </div>
                         <a href="#" class="small-box-footer">
-                            <?php echo $this->translate('Details') ?> 
+                            <?php echo $this->translate('254') ?> 
                             <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -447,7 +503,7 @@
                                href="#infoPanel" 
                                aria-expanded="false" 
                                class="collapsed">
-                                <?php echo $this->translate('Some Activities') ?> :</a>
+                                <?php echo $this->translate('237') ?> :</a>
                         </h4>
                     </div>
                     <div id="infoPanel" class="panel-collapse collapse" aria-expanded="false">
@@ -461,7 +517,7 @@
                                            href="#displayFirmMachinesGuide" 
                                            class="collapsed" 
                                            aria-expanded="false">
-                                               <?php echo $this->translate("Display firm machine park") ?>
+                                               <?php echo $this->translate("532") ?>
                                         </a>
                                     </h4>
                                 </div>
@@ -471,7 +527,7 @@
                                     <div class="callout callout-info"  
                                          style="margin-bottom: 0px; margin-top: 0px;"
                                          onclick='scrollDown($("#companyMachinesGridBox"))'>
-                                             <?php echo $this->translate("Double click on table row to display machine properties in details") ?>
+                                             <?php echo $this->translate("558") ?>
                                     </div>
                                 </div>
                             </div>
@@ -484,7 +540,7 @@
                                            href="#addFirmMachineGuide" 
                                            class="collapsed" 
                                            aria-expanded="false">
-                                               <?php echo $this->translate("Add new machine from available machine tools list in system to your company inventory") ?>
+                                               <?php echo $this->translate("559") ?>
                                         </a>
                                     </h4>
                                 </div>
@@ -494,7 +550,7 @@
                                     <div class="callout callout-info" 
                                          style="margin-bottom: 0px; margin-top: 0px;"
                                          onclick='scrollDown($("#add_new_mt_tree_box"))'>
-                                             <?php echo $this->translate("Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button.") ?>
+                                             <?php echo $this->translate("560") ?>
                                     </div>
                                 </div>
                             </div>
@@ -507,7 +563,7 @@
                                            href="#proposeNewMachineGuide" 
                                            class="collapsed" 
                                            aria-expanded="false">
-                                               <?php echo $this->translate("Propose a new machine to the system") ?>
+                                               <?php echo $this->translate("561") ?>
                                         </a>
                                     </h4>
                                 </div>
@@ -517,7 +573,7 @@
                                     <div class="callout callout-info" 
                                          style="margin-bottom: 0px; margin-top: 0px;"
                                          onclick='scrollDown($("#proposeMT_box_div"))'>
-                                             <?php echo $this->translate("If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval.") ?>
+                                             <?php echo $this->translate("562") ?>
                                     </div>
                                 </div>
                             </div>
@@ -534,7 +590,7 @@
                         <div class="box box-solid bg-light-blue-gradient" id="companyMachinesGridBox">
                             <div class="box-header">
                                 <i class="glyphicon glyphicon-folder-open"></i>
-                                <h3 class="box-title"><?php echo $this->translate('Company machine tools list') ?></h3>
+                                <h3 class="box-title"><?php echo $this->translate('527') ?></h3>
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                     </button>
@@ -542,7 +598,7 @@
                             </div>
                             <div class="box-body box-solid bg-light-blue-gradient">
                                 <div id="tt_grid_cmt">
-                                    <table id="grid_company_machines" title="<?php echo $this->translate("Company machine tools") ?>"></table>
+                                    <table id="grid_company_machines" title="<?php echo $this->translate("240") ?>"></table>
                                 </div>
                             </div>
                         </div>
@@ -566,14 +622,14 @@
                             <div class="box-body">
                                 <div class="box-header">
                                     <h3 class="box-title" >
-                                        <?php echo $this->translate('Machine Tool General Information') ?>
+                                        <?php echo $this->translate('251') ?>
                                     </h3>                                        
                                     <div class="box" id="mtGenPropsDynamicForm" style="font-size: 12px">
                                     </div>
                                 </div>
                                 <div class="box-header">
                                     <h3 class="box-title">
-                                        <?php echo $this->translate('Machine Tool Properties Information') ?>
+                                        <?php echo $this->translate('252') ?>
                                     </h3>  
                                     <div class="box" id="mtSpecPropsDynamicForm" style="font-size: 12px">
                                     </div>
@@ -587,7 +643,7 @@
                     <div class="box-header">
                         <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>
                         <h3 class="box-title">
-                            <?php echo $this->translate('Available Machine Tools in System') ?>
+                            <?php echo $this->translate('241') ?>
                         </h3>
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -613,7 +669,7 @@
                                         <button class="btn btn-block btn-primary btn-sm" 
                                                 id="addSelectedMTfromList" 
                                                 onclick="addMTtoCompany()">
-                                                    <?php echo $this->translate('Add selected Machine') ?>
+                                                    <?php echo $this->translate('253') ?>
                                         </button>
                                     </footer>
                                 </div>
@@ -628,7 +684,7 @@
                         <div class="box box-primary" id="proposeMT_box_div">
                             <div class="box-header">
                                 <i class="glyphicon glyphicon-import"></i>
-                                <h3 class="box-title"><?php echo $this->translate('Propose a New Machine Tool') ?></h3>
+                                <h3 class="box-title"><?php echo $this->translate('242') ?></h3>
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                     </button>
@@ -640,7 +696,7 @@
                                         <li>
                                             <a id='newMTProposalTab' 
                                                href="#tab_new_mt_proposal" data-toggle="tab" >
-                                                   <?php echo $this->translate("Propose a New Machine Tool") ?>
+                                                   <?php echo $this->translate("242") ?>
                                             </a>
                                         </li>
                                         <!--<div class="box-tools pull-right">
@@ -656,7 +712,7 @@
                                             <div class="box box-info">
                                                 <div class="box-header">
                                                     <h3 class="box-title">
-                                                        <?php echo $this->translate('Proposition Form') ?>
+                                                        <?php echo $this->translate('243') ?>
                                                     </h3>
                                                     <div class="box-body">
                                                         <div id="newMTProposal">                                            
@@ -665,47 +721,47 @@
                                                                     <form id="proposedMTForm" role="form">
                                                                         <div class="box-body">
                                                                             <label>
-                                                                                <?php echo $this->translate("Machine Manufacturer") ?>
+                                                                                <?php echo $this->translate("244") ?>
                                                                             </label>                                                                        
                                                                             <div class="input-group">
                                                                                 <span class="input-group-addon">
                                                                                     <i class="fa fa-trademark"></i>
                                                                                 </span>
                                                                                 <input id='mManufacturerN' type="text" class="form-control validate[required, custom[onlyLetterSp]]" 
-                                                                                       placeholder='<?php echo $this->translate("Please Enter Machine Manufacturer Name (Brand)") ?>'>
+                                                                                       placeholder='<?php echo $this->translate("255") ?>'>
                                                                             </div>
                                                                             <hr>
                                                                             <label>
-                                                                                <?php echo $this->translate("Machine Name") ?>
+                                                                                <?php echo $this->translate("245") ?>
                                                                             </label>                                                                        
                                                                             <div class="input-group">
                                                                                 <span class="input-group-addon">
                                                                                     <i class="fa fa-tags"></i>
                                                                                 </span>
                                                                                 <input id='mMachineN' type="text" class="form-control validate[required]"  
-                                                                                       placeholder='<?php echo $this->translate("Please Enter Machine Name (Series)") ?>'>
+                                                                                       placeholder='<?php echo $this->translate("256") ?>'>
                                                                             </div>
                                                                             <hr>
                                                                             <label>
-                                                                                <?php echo $this->translate("Machine Model") ?>
+                                                                                <?php echo $this->translate("246") ?>
                                                                             </label>                                                                        
                                                                             <div class="input-group">
                                                                                 <span class="input-group-addon">
                                                                                     <i class="fa  fa-calendar"></i>
                                                                                 </span>
                                                                                 <input id='mModel' type="date" class="form-control validation[required]" 
-                                                                                       placeholder='<?php echo $this->translate("Please Enter Machine Model (Production Year)") ?>'>
+                                                                                       placeholder='<?php echo $this->translate("257") ?>'>
                                                                             </div>
                                                                             <hr>
                                                                             <label>
-                                                                                <?php echo $this->translate("Machine Type") ?>
+                                                                                <?php echo $this->translate("247") ?>
                                                                             </label>                                                                        
                                                                             <div id="machineTypeCategoriesType" class='box'>
                                                                                 <ul id="mTCTree"></ul>
                                                                             </div>                                                                        
                                                                             <hr>
                                                                             <label>
-                                                                                <?php echo $this->translate("Selected Machine Type") ?>
+                                                                                <?php echo $this->translate("247-1") ?>
                                                                             </label> 
                                                                             <div class="input-group">
                                                                                 <span class="input-group-addon">
@@ -716,7 +772,7 @@
                                                                             </div>
                                                                             <hr>
                                                                             <h3 class="box-title">
-                                                                                <?php echo $this->translate('Machine Properties') ?>
+                                                                                <?php echo $this->translate('248') ?>
                                                                             </h3>
                                                                             <hr>
                                                                             <textarea name="proposedMTPropertiesFormBilder" 
@@ -727,7 +783,7 @@
                                                                                 <button type="submit" id="submitMTProposal_btn" 
                                                                                         class="btn btn-block btn-primary col-lg-12" 
                                                                                         onclick="submitMTProposal()">
-                                                                                            <?php echo $this->translate('Submit new machine tool') ?>
+                                                                                            <?php echo $this->translate('249') ?>
                                                                                 </button>
                                                                             </section>
                                                                         </div>
@@ -1019,11 +1075,11 @@
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
     <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b><?php echo $this->translate('Version') ?></b> 1.0
-        </div>
-        <strong><?php echo $this->translate('Copyright') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('OSTIM Technology A.Ş.') ?></a></strong> <?php echo $this->translate('All rights reserved.') ?>
-    </footer>
+            <div class="pull-right hidden-xs">
+                <b><?php echo $this->translate('73') ?></b> 1.0
+            </div>
+            <strong><?php echo $this->translate('72') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('5') ?></a></strong> <?php echo $this->translate('71') ?>
+        </footer>
 
     <!-- Control Sidebar -->      
     <aside class="control-sidebar control-sidebar-dark">                
@@ -1038,13 +1094,13 @@
             <!-- Home tab content -->
             <div class="tab-pane" id="control-sidebar-home-tab">
                 <div>
-                    <h3 class="control-sidebar-heading"><?php echo $this->translate('Recent Activities') ?></h3>
+                    <h3 class="control-sidebar-heading"><?php echo $this->translate('58') ?></h3>
                     <ul class='control-sidebar-menu'>
                         <li>
                             <a href='javascript::;'>
                                 <i class="menu-icon-zeyn fa fa-file-code-o bg-green"></i>
                                 <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading"><?php echo $this->translate('Logged in') ?></h4>
+                                    <h4 class="control-sidebar-subheading"><?php echo $this->translate('533') ?></h4>
                                     <p><!--Will be 23 on April 24th--></p>
                                 </div>
                             </a>
@@ -1078,7 +1134,7 @@
                         </li>-->
                     </ul><!-- /.control-sidebar-menu -->
 
-                    <h3 class="control-sidebar-heading"><?php echo $this->translate('Tasks Progress') ?></h3> 
+                    <h3 class="control-sidebar-heading"><?php echo $this->translate('59') ?></h3> 
                     <ul class='control-sidebar-menu'>
                         <li>
                             <a href='javascript::;'>               
@@ -1129,48 +1185,48 @@
             </div><!-- /.tab-pane -->
             <!-- Stats tab content -->
 
-            <div class="tab-pane active" id="control-sidebar-theme-demo-options-tab"><?php echo $this->translate('Stat Tab Content Options') ?>
+            <div class="tab-pane active" id="control-sidebar-theme-demo-options-tab"><?php echo $this->translate('537') ?>
                 <!--/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü-->
 
-                <h4 class="control-sidebar-heading"><?php echo $this->translate('Layout Options') ?></h4>
+                <h4 class="control-sidebar-heading"><?php echo $this->translate('32') ?></h4>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-layout="fixed" class="pull-right"><?php echo $this->translate('Fixed layout') ?></label>
-                    <p><?php echo $this->translate("Activate the fixed layout. You can't use fixed and boxed layouts together") ?></p>
+                        <input type="checkbox" data-layout="fixed" class="pull-right"><?php echo $this->translate('33') ?></label>
+                    <p><?php echo $this->translate("34") ?></p>
                 </div>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-layout="layout-boxed" class="pull-right"><?php echo $this->translate('Boxed Layout') ?></label>
-                    <p><?php echo $this->translate('Activate the boxed layout') ?></p>
+                        <input type="checkbox" data-layout="layout-boxed" class="pull-right"><?php echo $this->translate('35') ?></label>
+                    <p><?php echo $this->translate('36') ?></p>
                 </div>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-layout="sidebar-collapse" class="pull-right"><?php echo $this->translate('Toggle Sidebar') ?></label>
-                    <p><?php echo $this->translate("Toggle the left sidebar's state (open or collapse)") ?></p>
+                        <input type="checkbox" data-layout="sidebar-collapse" class="pull-right"><?php echo $this->translate('37') ?></label>
+                    <p><?php echo $this->translate("38") ?></p>
                 </div>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-enable="expandOnHover" class="pull-right"><?php echo $this->translate('Sidebar Expand on Hover') ?></label>
-                    <p><?php echo $this->translate("Let the sidebar mini expand on hover") ?></p>
+                        <input type="checkbox" data-enable="expandOnHover" class="pull-right"><?php echo $this->translate('39') ?></label>
+                    <p><?php echo $this->translate("40") ?></p>
                 </div>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-controlsidebar="control-sidebar-open" class="pull-right"><?php echo $this->translate('Toggle Right Sidebar Slide') ?></label>
-                    <p><?php echo $this->translate("Toggle between slide over content and push content effects") ?></p>
+                        <input type="checkbox" data-controlsidebar="control-sidebar-open" class="pull-right"><?php echo $this->translate('41') ?></label>
+                    <p><?php echo $this->translate("42") ?></p>
                 </div>
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-                        <input type="checkbox" data-sidebarskin="toggle" class="pull-right"><?php echo $this->translate("Toggle Right Sidebar Skin") ?></label>
-                    <p><?php echo $this->translate("Toggle between dark and light skins for the right sidebar") ?></p>
+                        <input type="checkbox" data-sidebarskin="toggle" class="pull-right"><?php echo $this->translate("43") ?></label>
+                    <p><?php echo $this->translate("44") ?></p>
                 </div>
 
-                <h4 class="control-sidebar-heading"><?php echo $this->translate("Skins") ?></h4>
+                <h4 class="control-sidebar-heading"><?php echo $this->translate("45") ?></h4>
 
                 <ul class="list-unstyled clearfix">
                     <li style="float:left; width: 33.33333%; padding: 5px;">
@@ -1185,7 +1241,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Blue") ?></p>
+                        <p class="text-center no-margin"><?php echo $this->translate("46") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1198,7 +1254,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Black") ?></p>
+                        <p class="text-center no-margin"><?php echo $this->translate("47") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-purple" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1211,7 +1267,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Purple") ?></p>
+                        <p class="text-center no-margin"><?php echo $this->translate("48") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-green" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1224,7 +1280,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Green") ?></p>
+                        <p class="text-center no-margin"><?php echo $this->translate("49") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-red" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1237,7 +1293,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Red") ?></p>
+                        <p class="text-center no-margin"><?php echo $this->translate("50") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-yellow" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1250,7 +1306,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin"><?php echo $this->translate("Yellow") ?></p>
+                        <p class="text-center no-margin"><?php echo $this->translate("51") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-blue-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1263,7 +1319,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Blue Light") ?></p>
+                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("52") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-black-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1274,7 +1330,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Black Light") ?>/p>
+                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("53") ?>/p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-purple-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1287,7 +1343,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Purple Light") ?></p>
+                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("54") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-green-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1298,7 +1354,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Green Light") ?></p>
+                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("55") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-red-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1311,7 +1367,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("Red Light") ?></p>
+                        <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("56") ?></p>
                     </li>
                     <li style="float:left; width: 33.33333%; padding: 5px;">
                         <a href="javascript:void(0);" data-skin="skin-yellow-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
@@ -1324,7 +1380,7 @@
                                 <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
                             </div>
                         </a>
-                        <p class="text-center no-margin" style="font-size: 12px;"><?php echo $this->translate("Yellow Light") ?></p>
+                        <p class="text-center no-margin" style="font-size: 12px;"><?php echo $this->translate("57") ?></p>
                     </li>
                 </ul>
 
@@ -1335,57 +1391,57 @@
             <!-- Settings tab content -->
             <div class="tab-pane" id="control-sidebar-settings-tab">            
                 <form method="post">
-                    <h3 class="control-sidebar-heading"><?php echo $this->translate('General Settings') ?></h3>
+                    <h3 class="control-sidebar-heading"><?php echo $this->translate('60') ?></h3>
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Report panel usage') ?>
+                            <?php echo $this->translate('61') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-                            <?php echo $this->translate('Some information about this general settings option') ?>
+                            <?php echo $this->translate('62') ?>
                         </p>
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Allow mail redirect') ?>
+                            <?php echo $this->translate('63') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-                            <?php echo $this->translate('Other sets of options are available') ?>
+                            <?php echo $this->translate('64') ?>
                         </p>
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Other sets of options are available') ?>
+                            <?php echo $this->translate('65') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>
                         <p>
-                            <?php echo $this->translate('Expose author name in posts') ?>
+                            <?php echo $this->translate('66') ?>
                         </p>
                     </div><!-- /.form-group -->
 
-                    <h3 class="control-sidebar-heading"><?php echo $this->translate('Chat Settings') ?></h3>
+                    <h3 class="control-sidebar-heading"><?php echo $this->translate('67') ?></h3>
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Show me as online') ?>
+                            <?php echo $this->translate('68') ?>
                             <input type="checkbox" class="pull-right" checked />
                         </label>                
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Turn off notifications') ?>
+                            <?php echo $this->translate('69') ?>
                             <input type="checkbox" class="pull-right" />
                         </label>                
                     </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
-                            <?php echo $this->translate('Delete chat history') ?>
+                            <?php echo $this->translate('70') ?>
                             <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
                         </label>                
                     </div><!-- /.form-group -->

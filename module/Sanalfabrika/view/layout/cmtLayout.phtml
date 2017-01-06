@@ -3,8 +3,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle(' Sanal Fabrika ' . $this->translate('Denetim Masası'))->setSeparator(' - ')->setAutoEscape(false) ?>
-
+        <title>
+            <?php echo $this->translate('0') ?> | <?php echo $this->translate('345') ?>
+        </title>
         <?php
         echo $this->headMeta()
                 ->appendName('viewport', 'width=device-width, initial-scale=1.0')
@@ -116,7 +117,7 @@
         <!-- Main bootstrap js docs to render the page --> 
         <script type="text/javascript" src="<?php echo $this->basePath('js/bootstrap.min.js') ?>" ></script>    
 
-        
+
         <!-- jvectormap -->
         <!-- Vectorized Map js document -->
         <script type="text/javascript" src="<?php echo $this->basePath('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') ?>" ></script>
@@ -127,27 +128,27 @@
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js" type="text/javascript"></script>-->
         <script type="text/javascript" src="<?php echo $this->basePath('plugins/daterangepicker/moment.min.js') ?>" ></script>
         <script type="text/javascript" src="<?php echo $this->basePath('plugins/daterangepicker/daterangepicker.js') ?>" ></script>
-        
+
         <!-- datepicker -->
         <!-- date picker js document -->
         <script type="text/javascript" src="<?php echo $this->basePath('plugins/datepicker/bootstrap-datepicker.js') ?>" ></script>
-        
+
         <!-- Bootstrap WYSIHTML5 -->
         <!-- text editor js document -->
         <script type="text/javascript" src="<?php echo $this->basePath('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') ?>"></script>
-        
+
         <!-- Slimscroll -->
         <!-- scrolling js document -->
         <script type="text/javascript" src="<?php echo $this->basePath('plugins/slimScroll/jquery.slimscroll.min.js') ?>" ></script>
-        
+
         <!-- FastClick -->
         <!-- easy-to-use library for eliminating the 300ms delay between a physical tap and the firing of a click event on mobile browsers.  -->
         <script type="text/javascript" src='<?php echo $this->basePath('plugins/fastclick/fastclick.min.js') ?>'></script>
-        
+
         <!-- Zeynel plugins -->
         <!-- customized plugin js document-->
         <script type="text/javascript" src='<?php echo $this->basePath('plugins/zeynel/exPlugs.js') ?>'></script>
-        
+
         <!-- Bahram plugins -->
         <!-- customized plugin js document for machine tree -->
         <script type="text/javascript" src='<?php echo $this->basePath('plugins/bahram/exPlugs.js') ?>'></script>
