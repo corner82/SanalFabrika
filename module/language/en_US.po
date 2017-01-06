@@ -220,7 +220,7 @@ msgid "67"
 msgstr "Chat Settings"
 
 msgid "68"
-msgstr "Show me online"
+msgstr "Show me as online"
 
 msgid "69"
 msgstr "Turn off notifications"
@@ -388,7 +388,7 @@ msgid "123"
 msgstr "Financial"
 
 msgid "124"
-msgstr "Personal"
+msgstr "Personel"
 
 msgid "125"
 msgstr "Logo"
@@ -790,10 +790,6 @@ msgid "247"
 msgstr "Machine Type"
 
 
-msgid "247-1" 
-msgstr "Selected Machine Type"
-
-
 msgid "248" 
 msgstr "Machine Properties"
 
@@ -1001,7 +997,7 @@ msgid "298"
 msgstr "yesterday"
 
 msgid "299" 
-msgstr "tomorrow"
+msgstr "tommorrow"
 
 msgid "300" 
 msgstr "Company Products"
@@ -1705,135 +1701,5 @@ msgstr "Machine Park Settings"
 msgid "532"
 msgstr "Company Machine Park"
 
-msgid "533"
-msgstr "Logged into the system"
 
-msgid "534"
-msgstr "Reviewed Companies"
-
-msgid "535"
-msgstr "Finished Reports"
-
-msgid "536"
-msgstr "Finished Eco-Efficiency Reports"
-
-msgid "537"
-msgstr "Stat Tab Contents"
-
-msgid "538"
-msgstr "Reports"
-
-msgid "539"
-msgstr "Company Editing Permission"
-
-msgid "540"
-msgstr "Consultant Panel"
-
-msgid "541"
-msgstr "401 Error Page"
-
-msgid "542"
-msgstr "Authentication"
-
-msgid "543"
-msgstr "ACL Definition Page"
-
-msgid "544"
-msgstr "Search Roles"
-
-msgid "545"
-msgstr "Roles"
-
-msgid "546"
-msgstr "Role Name"
-
-msgid "547"
-msgstr "Resources"
-
-msgid "548"
-msgstr "Resource Name"
-
-msgid "549"
-msgstr "Resource URL"
-
-msgid "550"
-msgstr "Resource IP"
-
-msgid "551"
-msgstr "Resource Description"
-
-msgid "552"
-msgstr "Privileges"
-
-msgid "553"
-msgstr "Privilege Name"
-
-msgid "554"
-msgstr "Privilege URL"
-
-msgid "555"
-msgstr "Privilege Description"
-
-msgid "556"
-msgstr "User Profile Page"
-
-msgid "557"
-msgstr "Control Panel"
-
-msgid "558"
-msgstr "Double click on table row to display machine properties in details"
-
-msgid "559"
-msgstr "Add new machine from available machine tools list in system to your company inventory"
-
-msgid "560"
-msgstr "Select a machine tool from tree and check machine properties if it is compatible with your acquired machine tool information then add machine to your inventory by clicking add button."
-
-msgid "561"
-msgstr "Propose a new machine to the system"
-
-msgid "562"
-msgstr "If you already bought a machine tool which is not available in system machine bank complete proposal form in following section and send your proposition by clikcing add new machine button. Please note that machine will be appeared on system upon consultant approval."
-
-msgid "563"
-msgstr "Clients"
-
-msgid "564"
-msgstr "Project Information"
-
-msgid "565"
-msgstr "Find Registered Users"
-
-msgid "566"
-msgstr "Project Name"
-
-msgid "567"
-msgstr "Project Category"
-
-msgid "568"
-msgstr "Customer Specific Requests"
-
-msgid "569"
-msgstr "Keep project information public"
-
-msgid "570"
-msgstr "Registration"
-
-msgid "571"
-msgstr "New Customer Registration"
-
-msgid "572"
-msgstr "New Supplier Registration"
-
-msgid "573"
-msgstr "OSTİM Enterprise Registration"
-
-msgid "573"
-msgstr "Academia"
-
-msgid "574"
-msgstr "Expert"
-
-msgid "575"
-msgstr "Choose File"
 
