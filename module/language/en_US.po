@@ -657,313 +657,227 @@ msgstr "Address type"
 msgid "214"
 msgstr "Billing Address"
 
-
 msgid "215" 
 msgstr "Mailing Address"
-
 
 msgid "216" 
 msgstr "Task Progress"
 
-
 msgid "217" 
 msgstr "User registration"
-
 
 msgid "218" 
 msgstr "Company registration"
 
-
 msgid "219" 
 msgstr "Registration process"
-
 
 msgid "220" 
 msgstr "Address 1"
 
-
 msgid "221" 
 msgstr "Address 2"
-
 
 msgid "222" 
 msgstr "Show my password"
 
-
 msgid "223" 
 msgstr "Make my address information public"
-
 
 msgid "224" 
 msgstr "Make my contact information public"
 
-
 msgid "225" 
 msgstr "Show all my registered contact Information"
-
 
 msgid "226" 
 msgstr "DUNS Number"
 
-
 msgid "227" 
 msgstr "Company Short Name"
-
 
 msgid "228" 
 msgstr "Back"
 
-
 msgid "229" 
 msgstr "About Us"
-
 
 msgid "230" 
 msgstr "Services"
 
-
 msgid "231" 
 msgstr "News"
-
 
 msgid "232" 
 msgstr "Contacts"
 
-
 msgid "233" 
 msgstr "Submenus"
-
 
 msgid "234" 
 msgstr "Main"
 
-
 msgid "235" 
 msgstr "Ownership Status"
-
 
 msgid "236" 
 msgstr "Company Machine Tool Panel"
 
-
 msgid "237" 
 msgstr "Some Activities"
-
 
 msgid "238" 
 msgstr "List of activities"
 
-
 msgid "239" 
 msgstr "Company machine tools list"
-
 
 msgid "240" 
 msgstr "Company machine tools"
 
-
 msgid "241" 
 msgstr "Available Machine Tools in System"
-
 
 msgid "242" 
 msgstr "Propose a New Machine Tool"
 
-
 msgid "243" 
 msgstr "Proposition Form"
-
 
 msgid "244" 
 msgstr "Machine Manufacturer"
 
-
 msgid "245" 
 msgstr "Machine Name"
-
 
 msgid "246" 
 msgstr "Machine Model"
 
-
 msgid "247" 
 msgstr "Machine Type"
-
 
 msgid "247-1" 
 msgstr "Selected Machine Type"
 
-
 msgid "248" 
 msgstr "Machine Properties"
-
 
 msgid "249" 
 msgstr "Submit new machine tool"
 
-
 msgid "250" 
 msgstr "Language"
-
 
 msgid "251" 
 msgstr "Machine Tool General Information"
 
-
 msgid "252" 
 msgstr "Machine Tool Properties Information"
-
 
 msgid "253" 
 msgstr "Add selected Machine"
 
-
 msgid "254" 
 msgstr "Details"
-
 
 msgid "255" 
 msgstr "Please Enter Machine Manufacturer Name (Brand)"
 
-
 msgid "256" 
 msgstr "Please Enter Machine Name (Series)"
-
 
 msgid "257" 
 msgstr "Please Enter Machine Model (Production Year)"
 
-
-
-
-
-
-
 msgid "258" 
 msgstr "Company Profile"
-
 
 msgid "259" 
 msgstr "Notification"
 
-
 msgid "260" 
 msgstr "References"
-
 
 msgid "261" 
 msgstr "Latest Posts"
 
-
 msgid "262" 
 msgstr "Useful Links"
-
 
 msgid "263" 
 msgstr "Contact Us"
 
-
 msgid "264" 
 msgstr "A virtual enterprise (VE) is a temporary alliance of businesses that come together to share skills or core competencies and resources in order to better respond to business opportunities, and whose cooperation is supported by computer networks."
-
 
 msgid "265" 
 msgstr "Latest News about OSTIM VE"
 
-
 msgid "266" 
 msgstr "OSTIM Clusters News"
-
 
 msgid "267" 
 msgstr "New Project Calls"
 
-
 msgid "268" 
 msgstr "Ostim Organized Industrial Zone"
-
 
 msgid "269" 
 msgstr "Turkish Ministry of SIT"
 
-
 msgid "270" 
 msgstr "TUBITAK"
-
 
 msgid "271" 
 msgstr "KOSGEB"
 
-
 msgid "272" 
 msgstr "Terms of Service"
-
 
 msgid "273" 
 msgstr "Privacy Policy"
 
-
 msgid "274" 
 msgstr "All Rights Reserved."
-
 
 msgid "275" 
 msgstr "Company Indicators"
 
-
 msgid "276" 
 msgstr "Total Company Profile Visitors"
-
 
 msgid "277" 
 msgstr "Last Six Months"
 
-
 msgid "278" 
 msgstr "Last Twelve Months"
-
 
 msgid "279" 
 msgstr "Rate of your visitors to all visitors"
 
-
 msgid "280" 
 msgstr "Total system visitors"
-
 
 msgid "281" 
 msgstr "Total company machine tools number"
 
-
 msgid "282" 
 msgstr "Added machine tools in last 6 months"
-
 
 msgid "283" 
 msgstr "Added machine tools in last 12 months"
 
-
 msgid "284" 
 msgstr "Rate of added machine tools in last 12 months to overall company machine tools"
-
-
-
-
-
-
-
 
 msgid "285" 
 msgstr "January"
 
-
 msgid "286" 
 msgstr "February"
 
-
 msgid "287" 
 msgstr "March"
-
 
 msgid "288" 
 msgstr "April"
@@ -991,8 +905,6 @@ msgstr "November"
 
 msgid "296" 
 msgstr "December"
-
-
 
 msgid "297" 
 msgstr "today"
