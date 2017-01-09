@@ -39,7 +39,6 @@ $(document).ready(function () {
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
             if (data.length !== 0) {
-
                 var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
 
                 if (data[0].communications_no) {
@@ -47,8 +46,8 @@ $(document).ready(function () {
                 } else {
                     var tel_number = '';
                 }
-
-                $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
+                
+                $('#consultant_div').attr('data-balloon', 'Tel:' + data[0].phone);
                 $('#consultant_div').attr('email_address', data[0].auth_email);
                 $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
                 $('#cons_image_ph').attr('src', cons_image_url);
