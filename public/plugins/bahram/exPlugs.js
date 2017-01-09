@@ -809,3 +809,14 @@
 
 
 }(jQuery));
+
+
+
+function setredirect() {
+    var currenturl = window.location.href;
+    var action = $('#controller').val();
+//    console.log(currenturl);
+    var targeturl = currenturl.replace(action, 'cpgeneralset');
+//    console.log(targeturl);
+    window.location.replace(targeturl);
+}

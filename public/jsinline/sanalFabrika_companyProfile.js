@@ -413,11 +413,3 @@ function referenceRedirect() {
     }
     window.location = redirecting_url;
 }
-
-function setredirect() {
-    var currenturl = window.location.href;
-//    console.log(currenturl);
-    var targeturl = currenturl.replace('companyprofile', 'cpgeneralset');
-//    console.log(targeturl);
-    window.location.replace(targeturl);
-}
