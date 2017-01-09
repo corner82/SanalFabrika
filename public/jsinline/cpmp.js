@@ -46,7 +46,7 @@ $(document).ready(function () {
                 } else {
                     var tel_number = '';
                 }
-                
+
                 $('#consultant_div').attr('data-balloon', 'Tel:' + data[0].phone);
                 $('#consultant_div').attr('email_address', data[0].auth_email);
                 $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
@@ -89,7 +89,7 @@ $(document).ready(function () {
         //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
         queryParams: {
             pk: $('#pk').val(),
-            url: 'pkFillUsersFirmMachines_infoFirmMachineTool',
+            url: 'pkFillUsersFirmMachines_infoFirmMachineTool'
         },
         width: '100%',
         singleSelect: true,
@@ -97,7 +97,6 @@ $(document).ready(function () {
         collapsible: true,
         method: 'get',
         idField: 'id',
-        //toolbar:'#tb5',
         //fit:true,
         //fitColumns : true,
         remoteFilter: true,
@@ -108,27 +107,28 @@ $(document).ready(function () {
                         {field: 'id', title: 'ID'},
                         {field: 'machine_tool_names', title: 'Makina', width: 250},
                         {field: 'manufacturer_name', title: 'Makina Üreticisi', width: 150},
-                        {field: 'model', title: 'Makina Model', sortable: true, width: 150},
-                        {field: 'model_year', title: 'Makina Imalat Yılı', width: 100},
-                        {field: 'state_availability', title: 'Siparişe Uygun mu?', sortable: true, width: 100},
-                        {field: 'state_profile_public', title: 'Makina Sorgulanabilir mi?', sortable: true, width: 100},
-                        {field: 'action', title: 'Action', width: 100, align: 'center',
+                        {field: 'machine_tool_grup_names', title: 'Makina Kategorisi', width: 150},
+                        {field: 'model', title: 'Makina Modeli', sortable: true, width: 150},
+//                        {field: 'model_year', title: 'Makina Imalat Yılı', width: 120},
+                        {field: 'state_availability', title: 'Siparişe Uygun mu?', sortable: true, width: 120},
+                        {field: 'state_profile_public', title: 'Herkes Görebilir mi?', sortable: true, width: 120},
+                        {field: 'cons_allow', title: 'Durum', sortable: true, width: 120},
+                        {field: 'action', title: 'Action', width: 80, align: 'center',
                             formatter: function (value, row, index) {
-                                if (row.attributes.active == 0) {
-                                    var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveMachineWrapper(event, ' + row.id + ');"><i class="fa fa-minus-circle"></i></button>';
-                                } else {
-                                    var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveMachineWrapper(event, ' + row.id + ');"><i class="fa fa-plus-circle"></i></button>';
-                                }
+//                                if (row.active === 0) {
+////                                    console.log(row.active);
+//                                    var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveMachineWrapper(event, ' + row.id + ');"><i class="fa fa-minus-circle"></i></button>';
+//                                } else {
+//                                    var e = '<button style="padding : 2px 4px;" title="Aktif yap"  class="btn btn-warning" type="button" onclick="return activePassiveMachineWrapper(event, ' + row.id + ');"><i class="fa fa-plus-circle"></i></button>';
+//                                }
 
                                 //var d = '<a href="javascript:void(0)" onclick="deleteISScenario(this);">Delete</a>';
                                 var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteMachUltimatelyDialog(' + row.id + ', ' + index + ');"><i class="fa fa-eraser"></i></button>';
-                                var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachDialog(' + row.id + ', { machine_tool_name : \'' + row.machine_tool_name + '\',\n\
-                                                                                                                                                      ownership_id : ' + row.ownership_id + ',\n\
+                                var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachDialog(' + row.id + ', { machine_tool_name : \'' + row.machine_tool_names + '\',\n\
                                                                                                                                                       profile_public : ' + row.profile_public + ',\n\
                                                                                                                                                       total : \'' + row.total + '\',\n\
-                                                                                                                                                      availability_id : ' + row.availability_id + ',\n\                                                                                                                        \n\
-                                                                                                                                                      firm_name : \'' + row.firm_name + '\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
-                                return e + d + u;
+                                                                                                                                                      availability_id : ' + row.availability_id + '\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
+                                return d + u;
                             }
                         },
                     ]]
@@ -443,8 +443,8 @@ $(document).ready(function () {
                                                                      <i class="fa fa-check"></i>\n\
                                                                  </div>\n\
                                                                  <div style="padding-left:20px;">\n\
-                                                                    <input type="radio" name="macOwnerRadio" value="1" checked> <label style="padding-left:2px;padding-right: 15px;" >' + window.lang.translate('Owned') + 'Firma</label>\n\
-                                                                    <input type="radio" name="macOwnerRadio" value="2" > <label style="padding-left: 2px;">' + window.lang.translate('Leasing') + 'Leasing</label>\n\
+                                                                    <input type="radio" name="macOwnerRadio" value="1" checked> <label style="padding-left:2px;padding-right: 15px;" >' + window.lang.translate('Owned') + '</label>\n\
+                                                                    <input type="radio" name="macOwnerRadio" value="2" > <label style="padding-left: 2px;">' + window.lang.translate('Leasing') + '</label>\n\
                                                                 </div>\n\
                                                              </div>\n\
                                                          </div>\n\
@@ -576,8 +576,12 @@ $(document).ready(function () {
         if ($("#insertMachFormPopup").validationEngine('validate')) {
             insertMach(id);
             return false;
+        } else {
+            wm.dangerMessage('resetOnShown');
+            wm.dangerMessage('show', 'Makina Güncelleme İşlemi Başarısız...',
+                    'Lütfen Makine Sayısını Giriniz... ');
+            return false;
         }
-        return false;
     }
 
     /**
@@ -600,7 +604,7 @@ $(document).ready(function () {
         var aj = $(window).ajaxCall({
             proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: {
-                url: 'pkInsertCons_infoFirmMachineTool',
+                url: 'pkInsert_infoFirmMachineTool',
                 pk: $("#pk").val(),
                 language_code: $('#langCode').val(),
                 machine_id: id,
@@ -615,7 +619,7 @@ $(document).ready(function () {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Ekleme İşlemi Başarısız...',
                         'Makina ekleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ')
-                console.error('"pkInsertCons_infoFirmMachineTool" servis hatası->' + textStatus);
+                console.error('"pkInsert_infoFirmMachineTool" servis hatası->' + textStatus);
             },
             onSuccess: function (event, data) {
                 var data = data;
@@ -647,13 +651,13 @@ $(document).ready(function () {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...',
                         'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                console.error('"pkInsertCons_infoFirmMachineTool" servis datası boştur!!');
+                console.error('"pkInsert_infoFirmMachineTool" servis datası boştur!!');
             },
             onErrorMessage: function (event, data) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...',
                         'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                console.error('"pkInsertCons_infoFirmMachineTool" servis hatası->' + data.errorInfo);
+                console.error('"pkInsert_infoFirmMachineTool" servis hatası->' + data.errorInfo);
             },
             onError23503: function (event, data) {
             },
