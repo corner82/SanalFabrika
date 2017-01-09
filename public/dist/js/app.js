@@ -445,9 +445,7 @@ function _init() {
         var currentPath = window.location.hostname
                 + $("#requestUriRegulated").val()
                 .replace('--dil--', $("#langCode").val());
-
         var currentPathArray = currentPath.split('/');
-
 //        console.log(currentPathArray);
 
         if (typeof clickedObject.id === "undefined") {
@@ -480,6 +478,7 @@ function _init() {
                 //checks if the menu is open or not...
                 if (!$(treeview_id_ref).hasClass('treeview-menu')) {
                     //checks if service has been called before or not...
+                    if($(clickedObject).attr('console_con')!=='0'){
                     $.ajax({
                         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
 //                        url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',
@@ -500,7 +499,6 @@ function _init() {
                         async: false,
                         dataType: "json",
                         success: function (data2) {
-
                             if (data2.length === 0) {
                                 /*
                                  * checks if there are any submenu...
@@ -602,6 +600,7 @@ function _init() {
                             }
                         }
                     });
+                }
                 }
 
                 /*

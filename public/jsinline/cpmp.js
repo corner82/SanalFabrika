@@ -30,10 +30,9 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
-            url: 'pkGetFirmVerbalConsultant_infoFirmVerbal',
+            url: 'pkGetFirmMachineConsultant_infoFirmMachineTool',
             language_code: $("#langCode").val(),
-            pk: $('#pk').val(),
-            npk: $('#selectedCompanyNpk').val()
+            pk: $('#pk').val()
         },
         type: 'GET',
         dataType: 'json',
@@ -91,7 +90,7 @@ $(document).ready(function () {
         //url: 'http://proxy.localhost.com/SlimProxyBoot.php?url=getCompaniesInfo_company',
         queryParams: {
             pk: $('#pk').val(),
-            url: 'pkFillConsCompanyMachineLists_infoFirmMachineTool',
+            url: 'pkFillUsersFirmMachines_infoFirmMachineTool',
         },
         width: '100%',
         singleSelect: true,
@@ -108,13 +107,13 @@ $(document).ready(function () {
         columns:
                 [[
                         {field: 'id', title: 'ID'},
-                        {field: 'machine_tool_name', title: 'Makina', width: 200},
-                        {field: 'machine_tool_grup_name', title: 'Makina Kat.', width: 150},
-                        {field: 'firm_name', title: 'Firma', sortable: true, width: 300},
-                        {field: 'state_ownership', title: 'Makina Sahipliği', sortable: true, width: 50},
-                        {field: 'state_availability', title: 'Siparişe Uygun mu?', sortable: true, width: 50},
-                        {field: 'state_profile_public', title: 'Makina Sorgulanabilir mi?', sortable: true, width: 50},
-                        {field: 'action', title: 'Action', width: 80, align: 'center',
+                        {field: 'machine_tool_names', title: 'Makina', width: 250},
+                        {field: 'manufacturer_name', title: 'Makina Üreticisi', width: 150},
+                        {field: 'model', title: 'Makina Model', sortable: true, width: 150},
+                        {field: 'model_year', title: 'Makina Imalat Yılı', width: 100},
+                        {field: 'state_availability', title: 'Siparişe Uygun mu?', sortable: true, width: 100},
+                        {field: 'state_profile_public', title: 'Makina Sorgulanabilir mi?', sortable: true, width: 100},
+                        {field: 'action', title: 'Action', width: 100, align: 'center',
                             formatter: function (value, row, index) {
                                 if (row.attributes.active == 0) {
                                     var e = '<button style="padding : 2px 4px;" title="Pasif yap"  class="btn btn-primary" type="button" onclick="return activePassiveMachineWrapper(event, ' + row.id + ');"><i class="fa fa-minus-circle"></i></button>';
@@ -226,7 +225,7 @@ $(document).ready(function () {
                         {field: 'model', title: 'Model', sortable: true, width: 100},
                         {field: 'action', title: 'Action', width: 80, align: 'center',
                             formatter: function (value, row, index) {
-                                var u = '<button style="padding : 2px 4px;" title="Makinayı Seçilen Firmaya Ata"  class="btn btn-info" type="button" onclick="return insertMachDialog(' + row.id + ', { machine_tool_name : \'' + row.machine_tool_name + '\',\n\                                                                                                                   \n\
+                                var u = '<button style="padding : 2px 4px;" title="Makinayı Firmaya Ata"  class="btn btn-info" type="button" onclick="return insertMachDialog(' + row.id + ', { machine_tool_name : \'' + row.machine_tool_name + '\',\n\                                                                                                                   \n\
                                                                                                                                                                                                      role_name_tr : \'' + row.role_name_tr + '\',\n\
                                                                                                                                                                                                      resource_name : \'' + row.resource_name + '\'} );"><i class="fa fa-check-square"></i></button>';
                                 var z = '<button style="padding : 2px 4px;" title="Makina Özelliklerini Gör"  class="btn btn-info" type="button" onclick="return exploreMachProperties(' + row.id + ', { machine_tool_name : \'' + row.machine_tool_name + '\',\n\                                                                                                                   \n\
@@ -284,7 +283,7 @@ $(document).ready(function () {
             }
         });
         wcm.warningComplexMessage('show', 'Firma Makinası Silme İşlemi Gerçekleştirmek Üzeresiniz!',
-                'Firma Makinası  silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+                'Firma Makinası silmek üzeresiniz, silme işlemi geri alınamaz!! ');
     }
 
     /**
@@ -313,7 +312,7 @@ $(document).ready(function () {
             onError: function (event, data) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Firma Makinası Silme İşlemi Başarısız...',
-                        'Firma makinası  silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+                        'Firma makinası silinememiştir, sistem yöneticisi ile temasa geçiniz...');
                 console.error('"pkDeleteConsAct_infoFirmMachineTool" servis hatası->' + data.errorInfo);
             },
             onSuccess: function (event, data) {
@@ -484,8 +483,8 @@ $(document).ready(function () {
                                                          <div class="col-sm-12 col-sm-offset-2">\n\
                                                          <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return insertMachWrapper(event, ' + id + ');">\n\
                                                              <i class="fa fa-save"></i>' + window.lang.translate('Save') + '</button>\n\
-                                                         <button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
-                                                             <i class="fa fa-remove"></i> ' + window.lang.translate('Reset') + '</button>\n\
+                                                         <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
+                                                             <i class="fa fa-remove"></i> ' + window.lang.translate('Reset') + '</button> -->\n\
                                                      </div>\n\
                                                  </div>\n\
                                              </form>\n\
@@ -576,13 +575,7 @@ $(document).ready(function () {
         e.preventDefault();
         var id = id;
         if ($("#insertMachFormPopup").validationEngine('validate')) {
-            var ddData = $('#dropdownConsProducersPopup').data('ddslick');
-            if (ddData.selectedData.value > 0) {
-                insertMach(id);
-            } else {
-                wm.warningMessage('resetOnShown');
-                wm.warningMessage('show', 'Üretici Firma Seçiniz', 'Lütfen üretici firma seçiniz!')
-            }
+            insertMach(id);
             return false;
         }
         return false;
@@ -603,10 +596,6 @@ $(document).ready(function () {
         var ownership_id = $('input[name=macOwnerRadio]:checked', '#insertMachFormPopup').val();
         var availability_id = $('input[name=macOrderRadio]:checked', '#insertMachFormPopup').val();
         var profile_public = $('input[name=macPublicRadio]:checked', '#insertMachFormPopup').val();
-
-        var ddData = $('#dropdownConsProducersPopup').data('ddslick')
-        var firm_id = ddData.selectedData.value;
-
         var total = $('#totalPopup').val();
 
         var aj = $(window).ajaxCall({
@@ -617,7 +606,6 @@ $(document).ready(function () {
                 language_code: $('#langCode').val(),
                 machine_id: id,
                 total: total,
-                firm_id: firm_id,
                 availability_id: availability_id,
                 ownership_id: ownership_id,
                 profile_public: profile_public,
@@ -642,7 +630,7 @@ $(document).ready(function () {
                         $('#tt_grid_dynamic').datagrid({
                             queryParams: {
                                 pk: $('#pk').val(),
-                                url: 'pkFillConsCompanyMachineLists_infoFirmMachineTool',
+                                url: 'pkFillUsersFirmMachines_infoFirmMachineTool',
                                 sort: 'id',
                                 order: 'desc',
                             },

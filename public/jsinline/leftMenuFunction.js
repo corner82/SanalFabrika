@@ -3,7 +3,7 @@
 
     $.fn.leftMenuFunction = function (data) {
 
-//       alert($("#pk").val());
+//      alert($("#pk").val());
 //      console.log('publicKey is ' + $("#pk").val());
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
@@ -43,10 +43,9 @@
 
                     if (data[i].collapse === 0) {   
                         
-                        var target_link = currentPath.replace(current_action,data[i].url);
-                        
+                        var target_link = currentPath.replace(current_action,data[i].url);                        
                         var appending_html = "<li id='menu_" +
-                                data[i].id + "'><a href='https://" +
+                                data[i].id + "' console_con='0'><a href='https://" +
                                 target_link + "'><i class='fa " +
                                 data[i].icon_class + "'></i><span>" +
                                 data[i].menu_name + "</span></a></li>";
@@ -57,7 +56,7 @@
                         var target_link = currentPath.replace(current_action,data[i].url);
 
                         var appending_html = "<li class='treeview' id='menu_" +
-                                data[i].id + "'><a href='https://" +
+                                data[i].id + "' console_con='1'><a href='https://" +
                                 target_link + "'><i class='fa " +
                                 data[i].icon_class + "'></i><span>" +
                                 data[i].menu_name +
@@ -98,10 +97,6 @@
                                 event.stopPropagation();
                             }
                         }
-
-
-
-
                     }
                     /*
                      * Click fonksiyonu yeni append edilen şıkka eklenir
@@ -110,8 +105,9 @@
                     $(newappend).on("click", function (event) {
 //                    console.log(event);
                         //alert(event.target);
-                        //alert(this);
+//                        console.log($(this).attr('console_con'));
                         $.AdminLTE.dynamicTree(this);
+                    
                     });
 
                     // bir sonraki ekleme için append boşaltılır...
