@@ -166,7 +166,7 @@ $(document).ready(function () {
 
                 $('#consultant_div').css('display', 'block');
                 $('#consultant_div').css('visibility', 'visible');
-                $('#consultant_div').attr('data-balloon', 'Tel:' + tel_number);
+                $('#consultant_div').attr('data-balloon', 'Tel:' + data[0].phone);
                 $('#consultant_div').attr('email_address', data[0].auth_email);
                 $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
                 $('#cons_image_ph').attr('src', cons_image_url);

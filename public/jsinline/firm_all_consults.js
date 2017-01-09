@@ -1,4 +1,8 @@
 
+/*
+ * This js document fills top toolbar consultant information 
+ */
+
 $(document).ready(function () {
 
 
@@ -14,7 +18,7 @@ $(document).ready(function () {
         dataType: 'json',
         //data: 'rowIndex='+rowData.id,
         success: function (data, textStatus, jqXHR) {
-            
+
 //            console.log(data);
             if (data.length !== 0) {
 
@@ -29,11 +33,16 @@ $(document).ready(function () {
 
                     if (data[i].attributes.firm_consultant) {
                         firm_consultant =
-                                "<br/><strong>"
+                                "<br/>"
+                                +data[i].cons_title
+                                + "<br/><strong>"
                                 + window.lang.translate("Assigned Firm Consultant")
                                 + "</strong></p>";
                     } else {
-                        firm_consultant = "</p>";
+                        firm_consultant =
+                                "<br/>"
+                                + data[i].cons_title
+                                + "</p>";
                     }
 
                     var appending_html =
@@ -55,7 +64,7 @@ $(document).ready(function () {
                             + data[i].name + " " + data[i].surname
                             + "</h4>"
                             + "<p>"
-                            + data[i].title
+                            + data[i].phone
                             + firm_consultant
                             + "</a>"
                             + "</li><!-- end message -->";
@@ -63,7 +72,10 @@ $(document).ready(function () {
                 }
                 $('#number_of_consultants').empty();
                 $('#number_of_consultants_power').empty();
-                $('#number_of_consultants').append(i + " " + window.lang.translate('Consultants'));
+                $('#number_of_consultants').append(
+//                        i + 
+                        " " +
+                        window.lang.translate('Consultants'));
                 $('#number_of_consultants_power').append(i);
             } else {
                 console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
