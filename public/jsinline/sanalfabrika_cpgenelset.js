@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     /**
      * multilanguage plugin 
      * @type Lang
@@ -10,7 +10,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-    
+
     /*
      * Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
      */
@@ -18,7 +18,8 @@ $(document).ready(function () {
 
     $('#general_firm_form').validationEngine({promptPosition: "topLeft:100%,0"});
 //Datemask dd/mm/yyyy
-    $("#found_date").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
+//    $("#found_date").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
+    $("#date").inputmask("99/99/9999");
     window.sel_count_id;
     window.sel_comp_count_id;
     window.cityList;
@@ -29,7 +30,7 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
-            url: 'pkFillFirmFullVerbal_infoFirmProfile',
+            url: 'pkFillCompanyProfile_infoFirmProfile',
             language_code: $("#langCode").val(),
             pk: $('#pk').val(),
             npk: $('#selectedCompanyNpk').val()
@@ -56,8 +57,14 @@ $(document).ready(function () {
                     var month = '';
                     var day = '';
                 }
-
                 window.sel_count_id = data[0].country_id;
+                window.sel_count_name = data[0].country_name;
+                $('#company_country_ph li').each(function (index) {
+                    if ($(this)[0].innerText.indexOf(window.sel_count_name) > 0) {
+                        $('#company_country_ph').ddslick('select', {index: $(this).index()});
+                    }
+                    ;
+                });
                 window.image_url = "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
@@ -71,8 +78,8 @@ $(document).ready(function () {
                 $('#found_date').val(year + '/' + month + '/' + day);
                 $('#tax_office').val(data[0].tax_office);
                 $('#tex_number').val(data[0].tax_no);
-                $('#desc_text').val(data[0].about);
-                $('#desc_text_en').val(data[0].about_eng);
+                $('#desc_text').val(data[0].description);
+                $('#desc_text_en').val(data[0].description_eng);
 
                 window.verbal_id = data[0].id;
             } else {
@@ -96,6 +103,9 @@ $(document).ready(function () {
     $('.text-area').keyup(function () {
         var desc_text_length = $('#desc_text').val().length;
         var desc_en_text_length = $('#desc_text_en').val().length;
+        
+        var desc_text_remaining = desc_text_max - desc_text_length;
+        var desc_text_en_remaining = desc_text_max - desc_en_text_length;
 
         $('#desc_rem_char_alert').html(desc_text_remaining + ' characters remaining');
         $('#desc_en_rem_char_alert').html(desc_text_en_remaining + ' characters remaining');
@@ -218,20 +228,21 @@ function send_general_info() {
         if (window.verbal_id) {
 //  console.log('update');
 //  update url is used to update data
+            milliseconds();
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
-                    url: 'pkcpkUpdate_infoFirmVerbal',
+                    url: 'pkUpdate_infoFirmProfile',
                     pk: $("#pk").val(),
                     cpk: $("#cpk").val(),
-                    lang_code: $('#langCode').val(),
+                    language_code: $('#langCode').val(),
                     profile_public: 0,
                     firm_name: $('#full_name_ph').val(),
                     firm_name_eng: $('#full_name_en_ph').val(),
                     firm_name_short: $('#short_name_ph').val(),
                     firm_name_en_short: $('#short_name_en_ph').val(),
-                    about: $('#desc_text').val(),
-                    about_eng: $('#desc_text_en').val(),
+                    description: $('#desc_text').val(),
+                    description_eng: $('#desc_text_en').val(),
                     country_id: window.sel_count_id,
                     tax_office: $('#tax_office').val(),
                     tax_no: $('#tex_number').val(),
@@ -259,17 +270,17 @@ function send_general_info() {
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
-                    url: 'pkcpkInsert_infoFirmVerbal',
+                    url: 'pkInsert_infoFirmProfile',
                     pk: $("#pk").val(),
                     cpk: $("#cpk").val(),
-                    lang_code: $('#langCode').val(),
+                    language_code: $('#langCode').val(),
                     profile_public: 0,
                     firm_name: $('#full_name_ph').val(),
                     firm_name_eng: $('#full_name_en_ph').val(),
                     firm_name_short: $('#short_name_ph').val(),
                     firm_name_short_eng: $('#short_name_en_ph').val(),
-                    about: $('#desc_text').val(),
-                    about_eng: $('#desc_text_en').val(),
+                    description: $('#desc_text').val(),
+                    description_eng: $('#desc_text_en').val(),
                     country_id: window.sel_count_id,
                     tax_office: $('#tax_office').val(),
                     tax_no: $('#tex_number').val(),
@@ -333,10 +344,14 @@ function reset_verbal_info() {
 }
 
 function milliseconds() {
-    var input_date = $('#found_date').val();
-    var entered_date = new Date(input_date);
-    window.date_value = entered_date.getTime();
-    window.okan = Math.round(window.date_value / 1000.0);
+    if ($('#found_date').val() !== "") {
+        var input_date = $('#found_date').val();
+        var entered_date = new Date(input_date);
+        window.date_value = entered_date.getTime();
+        window.okan = Math.round(window.date_value / 1000.0);
 //    console.log(window.date_value);
 //    console.log(okan);
+    } else {
+        window.okan = "";
+    }
 }

@@ -17,8 +17,9 @@ $(document).ready(function () {
 
     $.fn.leftMenuFunction();
     $('#general_firm_form').validationEngine({promptPosition: "topLeft:100%,0"});
-//Datemask dd/mm/yyyy
-    $("#found_date").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
+//    Datemask dd/mm/yyyy
+//    $("#found_date").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
+//    $("#date").mask("99/99/9999");
     window.sel_count_id;
     window.sel_comp_count_id;
     window.cityList;
