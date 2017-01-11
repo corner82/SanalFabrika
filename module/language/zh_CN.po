@@ -1745,3 +1745,59 @@ msgstr "专家"
 
 msgid "576"
 msgstr "选择文件"
+
+msgid "577"
+msgstr "用户"
+
+msgid "578"
+msgstr "显示所有顾问"
+
+msgid "579"
+msgstr "公司全名"
+
+msgid "580"
+msgstr "公司全称英文"
+
+msgid "581"
+msgstr "公司简称"
+
+msgid "582"
+msgstr "公司简称英文"
+
+msgid "583"
+msgstr "请在这里输入公司简称"
+
+msgid "584"
+msgstr "网站"
+
+msgid "585"
+msgstr "点击更新标志"
+
+msgid "586"
+msgstr "公司标志"
+
+msgid "587"
+msgstr "请以png格式提供您的公司标志。 为此文件指定您的公司名称，并将您的文件上传到系统。 请注意，此图片必须为300像素×400像素，最小分辨率为300 dpi。"
+
+msgid "588"
+msgstr "例："
+
+msgid "589"
+msgstr "如果您的公司名称为“abc”，则您的徽标文件的名称应为“abc.png”。"
+
+msgid "590"
+msgstr "请在此输入您的公司税号..."
+
+msgid "591"
+msgstr "请输入您公司的简短说明。"
+
+msgid "592"
+msgstr "不超过3000个字符..."
+
+msgid "593"
+msgstr "请输入您的公司的英文简要说明。"
+
+msgid "594"
+msgstr "用户信息"
+
+

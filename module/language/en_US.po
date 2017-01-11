@@ -1749,3 +1749,62 @@ msgstr "Expert"
 msgid "576"
 msgstr "Choose File"
 
+msgid "577"
+msgstr "User"
+
+msgid "578"
+msgstr "Show all consultants"
+
+msgid "579"
+msgstr "Company Full Name"
+
+msgid "580"
+msgstr "Company Full Name in English"
+
+msgid "581"
+msgstr "Company Short Name"
+
+msgid "582"
+msgstr "Company Short Name in English"
+
+msgid "583"
+msgstr "Enter company short name in English here please"
+
+msgid "584"
+msgstr "Web site"
+
+msgid "585"
+msgstr "Click to update logo"
+
+msgid "586"
+msgstr "Company Logo"
+
+msgid "587"
+msgstr "Please provide your company logo in png format. Give your company name to this file and upload your file to the system. Please note, this image must be in 300 pixels X 400 pixels and minimum resolution of 300 dpi."
+
+msgid "588"
+msgstr "Example:"
+
+msgid "589"
+msgstr "If your company name is "abc" then the name of your logo file should be "abc.png"."
+
+msgid "590"
+msgstr "Enter your company tax number here please ..."
+
+msgid "591"
+msgstr "Please enter a brief description about your company."
+
+msgid "592"
+msgstr "No more than 3000 character..."
+
+msgid "593"
+msgstr "Please enter a brief description in English about your company."
+
+msgid "594"
+msgstr "User Information"
+
+msgid "595"
+msgstr "Membership"
+
+msgid "596"
+msgstr "Registration Date"

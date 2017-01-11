@@ -820,3 +820,32 @@ function setredirect() {
 //    console.log(targeturl);
     window.location.replace(targeturl);
 }
+
+function setredirectprofile() {
+    var currenturl = window.location.href;
+    var upnk = $('#user_profile_link').attr('unpk');
+    
+    if (currenturl.indexOf($('#selectedCompanyShN').val()) > 0) {
+
+        var replacing_part = $('#controller').val()
+                + '/'
+                + $('#selectedCompanyShN').val()
+                + '/'
+                + $('#selectedCompanyNpk').val();
+    } else {
+        var replacing_part = $('#controller').val();
+    }
+
+    var targeturl = currenturl.replace(replacing_part, 'userprofile');    
+    window.location.replace(targeturl);
+}
+
+function showuserdetails(){
+    $('#user_detailed_info_bulb').css('visibility', 'visible');
+    $('#user_detailed_info_bulb').css('display', '');    
+}
+
+function hideuserdetails(){
+    $('#user_detailed_info_bulb').css('visibility', 'hidden');
+    $('#user_detailed_info_bulb').css('display', 'none');    
+}

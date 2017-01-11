@@ -99,6 +99,44 @@
             <div class="topbar">
                 <ul style="background: #ddd;
                     padding: 10px;" class="loginbar pull-right">
+                    <li id="user_profile_link" onmouseover='showuserdetails()' onmouseout="hideuserdetails()"
+                        style="visibility: hidden; display: none" unpk="">
+                        <a style="cursor: pointer;" onclick="setredirectprofile()" >
+                            <img id="user_image_ph" style="max-height: 20px; margin-right: 10px" class="rounded-2x" src="" alt="">                            
+                            <span id='user_name'></span>
+                        </a>
+                        <!-- user info -->
+                        <div class="rounded-2x" id='user_detailed_info_bulb'
+                             style="visibility: hidden; display: none; z-index: 999;
+                             position: absolute;background-color: #dddddd; opacity:0.9;
+                             width:400px; margin-top: 12px">
+                            <div class="row">
+                                <div class="heading heading-v6">
+                                    <h2 style="font-size: 12px"><?php echo $this->translate('594')?></h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <img id="user_image_ph_hover" style="max-height: 60px; margin: 5px;" 
+                                         class="rounded-2x" src="" alt="">
+                                </div>
+                                <div class="col-sm-10">
+                                    <span class="col-sm-6"><?php echo $this->translate('111') ?>:</span>
+                                    <span class="col-sm-6" id='user_name_hover'></span>
+                                    <br/>
+                                    <span class="col-sm-6"><?php echo $this->translate('595') ?>:</span>
+                                    <span class="col-sm-6" id='user_membership'></span>
+                                    <br/>
+                                    <span class="col-sm-6"><?php echo $this->translate('596') ?>:</span>
+                                    <span class="col-sm-6" id='user_reg_date'></span><br/>
+                                </div>            
+                            </div>
+                        </div>
+                        <!--/user info --> 
+                    </li> 
+                    <li id="user_profile_link" style="visibility: hidden; display: none">
+                        <a style="cursor: pointer;" onclick="setredirectprofile()"><?php echo $this->translate('577') ?></a></li>                                        
+                    <li id="user_profile_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>
                     <li id="setting_link" style="visibility: hidden; display: none">
                         <a style="cursor: pointer;" onclick="setredirect()"><?php echo $this->translate('490') ?></a></li>                                        
                     <li id="setting_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>

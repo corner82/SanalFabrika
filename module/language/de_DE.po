@@ -1617,134 +1617,188 @@ msgstr "Maschinenpark-Einstellungen"
 msgid "532"
 msgstr "Unternehmen Maschinenpark"
 
-msgstr "533"
-"Die protokollierten in das System"
+msgid "533"
+msgstr "Die protokollierten in das System"
 
-msgstr "534"
-"Die PRÜFT Companies"
+msgid "534"
+msgstr "Die PRÜFT Companies"
 
-msgstr "535"
-"Die fertig gestellten Reports"
+msgid "535"
+msgstr "Die fertig gestellten Reports"
 
-msgstr "536"
-"Die Ökoeffizienz-Reports Finished"
+msgid "536"
+msgstr "Die Ökoeffizienz-Reports Finished"
 
-msgstr "537"
-"Der Staat Registerkarte Inhalt"
+msgid "537"
+msgstr "Der Staat Registerkarte Inhalt"
 
-msgstr "538"
-"Die Berichte"
+msgid "538"
+msgstr "Die Berichte"
 
-msgstr "539"
-"Das Unternehmen bearbeiten Permission"
+msgid "539"
+msgstr "Das Unternehmen bearbeiten Permission"
 
-msgstr "540"
-"Der Berater Panel"
+msgid "540"
+msgstr "Der Berater Panel"
 
-msgstr "541"
-"Der 401-Fehlerseite"
+msgid "541"
+msgstr "Der 401-Fehlerseite"
 
-msgstr "542"
-"Die Authentifizierung"
+msgid "542"
+msgstr "Die Authentifizierung"
 
-msgstr "543"
-"Die ACLU Definition Seite"
+msgid "543"
+msgstr "Die ACL Definition Seite"
 
-msgstr "544"
-"Die Suche nach Rollen"
+msgid "544"
+msgstr "Die Suche nach Rollen"
 
-msgstr "545"
-"Die Rollen"
+msgid "545"
+msgstr "Die Rollen"
 
-msgstr "546"
-"Der Rollenname"
+msgid "546"
+msgstr "Der Rollenname"
 
-msgstr "547"
-"Die Ressourcen"
+msgid "547"
+msgstr "Die Ressourcen"
 
-msgstr "548"
-"Der Ressourcenname"
+msgid "548"
+msgstr "Der Ressourcenname"
 
-msgstr "549"
-"Die Ressourcen-URL"
+msgid "549"
+msgstr "Die Ressourcen-URL"
 
-msgstr "550"
-"Die Ressource IP"
+msgid "550"
+msgstr "Die Ressource IP"
 
-msgstr "551"
-"Das Resource Description"
+msgid "551"
+msgstr "Das Resource Description"
 
-msgstr "552"
-"Die Berechtigungen"
+msgid "552"
+msgstr "Die Berechtigungen"
 
-msgstr "553"
-"Die Rechtename"
+msgid "553"
+msgstr "Die Rechtename"
 
-msgstr "554"
-"Die Privilege-URL"
+msgid "554"
+msgstr "Die Privilege-URL"
 
-msgstr "555"
-"Die Berechtigung Beschreibung"
+msgid "555"
+msgstr "Die Berechtigung Beschreibung"
 
-msgstr "556"
-"Das Benutzerprofil-Seite"
+msgid "556"
+msgstr "Das Benutzerprofil-Seite"
 
-msgstr "557"
-"Das Control Panel"
+msgid "557"
+msgstr "Das Control Panel"
 
-msgstr "558"
-"Der Doppelklick auf Tabellenzeile Maschineneigenschaften in Details anzeigen"
+msgid "558"
+msgstr "Der Doppelklick auf Tabellenzeile Maschineneigenschaften in Details anzeigen"
 
-msgstr "559"
-"Das Hinzufügen neuer Maschine aus der Liste der verfügbaren Werkzeugmaschinen Inventar-System für Ihr Unternehmen"
+msgid "559"
+msgstr "Das Hinzufügen neuer Maschine aus der Liste der verfügbaren Werkzeugmaschinen Inventar-System für Ihr Unternehmen"
 
-msgstr "560"
-"Das Wählen einer Werkzeugmaschine Maschine Eigenschaften aus dem Baum und überprüfen, ob es mit Ihrem Werkzeugmaschine erworben Maschineninformationen kompatibel ist, als zu Ihrem Inventar hinzufügen, indem Sie Schaltfläche Hinzufügen klicken."
+msgid "560"
+msgstr "Das Wählen einer Werkzeugmaschine Maschine Eigenschaften aus dem Baum und überprüfen, ob es mit Ihrem Werkzeugmaschine erworben Maschineninformationen kompatibel ist, als zu Ihrem Inventar hinzufügen, indem Sie Schaltfläche Hinzufügen klicken."
 
-msgstr "561"
-"Der Vorschlag einer neuen Maschine an das System"
+msgid "561"
+msgstr "Der Vorschlag einer neuen Maschine an das System"
 
-msgstr "562"
+msgid "562"
 msgstr "Wenn Sie bereits eine Werkzeugmaschine gekauft, die in den Systemmaschinenbänken runden das Antragsformular und Ihren Vorschlag Abschnitt in folgendem Grund nicht verfügbar ist senden durch neue Maschine Button hinzufügen clikcing. Bitte beachten Sie, dass die Maschine auf System auf Berater Genehmigung Erschien werden."
 
-msgstr "563"
-"Der Klient"
+msgid "563"
+msgstr "Der Klient"
 
-msgstr "564"
-"Das Projekt-Info"
+msgid "564"
+msgstr "Das Projekt-Info"
 
-msgstr "565"
-"Die Finder Registrierte Benutzer"
+msgid "565"
+msgstr "Die Finder Registrierte Benutzer"
 
-msgstr "566"
-"Der Projektname"
+msgid "566"
+msgstr "Der Projektname"
 
-msgstr "567"
-"Das Projekt Kategorie"
+msgid "567"
+msgstr "Das Projekt Kategorie"
 
-msgstr "568"
-"Die Kundenspezifische Anfragen"
+msgid "568"
+msgstr "Die Kundenspezifische Anfragen"
 
-msgstr "569"
-"The Keep Projektinformationen public"
+msgid "569"
+msgstr "The Keep Projektinformationen public"
 
-msgstr "570"
-"Die Registrierung"
+msgid "570"
+msgstr "Die Registrierung"
 
-msgstr "571"
-"Das neue Kunden-Registrierung"
+msgid "571"
+msgstr "Das neue Kunden-Registrierung"
 
-msgstr "572"
-"Die neue Lieferantenregistrierung"
+msgid "572"
+msgstr "Die neue Lieferantenregistrierung"
 
-msgstr "573"
-"Die OSTİM Unternehmen Registrierungs"
+msgid "573"
+msgstr "Die OSTİM Unternehmen Registrierungs"
 
-msgstr "574"
-"Die Academia"
+msgid "574"
+msgstr "Die Academia"
 
-msgstr "575"
-"The Expert"
+msgid "575"
+msgstr "The Expert"
 
-msgstr "576"
-"Die Datei auswählen"
+msgid "576"
+msgstr "Die Datei auswählen"
+
+msgid "577"
+msgstr "Benutzer"
+
+msgid "578"
+msgstr  "Alle Berater anzeigen"
+
+msgid "579"
+msgstr  "Vollständiger vollständiger Name"
+
+msgid "580"
+msgstr  "Unternehmen Vollständiger Name in Englisch"
+
+msgid "581"
+msgstr  "Kurzname des Unternehmens"
+
+msgid "582"
+msgstr  "Kurzname des Unternehmens in Englisch"
+
+msgid "583"
+msgstr  "Geben Sie den Firmennamen in englischer Sprache hier ein"
+
+msgid "584"
+msgstr  "Website"
+
+msgid "585"
+msgstr  "Klicken, um Logo zu aktualisieren"
+
+msgid "586"
+msgstr  "Firmenlogo"
+
+msgid "587"
+msgstr  "Bitte geben Sie Ihr Firmenlogo im png - Format an, geben Sie Ihren Firmennamen in die Datei ein und laden Sie die Datei ins System. Bitte beachten Sie, dass dieses Bild 300 Pixel X 400 Pixel und eine Auflösung von 300 dpi sein muss."
+
+msgid "588"
+msgstr  "Beispiel:"
+
+msgid "589"
+msgstr  "Wenn Ihr Firmenname" abc "ist, dann sollte der Name Ihrer Logo - Datei" abc.png "sein."
+
+msgid "590"
+msgstr  "Geben Sie hier bitte Ihre Firmensteuernummer ein ..."
+
+msgid "591"
+msgstr  "Bitte geben Sie eine kurze Beschreibung Ihres Unternehmens ein."
+
+msgid "592"
+msgstr  "Nicht mehr als 3000 Zeichen ..."
+
+msgid "593"
+msgstr  "Bitte geben Sie eine kurze Beschreibung in Englisch über Ihre Firma ein."
+
+msgid "594"
+msgstr "Nutzerinformation"

@@ -1752,3 +1752,63 @@ Msgstr "Uzman"
 
 Msgstr "576"
 Msgstr "Dosya Seç"
+
+msgid "577"
+msgstr "Kullanıcı"
+
+msgid "578"
+msgstr "Tüm danışmanları göster"
+
+msgid "579"
+msgstr "Şirketin Tam Adı"
+
+msgid "580"
+msgstr "Şirketin Tam Adı İngilizce"
+
+msgid "581"
+msgstr "Şirket Kısa Adı"
+
+msgid "582"
+msgstr "Şirketin Kısa Adı İngilizce"
+
+msgid "583"
+msgstr "Şirketin kısa adını İngilizce olarak buraya girin lütfen"
+
+msgid "584"
+msgstr "Web sitesi"
+
+msgid "585"
+msgstr "Logoyu güncellemek için tıklayın"
+
+msgid "586"
+msgstr "Şirket logosu"
+
+msgid "587"
+msgstr "Lütfen firmanızın logosunu png formatında sağlayın, firmanızın adını bu dosyaya verin ve dosyanızı sisteme yükleyin, bu görüntünün 300 piksel x 400 piksel ve minimum 300 dpi çözünürlükte olması gerektiğini unutmayın."
+
+msgid "588"
+msgstr "Örnek:"
+
+msgid "589"
+msgstr "Şirketinizin adı " abc " ise, logo dosyanızın adı" abc.png "olmalıdır."
+
+msgid "590"
+msgstr "Şirketinizin vergi numarasını buraya girin lütfen ..."
+
+msgid "591"
+msgstr "Lütfen şirketiniz hakkında kısa bir açıklama girin."
+
+msgid "592"
+msgstr "3000 karakterden fazla değil ..."
+
+msgid "593"
+msgstr "Lütfen şirketiniz hakkında İngilizce olarak kısa bir açıklama girin."
+
+msgid "594"
+msgstr "Kullanıcı Bilgileri"
+
+msgid "595"
+msgstr "Üyelik Paketi"
+
+msgid "596"
+msgstr "Kayıt Tarihi"

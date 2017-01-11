@@ -109,6 +109,7 @@ $(document).ready(function () {
                         {field: 'manufacturer_name', title: 'Makina Üreticisi', width: 150},
                         {field: 'machine_tool_grup_names', title: 'Makina Kategorisi', width: 150},
                         {field: 'model', title: 'Makina Modeli', sortable: true, width: 150},
+                        {field: 'total', title: 'Adet', sortable: true, width: 150},
 //                        {field: 'model_year', title: 'Makina Imalat Yılı', width: 120},
                         {field: 'state_availability', title: 'Siparişe Uygun mu?', sortable: true, width: 120},
                         {field: 'state_profile_public', title: 'Herkes Görebilir mi?', sortable: true, width: 120},
@@ -124,10 +125,12 @@ $(document).ready(function () {
 
                                 //var d = '<a href="javascript:void(0)" onclick="deleteISScenario(this);">Delete</a>';
                                 var d = '<button style="padding : 2px 4px;" title="Sil"  class="btn btn-danger" type="button" onclick="return deleteMachUltimatelyDialog(' + row.id + ', ' + index + ');"><i class="fa fa-eraser"></i></button>';
-                                var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachDialog(' + row.id + ', { machine_tool_name : \'' + row.machine_tool_names + '\',\n\
-                                                                                                                                                      profile_public : ' + row.profile_public + ',\n\
-                                                                                                                                                      total : \'' + row.total + '\',\n\
-                                                                                                                                                      availability_id : ' + row.availability_id + '\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
+                                var u = '<button style="padding : 2px 4px;" title="Güncelle"  class="btn btn-info" type="button" onclick="return updateMachDialog('+row.id+', { machine_tool_name : \''+row.machine_tool_name+'\',\n\
+                                                                                                                                                      ownership_id : '+row.ownership_id+',\n\
+                                                                                                                                                      profile_public : '+row.profile_public+',\n\
+                                                                                                                                                      total : \''+row.total+'\',\n\
+                                                                                                                                                      availability_id : '+row.availability_id+',\n\                                                                                                                        \n\
+                                                                                                                                                      firm_name : \''+row.firm_name+'\' } );"><i class="fa fa-arrow-circle-up"></i></button>';
                                 return d + u;
                             }
                         },
@@ -281,8 +284,8 @@ $(document).ready(function () {
                 deleteMachUltimately(id, index);
             }
         });
-        wcm.warningComplexMessage('show', 'Firma Makinası Silme İşlemi Gerçekleştirmek Üzeresiniz!',
-                'Firma Makinası silmek üzeresiniz, silme işlemi geri alınamaz!! ');
+        wcm.warningComplexMessage('show', 'Makina Silme İşlemi Gerçekleştirmek Üzeresiniz!',
+                'Makinayı silmek üzeresiniz, silme işlemi geri alınamaz!! ');
     }
 
     /**
@@ -302,7 +305,7 @@ $(document).ready(function () {
         var ajDeleteAll = $(window).ajaxCall({
             proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: {
-                url: 'pkDeleteConsAct_infoFirmMachineTool',
+                url: 'pkDeletedAct_infoFirmMachineTool',
                 id: id,
                 pk: $("#pk").val()
             }
@@ -310,9 +313,9 @@ $(document).ready(function () {
         ajDeleteAll.ajaxCall({
             onError: function (event, data) {
                 dm.dangerMessage('resetOnShown');
-                dm.dangerMessage('show', 'Firma Makinası Silme İşlemi Başarısız...',
-                        'Firma makinası silinememiştir, sistem yöneticisi ile temasa geçiniz...');
-                console.error('"pkDeleteConsAct_infoFirmMachineTool" servis hatası->' + data.errorInfo);
+                dm.dangerMessage('show', 'Makina Silme İşlemi Başarısız...',
+                        'Makina silinememiştir, sistem yöneticisi ile temasa geçiniz...');
+                console.error('"pkDeletedAct_infoFirmMachineTool" servis hatası->' + data.errorInfo);
             },
             onSuccess: function (event, data) {
                 sm.successMessage({
@@ -323,8 +326,8 @@ $(document).ready(function () {
 
                     }
                 });
-                sm.successMessage('show', 'Firma Makinası  Silme İşleminiz Başarılı...',
-                        'Firma makinası  silme işleminiz başarılı...')
+                sm.successMessage('show', 'Makina Silme İşleminiz Başarılı...',
+                        'Makina  silme işleminiz başarılı...')
             },
         });
         ajDeleteAll.ajaxCall('call');
@@ -626,7 +629,7 @@ $(document).ready(function () {
                 sm.successMessage({
                     onShown: function (event, data) {
                         $('#insertMachFormPopup')[0].reset();
-                        $('#dropdownConsProducersPopup').ddslick('select', {index: '0'});
+//                        $('#dropdownConsProducersPopup').ddslick('select', {index: '0'});
                         //var nodeSelected = $('#tt_tree_menu2').tree('find', machine_tool_grup_id);  
 
                         loaderInsertBlock.loadImager('removeLoadImage');
@@ -652,23 +655,33 @@ $(document).ready(function () {
                 dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...',
                         'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
                 console.error('"pkInsert_infoFirmMachineTool" servis datası boştur!!');
+
+                loaderInsertBlock.loadImager('removeLoadImage');
             },
             onErrorMessage: function (event, data) {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...',
                         'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
                 console.error('"pkInsert_infoFirmMachineTool" servis hatası->' + data.errorInfo);
+
+                loaderInsertBlock.loadImager('removeLoadImage');
             },
             onError23503: function (event, data) {
+                dm.dangerMessage('resetOnShown');
+                dm.dangerMessage('show', '23503',
+                        'Makina kayıt işlemi başarısız, sistem yöneticisi ile temasa geçiniz. 23503... ');
+                console.error('"pkInsert_infoFirmMachineTool" servis hatası->' + data.errorInfo);
+
+                loaderInsertBlock.loadImager('removeLoadImage');
             },
             onError23505: function (event, data) {
                 dm.dangerMessage({
                     onShown: function (event, data) {
-                        $('#machineForm')[0].reset();
-                        loaderInsertBlock.loadImager('removeLoadImage');
+//                        $('#machineForm')[0].reset();
                     }
                 });
-                dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız...',
+                loaderInsertBlock.loadImager('removeLoadImage');
+                dm.dangerMessage('show', 'Makina Kayıt İşlemi Başarısız. 23505...',
                         'Aynı makina - firma kaydı yapılmıştır, Mevcut kaydı güncelleyebilirsiniz yada başka  bir makina girişi deneyebilirsiniz... ');
             }
         })
@@ -684,6 +697,7 @@ $(document).ready(function () {
      * @since 22/08/2016
      */
     window.updateMachDialog = function (id, row) {
+        
         console.log(row);
         BootstrapDialog.show({
             title: '"' + row.machine_tool_name + '" makinasını güncellemektesiniz...',
@@ -696,8 +710,8 @@ $(document).ready(function () {
                                                  <input type="hidden" id="machine_tool_group_id_popup" name="machine_tool_group_id_popup"  />\n\
                                                  <div class="hr-line-dashed"></div>\n\
                                                      <div class="form-group" style="padding-top: 10px;" >\n\
-                                                         <label class="col-sm-2 control-label">Makina Adeti</label>\n\
-                                                         <div class="col-sm-10">\n\
+                                                         <label class="col-sm-5 control-label">Makina Adeti</label>\n\
+                                                         <div class="col-sm-7">\n\
                                                              <div class="input-group">\n\
                                                                  <div class="input-group-addon">\n\
                                                                      <i class="fa fa-hand-o-right"></i>\n\
@@ -707,8 +721,8 @@ $(document).ready(function () {
                                                          </div>\n\
                                                      </div>\n\
                                                      <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">Makina Sahipliği</label>\n\
-                                                         <div class="col-sm-10">\n\
+                                                         <label class="col-sm-5 control-label">Makina Sahipliği</label>\n\
+                                                         <div class="col-sm-7">\n\
                                                              <div class="input-group">\n\
                                                                  <div class="input-group-addon">\n\
                                                                      <i class="fa fa-check"></i>\n\
@@ -721,8 +735,8 @@ $(document).ready(function () {
                                                          </div>\n\
                                                      </div>\n\
                                                      <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">Makina Siparişe Uygun Mu?</label>\n\
-                                                         <div class="col-sm-10">\n\
+                                                         <label class="col-sm-5 control-label">Makina Siparişe Uygun Mu?</label>\n\
+                                                         <div class="col-sm-7">\n\
                                                              <div class="input-group">\n\
                                                                  <div class="input-group-addon">\n\
                                                                      <i class="fa fa-check"></i>\n\
@@ -735,8 +749,8 @@ $(document).ready(function () {
                                                          </div>\n\
                                                      </div>\n\
                                                      <div class="form-group">\n\
-                                                         <label class="col-sm-2 control-label">Firma Sayfasında Gözüksün Mü?</label>\n\
-                                                         <div class="col-sm-10">\n\
+                                                         <label class="col-sm-5 control-label">Herkes Görebilsin mi?</label>\n\
+                                                         <div class="col-sm-7">\n\
                                                              <div class="input-group">\n\
                                                                  <div class="input-group-addon">\n\
                                                                      <i class="fa fa-check"></i>\n\
@@ -750,7 +764,7 @@ $(document).ready(function () {
                                                      </div>\n\
                                                      <div class="hr-line-dashed"></div>\n\
                                                      <div class="form-group">\n\
-                                                         <div class="col-sm-10 col-sm-offset-2">\n\
+                                                         <div class="col-sm-7 col-sm-offset-2">\n\
                                                          <button id="insertMachPopUp" class="btn btn-primary" type="submit" onclick="return updateMachWrapper(event, ' + id + ');">\n\
                                                              <i class="fa fa-save"></i> Güncelle </button>\n\
                                                          <!--<button id="resetForm" onclick="regulateButtonsPopupInsert();" class="btn btn-flat" type="reset" " >\n\
@@ -823,7 +837,7 @@ $(document).ready(function () {
         var aj = $(window).ajaxCall({
             proxy: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: {
-                url: 'pkUpdateCons_infoFirmMachineTool',
+                url: 'pkUpdate_infoFirmMachineTool',
                 language_code: $('#langCode').val(),
                 pk: $("#pk").val(),
                 id: id,
@@ -838,7 +852,7 @@ $(document).ready(function () {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Güncelleme İşlemi Başarısız...',
                         'Makina güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                console.error('"pkUpdate_sysMachineTools" servis hatası->' + textStatus);
+                console.error('"pkUpdate_infoFirmMachineTool" servis hatası->' + textStatus);
             },
             onSuccess: function (event, data) {
                 var data = data;
@@ -857,7 +871,7 @@ $(document).ready(function () {
                 dm.dangerMessage('resetOnShown');
                 dm.dangerMessage('show', 'Makina Güncelleme İşlemi Başarısız...',
                         'Makina güncelleme işlemi başarısız, sistem yöneticisi ile temasa geçiniz... ');
-                console.error('"pkUpdate_sysMachineTools" servis datası boştur!!');
+                console.error('"pkUpdate_infoFirmMachineTool" servis datası boştur!!');
             },
             onErrorMessage: function (event, data) {
                 dm.dangerMessage('resetOnShown');

@@ -5,6 +5,10 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
 
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
+<input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
+<input id="controller" type="hidden"  value="<?php echo $this->layout()->controller; ?>"></input>
+<input id="module" type="hidden"  value="<?php echo $this->layout()->module; ?>"></input>
+
 <!--=== Style Switcher ===-->    
 <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
 <div class="style-switcher animated fadeInRight">
@@ -85,11 +89,20 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
                     <li class="topbar-devider"></li>   
                     <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>"><?php echo $this->translate('89') ?></a></li>  
                     <li class="topbar-devider"></li>   
-                    <li>
+                    <li id="login_place" style="visibility: hidden; display: none">
                         <a href="<?php echo $this->url('sanalfabrika', array('action' => 'login', 'lang' => $this->langCode)); ?>">
-                            <?php echo $this->translate('30') ?> 
+                            <span>
+                                <?php echo $this->translate('30') ?>
+                            </span>
                         </a>
-                    </li>   
+                    </li>
+                    <li id="logout_place" style="visibility: hidden; display: none">
+                        <a href="<?php echo $this->url('login', array('action' => 'logout', 'lang' => $this->langCode)); ?>">
+                            <span>
+                                <?php echo $this->translate('31') ?>
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- End Topbar -->

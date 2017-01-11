@@ -19,6 +19,11 @@ $(document).ready(function () {
         $('#setting_link').css('display', 'none');
         $('#setting_link_divider').css('display', 'none');
 
+        $('#user_profile_link').css('visibility', 'hidden');
+        $('#user_profile_link_divider').css('visibility', 'hidden');
+        $('#user_profile_link').css('display', 'none');
+        $('#user_profile_link_divider').css('display', 'none');
+
     } else {
         $('#login_place').css('visibility', 'hidden');
         $('#login_place').css('display', 'none');
@@ -29,6 +34,47 @@ $(document).ready(function () {
         $('#setting_link_divider').css('visibility', 'visible');
         $('#setting_link').css('display', '');
         $('#setting_link_divider').css('display', '');
+
+        /*
+         * User name on toolbar
+         */
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: {
+                url: 'pkGetUserShortInformation_infoUsers',
+                language_code: $("#langCode").val(),
+                pk: $('#pk').val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            //data: 'rowIndex='+rowData.id,
+            success: function (data, textStatus, jqXHR) {
+                if (data.length !== 0) {
+                    $('#user_name').empty();
+                    $('#user_name_hover').empty();
+                    $('#user_membership').empty();
+                    $('#user_reg_date').empty();
+                    
+                    $('#user_image_ph').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
+                    $('#user_name').append(data[0].name + ' ' + data[0].surname);
+                    $('#user_image_ph_hover').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
+                    $('#user_name_hover').append(data[0].name + ' ' + data[0].surname);
+                    $('#user_membership').append(data[0].mem_type);
+                    $('#user_reg_date').append(data[0].registration_date);
+                    $('#user_profile_link').attr('unpk', data[0].unpk);
+                } else {
+                    console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('"pkGetUserShortInformation_infoUsers" servis hatasÃ„Â±->' + textStatus);
+            }
+        });
+
+        $('#user_profile_link').css('visibility', 'visible');
+        $('#user_profile_link_divider').css('visibility', 'visible');
+        $('#user_profile_link').css('display', '');
+        $('#user_profile_link_divider').css('display', '');
 
     }
 });
