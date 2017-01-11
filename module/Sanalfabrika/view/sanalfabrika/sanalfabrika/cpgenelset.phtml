@@ -100,29 +100,44 @@
                             <img id='user_image_ph' src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
                             <span class="hidden-xs"><?php /* echo $_SESSION['userName'] */ ?></span>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="width: 300px">
                             <!-- User image -->
                             <li class="user-header">
                               <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
-                                <div class='row'>
-                                    <img id='user_image_ph_hover' 
-                                         style="float: none; max-width:100%; max-height:100%"
-                                         src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" 
-                                         class="user-image" alt="User Image"/> 
-                                </div>
-                                <div class="row"  style="font-size:12px">
-                                    <span class="col-sm-6"><?php echo $this->translate('111') ?>:</span>
-                                    <span class="col-sm-6" id='user_name_hover'></span>
-                                    <br/>
-                                    <span class="col-sm-6"><?php echo $this->translate('595') ?>:</span>
-                                    <span class="col-sm-6" id='user_membership'></span>
-                                    <br/>
-                                    <span class="col-sm-6"><?php echo $this->translate('596') ?>:</span>
-                                    <span class="col-sm-6" id='user_reg_date'></span><br/>
+                                <div class="row">
+                                    <div class='row' style="margin:0px;">
+                                        <img id='user_image_ph_hover' 
+                                             style="float: none;max-width:100%; max-height:100%"
+                                             src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" 
+                                             class="user-image" alt="User Image"/> 
+                                    </div>
+                                    <div class="row" style="font-size:12px; color: #fff;">
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('111') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_name_hover'
+                                            style="text-align: left">                                                  
+                                        </span>
+                                        <br/>
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('595') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_membership'
+                                            style="text-align: left">                                                  
+                                        </span>
+                                        <br/>
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('596') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_reg_date'
+                                            style="text-align: left">                                            
+                                        </span>
+                                        <br/>
+                                    </div>
                                 </div>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
+                            <li class="user-body" style="font-size: 12px">
                                 <div class="col-xs-4 text-center">
                                     <a href="#"><?php echo $this->translate('26') ?></a>
                                 </div>

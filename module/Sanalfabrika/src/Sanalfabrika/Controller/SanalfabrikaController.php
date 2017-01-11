@@ -74,7 +74,7 @@ class SanalfabrikaController extends AbstractActionController {
             'langCode' => $langCode,
         ));
 //        echo $langCode;
-        
+
         $this->authenticate(null, $view);
         $this->ifLoggedinRedirect();
         return $view;
@@ -329,10 +329,21 @@ class SanalfabrikaController extends AbstractActionController {
             'publicKey' => $publicKey,
             'companyPublicKey' => $companyPublicKey
         ));
-
-        return $view;
+        if (!$publicKey) {
+            $event = $this->getEvent();
+            $authManager->getStorage()->clear();
+            $response = $this->getResponse();
+            $url = $event->getRouter()->assemble(array('action' => 'login'), array('name' => 'sanalfabrika'));
+            $response->setHeaders($response->getHeaders()->addHeaderLine('Location', $url));
+            $response->setStatusCode(302);
+            $response->sendHeaders();
+            $event->stopPropagation();
+            exit();
+        } else {            
+            return $view;
+        }
     }
-    
+
     public function cpgenelsetAction() {
         $langCode = $this->getServiceLocator()
                 ->get('serviceTranslator');
@@ -368,8 +379,19 @@ class SanalfabrikaController extends AbstractActionController {
             'publicKey' => $publicKey,
             'companyPublicKey' => $companyPublicKey
         ));
-
-        return $view;
+        if (!$publicKey) {
+            $event = $this->getEvent();
+            $authManager->getStorage()->clear();
+            $response = $this->getResponse();
+            $url = $event->getRouter()->assemble(array('action' => 'login'), array('name' => 'sanalfabrika'));
+            $response->setHeaders($response->getHeaders()->addHeaderLine('Location', $url));
+            $response->setStatusCode(302);
+            $response->sendHeaders();
+            $event->stopPropagation();
+            exit();
+        } else {            
+            return $view;
+        }
     }
 
     public function cpaddresssetAction() {
@@ -405,8 +427,19 @@ class SanalfabrikaController extends AbstractActionController {
             'publicKey' => $publicKey,
             'companyPublicKey' => $companyPublicKey
         ));
-
-        return $view;
+        if (!$publicKey) {
+            $event = $this->getEvent();
+            $authManager->getStorage()->clear();
+            $response = $this->getResponse();
+            $url = $event->getRouter()->assemble(array('action' => 'login'), array('name' => 'sanalfabrika'));
+            $response->setHeaders($response->getHeaders()->addHeaderLine('Location', $url));
+            $response->setStatusCode(302);
+            $response->sendHeaders();
+            $event->stopPropagation();
+            exit();
+        } else {            
+            return $view;
+        }
     }
 
     public function cpreferenceAction() {
@@ -440,7 +473,19 @@ class SanalfabrikaController extends AbstractActionController {
             'publicKey' => $publicKey,
             'companyPublicKey' => $companyPublicKey
         ));
-        return $view;
+        if (!$publicKey) {
+            $event = $this->getEvent();
+            $authManager->getStorage()->clear();
+            $response = $this->getResponse();
+            $url = $event->getRouter()->assemble(array('action' => 'login'), array('name' => 'sanalfabrika'));
+            $response->setHeaders($response->getHeaders()->addHeaderLine('Location', $url));
+            $response->setStatusCode(302);
+            $response->sendHeaders();
+            $event->stopPropagation();
+            exit();
+        } else {            
+            return $view;
+        }
     }
 
     public function cpmembersetAction() {
@@ -477,7 +522,19 @@ class SanalfabrikaController extends AbstractActionController {
             'publicKey' => $publicKey,
             'companyPublicKey' => $companyPublicKey
         ));
-        return $view;
+        if (!$publicKey) {
+            $event = $this->getEvent();
+            $authManager->getStorage()->clear();
+            $response = $this->getResponse();
+            $url = $event->getRouter()->assemble(array('action' => 'login'), array('name' => 'sanalfabrika'));
+            $response->setHeaders($response->getHeaders()->addHeaderLine('Location', $url));
+            $response->setStatusCode(302);
+            $response->sendHeaders();
+            $event->stopPropagation();
+            exit();
+        } else {            
+            return $view;
+        }
     }
 
     public function cpmpAction() {
@@ -515,7 +572,19 @@ class SanalfabrikaController extends AbstractActionController {
             'publicKey' => $publicKey,
             'companyPublicKey' => $companyPublicKey
         ));
-        return $view;
+        if (!$publicKey) {
+            $event = $this->getEvent();
+            $authManager->getStorage()->clear();
+            $response = $this->getResponse();
+            $url = $event->getRouter()->assemble(array('action' => 'login'), array('name' => 'sanalfabrika'));
+            $response->setHeaders($response->getHeaders()->addHeaderLine('Location', $url));
+            $response->setStatusCode(302);
+            $response->sendHeaders();
+            $event->stopPropagation();
+            exit();
+        } else {            
+            return $view;
+        }
     }
 
     public function cpprodsetAction() {
@@ -878,7 +947,7 @@ class SanalfabrikaController extends AbstractActionController {
         //if (!$authManager->getStorage()->isEmpty()) {
         if (!$authManager->getStorage()->isEmpty()) {
             print_r('ifloggedinredirect not empty___');
-           // print_r('ifLoggedinRedirect identity-->'.$this->getServiceLocator()->get('identity'));
+            // print_r('ifLoggedinRedirect identity-->'.$this->getServiceLocator()->get('identity'));
             $this->getServiceLocator()->get('serviceAuthenticatedRedirectManager');
         }
     }
@@ -939,10 +1008,10 @@ class SanalfabrikaController extends AbstractActionController {
                     print_r($this->getServiceLocator()->get('identity'));
                     $userID = null;
                     $userIDService = $this->getServiceLocator()->get('serviceUserIDFinder');
-                    print_r('service user id-->'.$userIDService);
+                    print_r('service user id-->' . $userIDService);
                     if (is_integer($userIDService))
-                        print_r ('is_integer');
-                        $userID = $userIDService;
+                        print_r('is_integer');
+                    $userID = $userIDService;
                     $userID = $userIDService;
                     $authManager->getStorage()->write(
                             array('id' => $userID,
