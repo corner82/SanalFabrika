@@ -1824,4 +1824,13 @@ msgstr "我的公司"
 msgid "602"
 msgstr "配置文件设置"
 
+msgid "603"
+msgstr "成员资格操作"
+
+msgid "604"
+msgstr "会员状态"
+
+msgid "605"
+msgstr "添加新公司"
+
 

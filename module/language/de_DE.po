@@ -1826,3 +1826,12 @@ msgstr "Meine Firmen"
 
 msgid "602"
 msgstr "Profileinstellungen"
+
+msgid "603"
+msgstr "Mitgliedschaft"
+
+msgid "604"
+msgstr "Mitgliedschaftsstatus"
+
+msgid "605"
+msgstr "Neues Unternehmen hinzufügen"

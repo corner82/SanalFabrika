@@ -1830,3 +1830,12 @@ msgstr "Şirketlerim"
 
 msgid "602"
 msgstr "Profil Ayarları"
+
+msgid "603"
+msgstr "Üyelik İşlemleri"
+
+msgid "604"
+msgstr "Üyelik Durumu"
+
+msgid "605"
+msgstr "Yeni Firma Ekle"

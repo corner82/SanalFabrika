@@ -1176,3 +1176,39 @@ Companies top bar
 .header .topbar ul.companies li a:hover {
     text-decoration: none; 
 }
+
+.user_top_text_header{
+    font-size:10px;
+    font-weight: bolder;
+    text-transform: uppercase; 
+    color:#555;
+      
+}
+
+ .topbar ul.loginbar .user_top_text_header  a {
+    color: #555;
+}
+
+.user_top_text_header:hover{
+    color: #000;     
+}
+
+.user_top_text_header a:hover{
+    color: #000;     
+}
+
+.user_top_text_header_big{
+    font-size:12px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color:#555; 
+    
+}
+
+
+
+.user_top_text{
+    font-size:10px;
+    text-transform: uppercase;
+    color:#555; 
+}

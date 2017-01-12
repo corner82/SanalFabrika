@@ -816,8 +816,8 @@ function setredirect() {
 
 function setredirectprofile() {
     var currenturl = window.location.href;
-    var upnk = $('#user_profile_link').attr('unpk');
-    
+    var upnk = $('#user_profile_link_a').attr('unpk');
+
     if (currenturl.indexOf($('#selectedCompanyShN').val()) > 0) {
 
         var replacing_part = $('#controller').val()
@@ -829,26 +829,26 @@ function setredirectprofile() {
         var replacing_part = $('#controller').val();
     }
 
-    var targeturl = currenturl.replace(replacing_part, 'userprofile');    
+    var targeturl = currenturl.replace(replacing_part, 'userprofile');
     window.location.replace(targeturl);
 }
 
-function showuserdetails(){
+function showuserdetails() {
     $('#user_detailed_info_bulb').css('visibility', 'visible');
-    $('#user_detailed_info_bulb').css('display', '');    
+    $('#user_detailed_info_bulb').css('display', '');
 }
 
-function hideuserdetails(){
+function hideuserdetails() {
     $('#user_detailed_info_bulb').css('visibility', 'hidden');
-    $('#user_detailed_info_bulb').css('display', 'none');    
+    $('#user_detailed_info_bulb').css('display', 'none');
 }
 
-function showcompanydetails(){
+function showcompanydetails() {
     $('#company_detailed_info_bulb').css('visibility', 'visible');
-    $('#company_detailed_info_bulb').css('display', '');    
+    $('#company_detailed_info_bulb').css('display', '');
 }
 
-function hidecompanydetails(){
+function hidecompanydetails() {
     $('#company_detailed_info_bulb').css('visibility', 'hidden');
-    $('#company_detailed_info_bulb').css('display', 'none');    
+    $('#company_detailed_info_bulb').css('display', 'none');
 }
