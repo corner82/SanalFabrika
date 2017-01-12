@@ -4,22 +4,22 @@ $(document).ready(function () {
      * multilanguage plugin 
      * @type Lang
      */
-
     window.lang = new Lang();
     lang.dynamic($('#langCode').val(), '/plugins/jquery-lang-js-master/langpack/' + $('#langCode').val() + '.json');
     lang.init({
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
+
     /*
      * Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
      */
-
     $.fn.leftMenuFunction();
+
     $('#general_firm_form').validationEngine({promptPosition: "topLeft:100%,0"});
-//    Datemask dd/mm/yyyy
+//Datemask dd/mm/yyyy
 //    $("#found_date").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
-//    $("#date").mask("99/99/9999");
+    $("#date").inputmask("99/99/9999");
     window.sel_count_id;
     window.sel_comp_count_id;
     window.cityList;
@@ -30,7 +30,7 @@ $(document).ready(function () {
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
-            url: 'pkFillFirmFullVerbal_infoFirmProfile',
+            url: 'pkFillCompanyProfile_infoFirmProfile',
             language_code: $("#langCode").val(),
             pk: $('#pk').val(),
             npk: $('#selectedCompanyNpk').val()
@@ -57,8 +57,14 @@ $(document).ready(function () {
                     var month = '';
                     var day = '';
                 }
-
                 window.sel_count_id = data[0].country_id;
+                window.sel_count_name = data[0].country_name;
+                $('#company_country_ph li').each(function (index) {
+                    if ($(this)[0].innerText.indexOf(window.sel_count_name) > 0) {
+                        $('#company_country_ph').ddslick('select', {index: $(this).index()});
+                    }
+                    ;
+                });
                 window.image_url = "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
@@ -72,25 +78,9 @@ $(document).ready(function () {
                 $('#found_date').val(year + '/' + month + '/' + day);
                 $('#tax_office').val(data[0].tax_office);
                 $('#tex_number').val(data[0].tax_no);
-                $('#desc_text').val(data[0].about);
-                $('#desc_text_en').val(data[0].about_eng);
-                $('#first_text_title').val(data[0].verbal1_title);
-                $('#first_text_title_en').val(data[0].verbal1_title_eng);
-                $('#verbal1_text').val(data[0].verbal1);
-                $('#verbal1_text_en').val(data[0].verbal1_eng);
-                $('#second_text_title').val(data[0].verbal2_title);
-                $('#second_text_title_en').val(data[0].verbal2_title_eng);
-                $('#verbal2_text').val(data[0].verbal2);
-                $('#verbal2_text_en').val(data[0].verbal2_eng);
-                $('#third_text_title').val(data[0].verbal3_title);
-                $('#third_text_title_en').val(data[0].verbal3_title_eng);
-                $('#verbal3_text').val(data[0].verbal3);
-                $('#verbal3_text_en').val(data[0].verbal3_eng);
-//                $('#company_country_ph').ddslick('select', {'value': '91'});
-//                $('#company_country_ph').ddslick(data[0].country_id);
-//                $('#company_country_ph li:has(.dd-option-text:contains("value"))').index();
-//                $('#company_country_ph').ddslick('select', {index: $('#company_country_ph li:has(.dd-option-value:contains(' + window.sel_count_id + '))')});
-//                $('#company_country_ph').ddslick('select', {value: 91 });
+                $('#desc_text').val(data[0].description);
+                $('#desc_text_en').val(data[0].description_eng);
+
                 window.verbal_id = data[0].id;
             } else {
                 console.error('"fill verbal service" servis datasÃ„Â± boÃ…Å¸tur!!');
@@ -109,37 +99,17 @@ $(document).ready(function () {
     var verbal_text_max = 2000;
     $('#desc_rem_char_alert').html(desc_text_max + ' characters remaining');
     $('#desc_en_rem_char_alert').html(desc_text_max + ' characters remaining');
-    $('#verb1_rem_char_alert').html(verbal_text_max + ' characters remaining');
-    $('#verb1_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
-    $('#verb2_rem_char_alert').html(verbal_text_max + ' characters remaining');
-    $('#verb2_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
-    $('#verb2_rem_char_alert').html(verbal_text_max + ' characters remaining');
-    $('#verb2_en_rem_char_alert').html(verbal_text_max + ' characters remaining');
+
     $('.text-area').keyup(function () {
         var desc_text_length = $('#desc_text').val().length;
         var desc_en_text_length = $('#desc_text_en').val().length;
-        var verb1_text_length = $('#verbal1_text').val().length;
-        var verb1_en_text_length = $('#verbal1_text_en').val().length;
-        var verb2_text_length = $('#verbal2_text').val().length;
-        var verb2_en_text_length = $('#verbal2_text_en').val().length;
-        var verb3_text_length = $('#verbal3_text').val().length;
-        var verb3_en_text_length = $('#verbal3_text_en').val().length;
+        
         var desc_text_remaining = desc_text_max - desc_text_length;
         var desc_text_en_remaining = desc_text_max - desc_en_text_length;
-        var verb1_text_remaining = verbal_text_max - verb1_text_length;
-        var verb1_text_en_remaining = verbal_text_max - verb1_en_text_length;
-        var verb2_text_remaining = verbal_text_max - verb2_text_length;
-        var verb2_text_en_remaining = verbal_text_max - verb2_en_text_length;
-        var verb3_text_remaining = verbal_text_max - verb3_text_length;
-        var verb3_text_en_remaining = verbal_text_max - verb3_en_text_length;
+
         $('#desc_rem_char_alert').html(desc_text_remaining + ' characters remaining');
         $('#desc_en_rem_char_alert').html(desc_text_en_remaining + ' characters remaining');
-        $('#verb1_rem_char_alert').html(verb1_text_remaining + ' characters remaining');
-        $('#verb1_en_rem_char_alert').html(verb1_text_en_remaining + ' characters remaining');
-        $('#verb2_rem_char_alert').html(verb2_text_remaining + ' characters remaining');
-        $('#verb2_en_rem_char_alert').html(verb2_text_en_remaining + ' characters remaining');
-        $('#verb3_rem_char_alert').html(verb3_text_remaining + ' characters remaining');
-        $('#verb3_en_rem_char_alert').html(verb3_text_en_remaining + ' characters remaining');
+
     });
     /*
      * Page consultant for box-header
@@ -250,38 +220,29 @@ $(document).ready(function () {
         }
     });
 });
+
+
 function send_general_info() {
 
     if ($('#general_firm_form').validationEngine('validate')) {
         if (window.verbal_id) {
 //  console.log('update');
 //  update url is used to update data
+            milliseconds();
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
-                    url: 'pkcpkUpdate_infoFirmVerbal',
+                    url: 'pkUpdate_infoFirmProfile',
                     pk: $("#pk").val(),
                     cpk: $("#cpk").val(),
-                    lang_code: $('#langCode').val(),
+                    language_code: $('#langCode').val(),
                     profile_public: 0,
                     firm_name: $('#full_name_ph').val(),
                     firm_name_eng: $('#full_name_en_ph').val(),
                     firm_name_short: $('#short_name_ph').val(),
                     firm_name_en_short: $('#short_name_en_ph').val(),
-                    about: $('#desc_text').val(),
-                    about_eng: $('#desc_text_en').val(),
-                    verbal1_title: $('#first_text_title').val(),
-                    verbal2_title: $('#second_text_title').val(),
-                    verbal3_title: $('#third_text_title').val(),
-                    verbal1_title_eng: $('#first_text_title_en').val(),
-                    verbal2_title_eng: $('#second_text_title_en').val(),
-                    verbal3_title_eng: $('#third_text_title_en').val(),
-                    verbal1: $('#verbal1_text').val(),
-                    verbal2: $('#verbal2_text').val(),
-                    verbal3: $('#verbal3_text').val(),
-                    verbal1_eng: $('#verbal1_text_en').val(),
-                    verbal2_eng: $('#verbal2_text_en').val(),
-                    verbal3_eng: $('#verbal3_text_en').val(),
+                    description: $('#desc_text').val(),
+                    description_eng: $('#desc_text_en').val(),
                     country_id: window.sel_count_id,
                     tax_office: $('#tax_office').val(),
                     tax_no: $('#tex_number').val(),
@@ -309,29 +270,17 @@ function send_general_info() {
             $.ajax({
                 url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                 data: {
-                    url: 'pkcpkInsert_infoFirmVerbal',
+                    url: 'pkInsert_infoFirmProfile',
                     pk: $("#pk").val(),
                     cpk: $("#cpk").val(),
-                    lang_code: $('#langCode').val(),
+                    language_code: $('#langCode').val(),
                     profile_public: 0,
                     firm_name: $('#full_name_ph').val(),
                     firm_name_eng: $('#full_name_en_ph').val(),
                     firm_name_short: $('#short_name_ph').val(),
                     firm_name_short_eng: $('#short_name_en_ph').val(),
-                    about: $('#desc_text').val(),
-                    about_eng: $('#desc_text_en').val(),
-                    verbal1_title: $('#first_text_title').val(),
-                    verbal2_title: $('#second_text_title').val(),
-                    verbal3_title: $('#third_text_title').val(),
-                    verbal1_title_eng: $('#first_text_title_en').val(),
-                    verbal2_title_eng: $('#second_text_title_en').val(),
-                    verbal3_title_eng: $('#third_text_title_en').val(),
-                    verbal1: $('#verbal1_text').val(),
-                    verbal2: $('#verbal2_text').val(),
-                    verbal3: $('#verbal3_text').val(),
-                    verbal1_eng: $('#verbal1_text_en').val(),
-                    verbal2_eng: $('#verbal2_text_en').val(),
-                    verbal3_eng: $('#verbal3_text_en').val(),
+                    description: $('#desc_text').val(),
+                    description_eng: $('#desc_text_en').val(),
                     country_id: window.sel_count_id,
                     tax_office: $('#tax_office').val(),
                     tax_no: $('#tex_number').val(),
@@ -395,10 +344,14 @@ function reset_verbal_info() {
 }
 
 function milliseconds() {
-    var input_date = $('#found_date').val();
-    var entered_date = new Date(input_date);
-    window.date_value = entered_date.getTime();
-    window.okan = Math.round(window.date_value / 1000.0);
+    if ($('#found_date').val() !== "") {
+        var input_date = $('#found_date').val();
+        var entered_date = new Date(input_date);
+        window.date_value = entered_date.getTime();
+        window.okan = Math.round(window.date_value / 1000.0);
 //    console.log(window.date_value);
 //    console.log(okan);
+    } else {
+        window.okan = "";
+    }
 }

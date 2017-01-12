@@ -100,29 +100,44 @@
                             <img id='user_image_ph' src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
                             <span class="hidden-xs"><?php /* echo $_SESSION['userName'] */ ?></span>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" style="width: 300px">
                             <!-- User image -->
                             <li class="user-header">
                               <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
-                                <div class='row'>
-                                    <img id='user_image_ph_hover' 
-                                         style="float: none; max-width:100%; max-height:100%"
-                                         src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" 
-                                         class="user-image" alt="User Image"/> 
-                                </div>
-                                <div class="row"  style="font-size:12px">
-                                    <span class="col-sm-6"><?php echo $this->translate('111') ?>:</span>
-                                    <span class="col-sm-6" id='user_name_hover'></span>
-                                    <br/>
-                                    <span class="col-sm-6"><?php echo $this->translate('595') ?>:</span>
-                                    <span class="col-sm-6" id='user_membership'></span>
-                                    <br/>
-                                    <span class="col-sm-6"><?php echo $this->translate('596') ?>:</span>
-                                    <span class="col-sm-6" id='user_reg_date'></span><br/>
+                                <div class="row">
+                                    <div class='row' style="margin:0px;">
+                                        <img id='user_image_ph_hover' 
+                                             style="float: none;max-width:100%; max-height:100%"
+                                             src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" 
+                                             class="user-image" alt="User Image"/> 
+                                    </div>
+                                    <div class="row" style="font-size:12px; color: #fff;">
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('111') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_name_hover'
+                                              style="text-align: left">                                                  
+                                        </span>
+                                        <br/>
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('595') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_membership'
+                                              style="text-align: left">                                                  
+                                        </span>
+                                        <br/>
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('596') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_reg_date'
+                                              style="text-align: left">                                            
+                                        </span>
+                                        <br/>
+                                    </div>
                                 </div>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
+                            <li class="user-body" style="font-size: 12px">
                                 <div class="col-xs-4 text-center">
                                     <a href="#"><?php echo $this->translate('26') ?></a>
                                 </div>
@@ -232,7 +247,7 @@
                     <input type="text" name="q" class="form-control" 
                            placeholder="<?php echo $this->translate('518') ?>"/>
                     <span class="input-group-btn">
-                        <button type='submit' name='search' id='search-btn' 
+                        <button type='button' name='search' id='search-btn' 
                                 class="btn btn-flat" onclick="send_general_info()"><i class="fa fa-search"></i>
                         </button>
                     </span>
@@ -311,10 +326,9 @@
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
                     </div>
                 </div>
-
-                <div class="box-body" style="display: block;">
-
-                    <div class="box-body">
+                <div class="box-body" style="display: block;">                    
+                    <!--<div class='col-lg-3'></div>-->
+                    <div class="box-body col-lg-6">
                         <form role="form" id='general_firm_form'>
                             <!-- First Column Start -->
                             <div class="col-lg-12">
@@ -401,7 +415,7 @@
                                         </div>
                                         <input class="form-control validate[custom[date]]" 
                                                onchange="milliseconds()"
-                                               type='text' name="found_date" id="found_date">
+                                               type='date' name="found_date" id="found_date">
                                     </div>
                                 </div>
                                 <div style='margin-top:20px'>
@@ -410,7 +424,8 @@
                                         <div class="input-group-addon">                                        
                                             <i class="icon-prepend fa fa-building"></i>
                                         </div>
-                                        <input type="text" class="form-control validate[maxSize[150]]" id="tax_office" placeholder="<?php echo $this->translate('127') ?>">
+                                        <input type="text" class="form-control validate[maxSize[150]]" 
+                                               id="tax_office" placeholder="<?php echo $this->translate('127') ?>">
                                     </div>
                                 </div>
                                 <div style='margin-top:20px'>
@@ -448,7 +463,7 @@
 
                             <!-- General Information Footer Start -->
                             <div class="box-footer col-lg-12">
-                                <button type="submit" class="btn btn-primary" onclick='send_general_info()'>
+                                <button type="button" class="btn btn-primary" onclick='send_general_info()'>
                                     <?php echo $this->translate('131') ?>
                                 </button>
                                 <button type="button" class="btn btn-default" onclick='reset_verbal_info()'>
@@ -458,6 +473,7 @@
                             <!-- General Information Footer End -->
                         </form>
                     </div>
+                    <div class="col-lg-6"></div>
                 </div>
             </div>
         </section>
@@ -474,16 +490,16 @@
 </footer>
 
 <!-- Control Sidebar -->      
-<aside class="control-sidebar control-sidebar-dark">                
-    <!-- Create the tabs -->
+<!--<aside class="control-sidebar control-sidebar-dark">                
+     Create the tabs 
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
         <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
         <li><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i class="fa fa-wrench"></i></a></li>
         <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
     </ul>
-    <!-- Tab panes -->
+     Tab panes 
     <div class="tab-content">
-        <!-- Home tab content -->
+         Home tab content 
         <div class="tab-pane" id="control-sidebar-home-tab">
             <div>
                 <h3 class="control-sidebar-heading"><?php echo $this->translate('58') ?></h3>
@@ -493,11 +509,11 @@
                             <i class="menu-icon-zeyn fa fa-file-code-o bg-green"></i>
                             <div class="menu-info">
                                 <h4 class="control-sidebar-subheading"><?php echo $this->translate('533') ?></h4>
-                                <p><!--Will be 23 on April 24th--></p>
+                                <p>Will be 23 on April 24th</p>
                             </div>
                         </a>
                     </li>
-                </ul><!-- /.control-sidebar-menu -->
+                </ul> /.control-sidebar-menu 
 
                 <h3 class="control-sidebar-heading"><?php echo $this->translate('59') ?></h3> 
                 <ul class='control-sidebar-menu'>
@@ -534,16 +550,14 @@
                             </div>                                    
                         </a>
                     </li>                                  
-                </ul><!-- /.control-sidebar-menu -->         
+                </ul> /.control-sidebar-menu          
             </div>
-        </div><!-- /.tab-pane -->
-        <!-- Stats tab content -->
+        </div> /.tab-pane 
+         Stats tab content 
 
         <div class="tab-pane active" id="control-sidebar-theme-demo-options-tab"><?php echo $this->translate('537') ?>
-            <!--/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü-->
-
+            / sonradan js'den cekılıp html'e yerleştirilen tab bölümü
             <h4 class="control-sidebar-heading"><?php echo $this->translate('32') ?></h4>
-
             <div class="form-group">
                 <label class="control-sidebar-subheading">
                     <input type="checkbox" data-layout="fixed" class="pull-right"><?php echo $this->translate('33') ?></label>
@@ -738,11 +752,11 @@
                 </li>
             </ul>
 
-        </div><!--/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü-->
+        </div>/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü
 
 
-        <!--<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
-        <!-- Settings tab content -->
+        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane 
+         Settings tab content 
         <div class="tab-pane" id="control-sidebar-settings-tab">            
             <form method="post">
                 <h3 class="control-sidebar-heading"><?php echo $this->translate('60') ?></h3>
@@ -755,7 +769,7 @@
                     <p>
                         <?php echo $this->translate('62') ?>
                     </p>
-                </div><!-- /.form-group -->
+                </div> /.form-group 
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
@@ -765,7 +779,7 @@
                     <p>
                         <?php echo $this->translate('64') ?>
                     </p>
-                </div><!-- /.form-group -->
+                </div> /.form-group 
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
@@ -775,7 +789,7 @@
                     <p>
                         <?php echo $this->translate('65') ?>
                     </p>
-                </div><!-- /.form-group -->
+                </div> /.form-group 
 
                 <h3 class="control-sidebar-heading"><?php echo $this->translate('67') ?></h3>
 
@@ -784,25 +798,25 @@
                         <?php echo $this->translate('68') ?>
                         <input type="checkbox" class="pull-right" checked />
                     </label>                
-                </div><!-- /.form-group -->
+                </div> /.form-group 
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
                         <?php echo $this->translate('69') ?>
                         <input type="checkbox" class="pull-right" />
                     </label>                
-                </div><!-- /.form-group -->
+                </div> /.form-group 
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
                         <?php echo $this->translate('70') ?>
                         <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
                     </label>                
-                </div><!-- /.form-group -->
+                </div> /.form-group 
             </form>
-        </div><!-- /.tab-pane -->
+        </div> /.tab-pane 
     </div>
-</aside><!-- /.control-sidebar -->
+</aside> /.control-sidebar -->
 <!-- Add the sidebar's background. This div must be placed
      immediately after the control sidebar -->
 <div class='control-sidebar-bg'></div>
