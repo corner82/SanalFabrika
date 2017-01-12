@@ -1802,3 +1802,27 @@ msgstr  "Bitte geben Sie eine kurze Beschreibung in Englisch über Ihre Firma ei
 
 msgid "594"
 msgstr "Nutzerinformation"
+
+msgid "595"
+msgstr "Mitgliedschaft"
+
+msgid "596"
+msgstr "Registrierungsdatum"
+
+msgid "597"
+msgstr "Benutzeraktionen"
+
+msgid "598"
+msgstr "Mein Benutzerprofil"
+
+msgid "599"
+msgstr "Einstellung für Benutzerprofile"
+
+msgid "600"
+msgstr "Meine Firma"
+
+msgid "601"
+msgstr "Meine Firmen"
+
+msgid "602"
+msgstr "Profileinstellungen"

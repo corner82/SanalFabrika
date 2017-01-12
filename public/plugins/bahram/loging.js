@@ -19,6 +19,8 @@ $(document).ready(function () {
         $('#setting_link').css('display', 'none');
         $('#setting_link_divider').css('display', 'none');
 
+        $('#setting_link_a').attr('href', '');
+
         $('#user_profile_link').css('visibility', 'hidden');
         $('#user_profile_link_divider').css('visibility', 'hidden');
         $('#user_profile_link').css('display', 'none');
@@ -29,11 +31,6 @@ $(document).ready(function () {
         $('#login_place').css('display', 'none');
         $('#logout_place').css('visibility', 'visible');
         $('#logout_place').css('display', '');
-
-        $('#setting_link').css('visibility', 'visible');
-        $('#setting_link_divider').css('visibility', 'visible');
-        $('#setting_link').css('display', '');
-        $('#setting_link_divider').css('display', '');
 
         /*
          * User name on toolbar
@@ -54,7 +51,7 @@ $(document).ready(function () {
                     $('#user_name_hover').empty();
                     $('#user_membership').empty();
                     $('#user_reg_date').empty();
-                    
+
                     $('#user_image_ph').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
                     $('#user_name').append(data[0].name + ' ' + data[0].surname);
                     $('#user_image_ph_hover').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
@@ -62,6 +59,17 @@ $(document).ready(function () {
                     $('#user_membership').append(data[0].mem_type);
                     $('#user_reg_date').append(data[0].registration_date);
                     $('#user_profile_link').attr('unpk', data[0].unpk);
+
+                    $('#setting_link_a').attr('href',
+                            'https://' +
+                            window.location.host +
+                            '/' +
+                            $('#langCode').val() +
+                            '/ostim/sanalfabrika/cpgenelset' +                            
+                            data[0].firm_name_short +
+                            '/' +
+                            data[0].npk);
+
                 } else {
                     console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
                 }
@@ -70,6 +78,11 @@ $(document).ready(function () {
                 console.error('"pkGetUserShortInformation_infoUsers" servis hatasÃ„Â±->' + textStatus);
             }
         });
+
+        $('#setting_link').css('visibility', 'visible');
+        $('#setting_link_divider').css('visibility', 'visible');
+        $('#setting_link').css('display', '');
+        $('#setting_link_divider').css('display', '');
 
         $('#user_profile_link').css('visibility', 'visible');
         $('#user_profile_link_divider').css('visibility', 'visible');

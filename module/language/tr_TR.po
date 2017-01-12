@@ -1812,3 +1812,21 @@ msgstr "Üyelik Paketi"
 
 msgid "596"
 msgstr "Kayıt Tarihi"
+
+msgid "597"
+msgstr "Kullanıcı İşlemleri"
+
+msgid "598"
+msgstr "K. Profil Sayfam"
+
+msgid "599"
+msgstr "K. Profil Ayarları"
+
+msgid "600"
+msgstr "Şirketim"
+
+msgid "601"
+msgstr "Şirketlerim"
+
+msgid "602"
+msgstr "Ş. Profil Ayarları"

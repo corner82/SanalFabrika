@@ -1800,5 +1800,28 @@ msgstr "خلاصه ای در مورد فعالیتهای شرکت خود را ب
 msgid "594"
 msgstr "اطلاعات کاربر"
 
+msgid "595"
+msgstr "نوع عضویت"
+
+msgid "596"
+msgstr "تاریخ عضویت"
+
+msgid "597"
+msgstr "فعالیتهای کاربر"
+
+msgid "598"
+msgstr "نمایه کاربر"
+
+msgid "599"
+msgstr تنظیمات نمایه کاربر"
+
+msgid "600"
+msgstr "شرکت من"
+
+msgid "601"
+msgstr "شرکتهای من"
+
+msgid "602"
+msgstr "تنظیمات نمایه شرکت"
 
 

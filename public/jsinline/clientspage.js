@@ -107,6 +107,8 @@ $(document).ready(function () {
 //                            console.log(appending_html);
                 var newappend = $(appending_html);
                 $(newappend).appendTo($("#pagination_content"));
+                $('#selectedCompanyNpk').val('');
+                $('#selectedCompanyShN').val('');
 
             }
             $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");

@@ -801,13 +801,6 @@
     });
 
 
-
-
-
-
-
-
-
 }(jQuery));
 
 
@@ -848,4 +841,14 @@ function showuserdetails(){
 function hideuserdetails(){
     $('#user_detailed_info_bulb').css('visibility', 'hidden');
     $('#user_detailed_info_bulb').css('display', 'none');    
+}
+
+function showcompanydetails(){
+    $('#company_detailed_info_bulb').css('visibility', 'visible');
+    $('#company_detailed_info_bulb').css('display', '');    
+}
+
+function hidecompanydetails(){
+    $('#company_detailed_info_bulb').css('visibility', 'hidden');
+    $('#company_detailed_info_bulb').css('display', 'none');    
 }

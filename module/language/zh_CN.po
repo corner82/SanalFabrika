@@ -1800,4 +1800,28 @@ msgstr "请输入您的公司的英文简要说明。"
 msgid "594"
 msgstr "用户信息"
 
+msgid "595"
+msgstr "会员资格"
+
+msgid "596"
+msgstr "注册日期"
+
+msgid "597"
+msgstr "用户操作"
+
+msgid "598"
+msgstr "我的用户资料"
+
+msgid "599"
+msgstr "用户资料设置"
+
+msgid "600"
+msgstr "我的公司"
+
+msgid "601"
+msgstr "我的公司"
+
+msgid "602"
+msgstr "配置文件设置"
+
 
