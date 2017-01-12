@@ -19,7 +19,7 @@ $(document).ready(function () {
         $('#setting_link').css('display', 'none');
         $('#setting_link_divider').css('display', 'none');
 
-        $('#setting_link_a').attr('href', '');
+//        $('#setting_link_a').attr('href', '');
 
         $('#user_profile_link').css('visibility', 'hidden');
         $('#user_profile_link_divider').css('visibility', 'hidden');
@@ -59,16 +59,16 @@ $(document).ready(function () {
                     $('#user_membership').append(data[0].mem_type);
                     $('#user_reg_date').append(data[0].registration_date);
                     $('#user_profile_link').attr('unpk', data[0].unpk);
-
-                    $('#setting_link_a').attr('href',
-                            'https://' +
-                            window.location.host +
-                            '/' +
-                            $('#langCode').val() +
-                            '/ostim/sanalfabrika/cpgenelset' +                            
-                            data[0].firm_name_short +
-                            '/' +
-                            data[0].npk);
+                    $('#membership_tag').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfSystem/' + data[0].mem_logo)
+//                    $('#setting_link_a').attr('href',
+//                            'https://' +
+//                            window.location.host +
+//                            '/' +
+//                            $('#langCode').val() +
+//                            '/ostim/sanalfabrika/cpgenelset' +                            
+//                            data[0].firm_name_short +
+//                            '/' +
+//                            data[0].npk);
 
                 } else {
                     console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
