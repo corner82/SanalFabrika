@@ -1839,3 +1839,6 @@ msgstr "Üyelik Durumu"
 
 msgid "605"
 msgstr "Yeni Firma Ekle"
+
+msgid "606"
+msgstr "Kayıtlı Firmanız Yoktur"

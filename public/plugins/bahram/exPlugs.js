@@ -799,6 +799,9 @@
 
 
     });
+    
+    
+    
 
 
 }(jQuery));
@@ -852,3 +855,4 @@ function hidecompanydetails() {
     $('#company_detailed_info_bulb').css('visibility', 'hidden');
     $('#company_detailed_info_bulb').css('display', 'none');
 }
+

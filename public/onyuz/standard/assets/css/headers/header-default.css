@@ -1121,7 +1121,6 @@ company_details_header{
 /*
 Companies top bar
 */
-/*languages*/
 .header .topbar ul.companies {
     top: 25px;
     left: -5px;
@@ -1129,7 +1128,7 @@ Companies top bar
     padding: 4px 0;
     padding-left: 0; 
     list-style: none;
-    min-width: 150px;
+    min-width: 200px;
     position: absolute;
     background: #f1ddc0;
 }
@@ -1176,6 +1175,74 @@ Companies top bar
 .header .topbar ul.companies li a:hover {
     text-decoration: none; 
 }
+
+
+/*
+--End of company top bar
+*/
+
+
+/*
+Users top bar
+*/
+.header .topbar ul.users {
+    top: 25px;
+    left: -5px;
+    display: none;
+    padding: 4px 0;
+    padding-left: 0; 
+    list-style: none;
+    min-width: 400px;
+    position: absolute;
+    background: #f1ddc0;
+}
+
+.header .topbar li:hover ul.users {
+    display: block;
+}
+
+.header .topbar ul.users:after {
+    top: -4px;
+    width: 0; 
+    height: 0;
+    left: 8px;
+    content: " "; 
+    display: block; 
+    position: absolute;
+    border-bottom: 6px solid #f1ddc0;	
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-left-style: inset; /*FF fixes*/
+    border-right-style: inset; /*FF fixes*/
+}
+
+.header .topbar ul.users li a {
+    color: #555;
+    display: block;
+    font-size: 10px;
+    padding: 2px 12px;
+    margin-bottom: 1px;
+    text-transform: uppercase; 
+}
+
+.header .topbar ul.users li.active a i {
+    color: #999;
+    float: right;
+    margin-top: 2px;
+}
+
+.header .topbar ul.users li a:hover, 
+.header .topbar ul.users li.active a {
+    background: #f2e3ce;
+}
+
+.header .topbar ul.users li a:hover {
+    text-decoration: none; 
+}
+/*
+--End of user top bar
+*/
+
 
 .user_top_text_header{
     font-size:10px;

@@ -1836,3 +1836,6 @@ msgstr "Membership Status"
 msgid "605"
 msgstr "Add New Company"
 
+msgid "606"
+msgstr "No Registered Company"
+

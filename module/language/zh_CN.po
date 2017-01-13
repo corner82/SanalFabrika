@@ -1833,4 +1833,6 @@ msgstr "会员状态"
 msgid "605"
 msgstr "添加新公司"
 
+msgid "606"
+msgstr "没有注册公司"
 

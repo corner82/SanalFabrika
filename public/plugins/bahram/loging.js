@@ -79,6 +79,52 @@ $(document).ready(function () {
             }
         });
 
+        /*
+         * User companies list
+         */
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: {
+                url: 'pkGetUserCompanyShortInformation_infoFirmProfile',
+                language_code: $("#langCode").val(),
+                pk: $('#pk').val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            //data: 'rowIndex='+rowData.id,
+            success: function (data, textStatus, jqXHR) {
+                if (data.rows.length !== 0) {
+                    $('#topCompaniesBar_div').empty();
+                    for (var i = 0; i < data.rows.length; i++) {
+                        var company_link = "https://" + window.location.host + "/" + $('#langCode').val() +
+                                "/ostim/sanalfabrika/companyprofile/" + data.rows[i].folder_name + "/" + data.rows[i].npk;
+                                                
+                        var appending = 
+                                "<li style ='text-align: center;" +
+                                "vertical-align: middle; line-height: 40px;'>" + 
+                                "<a href='" + company_link + "'>" +
+                                "<img style='float:left; padding-right:20px;max-height:40px' src='" + 
+                                "https://" + window.location.host + 
+                                "/onyuz/standard/assets/img/sfClients/" + 
+                                data.rows[i].logo + "'></img>" +                                
+                                data.rows[i].network_name +
+                                "</a></li>";
+                        
+                        $('#topCompaniesBar_div').append(appending);
+                        
+                    $('#no_sub_company').css('visibility', 'hidden');
+                    $('#no_sub_company').css('display', 'none');
+                    }
+                } else {
+                    $('#no_sub_company').css('visibility', 'visible');
+                    $('#no_sub_company').css('display', '');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('"pkGetUserShortInformation_infoUsers" servis hatasÃ„Â±->' + textStatus);
+            }
+        });
+
         $('#setting_link').css('visibility', 'visible');
         $('#setting_link_divider').css('visibility', 'visible');
         $('#setting_link').css('display', '');

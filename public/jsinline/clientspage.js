@@ -44,7 +44,7 @@ $(document).ready(function () {
             }
             for (i = 0; i < window.companyperpage; i++) {
                 $('#selectedCompanyNpk').val(data.rows[i].npk);
-                var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
+                var rep_firm_short_name = data.rows[i].folder_name.toString().replace(" ", "-");
                 $('#selectedCompanyShN').val(rep_firm_short_name);
                 var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
 
