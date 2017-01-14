@@ -147,7 +147,7 @@
                             </div>
                             <div class='col-md-12'>
                                 <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
-                                    <a href="">
+                                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'userprofile', 'lang' => $this->langCode)); ?>">
                                         <i class="fa fa-user" style='margin-right: 5px'></i><?php echo $this->translate('598') ?>
                                     </a>
                                 </li>
@@ -164,7 +164,7 @@
                     <li id="user_profile_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>
                     <li class="hoverSelector" id="setting_link" style="visibility: hidden; display: none">
                         <a style="cursor: pointer;"><?php echo $this->translate('601') ?></a>
-                        <i class="fa fa-gear"></i>
+                        <i class="fa fa-building"></i>
                         <ul id='topCompaniesBar' class="companies hoverSelectorBlock">
                             <div class='col-md-12' id="topCompaniesBar_div"><hr></div>
 <!--                            <div class='col-md-12'>
