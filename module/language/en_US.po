@@ -1827,4 +1827,15 @@ msgstr "My Companies"
 msgid "602"
 msgstr "Profile Settings"
 
+msgid "603"
+msgstr "Membership Actions"
+
+msgid "604"
+msgstr "Membership Status"
+
+msgid "605"
+msgstr "Add New Company"
+
+msgid "606"
+msgstr "No Registered Company"
 
