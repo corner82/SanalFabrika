@@ -51,10 +51,31 @@ $(document).ready(function () {
                     $('#user_name_hover').empty();
                     $('#user_membership').empty();
                     $('#user_reg_date').empty();
-
-                    $('#user_image_ph').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
-                    $('#user_name').append(data[0].name + ' ' + data[0].surname);
-                    $('#user_image_ph_hover').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
+                    if (data[0].user_picture) {
+                        $('#user_image_ph').css('display', '');
+                        $('#user_image_ph').css('visibility', 'visible');
+                        $('#user_image_ph').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
+                        $('#user_name').append(data[0].name + ' ' + data[0].surname);
+                        $('#icon_ph').css('display', 'none');
+                        $('#icon_ph').css('visibility', 'hidden');
+                        $('#user_image_ph_hover').css('display', '');
+                        $('#user_image_ph_hover').css('visibility', 'visible');
+                        $('#user_image_ph_hover').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
+                    
+                    } else {
+                        $('#user_image_ph').css('display', 'none');
+                        $('#user_image_ph').css('visibility', 'hidden');
+                        $('#user_name').append("<i class='fa fa-user'>  </i>  " + data[0].name + ' ' + data[0].surname);                        
+                        $('#user_image_ph_hover').css('display', 'none');
+                        $('#user_image_ph_hover').css('visibility', 'hidden');
+                        $('#icon_ph').css('display', '');
+                        $('#icon_ph').css('visibility', 'visible');
+                        $('#user_image_ph_hover').css('display', 'none');
+                        $('#user_image_ph_hover').css('visibility', 'hidden');
+                        $('#user_image_ph_hover').append('');
+                        
+                    }
+//                    $('#user_name').append("<i class='fa fa-user'></i>" + data[0].name + ' ' + data[0].surname);
                     $('#user_name_hover').append(data[0].name + ' ' + data[0].surname);
                     $('#user_membership').append(data[0].mem_type);
                     $('#user_reg_date').append(data[0].registration_date);
@@ -98,22 +119,22 @@ $(document).ready(function () {
                     for (var i = 0; i < data.rows.length; i++) {
                         var company_link = "https://" + window.location.host + "/" + $('#langCode').val() +
                                 "/ostim/sanalfabrika/companyprofile/" + data.rows[i].folder_name + "/" + data.rows[i].npk;
-                                                
-                        var appending = 
+
+                        var appending =
                                 "<li style ='text-align: center;" +
-                                "vertical-align: middle; line-height: 40px;'>" + 
+                                "vertical-align: middle; line-height: 40px;'>" +
                                 "<a href='" + company_link + "'>" +
-                                "<img style='float:left; padding-right:20px;max-height:40px' src='" + 
-                                "https://" + window.location.host + 
-                                "/onyuz/standard/assets/img/sfClients/" + 
-                                data.rows[i].logo + "'></img>" +                                
+                                "<img style='float:left; padding-right:20px;max-height:40px' src='" +
+                                "https://" + window.location.host +
+                                "/onyuz/standard/assets/img/sfClients/" +
+                                data.rows[i].logo + "'></img>" +
                                 data.rows[i].network_name +
                                 "</a></li>";
-                        
+
                         $('#topCompaniesBar_div').append(appending);
-                        
-                    $('#no_sub_company').css('visibility', 'hidden');
-                    $('#no_sub_company').css('display', 'none');
+
+                        $('#no_sub_company').css('visibility', 'hidden');
+                        $('#no_sub_company').css('display', 'none');
                     }
                 } else {
                     $('#no_sub_company').css('visibility', 'visible');

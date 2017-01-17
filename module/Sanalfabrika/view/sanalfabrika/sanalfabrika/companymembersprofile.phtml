@@ -96,6 +96,7 @@
             <!-- Topbar -->
             <div class="topbar">
                 <ul class="loginbar pull-right">
+                    <!--User topbar -->
                     <li class="hoverSelector" id="user_profile_link" style="visibility: hidden; display: none">
                         <a style="cursor: pointer;">
                             <img id="user_image_ph" style="max-height: 20px; margin-right: 10px" 
@@ -104,9 +105,11 @@
                         </a>
                         <ul id='topUserBar' class="users hoverSelectorBlock">
                             <div class='col-md-12'>
-                                <div class="col-sm-2">
+                                <div class="col-sm-2"  style="margin-top: 20px">
                                     <img id="user_image_ph_hover" style="max-height: 60px; margin: 5px;" 
                                          class="rounded-2x" src="" alt="">
+                                    <!--<i id="icon_ph" style="font-size: 50px" class="icon-user"></i>-->
+                                    <span id="icon_ph" style="font-size: 50px;vertical-align: middle" aria-hidden="true" class="fa fa-user"></span>
                                 </div>
                                 <div class="col-sm-10" style="margin-top: 20px">
                                     <span class="col-sm-6 user_top_text_header">
@@ -153,13 +156,13 @@
                                     </a>
                                 </li>
                             </div>
-<!--                            <div class='col-md-12'>
-                                <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
-                                    <a href="">
-                                        <i class="fa fa-gear" style='margin-right: 5px'></i><?php echo $this->translate('599') ?>
-                                    </a>
-                                </li>
-                            </div>-->
+                            <!--                            <div class='col-md-12'>
+                                                            <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
+                                                                <a href="">
+                                                                    <i class="fa fa-gear" style='margin-right: 5px'></i><?php echo $this->translate('599') ?>
+                                                                </a>
+                                                            </li>
+                                                        </div>-->
                         </ul>
                     </li>
                     <li id="user_profile_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>
@@ -167,18 +170,18 @@
                         <a style="cursor: pointer;"><?php echo $this->translate('601') ?></a>
                         <i class="fa fa-building"></i>
                         <ul id='topCompaniesBar' class="companies hoverSelectorBlock">
-                            <div class='col-md-12' id="topCompaniesBar_div"><hr></div>
-<!--                            <div class='col-md-12'>
-                                <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
-                                    <a href="">
-                                        <i class="fa fa-plus"></i> <?php echo $this->translate('605') ?>
-                                    </a>
-                                </li>
-                            </div>-->
+                            <div class='col-md-12' id="topCompaniesBar_div"></div>
+                            <!--                            <div class='col-md-12'>
+                                                            <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
+                                                                <a href="">
+                                                                    <i class="fa fa-plus"></i> <?php echo $this->translate('605') ?>
+                                                                </a>
+                                                            </li>
+                                                        </div>-->
                             <div class='col-md-12' id='no_sub_company' style='visibility: hidden; display:none'>
                                 <li class="companies_top_text_header" style ='text-align: center;vertical-align: middle; line-height: 40px;'>
                                     <a href="">
-                                        <i class="fa fa-exclamation"></i> <?php echo $this->translate('606') ?>
+                                        <?php echo $this->translate('606') ?>  <i class="fa fa-exclamation"></i>
                                     </a>
                                 </li>
                             </div>

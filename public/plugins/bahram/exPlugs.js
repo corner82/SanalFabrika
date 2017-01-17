@@ -361,7 +361,6 @@
 //                            console.log(appending_html);
                             var newappend = $(appending_html);
                             $(newappend).appendTo($("#pagination_content"));
-
                         }
                         window.testLoadImage.loadSpinner('removeLoadImage');
                     }
@@ -427,9 +426,6 @@
 
                 $("#pagination_content").empty();
 
-                window.testLoadImage = $("#pagination_content").loadSpinner();
-                window.testLoadImage.loadSpinner('appendImage');
-
                 $.ajax({
                     url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
                     //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
@@ -438,7 +434,7 @@
                         pk: $('#pk').val(),
                         language_code: $("#langCode").val(),
                         page: num,
-                        rows: 10,
+                        rows: window.companyperpage,
                         sort: null,
                         order: null,
                         company_name: $('#company_name').val(),
@@ -516,9 +512,7 @@
 //                            console.log(appending_html);
                                 var newappend = $(appending_html);
                                 $(newappend).appendTo($("#pagination_content"));
-
                             }
-                            window.testLoadImage.loadSpinner('removeLoadImage');
                         }
                     }
                 });

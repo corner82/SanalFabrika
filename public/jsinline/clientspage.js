@@ -5,6 +5,13 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
+    
+    $("#search_box").keypress(function(event) {
+    if (event.which === 13) {
+        event.preventDefault();
+        $("#search_btn").click();
+    }
+});
 
     lang.change($('#langCode').val());
 
@@ -382,5 +389,6 @@ function searchCompanies() {
             console.error('"fillCompanyListsGuest_infoFirmProfile" servis hatasÄ±->' + textStatus);
         }
     });
+    return false;
 }
 

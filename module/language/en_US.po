@@ -1839,3 +1839,46 @@ msgstr "Add New Company"
 msgid "606"
 msgstr "No Registered Company"
 
+msgid "607"
+msgstr "Info!"
+
+msgid "608"
+msgstr "people visited your profile page in the last 7 days"
+
+msgid "609"
+msgstr "Want to know who has visited your page!"
+
+msgid "610"
+msgstr "Personal Information"
+
+msgid "611"
+msgstr "First Name"
+
+msgid "612"
+msgstr "Last Name"
+
+msgid "613"
+msgstr "Birth date"
+
+msgid "614"
+msgstr "Position"
+
+msgid "615"
+msgstr "Skills"
+
+msgid "616"
+msgstr "Education"
+
+msgid "617"
+msgstr "Business Career"
+
+msgid "618"
+msgstr "Contributed Projects"
+
+
+
+
+
+
+
+

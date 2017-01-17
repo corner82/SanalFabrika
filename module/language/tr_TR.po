@@ -1842,3 +1842,48 @@ msgstr "Yeni Firma Ekle"
 
 msgid "606"
 msgstr "Kayıtlı Firmanız Yoktur"
+
+msgid "607"
+msgstr "Bilgi!"
+
+msgid "608"
+msgstr "kişi profil sayfanızı son 7 günde ziyaret etmiştir"
+
+msgid "609"
+msgstr "Kimler sayfanıza baktığını bilmek istiyormusunuz!"
+
+msgid "610"
+msgstr "Kişisel Bilgiler"
+
+msgid "611"
+msgstr "Ad"
+
+msgid "612"
+msgstr "Soyad"
+
+msgid "613"
+msgstr "Doğum Tarihi"
+
+msgid "614"
+msgstr "Ünvan"
+
+msgid "615"
+msgstr "Maharetler"
+
+msgid "616"
+msgstr "Eğitim"
+
+msgid "617"
+msgstr "Kariyer"
+
+msgid "618"
+msgstr "Katkıda Bulunduğu Projeler"
+
+
+
+
+
+
+
+
+
