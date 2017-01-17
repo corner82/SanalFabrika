@@ -42,6 +42,8 @@ class FactoryServiceSessionManagerDefaultLocator  implements FactoryInterface{
                 $metaData = $sessionManager->getStorage()->getMetadata();
             } catch (Exception $exc) {
                 echo $exc->getTraceAsString();
+            } finally {
+                //echo "İlk finally bloğu.\n";
             }
 
             
