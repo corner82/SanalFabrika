@@ -36,8 +36,6 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-
-//            console.log(data);
             var i;
             // @companyperpage = 10 company will be shown per page
             window.companyperpage = 10;
@@ -52,7 +50,7 @@ $(document).ready(function () {
             for (i = 0; i < window.companyperpage; i++) {
                 $('#selectedCompanyNpk').val(data.rows[i].npk);
                 var rep_firm_short_name = data.rows[i].folder_name.toString().replace(" ", "-");
-                $('#selectedCompanyShN').val(rep_firm_short_name);
+                $('#selectedCompanyShN').val(data.rows[i].firm_name_short);
                 var companyProfileLink = window.location.href.replace(/clientspage/, "companyprofile/" + $('#selectedCompanyShN').val() + "/" + $('#selectedCompanyNpk').val());
 
                 var appending_html =

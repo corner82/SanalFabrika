@@ -108,7 +108,9 @@ $(document).ready(function () {
             var i;
             $('#testimonials_ph').empty();
             for (i = 0; i < data.rows.length; i++) {
-
+                var userProfileLink = "https://" + window.location.host + "/ostim/sanalfabrika/userprofile/" + data.rows[i].unpk ;
+                
+                
                 var appending =
                         "<div class='col-sm-6'>"
                         + "<!-- Testimonials v4 -->"
@@ -118,28 +120,28 @@ $(document).ready(function () {
                         + data.rows[i].verbal1
                         + "</p>"
                         + "</div>"
+                        + "<a href='" + userProfileLink + "'>" 
                         + "<img class='rounded-x' src='https://"
                         + window.location.hostname 
                         + "/onyuz/standard/assets/img/sfClients/"
-                        + data.rows[i].picture 
+                        + data.rows[i].picture
                         + "' "
                         + " alt='"
                         +  data.rows[i].name + "_" + data.rows[i].surname
-                        + "'>"
+                        + "'data-unpk='" + data.rows[i].unpk + "'>"
                         + "<span class='testimonials-author'>"
                         + data.rows[i].name + " " + data.rows[i].surname
 //                        + "<br>"
 //                        + "<em>"
 //                        + data.rows[i].title
 //                        + "</em>"
-                        + "</span>"
+                        + "</span></a>"
                         + "</div>"
                         + "<!-- End Testimonials v4 -->"
                         + "</div>";
 //                console.log(appending);
                 $('#testimonials_ph').append(appending);
             }
-
         }
     });
 

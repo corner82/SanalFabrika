@@ -80,6 +80,7 @@ $(document).ready(function () {
                     $('#user_membership').append(data[0].mem_type);
                     $('#user_reg_date').append(data[0].registration_date);
                     $('#user_profile_link').attr('unpk', data[0].unpk);
+                    $('#user_prof_address').attr('href', 'https://' + window.location.host + '/ostim/sanalfabrika/userprofile/' + data[0].unpk);
                     $('#membership_tag').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfSystem/' + data[0].mem_logo)
 
 
@@ -110,7 +111,7 @@ $(document).ready(function () {
                     $('#topCompaniesBar_div').empty();
                     for (var i = 0; i < data.rows.length; i++) {
                         var company_link = "https://" + window.location.host + "/" + $('#langCode').val() +
-                                "/ostim/sanalfabrika/companyprofile/" + data.rows[i].folder_name + "/" + data.rows[i].npk;
+                                "/ostim/sanalfabrika/companyprofile/" + data.rows[i].network_name + "/" + data.rows[i].npk;
 
                         var appending =
                                 "<li style ='text-align: center;" +
