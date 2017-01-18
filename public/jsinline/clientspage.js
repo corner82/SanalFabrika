@@ -120,6 +120,7 @@ $(document).ready(function () {
             }
             $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");
             event.preventDefault();
+           
 
             $('#paginationBar').paginator();
             $('#paginationBar').paginator('option', 'total', window.totalnumberofpages);

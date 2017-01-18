@@ -1835,3 +1835,39 @@ msgstr "اضافه کردن شرکت جدید"
 
 msgid "606"
 msgstr "شرکتی ثبت نشده است"
+
+msgid "607"
+msgstr "توجه!"
+
+msgid "608"
+msgstr "نفر صفحه شما را در یک هفته گذشته مشاهده کرده اند"
+
+msgid "609"
+msgstr "آیا میخواهید بدانید چه کسانی صفحه شما را دیده اند؟"
+
+msgid "610"
+msgstr "اطلاعات شخصی"
+
+msgid "611"
+msgstr "نام"
+
+msgid "612"
+msgstr "نام خانوادگی"
+
+msgid "613"
+msgstr "تاریخ تولد"
+
+msgid "614"
+msgstr "موقعیت"
+
+msgid "615"
+msgstr "مهارتها"
+
+msgid "616"
+msgstr "تحصیلات"
+
+msgid "617"
+msgstr "تجربه کاری"
+
+msgid "618"
+msgstr "مشارکت در پروژه"

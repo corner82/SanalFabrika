@@ -1836,3 +1836,48 @@ msgstr "添加新公司"
 msgid "606"
 msgstr "没有注册公司"
 
+msgid "607"
+msgstr "信息!"
+
+msgid "608"
+msgstr "用户在过去7天内访问了您的个人资料页面"
+
+msgid "609"
+msgstr "想知道谁访问过您的信息页!"
+
+msgid "610"
+msgstr "个人信息"
+
+msgid "611"
+msgstr "名字"
+
+msgid "612"
+msgstr "姓"
+
+msgid "613"
+msgstr "生日"
+
+msgid "614"
+msgstr "位置"
+
+msgid "615"
+msgstr "技能"
+
+msgid "616"
+msgstr "教育"
+
+msgid "617"
+msgstr "商业职业"
+
+msgid "618"
+msgstr "贡献项目"
+
+
+
+
+
+
+
+
+
+

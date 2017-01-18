@@ -1838,3 +1838,39 @@ msgstr "Neues Unternehmen hinzufügen"
 
 msgid "606"
 msgstr "Kein registriertes Unternehmen"
+
+msgid "607"
+msgstr "Info!"
+
+msgid "608"
+msgstr "Personen haben Ihre Profilseite in den letzten 7 Tagen besucht"
+
+msgid "609"
+msgstr "Wollen Sie wissen, wer Ihre Seite besucht hat!"
+
+msgid "610"
+msgstr "Persönliche Angaben"
+
+msgid "611"
+msgstr "Vorname"
+
+msgid "612"
+msgstr "Familienname, Nachname"
+
+msgid "613"
+msgstr "Geburtsdatum"
+
+msgid "614"
+msgstr "Position"
+
+msgid "615"
+msgstr "Fertigkeiten"
+
+msgid "616"
+msgstr "Ausbildung"
+
+msgid "617"
+msgstr "Unternehmenskarrierer"
+
+msgid "618"
+msgstr "Beteiligte Projekte"

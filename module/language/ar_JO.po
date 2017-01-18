@@ -1833,3 +1833,47 @@ msgstr "إضافة شركة جديدة"
 
 msgid "606"
 msgstr "لا شركة مسجلة"
+
+msgid "607"
+msgstr "معلومات!"
+
+msgid "608"
+msgstr "شخص زاروا صفحة ملفك الشخصي في اخر 7 ايام"
+
+msgid "609"
+msgstr "تريد أن تعرف من قام بزيارة صفحتك!"
+
+msgid "610"
+msgstr "معلومات شخصية"
+
+msgid "611"
+msgstr "الاسم الاول"
+
+msgid "612"
+msgstr "الكنية"
+
+msgid "613"
+msgstr "تاريخ الميلاد"
+
+msgid "614"
+msgstr "موضع"
+
+msgid "615"
+msgstr "مهارات"
+
+msgid "616"
+msgstr "التعليم"
+
+msgid "617"
+msgstr "العمل الوظيفي"
+
+msgid "618"
+msgstr "مشاريع ساهمت"
+
+
+
+
+
+
+
+

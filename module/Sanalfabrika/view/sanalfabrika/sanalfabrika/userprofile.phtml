@@ -85,7 +85,7 @@
     <div class="header">
         <div class="container">
             <!-- Logo -->
-            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>">
+            <a class="logo" href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode)); ?>">
                 <img src="<?php echo $this->basePath('onyuz/standard/assets/img/logo1-default.png') ?>" alt="Logo">
             </a>
             <!-- End Logo -->
@@ -151,13 +151,13 @@
                                     </a>
                                 </li>
                             </div>
-<!--                            <div class='col-md-12'>
-                                <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
-                                    <a href="">
-                                        <i class="fa fa-gear" style='margin-right: 5px'></i><?php echo $this->translate('599') ?>
-                                    </a>
-                                </li>
-                            </div>-->
+                            <!--                            <div class='col-md-12'>
+                                                            <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
+                                                                <a href="">
+                                                                    <i class="fa fa-gear" style='margin-right: 5px'></i><?php echo $this->translate('599') ?>
+                                                                </a>
+                                                            </li>
+                                                        </div>-->
                         </ul>
                     </li>
                     <li id="user_profile_link_divider" class="topbar-devider" style="visibility: hidden; display: none"></li>
@@ -166,13 +166,13 @@
                         <i class="fa fa-building"></i>
                         <ul id='topCompaniesBar' class="companies hoverSelectorBlock">
                             <div class='col-md-12' id="topCompaniesBar_div"></div>
-<!--                            <div class='col-md-12'>
-                                <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
-                                    <a href="">
-                                        <i class="fa fa-plus"></i> <?php echo $this->translate('605') ?>
-                                    </a>
-                                </li>
-                            </div>-->
+                            <!--                            <div class='col-md-12'>
+                                                            <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
+                                                                <a href="">
+                                                                    <i class="fa fa-plus"></i> <?php echo $this->translate('605') ?>
+                                                                </a>
+                                                            </li>
+                                                        </div>-->
                             <div class='col-md-12' id='no_sub_company' style='visibility: hidden; display:none'>
                                 <li class="companies_top_text_header" style ='text-align: center;vertical-align: middle; line-height: 40px;'>
                                     <a href="">
@@ -224,31 +224,31 @@
             <div class="container">
                 <ul class="nav navbar-nav " style="font-size: 10px;">
                     <li class="page-scroll home">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#body"><?php echo $this->translate('9') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#body"><?php echo $this->translate('9') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#about"><?php echo $this->translate('229') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                ?>#about"><?php echo $this->translate('229') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             <?php echo $this->translate('230') ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
+                            <li class="page-scroll"><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
                             ?>#ostimServices">
                                     <?php echo $this->translate('15') ?></a>
                             </li>
                         </ul>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#news"><?php echo $this->translate('231') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#news"><?php echo $this->translate('231') ?></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode));
-                            ?>#contact"><?php echo $this->translate('232') ?></a>
+                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langCode));
+                                    ?>#contact"><?php echo $this->translate('232') ?></a>
                     </li>
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
@@ -277,12 +277,13 @@
     <div class="breadcrumbs">
         <!--<div style='background: #FAF8F0;' class="container">--> 
         <div style='background: #E0EDDF;' class="container">
-            <h1 class="pull-left" id='user_name_breadcrumbs'><i class="fa fa-user"></i></h1>
+            <h1 class="pull-left" id='user_name_breadcrumbs'>            
+            <i class="fa fa-user"></i>
+            </h1>
             <ul class="pull-right breadcrumb">                        
                 <?php $selectedCompanyNpk = $this->selectedCompanyNpk; ?>
                 <li>
-                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));
-                ?>">
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index'));?>">
                            <?php echo $this->translate('9') ?>
                     </a>
                 </li>
@@ -297,32 +298,34 @@
         <div class="row">
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
-                <img class="img-responsive profile-img margin-bottom-20" src="<?php echo $this->basePath('onyuz/assets/img/team/img32-md.jpg') ?>" alt="">
-
+                <img id="user_prof_pic" class="img-responsive profile-img margin-bottom-20" 
+                     style="width:100%" src="" alt="">
+                <span id="user_prof_ico" style="font-size: 50px;vertical-align: middle" 
+                      aria-hidden="true" class="fa fa-user"></span>
+                                
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
 
-                </ul>     
-
+                </ul>
                 <div class="panel-heading-v2 overflow-h">
-                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Page Completion Rate')?></h2>
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> <?php echo $this->translate('Page Completion Rate') ?></h2>
                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
                 </div>
-                <h3 class="heading-xs"><?php echo $this->translate('Personal Information')?> <span class="pull-right">92%</span></h3>
+                <h3 class="heading-xs"><?php echo $this->translate('Personal Information') ?> <span class="pull-right">92%</span></h3>
                 <div class="progress progress-u progress-xxs">
                     <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
                     </div>
                 </div>
-                <h3 class="heading-xs"><?php echo $this->translate('Education Career')?><span class="pull-right">85%</span></h3>
+                <h3 class="heading-xs"><?php echo $this->translate('Education Career') ?><span class="pull-right">85%</span></h3>
                 <div class="progress progress-u progress-xxs">
                     <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
                     </div>
                 </div>
-                <h3 class="heading-xs"><?php echo $this->translate('Business Career')?> <span class="pull-right">64%</span></h3>
+                <h3 class="heading-xs"><?php echo $this->translate('Business Career') ?> <span class="pull-right">64%</span></h3>
                 <div class="progress progress-u progress-xxs margin-bottom-40">
                     <div style="width: 64%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar" class="progress-bar progress-bar-dark">
                     </div>
                 </div>
-                
+
                 <!-- Exchange Rates Script - EXCHANGERATEWIDGET.COM -->
                 <div style="width:auto; border:0px solid #55A516; text-align:left;">
                     <div style="text-align:left;background-color:#717984;width:100%;
@@ -370,93 +373,107 @@
                 </div><!--/end info-->
                 <!--End Service Block v3-->
 
-                <!-- Personal Information -->
-                <div class="col-sm-6 sm-margin-bottom-30">
-                    <div class="panel panel-profile">
-                        <div class="panel-heading overflow-h">                            
-                            <h2 class="panel-title heading-sm pull-left">
-                                <i class="fa fa-info"></i>
-                                <?php echo $this->translate('610') ?>
-                            </h2>
-                        </div> 
-                        <div class="panel-body" id="pers_info">
-                            <p>
-                                <span><strong><?php echo $this->translate('611') ?>:</strong>
-                                    <span id="name"></span>                            
-                                </span>
-                            </p>
-                            <p>
-                                <span><strong><?php echo $this->translate('612') ?>:</strong>
-                                    <span id="surname"></span>                            
-                                </span>
-                            </p>
-                            <p>
-                                <span><strong><?php echo $this->translate('596') ?>:</strong>
-                                    <span id="regdate"></span>                            
-                                </span>
-                            </p>
-                            <p>
-                                <span><strong><?php echo $this->translate('614') ?>:</strong>
-                                    <span id="position"></span>                            
-                                </span>
-                            </p>
-                            <p>
-                                <span><strong><?php echo $this->translate('120') ?>:</strong>
-                                    <span id="company_name"></span>                            
-                                </span>
-                            </p>                            
-                            <p>
-                                <span><strong><?php echo $this->translate('194') ?>:</strong>
-                                    <span id="pref_lang"></span>                  
-                                </span>
-                            </p>
+                <!-- upper information -->
+                <div class="row col-md-12"> 
+                    <!-- Personal Information -->
+                    <div class="col-sm-6 sm-margin-bottom-30">
+                        <div class="panel panel-profile">
+                            <div class="panel-heading overflow-h">                            
+                                <h2 class="panel-title heading-sm pull-left">
+                                    <i class="fa fa-info"></i>
+                                    <?php echo $this->translate('610') ?>
+                                </h2>
+                            </div> 
+                            <div class="panel-body" id="pers_info">
+                                <p>
+                                    <span><strong><?php echo $this->translate('611') ?>:</strong>
+                                        <span id="name"></span>                            
+                                    </span>
+                                </p>
+                                <p>
+                                    <span><strong><?php echo $this->translate('612') ?>:</strong>
+                                        <span id="surname"></span>                            
+                                    </span>
+                                </p>
+                                <p>
+                                    <span><strong><?php echo $this->translate('596') ?>:</strong>
+                                        <span id="regdate"></span>                            
+                                    </span>
+                                </p>
+                                <p>
+                                    <span><strong><?php echo $this->translate('194') ?>:</strong>
+                                        <span id="pref_lang"></span>                  
+                                    </span>
+                                </p>
 
+                            </div>
+                        </div>
+                        <div class="panel panel-profile">
+                            <div class="panel-heading overflow-h">                            
+                                <h2 class="panel-title heading-sm pull-left">
+                                    <i class="fa fa-info"></i>
+                                    <?php echo $this->translate('179') ?>
+                                </h2>
+                            </div> 
+                            <div class="panel-body" id="pers_info">
+                                <p>
+                                    <span><strong><?php echo $this->translate('206') ?>:</strong>
+                                        <span id="company_name"></span>                            
+                                    </span>
+                                </p>
+                                <p>
+                                    <span><strong><?php echo $this->translate('614') ?>:</strong>
+                                        <span id="position"></span>                            
+                                    </span>
+                                </p>
+                            </div>
                         </div>
                     </div>
+                    <!--// Personal Information -->
+
+                    <!--Skills-->
+                    <div class="col-sm-6 sm-margin-bottom-30">
+                        <div class="panel panel-profile">
+                            <div class="panel-heading overflow-h">                            
+                                <h2 class="panel-title heading-sm pull-left">
+                                    <i class="fa fa-lightbulb-o"></i>
+                                    <?php echo $this->translate('615') ?>
+                                </h2>
+                            </div> 
+                            <div class="panel-body" id="skills">
+                                <small><?php echo $this->translate("Computer Aided Design") ?></small>
+                                <small>92%</small>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                                    </div>
+                                </div>
+
+                                <small><?php echo $this->translate('PLC Programming') ?></small>
+                                <small>77%</small>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 77%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="77" role="progressbar" class="progress-bar progress-bar-u">
+                                    </div>
+                                </div>
+
+                                <small><?php echo $this->translate('Analyse and Simulation') ?></small>
+                                <small>85%</small>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-u">
+                                    </div>
+                                </div>
+
+                                <small><?php echo $this->translate('Engineering Skills') ?></small>
+                                <small>81%</small>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 81%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="81" role="progressbar" class="progress-bar progress-bar-u">
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>    
+                    <!--End Skills-->
                 </div>
-                <!--// Personal Information -->
-
-                <!--Skills-->
-                <div class="col-sm-6 sm-margin-bottom-30">
-                    <div class="panel panel-profile">
-                        <div class="panel-heading overflow-h">                            
-                            <h2 class="panel-title heading-sm pull-left">
-                                <i class="fa fa-lightbulb-o"></i>
-                                <?php echo $this->translate('615') ?>
-                            </h2>
-                        </div> 
-                        <div class="panel-body" id="skills">
-                            <small><?php echo $this->translate("Computer Aided Design") ?></small>
-                            <small>92%</small>
-                            <div class="progress progress-u progress-xxs">
-                                <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
-                                </div>
-                            </div>
-
-                            <small><?php echo $this->translate('PLC Programming') ?></small>
-                            <small>77%</small>
-                            <div class="progress progress-u progress-xxs">
-                                <div style="width: 77%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="77" role="progressbar" class="progress-bar progress-bar-u">
-                                </div>
-                            </div>
-
-                            <small><?php echo $this->translate('Analyse and Simulation') ?></small>
-                            <small>85%</small>
-                            <div class="progress progress-u progress-xxs">
-                                <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-u">
-                                </div>
-                            </div>
-
-                            <small><?php echo $this->translate('Engineering Skills') ?></small>
-                            <small>81%</small>
-                            <div class="progress progress-u progress-xxs">
-                                <div style="width: 81%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="81" role="progressbar" class="progress-bar progress-bar-u">
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                </div>    
-                <!--End Skills-->
+                <!-- end of upper information -->
 
                 <!--Timeline-->
                 <div class="panel panel-profile">
@@ -644,7 +661,7 @@
                     </div>    
                 </div>
                 <!--End Timeline-->                 
-                
+
                 <!--Projects Timeline-->
                 <div class="panel panel-profile">
                     <div class="panel-heading overflow-h">
@@ -652,7 +669,7 @@
                            data-parent="#accordion-1" href="#project_career">
                             <h2 class="panel-title heading-sm pull-left">
                                 <i class="fa fa-suitcase"></i>
-                                <?php echo $this->translate('Contributed Projects') ?>
+                                <?php echo $this->translate('618') ?>
                             </h2>
                     </div>                    
                     <div id="project_career" class="panel-body margin-bottom-40 panel-collapse collapse in">
