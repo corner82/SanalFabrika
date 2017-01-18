@@ -110,7 +110,6 @@ $(document).ready(function () {
             for (i = 0; i < data.rows.length; i++) {
                 var userProfileLink = "https://" + window.location.host + "/ostim/sanalfabrika/userprofile/" + data.rows[i].unpk ;
                 
-                
                 var appending =
                         "<div class='col-sm-6'>"
                         + "<!-- Testimonials v4 -->"
