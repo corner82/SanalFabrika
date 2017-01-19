@@ -5,18 +5,23 @@ $(document).ready(function () {
     lang.init({
         defaultLang: 'en'
     });
-    
-    $("#search_box").keypress(function(event) {
-    if (event.which === 13) {
-        event.preventDefault();
-        $("#search_btn").click();
-    }
-});
+
+    $("#search_box").keypress(function (event) {
+        if (event.which === 13) {
+            event.preventDefault();
+            $("#search_btn").click();
+        }
+    });
 
     lang.change($('#langCode').val());
 
     $("#pagination_content").empty();
 
+    if ($('#pk').val()) {
+        window.list_service_url = 'pkFillCompanyLists_infoFirmProfile';
+    } else {
+        window.list_service_url = 'fillCompanyListsGuest_infoFirmProfile';
+    }
     window.testLoadImage = $("#clients_left_side").loadSpinner();
     window.testLoadImage.loadSpinner('appendImage');
 //    console.log('reloaded');
@@ -25,7 +30,7 @@ $(document).ready(function () {
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
         data: {
-            url: list_service_url,
+            url: window.list_service_url,
             pk: $('#pk').val(),
             language_code: $("#langCode").val(),
             page: 1,
@@ -118,7 +123,7 @@ $(document).ready(function () {
             }
             $("html, body").animate({scrollTop: $("#pagination_content").offset().top}, "slow");
             event.preventDefault();
-           
+
 
             $('#paginationBar').paginator();
             $('#paginationBar').paginator('option', 'total', window.totalnumberofpages);
@@ -266,12 +271,18 @@ function searchCompanies() {
 
     $("#pagination_content").empty();
     $("#paginationBar").empty();
-
+    
+    if ($('#pk').val()) {
+        window.list_service_url = 'pkFillCompanyLists_infoFirmProfile';
+    } else {
+        window.list_service_url = 'fillCompanyListsGuest_infoFirmProfile';
+    }
+    
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         //                url: 'http://proxy.sanalfabrika.com:9990/SlimProxyBoot.php',            
         data: {
-            url: 'fillCompanyListsGuest_infoFirmProfile',
+            url: window.list_service_url,
             pk: $('#pk').val(),
             language_code: $("#langCode").val(),
             page: 1,
@@ -303,7 +314,14 @@ function searchCompanies() {
                 } else {
                     window.totalnumberofpages = numberofpages;
                 }
-                for (i = 0; i < window.companyperpage; i++) {
+                
+                if(data.total < window.companyperpage){
+                            var comp_of_this_page = window.companyperpage - data.total;
+                        }else{
+                            var comp_of_this_page = 10;
+                        } 
+                        
+                for (i = 0; i < comp_of_this_page; i++) {
 
                     $('#selectedCompanyNpk').val(data.rows[i].npk);
                     var rep_firm_short_name = data.rows[i].firm_name_short.toString().replace(" ", "-");
@@ -376,10 +394,10 @@ function searchCompanies() {
                 event.preventDefault();
 
 //                $('#paginationBar').empty();
-                $('#paginationBar').search_paginator();
-                $('#paginationBar').search_paginator('option', 'total', window.totalnumberofpages);
-                $('#paginationBar').search_paginator('option', 'maxVisible', 5);
-                $('#paginationBar').search_paginator('search_paginate');
+                $('#paginationBar').paginator();
+                $('#paginationBar').paginator('option', 'total', window.totalnumberofpages);
+                $('#paginationBar').paginator('option', 'maxVisible', 5);
+                $('#paginationBar').paginator('paginate');
             }
 
             window.testLoadImage.loadSpinner('removeLoadImage');
