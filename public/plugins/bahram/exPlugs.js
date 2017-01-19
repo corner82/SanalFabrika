@@ -299,8 +299,8 @@
 //                        console.log(data);
                         var i;
                         
-                        if(data.total < num*window.companyperpage){
-                            var comp_of_this_page = num * window.companyperpage - data.total;
+                        if(data.total < num * window.companyperpage){
+                            var comp_of_this_page = data.total - (num-1)* window.companyperpage;
                         }else{
                             var comp_of_this_page = 10;
                         }                     

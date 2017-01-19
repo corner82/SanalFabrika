@@ -316,9 +316,9 @@ function searchCompanies() {
                 }
                 
                 if(data.total < window.companyperpage){
-                            var comp_of_this_page = window.companyperpage - data.total;
+                            var comp_of_this_page = data.total ;
                         }else{
-                            var comp_of_this_page = 10;
+                            var comp_of_this_page = window.companyperpage;
                         } 
                         
                 for (i = 0; i < comp_of_this_page; i++) {
