@@ -159,15 +159,19 @@ class SanalfabrikaController extends AbstractActionController {
                 ->get('serviceTranslator');
         $requestUriRegulated = $this->getServiceLocator()
                 ->get('serviceTranslatorUrlRegulator');
+        $userNumber = $this->getEvent()
+                        ->getRouteMatch()->getParam('userNumber');
         $publicKey = $this->getServiceLocator()
                 ->get('servicePublicKeyReader');
-
+        
         // Do this inside your Controller before you return your ViewModel
         $this->layout()->setVariable('test', $langCode);
 
+        
         $view = new ViewModel(array(
             'requestUriRegulated' => $requestUriRegulated,
             'langCode' => $langCode,
+            'userNumber' => $userNumber,
             'publicKey' => $publicKey,
         ));
         $this->authenticate(null, $view);
@@ -339,7 +343,7 @@ class SanalfabrikaController extends AbstractActionController {
             $response->sendHeaders();
             $event->stopPropagation();
             exit();
-        } else {            
+        } else {
             return $view;
         }
     }
@@ -389,7 +393,7 @@ class SanalfabrikaController extends AbstractActionController {
             $response->sendHeaders();
             $event->stopPropagation();
             exit();
-        } else {            
+        } else {
             return $view;
         }
     }
@@ -437,7 +441,7 @@ class SanalfabrikaController extends AbstractActionController {
             $response->sendHeaders();
             $event->stopPropagation();
             exit();
-        } else {            
+        } else {
             return $view;
         }
     }
@@ -483,7 +487,7 @@ class SanalfabrikaController extends AbstractActionController {
             $response->sendHeaders();
             $event->stopPropagation();
             exit();
-        } else {            
+        } else {
             return $view;
         }
     }
@@ -532,7 +536,7 @@ class SanalfabrikaController extends AbstractActionController {
             $response->sendHeaders();
             $event->stopPropagation();
             exit();
-        } else {            
+        } else {
             return $view;
         }
     }
@@ -582,7 +586,7 @@ class SanalfabrikaController extends AbstractActionController {
             $response->sendHeaders();
             $event->stopPropagation();
             exit();
-        } else {            
+        } else {
             return $view;
         }
     }

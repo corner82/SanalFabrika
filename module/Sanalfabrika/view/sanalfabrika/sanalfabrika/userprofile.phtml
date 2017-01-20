@@ -2,7 +2,7 @@
 <input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
 <input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
 <input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
-<input id="unpk" type="hidden"  value="<?php echo $this->unpk; ?>"></input>
+<input id="unpk" type="hidden"  value="<?php echo $this->userNumber; ?>"></input>
 <input id="controller" type="hidden"  value="<?php echo $this->layout()->controller; ?>"></input>
 <input id="module" type="hidden"  value="<?php echo $this->layout()->module; ?>"></input>
 
@@ -300,8 +300,9 @@
             <!--Left Sidebar-->
             <div class="col-md-3 md-margin-bottom-40">
                 <img id="user_prof_pic" class="img-responsive profile-img margin-bottom-20" 
-                     style="width:100%" src="" alt="">
-                <span id="user_prof_ico" style="font-size: 50px;vertical-align: middle" 
+                     style="width:100%;visibility: hidden;" src="" alt="">
+                <span id="user_prof_ico" style="font-size: 50px;vertical-align: middle;
+                      visibility: hidden;"
                       aria-hidden="true" class="fa fa-user"></span>
                                 
                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
