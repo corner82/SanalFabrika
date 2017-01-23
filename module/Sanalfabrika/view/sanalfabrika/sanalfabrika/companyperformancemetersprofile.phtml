@@ -150,7 +150,7 @@
                             </div>
                             <div class='col-md-12'>
                                 <li style ='text-align: center;vertical-align: middle; line-height: 40px;'>
-                                    <a id="user_prof_address" href="">
+                                    <a id="link_to_user_profile" href="">
                                         <i class="fa fa-user" style='margin-right: 5px'></i><?php echo $this->translate('598') ?>
                                     </a>
                                 </li>
@@ -276,7 +276,6 @@
         </div><!--/navbar-collapse-->
     </div>
     <!--=== End Header ===-->
-
 
     <!--=== Breadcrumbs ===-->
     <div class="breadcrumbs">
@@ -459,13 +458,10 @@
                 <!--End Service Block v3-->                    
                 <!--</div>-->
             </div>
-
             <!-- Counter header ends -->
 
             <!-- Profile Content -->            
             <div class="col-md-9">
-
-
                 <div class="profile-body">
                     <div class="block-description">
                         <!--<div class="container">-->
@@ -570,225 +566,222 @@
                                     <hr>
 
                                     <div class="left-inner">
+                                        <div class="heading heading-v1 margin-bottom-40">
+                                            <h2><?php echo $this->translate('322') ?></h2>
+                                        </div>
 
-                                        <h3><?php echo $this->translate('322') ?></h3>
-                                        <!-- Pie Chart Progress Bar -->    
-                                        <div class="row margin-bottom-20">
-                                            <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
-                                                <h3><?php echo $this->translate('323') ?></h3>
-                                                <div class="circle" id="circle-4"></div>
-                                            </div>
-                                            <div class="p-chart col-sm-6 col-xs-6">                                                    
-                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                        onclick="qualityHistory()" type="button">
-                                                            <?php echo $this->translate('324') ?>
-                                                </button>                                                    
-                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                        onclick="qualityPerformances()" type="button">
-                                                            <?php echo $this->translate('325') ?>
-                                                </button>                                                    
-                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                        onclick="listOfCertificates()" type="button">
+                                        <div class="panel-group acc-v2" id="accordion-1">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-One" aria-expanded="false">
                                                             <?php echo $this->translate('326') ?>
-                                                </button>                                                    
-                                            </div> 
-                                        </div>
-                                        <div id="qualityDetaildDIV" 
-                                             class="row margin-bottom-20 left-inner" style="display:none" >                                                
-                                            <div id="qualityDetailsInsideDIV" class="left-inner" >                                                    
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row margin-bottom-20">
-                                            <div class="p-chart col-sm-6 col-xs-6">
-                                                <h3><?php echo $this->translate('327') ?></h3>
-                                                <div class="circle" id="circle-5"></div>
-                                            </div>
-                                            <div class="p-chart col-sm-6 col-xs-6">                                                    
-                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                        onclick="performanceDetails()" type="button">
-                                                            <?php echo $this->translate('328') ?>
-                                                </button>                                                    
-                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                        onclick="performanceDetails()" type="button">
-                                                            <?php echo $this->translate('329') ?>
-                                                </button>                                                    
-                                                <!--                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                                                                            onclick="performanceDetails()" type="button">
-                                                <?php echo $this->translate('330') ?>
-                                                                                                    </button>                                                     -->
-                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                        onclick="performanceDetails()" type="button">
-                                                            <?php echo $this->translate('331') ?>
-                                                </button>                                                   
-                                            </div>       
-                                        </div>
-                                        <hr>
-                                        <div id="pastPerformanceDetailsDIV" 
-                                             class="row margin-bottom-20 left-inner" style="display:none" >
-                                            <hr>
-                                            <div id="pastPerformanceDetailsInsideDIV" class="left-inner" >
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse-One" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <div class="row" id="qualityDetailsInsideDIV">
 
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <hr>
                                         </div>
-                                        <div class="row margin-bottom-20">
-                                            <div class="p-chart col-sm-6 col-xs-6">
-                                                <h3><?php echo $this->translate('332') ?></h3>
-                                                <div class="circle" id="circle-10"></div>
-                                            </div>
-                                            <div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
-                                                <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                        onclick="customerDetails()" type="button">
-                                                            <?php echo $this->translate('333') ?>
-                                                </button>                                                    
-                                                <!--                                                    <button class="btn-u btn-u-xs btn-block btn-u-default box-shadow-Outset" 
-                                                                                                            onclick="customerDetails()" type="button">
-                                                <?php echo $this->translate('334') ?>
-                                                                                                    </button>                                                 -->
-                                            </div>       
-                                        </div>
-                                        <div id="customerDetailsDIV" 
-                                             class="row margin-bottom-20 left-inner" style="display:none" >
+                                        <div class="panel-group acc-v2" id="accordion-2">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-2" href="#collapse-two" aria-expanded="false">
+                                                            <?php echo $this->translate('619') ?>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse-two" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <table class="table"  style="font-size: 11px">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>
+                                                                            <?php echo $this->translate('621') ?>
+                                                                        </th>
+                                                                        <th>
+                                                                            <?php echo $this->translate('201') ?>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="ui-sortable" id="naceDetailsTable">
 
-                                            <div id="customerDetailsInsideDIV" class="left-inner" >
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                  
+                                        
+                                        <div class="panel-group acc-v2" id="accordion-3">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-3" href="#collapse-three" aria-expanded="false">
+                                                            <?php echo $this->translate('620') ?>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse-three" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <table class="table"  style="font-size: 11px">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>
+                                                                            <?php echo $this->translate('519') ?>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="ui-sortable" id="sectorsDetailsTable">
 
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!-- End Pie Chart Progress Bar -->
-                                    </div>
-                                </div>   
+                                    </div>   
+                                </div>
                             </div>
+                            <!--</div>-->
                         </div>
-                        <!--</div>-->
                     </div>
                 </div>
+                <!-- End Profile Content -->            
             </div>
-            <!-- End Profile Content -->            
-        </div>
-    </div><!--/container-->    
-    <!--=== End Profile ===-->
+        </div><!--/container-->    
+        <!--=== End Profile ===-->
 
-    <!--=== Footer Version 1 ===-->
-    <div class="footer-v1">
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <!-- About -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langcode)); ?>"><img id="logo-footer" class="footer-logo" 
-                                                                                                                                        src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
-                                                                                                                                        alt=""></a>
-                        <p><?php echo $this->translate('264') ?></p>
-                    </div><!--/col-md-3-->
-                    <!-- End About -->
+        <!--=== Footer Version 1 ===-->
+        <div class="footer-v1">
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- About -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index', 'lang' => $this->langcode)); ?>"><img id="logo-footer" class="footer-logo" 
+                                                                                                                                            src="<?php echo $this->basePath('onyuz/standard/assets/img/logo2-default.png') ?>" 
+                                                                                                                                            alt=""></a>
+                            <p><?php echo $this->translate('264') ?></p>
+                        </div><!--/col-md-3-->
+                        <!-- End About -->
 
-                    <!-- Latest -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <div class="posts">
-                            <div class="headline"><h2><?php echo $this->translate('261') ?></h2></div>
-                            <ul class="list-unstyled latest-list">
+                        <!-- Latest -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="posts">
+                                <div class="headline"><h2><?php echo $this->translate('261') ?></h2></div>
+                                <ul class="list-unstyled latest-list">
+                                    <li>
+                                        <a href="#"><?php echo $this->translate('265') ?></a>
+                                        <small><?php echo $this->translate('286') ?> 8, 2016</small>
+                                    </li>
+                                    <li>
+                                        <a href="#"><?php echo $this->translate('266') ?></a>
+                                        <small><?php echo $this->translate('285') ?> 23, 2016</small>
+                                    </li>
+                                    <li>
+                                        <a href="#"><?php echo $this->translate('267') ?></a>
+                                        <small><?php echo $this->translate('296') ?> 15, 2016</small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--/col-md-3-->  
+                        <!-- End Latest --> 
+
+                        <!-- Link List -->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <div class="headline"><h2><?php echo $this->translate('262') ?></h2></div>
+                            <ul class="list-unstyled link-list">
+                                <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('268') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('269') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('270') ?></a><i class="fa fa-angle-right"></i></li>
+                                <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('271') ?></a><i class="fa fa-angle-right"></i></li>
+                                <!--<li><a href="#"><?php echo $this->translate('') ?></a><i class="fa fa-angle-right"></i></li>-->
+                            </ul>
+                        </div><!--/col-md-3-->
+                        <!-- End Link List -->                    
+
+                        <!-- Address -->
+                        <div class="col-md-3 map-img md-margin-bottom-40">
+                            <div class="headline"><h2><?php echo $this->translate('110') ?></h2></div>                         
+                            <address class="md-margin-bottom-40">
+                                100. Yıl Bulvarı No: 101/A <br />
+                                OSTIM, Ankara <br />
+                                Turkey <br />
+                                <?php echo $this->translate('147') ?> :  +90 312 385 50 90 <br />
+                                <?php echo $this->translate('148') ?>:    +90 312 354 58 98 <br />
+                                <?php echo $this->translate('112') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
+                            </address>
+                        </div><!--/col-md-3-->
+                        <!-- End Address -->
+                    </div>
+                </div> 
+            </div><!--/footer-->
+
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">                     
+                            <p>
+                                2016 &copy; <?php echo $this->translate('274') ?>
+                                <a href="#"><?php echo $this->translate('273') ?></a> | <a href="#"><?php echo $this->translate('272') ?></a>
+                            </p>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="col-md-6">
+                            <ul class="footer-socials list-inline">
                                 <li>
-                                    <a href="#"><?php echo $this->translate('265') ?></a>
-                                    <small><?php echo $this->translate('286') ?> 8, 2016</small>
+                                    <a href="https://www.facebook.com/OstimOSB/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#"><?php echo $this->translate('266') ?></a>
-                                    <small><?php echo $this->translate('285') ?> 23, 2016</small>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
+                                        <i class="fa fa-skype"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#"><?php echo $this->translate('267') ?></a>
-                                    <small><?php echo $this->translate('296') ?> 15, 2016</small>
+                                    <a href="https://plus.google.com/+OST%C4%B0MOSB1967" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/ostim-osb-2b94b847" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ostimosb/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/ostimosb" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
+                                        <i class="fa fa-dribbble"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
-                    </div><!--/col-md-3-->  
-                    <!-- End Latest --> 
-
-                    <!-- Link List -->
-                    <div class="col-md-3 md-margin-bottom-40">
-                        <div class="headline"><h2><?php echo $this->translate('262') ?></h2></div>
-                        <ul class="list-unstyled link-list">
-                            <li><a href="http://www.ostim.org.tr/"><?php echo $this->translate('268') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="http://www.sanayi.gov.tr/"><?php echo $this->translate('269') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="https://www.tubitak.gov.tr/"><?php echo $this->translate('270') ?></a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="http://www.kosgeb.gov.tr/"><?php echo $this->translate('271') ?></a><i class="fa fa-angle-right"></i></li>
-                            <!--<li><a href="#"><?php echo $this->translate('') ?></a><i class="fa fa-angle-right"></i></li>-->
-                        </ul>
-                    </div><!--/col-md-3-->
-                    <!-- End Link List -->                    
-
-                    <!-- Address -->
-                    <div class="col-md-3 map-img md-margin-bottom-40">
-                        <div class="headline"><h2><?php echo $this->translate('110') ?></h2></div>                         
-                        <address class="md-margin-bottom-40">
-                            100. Yıl Bulvarı No: 101/A <br />
-                            OSTIM, Ankara <br />
-                            Turkey <br />
-                            <?php echo $this->translate('147') ?> :  +90 312 385 50 90 <br />
-                            <?php echo $this->translate('148') ?>:    +90 312 354 58 98 <br />
-                            <?php echo $this->translate('112') ?>: <a href="mailto:info@ostim.com.tr" class="">info@ostim.com.tr</a>
-                        </address>
-                    </div><!--/col-md-3-->
-                    <!-- End Address -->
-                </div>
-            </div> 
-        </div><!--/footer-->
-
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">                     
-                        <p>
-                            2016 &copy; <?php echo $this->translate('274') ?>
-                            <a href="#"><?php echo $this->translate('273') ?></a> | <a href="#"><?php echo $this->translate('272') ?></a>
-                        </p>
+                        <!-- End Social Links -->
                     </div>
-
-                    <!-- Social Links -->
-                    <div class="col-md-6">
-                        <ul class="footer-socials list-inline">
-                            <li>
-                                <a href="https://www.facebook.com/OstimOSB/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
-                                    <i class="fa fa-skype"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://plus.google.com/+OST%C4%B0MOSB1967" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/in/ostim-osb-2b94b847" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/ostimosb/" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/ostimosb" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
-                                    <i class="fa fa-dribbble"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End Social Links -->
-                </div>
-            </div> 
-        </div><!--/copyright-->
-    </div>    
-    <!--=== End Footer Version 1 ===-->
-</div><!--/wrapper-->
+                </div> 
+            </div><!--/copyright-->
+        </div>    
+        <!--=== End Footer Version 1 ===-->
+    </div><!--/wrapper-->

@@ -82,7 +82,7 @@ $(document).ready(function () {
                     $('#user_profile_link').attr('unpk', data[0].unpk);
                     $('#user_prof_address').attr('href', 'https://' + window.location.host + '/ostim/sanalfabrika/userprofile/' + data[0].unpk);
                     $('#membership_tag').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfSystem/' + data[0].mem_logo)
-
+                    $('#link_to_user_profile').attr('href', 'https://' + window.location.host + '/ostim/sanalfabrika/userprofile/' + data[0].unpk);
 
                 } else {
                     console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');

@@ -1875,6 +1875,18 @@ msgstr "Business Career"
 msgid "618"
 msgstr "Contributed Projects"
 
+msgid "619"
+msgstr "NACE Codes"
+
+msgid "620"
+msgstr "Active Sectors"
+
+msgid "621"
+msgstr "NACE Code"
+
+msgid "622"
+msgstr "Id"
+
 
 
 
