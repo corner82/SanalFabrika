@@ -1876,7 +1876,7 @@ msgid "618"
 msgstr "Contributed Projects"
 
 msgid "619"
-msgstr "NACE Codes"
+msgstr "Statistical classification of economic activities (NACE)"
 
 msgid "620"
 msgstr "Active Sectors"
