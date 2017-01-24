@@ -998,7 +998,7 @@ msgid "325"
 msgstr "Toplam Performans"
 
 msgid "326" 
-msgstr "Bulunan kalite sertifika ve standartlar"
+msgstr "Sertifika ve standartlar"
 
 msgid "327" 
 msgstr "Proje tamamlama performansı"
@@ -1878,6 +1878,18 @@ msgstr "Kariyer"
 
 msgid "618"
 msgstr "Katkıda Bulunduğu Projeler"
+
+msgid "619"
+msgstr "Ekonomik faaliyetlerin istatistiki sınıflandırması (NACE)"
+
+msgid "620"
+msgstr "Aktif Sektörler"
+
+msgid "621"
+msgstr "NACE Kodu"
+
+msgid "622"
+msgstr "Id"
 
 
 

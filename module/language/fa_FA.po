@@ -1871,3 +1871,15 @@ msgstr "تجربه کاری"
 
 msgid "618"
 msgstr "مشارکت در پروژه"
+
+msgid "619"
+msgstr "طبقه بندی آماری از فعالیتهای اقتصادی (NACE)"
+
+msgid "620"
+msgstr "فعال در بخش"
+
+msgid "621"
+msgstr "NACE کد"
+
+msgid "622"
+msgstr "شناسه"

@@ -1874,3 +1874,15 @@ msgstr "Unternehmenskarrierer"
 
 msgid "618"
 msgstr "Beteiligte Projekte"
+
+msgid "619"
+msgstr "Statistische Systematik der Wirtschaftszweige (NACE)"
+
+msgid "620"
+msgstr "Aktive Sektoren"
+
+msgid "621"
+msgstr "NACE Code"
+
+msgid "622"
+msgstr "Id"

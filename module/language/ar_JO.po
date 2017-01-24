@@ -1870,6 +1870,18 @@ msgstr "العمل الوظيفي"
 msgid "618"
 msgstr "مشاريع ساهمت"
 
+msgid "619"
+msgstr "التصنيف الإحصائي للأنشطة الاقتصادية (NACE)"
+
+msgid "620"
+msgstr "القطاعات النشطة"
+
+msgid "621"
+msgstr "NACE رمز"
+
+msgid "622"
+msgstr "رقم الهوية"
+
 
 
 

@@ -1872,6 +1872,18 @@ msgstr "商业职业"
 msgid "618"
 msgstr "贡献项目"
 
+msgid "619"
+msgstr "经济活动的统计分类（NACE）"
+
+msgid "620"
+msgstr "活动部门"
+
+msgid "621"
+msgstr "NACE"
+
+msgid "622"
+msgstr "Id"
+
 
 
 

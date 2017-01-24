@@ -11,8 +11,6 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-    
-    console.log($('#unpk').val());
 
     var nonAttachedTreeLoadImage = $("#notificationContainer").loadSpinner();
     nonAttachedTreeLoadImage.loadSpinner('appendImage');
@@ -121,44 +119,3 @@ $.ajax({
         console.error('"pkFillUserFirmInformation_infoFirmProfile" servis hatasÃ„Â±->' + textStatus);
     }
 });
-
-
-/*
- * picture information
- */
-//$.ajax({
-//    url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-//    data: {
-//        url: 'pkGetUserShortInformation_infoUsers',
-//        language_code: $("#langCode").val(),
-//        pk: $('#pk').val(),
-//        unpk: $('#unpk').val()
-//    },
-//    type: 'GET',
-//    dataType: 'json',
-//    //data: 'rowIndex='+rowData.id,
-//    success: function (data, textStatus, jqXHR) {
-//        if (data.length !== 0) {
-//
-//            if (data[0].user_picture) {
-//                $('#user_prof_pic').css('display', '');
-//                $('#user_prof_pic').css('visibility', 'visible');
-//                $('#user_prof_pic').attr('src', 'https://' + window.location.host + "/onyuz/standard/assets/img/sfClients/" + data[0].user_picture);
-//                $('#user_prof_ico').css('display', 'none');
-//                $('#user_prof_ico').css('visibility', 'hidden');
-//            } else {
-//                $('#user_prof_pic').css('display', 'none');
-//                $('#user_prof_pic').css('visibility', 'hidden');
-//                $('#user_prof_ico').css('display', '');
-//                $('#user_prof_ico').css('visibility', 'visible');
-//            }
-//
-//
-//        } else {
-//            console.error('"pkGetUserShortInformation_infoUsers" servis datasÃ„Â± boÃ…Å¸tur!!');
-//        }
-//    },
-//    error: function (jqXHR, textStatus, errorThrown) {
-//        console.error('"pkGetUserShortInformation_infoUsers" servis hatasÃ„Â±->' + textStatus);
-//    }
-//});
