@@ -1837,7 +1837,7 @@ msgid "605"
 msgstr "Add New Company"
 
 msgid "606"
-msgstr "No Registered Company"
+msgstr "Company Profile"
 
 msgid "607"
 msgstr "Info!"
@@ -1886,6 +1886,9 @@ msgstr "NACE Code"
 
 msgid "622"
 msgstr "Id"
+
+msgid "623"
+msgstr "Set Company Profile"
 
 
 

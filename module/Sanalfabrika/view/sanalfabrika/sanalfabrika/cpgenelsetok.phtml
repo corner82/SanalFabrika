@@ -1,0 +1,845 @@
+<input id="requestUriRegulated" type="hidden"  value="<?php echo $this->requestUriRegulated; ?>"></input>
+<input id="langCode" type="hidden"  value="<?php echo $this->langCode; ?>"></input>
+<input id="pk" type="hidden"  value="<?php echo $this->publicKey; ?>"></input>
+<input id="cpk" type="hidden"  value="<?php echo $this->companyPublicKey; ?>"></input>
+<input id="selectedCompanyNpk" type="hidden"  value="<?php echo $this->selectedCompanyNpk; ?>"></input>
+<input id="selectedCompanyShN" type="hidden"  value="<?php echo $this->selectedCompanyShN; ?>"></input>
+<input id="controller" type="hidden"  value="<?php echo $this->layout()->controller; ?>"></input>
+<input id="module" type="hidden"  value="<?php echo $this->layout()->module; ?>"></input>
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="index.phtml" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b><?php echo $this->translate('4') ?></b> </span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b><?php echo $this->translate('4') ?></b> <?php echo $this->translate('V.E.') ?></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">                
+                <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-group"></i>
+                            <span id="number_of_consultants_power" class="label label-success">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li id="number_of_consultants" class="header"></li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu" id='list_consultants'>                                    
+                                </ul>
+                            </li>
+                            <!--<li class="footer"><a href="#"><?php echo $this->translate('578') ?></a></li>-->
+                        </ul>
+                    </li>
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">0 <?php echo $this->translate('22') ?></li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#"><?php echo $this->translate('23') ?></a></li>
+                        </ul>
+                    </li>
+                    <!-- Notifications: style can be found in dropdown.less -->
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">0 <?php echo $this->translate('20') ?></li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#"><?php echo $this->translate('21') ?></a></li>
+                        </ul>
+                    </li>
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    <li class="dropdown tasks-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-flag-o"></i>
+                            <span class="label label-danger">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">0 <?php echo $this->translate('24') ?></li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#"><?php echo $this->translate('25') ?></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>-->                    
+                            <img id='user_image_ph' src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" class="user-image" alt="User Image"/> 
+                            <span class="hidden-xs"><?php /* echo $_SESSION['userName'] */ ?></span>
+                        </a>
+                        <ul class="dropdown-menu" style="width: 300px">
+                            <!-- User image -->
+                            <li class="user-header">
+                              <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
+                                <div class="row">
+                                    <div class='row' style="margin:0px;">
+                                        <img id='user_image_ph_hover' 
+                                             style="float: none;max-width:100%; max-height:100%"
+                                             src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" 
+                                             class="user-image" alt="User Image"/> 
+                                    </div>
+                                    <div class="row" style="font-size:12px; color: #fff;">
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('111') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_name_hover'
+                                              style="text-align: left">                                                  
+                                        </span>
+                                        <br/>
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('595') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_membership'
+                                              style="text-align: left">                                                  
+                                        </span>
+                                        <br/>
+                                        <span class="col-sm-6" style="text-align: left">
+                                            <?php echo $this->translate('596') ?>:
+                                        </span>
+                                        <span class="col-sm-6" id='user_reg_date'
+                                              style="text-align: left">                                            
+                                        </span>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="user-body" style="font-size: 12px">
+                                <div class="col-xs-4 text-center">
+                                    <a href="#"><?php echo $this->translate('26') ?></a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#"><?php echo $this->translate('27') ?></a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#"><?php echo $this->translate('28') ?></a>
+                                </div>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">   
+                                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 
+                                    'selectedCompanyShN' => $this->selectedCompanyShN,  
+                                    'selectedCompanyNpk' => $this->selectedCompanyNpk, 
+                                    'lang' => $this -> langCode)); ?>" class="btn btn-default btn-flat"><?php echo $this->translate('29') ?></a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="<?php echo $this->url('login', array('action' => 'logout')); ?> " class="btn btn-default btn-flat"><?php echo $this->translate('31') ?></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li class="dropdown language-selector" id='languages'>                          
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
+                            <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
+                            <span class="logo-mini">EN</span>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li class="active">
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgenelset', 
+                                    'selectedCompanyShN' => $this->selectedCompanyShN,  
+                                    'selectedCompanyNpk' => $this->selectedCompanyNpk, 
+                                    'lang' => 'en')); ?>" >
+                                    <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
+                                    <span class="logo-mini">EN</span>
+                                    <span>English</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgenelset', 
+                                    'selectedCompanyShN' => $this->selectedCompanyShN,  
+                                    'selectedCompanyNpk' => $this->selectedCompanyNpk, 
+                                    'lang' => 'tr')); ?>">
+                                    <!--<img src="<?php echo $this->basePath('img/flag-tr.png') ?>"-->
+                                    <span class="logo-mini">TR</span>
+                                    <span>Türkçe</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgenelset', 
+                                    'selectedCompanyShN' => $this->selectedCompanyShN,  
+                                    'selectedCompanyNpk' => $this->selectedCompanyNpk, 
+                                    'lang' => 'ru')); ?>" >
+                                    <!--<img src="<?php echo $this->basePath('img/flag-ru.png') ?>"-->
+                                    <span class="logo-mini">RU</span>
+                                    <span>Pу́сский</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgenelset', 
+                                    'selectedCompanyShN' => $this->selectedCompanyShN,  
+                                    'selectedCompanyNpk' => $this->selectedCompanyNpk, 
+                                    'lang' => 'de')); ?>" >
+                                    <!--<img src="<?php echo $this->basePath('img/flag-de.png') ?>"-->
+                                    <span class="logo-mini">DE</span>
+                                    <span>Deutsch</span>
+                                </a>
+                            </li>
+<!--                            <li>
+                                <a href="#" onclick="changelanguage()" lang_code="fr">
+                                    <img src="<?php echo $this->basePath('img/flag-fr.png') ?>"
+                                    <span class="logo-mini">FR</span>
+                                    <span>Français</span>
+                                </a>
+                            </li>-->
+                            <li>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgenelset', 
+                                    'selectedCompanyShN' => $this->selectedCompanyShN,  
+                                    'selectedCompanyNpk' => $this->selectedCompanyNpk, 
+                                    'lang' => 'ar')); ?>" >
+                                    <!--<img src="<?php echo $this->basePath('img/flag-ar.png') ?>"-->
+                                    <span class="logo-mini">AR</span>
+                                    <span>العربية</span>
+                                </a>
+                            <li>
+                                <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgenelset', 
+                                    'selectedCompanyShN' => $this->selectedCompanyShN,  
+                                    'selectedCompanyNpk' => $this->selectedCompanyNpk, 
+                                    'lang' => 'fa')); ?>" >
+                                    <!--<img src="<?php echo $this->basePath('img/flag-fa.png') ?>"-->
+                                    <span class="logo-mini">FA</span>
+                                    <span>فارسی</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                  <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
+                    <img src="<?php echo $this->basePath('dist/img/manager-xxl.png') ?>" 
+                         class="user-image" alt="User Image"/> 
+                </div>
+                <div class="pull-left info">
+                    <p><?php /* echo $_SESSION['userName']; */ ?></p>
+                    <a href="#"><i class="fa fa-circle text-success"></i>
+                        <?php echo $this->translate('7') ?>
+                    </a>
+                </div>
+            </div>
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" 
+                           placeholder="<?php echo $this->translate('518') ?>"/>
+                    <span class="input-group-btn">
+                        <button type='button' name='search' id='search-btn' 
+                                class="btn btn-flat" onclick="send_general_info()"><i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+
+            <ul class="sidebar-menu" id="leftside-menu">
+                <li class="header">
+                    <?php echo $this->translate('8') ?>
+                </li>
+                <li class="active treeview">
+
+                </li>                        
+            </ul>
+
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1> 
+                <?php echo $this->translate('258') ?>
+                <small><?php echo $this->translate('60') ?></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index')); ?>">
+                        <?php echo $this->translate('9') ?>
+                    </a>
+                </li>
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 'selectedCompanyShN' => $selectedCompanyShN, 'selectedCompanyNpk' => $selectedCompanyNpk)); ?>">
+                        <?php echo $this->translate('258') ?>
+                    </a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-dashboard"></i>
+                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'cpgeneralset')); ?>">
+                        <?php echo $this->translate('500') ?>
+                    </a>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- company general information setting box -->
+            <div class="box box-primary">                
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo $this->translate('522') ?></h3>
+                    <div id='consultant_div' class="box-tools pull-right" 
+                         style='margin-right:100px; font-size:12px; width: 200px' 
+                         data-balloon="" email_address =""
+                         data-balloon-pos="left" onclick='send_email_to_consult(this)'>
+                        <a href="#">
+                            <div class="pull-left">
+                                <img id='cons_image_ph' style='max-height:30px;margin-right:10px' 
+                                     src="" alt="User Image"/>
+                            </div>
+                            <h8 id='cons_name_ph'>
+                            </h8>
+                            <br/>
+                            <small></small>
+                        </a>
+                    </div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+                    </div>
+                </div>
+                <div class="box-body" style="display: block;">                    
+                    <!--<div class='col-lg-3'></div>-->
+                    <div class="box-body col-lg-6">
+                        <form role="form" id='general_firm_form'>
+                            <!-- First Column Start -->
+                            <div class="col-lg-12">
+                                <div>
+                                    <label for="full_name_ph"><?php echo $this->translate('579') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-flag-o"></i>
+                                        </div>
+                                        <input type="text" class="form-control validate[required, maxSize[500]]" id="full_name_ph" placeholder="Enter company full name here please">
+                                    </div>
+                                </div>                               
+                                <div style='margin-top:20px'>
+                                    <label for="full_name_en_ph"><?php echo $this->translate('580') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-flag-o"></i>
+                                        </div>
+                                        <input type="text" class="form-control validate[maxSize[500]]" id="full_name_en_ph" placeholder="Enter company full name in English here please">
+                                    </div>
+                                </div>
+                                <div style='margin-top:20px'>
+                                    <label for="short_name_ph"><?php echo $this->translate('581') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-minus"></i>
+                                        </div>
+                                        <input type="text" class="form-control validate[required, maxSize[150]]" id="short_name_ph" placeholder="Enter company short name here please">
+                                    </div>
+                                </div>
+                                <div style='margin-top:20px'>
+                                    <label for="short_name_en_ph"><?php echo $this->translate('582') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-minus"></i>
+                                        </div>
+                                        <input type="text" class="form-control validate[maxSize[150]]" 
+                                               id="short_name_en_ph" placeholder="<?php echo $this->translate('583') ?>">
+                                    </div>
+                                </div> 
+                                <div style='margin-top:20px'>
+                                    <label for="website"><?php echo $this->translate('584') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-globe"></i>
+                                        </div>
+                                        <input type="url" class="form-control validate[custom[url]]" 
+                                               id="website" placeholder="http:// or https://">
+                                    </div>
+                                    <div class="note">Please Note: URL begin with http:// or https://</div>                                
+                                </div> 
+                                <div style='margin-top:20px'>
+                                    <div class="form-group">                                
+                                        <label for="company_country_ph"><?php echo $this->translate('135') ?></label>
+                                        <div id="company_country_ph">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class="image-upload col-lg-6" style="margin-top: 20px">
+                                        <label for="file_input">
+                                            <a id="logo_edit_title" class="hovertext col-md-12" title="<?php echo $this->translate('585') ?>">
+                                                <img class="fake_image_ph" id="company_logo_fake" style="display: none; visibility: hidden" src="" >
+                                            </a>
+                                            <img id="company_logo" class="img-responsive image_ph" 
+                                                 src="<?php echo $this->basePath('onyuz/standard/assets/img/sfClients/Logos/image_not_found.png') ?>" 
+                                                 border="0" alt="">
+                                        </label>
+                                        <input id="file_input" class="file_input" type="file"/>
+                                    </div>
+                                    <div class="form-group col-lg-6" >
+                                        <!--<label for="logoInputFile"><?php echo $this->translate('586') ?></label>-->
+                                        <!--<input type="file" id="exampleInputFile">-->
+                                        <p class="help-block"><?php echo $this->translate('587') ?></p>
+                                        <p class="help-block"><?php echo $this->translate('588') ?></p>
+                                        <p class="help-block"><?php echo $this->translate('589') ?></p>
+                                    </div>
+                                </div>                                
+                                <div style='margin-top:20px'>
+                                    <label for="found_date"><?php echo $this->translate('129') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-calendar"></i>
+                                        </div>
+                                        <input class="form-control validate[custom[date]]" 
+                                               onchange="milliseconds()"
+                                               type='date' name="found_date" id="found_date">
+                                    </div>
+                                </div>
+                                <div style='margin-top:20px'>
+                                    <label for="tax_office"><?php echo $this->translate('127') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-building"></i>
+                                        </div>
+                                        <input type="text" class="form-control validate[maxSize[150]]" 
+                                               id="tax_office" placeholder="<?php echo $this->translate('127') ?>">
+                                    </div>
+                                </div>
+                                <div style='margin-top:20px'>
+                                    <label for="tex_number"><?php echo $this->translate('126') ?></label>
+                                    <div class="input-group">                                    
+                                        <div class="input-group-addon">                                        
+                                            <i class="icon-prepend fa fa-money"></i>
+                                        </div>
+                                        <input type="text" class="form-control validate[maxSize[30]]" id="tex_number" placeholder="<?php echo $this->translate('590') ?>">
+                                    </div>
+                                </div>
+
+                                <div style='margin-top:20px'>
+                                    <div class="form-group">
+                                        <label><?php echo $this->translate("591") ?>
+                                            <p class="help-block"><?php echo $this->translate("592") ?></p></label>
+                                        <textarea id="desc_text" class="form-control text-area validate[minSize[30] maxSize[3000]]" 
+                                                  style="max-width:100%;"  rows="6" maxlength="3000"
+                                                  placeholder="<?php echo $this->translate("591") ?>"></textarea>
+                                        <div id="desc_rem_char_alert"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><?php echo $this->translate("593") ?>
+                                            <p class="help-block"><?php echo $this->translate("592") ?></p></label>
+                                        <textarea id="desc_text_en" class="form-control text-area validate[minSize[30] maxSize[3000]]" 
+                                                  style="max-width:100%" rows="6" maxlength="3000"
+                                                  placeholder="<?php echo $this->translate("593") ?>"></textarea>
+                                        <div id="desc_en_rem_char_alert"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- First Column End -->
+
+
+
+                            <!-- General Information Footer Start -->
+                            <div class="box-footer col-lg-12">
+                                <button type="button" class="btn btn-primary" onclick='send_general_info()'>
+                                    <?php echo $this->translate('131') ?>
+                                </button>
+                                <button type="button" class="btn btn-default" onclick='reset_verbal_info()'>
+                                    <?php echo $this->translate('186') ?>
+                                </button>
+                            </div>
+                            <!-- General Information Footer End -->
+                        </form>
+                    </div>
+                    <div class="col-lg-6"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- end of company general information setting -->
+</section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b><?php echo $this->translate('73') ?></b> 1.0
+    </div>
+    <strong><?php echo $this->translate('72') ?> &copy; 2016 <a href="" onclick="event.preventDefault();"><?php echo $this->translate('5') ?></a></strong> <?php echo $this->translate('71') ?>
+</footer>
+
+<!-- Control Sidebar -->      
+<!--<aside class="control-sidebar control-sidebar-dark">                
+     Create the tabs 
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i class="fa fa-wrench"></i></a></li>
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+     Tab panes 
+    <div class="tab-content">
+         Home tab content 
+        <div class="tab-pane" id="control-sidebar-home-tab">
+            <div>
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('58') ?></h3>
+                <ul class='control-sidebar-menu'>
+                    <li>
+                        <a href='javascript::;'>
+                            <i class="menu-icon-zeyn fa fa-file-code-o bg-green"></i>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading"><?php echo $this->translate('533') ?></h4>
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul> /.control-sidebar-menu 
+
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('59') ?></h3> 
+                <ul class='control-sidebar-menu'>
+                    <li>
+                        <a href='javascript::;'>               
+                            <h4 class="control-sidebar-subheading">
+                                Ziyaret Edilen Firmalar
+                                <span class="label label-danger pull-right">3%</span>
+                            </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 3%"></div>
+                            </div>                                    
+                        </a>
+                    </li> 
+                    <li>
+                        <a href='javascript::;'>               
+                            <h4 class="control-sidebar-subheading">
+                                Tamamlanan Temiz Üretim Raporları
+                                <span class="label label-success pull-right">0%</span>
+                            </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-success" style="width: 0%"></div>
+                            </div>                                    
+                        </a>
+                    </li> 
+                    <li>
+                        <a href='javascript::;'>               
+                            <h4 class="control-sidebar-subheading">
+                                Tamamlanan Enerji Verimliliği Raporları
+                                <span class="label label-waring pull-right">0%</span>
+                            </h4>
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-warning" style="width: 0%"></div>
+                            </div>                                    
+                        </a>
+                    </li>                                  
+                </ul> /.control-sidebar-menu          
+            </div>
+        </div> /.tab-pane 
+         Stats tab content 
+
+        <div class="tab-pane active" id="control-sidebar-theme-demo-options-tab"><?php echo $this->translate('537') ?>
+            / sonradan js'den cekılıp html'e yerleştirilen tab bölümü
+            <h4 class="control-sidebar-heading"><?php echo $this->translate('32') ?></h4>
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-layout="fixed" class="pull-right"><?php echo $this->translate('33') ?></label>
+                <p><?php echo $this->translate("34") ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-layout="layout-boxed" class="pull-right"><?php echo $this->translate('35') ?></label>
+                <p><?php echo $this->translate('36') ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-layout="sidebar-collapse" class="pull-right"><?php echo $this->translate('37') ?></label>
+                <p><?php echo $this->translate("38") ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-enable="expandOnHover" class="pull-right"><?php echo $this->translate('Sidebar Expand on Hover') ?></label>
+                <p><?php echo $this->translate("Let the sidebar mini expand on hover") ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-controlsidebar="control-sidebar-open" class="pull-right"><?php echo $this->translate('41') ?></label>
+                <p><?php echo $this->translate("42") ?></p>
+            </div>
+
+            <div class="form-group">
+                <label class="control-sidebar-subheading">
+                    <input type="checkbox" data-sidebarskin="toggle" class="pull-right"><?php echo $this->translate("43") ?></label>
+                <p><?php echo $this->translate("44") ?></p>
+            </div>
+
+            <h4 class="control-sidebar-heading"><?php echo $this->translate("45") ?></h4>
+
+            <ul class="list-unstyled clearfix">
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9;">
+
+                            </span>
+                            <span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("46") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                            <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("47") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-purple" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span>
+                            <span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("48") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-green" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span>
+                            <span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("49") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-red" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span>
+                            <span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("50") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-yellow" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span>
+                            <span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin"><?php echo $this->translate("51") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-blue-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9;"></span>
+                            <span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("52") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-black-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                            <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe;"></span>
+                        </div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("53") ?>/p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-purple-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active"></span>
+                            <span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("54") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-green-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span>
+                            <span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div><div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("55") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-red-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-red-active"></span>
+                            <span class="bg-red" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px"><?php echo $this->translate("56") ?></p>
+                </li>
+                <li style="float:left; width: 33.33333%; padding: 5px;">
+                    <a href="javascript:void(0);" data-skin="skin-yellow-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-yellow-active"></span>
+                            <span class="bg-yellow" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                        </div>
+                        <div>
+                            <span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc;"></span>
+                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+                        </div>
+                    </a>
+                    <p class="text-center no-margin" style="font-size: 12px;"><?php echo $this->translate("57") ?></p>
+                </li>
+            </ul>
+
+        </div>/ sonradan js'den cekılıp html'e yerleştirilen tab bölümü
+
+
+        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane 
+         Settings tab content 
+        <div class="tab-pane" id="control-sidebar-settings-tab">            
+            <form method="post">
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('60') ?></h3>
+
+                <div class="form-group">
+                    <label class="control-sidebar-subheading">
+                        <?php echo $this->translate('61') ?>
+                        <input type="checkbox" class="pull-right" checked />
+                    </label>
+                    <p>
+                        <?php echo $this->translate('62') ?>
+                    </p>
+                </div> /.form-group 
+
+                <div class="form-group">
+                    <label class="control-sidebar-subheading">
+                        <?php echo $this->translate('63') ?>
+                        <input type="checkbox" class="pull-right" checked />
+                    </label>
+                    <p>
+                        <?php echo $this->translate('64') ?>
+                    </p>
+                </div> /.form-group 
+
+                <div class="form-group">
+                    <label class="control-sidebar-subheading">
+                        <?php echo $this->translate('64') ?>
+                        <input type="checkbox" class="pull-right" checked />
+                    </label>
+                    <p>
+                        <?php echo $this->translate('65') ?>
+                    </p>
+                </div> /.form-group 
+
+                <h3 class="control-sidebar-heading"><?php echo $this->translate('67') ?></h3>
+
+                <div class="form-group">
+                    <label class="control-sidebar-subheading">
+                        <?php echo $this->translate('68') ?>
+                        <input type="checkbox" class="pull-right" checked />
+                    </label>                
+                </div> /.form-group 
+
+                <div class="form-group">
+                    <label class="control-sidebar-subheading">
+                        <?php echo $this->translate('69') ?>
+                        <input type="checkbox" class="pull-right" />
+                    </label>                
+                </div> /.form-group 
+
+                <div class="form-group">
+                    <label class="control-sidebar-subheading">
+                        <?php echo $this->translate('70') ?>
+                        <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                    </label>                
+                </div> /.form-group 
+            </form>
+        </div> /.tab-pane 
+    </div>
+</aside> /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class='control-sidebar-bg'></div>
+</div><!-- ./wrapper -->
+
