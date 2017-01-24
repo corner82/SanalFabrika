@@ -22,6 +22,13 @@
             </a>
             <div class="navbar-custom-menu">                
                 <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-video-camera " id="chatter"></i>
+                            <!--<span class="label label-success">0</span>-->
+                        </a>
+                    </li>
+                    
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -660,6 +667,67 @@
                             <button class="pull-right btn btn-default" id="sendEmail">Gönder <i class="fa fa-arrow-circle-right"></i></button>
                         </div>
                     </div>
+                    
+                    
+                    <!-- video chat box  -->
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools">
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
+
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title" id="chatPanel">
+                                Video Chat
+                            </h3>
+                        </div>
+                        <div class="box-body panel-body">
+                            <div id="publisher" style="height: 600px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                            <div class="row">
+                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                    <div id="sparkline-1"></div>
+                                    <div class="knob-label">Ostim verileri...</div>
+                                </div><!-- ./col -->
+                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                    <div id="sparkline-2"></div>
+                                    <div class="knob-label">Ostim verileri...</div>
+                                </div><!-- ./col -->
+                                <div class="col-xs-4 text-center">
+                                    <div id="sparkline-3"></div>
+                                    <div class="knob-label">Ostim verileri...</div>
+                                </div><!-- ./col -->
+                            </div><!-- /.row -->
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- video chat box remote user -->
+                    <div class="box box-warning" >
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools" >
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
+
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title" id="chatPanelRemote">
+                                Video Chat
+                            </h3>
+                        </div>
+                        <div class="box-body panel-body">
+                            <div id="publisherRemote" style="height: 450px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                        </div>
+                    </div>
+                    
+                    
+                    
 
                 </section><!-- /.Left col -->
                 <!-- right col (We are only adding the ID to make the widgets sortable)-->
@@ -886,23 +954,23 @@
         <div class="">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-comment"></span> Chat
+                    <span class="glyphicon glyphicon-comment"></span> Anlık Mesajlaşma
                     <div class="btn-group pull-right">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-chevron-down"></span>
                         </button>
                         <ul class="dropdown-menu slidedown">
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-refresh">
-                            </span>Refresh</a></li>
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-ok-sign">
-                            </span>Available</a></li>
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-remove">
-                            </span>Busy</a></li>
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-time"></span>
-                                Away</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-refresh">
+                            </span>Yenile</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-ok-sign">
+                            </span>Uygun</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-remove">
+                            </span>Meşgul</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-time"></span>
+                                Uzakta</a></li>
                             <li class="divider"></li>
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-off"></span>
-                                Sign Out</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-off"></span>
+                                Çıkış Yap</a></li>
                         </ul>
                     </div>
                 </div>
