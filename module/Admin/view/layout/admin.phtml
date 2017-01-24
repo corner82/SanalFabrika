@@ -170,6 +170,10 @@
 
         <!-- Select2 -->
         <script src="<?php echo $this->basePath('plugins/select2/select2.full.js') ?>" type="text/javascript"></script>
+        
+        <!-- Jquery Timeago plugin-->
+        <!--<script src="<?php echo $this->basePath('plugins/jquery-timeago-master/jquery.timeago.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $this->basePath('plugins/jquery-timeago-master/helpers.js') ?>" type="text/javascript"></script>-->
 
 
         <!-- sayfa içine yazılan js'ler ekleniyor-->
@@ -183,20 +187,37 @@
         <script src="<?php echo $this->basePath('node_js/node_modules/socket.io-client/dist/socket.io.js') ?>" type="text/javascript"></script>
         <script>
             $.widget.bridge('uibutton', $.ui.button);
-            var socket = io.connect('https://10.18.2.206:8444');
-            var $messageForm = $('#send-message');
-            var $messageBox = $('#btn-input');
             
-            $messageForm.submit(function(e) {
-				e.preventDefault();
-				socket.emit('send message', $messageBox.val());
-				$messageBox.val('');
-			})
+            $(document).ready(function () {
+                /*prepareDynamicDates();
+                $(".time").timeago();*/
+                
+                /*jQuery("time.timeago").timeago();
+                jQuery.timeago.settings.allowFuture = true;*/
+                
+                var chatWidget = $('#send-message').chatBoard({
+                    ioSocket : io.connect('https://10.18.2.206:8444'),
+                });
+                chatWidget.chatBoard('setFormSubmit');
+                chatWidget.chatBoard('socketListen');
             
-            
-            socket.on('new message', function(data){ 
-				$('.panel-body').append(data + '<br/>');
-			})
+                /*var socket = io.connect('https://10.18.2.206:8444');
+                var $messageForm = $('#send-message');
+                var $messageBox = $('#chat-input');
+
+                $messageForm.submit(function(e) {
+                                    e.preventDefault();
+                                    socket.emit('send message', $messageBox.val());
+                                    $messageBox.val('');
+                            })
+
+
+                socket.on('new message', function(data){ 
+                                    $('.panel-body').append(data + '<br/>');
+                            })
+                                */
+                });
+
             
         </script>
 

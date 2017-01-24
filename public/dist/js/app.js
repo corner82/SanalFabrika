@@ -1281,5 +1281,137 @@ function _init() {
 
 
 
+    $.widget('sanalfabrika.chatBoard', {
+        
+        /**
+         * Default options.
+         * @returns {null}
+         */
+        options: {
+            messageBox : $('#chat-input'),
+            submitForm : $('#send-message'),
+            //ioSocket : io.connect('https://10.18.2.206:8444'),
+            ioSocket : null,
+            userName : null,
+            userPicture : null,
+            userRegistrationDate : null,
+        },
+        
+        /**
+         * private constructor method for jquery widget
+         * @returns {null}
+         */
+        _create: function () {
+            var self = this;
+            /**
+            * user info collected
+            * @type @call;$@call;ajaxCallWidget
+            * @since 17/01/2017    
+            */
+           var ajaxACLResources = self.element.ajaxCallWidget({
+               proxy : 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+                       data: { url:'pkGetUserShortInformation_infoUsers' ,
+                               pk : $("#pk").val(),
+                               language_code: $("#langCode").val(),
+                       }
+              })
+           ajaxACLResources.ajaxCallWidget ({
+                onError : function (event, textStatus,errorThrown) {
+                    
+                },
+                onSuccess : function (event, data) {
+                    var data = $.parseJSON(data);
+                    //console.log(data);  
+                    self.options.userName = data[0].name+' '+data[0].surname;
+                    if(data[0].user_picture=='' || data[0].user_picture==null) {
+                        self.options.userPicture = 'dist/img/manager-xxl.png';
+                    } else { 
+                        var userPic = 'onyuz/standard/assets/img/sfClients/'+data[0].user_picture;
+                        //userPic = userPic.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                        //self.options.userPicture = 'onyuz/standard/assets/img/sfClients/'+data[0].user_picture;
+                        self.options.userPicture = userPic;
+                    } 
+                    self.options.userRegistrationDate = data[0].registration_date;
+                    //console.log(self.options.userName);
+                    //$('#mach-prod-box').loadImager('removeLoadImage');
+                },
+                onErrorDataNull : function (event, data) {
+                },
+           }) 
+           ajaxACLResources.ajaxCallWidget('call');
+        },
+        
+        socketListen: function() {  
+            var self = this;   
+            self.options.ioSocket.on('new message', function(data){ 
+                var data = $.parseJSON(data);
+                var lastItem = $('.panel-body').find('>ul li:last-child');
+                var className = '';
+                if(lastItem.hasClass("clearfix")) className = lastItem[0].className;
+                var pullStr = '';
+                var userPicture = 'dist/img/manager-xxl.png';
+                if(className.indexOf("right")>-1) {
+                    className = 'left';
+                    pullStr = 'pull-left';
+                } else if(className.indexOf("left")>-1) {
+                    className = 'right';
+                    pullStr = 'pull-right';
+                } else {
+                    className = 'right';
+                    pullStr = 'pull-right'
+                }
+                if(data.userPicture!='' && data.userPicture!= null ) {
+                    userPicture = data.userPicture;
+                }
+                
+                $('.panel-body').find('>ul').append('<li class="'+className+' clearfix"><span class="chat-img '+pullStr+'">\n\
+                                            <img src="/'+userPicture+'" alt="User Avatar" style="width: 100%;max-width: 45px;height: auto;" class="img-circle user-image">\n\
+                                            </span>\n\
+                                                <div class="chat-body clearfix">\n\
+                                                    <div class="header">\n\
+                                                        <small class=" text-muted"><span class="glyphicon glyphicon-time">  '+self._formatDate(new Date())+'</span></small>\n\
+                                                        <strong class="pull-right primary-font">'+data.userName+'</strong>\n\
+                                                    </div>\n\
+                                                    <p>\n\
+                                                         '+data.text+'\n\
+                                                    </p>\n\
+                                                </div>\n\
+                                        </li>');
+                
+                //<time class="timeago" datetime="'+new Date().toISOString()+'">'+jQuery.timeago(new Date())+'</time>
+                /*console.log('--test1--');
+                console.log($('.panel-body').find('ul li:last-child'));
+                console.log('--test2--');  
+                var timeElement = $('.panel-body').find('>ul li:last-child time');
+                console.log(timeElement);
+                jQuery.timeago($(timeElement));*/
+
+            });
+            
+        },
+        
+        _formatDate : function(date) {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            //var ampm = hours >= 12 ? 'pm' : 'am';
+            var ampm = '';
+            //hours = hours % 12;
+            //hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + " " + strTime;
+        },
+        
+        setFormSubmit: function() {
+            var self = this;
+            self.options.submitForm.submit(function(e) {
+                                    e.preventDefault();
+                                    self.options.ioSocket.emit('send message', '{ "userName" : "'+self.options.userName+'","text": "'+self.options.messageBox.val()+'", "userPicture" : "'+self.options.userPicture+'" }');
+                                    self.options.messageBox.val('');
+                            });
+        }
+        
+    });
+
 }(jQuery));
 
