@@ -46,17 +46,19 @@ $(document).ready(function () {
                  * if there is not submitted found_date, it comes back empty
                  */
 
-                if (data[0].foundation_yearx) {
-                    var found_date = new Date(found_date);
+                if (data[0].foundation_yearx > 0) {
+                    
+                    var found_date = new Date(data[0].foundation_yearx * 1000);
                     var new_date = new Date(found_date);
-                    var year = new_date.getFullYear().toString();
-                    var month = (new_date.getMonth() + 1).toString();
-                    var day = new_date.getDate().toString();
+                    window.year = new_date.getFullYear().toString();
+                    window.month = (new_date.getMonth() + 1).toString();
+                    window.day = new_date.getDate().toString();
                 } else {
-                    var year = '';
-                    var month = '';
-                    var day = '';
+                    window.year = '';
+                    window.month = '';
+                    window.day = '';
                 }
+                
                 window.sel_count_id = data[0].country_id;
                 window.sel_count_name = data[0].country_name;
                 $('#company_country_ph li').each(function (index) {
@@ -69,13 +71,15 @@ $(document).ready(function () {
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
                         + data[0].logo;
+                
+                console.log(window.year + '/' + window.month + '/' + window.day);
                 $('#full_name_ph').val(data[0].firm_name);
                 $('#full_name_en_ph').val(data[0].firm_name_eng);
                 $('#short_name_ph').val(data[0].firm_name_short);
                 $('#short_name_en_ph').val(data[0].firm_name_short_eng);
                 $('#website').val(data[0].web_address);
                 $('#company_logo').attr('src', window.image_url);
-                $('#found_date').val(year + '/' + month + '/' + day);
+                $('#found_date').val(window.day + '/' + window.month + '/' + window.year);
                 $('#tax_office').val(data[0].tax_office);
                 $('#tex_number').val(data[0].tax_no);
                 $('#desc_text').val(data[0].description);
