@@ -151,7 +151,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">   
-                                    <a href="#" class="btn btn-default btn-flat"><?php echo $this->translate('29') ?></a>
+                                    <a href="<?php echo $this->url('sanalfabrika', array('action' => 'companyprofile', 
+                                    'selectedCompanyShN' => $this->selectedCompanyShN,  
+                                    'selectedCompanyNpk' => $this->selectedCompanyNpk, 
+                                    'lang' => $this -> langCode)); ?>" class="btn btn-default btn-flat"><?php echo $this->translate('29') ?></a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="<?php echo $this->url('login', array('action' => 'logout')); ?> " class="btn btn-default btn-flat"><?php echo $this->translate('31') ?></a>
