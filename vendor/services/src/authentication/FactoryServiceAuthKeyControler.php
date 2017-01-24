@@ -16,7 +16,7 @@ class FactoryServiceAuthKeyControler  implements FactoryInterface{
         
         $params = $serviceLocator->get('ControllerPluginManager')->get('params');
         $authKey = $params->fromQuery('key');
-        print_r('--auth key in service manager-->'.$authKey);
+        //print_r('--auth key in service manager-->'.$authKey);
         if(isset($authKey)) {
             print_r('--ggg--');
             try {
