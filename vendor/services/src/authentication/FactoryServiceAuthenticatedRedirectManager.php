@@ -41,6 +41,9 @@ class FactoryServiceAuthenticatedRedirectManager  implements FactoryInterface{
                     break;
                 case 'yenikullanıcı':
                     break;
+                case 'onaylanmamışkullanıcı':
+                     $serviceLocator->get('serviceAuthenticatedRedirectUser');
+                    break;
                 default:
                     break;
             }
