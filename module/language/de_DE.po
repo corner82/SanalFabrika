@@ -1111,16 +1111,16 @@ msgid "363"
 msgstr "Produktion und Qualitätskontrolle Ingenieur"
 
 msgid "364" 
-msgstr "Firmendaten aktualisieren"
+msgstr "Alle registrierten Maschinen"
 
 msgid "365" 
-msgstr "Firmenprofil Abschlussrate"
+msgstr "Werkzeugmaschinen"
 
 msgid "366" 
-msgstr "Maschinendatenaktualisierungszeitraum"
+msgstr "CNC Maschinen"
 
 msgid "367" 
-msgstr "Unternehmen Technologien aktualisieren Zeitraum"
+msgstr "Fünf-Achs-Maschinen"
 
 msgid "368" 
 msgstr "Online-Wechselkurse"

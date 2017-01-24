@@ -1111,16 +1111,16 @@ msgid "363"
 msgstr "Production and Quality Control Engineer"
 
 msgid "364" 
-msgstr "Company info update period"
+msgstr "All registered machines"
 
 msgid "365" 
-msgstr "Company profile completion rate"
+msgstr "Machining Machine Tools"
 
 msgid "366" 
-msgstr "Machine data update period"
+msgstr "CNC Machines"
 
 msgid "367" 
-msgstr "Company technologies update period"
+msgstr "Five Axis Machines"
 
 msgid "368" 
 msgstr "Online exchange rates"

@@ -325,34 +325,37 @@
                     <h2 class="heading-xs pull-left">
                         <i class="fa fa-bar-chart-o"></i> 
                         <?php echo $this->translate('364') ?>
+                        <span id='all_machines'>
+                            
+                        </span>
                     </h2>
                     <!--<a href="#"><i class="fa fa-cog pull-right"></i></a>-->
                 </div>
                 <h3 class="heading-xs">
                     <?php echo $this->translate('365') ?>
-                    <span class="pull-right">92%</span>
+                    <span id='machining_machines' class="pull-right"></span>
                 </h3>
                 <div class="progress progress-u progress-xxs">
-                    <div style="width: 92%" aria-valuemax="100" 
+                    <div id='machining_rate' style="width: " aria-valuemax="100" 
                          aria-valuemin="0" aria-valuenow="92" 
                          role="progressbar" class="progress-bar progress-bar-u">
                     </div>
                 </div>
                 <h3 class="heading-xs">
                     <?php echo $this->translate('366') ?>
-                    <span class="pull-right">85%</span>
+                    <span id='cnc_machines' class="pull-right"></span>
                 </h3>
                 <div class="progress progress-u progress-xxs">
-                    <div style="width: 85%" aria-valuemax="100" 
+                    <div id='cnc_rate' style="width: " aria-valuemax="100" 
                          aria-valuemin="0" aria-valuenow="85" 
                          role="progressbar" class="progress-bar progress-bar-blue">
                     </div>
                 </div>
                 <h3 class="heading-xs"> <?php echo $this->translate('367') ?>
-                    <span class="pull-right">64%</span>
+                    <span id='five_axis' class="pull-right"></span>
                 </h3>
                 <div class="progress progress-u progress-xxs margin-bottom-40">
-                    <div style="width: 64%" aria-valuemax="100" 
+                    <div id='five_axis_rate' style="width: " aria-valuemax="100" 
                          aria-valuemin="0" aria-valuenow="64" 
                          role="progressbar" class="progress-bar progress-bar-dark">
                     </div>

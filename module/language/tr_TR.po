@@ -1115,16 +1115,16 @@ msgid "363"
 msgstr "Üretim ve Kalite Kontrol Mühendisi"
 
 msgid "364" 
-msgstr "Firma bilgileri güncelleme aralığı"
+msgstr "Kayıtlı tüm makinalar"
 
 msgid "365" 
-msgstr "Firma profili tamamlama oranı"
+msgstr "Talaşlı İmalat Makineleri"
 
 msgid "366" 
-msgstr "Makine bilisi güncelleme aralığı"
+msgstr "CNC Makineler"
 
 msgid "367" 
-msgstr "Firma teknoloji güncelleme aralığı"
+msgstr "5 Eksenli Makineler"
 
 msgid "368" 
 msgstr "Online Kur Oranları"

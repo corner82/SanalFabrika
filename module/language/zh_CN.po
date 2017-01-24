@@ -1108,16 +1108,16 @@ msgid "363"
 msgstr "生产和质量控制工程师"
 
 msgid "364"
-msgstr "公司信息更新期"
+msgstr "所有注册的机器"
 
 msgid "365"
-msgstr "公司简介完成率"
+msgstr "加工机床"
 
 msgid "366"
-msgstr "机器数据更新周期"
+msgstr "数控机床"
 
 msgid "367"
-msgstr "公司技术更新期"
+msgstr "五轴机"
 
 msgid "368"
 msgstr "在线汇率"

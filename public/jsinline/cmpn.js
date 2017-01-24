@@ -7,7 +7,7 @@ $(document).ready(function() {
                 //e.preventDefault();
                 var vars = $("#formCompany").serialize();
                 if ($("#formCompany").validationEngine('validate')) {
-                    console.log(vars);
+//                    console.log(vars);
                     /*$.ajax({
                             url:"sample.php"
                     });*/

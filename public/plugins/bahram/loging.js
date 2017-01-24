@@ -27,6 +27,7 @@ $(document).ready(function () {
         $('#user_profile_link_divider').css('display', 'none');
 
     } else {
+        
         $('#login_place').css('visibility', 'hidden');
         $('#login_place').css('display', 'none');
         $('#logout_place').css('visibility', 'visible');
@@ -112,7 +113,8 @@ $(document).ready(function () {
                     for (var i = 0; i < data.rows.length; i++) {
                         var company_link = "https://" + window.location.host + "/" + $('#langCode').val() +
                                 "/ostim/sanalfabrika/companyprofile/" + data.rows[i].network_name + "/" + data.rows[i].npk;
-
+                        var company_setting_link = "https://" + window.location.host + "/" + $('#langCode').val() +
+                                "/ostim/sanalfabrika/cpgenelset/" + data.rows[i].network_name + "/" + data.rows[i].npk; 
                         var appending =
                                 "<li style ='text-align: center;" +
                                 "vertical-align: middle; line-height: 40px;'>" +
@@ -122,6 +124,13 @@ $(document).ready(function () {
                                 "/onyuz/standard/assets/img/sfClients/" +
                                 data.rows[i].logo + "'></img>" +
                                 data.rows[i].network_name +
+                                "</a></li>" +
+                                "<br\>" +
+                                "<li style ='text-align: center;" +
+                                "vertical-align: middle; line-height: 40px;'>" +
+                                "<a href='" + company_setting_link + "'>" +
+                                "<icon style='float:left; padding-right:20px; font-size:20px;margin:10px ' class='fa fa-cog'></icon>" +
+                                data.rows[i].network_name + 
                                 "</a></li>";
 
                         $('#topCompaniesBar_div').append(appending);
@@ -135,7 +144,7 @@ $(document).ready(function () {
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                console.error('"pkGetUserShortInformation_infoUsers" servis hatasÃ„Â±->' + textStatus);
+                console.error('"pkGetUserCompanyShortInformation_infoFirmProfile" servis hatasÃ„Â±->' + textStatus);
             }
         });
 
