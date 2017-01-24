@@ -9,6 +9,7 @@ $(document).ready(function () {
     window.current_Lang = $('#langCode').val();
 
     lang.change($('#langCode').val());
+    
     if ($('#pk').val()) {
         var soc_med_service_url = 'pkFillCompanyInfoSocialedia_infoFirmProfile';
         var verbal_service_url = 'pkFillUsersFirmVerbalNpk_infoFirmVerbal';

@@ -114,7 +114,7 @@ $(document).ready(function () {
                         var company_link = "https://" + window.location.host + "/" + $('#langCode').val() +
                                 "/ostim/sanalfabrika/companyprofile/" + data.rows[i].network_name + "/" + data.rows[i].npk;
                         var company_setting_link = "https://" + window.location.host + "/" + $('#langCode').val() +
-                                "/ostim/sanalfabrika/cpgeneralset/" + data.rows[i].network_name + "/" + data.rows[i].npk; 
+                                "/ostim/sanalfabrika/cpgenelset/" + data.rows[i].network_name + "/" + data.rows[i].npk; 
                         var appending =
                                 "<li style ='text-align: center;" +
                                 "vertical-align: middle; line-height: 40px;'>" +
