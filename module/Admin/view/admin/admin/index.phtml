@@ -271,7 +271,7 @@
                             <li class="active">
                                 <a href="#">
                                     <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
-                                    <span class="logo-mini">EN</span>
+                                    <span class="logo-mini"><?php echo $this->langCode; ?></span>
                                     <span>English</span>
                                 </a>
                             </li>
@@ -372,7 +372,7 @@
                 <small></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i><?php echo $this->translate('Home') ?></a></li>
+                <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index')); ?>"><i class="fa fa-dashboard"></i>Ana Sayfa</a></li>
                 <!--<li class="active">Firma İşlemleri</li>-->
             </ol>
         </section>
@@ -680,27 +680,13 @@
 
                             <i class="fa fa-map-marker"></i>
                             <h3 class="box-title" id="chatPanel">
-                                Video Chat
+                                Video Görüşmesi
                             </h3>
                         </div>
                         <div class="box-body panel-body">
                             <div id="publisher" style="height: 600px; width: 100%;"></div>
                         </div><!-- /.box-body-->
                         <div class="box-footer no-border">
-                            <div class="row">
-                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                    <div id="sparkline-1"></div>
-                                    <div class="knob-label">İhracat / İthalat Oranları</div>  
-                                </div><!-- ./col -->
-                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                    <div id="sparkline-2"></div>
-                                    <div class="knob-label">Dış Ticaret Hacimleri</div>
-                                </div><!-- ./col -->
-                                <div class="col-xs-4 text-center">
-                                    <div id="sparkline-3"></div>
-                                    <div class="knob-label">Sanal Fabrika Üye Sayıları</div>
-                                </div><!-- ./col -->
-                            </div><!-- /.row -->
                         </div>
                     </div>
                     <!-- /box video chat box  -->
@@ -717,7 +703,7 @@
 
                             <i class="fa fa-map-marker"></i>
                             <h3 class="box-title" id="chatPanelRemote">
-                                Video Chat
+                                Video Görüşmesi
                             </h3>
                         </div>
                         <div class="box-body panel-body">
@@ -750,15 +736,15 @@
                             <div class="row">
                                 <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                                     <div id="sparkline-1"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
+                                    <div class="knob-label">İhracat / İthalat Oranları</div>
                                 </div><!-- ./col -->
                                 <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                                     <div id="sparkline-2"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
+                                    <div class="knob-label">Dış Ticaret Hacimleri</div>
                                 </div><!-- ./col -->
                                 <div class="col-xs-4 text-center">
                                     <div id="sparkline-3"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
+                                    <div class="knob-label">Sanal Fabrika Üye Sayıları</div>
                                 </div><!-- ./col -->
                             </div><!-- /.row -->
                         </div>

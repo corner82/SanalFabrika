@@ -270,7 +270,7 @@
                             <li class="active">
                                 <a href="#">
                                     <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
-                                    <span class="logo-mini">EN</span>
+                                    <span class="logo-mini"><?php echo $this->langCode; ?></span>
                                     <span>English</span>
                                 </a>
                             </li>
@@ -371,7 +371,7 @@
                 <small></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i><?php echo $this->translate('Home') ?></a></li>
+                <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index')); ?>"><i class="fa fa-dashboard"></i>Ana Sayfa</a></li>
                 <!--<li class="active">Firma İşlemleri</li>-->
             </ol>
         </section>

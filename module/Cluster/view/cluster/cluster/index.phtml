@@ -258,7 +258,7 @@
                     <li class="dropdown language-selector" id='languages'>                          
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
                             <!--<img src="<?php echo $this->basePath('img/flag-uk.png') ?>"-->
-                            <span class="logo-mini">EN</span>
+                            <span class="logo-mini"><?php echo $this->langCode; ?></span>
                         </a>
                         <ul class="dropdown-menu pull-right">
                             <li class="active">
@@ -365,7 +365,7 @@
                 <small></small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i><?php echo $this->translate('Home') ?></a></li>
+                <li><a href="<?php echo $this->url('sanalfabrika', array('action' => 'index')); ?>"><i class="fa fa-dashboard"></i>Ana Sayfa</a></li>
                 <!--<li class="active">Firma İşlemleri</li>-->
             </ol>
         </section>
@@ -493,146 +493,54 @@
             <div class="row">
 
                 <!-- Left col -->
-                <section class="col-lg-12 connectedSortable">
-
-
-
-                    <!-- Custom tabs (Charts with tabs)-->
-                    <div class="nav-tabs-custom box-header">
-                        <!-- Tabs within a box -->
-                        <ul class="nav nav-tabs pull-right">
-                            <!--<li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-                            <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>-->
-                            <li class="pull-left header"><i class="fa fa-bar-chart-o"></i> Tezgah Genel Bilgileri</li>
-                        </ul>
-                        <div class="tab-content no-padding">
-                            <div id="timeSeries" style="min-width: 310px;width: 100%; height: 400px; margin: 0 auto"></div>
-                            <!-- Morris chart - Sales -->
-                            <!--<div id="container_employees" style="/*min-width: auto; */
-                                 height: 300px; 
-                                 //max-width: 500px; 
-                                 width: 100%;
-                                 margin: 0 auto;">
-                                
-                                <div class="overlay" >
-                                    <i class="fa fa-refresh fa-spin"  ></i>
-                                </div>
-                            </div>-->
-                        </div>
-
-                    </div><!-- /.nav-tabs-custom -->
-                </section>    
-
                 <section class="col-lg-7 connectedSortable">
-                    
-
-                    <!-- TO DO List -->
-                    <div id='todolistbox' class="box box-primary">
-                        <div class="box-header">
-                            <i class="ion ion-clipboard"></i>
-                            <h3 class="box-title">Online İşlemler</h3>
-                            <div class="box-tools pull-right">
-                                <ul class="pagination pagination-sm inline">
-                                    <li><a href="#">&laquo;</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">&raquo;</a></li>
+                     
+                <!-- Chat Node js Box -->
+                <div class="">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <span class="glyphicon glyphicon-comment"></span> Anlık Mesajlaşma
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </button>
+                                <ul class="dropdown-menu slidedown">
+                                    <li><a href="#"><span class="glyphicon glyphicon-refresh">
+                                    </span>Yenile</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-ok-sign">
+                                    </span>Uygun</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-remove">
+                                    </span>Meşgul</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-time"></span>
+                                        Uzakta</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-off"></span>
+                                        Çıkış Yap</a></li>
                                 </ul>
                             </div>
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                            <ul class="todo-list">
-                                <li>
-                                    <!-- drag handle -->
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <!-- checkbox -->
-                                    <input type="checkbox" value="" name=""/>
-                                    <!-- todo text -->
-                                    <span data-fill="true" class="text"></span>
-                                    <!-- Emphasis label -->
-                                    <small data-fill-number="true" class="label label-danger"><i class="fa fa-clock-o"></i> </small>
-                                    <!-- General tools such as edit or delete-->
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span  data-fill="true" class="text"></span>
-                                    <small data-fill-number="true" class="label label-info"><i class="fa fa-clock-o"></i> </small>
-                                    <div class="tools">   
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span data-fill="true" class="text"></span>
-                                    <small data-fill-number="true" class="label label-warning"><i class="fa fa-clock-o"></i> </small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span data-fill="true" class="text"></span>
-                                    <small data-fill-number="true" class="label label-success"><i class="fa fa-clock-o"></i> </small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span data-fill="true" class="text"></span>
-                                    <small data-fill-number="true" class="label label-primary"><i class="fa fa-clock-o"></i> </small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="" name=""/>
-                                    <span data-fill="true" class="text"></span>
-                                    <small data-fill-number="true" class="label label-default"><i class="fa fa-clock-o"></i> </small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div><!-- /.box-body -->
-                        <div class="box-footer clearfix no-border">
-                            <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Ekle</button>
                         </div>
-                    </div><!-- /.box -->
+                                <div class="panel-body">
+                                    <ul class="chat">
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <form id="send-message">
+                                    <div class="input-group">
+                                        <input id="chat-input" type="text" class="form-control input-sm" placeholder="Mesajınızı buraya yazınız...">
+                                        <span class="input-group-btn">
+                                            <input class="btn btn-warning btn-sm" id="btn-chat" type="submit" >
 
+                                            </input>
+                                            <!--<button  class="btn btn-warning btn-sm" id="btn-chat">
+                                                Send</button>-->
+                                        </span>
+                                    </div>
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- Chat Node js Box -->
+                    
                     <!-- quick email widget -->
                     <div class="box box-info">
                         <div class="box-header">
@@ -660,10 +568,115 @@
                             <button class="pull-right btn btn-default" id="sendEmail">Gönder <i class="fa fa-arrow-circle-right"></i></button>
                         </div>
                     </div>
+                    
+                    <!-- Calendar -->
+                    <div class="box box-solid bg-green-gradient">
+                        <div class="box-header">
+                            <i class="fa fa-calendar"></i>
+                            <h3 class="box-title">Takvim</h3>
+                            <!-- tools box -->
+                            <div class="pull-right box-tools">
+                                <!-- button with a dropdown -->
+                                <div class="btn-group">
+                                    <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Yeni iş ekle</a></li>
+                                        <li><a href="#">İş takvimini sil</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="calendar.php">İş takvimimi gör</a></li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div><!-- /. tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body no-padding">
+                            <!--The calendar -->
+                            <div id="calendar" style="width: 100%"></div>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer text-black">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- Progress bars -->
+                                    <div class="clearfix">
+                                        <span class="pull-left">Sisteme Yeni Firma Eklendi</span>
+                                        <small class="pull-right">100%</small>
+                                    </div>
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-green" style="width: 100%;"></div>
+                                    </div>
+
+                                    <div class="clearfix">
+                                        <span class="pull-left">Firma Makina İşlemi Bekliyor</span>
+                                        <small class="pull-right">10%</small>
+                                    </div>
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-green" style="width: 10%;"></div>
+                                    </div>
+                                </div><!-- /.col -->
+                                <div class="col-sm-6">
+                                    <div class="clearfix">
+                                        <span class="pull-left">Küme Toplantısı İlanı Hazırlanıyor</span>
+                                        <small class="pull-right">45%</small>
+                                    </div>       
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-green" style="width: 45%;"></div>
+                                    </div>
+
+                                    <div class="clearfix">
+                                        <span class="pull-left">Fuar Belgeleri Hazırlandı</span>
+                                        <small class="pull-right">30%</small>
+                                    </div>
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-green" style="width: 30%;"></div>
+                                    </div>
+                                </div><!-- /.col -->
+                            </div><!-- /.row -->
+                        </div>
+                    </div><!-- /.box -->
 
                 </section><!-- /.Left col -->
+                
+                
                 <!-- right col (We are only adding the ID to make the widgets sortable)-->
                 <section class="col-lg-5 connectedSortable">
+                    
+                    
+                    <!-- Map box -->
+                    <div class="box box-solid bg-light-blue-gradient">
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools">
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
+
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title">
+                                Üyelerimiz / Küme Hedef Coğrafyalar
+                            </h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="world-map" style="height: 250px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                            <div class="row">
+                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                    <div id="sparkline-1"></div>
+                                    <div class="knob-label">İhracat / İthalat Oranları</div>
+                                </div><!-- ./col -->
+                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                    <div id="sparkline-2"></div>
+                                    <div class="knob-label">Dış Ticaret Hacimleri</div>
+                                </div><!-- ./col -->
+                                <div class="col-xs-4 text-center">
+                                    <div id="sparkline-3"></div>
+                                    <div class="knob-label">Sanal Fabrika Üye Sayıları</div>
+                                </div><!-- ./col -->
+                            </div><!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /.box -->
                     
                     
                     <!-- TO DO List -->
@@ -773,110 +786,7 @@
                         </div>
                     </div>
                     
-
-                    <!-- Map box -->
-                    <div class="box box-solid bg-light-blue-gradient">
-                        <div class="box-header">
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
-                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
-                            </div><!-- /. tools -->
-
-                            <i class="fa fa-map-marker"></i>
-                            <h3 class="box-title">
-                                Üye Ülkeler
-                            </h3>
-                        </div>
-                        <div class="box-body">
-                            <div id="world-map" style="height: 250px; width: 100%;"></div>
-                        </div><!-- /.box-body-->
-                        <div class="box-footer no-border">
-                            <div class="row">
-                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                    <div id="sparkline-1"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
-                                </div><!-- ./col -->
-                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                    <div id="sparkline-2"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
-                                </div><!-- ./col -->
-                                <div class="col-xs-4 text-center">
-                                    <div id="sparkline-3"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
-                                </div><!-- ./col -->
-                            </div><!-- /.row -->
-                        </div>
-                    </div>
-                    <!-- /.box -->
-
-
-
-                    <!-- Calendar -->
-                    <div class="box box-solid bg-green-gradient">
-                        <div class="box-header">
-                            <i class="fa fa-calendar"></i>
-                            <h3 class="box-title">Takvim</h3>
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                                <!-- button with a dropdown -->
-                                <div class="btn-group">
-                                    <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Yeni iş ekle</a></li>
-                                        <li><a href="#">İş takvimini sil</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="calendar.php">İş takvimimi gör</a></li>
-                                    </ul>
-                                </div>
-                                <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div><!-- /. tools -->
-                        </div><!-- /.box-header -->
-                        <div class="box-body no-padding">
-                            <!--The calendar -->
-                            <div id="calendar" style="width: 100%"></div>
-                        </div><!-- /.box-body -->
-                        <div class="box-footer text-black">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <!-- Progress bars -->
-                                    <div class="clearfix">
-                                        <span class="pull-left">İş #1</span>
-                                        <small class="pull-right">1%</small>
-                                    </div>
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 1%;"></div>
-                                    </div>
-
-                                    <div class="clearfix">
-                                        <span class="pull-left">İş #2</span>
-                                        <small class="pull-right">1%</small>
-                                    </div>
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 1%;"></div>
-                                    </div>
-                                </div><!-- /.col -->
-                                <div class="col-sm-6">
-                                    <div class="clearfix">
-                                        <span class="pull-left">İş #3</span>
-                                        <small class="pull-right">2%</small>
-                                    </div>       
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 2%;"></div>
-                                    </div>
-
-                                    <div class="clearfix">
-                                        <span class="pull-left">iş #4</span>
-                                        <small class="pull-right">10%</small>
-                                    </div>
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 10%;"></div>
-                                    </div>
-                                </div><!-- /.col -->
-                            </div><!-- /.row -->
-                        </div>
-                    </div><!-- /.box -->
+                    
 
                 </section><!-- right col -->
             </div><!-- /.row (main row) -->
