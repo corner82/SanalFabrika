@@ -453,96 +453,8 @@
 
                 <!-- Left col -->  
                 <section class="col-lg-7 connectedSortable">
-                    <!-- Chat box -->
-                    <div class="box box-success">     
-                        <div class="box-header">
-                            <i class="fa fa-cart-arrow-down"></i>
-                            <h3 class="box-title">Sanal Fabrika işlemlerinizin karşılaştırmalı gösterimi</h3>
-                            <!--<div class="box-tools pull-right" data-toggle="tooltip" title="Status">
-                              <div class="btn-group" data-toggle="btn-toggle" >
-                                <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
-                              </div>
-                            </div>-->
-                        </div>
-                        <div class="box-body chat" id="chat-box">
-
-                            <div id="container_machinerByResource" style="width: 100%; 
-                                 height: 300px; 
-                                 margin: 0 auto;
-                                 ">  
-                                <div class="overlay" >
-                                    <i class="fa fa-refresh fa-spin"  ></i>
-                                </div>
-                            </div>   
-                        </div><!-- /.chat -->
-
-                    </div><!-- /.box (chat box) -->
                     
-                    
-                    
-                    <!-- video chat box  -->
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
-                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
-                            </div><!-- /. tools -->
-
-                            <i class="fa fa-map-marker"></i>
-                            <h3 class="box-title" id="chatPanel">
-                                Video Chat
-                            </h3>
-                        </div>
-                        <div class="box-body panel-body">
-                            <div id="publisher" style="height: 600px; width: 100%;"></div>
-                        </div><!-- /.box-body-->
-                        <div class="box-footer no-border">
-                            <div class="row">
-                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                    <div id="sparkline-1"></div>
-                                    <div class="knob-label">İhracat / İthalat Oranları</div>  
-                                </div><!-- ./col -->
-                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                    <div id="sparkline-2"></div>
-                                    <div class="knob-label">Dış Ticaret Hacimleri</div>
-                                </div><!-- ./col -->
-                                <div class="col-xs-4 text-center">
-                                    <div id="sparkline-3"></div>
-                                    <div class="knob-label">Sanal Fabrika Üye Sayıları</div>
-                                </div><!-- ./col -->
-                            </div><!-- /.row -->
-                        </div>
-                    </div>
-                    <!-- /box video chat box  -->
-                    
-                    <!-- video chat box remote user -->
-                    <div class="box box-warning" >
-                        <div class="box-header">
-                            <!-- tools box -->
-                            <div class="pull-right box-tools" >
-                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
-                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
-                            </div><!-- /. tools -->
-
-                            <i class="fa fa-map-marker"></i>
-                            <h3 class="box-title" id="chatPanelRemote">
-                                Video Chat
-                            </h3>
-                        </div>
-                        <div class="box-body panel-body">
-                            <div id="publisherRemote" style="height: 450px; width: 100%;"></div>
-                        </div><!-- /.box-body-->
-                        <div class="box-footer no-border">
-                        </div>
-                    </div>
-                    <!--/box video chat box remote user -->
-                    
-                    
-                    
-
-                    <!-- TO DO List -->
+                                        <!-- TO DO List -->
                     <div id='todolistbox' class="box box-primary">
                         <div class="box-header">
                             <i class="ion ion-clipboard"></i>
@@ -648,7 +560,66 @@
                             <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Ekle</button>
                         </div>
                     </div><!-- /.box -->
+                    
+                    
+                    <!-- video chat box  -->
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools">
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
 
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title" id="chatPanel">
+                                Video Chat
+                            </h3>
+                        </div>
+                        <div class="box-body panel-body">
+                            <div id="publisher" style="height: 600px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                            <div class="row">
+                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                    <div id="sparkline-1"></div>
+                                    <div class="knob-label">İhracat / İthalat Oranları</div>  
+                                </div><!-- ./col -->
+                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                    <div id="sparkline-2"></div>
+                                    <div class="knob-label">Dış Ticaret Hacimleri</div>
+                                </div><!-- ./col -->
+                                <div class="col-xs-4 text-center">
+                                    <div id="sparkline-3"></div>
+                                    <div class="knob-label">Sanal Fabrika Üye Sayıları</div>
+                                </div><!-- ./col -->
+                            </div><!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /box video chat box  -->
+                    
+                    <!-- video chat box remote user -->
+                    <div class="box box-warning" >
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools" >
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
+
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title" id="chatPanelRemote">
+                                Video Chat
+                            </h3>
+                        </div>
+                        <div class="box-body panel-body">
+                            <div id="publisherRemote" style="height: 450px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                        </div>
+                    </div>
+                    <!--/box video chat box remote user -->
+                    
                     <!-- quick email widget -->
                     <div class="box box-info">
                         <div class="box-header">

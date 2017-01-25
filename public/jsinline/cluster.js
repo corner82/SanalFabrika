@@ -20,164 +20,6 @@ Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
    this.container.style.background = 'url(http://www.highcharts.com/samples/graphics/sand.png)';
 });
 
-
-Highcharts.theme = {
-   colors: ["#f45b5b", "#8085e9", "#8d4654", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
-      "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
-   chart: {
-      backgroundColor: null,
-      style: {
-         fontFamily: "Signika, serif"
-      }
-   },
-   title: {
-      style: {
-         color: 'black',
-         fontSize: '16px',
-         fontWeight: 'bold'
-      }
-   },
-   subtitle: {
-      style: {
-         color: 'black'
-      }
-   },
-   tooltip: {
-      borderWidth: 0
-   },
-   legend: {
-      itemStyle: {
-         fontWeight: 'bold',
-         fontSize: '13px'
-      }
-   },
-   xAxis: {
-      labels: {
-         style: {
-            color: '#6e6e70'
-         }
-      }
-   },
-   yAxis: {
-      labels: {
-         style: {
-            color: '#6e6e70'
-         }
-      }
-   },
-   plotOptions: {
-      series: {
-         shadow: true
-      },
-      candlestick: {
-         lineColor: '#404048'
-      },
-      map: {
-         shadow: false
-      }
-   },
-
-   // Highstock specific
-   navigator: {
-      xAxis: {
-         gridLineColor: '#D0D0D8'
-      }
-   },
-   rangeSelector: {
-      buttonTheme: {
-         fill: 'white',
-         stroke: '#C0C0C8',
-         'stroke-width': 1,
-         states: {
-            select: {
-               fill: '#D0D0D8'
-            }
-         }
-      }
-   },
-   scrollbar: {
-      trackBorderColor: '#C0C0C8'
-   },
-
-   // General
-   background2: '#E0E0E8'
-
-};
-
-// Apply the theme
-Highcharts.setOptions(Highcharts.theme);
-    
-    
-    var data = [
-[Date.UTC(2015,5,19),0.8808],
-[Date.UTC(2015,5,21),0.8794],
-[Date.UTC(2015,5,22),0.8818],
-[Date.UTC(2015,5,23),0.8952],
-[Date.UTC(2015,5,24),0.8924],
-[Date.UTC(2015,5,25),0.8925],
-[Date.UTC(2015,5,26),0.8955],
-[Date.UTC(2015,5,28),0.9113],
-[Date.UTC(2015,5,29),0.8900],
-[Date.UTC(2015,5,30),0.8950]
-]
-    
-    $('#timeSeries').highcharts({
-            chart: {
-                zoomType: 'x'
-            },
-            title: {
-                text: 'USD to EUR exchange rate over time'
-            },
-            subtitle: {
-                text: document.ontouchstart === undefined ?
-                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-            },
-            xAxis: {
-                type: 'datetime'
-            },
-            yAxis: {
-                title: {
-                    text: 'Exchange rate'
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                area: {
-                    fillColor: {
-                        linearGradient: {
-                            x1: 0,
-                            y1: 0,
-                            x2: 0,
-                            y2: 1
-                        },
-                        stops: [
-                            [0, Highcharts.getOptions().colors[0]],
-                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                        ]
-                    },
-                    marker: {
-                        radius: 2
-                    },
-                    lineWidth: 1,
-                    states: {
-                        hover: {
-                            lineWidth: 1
-                        }
-                    },
-                    threshold: null
-                }
-            },
-
-            series: [{
-                type: 'area',
-                name: 'USD to EUR',
-                data: data
-            }]
-        });
-    
-
      $('#todolistbox').loadImager();
      var filler = $('#todolistbox').todolistFiller();
     
@@ -207,18 +49,15 @@ Highcharts.setOptions(Highcharts.theme);
 
     });
 
-    
-  
-
     // sektörlere göre tezgah sayıları grafiği (#container_tezgah)
     $.ajax({
         //url: '../slim_2/index.php/columnflows_json_test',
         //url: 'http://10.18.2.179/ostim_anket_slim/tezgah.php/getMachineryBySector',
         //url: 'https://slim.localhost.com/tezgah.php/getMachineryBySector',
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkGetConsultantUpDashBoardCount_blActivationReport' ,
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php', 
+        data: { url:'pkGetUrgeUpDashBoardCount_blActivationReport' ,
                 pk : $("#pk").val()}, 
-        type: 'GET',
+        type: 'GET',  
         dataType: 'json',
         language_id:647,
         //data: 'rowIndex='+rowData.id,
@@ -234,92 +73,6 @@ Highcharts.setOptions(Highcharts.theme);
         }
 
     });
-
-    // grafik machinery by resource (#container_machinerByResource)
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: { url:'pkGetConsultantOperation_blActivationReport' ,
-                pk : $("#pk").val()}, 
-        type: 'GET',
-        dataType: 'json',
-        success: function (data, textStatus, jqXHR) {
-//            console.warn(data);
-            var dataArr = [];
-            var catArr = [];
-            $.each(data, function (index) {
-                catArr.push(data[index].aciklama, parseFloat(data[index].adet));
-                dataArr.push(catArr);
-                catArr = [];
-                //dataArr.push({y:parseInt(data[index].adet)});
-
-            });
-
-            //console.error(dataArr);
-            // 3-d column bar
-            $('#container_machinerByResource').highcharts({
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: 0,
-                    plotShadow: false
-                },
-                title: {
-                    text: 'Danışman Operasyonları',
-                    align: 'center',
-                    verticalAlign: 'top',
-                    y: 50
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        dataLabels: {
-                            enabled: false,
-                            distance: 20,
-                            style: {
-                                /*fontWeight: 'bold',*/
-                                color: 'black',
-                                //textShadow: '0px 1px 2px black'
-                            }
-                        },
-                        startAngle: -90,
-                        endAngle: 90,
-                        center: ['50%', '85%'],
-                        showInLegend: true
-                    }
-                },
-                series: [{
-                        type: 'pie',
-                        name: 'Danışman İşlem Toplamları',
-                        innerSize: '80%',
-                        data: dataArr,
-                        /*data: [
-                         //dataArr
-                         ['50 tona kadar',853],
-                         ['50-100 Ton',  499],
-                         ['100-150 Ton', 418],
-                         ['150-200 Ton', 325],
-                         ['200-250 Ton', 141],
-                         ['250-300 Ton', 122],
-                         ['300-350 Ton', 81],
-                         ['350-400 Ton', 36],
-                         ['400-450 Ton', 109],
-                         ['500 Ton ve üstü', 310],
-                         
-                         ]*/
-                    }]
-            });
-        }
-
-    });
-
-
-   
-
-
-
-
-
 
     /*
      * Author: Abdullah A Almsaeed
