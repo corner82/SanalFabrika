@@ -22,6 +22,12 @@
             </a>
             <div class="navbar-custom-menu">                
                 <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-video-camera " id="chatter"></i>
+                            <!--<span class="label label-success">0</span>-->
+                        </a>
+                    </li>
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -443,47 +449,9 @@
 
             </div><!-- /.row -->
             <!-- Main row -->
-            <div class="row">
+            <div class="row">  
 
-
-
-
-                <!-- Left col -->
-                <section class="col-lg-12 connectedSortable">
-
-
-
-                    <!-- Custom tabs (Charts with tabs)-->
-                    <div class="nav-tabs-custom box-header">
-                        <!-- Tabs within a box -->
-                        <ul class="nav nav-tabs pull-right">
-                            <!--<li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-                            <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>-->
-                            <li class="pull-left header"><i class="fa fa-bar-chart-o"></i> Tezgah Genel Bilgileri</li>
-                        </ul>
-                        <div class="tab-content no-padding">
-                            <!-- Morris chart - Sales -->
-                            <div id="container_employees" style="/*min-width: auto; */
-                                 height: 300px; 
-                                 //max-width: 500px; 
-                                 width: 100%;
-                                 margin: 0 auto;">
-                                <!--<div class="overlay" style="position: fixed;
-                                  top: 40%;
-                                  left: 50%;
-                                  height: 500px;
-                                  width: 100px;">
-                                  <i class="fa fa-refresh fa-spin"  ></i>
-                                </div>  --> 
-                                <div class="overlay" >
-                                    <i class="fa fa-refresh fa-spin"  ></i>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div><!-- /.nav-tabs-custom -->
-                </section>    
-
+                <!-- Left col -->  
                 <section class="col-lg-7 connectedSortable">
                     <!-- Chat box -->
                     <div class="box box-success">     
@@ -510,6 +478,69 @@
                         </div><!-- /.chat -->
 
                     </div><!-- /.box (chat box) -->
+                    
+                    
+                    
+                    <!-- video chat box  -->
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools">
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
+
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title" id="chatPanel">
+                                Video Chat
+                            </h3>
+                        </div>
+                        <div class="box-body panel-body">
+                            <div id="publisher" style="height: 600px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                            <div class="row">
+                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                    <div id="sparkline-1"></div>
+                                    <div class="knob-label">İhracat / İthalat Oranları</div>  
+                                </div><!-- ./col -->
+                                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                    <div id="sparkline-2"></div>
+                                    <div class="knob-label">Dış Ticaret Hacimleri</div>
+                                </div><!-- ./col -->
+                                <div class="col-xs-4 text-center">
+                                    <div id="sparkline-3"></div>
+                                    <div class="knob-label">Sanal Fabrika Üye Sayıları</div>
+                                </div><!-- ./col -->
+                            </div><!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /box video chat box  -->
+                    
+                    <!-- video chat box remote user -->
+                    <div class="box box-warning" >
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools" >
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
+
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title" id="chatPanelRemote">
+                                Video Chat
+                            </h3>
+                        </div>
+                        <div class="box-body panel-body">
+                            <div id="publisherRemote" style="height: 450px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                        </div>
+                    </div>
+                    <!--/box video chat box remote user -->
+                    
+                    
+                    
 
                     <!-- TO DO List -->
                     <div id='todolistbox' class="box box-primary">
@@ -661,7 +692,7 @@
 
                             <i class="fa fa-map-marker"></i>
                             <h3 class="box-title">
-                                Üye Ülkeler
+                                Üyeler / Hedef  Coğrafyalar
                             </h3>
                         </div>
                         <div class="box-body">
@@ -671,20 +702,67 @@
                             <div class="row">
                                 <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                                     <div id="sparkline-1"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
+                                    <div class="knob-label">İhracat / İthalat Oranları</div>
                                 </div><!-- ./col -->
                                 <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                                     <div id="sparkline-2"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
+                                    <div class="knob-label">Dış Ticaret Hacimleri</div>
                                 </div><!-- ./col -->
                                 <div class="col-xs-4 text-center">
                                     <div id="sparkline-3"></div>
-                                    <div class="knob-label">Ostim verileri...</div>
+                                    <div class="knob-label">Sanal Fabrika Üye Sayıları</div>
                                 </div><!-- ./col -->
                             </div><!-- /.row -->
                         </div>
                     </div>
                     <!-- /.box -->
+                    
+                    
+                <!-- Chat Node js Box -->
+                <div class="">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <span class="glyphicon glyphicon-comment"></span> Anlık Mesajlaşma
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </button>
+                                <ul class="dropdown-menu slidedown">
+                                    <li><a href="#"><span class="glyphicon glyphicon-refresh">
+                                    </span>Yenile</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-ok-sign">
+                                    </span>Uygun</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-remove">
+                                    </span>Meşgul</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-time"></span>
+                                        Uzakta</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-off"></span>
+                                        Çıkış Yap</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                                <div class="panel-body">
+                                    <ul class="chat">
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <form id="send-message">
+                                    <div class="input-group">
+                                        <input id="chat-input" type="text" class="form-control input-sm" placeholder="Mesajınızı buraya yazınız...">
+                                        <span class="input-group-btn">
+                                            <input class="btn btn-warning btn-sm" id="btn-chat" type="submit" >
+
+                                            </input>
+                                            <!--<button  class="btn btn-warning btn-sm" id="btn-chat">
+                                                Send</button>-->
+                                        </span>
+                                    </div>
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- Chat Node js Box -->
 
 
 
@@ -718,36 +796,36 @@
                                 <div class="col-sm-6">
                                     <!-- Progress bars -->
                                     <div class="clearfix">
-                                        <span class="pull-left">İş #1</span>
-                                        <small class="pull-right">1%</small>
+                                        <span class="pull-left">EMGE - Firma Küme Bilgisi Silindi. Danışma Onayı Bekliyor</span>
+                                        <small class="pull-right">50%</small>
                                     </div>
                                     <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 1%;"></div>
+                                        <div class="progress-bar progress-bar-green" style="width: 50%;"></div>
                                     </div>
 
                                     <div class="clearfix">
-                                        <span class="pull-left">İş #2</span>
-                                        <small class="pull-right">1%</small>
+                                        <span class="pull-left">EMGE - Firma Sektör Bilgisi Eklendi. Danışma Onayı Bekliyor</span>
+                                        <small class="pull-right">50%</small>
                                     </div>
                                     <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 1%;"></div>
+                                        <div class="progress-bar progress-bar-green" style="width: 50%;"></div>
                                     </div>
                                 </div><!-- /.col -->
                                 <div class="col-sm-6">
                                     <div class="clearfix">
-                                        <span class="pull-left">İş #3</span>
-                                        <small class="pull-right">2%</small>
+                                        <span class="pull-left">EMGE - Makina Bilgisi Güncellendi. Danışma Onayı Bekliyor.</span>
+                                        <small class="pull-right">50%</small>
                                     </div>       
                                     <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 2%;"></div>
+                                        <div class="progress-bar progress-bar-green" style="width: 50%;"></div>
                                     </div>
 
                                     <div class="clearfix">
-                                        <span class="pull-left">iş #4</span>
-                                        <small class="pull-right">10%</small>
+                                        <span class="pull-left">Onaylanmamış Kullanıcı -Yeni Kullanıcı Bilgisi Ekledi. Danışma Onayı Bekliyor</span>
+                                        <small class="pull-right">50%</small>
                                     </div>
                                     <div class="progress xs">
-                                        <div class="progress-bar progress-bar-green" style="width: 10%;"></div>
+                                        <div class="progress-bar progress-bar-green" style="width: 50%;"></div>
                                     </div>
                                 </div><!-- /.col -->
                             </div><!-- /.row -->
