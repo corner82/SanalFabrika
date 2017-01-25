@@ -27,6 +27,12 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-video-camera " id="chatter"></i>
+                            <!--<span class="label label-success">0</span>-->
+                        </a>
+                    </li>
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-group"></i>
                             <span id="number_of_consultants_power" class="label label-success">0</span>
                         </a>
@@ -333,8 +339,8 @@
                          data-balloon-pos="left" onclick='send_email_to_consult(this)'>
                         <a href="#">
                             <div class="pull-left">
-                                <img id='cons_image_ph' style='max-height:30px;margin-right:10px' 
-                                     src="" alt="User Image"/>
+                                <img id='cons_image_ph' style='width: 100%;max-width: 45px;height: auto;' 
+                                     src="" alt="User Image"  class='img-circle user-image'/>
                             </div>
                             <h8 id='cons_name_ph'>
                             </h8>
@@ -497,6 +503,101 @@
                     <div class="col-lg-6"></div>
                 </div>
             </div>
+            
+            
+                                <!-- video chat box  -->
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools">
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
+
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title" id="chatPanel">
+                                Video Görüşmesi
+                            </h3>
+                        </div>
+                        <div class="box-body panel-body">
+                            <div id="publisher" style="height: 600px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                        </div>
+                    </div>
+                    <!-- /box video chat box  -->
+                    
+                    
+                    <!-- video chat box remote user -->
+                    <div class="box box-warning" >
+                        <div class="box-header">
+                            <!-- tools box -->
+                            <div class="pull-right box-tools" >
+                              <!--<button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>-->
+                                <button class="btn btn-primary btn-sm pull-right" data-widget='collapse' data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                            </div><!-- /. tools -->
+
+                            <i class="fa fa-map-marker"></i>
+                            <h3 class="box-title" id="chatPanelRemote">
+                                Video Görüşmesi
+                            </h3>
+                        </div>
+                        <div class="box-body panel-body">
+                            <div id="publisherRemote" style="height: 450px; width: 100%;"></div>
+                        </div><!-- /.box-body-->
+                        <div class="box-footer no-border">
+                        </div>
+                    </div>
+                    <!--/box video chat box remote user -->
+                    
+                    
+                                    <!-- Chat Node js Box -->
+                <div class="">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <span class="glyphicon glyphicon-comment"></span> Anlık Mesajlaşma
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </button>
+                                <ul class="dropdown-menu slidedown">
+                                    <li><a href="#"><span class="glyphicon glyphicon-refresh">
+                                    </span>Yenile</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-ok-sign">
+                                    </span>Uygun</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-remove">
+                                    </span>Meşgul</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-time"></span>
+                                        Uzakta</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-off"></span>
+                                        Çıkış Yap</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                                <div class="panel-body">
+                                    <ul class="chat">
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <form id="send-message">
+                                    <div class="input-group">
+                                        <input id="chat-input" type="text" class="form-control input-sm" placeholder="Mesajınızı buraya yazınız...">
+                                        <span class="input-group-btn">
+                                            <input class="btn btn-warning btn-sm" id="btn-chat" type="submit" >
+
+                                            </input>
+                                            <!--<button  class="btn btn-warning btn-sm" id="btn-chat">
+                                                Send</button>-->
+                                        </span>
+                                    </div>
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- Chat Node js Box -->
+            
+            
         </section>
     </div>
 
