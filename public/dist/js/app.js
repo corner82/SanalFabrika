@@ -18,6 +18,17 @@ if (typeof jQuery === "undefined") {
     throw new Error("AdminLTE requires jQuery");
 }
 
+/**
+ * page loading image fade out
+ * @param {type} param
+ * @author Mustafa Zeynel Dağlı
+ * @since 26/01/2017  
+ */
+$(window).load(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");;
+});
+
 /* AdminLTE
  *
  * @type Object
