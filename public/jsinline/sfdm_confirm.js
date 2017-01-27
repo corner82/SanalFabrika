@@ -74,7 +74,7 @@ window.getOperationTypeToolsPleaseSelect();
         $.ajax({
             url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
             data: { url:'pkFillConsultantOperationsToolsDropDown_sysOperationTypesTools' ,
-                    language_code : 'tr',
+                    language_code : $('#langCode').val(),
                     main_group : 2,
                     pk : $("#pk").val()}, 
             type: 'GET',
@@ -132,7 +132,7 @@ window.getOperationTypeToolsPleaseSelect();
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: { url:'pkFillConsultantOperationsDropDown_sysOperationTypes' ,
-                language_code : 'tr',
+                language_code : $('#langCode').val(),
                 main_group : 2,
                 pk : $("#pk").val()}, 
         type: 'GET',
