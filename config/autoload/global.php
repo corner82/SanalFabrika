@@ -32,6 +32,7 @@ return array(
             'profile' => 'layout/profile.phtml',
             'confirm' => 'layout/confirm.phtml',
             'confuser' => 'layout/confuser.phtml',
+            'confmach' => 'layout/confmach.phtml',
             'machinetest' => 'layout/machinetest.phtml',
             'imageupload' => 'layout/imageupload.phtml',
             'macproducers' => 'layout/macproducers2.phtml',
