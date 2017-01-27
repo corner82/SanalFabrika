@@ -1,24 +1,34 @@
 $(document).ready(function () {
     
- 
-    
 /**
- * Sand-Signika theme for Highcharts JS
- * @author Torstein Honsi
+ * top banner boxes will be filled
+ * @author Mustafa Zeynel Dağlı
+ * @since 26/01/2017
  */
+    $.ajax({
+        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+        data: { url:'pkGetUrgeUpFirstDashBoardCount_blActivationReport' ,
+                pk : $("#pk").val()}, 
+        type: 'GET',
+        dataType: 'json',
+        language_id:647,
+        //data: 'rowIndex='+rowData.id,
+        success: function (data, textStatus, jqXHR) {
+            //console.log(data);
+            $('#box1_1').html('Tüm Çalış.');
+            $('#box1_2').html(data[0].adet);
+            $('#box2_1').html('Bu Ay Organiz.Say.');
+            $('#box2_2').html(data[1].adet);
+            $('#box3_1').html('Küme Çalış.');
+            $('#box3_2').html(data[2].adet);
+            $('#box4_1').html('Gelecek Organiz.Say.');
+            $('#box4_2').html(data[3].adet);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+//            console.error(textStatus);
+        }
+    });
 
-// Load the fonts
-Highcharts.createElement('link', {
-   href: '//fonts.googleapis.com/css?family=Signika:400,700',
-   rel: 'stylesheet',
-   type: 'text/css'
-}, null, document.getElementsByTagName('head')[0]);
-
-// Add the background image to the container
-Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
-   proceed.call(this);
-   this.container.style.background = 'url(http://www.highcharts.com/samples/graphics/sand.png)';
-});
 
      $('#todolistbox').loadImager();
      var filler = $('#todolistbox').todolistFiller();
@@ -46,7 +56,6 @@ Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
         error: function (jqXHR, textStatus, errorThrown) {
 //            console.error(textStatus);
         }
-
     });
 
     // sektörlere göre tezgah sayıları grafiği (#container_tezgah)
