@@ -31,6 +31,7 @@ return array(
             'acldefinition' => 'layout/acldefinitionLayout.phtml',
             'profile' => 'layout/profile.phtml',
             'confirm' => 'layout/confirm.phtml',
+            'confuser' => 'layout/confuser.phtml',
             'machinetest' => 'layout/machinetest.phtml',
             'imageupload' => 'layout/imageupload.phtml',
             'macproducers' => 'layout/macproducers2.phtml',
