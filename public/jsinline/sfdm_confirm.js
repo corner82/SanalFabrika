@@ -346,10 +346,10 @@ window.getOperationTypeToolsPleaseSelect();
     });
 
 
-   var testdate = Math.round(new Date("2017-01-18").getTime()/1000);
+   /*var testdate = Math.round(new Date("2017-01-18").getTime()/1000);
    alert(testdate);
    var date = new Date(testdate*1000);
-   alert(date);
+   alert(date);*/
 
     // Left menuyu oluşturmak için çağırılan fonksiyon...
     $.fn.leftMenuFunction();
