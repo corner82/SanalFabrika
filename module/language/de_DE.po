@@ -1886,3 +1886,6 @@ msgstr "NACE Code"
 
 msgid "622"
 msgstr "Id"
+
+msgid "623"
+msgstr "Set Firmenprofil"

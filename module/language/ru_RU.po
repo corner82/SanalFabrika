@@ -1968,3 +1968,6 @@ msgstr "Код NACE"
 
 msgid "622"
 msgstr "Я бы"
+
+msgid "623"
+msgstr "Набор Профиль компании"

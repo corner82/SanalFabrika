@@ -1884,6 +1884,9 @@ msgstr "NACE"
 msgid "622"
 msgstr "Id"
 
+msgid "623"
+msgstr "设置公司简介"
+
 
 
 

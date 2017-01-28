@@ -1882,6 +1882,9 @@ msgstr "NACE رمز"
 msgid "622"
 msgstr "رقم الهوية"
 
+msgid "623"
+msgstr "تعيين نبذة عن الشركة"
+
 
 
 

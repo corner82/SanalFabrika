@@ -1891,6 +1891,9 @@ msgstr "NACE Kodu"
 msgid "622"
 msgstr "Id"
 
+msgid "623"
+msgstr "Şirket Profili Ayarları"
+
 
 
 

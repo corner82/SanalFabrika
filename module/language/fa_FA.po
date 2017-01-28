@@ -1883,3 +1883,6 @@ msgstr "NACE کد"
 
 msgid "622"
 msgstr "شناسه"
+
+msgid "623"
+msgstr "تنظیم مشخصات شرکت"
