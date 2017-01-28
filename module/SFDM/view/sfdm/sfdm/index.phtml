@@ -8,7 +8,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="index.phtml" class="logo">
+        <a href="<?php echo $this->url('sanalfabrika', array('action' => 'index','lang'=> $this->langCode)); ?>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b><?php echo $this->translate('OSTIM') ?></b></span>
             <!-- logo for regular state and mobile devices -->

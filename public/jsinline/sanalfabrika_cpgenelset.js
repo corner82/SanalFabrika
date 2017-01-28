@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+        
     /**
      * multilanguage plugin 
      * @type Lang
@@ -10,6 +10,7 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
+    
 
     /*
      * Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
