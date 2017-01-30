@@ -1,5 +1,4 @@
 $(document).ready(function () {
-        
     /**
      * multilanguage plugin 
      * @type Lang
@@ -10,7 +9,6 @@ $(document).ready(function () {
         defaultLang: 'en'
     });
     lang.change($('#langCode').val());
-    
 
     /*
      * Left menuyu oluÅŸturmak iÃ§in Ã§aÄŸÄ±rÄ±lan fonksiyon...
@@ -48,31 +46,35 @@ $(document).ready(function () {
                  */
 
                 if (data[0].foundation_yearx > 0) {
-                    
                     var found_date = new Date(data[0].foundation_yearx * 1000);
                     var new_date = new Date(found_date);
                     window.year = new_date.getFullYear().toString();
                     window.month = (new_date.getMonth() + 1).toString();
+                    if (window.month < 10) {
+                        window.month = '0' + (new_date.getMonth() + 1).toString();
+                    }
                     window.day = new_date.getDate().toString();
+                    if (window.day < 10) {
+                        window.day = '0' + new_date.getDate().toString();
+                    }
                 } else {
-                    window.year = '';
-                    window.month = '';
-                    window.day = '';
+                    window.year = '0000';
+                    window.month = '00';
+                    window.day = '00';
                 }
-                
+
                 window.sel_count_id = data[0].country_id;
                 window.sel_count_name = data[0].country_name;
                 $('#company_country_ph li').each(function (index) {
                     if ($(this)[0].innerText.indexOf(window.sel_count_name) > 0) {
                         $('#company_country_ph').ddslick('select', {index: $(this).index()});
                     }
-                    ;
                 });
                 window.image_url = "https://"
                         + window.location.hostname
                         + "/onyuz/standard/assets/img/sfClients/"
                         + data[0].logo;
-                
+
                 console.log(window.year + '/' + window.month + '/' + window.day);
                 $('#full_name_ph').val(data[0].firm_name);
                 $('#full_name_en_ph').val(data[0].firm_name_eng);
@@ -80,7 +82,7 @@ $(document).ready(function () {
                 $('#short_name_en_ph').val(data[0].firm_name_short_eng);
                 $('#website').val(data[0].web_address);
                 $('#company_logo').attr('src', window.image_url);
-                $('#found_date').val(window.day + '/' + window.month + '/' + window.year);
+                $('#found_date').val(window.year + "-" + window.month + "-" + window.day);
                 $('#tax_office').val(data[0].tax_office);
                 $('#tex_number').val(data[0].tax_no);
                 $('#desc_text').val(data[0].description);
@@ -108,7 +110,7 @@ $(document).ready(function () {
     $('.text-area').keyup(function () {
         var desc_text_length = $('#desc_text').val().length;
         var desc_en_text_length = $('#desc_text_en').val().length;
-        
+
         var desc_text_remaining = desc_text_max - desc_text_length;
         var desc_text_en_remaining = desc_text_max - desc_en_text_length;
 
@@ -116,10 +118,10 @@ $(document).ready(function () {
         $('#desc_en_rem_char_alert').html(desc_text_en_remaining + ' characters remaining');
 
     });
+    
     /*
      * Page consultant for box-header
      */
-
     $.ajax({
         url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
         data: {
@@ -228,7 +230,6 @@ $(document).ready(function () {
 
 
 function send_general_info() {
-
     if ($('#general_firm_form').validationEngine('validate')) {
         if (window.verbal_id) {
 //  console.log('update');
