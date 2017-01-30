@@ -27,7 +27,7 @@ $(document).ready(function () {
         $('#user_profile_link_divider').css('display', 'none');
 
     } else {
-        
+
         $('#login_place').css('visibility', 'hidden');
         $('#login_place').css('display', 'none');
         $('#logout_place').css('visibility', 'visible');
@@ -62,11 +62,11 @@ $(document).ready(function () {
                         $('#user_image_ph_hover').css('display', '');
                         $('#user_image_ph_hover').css('visibility', 'visible');
                         $('#user_image_ph_hover').attr('src', 'https://' + window.location.host + '/onyuz/standard/assets/img/sfClients/' + data[0].user_picture);
-                    
+
                     } else {
                         $('#user_image_ph').css('display', 'none');
                         $('#user_image_ph').css('visibility', 'hidden');
-                        $('#user_name').append("<i class='fa fa-user'>  </i>  " + data[0].name + ' ' + data[0].surname);                        
+                        $('#user_name').append("<i class='fa fa-user'>  </i>  " + data[0].name + ' ' + data[0].surname);
                         $('#user_image_ph_hover').css('display', 'none');
                         $('#user_image_ph_hover').css('visibility', 'hidden');
                         $('#icon_ph').css('display', '');
@@ -74,7 +74,7 @@ $(document).ready(function () {
                         $('#user_image_ph_hover').css('display', 'none');
                         $('#user_image_ph_hover').css('visibility', 'hidden');
                         $('#user_image_ph_hover').append('');
-                        
+
                     }
 //                    $('#user_name').append("<i class='fa fa-user'></i>" + data[0].name + ' ' + data[0].surname);
                     $('#user_name_hover').append(data[0].name + ' ' + data[0].surname);
@@ -114,7 +114,7 @@ $(document).ready(function () {
                         var company_link = "https://" + window.location.host + "/" + $('#langCode').val() +
                                 "/ostim/sanalfabrika/companyprofile/" + data.rows[i].network_name + "/" + data.rows[i].npk;
                         var company_setting_link = "https://" + window.location.host + "/" + $('#langCode').val() +
-                                "/ostim/sanalfabrika/cpgenelset/" + data.rows[i].network_name + "/" + data.rows[i].npk; 
+                                "/ostim/sanalfabrika/cpgenelset/" + data.rows[i].network_name + "/" + data.rows[i].npk;
                         var appending =
                                 "<li style ='text-align: center;" +
                                 "vertical-align: middle; line-height: 40px;'>" +
@@ -130,7 +130,7 @@ $(document).ready(function () {
                                 "vertical-align: middle; line-height: 40px;'>" +
                                 "<a href='" + company_setting_link + "'>" +
                                 "<icon style='float:left; padding-right:20px; font-size:20px;margin:10px ' class='fa fa-cog'></icon>" +
-                                data.rows[i].network_name + 
+                                data.rows[i].network_name +
                                 "</a></li>";
 
                         $('#topCompaniesBar_div').append(appending);

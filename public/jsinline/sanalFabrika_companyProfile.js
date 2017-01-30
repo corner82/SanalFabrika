@@ -37,9 +37,8 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
 
-//            console.log(data.rows);
-            if (data.rows) {
-                
+            if (data.rows.length > 0) {
+                                
 //                console.log(data.rows[0]);
                 $('#firm_name_ph').empty();
                 $('#header_company_name').empty();
@@ -86,11 +85,14 @@ $(document).ready(function () {
         method: "GET",
         dataType: "json",
         success: function (data) {
-
+            if(data.resultSet.length > 0){
             var imageFolAddress = 'https://' + window.location.hostname + '/onyuz/standard/assets/img/sfClients/';
             window.logosrc = imageFolAddress + data.resultSet[0].logo;
             $('#profileLogosrc').attr('src', window.logosrc);
 //            $('#logoPlace1').attr('src', window.logosrc);
+            }else{
+                $('#profileLogosrc').attr('src', '');
+            }            
         }
     });
 

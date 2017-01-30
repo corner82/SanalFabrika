@@ -118,51 +118,52 @@ $(document).ready(function () {
         $('#desc_en_rem_char_alert').html(desc_text_en_remaining + ' characters remaining');
 
     });
-    
+
     /*
      * Page consultant for box-header
      */
-    $.ajax({
-        url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
-        data: {
-            url: 'pkcpkGetFirmVerbalConsultant_infoFirmVerbal',
-            language_code: $("#langCode").val(),
-            pk: $('#pk').val(),
-            cpk: $('#cpk').val()
-        },
-        type: 'GET',
-        dataType: 'json',
-        //data: 'rowIndex='+rowData.id,
-        success: function (data, textStatus, jqXHR) {
-            if (data.length !== 0) {
-                var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
-                if (data[0].communications_no) {
-                    var tel_number = data[0].communications_no;
+    if ($('#cpk').val() !== '1') {
+        $.ajax({
+            url: 'https://proxy.sanalfabrika.com/SlimProxyBoot.php',
+            data: {
+                url: 'pkcpkGetFirmVerbalConsultant_infoFirmVerbal',
+                language_code: $("#langCode").val(),
+                pk: $('#pk').val(),
+                cpk: $('#cpk').val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            //data: 'rowIndex='+rowData.id,
+            success: function (data, textStatus, jqXHR) {
+                if (data.length !== 0) {
+                    var cons_image_url = "https://" + window.location.hostname + "/onyuz/standard/assets/img/sfClients/" + data[0].cons_picture;
+                    if (data[0].communications_no) {
+                        var tel_number = data[0].communications_no;
+                    } else {
+                        var tel_number = '';
+                    }
+                    $('#consultant_div').css('display', 'block');
+                    $('#consultant_div').css('visibility', 'visible');
+                    $('#consultant_div').attr('data-balloon', 'Tel:' + data[0].phone);
+                    $('#consultant_div').attr('email_address', data[0].auth_email);
+                    $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
+                    $('#cons_image_ph').attr('src', cons_image_url);
+                    $('#cons_name_ph').empty();
+                    $('#cons_name_ph').append(data[0].name + " " + data[0].surname);
                 } else {
-                    var tel_number = '';
+                    $('#consultant_div').css('display', 'none');
+                    $('#consultant_div').css('visibility', 'hidden');
+                    console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
                 }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
 
-                $('#consultant_div').css('display', 'block');
-                $('#consultant_div').css('visibility', 'visible');
-                $('#consultant_div').attr('data-balloon', 'Tel:' + data[0].phone);
-                $('#consultant_div').attr('email_address', data[0].auth_email);
-                $('#consultant_div').attr('page_consultant', data[0].name + " " + data[0].surname);
-                $('#cons_image_ph').attr('src', cons_image_url);
-                $('#cons_name_ph').empty();
-                $('#cons_name_ph').append(data[0].name + " " + data[0].surname);
-            } else {
                 $('#consultant_div').css('display', 'none');
                 $('#consultant_div').css('visibility', 'hidden');
-                console.error('"consultants" servis datasÃ„Â± boÃ…Å¸tur!!');
             }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('"consultants" servis hatasÃ„Â±->' + textStatus);
-
-            $('#consultant_div').css('display', 'none');
-            $('#consultant_div').css('visibility', 'hidden');
-        }
-    });
+        });
+    }
     /* 
      * Messages popups
      */
