@@ -1049,7 +1049,7 @@ msgid "342"
 msgstr "Firma Üyeleri"
 
 msgid "343" 
-msgstr "Kayd edilmiş firma çalışanı"
+msgstr "Kayıt edilmiş firma çalışanı"
 
 msgid "344" 
 msgstr "Sanal fabrika Üyeleri"

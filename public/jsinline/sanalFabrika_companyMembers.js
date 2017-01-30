@@ -51,6 +51,12 @@ $(document).ready(function () {
             $('#members_ph').empty();
 
             for (var i = 0; i < data.rows.length; i++) {
+                
+                if(data.rows[i].description === null){
+                    var description = '';
+                }else{
+                    var description = data.rows[i].description;
+                }
 
                 var image_url =
                         "https://"
@@ -75,7 +81,7 @@ $(document).ready(function () {
                         + "</div>"
                         + "<div class='clearfix margin-bottom-20'></div>"
                         + "<p>"
-                        + window.lang.translate(data.rows[i].description)
+                        + description
                         + "</p>"
                         + "<hr>"
                         + "<ul class='list-inline team-social' id='" + data.rows[i].user_id + "_social_media_ph'>"
